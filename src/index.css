@@ -287,7 +287,7 @@ body {
   opacity: 0; transition: opacity 0.35s;
 }
 .card:hover {
-  border-color: var(--border-active); transform: translateY(-3px);
+  border-color: var(--border-active); transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
 .card:hover::before { opacity: 1; }
@@ -307,7 +307,7 @@ body {
 .chart-card {
   background: var(--bg-card); background-image: var(--gradient-card);
   border: 1px solid var(--border); border-radius: 14px;
-  padding: 28px; margin-bottom: 20px;
+  padding: 24px; margin-bottom: 20px;
   box-shadow: var(--shadow-card); transition: all 0.3s ease;
 }
 .chart-card:hover { border-color: var(--border-active); }

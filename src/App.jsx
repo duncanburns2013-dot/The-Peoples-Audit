@@ -42,8 +42,8 @@ const formatMoney = (num) => {
 
 const formatMoneyFull = (num) => `$${Number(num).toLocaleString()}`;
 
-const COLORS = ['#ff3344', '#ffaa22', '#3388ff', '#22cc66', '#22ddee', '#aa44ff',
-  '#ff6644', '#44bbaa', '#ff88aa', '#88aaff', '#ffcc44', '#66ddaa'];
+const COLORS = ['#4361ee', '#e76f51', '#2a9d8f', '#e9c46a', '#264653', '#7209b7',
+  '#f4845f', '#577590', '#c77dff', '#6c8eb5', '#d4a373', '#48bfe3'];
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
@@ -143,7 +143,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                       <XAxis dataKey="year" stroke={AXIS_COLOR} />
                       <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <Tooltip content={<CustomTooltip />} />
-                      <Bar dataKey="total" fill="#ff3344" radius={[6, 6, 0, 0]} name="Total Spent" />
+                      <Bar dataKey="total" fill="#ff3344" radius={[3, 3, 0, 0]} name="Total Spent" />
                     </BarChart>
                   </ResponsiveContainer>
                   <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
@@ -163,7 +163,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                         <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
                         <Tooltip content={<CustomTooltip />} />
-                        <Bar dataKey="total" fill="#22cc66" radius={[0, 6, 6, 0]} name="Paid" />
+                        <Bar dataKey="total" fill="#22cc66" radius={[0, 3, 3, 0]} name="Paid" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -262,9 +262,13 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
               <BarChart data={departments.slice(0, 20)} layout="vertical" margin={{ left: 200 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                 <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
-                <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 11 }} />
+                <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={({ x, y, payload }) => (
+                  <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
+                    {payload.value.length > 28 ? payload.value.substring(0, 26) + '…' : payload.value}
+                  </text>
+                )} />
                 <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="value" fill="#ff3344" radius={[0, 6, 6, 0]} name="Total Spent" cursor="pointer"
+                <Bar dataKey="value" fill="#ff3344" radius={[0, 3, 3, 0]} name="Total Spent" cursor="pointer"
                   onClick={(data) => data && selectDepartment(data.name)} />
               </BarChart>
             </ResponsiveContainer>
@@ -273,7 +277,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
           {spendingOverTime && spendingOverTime.length > 0 && (
             <div className="chart-card" style={{ marginTop: 24 }}>
               <h3>Total State Spending Over Time</h3>
-              <div className="chart-subtitle">Year-over-year expenditure growth</div>
+              <div className="chart-subtitle">Year-over-year expenditure growth (data through latest completed fiscal year)</div>
               <ResponsiveContainer width="100%" height={300}>
                 <AreaChart data={spendingOverTime}>
                   <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
@@ -326,6 +330,8 @@ function VendorExplorer({ spendingYear }) {
   const [vendorYear, setVendorYear] = useState(spendingYear || '2025');
   const [paymentPage, setPaymentPage] = useState(0);
   const [nonProfitFilter, setNonProfitFilter] = useState(false);
+  const [sortField, setSortField] = useState('total');
+  const [sortDir, setSortDir] = useState('desc');
   const PAYMENTS_PER_PAGE = 25;
 
   useEffect(() => {
@@ -379,6 +385,13 @@ function VendorExplorer({ spendingYear }) {
 
   const totalSpent = vendors.reduce((s, v) => s + v.total, 0);
   const totalPayments = vendors.reduce((s, v) => s + v.paymentCount, 0);
+
+  const sortedVendors = [...vendors].sort((a, b) => {
+    const aVal = sortField === 'vendor' ? a.vendor.toLowerCase() : a[sortField];
+    const bVal = sortField === 'vendor' ? b.vendor.toLowerCase() : b[sortField];
+    if (sortField === 'vendor') return sortDir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+    return sortDir === 'asc' ? aVal - bVal : bVal - aVal;
+  });
 
   return (
     <div className="section">
@@ -445,7 +458,7 @@ function VendorExplorer({ spendingYear }) {
                       <XAxis dataKey="year" stroke={AXIS_COLOR} />
                       <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <Tooltip content={<CustomTooltip />} />
-                      <Bar dataKey="total" fill="#ffaa22" radius={[6, 6, 0, 0]} name="Total Paid" />
+                      <Bar dataKey="total" fill="#ffaa22" radius={[3, 3, 0, 0]} name="Total Paid" />
                     </BarChart>
                   </ResponsiveContainer>
                   <div style={{ display: 'flex', gap: 24, marginTop: 12, flexWrap: 'wrap' }}>
@@ -469,7 +482,7 @@ function VendorExplorer({ spendingYear }) {
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                         <YAxis type="category" dataKey="department" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
                         <Tooltip content={<CustomTooltip />} />
-                        <Bar dataKey="total" fill="#3388ff" radius={[0, 6, 6, 0]} name="Paid" />
+                        <Bar dataKey="total" fill="#3388ff" radius={[0, 3, 3, 0]} name="Paid" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -541,9 +554,13 @@ function VendorExplorer({ spendingYear }) {
                 <BarChart data={vendors.slice(0, 30)} layout="vertical" margin={{ left: 220 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                   <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
-                  <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={210} tick={{ fontSize: 10 }} />
+                  <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={210} tick={({ x, y, payload }) => (
+                    <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
+                      {payload.value.length > 28 ? payload.value.substring(0, 26) + '…' : payload.value}
+                    </text>
+                  )} />
                   <Tooltip content={<CustomTooltip />} />
-                  <Bar dataKey="total" fill="#22cc66" radius={[0, 6, 6, 0]} name="Total Paid" cursor="pointer"
+                  <Bar dataKey="total" fill="#22cc66" radius={[0, 3, 3, 0]} name="Total Paid" cursor="pointer"
                     onClick={(data) => data && selectVendor(data.vendor)} />
                 </BarChart>
               </ResponsiveContainer>
@@ -553,10 +570,21 @@ function VendorExplorer({ spendingYear }) {
           <div className="data-table-wrapper" style={{ marginTop: 24 }}>
             <table className="data-table">
               <thead>
-                <tr><th>#</th><th>Vendor / Contractor</th><th>Total Payments</th><th># Transactions</th><th>Avg Payment</th><th></th></tr>
+                <tr>
+                  <th>#</th>
+                  <th style={{ cursor: 'pointer' }} onClick={() => { setSortField('vendor'); setSortDir(d => sortField === 'vendor' ? (d === 'asc' ? 'desc' : 'asc') : 'asc'); }}>
+                    Vendor / Contractor {sortField === 'vendor' ? (sortDir === 'asc' ? '↑' : '↓') : ''}
+                  </th>
+                  <th style={{ cursor: 'pointer' }} onClick={() => { setSortField('total'); setSortDir(d => sortField === 'total' ? (d === 'asc' ? 'desc' : 'asc') : 'desc'); }}>
+                    Total Payments {sortField === 'total' ? (sortDir === 'asc' ? '↑' : '↓') : ''}
+                  </th>
+                  <th># Transactions</th>
+                  <th>Avg Payment</th>
+                  <th></th>
+                </tr>
               </thead>
               <tbody>
-                {vendors.map((v, i) => (
+                {sortedVendors.map((v, i) => (
                   <tr key={i} onClick={() => selectVendor(v.vendor)} style={{ cursor: 'pointer' }}
                     className={selectedVendor === v.vendor ? 'active-row' : ''}>
                     <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
@@ -643,9 +671,19 @@ function QuasiExplorer({ quasiPayments }) {
                       <XAxis dataKey="year" stroke={AXIS_COLOR} />
                       <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <Tooltip content={<CustomTooltip />} />
-                      <Bar dataKey="total" fill="#22ddee" radius={[6, 6, 0, 0]} name="Total Spent" />
+                      <Bar dataKey="total" fill="#22ddee" radius={[3, 3, 0, 0]} name="Total Spent" />
                     </BarChart>
                   </ResponsiveContainer>
+                  {agencyDetail.byYear.length > 0 && (
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', display: 'block', marginTop: 8 }}>
+                      Data available: FY{agencyDetail.byYear[0].year} — FY{agencyDetail.byYear[agencyDetail.byYear.length - 1].year}
+                      {!agencyDetail.byYear.find(y => y.year === quasiYear) && (
+                        <span style={{ color: 'var(--accent-red)', marginLeft: 8 }}>
+                          (No data for FY{quasiYear} — showing available years)
+                        </span>
+                      )}
+                    </span>
+                  )}
                 </div>
               )}
 
@@ -659,7 +697,7 @@ function QuasiExplorer({ quasiPayments }) {
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                         <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
                         <Tooltip content={<CustomTooltip />} />
-                        <Bar dataKey="total" fill="#22cc66" radius={[0, 6, 6, 0]} name="Paid" />
+                        <Bar dataKey="total" fill="#22cc66" radius={[0, 3, 3, 0]} name="Paid" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -730,7 +768,7 @@ function QuasiExplorer({ quasiPayments }) {
                 <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                 <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={210} tick={{ fontSize: 11 }} />
                 <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="value" fill="#22ddee" radius={[0, 6, 6, 0]} name="Total Payments" cursor="pointer"
+                <Bar dataKey="value" fill="#22ddee" radius={[0, 3, 3, 0]} name="Total Payments" cursor="pointer"
                   onClick={(data) => data && selectAgency(data.name)} />
               </BarChart>
             </ResponsiveContainer>
@@ -813,7 +851,7 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
                 <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                 <YAxis type="category" dataKey="department" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 11 }} />
                 <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="totalPay" fill="#ffaa22" radius={[0, 6, 6, 0]} name="Total Compensation" />
+                <Bar dataKey="totalPay" fill="#ffaa22" radius={[0, 3, 3, 0]} name="Total Compensation" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -826,7 +864,7 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
                 <XAxis type="number" stroke={AXIS_COLOR} />
                 <YAxis type="category" dataKey="department" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 11 }} />
                 <Tooltip />
-                <Bar dataKey="employees" fill="#3388ff" radius={[0, 6, 6, 0]} name="Employees" />
+                <Bar dataKey="employees" fill="#3388ff" radius={[0, 3, 3, 0]} name="Employees" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -1088,7 +1126,7 @@ function FollowTheMoney() {
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                         <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
                         <Tooltip content={<CustomTooltip />} />
-                        <Bar dataKey="receipts" fill="#9955ff" radius={[0, 6, 6, 0]} name="Receipts" cursor="pointer"
+                        <Bar dataKey="receipts" fill="#9955ff" radius={[0, 3, 3, 0]} name="Receipts" cursor="pointer"
                           onClick={(data) => data && selectLegislatorForContribs(data)} />
                       </BarChart>
                     </ResponsiveContainer>
@@ -1105,7 +1143,7 @@ function FollowTheMoney() {
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                         <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 9 }} />
                         <Tooltip content={<CustomTooltip />} />
-                        <Bar dataKey="receipts" fill="#ffaa22" radius={[0, 6, 6, 0]} name="Receipts" />
+                        <Bar dataKey="receipts" fill="#ffaa22" radius={[0, 3, 3, 0]} name="Receipts" />
                       </BarChart>
                     </ResponsiveContainer>
                   )}
@@ -1405,6 +1443,7 @@ export default function App() {
   });
   const [spendingYear, setSpendingYear] = useState('2025');
   const [payrollYear, setPayrollYear] = useState('2025');
+  const [federalYear, setFederalYear] = useState(2025);
 
   const fetchAllData = useCallback(async () => {
     setLoading(prev => ({ ...prev, global: true }));
@@ -1417,8 +1456,8 @@ export default function App() {
       { key: 'topEarners', fn: () => fetchTopEarners(payrollYear) },
       { key: 'payrollOverTime', fn: () => fetchPayrollOverTime() },
       { key: 'quasiPayments', fn: () => fetchQuasiPayments() },
-      { key: 'federalSpending', fn: () => fetchFederalSpendingMA() },
-      { key: 'federalAwards', fn: () => fetchFederalAwardsMA() },
+      { key: 'federalSpending', fn: () => fetchFederalSpendingMA(federalYear) },
+      { key: 'federalAwards', fn: () => fetchFederalAwardsMA(federalYear) },
     ];
 
     const fallbacks = {
@@ -1454,7 +1493,7 @@ export default function App() {
     setErrors(newErrors);
     setLoading(prev => ({ ...prev, global: false }));
     if (liveCount > 0) console.log(`Live data loaded for ${liveCount}/${fetchers.length} sources`);
-  }, [spendingYear, payrollYear]);
+  }, [spendingYear, payrollYear, federalYear]);
 
   useEffect(() => { fetchAllData(); }, [fetchAllData]);
 
@@ -1606,12 +1645,13 @@ export default function App() {
                   <div className="chart-subtitle">FY{budget.fiscalYear} breakdown</div>
                   <ResponsiveContainer width="100%" height={400}>
                     <PieChart>
-                      <Pie data={budget.categories} cx="50%" cy="50%" outerRadius={150} dataKey="value"
-                        label={({ name, percent }) => `${name} (${(percent * 100).toFixed(1)}%)`}
-                        labelLine={{ stroke: '#9ca0b8' }}>
+                      <Pie data={budget.categories} cx="50%" cy="50%" outerRadius={120} innerRadius={50} dataKey="value"
+                        label={({ percent }) => `${(percent * 100).toFixed(1)}%`}
+                        labelLine={{ stroke: '#9ca0b8', strokeWidth: 1 }}>
                         {budget.categories.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                       </Pie>
                       <Tooltip content={<CustomTooltip />} />
+                      <Legend formatter={(value, entry) => <span style={{ color: 'var(--text-secondary)', fontSize: '0.75rem' }}>{value}</span>} />
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
@@ -1625,7 +1665,7 @@ export default function App() {
                       <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={110} tick={{ fontSize: 12 }} />
                       <Tooltip content={<CustomTooltip />} />
-                      <Bar dataKey="value" fill="#3388ff" radius={[0, 6, 6, 0]} />
+                      <Bar dataKey="value" fill="#3388ff" radius={[0, 3, 3, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -1634,7 +1674,7 @@ export default function App() {
               {data.spendingOverTime && (
                 <div className="chart-card" style={{ marginTop: 24 }}>
                   <h3>State Spending Over Time</h3>
-                  <div className="chart-subtitle">Total expenditures by fiscal year — live from CTHRU</div>
+                  <div className="chart-subtitle">Total expenditures by fiscal year — live from CTHRU (data through latest completed fiscal year)</div>
                   <ResponsiveContainer width="100%" height={350}>
                     <AreaChart data={data.spendingOverTime}>
                       <defs>
@@ -1688,10 +1728,17 @@ export default function App() {
         {activeSection === 'federal' && (
           <motion.div key="federal" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <div className="section">
-              <div className="section-header">
-                <span className="section-tag blue">Federal Funding</span>
-                <h2>Federal Money Flowing to Massachusetts</h2>
-                <p>Grants, contracts, and awards from the federal government to MA entities. Data from USASpending.gov.</p>
+              <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
+                <div>
+                  <span className="section-tag blue">Federal Funding</span>
+                  <h2>Federal Money Flowing to Massachusetts</h2>
+                  <p>Grants, contracts, and awards from the federal government to MA entities. Data from USASpending.gov.</p>
+                </div>
+                <select className="year-select" value={federalYear} onChange={e => setFederalYear(Number(e.target.value))}>
+                  {Array.from({ length: 10 }, (_, i) => 2025 - i).map(y => (
+                    <option key={y} value={y}>FY {y}</option>
+                  ))}
+                </select>
               </div>
 
               <div className="card-grid">
@@ -1703,9 +1750,13 @@ export default function App() {
                       <BarChart data={data.federalSpending.slice(0, 15)} layout="vertical" margin={{ left: 200 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
-                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 11 }} />
+                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={({ x, y, payload }) => (
+                          <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
+                            {payload.value.length > 28 ? payload.value.substring(0, 26) + '…' : payload.value}
+                          </text>
+                        )} />
                         <Tooltip content={<CustomTooltip />} />
-                        <Bar dataKey="value" fill="#22ddee" radius={[0, 6, 6, 0]} name="Federal Spending" />
+                        <Bar dataKey="value" fill="#22ddee" radius={[0, 3, 3, 0]} name="Federal Spending" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -1719,9 +1770,13 @@ export default function App() {
                       <BarChart data={data.federalAwards.slice(0, 15)} layout="vertical" margin={{ left: 200 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
-                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 11 }} />
+                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={({ x, y, payload }) => (
+                          <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
+                            {payload.value.length > 28 ? payload.value.substring(0, 26) + '…' : payload.value}
+                          </text>
+                        )} />
                         <Tooltip content={<CustomTooltip />} />
-                        <Bar dataKey="value" fill="#aa44ff" radius={[0, 6, 6, 0]} name="Award Amount" />
+                        <Bar dataKey="value" fill="#aa44ff" radius={[0, 3, 3, 0]} name="Award Amount" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -1838,6 +1893,35 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* ============ SHARE ============ */}
+      <div style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)', padding: '40px 24px', textAlign: 'center' }}>
+        <h3 style={{ marginBottom: 8, fontSize: '1.3rem', fontWeight: 700 }}>Share This Dashboard</h3>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: 20, fontSize: '0.9rem' }}>
+          Help spread transparency — share The People's Audit with your network.
+        </p>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="https://twitter.com/intent/tweet?text=Massachusetts%20voters%20demanded%20a%20legislative%20audit.%20The%20legislature%20refused.%20So%20we%20built%20The%20People%27s%20Audit%20%E2%80%94%20tracking%20every%20public%20dollar.&url=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
+            target="_blank" rel="noopener"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#1a1d2e', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
+            Share on X
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
+            target="_blank" rel="noopener"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#1877f2', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
+            Share on Facebook
+          </a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
+            target="_blank" rel="noopener"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#0a66c2', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
+            Share on LinkedIn
+          </a>
+          <button onClick={() => { navigator.clipboard.writeText('https://duncanburns2013-dot.github.io/The-Peoples-Audit/'); }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: 'var(--bg-primary)', color: 'var(--text-primary)', border: '1px solid var(--border)', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s' }}>
+            Copy Link
+          </button>
+        </div>
+      </div>
 
       {/* ============ FOOTER ============ */}
       <footer className="footer">
