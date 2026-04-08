@@ -263,6 +263,13 @@ body {
   font-size: 0.85rem; cursor: pointer;
 }
 
+/* ---- VENDOR EXPLORER ---- */
+.data-table tbody tr:hover { background: rgba(255,170,34,0.06); }
+.data-table tbody tr.active-row { background: rgba(255,170,34,0.12); border-left: 3px solid var(--accent-gold); }
+.data-table tbody tr { transition: background 0.15s ease; }
+input::placeholder { color: var(--text-muted); }
+input:focus { outline: none; border-color: var(--accent-blue) !important; box-shadow: 0 0 0 2px var(--accent-blue-glow); }
+
 /* ---- FOOTER ---- */
 .footer {
   background: var(--bg-secondary); border-top: 1px solid var(--border);

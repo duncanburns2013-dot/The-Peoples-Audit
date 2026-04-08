@@ -279,6 +279,190 @@ export async function fetchFederalAwardsMA(fiscalYear = 2025) {
 }
 
 // ============================================================
+// VENDOR MONEY TRACKER — "Track Every Dollar"
+// Comprehensive vendor payment queries against CTHRU spending data
+// ============================================================
+
+/**
+ * Fetch top vendors ranked by total payments.
+ * If fiscalYear is provided, scopes to that year; otherwise all years.
+ */
+export async function fetchTopVendors(fiscalYear = null, limit = 200) {
+  try {
+    const params = {
+      '$select': 'vendor, SUM(amount) as total, COUNT(*) as payment_count',
+      '$group': 'vendor',
+      '$order': 'total DESC',
+      '$limit': limit,
+    };
+    if (fiscalYear) {
+      params['$where'] = `budget_fiscal_year='${fiscalYear}'`;
+    }
+    const data = await socrataQuery(DATASETS.spending, params);
+    return data.map(d => ({
+      vendor: d.vendor || 'Unknown',
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Top vendors fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Search vendors by name (case-insensitive partial match).
+ */
+export async function searchVendors(query, fiscalYear = null, limit = 50) {
+  try {
+    const escapedQuery = query.replace(/'/g, "''");
+    let where = `upper(vendor) like '%${escapedQuery.toUpperCase()}%'`;
+    if (fiscalYear) where += ` AND budget_fiscal_year='${fiscalYear}'`;
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'vendor, SUM(amount) as total, COUNT(*) as payment_count',
+      '$where': where,
+      '$group': 'vendor',
+      '$order': 'total DESC',
+      '$limit': limit,
+    });
+    return data.map(d => ({
+      vendor: d.vendor || 'Unknown',
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Vendor search failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get a vendor's payment totals broken down by fiscal year.
+ */
+export async function fetchVendorByYear(vendorName) {
+  try {
+    const escaped = vendorName.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'budget_fiscal_year, SUM(amount) as total, COUNT(*) as payment_count',
+      '$where': `vendor='${escaped}'`,
+      '$group': 'budget_fiscal_year',
+      '$order': 'budget_fiscal_year ASC',
+      '$limit': '50',
+    });
+    return data.map(d => ({
+      year: d.budget_fiscal_year,
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Vendor by year fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get a vendor's payments broken down by department for a given year.
+ */
+export async function fetchVendorByDepartment(vendorName, fiscalYear = '2025') {
+  try {
+    const escaped = vendorName.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'department, SUM(amount) as total, COUNT(*) as payment_count',
+      '$where': `vendor='${escaped}' AND budget_fiscal_year='${fiscalYear}'`,
+      '$group': 'department',
+      '$order': 'total DESC',
+      '$limit': '50',
+    });
+    return data.map(d => ({
+      department: d.department || 'Unknown',
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Vendor by department fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get a vendor's payments broken down by spending category.
+ */
+export async function fetchVendorByCategory(vendorName, fiscalYear = null) {
+  try {
+    const escaped = vendorName.replace(/'/g, "''");
+    let where = `vendor='${escaped}'`;
+    if (fiscalYear) where += ` AND budget_fiscal_year='${fiscalYear}'`;
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'object_class, SUM(amount) as total',
+      '$where': where,
+      '$group': 'object_class',
+      '$order': 'total DESC',
+      '$limit': '30',
+    });
+    return data.map(d => ({
+      category: d.object_class || 'Unknown',
+      total: parseFloat(d.total) || 0,
+    }));
+  } catch (err) {
+    console.warn('Vendor by category fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get individual payment records for a vendor (the actual receipts).
+ */
+export async function fetchVendorPayments(vendorName, fiscalYear = '2025', limit = 100) {
+  try {
+    const escaped = vendorName.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'date, amount, department, appropriation_name, object_class, object_code, fund, payment_method, city, state',
+      '$where': `vendor='${escaped}' AND budget_fiscal_year='${fiscalYear}'`,
+      '$order': 'amount DESC',
+      '$limit': limit,
+    });
+    return data.map(d => ({
+      date: d.date ? new Date(d.date).toLocaleDateString() : 'N/A',
+      amount: parseFloat(d.amount) || 0,
+      department: d.department || '',
+      appropriation: d.appropriation_name || '',
+      category: d.object_class || '',
+      code: d.object_code || '',
+      fund: d.fund || '',
+      paymentMethod: d.payment_method || '',
+      city: d.city || '',
+      state: d.state || '',
+    }));
+  } catch (err) {
+    console.warn('Vendor payments fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get spending breakdown by cabinet/secretariat for a given year.
+ */
+export async function fetchSpendingByCabinet(fiscalYear = '2025', limit = 20) {
+  try {
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'cabinet_secretariat, SUM(amount) as total, COUNT(DISTINCT vendor) as vendor_count',
+      '$where': `budget_fiscal_year='${fiscalYear}'`,
+      '$group': 'cabinet_secretariat',
+      '$order': 'total DESC',
+      '$limit': limit,
+    });
+    return data.map(d => ({
+      name: d.cabinet_secretariat || 'Unknown',
+      total: parseFloat(d.total) || 0,
+      vendorCount: parseInt(d.vendor_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Spending by cabinet fetch failed:', err.message);
+    return [];
+  }
+}
+
+// ============================================================
 // COMPREHENSIVE FALLBACK / CACHED DATA
 // Compiled from Massachusetts CAFR, Governor's Budget, CTHRU portal,
 // MassOpenBooks, and official public records.

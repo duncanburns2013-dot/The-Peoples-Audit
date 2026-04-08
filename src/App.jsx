@@ -13,6 +13,8 @@ import {
   fetchSpendingByDepartment, fetchSpendingByVendor, fetchSpendingOverTime,
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime,
   fetchQuasiPayments, fetchFederalSpendingMA, fetchFederalAwardsMA,
+  fetchTopVendors, searchVendors, fetchVendorByYear,
+  fetchVendorByDepartment, fetchVendorByCategory, fetchVendorPayments,
   MA_BUDGET_SUMMARY, AUDIT_FACTS,
   SPENDING_BY_DEPARTMENT, SPENDING_BY_VENDOR, SPENDING_OVER_TIME,
   PAYROLL_BY_DEPARTMENT, TOP_EARNERS, PAYROLL_OVER_TIME,
@@ -52,6 +54,327 @@ const CustomTooltip = ({ active, payload, label }) => {
     </div>
   );
 };
+
+// ============================================================
+// VENDOR EXPLORER — "Track Every Dollar"
+// ============================================================
+
+function VendorExplorer({ spendingYear }) {
+  const [vendorSearch, setVendorSearch] = useState('');
+  const [vendors, setVendors] = useState([]);
+  const [vendorsLoading, setVendorsLoading] = useState(true);
+  const [selectedVendor, setSelectedVendor] = useState(null);
+  const [vendorDetail, setVendorDetail] = useState(null);
+  const [detailLoading, setDetailLoading] = useState(false);
+  const [vendorYear, setVendorYear] = useState(spendingYear || '2025');
+  const [paymentPage, setPaymentPage] = useState(0);
+  const PAYMENTS_PER_PAGE = 25;
+
+  // Load top vendors on mount and when year changes
+  useEffect(() => {
+    setVendorsLoading(true);
+    fetchTopVendors(vendorYear, 200).then(data => {
+      setVendors(data);
+      setVendorsLoading(false);
+    });
+  }, [vendorYear]);
+
+  // Search vendors
+  useEffect(() => {
+    if (!vendorSearch.trim()) return;
+    const timer = setTimeout(() => {
+      setVendorsLoading(true);
+      searchVendors(vendorSearch, vendorYear).then(data => {
+        setVendors(data);
+        setVendorsLoading(false);
+      });
+    }, 400); // debounce
+    return () => clearTimeout(timer);
+  }, [vendorSearch, vendorYear]);
+
+  // Reset to top vendors when search is cleared
+  useEffect(() => {
+    if (vendorSearch === '') {
+      setVendorsLoading(true);
+      fetchTopVendors(vendorYear, 200).then(data => {
+        setVendors(data);
+        setVendorsLoading(false);
+      });
+    }
+  }, [vendorSearch, vendorYear]);
+
+  // Load vendor detail when selected
+  const selectVendor = useCallback((vendorName) => {
+    setSelectedVendor(vendorName);
+    setDetailLoading(true);
+    setPaymentPage(0);
+    Promise.all([
+      fetchVendorByYear(vendorName),
+      fetchVendorByDepartment(vendorName, vendorYear),
+      fetchVendorByCategory(vendorName, vendorYear),
+      fetchVendorPayments(vendorName, vendorYear, 500),
+    ]).then(([byYear, byDept, byCat, payments]) => {
+      setVendorDetail({ byYear, byDept, byCat, payments });
+      setDetailLoading(false);
+    });
+  }, [vendorYear]);
+
+  const totalSpent = vendors.reduce((s, v) => s + v.total, 0);
+  const totalPayments = vendors.reduce((s, v) => s + v.paymentCount, 0);
+
+  return (
+    <div className="section">
+      <div className="section-header">
+        <span className="section-tag">Vendor Money Tracker</span>
+        <h2>Track Every Dollar</h2>
+        <p>Search any vendor, contractor, or organization receiving Massachusetts taxpayer money. Click any vendor to see where every dollar went.</p>
+      </div>
+
+      {/* KPI Row */}
+      <div className="kpi-row" style={{ marginBottom: 24 }}>
+        <div className="kpi-card">
+          <div className="kpi-label">Total Vendor Payments</div>
+          <div className="kpi-value">{formatMoney(totalSpent)}</div>
+          <div className="kpi-sub">FY{vendorYear}</div>
+        </div>
+        <div className="kpi-card">
+          <div className="kpi-label">Total Transactions</div>
+          <div className="kpi-value">{totalPayments.toLocaleString()}</div>
+          <div className="kpi-sub">Individual payments</div>
+        </div>
+        <div className="kpi-card">
+          <div className="kpi-label">Unique Vendors</div>
+          <div className="kpi-value">{vendors.length.toLocaleString()}+</div>
+          <div className="kpi-sub">{vendorSearch ? 'matching search' : 'top recipients'}</div>
+        </div>
+      </div>
+
+      {/* Search and Filter Bar */}
+      <div style={{ display: 'flex', gap: 12, marginBottom: 20, flexWrap: 'wrap' }}>
+        <div style={{ flex: 1, minWidth: 280, position: 'relative' }}>
+          <Search size={16} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+          <input
+            type="text"
+            placeholder="Search vendors... (e.g. Deloitte, Partners Healthcare, Keolis)"
+            value={vendorSearch}
+            onChange={e => setVendorSearch(e.target.value)}
+            style={{
+              width: '100%', padding: '12px 12px 12px 36px', borderRadius: 8,
+              border: '1px solid var(--border)', background: 'var(--bg-secondary)',
+              color: 'var(--text-primary)', fontSize: '0.9rem',
+            }}
+          />
+        </div>
+        <select className="year-select" value={vendorYear} onChange={e => { setVendorYear(e.target.value); setSelectedVendor(null); setVendorDetail(null); }}>
+          {Array.from({ length: 17 }, (_, i) => 2026 - i).map(y => (
+            <option key={y} value={y}>FY {y}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Vendor Detail Panel (when a vendor is selected) */}
+      {selectedVendor && (
+        <div className="chart-card" style={{ marginBottom: 24, border: '1px solid var(--accent-gold)', position: 'relative' }}>
+          <button onClick={() => { setSelectedVendor(null); setVendorDetail(null); }} style={{
+            position: 'absolute', top: 12, right: 12, background: 'var(--bg-secondary)',
+            border: '1px solid var(--border)', borderRadius: 6, color: 'var(--text-secondary)',
+            padding: '4px 12px', cursor: 'pointer', fontSize: '0.8rem',
+          }}>Close</button>
+
+          <h3 style={{ color: 'var(--accent-gold)', marginBottom: 4 }}>{selectedVendor}</h3>
+          <div className="chart-subtitle">Complete payment history — every dollar tracked</div>
+
+          {detailLoading ? (
+            <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>Loading vendor data...</div>
+          ) : vendorDetail && (
+            <>
+              {/* Year-over-year payment history */}
+              {vendorDetail.byYear.length > 0 && (
+                <div style={{ marginTop: 20 }}>
+                  <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Payment History by Fiscal Year</h4>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <BarChart data={vendorDetail.byYear}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                      <XAxis dataKey="year" stroke="#606078" />
+                      <YAxis tickFormatter={formatMoney} stroke="#606078" />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Bar dataKey="total" fill="#ffaa22" radius={[6, 6, 0, 0]} name="Total Paid" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                  <div style={{ display: 'flex', gap: 24, marginTop: 12, flexWrap: 'wrap' }}>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                      All-time total: <strong style={{ color: 'var(--accent-gold)' }}>{formatMoney(vendorDetail.byYear.reduce((s, y) => s + y.total, 0))}</strong>
+                    </span>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                      Years active: <strong style={{ color: 'var(--text-primary)' }}>{vendorDetail.byYear.length}</strong>
+                    </span>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                      Total payments: <strong style={{ color: 'var(--text-primary)' }}>{vendorDetail.byYear.reduce((s, y) => s + y.paymentCount, 0).toLocaleString()}</strong>
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* Department breakdown + Category breakdown side by side */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 20, marginTop: 24 }}>
+                {/* Which departments paid this vendor */}
+                {vendorDetail.byDept.length > 0 && (
+                  <div>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Paying Departments — FY{vendorYear}</h4>
+                    <ResponsiveContainer width="100%" height={Math.max(200, vendorDetail.byDept.length * 32)}>
+                      <BarChart data={vendorDetail.byDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                        <YAxis type="category" dataKey="department" stroke="#606078" width={170} tick={{ fontSize: 10 }} />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Bar dataKey="total" fill="#3388ff" radius={[0, 6, 6, 0]} name="Paid" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                )}
+
+                {/* Spending categories */}
+                {vendorDetail.byCat.length > 0 && (
+                  <div>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories — FY{vendorYear}</h4>
+                    <ResponsiveContainer width="100%" height={300}>
+                      <PieChart>
+                        <Pie data={vendorDetail.byCat.slice(0, 8)} dataKey="total" nameKey="category" cx="50%" cy="50%" outerRadius={100} label={({ category, percent }) => `${(percent * 100).toFixed(0)}%`}>
+                          {vendorDetail.byCat.slice(0, 8).map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+                        </Pie>
+                        <Tooltip content={<CustomTooltip />} />
+                      </PieChart>
+                    </ResponsiveContainer>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', fontSize: '0.75rem' }}>
+                      {vendorDetail.byCat.slice(0, 8).map((c, i) => (
+                        <span key={i} style={{ color: COLORS[i % COLORS.length] }}>
+                          {c.category.replace(/^\([^)]+\)\s*/, '')} — {formatMoney(c.total)}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Individual payment records */}
+              {vendorDetail.payments.length > 0 && (
+                <div style={{ marginTop: 24 }}>
+                  <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
+                    Individual Payments — FY{vendorYear} ({vendorDetail.payments.length} records)
+                  </h4>
+                  <div className="data-table-wrapper">
+                    <table className="data-table">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Amount</th>
+                          <th>Department</th>
+                          <th>Appropriation</th>
+                          <th>Category</th>
+                          <th>Method</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {vendorDetail.payments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
+                          <tr key={i}>
+                            <td style={{ whiteSpace: 'nowrap' }}>{p.date}</td>
+                            <td className="money">{formatMoneyFull(p.amount)}</td>
+                            <td style={{ fontSize: '0.8rem' }}>{p.department}</td>
+                            <td style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{p.appropriation.replace(/^\([^)]+\)\s*/, '')}</td>
+                            <td style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{p.category.replace(/^\([^)]+\)\s*/, '')}</td>
+                            <td style={{ fontSize: '0.8rem' }}>{p.paymentMethod}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {vendorDetail.payments.length > PAYMENTS_PER_PAGE && (
+                    <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 12 }}>
+                      <button
+                        disabled={paymentPage === 0}
+                        onClick={() => setPaymentPage(p => p - 1)}
+                        style={{
+                          padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
+                          background: 'var(--bg-secondary)', color: 'var(--text-primary)', cursor: paymentPage === 0 ? 'not-allowed' : 'pointer',
+                          opacity: paymentPage === 0 ? 0.4 : 1,
+                        }}
+                      >Previous</button>
+                      <span style={{ padding: '6px 12px', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                        Page {paymentPage + 1} of {Math.ceil(vendorDetail.payments.length / PAYMENTS_PER_PAGE)}
+                      </span>
+                      <button
+                        disabled={(paymentPage + 1) * PAYMENTS_PER_PAGE >= vendorDetail.payments.length}
+                        onClick={() => setPaymentPage(p => p + 1)}
+                        style={{
+                          padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
+                          background: 'var(--bg-secondary)', color: 'var(--text-primary)',
+                          cursor: (paymentPage + 1) * PAYMENTS_PER_PAGE >= vendorDetail.payments.length ? 'not-allowed' : 'pointer',
+                          opacity: (paymentPage + 1) * PAYMENTS_PER_PAGE >= vendorDetail.payments.length ? 0.4 : 1,
+                        }}
+                      >Next</button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      )}
+
+      {/* Main vendor rankings table */}
+      {vendorsLoading ? (
+        <div className="loading-skeleton" style={{ height: 400 }} />
+      ) : (
+        <>
+          <div className="chart-card">
+            <h3>{vendorSearch ? `Search Results for "${vendorSearch}"` : `Top 200 Vendors by Payment — FY${vendorYear}`}</h3>
+            <div className="chart-subtitle">{vendorSearch ? `${vendors.length} vendors found` : 'Click any vendor to drill down into every payment'}</div>
+            {vendors.length > 0 && (
+              <ResponsiveContainer width="100%" height={Math.min(800, vendors.slice(0, 30).length * 26 + 40)}>
+                <BarChart data={vendors.slice(0, 30)} layout="vertical" margin={{ left: 220 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                  <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                  <YAxis type="category" dataKey="vendor" stroke="#606078" width={210} tick={{ fontSize: 10 }} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Bar dataKey="total" fill="#22cc66" radius={[0, 6, 6, 0]} name="Total Paid" cursor="pointer"
+                    onClick={(data) => data && selectVendor(data.vendor)} />
+                </BarChart>
+              </ResponsiveContainer>
+            )}
+          </div>
+
+          <div className="data-table-wrapper" style={{ marginTop: 24 }}>
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Vendor / Contractor</th>
+                  <th>Total Payments</th>
+                  <th># Transactions</th>
+                  <th>Avg Payment</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {vendors.map((v, i) => (
+                  <tr key={i} onClick={() => selectVendor(v.vendor)} style={{ cursor: 'pointer' }}
+                    className={selectedVendor === v.vendor ? 'active-row' : ''}>
+                    <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                    <td style={{ fontWeight: selectedVendor === v.vendor ? 700 : 400 }}>{v.vendor}</td>
+                    <td className="money">{formatMoney(v.total)}</td>
+                    <td>{v.paymentCount.toLocaleString()}</td>
+                    <td style={{ color: 'var(--text-muted)' }}>{v.paymentCount > 0 ? formatMoney(v.total / v.paymentCount) : 'N/A'}</td>
+                    <td><ExternalLink size={12} style={{ color: 'var(--accent-blue)', cursor: 'pointer' }} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 // ============================================================
 // APP
@@ -469,56 +792,9 @@ export default function App() {
         </div>
       )}
 
-      {/* ============ VENDORS ============ */}
+      {/* ============ VENDOR EXPLORER ============ */}
       {activeSection === 'vendors' && (
-        <div className="section">
-          <div className="section-header">
-            <span className="section-tag">Contracts & Procurement</span>
-            <h2>Who Gets Paid</h2>
-            <p>Top vendors and contractors receiving taxpayer dollars. Live data from CTHRU.</p>
-          </div>
-
-          {data.spendingByVendor ? (
-            <>
-              <div className="chart-card">
-                <h3>Top 25 Vendors by Payment — FY{spendingYear}</h3>
-                <div className="chart-subtitle">Follow the money</div>
-                <ResponsiveContainer width="100%" height={700}>
-                  <BarChart data={data.spendingByVendor} layout="vertical" margin={{ left: 220 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                    <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
-                    <YAxis type="category" dataKey="name" stroke="#606078" width={210} tick={{ fontSize: 11 }} />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Bar dataKey="value" fill="#22cc66" radius={[0, 6, 6, 0]} name="Total Paid" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-
-              <div className="data-table-wrapper" style={{ marginTop: 24 }}>
-                <table className="data-table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Vendor / Contractor</th>
-                      <th>Total Payments</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.spendingByVendor.map((v, i) => (
-                      <tr key={i}>
-                        <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
-                        <td>{v.name}</td>
-                        <td className="money">{formatMoneyFull(v.value)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </>
-          ) : (
-            <div className="loading-skeleton" />
-          )}
-        </div>
+        <VendorExplorer spendingYear={spendingYear} />
       )}
 
       {/* ============ FEDERAL ============ */}
