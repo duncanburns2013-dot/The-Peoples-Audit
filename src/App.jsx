@@ -1525,11 +1525,11 @@ export default function App() {
       <section className="hero">
         {/* Ominous official portraits in background */}
         <div className="hero-figures">
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official1.png)', left: '2%', bottom: 0 }} />
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official2.png)', left: '20%', bottom: 0 }} />
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official3.png)', left: '40%', bottom: 0 }} />
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official4.png)', right: '20%', bottom: 0 }} />
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official5.png)', right: '2%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official1.png)', left: '0%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official2.png)', left: '18%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official3.png)', left: '50%', bottom: 0, transform: 'translateX(-50%)' }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official4.png)', right: '18%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official5.png)', right: '0%', bottom: 0 }} />
         </div>
         <div className="hero-content">
           <div className="hero-badge">Public Financial Investigation</div>
