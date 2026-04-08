@@ -181,6 +181,39 @@ export async function fetchPayrollOverTime(limit = 15) {
   }
 }
 
+/**
+ * Search payroll records by name or department
+ */
+export async function searchPayroll(query, calendarYear = '2025', searchType = 'name', limit = 100) {
+  try {
+    const escaped = query.replace(/'/g, "''");
+    let where = `year='${calendarYear}'`;
+    if (searchType === 'name') {
+      where += ` AND (upper(name_first) like '%${escaped.toUpperCase()}%' OR upper(name_last) like '%${escaped.toUpperCase()}%')`;
+    } else if (searchType === 'department') {
+      where += ` AND upper(department_division) like '%${escaped.toUpperCase()}%'`;
+    }
+    const data = await socrataQuery(DATASETS.payroll, {
+      '$select': 'name_first, name_last, department_division, position_title, pay_total_actual, pay_base_actual, pay_overtime_actual, pay_other_actual',
+      '$where': where,
+      '$order': 'pay_total_actual DESC',
+      '$limit': limit,
+    });
+    return data.map(d => ({
+      name: `${d.name_first || ''} ${d.name_last || ''}`.trim() || 'Unknown',
+      department: d.department_division || 'Unknown',
+      title: d.position_title || 'Unknown',
+      totalPay: parseFloat(d.pay_total_actual) || 0,
+      basePay: parseFloat(d.pay_base_actual) || 0,
+      overtime: parseFloat(d.pay_overtime_actual) || 0,
+      otherPay: parseFloat(d.pay_other_actual) || 0,
+    }));
+  } catch (err) {
+    console.warn('Payroll search failed:', err.message);
+    return [];
+  }
+}
+
 // ============================================================
 // QUASI-GOVERNMENT DATA
 // ============================================================
@@ -200,6 +233,109 @@ export async function fetchQuasiPayments(limit = 30) {
   } catch (err) {
     console.warn('Quasi payments fetch failed:', err.message);
     return null;
+  }
+}
+
+/**
+ * Get top vendors paid by a specific quasi-government agency
+ */
+export async function fetchQuasiAgencyDetail(agencyName, fiscalYear = null) {
+  try {
+    const escaped = agencyName.replace(/'/g, "''");
+    let where = `quasi_agency_name='${escaped}'`;
+    if (fiscalYear) where += ` AND fiscal_year='${fiscalYear}'`;
+    const data = await socrataQuery(DATASETS.quasiPayments, {
+      '$select': 'vendor_name, SUM(amount) as total, COUNT(*) as payment_count',
+      '$where': where,
+      '$group': 'vendor_name',
+      '$order': 'total DESC',
+      '$limit': '100',
+    });
+    return data.map(d => ({
+      vendor: d.vendor_name || 'Unknown',
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Quasi agency detail failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get a quasi-agency's spending by fiscal year
+ */
+export async function fetchQuasiAgencyByYear(agencyName) {
+  try {
+    const escaped = agencyName.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.quasiPayments, {
+      '$select': 'fiscal_year, SUM(amount) as total, COUNT(*) as payment_count',
+      '$where': `quasi_agency_name='${escaped}'`,
+      '$group': 'fiscal_year',
+      '$order': 'fiscal_year ASC',
+      '$limit': '30',
+    });
+    return data.map(d => ({
+      year: d.fiscal_year,
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Quasi agency by year failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get a quasi-agency's spending by category
+ */
+export async function fetchQuasiAgencyCategories(agencyName, fiscalYear = null) {
+  try {
+    const escaped = agencyName.replace(/'/g, "''");
+    let where = `quasi_agency_name='${escaped}'`;
+    if (fiscalYear) where += ` AND fiscal_year='${fiscalYear}'`;
+    const data = await socrataQuery(DATASETS.quasiPayments, {
+      '$select': 'account_name, SUM(amount) as total',
+      '$where': where,
+      '$group': 'account_name',
+      '$order': 'total DESC',
+      '$limit': '30',
+    });
+    return data.map(d => ({
+      category: d.account_name || 'Unknown',
+      total: parseFloat(d.total) || 0,
+    }));
+  } catch (err) {
+    console.warn('Quasi agency categories failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get individual payment records for a quasi-agency
+ */
+export async function fetchQuasiAgencyPayments(agencyName, fiscalYear = null, limit = 200) {
+  try {
+    const escaped = agencyName.replace(/'/g, "''");
+    let where = `quasi_agency_name='${escaped}'`;
+    if (fiscalYear) where += ` AND fiscal_year='${fiscalYear}'`;
+    const data = await socrataQuery(DATASETS.quasiPayments, {
+      '$select': 'payment_date, amount, vendor_name, account_name, department_name, financial_category_name',
+      '$where': where,
+      '$order': 'amount DESC',
+      '$limit': limit,
+    });
+    return data.map(d => ({
+      date: d.payment_date ? new Date(d.payment_date).toLocaleDateString() : 'N/A',
+      amount: parseFloat(d.amount) || 0,
+      vendor: d.vendor_name || '',
+      account: d.account_name || '',
+      department: d.department_name || '',
+      category: d.financial_category_name || '',
+    }));
+  } catch (err) {
+    console.warn('Quasi agency payments failed:', err.message);
+    return [];
   }
 }
 
@@ -457,6 +593,30 @@ export async function searchVendors(query, fiscalYear = null, limit = 50) {
     }));
   } catch (err) {
     console.warn('Vendor search failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Fetch non-profit vendors by filtering for common non-profit indicators
+ */
+export async function fetchNonProfitVendors(fiscalYear = '2025', limit = 200) {
+  try {
+    const where = `budget_fiscal_year='${fiscalYear}' AND (upper(vendor) like '%FOUNDATION%' OR upper(vendor) like '%ASSOC%' OR upper(vendor) like '%INC%' OR upper(vendor) like '%COUNCIL%' OR upper(vendor) like '%TRUST%' OR upper(vendor) like '%SOCIETY%' OR upper(vendor) like '%CHARITY%' OR upper(vendor) like '%ALLIANCE%' OR upper(vendor) like '%COALITION%')`;
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'vendor, SUM(amount) as total, COUNT(*) as payment_count',
+      '$where': where,
+      '$group': 'vendor',
+      '$order': 'total DESC',
+      '$limit': limit,
+    });
+    return data.map(d => ({
+      vendor: d.vendor || 'Unknown',
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Non-profit vendors fetch failed:', err.message);
     return [];
   }
 }

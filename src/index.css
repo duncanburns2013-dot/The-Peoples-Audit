@@ -8,8 +8,8 @@
   --bg-card-hover: #1c1c28;
   --border: #2a2a3a;
   --text-primary: #e8e8f0;
-  --text-secondary: #9090a8;
-  --text-muted: #606078;
+  --text-secondary: #b8b8d0;
+  --text-muted: #8888a0;
   --accent-red: #ff3344;
   --accent-red-glow: rgba(255, 51, 68, 0.3);
   --accent-gold: #ffaa22;
@@ -189,7 +189,7 @@ body {
   padding: 28px; margin-bottom: 24px;
 }
 .chart-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-.chart-card .chart-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
+.chart-card .chart-subtitle { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px; }
 .chart-card.full-width { grid-column: 1 / -1; }
 
 /* ---- DATA TABLE ---- */
@@ -200,7 +200,7 @@ body {
 .data-table thead th {
   background: var(--bg-secondary); padding: 14px 16px; text-align: left;
   font-weight: 600; font-size: 0.8rem; text-transform: uppercase;
-  letter-spacing: 1px; color: var(--text-muted); border-bottom: 1px solid var(--border);
+  letter-spacing: 1px; color: var(--text-secondary); border-bottom: 1px solid var(--border);
   position: sticky; top: 0;
 }
 .data-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.2s; }
