@@ -72,8 +72,8 @@ export default function App() {
     federalSpending: null,
     federalAwards: null,
   });
-  const [spendingYear, setSpendingYear] = useState('2024');
-  const [payrollYear, setPayrollYear] = useState('2024');
+  const [spendingYear, setSpendingYear] = useState('2025');
+  const [payrollYear, setPayrollYear] = useState('2022');
 
   // Fetch data on mount and when years change
   const fetchAllData = useCallback(async () => {
@@ -111,13 +111,14 @@ export default function App() {
 
     results.forEach((result, i) => {
       const key = fetchers[i].key;
-      if (result.status === 'fulfilled' && result.value) {
-        newData[key] = result.value;
+      const val = result.status === 'fulfilled' ? result.value : null;
+      // Use live data only if it's a non-empty array; otherwise fall back
+      if (val && Array.isArray(val) && val.length > 0) {
+        newData[key] = val;
         liveCount++;
       } else {
-        // Use fallback data so dashboard always has content
         newData[key] = fallbacks[key] || null;
-        newErrors[key] = true;
+        if (!val) newErrors[key] = true; // only mark error if API actually failed
       }
     });
 
@@ -315,7 +316,7 @@ export default function App() {
               <p>Department-level spending data pulled live from the CTHRU Open Expenditures portal.</p>
             </div>
             <select className="year-select" value={spendingYear} onChange={e => setSpendingYear(e.target.value)}>
-              {Array.from({ length: 15 }, (_, i) => 2024 - i).map(y => (
+              {Array.from({ length: 17 }, (_, i) => 2026 - i).map(y => (
                 <option key={y} value={y}>FY {y}</option>
               ))}
             </select>
@@ -374,7 +375,7 @@ export default function App() {
               <p>Every salary, every department. Data from CTHRU Statewide Payroll.</p>
             </div>
             <select className="year-select" value={payrollYear} onChange={e => setPayrollYear(e.target.value)}>
-              {Array.from({ length: 15 }, (_, i) => 2024 - i).map(y => (
+              {Array.from({ length: 14 }, (_, i) => 2023 - i).map(y => (
                 <option key={y} value={y}>{y}</option>
               ))}
             </select>
