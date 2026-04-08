@@ -49,18 +49,22 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
     <div style={{
-      background: '#1c1c28', border: '1px solid #2a2a3a', borderRadius: 8,
-      padding: '12px 16px', fontSize: '0.85rem',
+      background: '#ffffff', border: '1px solid #dfe2ea', borderRadius: 8,
+      padding: '12px 16px', fontSize: '0.85rem', boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
     }}>
-      <p style={{ color: '#e8e8f0', fontWeight: 600, marginBottom: 4 }}>{label}</p>
+      <p style={{ color: '#1a1d2e', fontWeight: 600, marginBottom: 4 }}>{label}</p>
       {payload.map((p, i) => (
-        <p key={i} style={{ color: p.color || '#ffaa22' }}>
+        <p key={i} style={{ color: p.color || '#d48a00' }}>
           {p.name}: {typeof p.value === 'number' ? formatMoney(p.value) : p.value}
         </p>
       ))}
     </div>
   );
 };
+
+// Chart axis/grid colors for light theme
+const GRID_COLOR = '#e4e6ed';
+const AXIS_COLOR = '#6b7189';
 
 // Page transition variants
 const pageVariants = {
@@ -135,9 +139,9 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Department Spending by Fiscal Year</h4>
                   <ResponsiveContainer width="100%" height={220}>
                     <BarChart data={deptDetail.overTime}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                      <XAxis dataKey="year" stroke="#9999b0" />
-                      <YAxis tickFormatter={formatMoney} stroke="#9999b0" />
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis dataKey="year" stroke={AXIS_COLOR} />
+                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <Tooltip content={<CustomTooltip />} />
                       <Bar dataKey="total" fill="#ff3344" radius={[6, 6, 0, 0]} name="Total Spent" />
                     </BarChart>
@@ -155,9 +159,9 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                     <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Top Vendors — FY{deptYear}</h4>
                     <ResponsiveContainer width="100%" height={Math.max(200, Math.min(15, deptDetail.vendors.length) * 28 + 40)}>
                       <BarChart data={deptDetail.vendors.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                        <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                        <YAxis type="category" dataKey="vendor" stroke="#9999b0" width={170} tick={{ fontSize: 10 }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
                         <Tooltip content={<CustomTooltip />} />
                         <Bar dataKey="total" fill="#22cc66" radius={[0, 6, 6, 0]} name="Paid" />
                       </BarChart>
@@ -256,9 +260,9 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
             <div className="chart-subtitle">Click any department to see the full breakdown</div>
             <ResponsiveContainer width="100%" height={600}>
               <BarChart data={departments.slice(0, 20)} layout="vertical" margin={{ left: 200 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                <YAxis type="category" dataKey="name" stroke="#9999b0" width={190} tick={{ fontSize: 11 }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 11 }} />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="value" fill="#ff3344" radius={[0, 6, 6, 0]} name="Total Spent" cursor="pointer"
                   onClick={(data) => data && selectDepartment(data.name)} />
@@ -272,11 +276,11 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
               <div className="chart-subtitle">Year-over-year expenditure growth</div>
               <ResponsiveContainer width="100%" height={300}>
                 <AreaChart data={spendingOverTime}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                  <XAxis dataKey="year" stroke="#9999b0" />
-                  <YAxis tickFormatter={formatMoney} stroke="#9999b0" />
+                  <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                  <XAxis dataKey="year" stroke={AXIS_COLOR} />
+                  <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                   <Tooltip content={<CustomTooltip />} />
-                  <Area type="monotone" dataKey="total" stroke="#ff3344" fill="rgba(255,51,68,0.15)" name="Total Spent" />
+                  <Area type="monotone" dataKey="total" stroke="#ff3344" fill="rgba(217,38,56,0.12)" name="Total Spent" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -437,9 +441,9 @@ function VendorExplorer({ spendingYear }) {
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Payment History by Fiscal Year</h4>
                   <ResponsiveContainer width="100%" height={250}>
                     <BarChart data={vendorDetail.byYear}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                      <XAxis dataKey="year" stroke="#9999b0" />
-                      <YAxis tickFormatter={formatMoney} stroke="#9999b0" />
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis dataKey="year" stroke={AXIS_COLOR} />
+                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <Tooltip content={<CustomTooltip />} />
                       <Bar dataKey="total" fill="#ffaa22" radius={[6, 6, 0, 0]} name="Total Paid" />
                     </BarChart>
@@ -461,9 +465,9 @@ function VendorExplorer({ spendingYear }) {
                     <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Paying Departments — FY{vendorYear}</h4>
                     <ResponsiveContainer width="100%" height={Math.max(200, vendorDetail.byDept.length * 32)}>
                       <BarChart data={vendorDetail.byDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                        <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                        <YAxis type="category" dataKey="department" stroke="#9999b0" width={170} tick={{ fontSize: 10 }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="department" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
                         <Tooltip content={<CustomTooltip />} />
                         <Bar dataKey="total" fill="#3388ff" radius={[0, 6, 6, 0]} name="Paid" />
                       </BarChart>
@@ -535,9 +539,9 @@ function VendorExplorer({ spendingYear }) {
             {vendors.length > 0 && (
               <ResponsiveContainer width="100%" height={Math.min(800, vendors.slice(0, 30).length * 26 + 40)}>
                 <BarChart data={vendors.slice(0, 30)} layout="vertical" margin={{ left: 220 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                  <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                  <YAxis type="category" dataKey="vendor" stroke="#9999b0" width={210} tick={{ fontSize: 10 }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                  <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                  <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={210} tick={{ fontSize: 10 }} />
                   <Tooltip content={<CustomTooltip />} />
                   <Bar dataKey="total" fill="#22cc66" radius={[0, 6, 6, 0]} name="Total Paid" cursor="pointer"
                     onClick={(data) => data && selectVendor(data.vendor)} />
@@ -635,9 +639,9 @@ function QuasiExplorer({ quasiPayments }) {
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Agency Spending by Fiscal Year</h4>
                   <ResponsiveContainer width="100%" height={220}>
                     <BarChart data={agencyDetail.byYear}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                      <XAxis dataKey="year" stroke="#9999b0" />
-                      <YAxis tickFormatter={formatMoney} stroke="#9999b0" />
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis dataKey="year" stroke={AXIS_COLOR} />
+                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <Tooltip content={<CustomTooltip />} />
                       <Bar dataKey="total" fill="#22ddee" radius={[6, 6, 0, 0]} name="Total Spent" />
                     </BarChart>
@@ -651,9 +655,9 @@ function QuasiExplorer({ quasiPayments }) {
                     <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Top Vendors — FY{quasiYear}</h4>
                     <ResponsiveContainer width="100%" height={Math.max(200, Math.min(15, agencyDetail.vendors.length) * 28 + 40)}>
                       <BarChart data={agencyDetail.vendors.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                        <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                        <YAxis type="category" dataKey="vendor" stroke="#9999b0" width={170} tick={{ fontSize: 10 }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
                         <Tooltip content={<CustomTooltip />} />
                         <Bar dataKey="total" fill="#22cc66" radius={[0, 6, 6, 0]} name="Paid" />
                       </BarChart>
@@ -722,9 +726,9 @@ function QuasiExplorer({ quasiPayments }) {
             <div className="chart-subtitle">Click any agency to see the full breakdown</div>
             <ResponsiveContainer width="100%" height={600}>
               <BarChart data={quasiPayments.slice(0, 20)} layout="vertical" margin={{ left: 220 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                <YAxis type="category" dataKey="name" stroke="#9999b0" width={210} tick={{ fontSize: 11 }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={210} tick={{ fontSize: 11 }} />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="value" fill="#22ddee" radius={[0, 6, 6, 0]} name="Total Payments" cursor="pointer"
                   onClick={(data) => data && selectAgency(data.name)} />
@@ -805,9 +809,9 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
             <div className="chart-subtitle">Aggregate compensation — {payrollYear}</div>
             <ResponsiveContainer width="100%" height={500}>
               <BarChart data={data.payrollByDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                <YAxis type="category" dataKey="department" stroke="#9999b0" width={170} tick={{ fontSize: 11 }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                <YAxis type="category" dataKey="department" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 11 }} />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="totalPay" fill="#ffaa22" radius={[0, 6, 6, 0]} name="Total Compensation" />
               </BarChart>
@@ -818,9 +822,9 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
             <div className="chart-subtitle">Employee count — {payrollYear}</div>
             <ResponsiveContainer width="100%" height={500}>
               <BarChart data={data.payrollByDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                <XAxis type="number" stroke="#9999b0" />
-                <YAxis type="category" dataKey="department" stroke="#9999b0" width={170} tick={{ fontSize: 11 }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                <XAxis type="number" stroke={AXIS_COLOR} />
+                <YAxis type="category" dataKey="department" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 11 }} />
                 <Tooltip />
                 <Bar dataKey="employees" fill="#3388ff" radius={[0, 6, 6, 0]} name="Employees" />
               </BarChart>
@@ -930,9 +934,9 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
                   <stop offset="95%" stopColor="#ffaa22" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-              <XAxis dataKey="year" stroke="#9999b0" />
-              <YAxis tickFormatter={formatMoney} stroke="#9999b0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+              <XAxis dataKey="year" stroke={AXIS_COLOR} />
+              <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
               <Tooltip content={<CustomTooltip />} />
               <Area type="monotone" dataKey="totalPayroll" stroke="#ffaa22" fill="url(#payrollGrad)" strokeWidth={2} name="Total Payroll" />
             </AreaChart>
@@ -1080,9 +1084,9 @@ function FollowTheMoney() {
                   {topFundedLegislators.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
                       <BarChart data={topFundedLegislators} layout="vertical" margin={{ left: 180 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                        <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                        <YAxis type="category" dataKey="name" stroke="#9999b0" width={170} tick={{ fontSize: 10 }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
                         <Tooltip content={<CustomTooltip />} />
                         <Bar dataKey="receipts" fill="#9955ff" radius={[0, 6, 6, 0]} name="Receipts" cursor="pointer"
                           onClick={(data) => data && selectLegislatorForContribs(data)} />
@@ -1097,9 +1101,9 @@ function FollowTheMoney() {
                   {topPACs.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
                       <BarChart data={topPACs} layout="vertical" margin={{ left: 200 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                        <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                        <YAxis type="category" dataKey="name" stroke="#9999b0" width={190} tick={{ fontSize: 9 }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 9 }} />
                         <Tooltip content={<CustomTooltip />} />
                         <Bar dataKey="receipts" fill="#ffaa22" radius={[0, 6, 6, 0]} name="Receipts" />
                       </BarChart>
@@ -1368,7 +1372,7 @@ const TreemapContent = ({ x, y, width, height, name, value, index }) => {
   return (
     <g>
       <rect x={x} y={y} width={width} height={height} rx={4}
-        style={{ fill: COLORS[index % COLORS.length], stroke: '#070710', strokeWidth: 2, opacity: 0.85 }} />
+        style={{ fill: COLORS[index % COLORS.length], stroke: '#ffffff', strokeWidth: 2, opacity: 0.9 }} />
       <text x={x + width / 2} y={y + height / 2 - 8} textAnchor="middle" fill="#fff" fontSize={width > 120 ? 12 : 10} fontWeight={600}>
         {name?.length > 20 ? name.substring(0, 18) + '…' : name}
       </text>
@@ -1509,30 +1513,18 @@ export default function App() {
         </div>
       </section>
 
-      {/* ============ STICKY HEADER ============ */}
-      <header className="site-header" id="dashboard">
-        <div className="logo">THE PEOPLE'S <span>AUDIT</span></div>
-        <button className="menu-toggle" onClick={() => setSidebarOpen(true)}>
-          <Menu size={16} /> Case Files
-        </button>
-      </header>
-
-      {/* ============ SIDEBAR NAV ============ */}
-      <div className={`sidebar-overlay ${sidebarOpen ? 'open' : ''}`} onClick={() => setSidebarOpen(false)} />
-      <nav className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <div className="sidebar-title">Investigation Files</div>
-        <button className="sidebar-close" onClick={() => setSidebarOpen(false)}><X size={18} /></button>
-        <div className="sidebar-nav">
-          {sections.map(s => (
-            <button key={s.id}
-              className={`sidebar-link ${activeSection === s.id ? 'active' : ''}`}
-              onClick={() => navigateTo(s.id)}>
-              {s.icon}
-              {s.label}
-              {s.tag && <span className={`link-tag ${s.tag}`}>{s.tag}</span>}
-            </button>
-          ))}
-        </div>
+      {/* ============ TOP TAB NAV ============ */}
+      <nav className="tab-nav" id="dashboard">
+        <div className="tab-nav-brand">THE PEOPLE'S <span>AUDIT</span></div>
+        {sections.map(s => (
+          <button key={s.id}
+            className={`tab-link ${activeSection === s.id ? 'active' : ''}`}
+            onClick={() => navigateTo(s.id)}>
+            {s.icon}
+            {s.label}
+            {s.tag && <span className={`tab-badge ${s.tag}`}>{s.tag}</span>}
+          </button>
+        ))}
       </nav>
 
       {/* ============ STATUS BAR ============ */}
@@ -1616,7 +1608,7 @@ export default function App() {
                     <PieChart>
                       <Pie data={budget.categories} cx="50%" cy="50%" outerRadius={150} dataKey="value"
                         label={({ name, percent }) => `${name} (${(percent * 100).toFixed(1)}%)`}
-                        labelLine={{ stroke: '#606078' }}>
+                        labelLine={{ stroke: '#9ca0b8' }}>
                         {budget.categories.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                       </Pie>
                       <Tooltip content={<CustomTooltip />} />
@@ -1629,9 +1621,9 @@ export default function App() {
                   <div className="chart-subtitle">How the Commonwealth funds itself</div>
                   <ResponsiveContainer width="100%" height={400}>
                     <BarChart data={budget.revenueSources} layout="vertical" margin={{ left: 120 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                      <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                      <YAxis type="category" dataKey="name" stroke="#9999b0" width={110} tick={{ fontSize: 12 }} />
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                      <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={110} tick={{ fontSize: 12 }} />
                       <Tooltip content={<CustomTooltip />} />
                       <Bar dataKey="value" fill="#3388ff" radius={[0, 6, 6, 0]} />
                     </BarChart>
@@ -1651,9 +1643,9 @@ export default function App() {
                           <stop offset="95%" stopColor="#ff3344" stopOpacity={0} />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                      <XAxis dataKey="year" stroke="#9999b0" />
-                      <YAxis tickFormatter={formatMoney} stroke="#9999b0" />
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis dataKey="year" stroke={AXIS_COLOR} />
+                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <Tooltip content={<CustomTooltip />} />
                       <Area type="monotone" dataKey="total" stroke="#ff3344" fill="url(#spendGrad)" strokeWidth={2} name="Total Spending" />
                     </AreaChart>
@@ -1709,9 +1701,9 @@ export default function App() {
                     <div className="chart-subtitle">Which federal agencies send the most to MA</div>
                     <ResponsiveContainer width="100%" height={500}>
                       <BarChart data={data.federalSpending.slice(0, 15)} layout="vertical" margin={{ left: 200 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                        <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                        <YAxis type="category" dataKey="name" stroke="#9999b0" width={190} tick={{ fontSize: 11 }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 11 }} />
                         <Tooltip content={<CustomTooltip />} />
                         <Bar dataKey="value" fill="#22ddee" radius={[0, 6, 6, 0]} name="Federal Spending" />
                       </BarChart>
@@ -1725,9 +1717,9 @@ export default function App() {
                     <div className="chart-subtitle">Who receives the most federal dollars</div>
                     <ResponsiveContainer width="100%" height={500}>
                       <BarChart data={data.federalAwards.slice(0, 15)} layout="vertical" margin={{ left: 200 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
-                        <XAxis type="number" tickFormatter={formatMoney} stroke="#9999b0" />
-                        <YAxis type="category" dataKey="name" stroke="#9999b0" width={190} tick={{ fontSize: 11 }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 11 }} />
                         <Tooltip content={<CustomTooltip />} />
                         <Bar dataKey="value" fill="#aa44ff" radius={[0, 6, 6, 0]} name="Award Amount" />
                       </BarChart>
