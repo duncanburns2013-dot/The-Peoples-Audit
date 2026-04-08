@@ -65,14 +65,14 @@ async function socrataQuery(datasetId, params = {}) {
 export async function fetchSpendingByDepartment(fiscalYear = '2025', limit = 50) {
   try {
     const data = await socrataQuery(DATASETS.spending, {
-      '$select': 'department_name, SUM(amount) as total_spent',
-      '$where': `fiscal_year='${fiscalYear}'`,
-      '$group': 'department_name',
+      '$select': 'department, SUM(amount) as total_spent',
+      '$where': `budget_fiscal_year='${fiscalYear}'`,
+      '$group': 'department',
       '$order': 'total_spent DESC',
       '$limit': limit,
     });
     return data.map(d => ({
-      name: d.department_name || 'Unknown',
+      name: d.department || 'Unknown',
       value: parseFloat(d.total_spent) || 0,
     }));
   } catch (err) {
@@ -84,14 +84,14 @@ export async function fetchSpendingByDepartment(fiscalYear = '2025', limit = 50)
 export async function fetchSpendingByVendor(fiscalYear = '2025', limit = 25) {
   try {
     const data = await socrataQuery(DATASETS.spending, {
-      '$select': 'vendor_name, SUM(amount) as total_paid',
-      '$where': `fiscal_year='${fiscalYear}'`,
-      '$group': 'vendor_name',
+      '$select': 'vendor, SUM(amount) as total_paid',
+      '$where': `budget_fiscal_year='${fiscalYear}'`,
+      '$group': 'vendor',
       '$order': 'total_paid DESC',
       '$limit': limit,
     });
     return data.map(d => ({
-      name: d.vendor_name || 'Unknown',
+      name: d.vendor || 'Unknown',
       value: parseFloat(d.total_paid) || 0,
     }));
   } catch (err) {
@@ -103,13 +103,13 @@ export async function fetchSpendingByVendor(fiscalYear = '2025', limit = 25) {
 export async function fetchSpendingOverTime(limit = 15) {
   try {
     const data = await socrataQuery(DATASETS.spending, {
-      '$select': 'fiscal_year, SUM(amount) as total_spent',
-      '$group': 'fiscal_year',
-      '$order': 'fiscal_year ASC',
+      '$select': 'budget_fiscal_year, SUM(amount) as total_spent',
+      '$group': 'budget_fiscal_year',
+      '$order': 'budget_fiscal_year ASC',
       '$limit': limit,
     });
     return data.map(d => ({
-      year: d.fiscal_year,
+      year: d.budget_fiscal_year,
       total: parseFloat(d.total_spent) || 0,
     }));
   } catch (err) {
@@ -125,14 +125,14 @@ export async function fetchSpendingOverTime(limit = 15) {
 export async function fetchPayrollByDepartment(calendarYear = '2024', limit = 30) {
   try {
     const data = await socrataQuery(DATASETS.payroll, {
-      '$select': 'department_name, SUM(pay_total_actual) as total_pay, COUNT(*) as employee_count',
-      '$where': `calendar_year='${calendarYear}'`,
-      '$group': 'department_name',
+      '$select': 'department_division, SUM(pay_total_actual) as total_pay, COUNT(*) as employee_count',
+      '$where': `year='${calendarYear}'`,
+      '$group': 'department_division',
       '$order': 'total_pay DESC',
       '$limit': limit,
     });
     return data.map(d => ({
-      department: d.department_name || 'Unknown',
+      department: d.department_division || 'Unknown',
       totalPay: parseFloat(d.total_pay) || 0,
       employees: parseInt(d.employee_count) || 0,
     }));
@@ -145,15 +145,15 @@ export async function fetchPayrollByDepartment(calendarYear = '2024', limit = 30
 export async function fetchTopEarners(calendarYear = '2024', limit = 50) {
   try {
     const data = await socrataQuery(DATASETS.payroll, {
-      '$select': 'employee_name, department_name, title, pay_total_actual',
-      '$where': `calendar_year='${calendarYear}'`,
+      '$select': 'name_first, name_last, department_division, position_title, pay_total_actual',
+      '$where': `year='${calendarYear}'`,
       '$order': 'pay_total_actual DESC',
       '$limit': limit,
     });
     return data.map(d => ({
-      name: d.employee_name || 'Unknown',
-      department: d.department_name || 'Unknown',
-      title: d.title || 'Unknown',
+      name: `${d.name_first || ''} ${d.name_last || ''}`.trim() || 'Unknown',
+      department: d.department_division || 'Unknown',
+      title: d.position_title || 'Unknown',
       totalPay: parseFloat(d.pay_total_actual) || 0,
     }));
   } catch (err) {
@@ -165,13 +165,13 @@ export async function fetchTopEarners(calendarYear = '2024', limit = 50) {
 export async function fetchPayrollOverTime(limit = 15) {
   try {
     const data = await socrataQuery(DATASETS.payroll, {
-      '$select': 'calendar_year, SUM(pay_total_actual) as total_payroll, COUNT(*) as headcount',
-      '$group': 'calendar_year',
-      '$order': 'calendar_year ASC',
+      '$select': 'year, SUM(pay_total_actual) as total_payroll, COUNT(*) as headcount',
+      '$group': 'year',
+      '$order': 'year ASC',
       '$limit': limit,
     });
     return data.map(d => ({
-      year: d.calendar_year,
+      year: d.year,
       totalPayroll: parseFloat(d.total_payroll) || 0,
       headcount: parseInt(d.headcount) || 0,
     }));
@@ -188,13 +188,13 @@ export async function fetchPayrollOverTime(limit = 15) {
 export async function fetchQuasiPayments(limit = 30) {
   try {
     const data = await socrataQuery(DATASETS.quasiPayments, {
-      '$select': 'organization_name, SUM(amount) as total_paid',
-      '$group': 'organization_name',
+      '$select': 'quasi_agency_name, SUM(amount) as total_paid',
+      '$group': 'quasi_agency_name',
       '$order': 'total_paid DESC',
       '$limit': limit,
     });
     return data.map(d => ({
-      name: d.organization_name || 'Unknown',
+      name: d.quasi_agency_name || 'Unknown',
       value: parseFloat(d.total_paid) || 0,
     }));
   } catch (err) {
