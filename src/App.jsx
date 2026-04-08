@@ -1,0 +1,712 @@
+import { useState, useEffect, useCallback } from 'react';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  PieChart, Pie, Cell, LineChart, Line, AreaChart, Area, Treemap,
+  Legend
+} from 'recharts';
+import {
+  DollarSign, Users, Building2, TrendingUp, AlertTriangle,
+  ExternalLink, Search, ChevronDown, Scale, Vote, FileText,
+  Landmark, Eye, Download
+} from 'lucide-react';
+import {
+  fetchSpendingByDepartment, fetchSpendingByVendor, fetchSpendingOverTime,
+  fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime,
+  fetchQuasiPayments, fetchFederalSpendingMA, fetchFederalAwardsMA,
+  MA_BUDGET_SUMMARY, AUDIT_FACTS,
+} from './services/api';
+import './index.css';
+
+// ============================================================
+// HELPERS
+// ============================================================
+
+const formatMoney = (num) => {
+  if (num >= 1e9) return `$${(num / 1e9).toFixed(2)}B`;
+  if (num >= 1e6) return `$${(num / 1e6).toFixed(1)}M`;
+  if (num >= 1e3) return `$${(num / 1e3).toFixed(0)}K`;
+  return `$${num.toLocaleString()}`;
+};
+
+const formatMoneyFull = (num) => `$${Number(num).toLocaleString()}`;
+
+const COLORS = ['#ff3344', '#ffaa22', '#3388ff', '#22cc66', '#22ddee', '#aa44ff',
+  '#ff6644', '#44bbaa', '#ff88aa', '#88aaff', '#ffcc44', '#66ddaa'];
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (!active || !payload?.length) return null;
+  return (
+    <div style={{
+      background: '#1c1c28', border: '1px solid #2a2a3a', borderRadius: 8,
+      padding: '12px 16px', fontSize: '0.85rem',
+    }}>
+      <p style={{ color: '#e8e8f0', fontWeight: 600, marginBottom: 4 }}>{label}</p>
+      {payload.map((p, i) => (
+        <p key={i} style={{ color: p.color || '#ffaa22' }}>
+          {p.name}: {typeof p.value === 'number' ? formatMoney(p.value) : p.value}
+        </p>
+      ))}
+    </div>
+  );
+};
+
+// ============================================================
+// APP
+// ============================================================
+
+export default function App() {
+  const [activeSection, setActiveSection] = useState('overview');
+  const [loading, setLoading] = useState({});
+  const [errors, setErrors] = useState({});
+  const [data, setData] = useState({
+    spendingByDept: null,
+    spendingByVendor: null,
+    spendingOverTime: null,
+    payrollByDept: null,
+    topEarners: null,
+    payrollOverTime: null,
+    quasiPayments: null,
+    federalSpending: null,
+    federalAwards: null,
+  });
+  const [spendingYear, setSpendingYear] = useState('2024');
+  const [payrollYear, setPayrollYear] = useState('2024');
+
+  // Fetch data on mount and when years change
+  const fetchAllData = useCallback(async () => {
+    setLoading(prev => ({ ...prev, global: true }));
+
+    const fetchers = [
+      { key: 'spendingByDept', fn: () => fetchSpendingByDepartment(spendingYear) },
+      { key: 'spendingByVendor', fn: () => fetchSpendingByVendor(spendingYear) },
+      { key: 'spendingOverTime', fn: () => fetchSpendingOverTime() },
+      { key: 'payrollByDept', fn: () => fetchPayrollByDepartment(payrollYear) },
+      { key: 'topEarners', fn: () => fetchTopEarners(payrollYear) },
+      { key: 'payrollOverTime', fn: () => fetchPayrollOverTime() },
+      { key: 'quasiPayments', fn: () => fetchQuasiPayments() },
+      { key: 'federalSpending', fn: () => fetchFederalSpendingMA() },
+      { key: 'federalAwards', fn: () => fetchFederalAwardsMA() },
+    ];
+
+    const results = await Promise.allSettled(fetchers.map(f => f.fn()));
+    const newData = {};
+    const newErrors = {};
+
+    results.forEach((result, i) => {
+      const key = fetchers[i].key;
+      if (result.status === 'fulfilled' && result.value) {
+        newData[key] = result.value;
+      } else {
+        newErrors[key] = true;
+      }
+    });
+
+    setData(prev => ({ ...prev, ...newData }));
+    setErrors(newErrors);
+    setLoading(prev => ({ ...prev, global: false }));
+  }, [spendingYear, payrollYear]);
+
+  useEffect(() => { fetchAllData(); }, [fetchAllData]);
+
+  const dataSourceCount = Object.values(data).filter(Boolean).length;
+  const errorCount = Object.values(errors).filter(Boolean).length;
+  const budget = MA_BUDGET_SUMMARY;
+  const audit = AUDIT_FACTS;
+
+  const sections = [
+    { id: 'overview', label: 'Overview', icon: <Eye size={14} /> },
+    { id: 'spending', label: 'Spending', icon: <DollarSign size={14} /> },
+    { id: 'payroll', label: 'Payroll', icon: <Users size={14} /> },
+    { id: 'vendors', label: 'Vendors & Contracts', icon: <Building2 size={14} /> },
+    { id: 'federal', label: 'Federal Funds', icon: <Landmark size={14} /> },
+    { id: 'quasi', label: 'Quasi-Government', icon: <Building2 size={14} /> },
+    { id: 'audit', label: 'The Audit Fight', icon: <Scale size={14} /> },
+  ];
+
+  return (
+    <>
+      {/* ============ HERO ============ */}
+      <section className="hero">
+        <div className="hero-content">
+          <div className="hero-badge">Public Financial Transparency</div>
+          <h1>The People's Audit</h1>
+          <p className="subtitle">
+            Massachusetts voters demanded accountability. The legislature refused.
+            So we're putting every public dollar on display — for all the world to see.
+          </p>
+          <div className="audit-stat">
+            <span className="big-number">{audit.percentYes}%</span>
+            <span className="stat-label">
+              <strong>of voters said YES</strong>
+              to auditing the legislature ({audit.ballotQuestion}, {audit.ballotYear})
+            </span>
+          </div>
+          <div className="hero-cta">
+            <a href="#dashboard" className="btn-primary">
+              <Eye size={18} /> Explore the Data
+            </a>
+            <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit" target="_blank" rel="noopener" className="btn-secondary">
+              <FileText size={18} /> View Source on GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ NAV ============ */}
+      <nav className="nav" id="dashboard">
+        <div className="nav-inner">
+          {sections.map(s => (
+            <button
+              key={s.id}
+              className={`nav-link ${activeSection === s.id ? 'active' : ''}`}
+              onClick={() => setActiveSection(s.id)}
+            >
+              {s.icon} {s.label}
+            </button>
+          ))}
+        </div>
+      </nav>
+
+      {/* ============ STATUS BAR ============ */}
+      <div className="section" style={{ paddingBottom: 0 }}>
+        <div className="status-bar">
+          <span className={`status-dot ${loading.global ? 'loading' : errorCount > 0 ? 'error' : ''}`} />
+          <span style={{ color: 'var(--text-secondary)' }}>
+            {loading.global
+              ? 'Fetching live data from Massachusetts public records...'
+              : `Connected to ${dataSourceCount} live data feeds | ${errorCount > 0 ? `${errorCount} source(s) unavailable — showing cached data` : 'All sources online'}`
+            }
+          </span>
+        </div>
+        <div className="disclaimer">
+          All data shown is sourced from publicly available Massachusetts government records via the
+          CTHRU Open Transparency Portal (Office of the Comptroller) and USASpending.gov.
+          Budget summary figures are compiled from the Governor's FY2025 budget recommendation.
+          This dashboard is a citizen-led transparency project and is not affiliated with any government entity.
+        </div>
+      </div>
+
+      {/* ============ OVERVIEW ============ */}
+      {activeSection === 'overview' && (
+        <div className="section">
+          <div className="section-header">
+            <span className="section-tag">FY{budget.fiscalYear} Snapshot</span>
+            <h2>Massachusetts at a Glance</h2>
+            <p>A high-level view of state finances — budget, revenue, expenditure, and workforce.</p>
+          </div>
+
+          <div className="kpi-row">
+            <div className="card">
+              <div className="card-title"><DollarSign size={14} /> Total Budget</div>
+              <div className="card-value">{formatMoney(budget.totalBudget)}</div>
+              <div className="card-change">FY{budget.fiscalYear} Enacted</div>
+            </div>
+            <div className="card">
+              <div className="card-title"><TrendingUp size={14} /> Revenue</div>
+              <div className="card-value">{formatMoney(budget.totalRevenue)}</div>
+              <div className="card-change">Tax + Federal</div>
+            </div>
+            <div className="card">
+              <div className="card-title"><DollarSign size={14} /> Expenditure</div>
+              <div className="card-value">{formatMoney(budget.totalExpenditure)}</div>
+              <div className="card-change" style={{ color: 'var(--accent-red)' }}>
+                {formatMoney(budget.totalExpenditure - budget.totalRevenue)} gap
+              </div>
+            </div>
+            <div className="card">
+              <div className="card-title"><Vote size={14} /> Audit Mandate</div>
+              <div className="card-value" style={{ color: 'var(--accent-gold)' }}>{audit.percentYes}%</div>
+              <div className="card-change" style={{ color: 'var(--accent-red)' }}>Blocked by legislature</div>
+            </div>
+          </div>
+
+          <div className="card-grid">
+            <div className="chart-card">
+              <h3>Budget by Category</h3>
+              <div className="chart-subtitle">Where {formatMoney(budget.totalBudget)} goes — FY{budget.fiscalYear}</div>
+              <ResponsiveContainer width="100%" height={400}>
+                <PieChart>
+                  <Pie data={budget.categories} cx="50%" cy="50%" outerRadius={150} dataKey="value"
+                    label={({ name, percent }) => `${name} (${(percent * 100).toFixed(1)}%)`}
+                    labelLine={{ stroke: '#606078' }}
+                  >
+                    {budget.categories.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+                  </Pie>
+                  <Tooltip content={<CustomTooltip />} />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="chart-card">
+              <h3>Revenue Sources</h3>
+              <div className="chart-subtitle">How the Commonwealth funds itself</div>
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart data={budget.revenueSources} layout="vertical" margin={{ left: 120 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                  <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                  <YAxis type="category" dataKey="name" stroke="#606078" width={110} tick={{ fontSize: 12 }} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Bar dataKey="value" fill="#3388ff" radius={[0, 6, 6, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {data.spendingOverTime && (
+            <div className="chart-card" style={{ marginTop: 24 }}>
+              <h3>State Spending Over Time</h3>
+              <div className="chart-subtitle">Total expenditures by fiscal year — live from CTHRU</div>
+              <ResponsiveContainer width="100%" height={350}>
+                <AreaChart data={data.spendingOverTime}>
+                  <defs>
+                    <linearGradient id="spendGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#ff3344" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#ff3344" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                  <XAxis dataKey="year" stroke="#606078" />
+                  <YAxis tickFormatter={formatMoney} stroke="#606078" />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Area type="monotone" dataKey="total" stroke="#ff3344" fill="url(#spendGrad)" strokeWidth={2} name="Total Spending" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ============ SPENDING ============ */}
+      {activeSection === 'spending' && (
+        <div className="section">
+          <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
+            <div>
+              <span className="section-tag">Expenditures</span>
+              <h2>Where the Money Goes</h2>
+              <p>Department-level spending data pulled live from the CTHRU Open Expenditures portal.</p>
+            </div>
+            <select className="year-select" value={spendingYear} onChange={e => setSpendingYear(e.target.value)}>
+              {Array.from({ length: 15 }, (_, i) => 2024 - i).map(y => (
+                <option key={y} value={y}>FY {y}</option>
+              ))}
+            </select>
+          </div>
+
+          {data.spendingByDept ? (
+            <>
+              <div className="chart-card">
+                <h3>Spending by Department — FY{spendingYear}</h3>
+                <div className="chart-subtitle">Top 20 departments by total expenditure</div>
+                <ResponsiveContainer width="100%" height={600}>
+                  <BarChart data={data.spendingByDept.slice(0, 20)} layout="vertical" margin={{ left: 200 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                    <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                    <YAxis type="category" dataKey="name" stroke="#606078" width={190} tick={{ fontSize: 11 }} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar dataKey="value" fill="#ff3344" radius={[0, 6, 6, 0]} name="Total Spent" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="data-table-wrapper" style={{ marginTop: 24 }}>
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Department</th>
+                      <th>Total Expenditure</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.spendingByDept.map((d, i) => (
+                      <tr key={i}>
+                        <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                        <td>{d.name}</td>
+                        <td className="money">{formatMoneyFull(d.value)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          ) : (
+            <div className="loading-skeleton" />
+          )}
+        </div>
+      )}
+
+      {/* ============ PAYROLL ============ */}
+      {activeSection === 'payroll' && (
+        <div className="section">
+          <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
+            <div>
+              <span className="section-tag">Compensation</span>
+              <h2>Public Employee Payroll</h2>
+              <p>Every salary, every department. Data from CTHRU Statewide Payroll.</p>
+            </div>
+            <select className="year-select" value={payrollYear} onChange={e => setPayrollYear(e.target.value)}>
+              {Array.from({ length: 15 }, (_, i) => 2024 - i).map(y => (
+                <option key={y} value={y}>{y}</option>
+              ))}
+            </select>
+          </div>
+
+          {data.payrollByDept ? (
+            <div className="card-grid">
+              <div className="chart-card">
+                <h3>Total Payroll by Department</h3>
+                <div className="chart-subtitle">Aggregate compensation — {payrollYear}</div>
+                <ResponsiveContainer width="100%" height={500}>
+                  <BarChart data={data.payrollByDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                    <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                    <YAxis type="category" dataKey="department" stroke="#606078" width={170} tick={{ fontSize: 11 }} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar dataKey="totalPay" fill="#ffaa22" radius={[0, 6, 6, 0]} name="Total Compensation" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="chart-card">
+                <h3>Headcount by Department</h3>
+                <div className="chart-subtitle">Employee count — {payrollYear}</div>
+                <ResponsiveContainer width="100%" height={500}>
+                  <BarChart data={data.payrollByDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                    <XAxis type="number" stroke="#606078" />
+                    <YAxis type="category" dataKey="department" stroke="#606078" width={170} tick={{ fontSize: 11 }} />
+                    <Tooltip />
+                    <Bar dataKey="employees" fill="#3388ff" radius={[0, 6, 6, 0]} name="Employees" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          ) : (
+            <div className="loading-skeleton" />
+          )}
+
+          {data.topEarners && (
+            <div style={{ marginTop: 24 }}>
+              <h3 style={{ marginBottom: 16 }}>Top 50 Highest-Paid State Employees — {payrollYear}</h3>
+              <div className="data-table-wrapper">
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Department</th>
+                      <th>Title</th>
+                      <th>Total Compensation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.topEarners.map((e, i) => (
+                      <tr key={i}>
+                        <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                        <td>{e.name}</td>
+                        <td>{e.department}</td>
+                        <td style={{ color: 'var(--text-secondary)' }}>{e.title}</td>
+                        <td className="money">{formatMoneyFull(e.totalPay)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {data.payrollOverTime && (
+            <div className="chart-card" style={{ marginTop: 24 }}>
+              <h3>Total State Payroll Over Time</h3>
+              <div className="chart-subtitle">Year-over-year payroll growth</div>
+              <ResponsiveContainer width="100%" height={350}>
+                <AreaChart data={data.payrollOverTime}>
+                  <defs>
+                    <linearGradient id="payrollGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#ffaa22" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#ffaa22" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                  <XAxis dataKey="year" stroke="#606078" />
+                  <YAxis tickFormatter={formatMoney} stroke="#606078" />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Area type="monotone" dataKey="totalPayroll" stroke="#ffaa22" fill="url(#payrollGrad)" strokeWidth={2} name="Total Payroll" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ============ VENDORS ============ */}
+      {activeSection === 'vendors' && (
+        <div className="section">
+          <div className="section-header">
+            <span className="section-tag">Contracts & Procurement</span>
+            <h2>Who Gets Paid</h2>
+            <p>Top vendors and contractors receiving taxpayer dollars. Live data from CTHRU.</p>
+          </div>
+
+          {data.spendingByVendor ? (
+            <>
+              <div className="chart-card">
+                <h3>Top 25 Vendors by Payment — FY{spendingYear}</h3>
+                <div className="chart-subtitle">Follow the money</div>
+                <ResponsiveContainer width="100%" height={700}>
+                  <BarChart data={data.spendingByVendor} layout="vertical" margin={{ left: 220 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                    <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                    <YAxis type="category" dataKey="name" stroke="#606078" width={210} tick={{ fontSize: 11 }} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar dataKey="value" fill="#22cc66" radius={[0, 6, 6, 0]} name="Total Paid" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="data-table-wrapper" style={{ marginTop: 24 }}>
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Vendor / Contractor</th>
+                      <th>Total Payments</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.spendingByVendor.map((v, i) => (
+                      <tr key={i}>
+                        <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                        <td>{v.name}</td>
+                        <td className="money">{formatMoneyFull(v.value)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          ) : (
+            <div className="loading-skeleton" />
+          )}
+        </div>
+      )}
+
+      {/* ============ FEDERAL ============ */}
+      {activeSection === 'federal' && (
+        <div className="section">
+          <div className="section-header">
+            <span className="section-tag">Federal Funding</span>
+            <h2>Federal Money Flowing to Massachusetts</h2>
+            <p>Grants, contracts, and awards from the federal government to MA entities. Data from USASpending.gov.</p>
+          </div>
+
+          <div className="card-grid">
+            {data.federalSpending ? (
+              <div className="chart-card">
+                <h3>Federal Spending by Agency</h3>
+                <div className="chart-subtitle">Which federal agencies send the most to MA</div>
+                <ResponsiveContainer width="100%" height={500}>
+                  <BarChart data={data.federalSpending.slice(0, 15)} layout="vertical" margin={{ left: 200 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                    <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                    <YAxis type="category" dataKey="name" stroke="#606078" width={190} tick={{ fontSize: 11 }} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar dataKey="value" fill="#22ddee" radius={[0, 6, 6, 0]} name="Federal Spending" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <div className="loading-skeleton" />
+            )}
+
+            {data.federalAwards ? (
+              <div className="chart-card">
+                <h3>Top Federal Award Recipients in MA</h3>
+                <div className="chart-subtitle">Who receives the most federal dollars</div>
+                <ResponsiveContainer width="100%" height={500}>
+                  <BarChart data={data.federalAwards.slice(0, 15)} layout="vertical" margin={{ left: 200 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                    <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                    <YAxis type="category" dataKey="name" stroke="#606078" width={190} tick={{ fontSize: 11 }} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar dataKey="value" fill="#aa44ff" radius={[0, 6, 6, 0]} name="Award Amount" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <div className="loading-skeleton" />
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ============ QUASI-GOVERNMENT ============ */}
+      {activeSection === 'quasi' && (
+        <div className="section">
+          <div className="section-header">
+            <span className="section-tag">Quasi-Public Entities</span>
+            <h2>The Shadow Government</h2>
+            <p>Quasi-government organizations operate with public funds but often with less oversight. Here's where the money goes.</p>
+          </div>
+
+          {data.quasiPayments ? (
+            <>
+              <div className="chart-card">
+                <h3>Payments to Quasi-Government Entities</h3>
+                <div className="chart-subtitle">Aggregated from CTHRU Quasi-Government data</div>
+                <ResponsiveContainer width="100%" height={600}>
+                  <BarChart data={data.quasiPayments.slice(0, 20)} layout="vertical" margin={{ left: 220 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3a" />
+                    <XAxis type="number" tickFormatter={formatMoney} stroke="#606078" />
+                    <YAxis type="category" dataKey="name" stroke="#606078" width={210} tick={{ fontSize: 11 }} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar dataKey="value" fill="#ff6644" radius={[0, 6, 6, 0]} name="Total Payments" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="data-table-wrapper" style={{ marginTop: 24 }}>
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Organization</th>
+                      <th>Total Payments</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.quasiPayments.map((q, i) => (
+                      <tr key={i}>
+                        <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                        <td>{q.name}</td>
+                        <td className="money">{formatMoneyFull(q.value)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          ) : (
+            <div className="loading-skeleton" />
+          )}
+        </div>
+      )}
+
+      {/* ============ THE AUDIT FIGHT ============ */}
+      {activeSection === 'audit' && (
+        <div className="section">
+          <div className="section-header">
+            <span className="section-tag">Democracy in Action</span>
+            <h2>The Fight for the Legislative Audit</h2>
+            <p>The people spoke. The legislature refused to listen. Here's the full story.</p>
+          </div>
+
+          <div className="card-grid">
+            <div className="card" style={{ borderColor: 'rgba(255,170,34,0.3)' }}>
+              <div className="card-title"><Vote size={14} /> The Mandate</div>
+              <div className="card-value" style={{ color: 'var(--accent-gold)' }}>{audit.percentYes}%</div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                On November 5, 2024, Massachusetts {audit.ballotQuestion} asked voters whether the
+                State Auditor should have explicit authority to audit the Legislature.
+                <strong style={{ color: 'var(--text-primary)' }}> Nearly 72% voted YES</strong> — an
+                overwhelming, bipartisan mandate for transparency.
+              </p>
+            </div>
+
+            <div className="card" style={{ borderColor: 'rgba(255,51,68,0.3)' }}>
+              <div className="card-title"><AlertTriangle size={14} /> The Blockade</div>
+              <div className="card-value" style={{ color: 'var(--accent-red)', fontSize: '1.6rem' }}>Refused</div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                Despite the voter mandate, legislative leaders — including {audit.legislativeLeaders.join(' and ')} —
+                have refused to comply. In January 2025, the House hired outside legal counsel
+                to fight the audit, arguing "separation of powers."
+              </p>
+            </div>
+
+            <div className="card" style={{ borderColor: 'rgba(51,136,255,0.3)' }}>
+              <div className="card-title"><Scale size={14} /> The Court Battle</div>
+              <div className="card-value" style={{ color: 'var(--accent-blue)', fontSize: '1.3rem' }}>Supreme Court</div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                On {audit.courtFilingDate}, Auditor {audit.auditorName} filed a complaint with the
+                Massachusetts Supreme Judicial Court to enforce the will of the voters
+                and compel the Legislature to submit to an audit.
+              </p>
+            </div>
+
+            <div className="card" style={{ borderColor: 'rgba(34,204,102,0.3)' }}>
+              <div className="card-title"><Eye size={14} /> Why This Dashboard Exists</div>
+              <div className="card-value" style={{ color: 'var(--accent-green)', fontSize: '1.3rem' }}>Transparency</div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                If the Legislature won't allow a formal audit, the people will audit them with
+                the data that's already public. Every dollar, every vendor, every salary.
+                This dashboard is built entirely on publicly available data — and it's just the beginning.
+              </p>
+            </div>
+          </div>
+
+          <div className="chart-card" style={{ marginTop: 32 }}>
+            <h3>Timeline of Events</h3>
+            <div style={{ padding: '20px 0' }}>
+              {[
+                { date: '2022', event: 'Diana DiZoglio elected State Auditor on a platform of legislative accountability', color: '#3388ff' },
+                { date: '2023', event: 'Auditor DiZoglio attempts audit; Legislature refuses, citing lack of authority', color: '#ffaa22' },
+                { date: 'Nov 2024', event: 'Ballot Question 1 passes with 71.8% YES — voters affirm the auditor\'s authority', color: '#22cc66' },
+                { date: 'Nov 2024', event: 'DiZoglio announces plans to begin the audit immediately', color: '#22cc66' },
+                { date: 'Jan 2025', event: 'House of Representatives hires outside counsel to fight the audit', color: '#ff3344' },
+                { date: 'Feb 2026', event: 'DiZoglio files complaint with Supreme Judicial Court to enforce Question 1', color: '#aa44ff' },
+                { date: '2026', event: 'The People\'s Audit goes live — if they won\'t audit, we will', color: '#ff3344' },
+              ].map((item, i) => (
+                <div key={i} style={{
+                  display: 'flex', gap: 20, padding: '16px 0',
+                  borderLeft: `3px solid ${item.color}`, paddingLeft: 20, marginLeft: 10,
+                  marginBottom: i < 6 ? 8 : 0,
+                }}>
+                  <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.85rem', color: item.color, minWidth: 80 }}>
+                    {item.date}
+                  </span>
+                  <span style={{ color: 'var(--text-primary)', fontSize: '0.95rem' }}>{item.event}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ marginTop: 32, textAlign: 'center' }}>
+            <h3 style={{ marginBottom: 16, color: 'var(--text-primary)' }}>Learn More & Take Action</h3>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a href="https://www.macomptroller.org/cthru/" target="_blank" rel="noopener" className="btn-secondary" style={{ padding: '10px 20px', borderRadius: 8, textDecoration: 'none', fontSize: '0.85rem' }}>
+                <ExternalLink size={14} /> CTHRU Portal
+              </a>
+              <a href="https://massopenbooks.org/" target="_blank" rel="noopener" className="btn-secondary" style={{ padding: '10px 20px', borderRadius: 8, textDecoration: 'none', fontSize: '0.85rem' }}>
+                <ExternalLink size={14} /> MassOpenBooks
+              </a>
+              <a href="https://ballotpedia.org/Massachusetts_Question_1,_Authorization_of_State_Auditor_to_Audit_General_Court_Initiative_(2024)" target="_blank" rel="noopener" className="btn-secondary" style={{ padding: '10px 20px', borderRadius: 8, textDecoration: 'none', fontSize: '0.85rem' }}>
+                <ExternalLink size={14} /> Question 1 Details
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ============ FOOTER ============ */}
+      <footer className="footer">
+        <p>
+          <strong style={{ color: 'var(--text-primary)' }}>The People's Audit</strong> — A citizen-led transparency project for Massachusetts
+        </p>
+        <p style={{ marginTop: 8 }}>
+          Built on public data from the <a href="https://www.macomptroller.org/cthru/" target="_blank" rel="noopener">CTHRU Portal</a>,{' '}
+          <a href="https://massopenbooks.org/" target="_blank" rel="noopener">MassOpenBooks</a>, and{' '}
+          <a href="https://www.usaspending.gov/" target="_blank" rel="noopener">USASpending.gov</a>.
+        </p>
+        <div className="footer-links">
+          <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit" target="_blank" rel="noopener">GitHub Repository</a>
+          <a href="https://cthrupayroll.mass.gov/" target="_blank" rel="noopener">CTHRU Payroll</a>
+          <a href="https://cthruspending.mass.gov/" target="_blank" rel="noopener">CTHRU Spending</a>
+          <a href="https://api.usaspending.gov/" target="_blank" rel="noopener">USASpending API</a>
+        </div>
+        <p style={{ marginTop: 16, fontSize: '0.75rem' }}>
+          72% of Massachusetts voters demanded a legislative audit. This dashboard exists because the Legislature said no.
+        </p>
+      </footer>
+    </>
+  );
+}
