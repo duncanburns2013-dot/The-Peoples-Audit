@@ -1523,6 +1523,14 @@ export default function App() {
     <>
       {/* ============ HERO ============ */}
       <section className="hero">
+        {/* Ominous official portraits in background */}
+        <div className="hero-figures">
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official1.png)', left: '2%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official2.png)', left: '20%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official3.png)', left: '40%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official4.png)', right: '20%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official5.png)', right: '2%', bottom: 0 }} />
+        </div>
         <div className="hero-content">
           <div className="hero-badge">Public Financial Investigation</div>
           <h1>The People's Audit</h1>

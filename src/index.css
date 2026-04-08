@@ -123,40 +123,52 @@ body {
 .hero {
   min-height: 100vh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  background: var(--gradient-hero);
+  background: #0a0c14;
   position: relative; overflow: hidden; padding: 40px 20px;
 }
 .hero::before {
   content: ''; position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(124,58,237,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(37,99,235,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 70% 50% at 50% 90%, rgba(217,38,56,0.05) 0%, transparent 70%);
-  pointer-events: none;
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(10,12,20,0.3) 0%, rgba(10,12,20,0.85) 60%, #0a0c14 100%);
+  z-index: 1; pointer-events: none;
 }
 .hero::after {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 5;
   background: linear-gradient(90deg, transparent 10%, var(--accent-red) 30%, var(--accent-purple) 50%, var(--accent-red) 70%, transparent 90%);
   animation: shimmer 4s linear infinite; background-size: 200% 100%;
 }
+
+/* Ominous official figures in background */
+.hero-figures {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.hero-figure {
+  position: absolute; bottom: 0;
+  width: 22%; height: 75%;
+  background-size: contain; background-position: bottom center; background-repeat: no-repeat;
+  opacity: 0.12; filter: grayscale(100%) contrast(1.2) brightness(0.7);
+  transition: opacity 0.6s ease;
+}
+.hero:hover .hero-figure { opacity: 0.18; }
+
 .hero-content {
-  position: relative; z-index: 1; text-align: center; max-width: 900px;
+  position: relative; z-index: 2; text-align: center; max-width: 900px;
   animation: fadeInUp 1s ease-out;
 }
 .hero-badge {
   display: inline-block;
-  background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.35);
-  color: #c4a5ff; padding: 8px 24px; border-radius: 30px;
+  background: rgba(217,38,56,0.15); border: 1px solid rgba(217,38,56,0.3);
+  color: #ff6b7a; padding: 8px 24px; border-radius: 30px;
   font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
   margin-bottom: 30px;
 }
 .hero h1 {
   font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; margin-bottom: 24px;
-  background: linear-gradient(135deg, #fff 0%, #d0d0e0 40%, #ff3344 70%, #9955ff 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  color: #ffffff; text-shadow: 0 0 60px rgba(217,38,56,0.2);
 }
 .hero .subtitle {
-  font-size: clamp(1rem, 2vw, 1.3rem); color: #c0c5d8;
+  font-size: clamp(1rem, 2vw, 1.25rem); color: #9a9fb8;
   margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;
   line-height: 1.7;
 }
@@ -486,6 +498,7 @@ body {
   .section { padding: 40px 16px; }
   .hero h1 { font-size: 2.2rem; }
   .audit-stat .big-number { font-size: 2rem; }
+  .hero-figure { width: 30%; opacity: 0.08; }
   .sidebar { width: 100%; }
   .site-header { padding: 0 16px; }
 }
