@@ -232,6 +232,7 @@ body {
 }
 .status-dot.loading { background: var(--accent-gold); }
 .status-dot.error { background: var(--accent-red); }
+.status-dot.cached { background: var(--accent-blue); }
 
 /* ---- KPI ROW ---- */
 .kpi-row {

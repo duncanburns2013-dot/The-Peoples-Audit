@@ -14,6 +14,9 @@ import {
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime,
   fetchQuasiPayments, fetchFederalSpendingMA, fetchFederalAwardsMA,
   MA_BUDGET_SUMMARY, AUDIT_FACTS,
+  SPENDING_BY_DEPARTMENT, SPENDING_BY_VENDOR, SPENDING_OVER_TIME,
+  PAYROLL_BY_DEPARTMENT, TOP_EARNERS, PAYROLL_OVER_TIME,
+  QUASI_PAYMENTS, FEDERAL_SPENDING_MA, FEDERAL_AWARDS_MA,
 } from './services/api';
 import './index.css';
 
@@ -88,15 +91,32 @@ export default function App() {
       { key: 'federalAwards', fn: () => fetchFederalAwardsMA() },
     ];
 
+    // Fallback data map — used when live API calls return null
+    const fallbacks = {
+      spendingByDept: SPENDING_BY_DEPARTMENT,
+      spendingByVendor: SPENDING_BY_VENDOR,
+      spendingOverTime: SPENDING_OVER_TIME,
+      payrollByDept: PAYROLL_BY_DEPARTMENT,
+      topEarners: TOP_EARNERS,
+      payrollOverTime: PAYROLL_OVER_TIME,
+      quasiPayments: QUASI_PAYMENTS,
+      federalSpending: FEDERAL_SPENDING_MA,
+      federalAwards: FEDERAL_AWARDS_MA,
+    };
+
     const results = await Promise.allSettled(fetchers.map(f => f.fn()));
     const newData = {};
     const newErrors = {};
+    let liveCount = 0;
 
     results.forEach((result, i) => {
       const key = fetchers[i].key;
       if (result.status === 'fulfilled' && result.value) {
         newData[key] = result.value;
+        liveCount++;
       } else {
+        // Use fallback data so dashboard always has content
+        newData[key] = fallbacks[key] || null;
         newErrors[key] = true;
       }
     });
@@ -104,6 +124,11 @@ export default function App() {
     setData(prev => ({ ...prev, ...newData }));
     setErrors(newErrors);
     setLoading(prev => ({ ...prev, global: false }));
+    if (liveCount > 0) {
+      console.log(`Live data loaded for ${liveCount}/${fetchers.length} sources`);
+    } else {
+      console.log('Using cached public records data (live APIs unavailable)');
+    }
   }, [spendingYear, payrollYear]);
 
   useEffect(() => { fetchAllData(); }, [fetchAllData]);
@@ -170,11 +195,15 @@ export default function App() {
       {/* ============ STATUS BAR ============ */}
       <div className="section" style={{ paddingBottom: 0 }}>
         <div className="status-bar">
-          <span className={`status-dot ${loading.global ? 'loading' : errorCount > 0 ? 'error' : ''}`} />
+          <span className={`status-dot ${loading.global ? 'loading' : errorCount === 0 ? '' : dataSourceCount > 0 ? '' : 'cached'}`} />
           <span style={{ color: 'var(--text-secondary)' }}>
             {loading.global
               ? 'Fetching live data from Massachusetts public records...'
-              : `Connected to ${dataSourceCount} live data feeds | ${errorCount > 0 ? `${errorCount} source(s) unavailable — showing cached data` : 'All sources online'}`
+              : dataSourceCount > 0 && errorCount === 0
+                ? `Connected to ${dataSourceCount} live data feeds — all sources online`
+                : dataSourceCount > 0
+                  ? `${dataSourceCount} live feeds active | ${errorCount} source(s) using cached public records`
+                  : `Displaying cached public records data from CTHRU, USASpending.gov & official reports`
             }
           </span>
         </div>
