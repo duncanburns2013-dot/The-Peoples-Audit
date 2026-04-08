@@ -20,10 +20,11 @@ async function socrataQuery(datasetId, params = {}) {
   Object.entries(params).forEach(([key, value]) => {
     url.searchParams.append(key, value);
   });
-  // Socrata app tokens increase rate limits but are not required
-  url.searchParams.append('$$app_token', 'public');
+  // Anonymous access (no app token) — rate-limited but functional for public data
 
-  const response = await fetch(url.toString());
+  const response = await fetch(url.toString(), {
+    headers: { 'Accept': 'application/json' },
+  });
   if (!response.ok) throw new Error(`Socrata API error: ${response.status}`);
   return response.json();
 }
@@ -179,15 +180,14 @@ export async function fetchQuasiPayments(limit = 30) {
 
 export async function fetchFederalSpendingMA(fiscalYear = 2025) {
   try {
-    const response = await fetch(`${USASPENDING_BASE}/search/spending_by_category/`, {
+    const response = await fetch(`${USASPENDING_BASE}/search/spending_by_category/awarding_agency/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         filters: {
-          time_period: [{ start_date: `${fiscalYear}-10-01`, end_date: `${fiscalYear + 1}-09-30` }],
+          time_period: [{ start_date: `${fiscalYear - 1}-10-01`, end_date: `${fiscalYear}-09-30` }],
           place_of_performance_locations: [{ country: 'USA', state: 'MA' }],
         },
-        category: 'awarding_agency',
         limit: 20,
         page: 1,
       }),
@@ -206,15 +206,14 @@ export async function fetchFederalSpendingMA(fiscalYear = 2025) {
 
 export async function fetchFederalAwardsMA(fiscalYear = 2025) {
   try {
-    const response = await fetch(`${USASPENDING_BASE}/search/spending_by_category/`, {
+    const response = await fetch(`${USASPENDING_BASE}/search/spending_by_category/recipient/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         filters: {
-          time_period: [{ start_date: `${fiscalYear}-10-01`, end_date: `${fiscalYear + 1}-09-30` }],
+          time_period: [{ start_date: `${fiscalYear - 1}-10-01`, end_date: `${fiscalYear}-09-30` }],
           place_of_performance_locations: [{ country: 'USA', state: 'MA' }],
         },
-        category: 'recipient',
         limit: 25,
         page: 1,
       }),
