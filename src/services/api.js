@@ -15,7 +15,7 @@ const USASPENDING_BASE = 'https://api.usaspending.gov/api/v2';
 // CTHRU Socrata Dataset IDs (verified against cthru.data.socrata.com)
 const DATASETS = {
   spending: 'pegc-naaa',       // Comptroller of the Commonwealth Spending
-  payroll: 'rxhc-k6iz',        // Commonwealth of Massachusetts Payroll v2
+  payroll: '9ttk-7vz6',        // Commonwealth of Massachusetts Payroll v3 (data through 2026)
   quasiPayments: 'v9tf-ghmw',  // Quasi-Government Payments
 };
 
@@ -200,6 +200,131 @@ export async function fetchQuasiPayments(limit = 30) {
   } catch (err) {
     console.warn('Quasi payments fetch failed:', err.message);
     return null;
+  }
+}
+
+// ============================================================
+// SPENDING DRILL-DOWN — Department detail queries
+// ============================================================
+
+/**
+ * Get top vendors for a specific department in a given year.
+ */
+export async function fetchDepartmentVendors(department, fiscalYear = '2025', limit = 50) {
+  try {
+    const escaped = department.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'vendor, SUM(amount) as total, COUNT(*) as payment_count',
+      '$where': `department='${escaped}' AND budget_fiscal_year='${fiscalYear}'`,
+      '$group': 'vendor',
+      '$order': 'total DESC',
+      '$limit': limit,
+    });
+    return data.map(d => ({
+      vendor: d.vendor || 'Unknown',
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Department vendors fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get spending by category (object_class) for a department.
+ */
+export async function fetchDepartmentCategories(department, fiscalYear = '2025') {
+  try {
+    const escaped = department.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'object_class, SUM(amount) as total',
+      '$where': `department='${escaped}' AND budget_fiscal_year='${fiscalYear}'`,
+      '$group': 'object_class',
+      '$order': 'total DESC',
+      '$limit': '20',
+    });
+    return data.map(d => ({
+      category: d.object_class || 'Unknown',
+      total: parseFloat(d.total) || 0,
+    }));
+  } catch (err) {
+    console.warn('Department categories fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get spending by appropriation for a department.
+ */
+export async function fetchDepartmentAppropriations(department, fiscalYear = '2025') {
+  try {
+    const escaped = department.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'appropriation_name, SUM(amount) as total, COUNT(*) as payment_count',
+      '$where': `department='${escaped}' AND budget_fiscal_year='${fiscalYear}'`,
+      '$group': 'appropriation_name',
+      '$order': 'total DESC',
+      '$limit': '30',
+    });
+    return data.map(d => ({
+      appropriation: d.appropriation_name || 'Unknown',
+      total: parseFloat(d.total) || 0,
+      paymentCount: parseInt(d.payment_count) || 0,
+    }));
+  } catch (err) {
+    console.warn('Department appropriations fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get a department's spending over time (all fiscal years).
+ */
+export async function fetchDepartmentOverTime(department) {
+  try {
+    const escaped = department.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'budget_fiscal_year, SUM(amount) as total',
+      '$where': `department='${escaped}'`,
+      '$group': 'budget_fiscal_year',
+      '$order': 'budget_fiscal_year ASC',
+      '$limit': '30',
+    });
+    return data.map(d => ({
+      year: d.budget_fiscal_year,
+      total: parseFloat(d.total) || 0,
+    }));
+  } catch (err) {
+    console.warn('Department over time fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get individual payment records for a department.
+ */
+export async function fetchDepartmentPayments(department, fiscalYear = '2025', limit = 200) {
+  try {
+    const escaped = department.replace(/'/g, "''");
+    const data = await socrataQuery(DATASETS.spending, {
+      '$select': 'date, amount, vendor, appropriation_name, object_class, fund, payment_method',
+      '$where': `department='${escaped}' AND budget_fiscal_year='${fiscalYear}'`,
+      '$order': 'amount DESC',
+      '$limit': limit,
+    });
+    return data.map(d => ({
+      date: d.date ? new Date(d.date).toLocaleDateString() : 'N/A',
+      amount: parseFloat(d.amount) || 0,
+      vendor: d.vendor || '',
+      appropriation: d.appropriation_name || '',
+      category: d.object_class || '',
+      fund: d.fund || '',
+      paymentMethod: d.payment_method || '',
+    }));
+  } catch (err) {
+    console.warn('Department payments fetch failed:', err.message);
+    return [];
   }
 }
 
