@@ -748,6 +748,210 @@ export async function fetchSpendingByCabinet(fiscalYear = '2025', limit = 20) {
 }
 
 // ============================================================
+// OCPF — Campaign Finance Data (Massachusetts Office of Campaign and Political Finance)
+// Public API: https://api.ocpf.us — No authentication required
+// Cross-references state spending with political contributions
+// ============================================================
+
+const OCPF_BASE = 'https://api.ocpf.us';
+
+async function ocpfQuery(endpoint, timeout = 12000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeout);
+  try {
+    const response = await fetch(`${OCPF_BASE}${endpoint}`, {
+      headers: { 'Accept': 'application/json' },
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    if (!response.ok) throw new Error(`OCPF API error ${response.status}`);
+    return response.json();
+  } catch (err) {
+    clearTimeout(timer);
+    throw err;
+  }
+}
+
+/**
+ * Get all MA legislators with financial summaries from depository reports.
+ * Returns: cpfId, filerName, officeSought, partyAffiliation, receiptsYtd, expendituresYtd, currentCashOnHand, etc.
+ */
+export async function fetchLegislatorFinances(year = '2024') {
+  try {
+    const data = await ocpfQuery(`/reports/legislative/race/depository/${year}`);
+    return data.map(d => ({
+      cpfId: d.cpfId,
+      name: d.filerName || 'Unknown',
+      office: d.officeSought || '',
+      district: d.districtCodeSought || '',
+      party: d.partyAffiliation || '',
+      receipts: parseFloat(d.receiptsYtdNumeric) || 0,
+      expenditures: parseFloat(d.expendituresYtdNumeric) || 0,
+      cashOnHand: parseFloat(d.currentCashOnHandNumeric) || 0,
+      isWinner: d.isWinner || false,
+    }));
+  } catch (err) {
+    console.warn('Legislator finances fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get PAC (Political Action Committee) financial summaries.
+ */
+export async function fetchPACFinances(year = '2024') {
+  try {
+    const data = await ocpfQuery(`/reports/pacs/${year}`);
+    return data.map(d => ({
+      cpfId: d.cpfId,
+      name: d.filerName || 'Unknown',
+      receipts: parseFloat(d.receiptsYtdNumeric) || 0,
+      expenditures: parseFloat(d.expendituresYtdNumeric) || 0,
+      cashOnHand: parseFloat(d.currentCashOnHandNumeric) || 0,
+    }));
+  } catch (err) {
+    console.warn('PAC finances fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Search contributions TO political campaigns.
+ * searchTypeCategory=A for contributions (receipts)
+ * Can filter by cpfId (recipient filer), searchPhrase (contributor name/employer), date range, etc.
+ */
+export async function searchContributions(params = {}) {
+  try {
+    const queryParts = ['searchTypeCategory=A'];
+    if (params.cpfId) queryParts.push(`cpfId=${params.cpfId}`);
+    if (params.searchPhrase) queryParts.push(`searchPhrase=${encodeURIComponent(params.searchPhrase)}`);
+    if (params.startDate) queryParts.push(`startDate=${params.startDate}`);
+    if (params.endDate) queryParts.push(`endDate=${params.endDate}`);
+    queryParts.push(`pageSize=${params.pageSize || 50}`);
+    queryParts.push(`pageIndex=${params.pageIndex || 0}`);
+    const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
+    return {
+      items: (data.items || []).map(d => ({
+        contributor: d.fullNameReverse || 'Unknown',
+        firstName: d.firstName || '',
+        lastName: d.lastName || '',
+        amount: d.amount || '$0',
+        amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
+        recipient: d.filerFullNameReverse || 'Unknown',
+        recipientCpfId: d.filerCpfId || 0,
+        employer: d.employer || '',
+        occupation: d.occupation || '',
+        date: d.date || '',
+        type: d.recordTypeDescription || '',
+        city: d.city || '',
+        state: d.state || '',
+      })),
+      summary: data.summary,
+    };
+  } catch (err) {
+    console.warn('Contribution search failed:', err.message);
+    return { items: [], summary: null };
+  }
+}
+
+/**
+ * Search expenditures FROM political campaigns.
+ * searchTypeCategory=B for expenditures
+ */
+export async function searchExpenditures(params = {}) {
+  try {
+    const queryParts = ['searchTypeCategory=B'];
+    if (params.cpfId) queryParts.push(`cpfId=${params.cpfId}`);
+    if (params.searchPhrase) queryParts.push(`searchPhrase=${encodeURIComponent(params.searchPhrase)}`);
+    if (params.startDate) queryParts.push(`startDate=${params.startDate}`);
+    if (params.endDate) queryParts.push(`endDate=${params.endDate}`);
+    queryParts.push(`pageSize=${params.pageSize || 50}`);
+    queryParts.push(`pageIndex=${params.pageIndex || 0}`);
+    const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
+    return {
+      items: (data.items || []).map(d => ({
+        payee: d.fullNameReverse || 'Unknown',
+        amount: d.amount || '$0',
+        amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
+        payer: d.filerFullNameReverse || 'Unknown',
+        payerCpfId: d.filerCpfId || 0,
+        date: d.date || '',
+        type: d.recordTypeDescription || '',
+        description: d.description || '',
+        city: d.city || '',
+        state: d.state || '',
+      })),
+      summary: data.summary,
+    };
+  } catch (err) {
+    console.warn('Expenditure search failed:', err.message);
+    return { items: [], summary: null };
+  }
+}
+
+/**
+ * Get a specific legislator/filer's full profile.
+ */
+export async function fetchFilerProfile(cpfId) {
+  try {
+    const data = await ocpfQuery(`/filer/payload/${cpfId}`);
+    return {
+      filer: data.filer || {},
+      ytdReport: data.ytdReport || {},
+      logReports: data.logReports || [],
+    };
+  } catch (err) {
+    console.warn('Filer profile fetch failed:', err.message);
+    return null;
+  }
+}
+
+/**
+ * Cross-reference: Search for contributions where the employer matches a state vendor name.
+ * This is the key function that connects "who gets state money" to "who donates to politicians."
+ */
+export async function crossReferenceVendorDonations(vendorName, pageSize = 50) {
+  try {
+    // Search contributions where the contributor's employer matches the vendor name
+    const queryParts = [
+      'searchTypeCategory=A',
+      `searchPhrase=${encodeURIComponent(vendorName)}`,
+      `pageSize=${pageSize}`,
+      'pageIndex=0',
+    ];
+    const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
+    return (data.items || []).map(d => ({
+      contributor: d.fullNameReverse || 'Unknown',
+      amount: d.amount || '$0',
+      amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
+      recipient: d.filerFullNameReverse || 'Unknown',
+      recipientCpfId: d.filerCpfId || 0,
+      employer: d.employer || '',
+      occupation: d.occupation || '',
+      date: d.date || '',
+      city: d.city || '',
+      state: d.state || '',
+    }));
+  } catch (err) {
+    console.warn('Vendor cross-reference failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get YTD overall campaign finance totals for the state.
+ */
+export async function fetchCampaignFinanceTotals() {
+  try {
+    const data = await ocpfQuery('/data/ytdTotals');
+    return data;
+  } catch (err) {
+    console.warn('Campaign finance totals fetch failed:', err.message);
+    return null;
+  }
+}
+
+// ============================================================
 // COMPREHENSIVE FALLBACK / CACHED DATA
 // Compiled from Massachusetts CAFR, Governor's Budget, CTHRU portal,
 // MassOpenBooks, and official public records.
