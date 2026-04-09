@@ -286,35 +286,32 @@ body {
 
 
 
-/* === Ominous official figures (positioned, non-overlapping) === */
+/* === Ominous official figures — flex row, big and evenly spaced === */
 .hero-figures {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 1.5%;
 }
 .hero-figure {
-  position: absolute;
-  bottom: 0;
-  width: 17%;
-  height: 88vh;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: contain;
-  opacity: 0.45;
-  filter: saturate(0.85) contrast(0.95) blur(0.4px);
-  mix-blend-mode: luminosity;
+  height: 92vh;
+  width: auto;
+  max-width: 19%;
+  object-fit: contain;
+  object-position: center bottom;
+  opacity: 0.55;
+  filter: saturate(0.9) contrast(0.95);
 }
-.hero-figure::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(104, 10, 29, 0.25) 0%, rgba(20, 85, 143, 0.35) 100%);
-  pointer-events: none;
+@media (max-width: 1100px) {
+  .hero-figure { height: 75vh; max-width: 19%; opacity: 0.4; }
 }
-@media (max-width: 900px) {
-  .hero-figure { width: 24%; height: 60vh; opacity: 0.3; }
+@media (max-width: 700px) {
+  .hero-figures { display: none; }
 }
 
 
