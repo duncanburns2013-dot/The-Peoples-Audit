@@ -260,17 +260,8 @@ body {
 
   display: flex; flex-direction: column; align-items: center; justify-content: center;
 
-  background: #0a0c14;
-  background-image:
-    linear-gradient(180deg, rgba(104, 10, 29, 0.55) 0%, rgba(20, 85, 143, 0.55) 100%),
-    url('/images/Official5.png'),
-    url('/images/Official4.png'),
-    url('/images/Official3.png'),
-    url('/images/Official2.png'),
-    url('/images/Official1.png');
-  background-size: cover, auto 92vh, auto 92vh, auto 92vh, auto 92vh, auto 92vh;
-  background-position: center, 0% bottom, 25% bottom, 50% bottom, 75% bottom, 100% bottom;
-  background-repeat: no-repeat;
+  background:
+    linear-gradient(180deg, #3a0a14 0%, #1a1a2e 50%, #0a2540 100%);
 
   position: relative; overflow: hidden; padding: 40px 20px;
 
@@ -295,7 +286,36 @@ body {
 
 
 
-/* Ominous official figures in background - now using background-image layers */
+/* === Ominous official figures (positioned, non-overlapping) === */
+.hero-figures {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-figure {
+  position: absolute;
+  bottom: 0;
+  width: 17%;
+  height: 88vh;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+  opacity: 0.45;
+  filter: saturate(0.85) contrast(0.95) blur(0.4px);
+  mix-blend-mode: luminosity;
+}
+.hero-figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(104, 10, 29, 0.25) 0%, rgba(20, 85, 143, 0.35) 100%);
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .hero-figure { width: 24%; height: 60vh; opacity: 0.3; }
+}
 
 
 

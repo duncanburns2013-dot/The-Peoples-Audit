@@ -1672,13 +1672,13 @@ export default function App() {
     <>
       {/* ============ HERO ============ */}
       <section className="hero">
-        {/* Ominous official portraits in background */}
+        {/* Ominous official portraits — evenly spaced, non-overlapping */}
         <div className="hero-figures">
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official1.png)', left: '0%', bottom: 0 }} />
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official2.png)', left: '18%', bottom: 0 }} />
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official3.png)', left: '50%', bottom: 0, transform: 'translateX(-50%)' }} />
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official4.png)', right: '18%', bottom: 0 }} />
-          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official5.png)', right: '0%', bottom: 0 }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official1.png)', left: '1%' }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official2.png)', left: '21%' }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official3.png)', left: '41%' }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official4.png)', left: '61%' }} />
+          <div className="hero-figure" style={{ backgroundImage: 'url(/The-Peoples-Audit/images/Official5.png)', left: '81%' }} />
         </div>
         <div className="hero-content">
           <div className="hero-badge">Public Financial Investigation</div>
