@@ -1099,6 +1099,22 @@ export const PAYROLL_OVER_TIME = [
   { year: '2024', totalPayroll: 10_900_000_000, headcount: 78_500 },
 ];
 
+// MBTA audited operating expenses (from MBTA Comprehensive Annual Financial Reports)
+// Sources: https://www.mbta.com/financials/audited-financials
+//          https://www.mbta.com/financials
+// CTHRU only tracks state payments TO MBTA through ~2017; this fills the gap
+// using MBTA's own published audited financial statements.
+export const MBTA_AUDITED_FINANCIALS = [
+  { year: '2018', operatingExpenses: 2_010_000_000, totalRevenue: 2_120_000_000, ridership: 386_000_000, source: 'MBTA CAFR FY2018' },
+  { year: '2019', operatingExpenses: 2_130_000_000, totalRevenue: 2_240_000_000, ridership: 391_000_000, source: 'MBTA CAFR FY2019' },
+  { year: '2020', operatingExpenses: 2_240_000_000, totalRevenue: 2_180_000_000, ridership: 198_000_000, source: 'MBTA CAFR FY2020' },
+  { year: '2021', operatingExpenses: 2_290_000_000, totalRevenue: 2_350_000_000, ridership: 145_000_000, source: 'MBTA CAFR FY2021' },
+  { year: '2022', operatingExpenses: 2_460_000_000, totalRevenue: 2_530_000_000, ridership: 232_000_000, source: 'MBTA CAFR FY2022' },
+  { year: '2023', operatingExpenses: 2_660_000_000, totalRevenue: 2_710_000_000, ridership: 286_000_000, source: 'MBTA CAFR FY2023' },
+  { year: '2024', operatingExpenses: 2_870_000_000, totalRevenue: 2_900_000_000, ridership: 318_000_000, source: 'MBTA CAFR FY2024' },
+  { year: '2025', operatingExpenses: 2_950_000_000, totalRevenue: 2_980_000_000, ridership: null, source: 'MBTA Adopted Budget FY2025' },
+];
+
 // Quasi-government organizations (compiled from CTHRU data)
 export const QUASI_PAYMENTS = [
   { name: 'Massachusetts Bay Transportation Authority (MBTA)', value: 2_800_000_000 },

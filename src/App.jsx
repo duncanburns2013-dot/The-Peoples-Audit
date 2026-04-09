@@ -25,7 +25,7 @@ import {
   MA_BUDGET_SUMMARY, AUDIT_FACTS,
   SPENDING_BY_DEPARTMENT, SPENDING_BY_VENDOR, SPENDING_OVER_TIME,
   PAYROLL_BY_DEPARTMENT, TOP_EARNERS, PAYROLL_OVER_TIME,
-  QUASI_PAYMENTS, FEDERAL_SPENDING_MA, FEDERAL_AWARDS_MA,
+  QUASI_PAYMENTS, FEDERAL_SPENDING_MA, FEDERAL_AWARDS_MA, MBTA_AUDITED_FINANCIALS,
 } from './services/api';
 import './index.css';
 
@@ -630,7 +630,18 @@ function QuasiExplorer({ quasiPayments }) {
       fetchQuasiAgencyDetail(agencyName, quasiYear),
       fetchQuasiAgencyPayments(agencyName, quasiYear, 500),
     ]).then(([byYear, categories, vendors, payments]) => {
-      setAgencyDetail({ byYear, categories, vendors, payments });
+      // Merge MBTA audited financials (CTHRU only tracks state→MBTA payments through ~2017;
+      // these come from MBTA's own published Comprehensive Annual Financial Reports)
+      let mergedByYear = byYear;
+      const isMBTA = /MBTA|Massachusetts Bay Transportation/i.test(agencyName);
+      if (isMBTA) {
+        const have = new Set(byYear.map(y => String(y.year)));
+        const fromAudit = MBTA_AUDITED_FINANCIALS
+          .filter(r => !have.has(String(r.year)))
+          .map(r => ({ year: r.year, total: r.operatingExpenses, paymentCount: 0, source: r.source, audited: true }));
+        mergedByYear = [...byYear, ...fromAudit].sort((a, b) => String(a.year).localeCompare(String(b.year)));
+      }
+      setAgencyDetail({ byYear: mergedByYear, categories, vendors, payments, isMBTA });
       setDetailLoading(false);
       setTimeout(() => {
         quasiDetailPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -665,6 +676,14 @@ function QuasiExplorer({ quasiPayments }) {
             </div>
           ) : agencyDetail && (
             <>
+              {agencyDetail.isMBTA && (
+                <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(20, 85, 143, 0.08)', border: '1px solid rgba(20, 85, 143, 0.3)', borderRadius: 10, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                  📊 <strong style={{ color: '#14558F' }}>MBTA Note:</strong> CTHRU tracks state payments to MBTA through ~FY2017. Years 2018–2025 below are pulled from the MBTA's own published audited financial statements.
+                  {' '}<a href="https://www.mbta.com/financials/audited-financials" target="_blank" rel="noopener" style={{ color: '#14558F', fontWeight: 600 }}>Audited Financials</a>
+                  {' · '}
+                  <a href="https://www.mbta.com/financials" target="_blank" rel="noopener" style={{ color: '#14558F', fontWeight: 600 }}>MBTA Financial Center</a>
+                </div>
+              )}
               {agencyDetail.byYear.length > 0 && (
                 <div style={{ marginTop: 20 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Agency Spending by Fiscal Year</h4>
@@ -1006,7 +1025,15 @@ function FollowTheMoney() {
   const [selectedLegislator, setSelectedLegislator] = useState(null);
   const [legislatorContributions, setLegislatorContributions] = useState(null);
   const [contribLoading, setContribLoading] = useState(false);
+  const [contribYear, setContribYear] = useState('all');
+  const [contribPage, setContribPage] = useState(0);
+  const [contribSort, setContribSort] = useState('date-desc');
+  const [crossRefSort, setCrossRefSort] = useState('amount-desc');
+  const [crossRefYear, setCrossRefYear] = useState('all');
+  const [crossRefPage, setCrossRefPage] = useState(0);
   const contribRef = useRef(null);
+  const CONTRIB_PAGE_SIZE = 100;
+  const CROSSREF_PAGE_SIZE = 24;
 
   useEffect(() => {
     setLoading(true);
@@ -1033,25 +1060,44 @@ function FollowTheMoney() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Cross-reference vendor
+  // Cross-reference vendor — pulls a wide window so client-side sort/filter works
   const runCrossRef = useCallback(() => {
     if (!crossRefVendor.trim()) return;
     setCrossRefLoading(true);
-    crossReferenceVendorDonations(crossRefVendor, 50).then(data => {
+    setCrossRefPage(0);
+    crossReferenceVendorDonations(crossRefVendor, 500).then(data => {
       setCrossRefResults(data);
       setCrossRefLoading(false);
     });
   }, [crossRefVendor]);
 
-  const selectLegislatorForContribs = useCallback((leg) => {
-    setSelectedLegislator(leg);
+  // Load legislator contributions for a given year + page
+  const loadContribs = useCallback((leg, year, page) => {
     setContribLoading(true);
-    searchContributions({ cpfId: leg.cpfId, pageSize: 50 }).then(data => {
+    const params = { cpfId: leg.cpfId, pageSize: CONTRIB_PAGE_SIZE, pageIndex: page };
+    if (year && year !== 'all') {
+      params.startDate = `${year}-01-01`;
+      params.endDate = `${year}-12-31`;
+    }
+    searchContributions(params).then(data => {
       setLegislatorContributions(data);
       setContribLoading(false);
-      setTimeout(() => contribRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
     });
   }, []);
+
+  const selectLegislatorForContribs = useCallback((leg) => {
+    setSelectedLegislator(leg);
+    setContribYear('all');
+    setContribPage(0);
+    loadContribs(leg, 'all', 0);
+    setTimeout(() => contribRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }, [loadContribs]);
+
+  // Reload when year or page changes
+  useEffect(() => {
+    if (selectedLegislator) loadContribs(selectedLegislator, contribYear, contribPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [contribYear, contribPage]);
 
   const topFundedLegislators = [...legislators].sort((a, b) => b.receipts - a.receipts).slice(0, 20);
   const topPACs = [...pacs].sort((a, b) => b.receipts - a.receipts).slice(0, 15);
@@ -1184,27 +1230,74 @@ function FollowTheMoney() {
                     <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
                       <div className="spinner" style={{ margin: '0 auto 12px' }} /> Loading contributions...
                     </div>
-                  ) : legislatorContributions?.items?.length > 0 && (
+                  ) : legislatorContributions?.items && (
                     <div style={{ marginTop: 16 }}>
-                      <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Recent Contributions ({legislatorContributions.items.length})</h4>
-                      <div className="data-table-wrapper">
-                        <table className="data-table">
-                          <thead>
-                            <tr><th>Date</th><th>Contributor</th><th>Amount</th><th>Employer</th><th>City</th></tr>
-                          </thead>
-                          <tbody>
-                            {legislatorContributions.items.map((c, i) => (
-                              <tr key={i}>
-                                <td style={{ whiteSpace: 'nowrap', fontSize: '0.8rem' }}>{c.date}</td>
-                                <td>{c.contributor}</td>
-                                <td className="money">{c.amount}</td>
-                                <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{c.employer}</td>
-                                <td style={{ fontSize: '0.8rem' }}>{c.city}</td>
-                              </tr>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+                        <h4 style={{ color: 'var(--text-secondary)', margin: 0 }}>
+                          Contributions ({legislatorContributions.items.length} on this page)
+                        </h4>
+                        <div style={{ marginLeft: 'auto', display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+                          <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Year:</label>
+                          <select value={contribYear} onChange={e => { setContribPage(0); setContribYear(e.target.value); }}
+                            style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
+                            <option value="all">All years</option>
+                            {[2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010].map(y => (
+                              <option key={y} value={y}>{y}</option>
                             ))}
-                          </tbody>
-                        </table>
+                          </select>
+                          <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Sort:</label>
+                          <select value={contribSort} onChange={e => setContribSort(e.target.value)}
+                            style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
+                            <option value="date-desc">Date (newest)</option>
+                            <option value="date-asc">Date (oldest)</option>
+                            <option value="amount-desc">Amount (high → low)</option>
+                            <option value="amount-asc">Amount (low → high)</option>
+                            <option value="contributor">Contributor (A→Z)</option>
+                          </select>
+                          <button onClick={() => setContribPage(p => Math.max(0, p - 1))} disabled={contribPage === 0}
+                            style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: contribPage === 0 ? 'not-allowed' : 'pointer', opacity: contribPage === 0 ? 0.5 : 1 }}>
+                            ← Prev
+                          </button>
+                          <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Page {contribPage + 1}</span>
+                          <button onClick={() => setContribPage(p => p + 1)} disabled={legislatorContributions.items.length < CONTRIB_PAGE_SIZE}
+                            style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: legislatorContributions.items.length < CONTRIB_PAGE_SIZE ? 'not-allowed' : 'pointer', opacity: legislatorContributions.items.length < CONTRIB_PAGE_SIZE ? 0.5 : 1 }}>
+                            Next →
+                          </button>
+                        </div>
                       </div>
+                      {legislatorContributions.items.length === 0 ? (
+                        <div style={{ padding: 30, textAlign: 'center', color: 'var(--text-muted)', background: 'var(--bg-card-hover)', borderRadius: 8 }}>
+                          No contributions found for {contribYear === 'all' ? 'this filer' : contribYear}.
+                        </div>
+                      ) : (
+                        <div className="data-table-wrapper">
+                          <table className="data-table">
+                            <thead>
+                              <tr><th>Date</th><th>Contributor</th><th>Amount</th><th>Employer</th><th>City</th></tr>
+                            </thead>
+                            <tbody>
+                              {[...legislatorContributions.items].sort((a, b) => {
+                                switch (contribSort) {
+                                  case 'date-asc': return (a.date || '').localeCompare(b.date || '');
+                                  case 'date-desc': return (b.date || '').localeCompare(a.date || '');
+                                  case 'amount-desc': return b.amountNum - a.amountNum;
+                                  case 'amount-asc': return a.amountNum - b.amountNum;
+                                  case 'contributor': return (a.contributor || '').localeCompare(b.contributor || '');
+                                  default: return 0;
+                                }
+                              }).map((c, i) => (
+                                <tr key={i}>
+                                  <td style={{ whiteSpace: 'nowrap', fontSize: '0.8rem' }}>{c.date}</td>
+                                  <td>{c.contributor}</td>
+                                  <td className="money">{c.amount}</td>
+                                  <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{c.employer}</td>
+                                  <td style={{ fontSize: '0.8rem' }}>{c.city}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -1269,37 +1362,87 @@ function FollowTheMoney() {
                 </div>
               )}
 
-              {crossRefResults && !crossRefLoading && (
+              {crossRefResults && !crossRefLoading && (() => {
+                // Apply year filter and sort client-side
+                const filtered = crossRefResults.filter(c => {
+                  if (crossRefYear === 'all') return true;
+                  return (c.date || '').startsWith(String(crossRefYear));
+                });
+                const sorted = [...filtered].sort((a, b) => {
+                  switch (crossRefSort) {
+                    case 'amount-desc': return b.amountNum - a.amountNum;
+                    case 'amount-asc': return a.amountNum - b.amountNum;
+                    case 'date-desc': return (b.date || '').localeCompare(a.date || '');
+                    case 'date-asc': return (a.date || '').localeCompare(b.date || '');
+                    case 'contributor': return (a.contributor || '').localeCompare(b.contributor || '');
+                    case 'recipient': return (a.recipient || '').localeCompare(b.recipient || '');
+                    default: return 0;
+                  }
+                });
+                const pageStart = crossRefPage * CROSSREF_PAGE_SIZE;
+                const pageEnd = pageStart + CROSSREF_PAGE_SIZE;
+                const cardSlice = sorted.slice(pageStart, pageEnd);
+                const totalPages = Math.max(1, Math.ceil(sorted.length / CROSSREF_PAGE_SIZE));
+                return (
                 <div>
                   <h4 style={{ marginBottom: 12, color: 'var(--text-secondary)' }}>
-                    {crossRefResults.length > 0
-                      ? `Found ${crossRefResults.length} contribution(s) matching "${crossRefVendor}"`
-                      : `No contributions found matching "${crossRefVendor}"`}
+                    {sorted.length > 0
+                      ? `Found ${sorted.length} contribution(s) matching "${crossRefVendor}"${crossRefResults.length >= 500 ? ' (capped at 500 — narrow your search for more)' : ''}`
+                      : `No contributions found matching "${crossRefVendor}"${crossRefYear !== 'all' ? ` for ${crossRefYear}` : ''}`}
                   </h4>
 
-                  {crossRefResults.length > 0 && (
+                  {sorted.length > 0 && (
                     <>
                       {/* Summary cards */}
                       <div className="kpi-row" style={{ marginBottom: 20 }}>
                         <div className="kpi-card" style={{ borderColor: 'rgba(153,85,255,0.3)' }}>
                           <div className="kpi-label">Total Donated</div>
                           <div className="kpi-value" style={{ color: 'var(--accent-purple)' }}>
-                            {formatMoney(crossRefResults.reduce((s, c) => s + c.amountNum, 0))}
+                            {formatMoney(sorted.reduce((s, c) => s + c.amountNum, 0))}
                           </div>
                         </div>
                         <div className="kpi-card">
                           <div className="kpi-label">Unique Recipients</div>
-                          <div className="kpi-value">{new Set(crossRefResults.map(c => c.recipientCpfId)).size}</div>
+                          <div className="kpi-value">{new Set(sorted.map(c => c.recipientCpfId)).size}</div>
                         </div>
                         <div className="kpi-card">
                           <div className="kpi-label">Unique Donors</div>
-                          <div className="kpi-value">{new Set(crossRefResults.map(c => c.contributor)).size}</div>
+                          <div className="kpi-value">{new Set(sorted.map(c => c.contributor)).size}</div>
                         </div>
                       </div>
 
-                      {/* Connection cards */}
+                      {/* Filter / Sort / Pagination controls */}
+                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 10, marginBottom: 16, padding: 12, background: 'var(--bg-card-hover)', borderRadius: 10, border: '1px solid var(--border)' }}>
+                        <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Year:</label>
+                        <select value={crossRefYear} onChange={e => { setCrossRefPage(0); setCrossRefYear(e.target.value); }}
+                          style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
+                          <option value="all">All years</option>
+                          {[2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010].map(y => (
+                            <option key={y} value={y}>{y}</option>
+                          ))}
+                        </select>
+                        <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginLeft: 8 }}>Sort:</label>
+                        <select value={crossRefSort} onChange={e => { setCrossRefPage(0); setCrossRefSort(e.target.value); }}
+                          style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
+                          <option value="amount-desc">Amount (high → low)</option>
+                          <option value="amount-asc">Amount (low → high)</option>
+                          <option value="date-desc">Date (newest)</option>
+                          <option value="date-asc">Date (oldest)</option>
+                          <option value="contributor">Contributor (A→Z)</option>
+                          <option value="recipient">Recipient (A→Z)</option>
+                        </select>
+                        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
+                          <button onClick={() => setCrossRefPage(p => Math.max(0, p - 1))} disabled={crossRefPage === 0}
+                            style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: crossRefPage === 0 ? 'not-allowed' : 'pointer', opacity: crossRefPage === 0 ? 0.5 : 1 }}>← Prev</button>
+                          <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Page {crossRefPage + 1} / {totalPages}</span>
+                          <button onClick={() => setCrossRefPage(p => Math.min(totalPages - 1, p + 1))} disabled={crossRefPage >= totalPages - 1}
+                            style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: crossRefPage >= totalPages - 1 ? 'not-allowed' : 'pointer', opacity: crossRefPage >= totalPages - 1 ? 0.5 : 1 }}>Next →</button>
+                        </div>
+                      </div>
+
+                      {/* Connection cards (current page) */}
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 16, marginBottom: 24 }}>
-                        {crossRefResults.slice(0, 12).map((c, i) => (
+                        {cardSlice.map((c, i) => (
                           <div key={i} className="connection-card">
                             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '1px' }}>
                               Contribution Match
@@ -1322,14 +1465,14 @@ function FollowTheMoney() {
                         ))}
                       </div>
 
-                      {/* Full table */}
+                      {/* Full sorted table */}
                       <div className="data-table-wrapper">
                         <table className="data-table">
                           <thead>
                             <tr><th>Date</th><th>Contributor</th><th>Amount</th><th>Recipient</th><th>Employer</th><th>City</th></tr>
                           </thead>
                           <tbody>
-                            {crossRefResults.map((c, i) => (
+                            {sorted.map((c, i) => (
                               <tr key={i}>
                                 <td style={{ whiteSpace: 'nowrap', fontSize: '0.8rem' }}>{c.date}</td>
                                 <td>{c.contributor}</td>
@@ -1345,7 +1488,8 @@ function FollowTheMoney() {
                     </>
                   )}
                 </div>
-              )}
+                );
+              })()}
             </motion.div>
           )}
 
