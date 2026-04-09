@@ -296,9 +296,7 @@ body {
 
   background-size: contain; background-position: bottom center; background-repeat: no-repeat;
 
-  opacity: 0.35;
-
-  filter: grayscale(100%) brightness(1.8) contrast(1.3);
+  opacity: 0.5;
 
   mix-blend-mode: screen;
 
@@ -306,23 +304,23 @@ body {
 
 }
 
-/* Official1.png has black bg â screen blend hides it naturally */
+/* Official1.png has black bg â screen blend hides black naturally, keep natural colors */
 
 .hero-figure:nth-child(1) {
 
-  filter: grayscale(100%) brightness(1.8) contrast(1.3);
+  filter: brightness(1.3) contrast(1.1) saturate(0.8);
 
 }
 
-/* Official2-5 have white/light backgrounds â invert first so bg becomes black, then screen hides it */
+/* Official2-5 have white/light bg â invert+hue-rotate preserves natural colors while flipping bg to black */
 
 .hero-figure:nth-child(n+2) {
 
-  filter: invert(1) grayscale(100%) brightness(2) contrast(1.4);
+  filter: invert(1) hue-rotate(180deg) brightness(1.3) contrast(1.1) saturate(0.8);
 
 }
 
-.hero:hover .hero-figure { opacity: 0.45; }
+.hero:hover .hero-figure { opacity: 0.65; }
 
 
 
@@ -1018,7 +1016,7 @@ body {
 
   .audit-stat .big-number { font-size: 2rem; }
 
-  .hero-figure { width: 28%; opacity: 0.12; }
+  .hero-figure { width: 28%; opacity: 0.3; }
 
   .sidebar { width: 100%; }
 
