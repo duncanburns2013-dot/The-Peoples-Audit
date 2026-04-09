@@ -20,9 +20,9 @@
 
   --border-active: #c5c9d6;
 
-  --text-primary: #1a1d2e;
+  --accent-purple: #2d5a3d;
 
-  --text-secondary: #4a5068;
+  --accent-purple-glow: rgba(45, 90, 61, 0.15);
 
   --text-muted: #6b7189;
 
@@ -145,7 +145,7 @@ body {
   transition: all 0.2s;
 
 }
-
+width: 32%; height: 80%;
 .tab-link:hover { color: var(--text-primary); background: rgba(0,0,0,0.02); }
 
 .tab-link.active {
@@ -195,9 +195,9 @@ body {
   100% { background-position: 200% 0; }
 
 }
-
+background: linear-gradient(135deg, #0f2438 0%, #6b1b1b 100%);
 @keyframes spin { to { transform: rotate(360deg); } }
-
+ox-shadow: 0 8px 30px rgba(107,27,27,0.5);
 @keyframes pulse {
 
   0%, 100% { opacity: 1; }
