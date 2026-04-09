@@ -156,12 +156,16 @@ body {
 
   color: #fff; font-weight: 600;
 
-  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-blue) 50%, var(--accent-green) 100%);
+  background: rgba(104, 10, 29, 0.3);
 
   border-bottom-color: var(--accent-red);
 
   border-radius: 8px; padding: 12px 20px;
 
+}
+
+.tab-link:hover {
+  background: rgba(104, 10, 29, 0.15);
 }
 
 .tab-link .tab-badge {
@@ -256,17 +260,17 @@ body {
 
   display: flex; flex-direction: column; align-items: center; justify-content: center;
 
-  background:
-    linear-gradient(135deg, #680A1D 0%, #14558F 50%, #32784E 100%),
+  background: #0a0c14;
+  background-image:
+    linear-gradient(rgba(104, 10, 29, 0.85), rgba(20, 85, 143, 0.85)),
     url('/images/Official5.png'),
     url('/images/Official4.png'),
     url('/images/Official3.png'),
     url('/images/Official2.png'),
     url('/images/Official1.png');
-  background-size: cover, 50% auto, 50% auto, 50% auto, 50% auto, 50% auto;
-  background-position: center, 10% bottom, 30% bottom, 50% bottom, 70% bottom, 90% bottom;
+  background-size: cover, 20% auto, 20% auto, 20% auto, 20% auto, 20% auto;
+  background-position: center, 0% bottom, 25% bottom, 50% bottom, 75% bottom, 100% bottom;
   background-repeat: no-repeat;
-  background-blend-mode: overlay;
 
   position: relative; overflow: hidden; padding: 40px 20px;
 
