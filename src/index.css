@@ -150,22 +150,22 @@ body {
 
 }
 
-.tab-link:hover { color: var(--text-primary); background: rgba(0,0,0,0.02); }
-
-.tab-link.active {
-
-  color: #fff; font-weight: 600;
-
-  background: rgba(104, 10, 29, 0.3);
-
-  border-bottom-color: var(--accent-red);
-
-  border-radius: 8px; padding: 12px 20px;
-
+.tab-link:hover {
+  color: var(--text-primary);
+  background: rgba(20, 85, 143, 0.10);
 }
 
-.tab-link:hover {
-  background: rgba(104, 10, 29, 0.15);
+.tab-link.active {
+  color: #fff;
+  font-weight: 600;
+  background: #14558F;
+  border-bottom-color: #14558F;
+  border-radius: 8px 8px 0 0;
+  padding: 16px 18px;
+}
+
+.tab-link.active:hover {
+  background: #0f4272;
 }
 
 .tab-link .tab-badge {
@@ -268,8 +268,8 @@ body {
     url('/images/Official3.png'),
     url('/images/Official2.png'),
     url('/images/Official1.png');
-  background-size: cover, 20% auto, 20% auto, 20% auto, 20% auto, 20% auto;
-  background-position: center, 0% bottom, 25% bottom, 50% bottom, 75% bottom, 100% bottom;
+  background-size: cover, auto 80vh, auto 80vh, auto 80vh, auto 80vh, auto 80vh;
+  background-position: center, 2% bottom, 26% bottom, 50% bottom, 74% bottom, 98% bottom;
   background-repeat: no-repeat;
 
   position: relative; overflow: hidden; padding: 40px 20px;

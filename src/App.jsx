@@ -287,6 +287,9 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                   <Area type="monotone" dataKey="total" stroke="#ff3344" fill="rgba(217,38,56,0.12)" name="Total Spent" />
                 </AreaChart>
               </ResponsiveContainer>
+              <div style={{ marginTop: 12, padding: '10px 14px', background: 'rgba(20, 85, 143, 0.08)', border: '1px solid rgba(20, 85, 143, 0.25)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                📊 <strong style={{ color: '#14558F' }}>Data through FY2024</strong> — the latest fiscal year published by CTHRU. FY2025 data will appear after official publication.
+              </div>
             </div>
           )}
 
@@ -1547,18 +1550,16 @@ export default function App() {
               to auditing the legislature ({audit.ballotQuestion}, {audit.ballotYear})
             </span>
           </div>
-          <div className="hero-search" style={{ margin: '30px 0', width: '100%', maxWidth: '600px' }}>
-            <div style={{ display: 'flex', gap: '10px', background: 'rgba(255,255,255,0.1)', padding: '12px 20px', borderRadius: '8px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }}>
-              <Search size={20} style={{ color: '#fff', flexShrink: 0, marginTop: '2px' }} />
+          <div className="hero-search" style={{ margin: '30px auto', width: '100%', maxWidth: '640px', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.12)', padding: '14px 22px', borderRadius: '10px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', width: '100%' }}>
+              <Search size={20} style={{ color: '#fff', flexShrink: 0 }} />
               <input
                 type="text"
                 placeholder="Search for vendors, people, organizations..."
                 style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: '1rem', width: '100%', outline: 'none' }}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
-                    const query = e.target.value;
-                    // Will implement multi-tab search routing
-                    navigateTo('fraud');
+                    navigateTo('spending');
                   }
                 }}
               />
@@ -1718,6 +1719,9 @@ export default function App() {
                       <Area type="monotone" dataKey="total" stroke="#ff3344" fill="url(#spendGrad)" strokeWidth={2} name="Total Spending" />
                     </AreaChart>
                   </ResponsiveContainer>
+                  <div style={{ marginTop: 12, padding: '10px 14px', background: 'rgba(20, 85, 143, 0.08)', border: '1px solid rgba(20, 85, 143, 0.25)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                    📊 <strong style={{ color: '#14558F' }}>Data through FY2024</strong> — the latest fiscal year published by CTHRU. FY2025 expenditure data will be added after official publication by the Comptroller.
+                  </div>
                 </div>
               )}
             </div>
