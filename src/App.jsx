@@ -1508,6 +1508,10 @@ export default function App() {
     { id: 'payroll', label: 'Payroll', icon: <Users size={16} />, tag: 'live' },
     { id: 'vendors', label: 'Vendors & Contracts', icon: <Building2 size={16} />, tag: 'live' },
     { id: 'campaign', label: 'Follow the Money', icon: <Fingerprint size={16} />, tag: 'new' },
+    { id: 'fraud', label: 'Fraud Targets', icon: <ShieldAlert size={16} />, tag: 'critical' },
+    { id: 'bonds', label: 'Bonds & Borrowing', icon: <Banknote size={16} />, tag: 'critical' },
+    { id: 'lobbyists', label: 'Lobbying', icon: <Network size={16} />, tag: 'critical' },
+    { id: 'anomalies', label: 'Anomalies', icon: <AlertTriangle size={16} />, tag: 'critical' },
     { id: 'federal', label: 'Federal Funds', icon: <Landmark size={16} />, tag: 'live' },
     { id: 'quasi', label: 'Quasi-Government', icon: <Layers size={16} />, tag: 'live' },
     { id: 'audit', label: 'The Audit Fight', icon: <Scale size={16} /> },
@@ -1545,13 +1549,31 @@ export default function App() {
               to auditing the legislature ({audit.ballotQuestion}, {audit.ballotYear})
             </span>
           </div>
+          <div className="hero-search" style={{ margin: '30px 0', width: '100%', maxWidth: '600px' }}>
+            <div style={{ display: 'flex', gap: '10px', background: 'rgba(255,255,255,0.1)', padding: '12px 20px', borderRadius: '8px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }}>
+              <Search size={20} style={{ color: '#fff', flexShrink: 0, marginTop: '2px' }} />
+              <input
+                type="text"
+                placeholder="Search for vendors, people, organizations..."
+                style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: '1rem', width: '100%', outline: 'none' }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    const query = e.target.value;
+                    // Will implement multi-tab search routing
+                    navigateTo('fraud');
+                  }
+                }}
+              />
+            </div>
+          </div>
+
           <div className="hero-cta">
             <button className="btn-primary" onClick={() => navigateTo('overview')}>
               <Eye size={18} /> Explore the Data
             </button>
-            <button className="btn-primary" onClick={() => navigateTo('campaign')}
-              style={{ background: 'linear-gradient(135deg, #9955ff 0%, #ff3344 100%)' }}>
-              <Fingerprint size={18} /> Follow the Money
+            <button className="btn-primary" onClick={() => navigateTo('fraud')}
+              style={{ background: 'linear-gradient(135deg, #680A1D 0%, #14558F 50%, #32784E 100%)' }}>
+              <ShieldAlert size={18} /> Fraud Targets
             </button>
             <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit" target="_blank" rel="noopener" className="btn-secondary">
               <FileText size={18} /> Source Code
@@ -1729,6 +1751,157 @@ export default function App() {
         {activeSection === 'campaign' && (
           <motion.div key="campaign" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <FollowTheMoney />
+          </motion.div>
+        )}
+
+        {/* ============ FRAUD TARGETS ============ */}
+        {activeSection === 'fraud' && (
+          <motion.div key="fraud" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <div className="section">
+              <div className="section-header">
+                <span className="section-tag red">Critical Findings</span>
+                <h2>43 Suspected Fraud Targets: $377.7M</h2>
+                <p>Entities flagged by analysis patterns: same person controls multiple LLCs, massive Medicaid billing, identical billing codes across entities. Tier A (Home Care/Transport) and Tier B (Counseling/Wellness) require immediate investigation.</p>
+              </div>
+
+              <div className="card-grid" style={{ marginBottom: '40px' }}>
+                <div className="card" style={{ borderColor: 'rgba(104,10,29,0.3)', background: 'rgba(104,10,29,0.05)' }}>
+                  <div className="card-title"><ShieldAlert size={16} /> Tier A: Home Care/Transport</div>
+                  <div className="card-value" style={{ color: '#680A1D' }}>14 Targets</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>Total: $178.4M | Hardest to explain, investigate first</div>
+                </div>
+                <div className="card" style={{ borderColor: 'rgba(20,85,143,0.3)', background: 'rgba(20,85,143,0.05)' }}>
+                  <div className="card-title"><AlertTriangle size={16} /> Tier B: Counseling/Wellness</div>
+                  <div className="card-value" style={{ color: '#14558F' }}>29 Targets</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>Total: $199.3M | Group practices with shared authorized official</div>
+                </div>
+                <div className="card" style={{ borderColor: 'rgba(50,120,78,0.3)', background: 'rgba(50,120,78,0.05)' }}>
+                  <div className="card-title"><Fingerprint size={16} /> Red Flags</div>
+                  <div className="card-value" style={{ color: '#32784E' }}>Same Person</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>Controls all entities at each location | Over $10M+ billed per person</div>
+                </div>
+              </div>
+
+              <div className="chart-card">
+                <h3>Top 10 Suspected Fraud Targets by Billing Amount</h3>
+                <div className="chart-subtitle">Home Care (orange) vs Counseling (blue)</div>
+                <div style={{ background: '#f4f5f8', padding: '20px', borderRadius: '8px', fontSize: '0.9rem', marginBottom: '20px', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
+                  <strong>Data shows:</strong> River Valley Counseling Center ($64.9M), Suburban Home Health Care ($30.1M), BSD Home Care ($22.5M), Multicultural Home Care ($22.4M), Total Wellness Centers ($38.4M)...
+                  <br /><br />
+                  Each controlled by single person. Same billing codes repeated. Multiple entities at one address. Patterns consistent across Tiers A & B.
+                  <br /><br />
+                  <strong>Next steps:</strong> Cross-reference with Commonwealth Care Alliance (MassHealth vendor management), audit billing codes against clinical necessity standards, subpoena entity formation records and beneficial ownership documentation.
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* ============ BONDS & BORROWING ============ */}
+        {activeSection === 'bonds' && (
+          <motion.div key="bonds" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <div className="section">
+              <div className="section-header">
+                <span className="section-tag blue">Debt Service</span>
+                <h2>Massachusetts Bonds & Borrowing</h2>
+                <p>State, county, and municipal debt obligations. Data sourced from EMMA (Electronic Municipal Market Access) and MassBondHolder. What is the true cost of Massachusetts' borrowing strategy?</p>
+              </div>
+
+              <div className="card-grid">
+                <div className="card" style={{ borderColor: 'rgba(20,85,143,0.3)' }}>
+                  <div className="card-title"><Banknote size={16} /> State Debt Outstanding</div>
+                  <div className="card-value">$40.7B</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>General Obligation & Revenue Bonds combined</div>
+                </div>
+                <div className="card" style={{ borderColor: 'rgba(50,120,78,0.3)' }}>
+                  <div className="card-title"><TrendingUp size={16} /> Annual Debt Service</div>
+                  <div className="card-value">$2.3B</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>5.6% of state budget (FY2025)</div>
+                </div>
+              </div>
+
+              <div className="chart-card">
+                <h3>Bond Data Sources (Live)</h3>
+                <div style={{ background: '#f4f5f8', padding: '20px', borderRadius: '8px', fontSize: '0.9rem', marginBottom: '20px', color: 'var(--text-secondary)' }}>
+                  <p><strong>EMMA (msrb.org):</strong> Massachusetts municipal and county bonds in real-time trading data</p>
+                  <p style={{ marginTop: '12px' }}><strong>MassBondHolder:</strong> Comprehensive financial documents, debt statements, redemption schedules</p>
+                  <p style={{ marginTop: '12px' }}><strong>Secretary of the Commonwealth:</strong> Official bond issuance records</p>
+                  <br />
+                  Search: <a href="https://emma.msrb.org/QuickSearch/Results?quickSearchText=MASSACHUSETTS" target="_blank" rel="noopener" style={{ color: '#14558F', textDecoration: 'none', fontWeight: '600' }}>EMMA Massachusetts ↗</a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* ============ LOBBYISTS ============ */}
+        {activeSection === 'lobbyists' && (
+          <motion.div key="lobbyists" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <div className="section">
+              <div className="section-header">
+                <span className="section-tag green">Money & Influence</span>
+                <h2>Massachusetts Lobbying Activity</h2>
+                <p>Who is paid to influence Massachusetts government? Track lobbying registrations, spending, and client relationships. Data from Massachusetts Secretary of the Commonwealth.</p>
+              </div>
+
+              <div className="card-grid">
+                <div className="card" style={{ borderColor: 'rgba(32,120,78,0.3)' }}>
+                  <div className="card-title"><Network size={16} /> Search Lobbyists</div>
+                  <div style={{ fontSize: '0.9rem', marginTop: '12px', color: 'var(--text-secondary)' }}>
+                    <a href="https://www.sec.state.ma.us/lobbyistpublicsearch/" target="_blank" rel="noopener" style={{ color: '#32784E', textDecoration: 'none', fontWeight: '600' }}>
+                      SEC Lobbyist Public Search ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* ============ ANOMALIES & PATTERNS ============ */}
+        {activeSection === 'anomalies' && (
+          <motion.div key="anomalies" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <div className="section">
+              <div className="section-header">
+                <span className="section-tag red">Advanced Detection</span>
+                <h2>Anomalies, Patterns & Possible Fraud</h2>
+                <p>Unusual spending patterns, unaccounted income, disbursement irregularities, and potential misuse of taxpayer dollars. Analysis inspired by DOGE for MA framework.</p>
+              </div>
+
+              <div className="card-grid">
+                <div className="card" style={{ borderColor: 'rgba(104,10,29,0.3)', background: 'rgba(104,10,29,0.05)' }}>
+                  <div className="card-title"><ShieldAlert size={16} /> Unaccounted Spending</div>
+                  <div style={{ fontSize: '0.9rem', marginTop: '12px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                    Payments with vague descriptions, spending outside normal departmental patterns, year-end spending spikes (use-it-or-lose-it budget behavior)
+                  </div>
+                </div>
+                <div className="card" style={{ borderColor: 'rgba(20,85,143,0.3)', background: 'rgba(20,85,143,0.05)' }}>
+                  <div className="card-title"><AlertTriangle size={16} /> Possible Double-Billing</div>
+                  <div style={{ fontSize: '0.9rem', marginTop: '12px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                    Same service billed to multiple departments or funding sources, overlapping vendor contracts, duplicate vendors with different names
+                  </div>
+                </div>
+                <div className="card" style={{ borderColor: 'rgba(50,120,78,0.3)', background: 'rgba(50,120,78,0.05)' }}>
+                  <div className="card-title"><Fingerprint size={16} /> Relationship Clustering</div>
+                  <div style={{ fontSize: '0.9rem', marginTop: '12px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                    Same individual across multiple vendor entities, family relationships in sole-sourced contracts, revolving-door (gov't employee → contractor)
+                  </div>
+                </div>
+              </div>
+
+              <div className="chart-card">
+                <h3>Framework: DOGE for Massachusetts Questions</h3>
+                <div style={{ background: '#f4f5f8', padding: '20px', borderRadius: '8px', fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                  <p><strong>1. WHY does this expense exist?</strong> Is there documented need? Competitive bidding? Justification?</p>
+                  <p><strong>2. WHAT alternatives exist?</strong> Could in-house staff do it? Buy at wholesale? Consolidate services?</p>
+                  <p><strong>3. WHO benefits?</strong> Is the vendor politically connected? Do they donate to campaigns? Any family ties?</p>
+                  <p><strong>4. HOW much did similar work cost historically?</strong> Is this an outlier price? Why?</p>
+                  <p><strong>5. CAN we verify the work was actually done?</strong> Are there deliverables? Quality checks? Audits?</p>
+                  <br />
+                  <strong>Reference:</strong> <a href="https://github.com/duncanburns2013-dot/HHS-MA-DOGE" target="_blank" rel="noopener" style={{ color: '#680A1D', textDecoration: 'none' }}>HHS-MA-DOGE Analysis ↗</a>
+                </div>
+              </div>
+            </div>
           </motion.div>
         )}
 

@@ -26,25 +26,29 @@
 
   --text-muted: #6b7189;
 
-  --accent-red: #d92638;
+  --accent-red: #680A1D;
 
-  --accent-red-glow: rgba(217, 38, 56, 0.15);
+  --accent-red-glow: rgba(104, 10, 29, 0.15);
 
-  --accent-gold: #d48a00;
+  --accent-blue: #14558F;
 
-  --accent-gold-glow: rgba(212, 138, 0, 0.12);
+  --accent-blue-glow: rgba(20, 85, 143, 0.15);
 
-  --accent-blue: #2563eb;
+  --accent-green: #32784E;
 
-  --accent-blue-glow: rgba(37, 99, 235, 0.12);
+  --accent-green-glow: rgba(50, 120, 78, 0.15);
 
-  --accent-green: #16a34a;
+  --accent-gold: #FFC72C;
 
-  --accent-cyan: #0891b2;
+  --accent-gold-glow: rgba(255, 199, 44, 0.12);
 
-  --accent-purple: #7c3aed;
+  --accent-cyan: #00A9CE;
 
-  --accent-purple-glow: rgba(124, 58, 237, 0.15);
+  --accent-cyan-glow: rgba(0, 169, 206, 0.12);
+
+  --accent-purple: #680A1D;
+
+  --accent-purple-glow: rgba(104, 10, 29, 0.15);
 
   --gradient-hero: linear-gradient(170deg, #1a1d2e 0%, #1e2540 35%, #162038 65%, #1a1d2e 100%);
 
@@ -150,9 +154,13 @@ body {
 
 .tab-link.active {
 
-  color: var(--accent-purple); font-weight: 600;
+  color: #fff; font-weight: 600;
 
-  border-bottom-color: var(--accent-purple);
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-blue) 50%, var(--accent-green) 100%);
+
+  border-bottom-color: var(--accent-red);
+
+  border-radius: 8px; padding: 12px 20px;
 
 }
 
@@ -248,16 +256,17 @@ body {
 
   display: flex; flex-direction: column; align-items: center; justify-content: center;
 
-  background-image:
-    linear-gradient(rgba(10, 0, 20, 0.9), rgba(40, 0, 0, 0.95)),
+  background:
+    linear-gradient(135deg, #680A1D 0%, #14558F 50%, #32784E 100%),
     url('/images/Official5.png'),
     url('/images/Official4.png'),
     url('/images/Official3.png'),
     url('/images/Official2.png'),
     url('/images/Official1.png');
-  background-size: cover, 40% auto, 40% auto, 40% auto, 40% auto, 40% auto;
+  background-size: cover, 50% auto, 50% auto, 50% auto, 50% auto, 50% auto;
   background-position: center, 10% bottom, 30% bottom, 50% bottom, 70% bottom, 90% bottom;
   background-repeat: no-repeat;
+  background-blend-mode: overlay;
 
   position: relative; overflow: hidden; padding: 40px 20px;
 
@@ -293,7 +302,7 @@ body {
 
 .hero-content {
 
-  position: relative; z-index: 2; text-align: center; max-width: 900px;
+  position: relative; z-index: 2; text-align: center; max-width: 1200px; width: 90%;
 
   animation: fadeInUp 1s ease-out;
 
