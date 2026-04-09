@@ -248,7 +248,16 @@ body {
 
   display: flex; flex-direction: column; align-items: center; justify-content: center;
 
-  background: #0a0c14;
+  background-image:
+    linear-gradient(rgba(10, 0, 20, 0.9), rgba(40, 0, 0, 0.95)),
+    url('/images/Official5.png'),
+    url('/images/Official4.png'),
+    url('/images/Official3.png'),
+    url('/images/Official2.png'),
+    url('/images/Official1.png');
+  background-size: cover, 40% auto, 40% auto, 40% auto, 40% auto, 40% auto;
+  background-position: center, 10% bottom, 30% bottom, 50% bottom, 70% bottom, 90% bottom;
+  background-repeat: no-repeat;
 
   position: relative; overflow: hidden; padding: 40px 20px;
 
@@ -278,26 +287,7 @@ body {
 
 
 
-/* Ominous official figures in background */
-
-.hero-figures {
-
-  position: absolute; inset: 0; z-index: 0;
-
-  display: flex; align-items: flex-end; justify-content: center;
-
-}
-
-.hero-figure {
-  position: absolute; bottom: 0;
-  width: 32%; height: 80%;
-  background-size: contain; background-position: bottom center; background-repeat: no-repeat;
-  opacity: 0.45;
-  filter: brightness(1.1) contrast(1.05) saturate(0.9);
-  transition: opacity 0.6s ease;
-}
-
-.hero:hover .hero-figure { opacity: 0.6; }
+/* Ominous official figures in background - now using background-image layers */
 
 
 
