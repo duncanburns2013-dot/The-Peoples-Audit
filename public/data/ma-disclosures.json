@@ -1,11 +1,25 @@
 {
-  "fetchedAt": "2026-04-09T00:00:00.000Z",
-  "preservedFromCache": false,
+  "fetchedAt": "2026-04-10T07:28:14.242Z",
+  "preservedFromCache": true,
   "sources": [
-    { "name": "seed", "ok": true, "count": 4 }
+    {
+      "name": "EMMA QuickSearch (MA)",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "mass.gov · Office of the Treasurer",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "mass.gov · Debt Management",
+      "ok": true,
+      "count": 0
+    }
   ],
   "warnings": [
-    "Initial seed file. Will be replaced automatically by the scheduled GitHub Action on first run."
+    "All live sources returned 0 items — preserving cached items."
   ],
   "count": 4,
   "items": [
