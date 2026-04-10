@@ -1,12 +1,7 @@
 {
-  "fetchedAt": "2026-04-10T07:28:14.242Z",
+  "fetchedAt": "2026-04-10T13:10:46.327Z",
   "preservedFromCache": true,
   "sources": [
-    {
-      "name": "EMMA QuickSearch (MA)",
-      "ok": true,
-      "count": 0
-    },
     {
       "name": "mass.gov · Office of the Treasurer",
       "ok": true,
@@ -14,6 +9,11 @@
     },
     {
       "name": "mass.gov · Debt Management",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "EMMA QuickSearch (MA)",
       "ok": true,
       "count": 0
     }
