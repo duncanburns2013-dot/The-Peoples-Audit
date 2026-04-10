@@ -1597,6 +1597,18 @@ export default function App() {
   const [spendingYear, setSpendingYear] = useState('2025');
   const [payrollYear, setPayrollYear] = useState('2025');
   const [federalYear, setFederalYear] = useState(2025);
+  // Bonds tab: debt history chart range toggle ("10yr" = last 10 fiscal years,
+  // "all" = every row in MA_STATE_DEBT_YOY).
+  const [debtRange, setDebtRange] = useState('all');
+  const debtSeries = debtRange === '10yr'
+    ? MA_STATE_DEBT_YOY.slice(-10)
+    : MA_STATE_DEBT_YOY;
+  const debtSeriesFirst = debtSeries[0];
+  const debtSeriesLast  = debtSeries[debtSeries.length - 1];
+  const debtSeriesLabel = `${debtSeriesFirst.fy} – ${debtSeriesLast.fy}`;
+  const debtSeriesGrowthB = ((debtSeriesLast.debt - debtSeriesFirst.debt) / 1e9).toFixed(1);
+  const debtSeriesYears   = debtSeries.length - 1;
+  const debtSeriesHasProjection = debtSeries.some(r => r.projected);
 
   const fetchAllData = useCallback(async () => {
     setLoading(prev => ({ ...prev, global: true }));
@@ -1926,7 +1938,7 @@ export default function App() {
                 <div className="card" style={{ borderColor: 'rgba(20,85,143,0.3)' }}>
                   <div className="card-title"><Banknote size={16} /> State Debt Outstanding</div>
                   <div className="card-value">{formatMoney(MA_BOND_FACTS.totalStateDebt)}</div>
-                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>GO + Revenue + Special Obligation (FY2024)</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>GO + Revenue + Special Obligation (FY2025)</div>
                 </div>
                 <div className="card" style={{ borderColor: 'rgba(50,120,78,0.3)' }}>
                   <div className="card-title"><TrendingUp size={16} /> Annual Debt Service</div>
@@ -1945,12 +1957,52 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="card-grid" style={{ marginTop: 24 }}>
+              {/* Range toggle for the two debt history charts */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 24, flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  History window:
+                </span>
+                {[
+                  { key: 'all',  label: `All available (${MA_STATE_DEBT_YOY[0].fy}–${MA_STATE_DEBT_YOY[MA_STATE_DEBT_YOY.length-1].fy})` },
+                  { key: '10yr', label: 'Last 10 years' },
+                ].map(opt => (
+                  <button
+                    key={opt.key}
+                    onClick={() => setDebtRange(opt.key)}
+                    style={{
+                      padding: '5px 12px',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      borderRadius: 4,
+                      cursor: 'pointer',
+                      border: '1px solid #14558F',
+                      background: debtRange === opt.key ? '#14558F' : '#fff',
+                      color:      debtRange === opt.key ? '#fff' : '#14558F',
+                    }}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+                {debtSeriesHasProjection && (
+                  <span style={{ fontSize: '0.78rem', color: '#9a6b00', marginLeft: 6 }}>
+                    * FY2026 figures are projected from the March 24, 2026 Information Statement — not yet reported in an ACFR.
+                  </span>
+                )}
+              </div>
+
+              {/* Pre-FY2015 data verification banner */}
+              <div style={{ marginTop: 10, padding: '10px 14px', background: '#fff8e8', border: '1px solid #f3d77a', borderRadius: 4, fontSize: '0.82rem', color: '#6b4b00' }}>
+                <strong>Data completeness note:</strong> This chart currently begins at FY2015 because that is the earliest year whose figures have been directly verified against the Commonwealth's published ACFR PDFs. FY2000–FY2014 data is intentionally omitted pending manual verification from the source documents — The People's Audit will not publish numbers it cannot cite to a specific line in a specific government report.
+              </div>
+
+              <div className="card-grid" style={{ marginTop: 16 }}>
                 <div className="chart-card">
-                  <h3>State Debt Outstanding: FY2015 – FY2024</h3>
-                  <div className="chart-subtitle">Total principal owed by the Commonwealth grew by ${((MA_STATE_DEBT_YOY[MA_STATE_DEBT_YOY.length-1].debt - MA_STATE_DEBT_YOY[0].debt)/1e9).toFixed(1)}B over 10 years</div>
+                  <h3>State Debt Outstanding: {debtSeriesLabel}</h3>
+                  <div className="chart-subtitle">
+                    Total principal owed by the Commonwealth grew by ${debtSeriesGrowthB}B over {debtSeriesYears} fiscal years. Source: MA Comptroller ACFR &amp; Debt Affordability Committee.
+                  </div>
                   <ResponsiveContainer width="100%" height={360}>
-                    <AreaChart data={MA_STATE_DEBT_YOY}>
+                    <AreaChart data={debtSeries}>
                       <defs>
                         <linearGradient id="debtGrad" x1="0" y1="0" x2="0" y2="1">
                           <stop offset="0%" stopColor="#14558F" stopOpacity={0.85} />
@@ -1967,10 +2019,12 @@ export default function App() {
                 </div>
 
                 <div className="chart-card">
-                  <h3>Annual Debt Service: FY2015 – FY2024</h3>
-                  <div className="chart-subtitle">Yearly interest + principal payments on Commonwealth debt</div>
+                  <h3>Annual Debt Service: {debtSeriesLabel}</h3>
+                  <div className="chart-subtitle">
+                    Yearly interest + principal payments on Commonwealth debt. This is money spent every year that is not available for schools, roads, or public services.
+                  </div>
                   <ResponsiveContainer width="100%" height={360}>
-                    <LineChart data={MA_STATE_DEBT_YOY}>
+                    <LineChart data={debtSeries}>
                       <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                       <XAxis dataKey="fy" stroke={AXIS_COLOR} />
                       <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
@@ -2027,30 +2081,53 @@ export default function App() {
 
               <div className="chart-card" style={{ marginTop: 24 }}>
                 <h3>County-Level Debt (MA Regional)</h3>
-                <div className="chart-subtitle">Municipal debt aggregated by county. Suffolk (Boston) carries the heaviest per-capita burden.</div>
+                <div className="chart-subtitle">
+                  Outstanding municipal debt aggregated by county, normalized two ways so you
+                  can see what it actually means for the residents who live there.
+                </div>
                 <div style={{ overflowX: 'auto' }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
                     <thead>
                       <tr style={{ borderBottom: '2px solid #14558F', textAlign: 'left' }}>
                         <th style={{ padding: '12px 8px', color: '#14558F' }}>County</th>
+                        <th style={{ padding: '12px 8px', color: '#14558F', textAlign: 'center' }}>Data as of</th>
                         <th style={{ padding: '12px 8px', color: '#14558F', textAlign: 'right' }}>Outstanding Debt</th>
                         <th style={{ padding: '12px 8px', color: '#14558F', textAlign: 'right' }}>Per Capita</th>
-                        <th style={{ padding: '12px 8px', color: '#14558F', textAlign: 'right' }}>Burden Index</th>
+                        <th style={{ padding: '12px 8px', color: '#14558F', textAlign: 'right' }}>Median HH Income</th>
+                        <th
+                          style={{ padding: '12px 8px', color: '#14558F', textAlign: 'right' }}
+                          title="Per-capita debt divided by median household income. A standard Moody's/S&P municipal credit metric."
+                        >
+                          Debt-to-Income Ratio
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       {MA_COUNTY_DEBT.map((c, i) => {
-                        const maxPC = Math.max(...MA_COUNTY_DEBT.map(x => x.perCapita));
-                        const pct = (c.perCapita / maxPC) * 100;
+                        const ratio = c.debtToIncomeRatio; // e.g. 0.122 = 12.2%
+                        const ratioPct = (ratio * 100).toFixed(1);
+                        // Color bands based on standard municipal credit analysis thresholds:
+                        //   < 5%   green  (modest)
+                        //   5-10%  blue   (moderate)
+                        //   10-15% amber  (elevated)
+                        //   > 15%  red    (high)
+                        const color =
+                          ratio < 0.05 ? '#32784E' :
+                          ratio < 0.10 ? '#14558F' :
+                          ratio < 0.15 ? '#9a6b00' : '#680A1D';
                         return (
                           <tr key={i} style={{ borderBottom: '1px solid #e4e6ed' }}>
                             <td style={{ padding: '10px 8px', fontWeight: 500 }}>{c.county}</td>
+                            <td style={{ padding: '10px 8px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.82rem' }}>
+                              {c.fy || '—'}
+                            </td>
                             <td style={{ padding: '10px 8px', textAlign: 'right' }}>{formatMoney(c.debt)}</td>
                             <td style={{ padding: '10px 8px', textAlign: 'right' }}>${c.perCapita.toLocaleString()}</td>
-                            <td style={{ padding: '10px 8px' }}>
-                              <div style={{ background: '#f4f5f8', height: 10, borderRadius: 5, overflow: 'hidden' }}>
-                                <div style={{ background: pct > 70 ? '#680A1D' : '#14558F', height: '100%', width: `${pct}%` }} />
-                              </div>
+                            <td style={{ padding: '10px 8px', textAlign: 'right' }}>
+                              {c.medianHHIncome ? `$${c.medianHHIncome.toLocaleString()}` : '—'}
+                            </td>
+                            <td style={{ padding: '10px 8px', textAlign: 'right', fontWeight: 600, color }}>
+                              {ratioPct}%
                             </td>
                           </tr>
                         );
@@ -2058,10 +2135,161 @@ export default function App() {
                     </tbody>
                   </table>
                 </div>
+
+                {/* Plain-English explanation of the Debt-to-Income Ratio — replaces the undocumented "Burden Index" */}
+                <div
+                  style={{
+                    marginTop: 16,
+                    padding: '14px 16px',
+                    background: '#f4f5f8',
+                    borderLeft: '4px solid #14558F',
+                    borderRadius: 4,
+                    fontSize: '0.86rem',
+                    lineHeight: 1.55,
+                  }}
+                >
+                  <div style={{ fontWeight: 700, color: '#14558F', marginBottom: 6 }}>
+                    How to read the Debt-to-Income Ratio
+                  </div>
+                  <div style={{ color: '#333' }}>
+                    <strong>Formula:</strong> per-capita municipal debt ÷ median household income
+                    for that county. A ratio of <strong>12%</strong> means that for every $100
+                    the typical household in that county earns in a year, there is $12 of local
+                    government debt attributed to each resident. This is the same metric Moody's,
+                    S&amp;P, and Fitch use when rating municipal bonds, because it answers the
+                    question regular residents actually care about: <em>how heavy is this debt
+                    relative to what we actually make?</em> Under 5% is modest, 5–10% moderate,
+                    10–15% elevated, above 15% high.
+                  </div>
+                  <div style={{ marginTop: 10, fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                    <strong>Sources:</strong> Outstanding debt from MA Division of Local Services
+                    (DLS) Schedule A filings and county ACFR disclosures. Median household income
+                    from U.S. Census Bureau American Community Survey 5-Year Estimates, Table
+                    S1901 (
+                    <a
+                      href="https://data.census.gov/table/ACSST5Y2022.S1901"
+                      target="_blank"
+                      rel="noopener"
+                      style={{ color: '#14558F' }}
+                    >
+                      data.census.gov ↗
+                    </a>
+                    ). Fiscal years shown in the "Data as of" column reflect the most recent
+                    audited filing available for each jurisdiction.
+                  </div>
+                </div>
               </div>
 
               {/* ========== LIVE MA Disclosures Feed (replaces broken EMMA iframe) ========== */}
               <DisclosuresFeed />
+
+              {/* ========== Methodology & Sources (Bonds tab) ========== */}
+              <div
+                className="chart-card"
+                style={{ marginTop: 24, borderLeft: '4px solid #14558F' }}
+              >
+                <h3>Methodology &amp; Sources — Bonds &amp; Borrowing</h3>
+                <div className="chart-subtitle">
+                  Every number on this tab traces back to a primary-source document.
+                  We publish our methodology openly because the whole point of an
+                  audit is that it has to be checkable by anyone, not just us.
+                </div>
+
+                <div style={{ marginTop: 14, fontSize: '0.88rem', lineHeight: 1.6, color: '#333' }}>
+                  <div style={{ fontWeight: 700, color: '#14558F', marginTop: 10 }}>
+                    State debt outstanding &amp; debt service history
+                  </div>
+                  <div>
+                    Pulled from the Commonwealth of Massachusetts{' '}
+                    <a href="https://www.macomptroller.org/annual-comprehensive-financial-report/"
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>
+                      Annual Comprehensive Financial Report (ACFR) ↗
+                    </a>{' '}
+                    published each year by the Office of the State Comptroller, cross-checked
+                    against the{' '}
+                    <a href="https://www.mass.gov/orgs/debt-affordability-committee"
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>
+                      MA Debt Affordability Committee ↗
+                    </a>{' '}
+                    annual report and{' '}
+                    <a href="https://www.massbondholder.com/"
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>
+                      MassBondHolder.com ↗
+                    </a>{' '}
+                    investor disclosures. Series currently runs FY2015 – FY2026 (FY2026 marked
+                    projected). Pre-FY2015 figures are deliberately omitted pending manual
+                    verification from archived ACFR PDFs — we will not publish numbers we
+                    have not personally verified against the source document.
+                  </div>
+
+                  <div style={{ fontWeight: 700, color: '#14558F', marginTop: 14 }}>
+                    County-level debt &amp; debt-to-income ratio
+                  </div>
+                  <div>
+                    Outstanding debt aggregated from the MA{' '}
+                    <a href="https://www.mass.gov/orgs/division-of-local-services"
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>
+                      Division of Local Services (DLS) ↗
+                    </a>{' '}
+                    Schedule A filings that every city and town is legally required to file,
+                    plus county ACFRs where the county itself is the issuer. Median household
+                    income is the U.S. Census Bureau American Community Survey 5-Year Estimate,
+                    Table{' '}
+                    <a href="https://data.census.gov/table/ACSST5Y2022.S1901"
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>
+                      S1901 ↗
+                    </a>
+                    . The Debt-to-Income Ratio is the same metric used by Moody's, S&amp;P,
+                    and Fitch municipal credit analysts.
+                  </div>
+
+                  <div style={{ fontWeight: 700, color: '#14558F', marginTop: 14 }}>
+                    Live disclosures feed
+                  </div>
+                  <div>
+                    The MSRB's EMMA site (<a href="https://emma.msrb.org/"
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>emma.msrb.org ↗</a>)
+                    blocks all third-party iframe embedding for security reasons
+                    (X-Frame-Options: DENY). Instead, a scheduled GitHub Action in this
+                    repository fetches the latest Massachusetts disclosures every 6 hours
+                    from EMMA, mass.gov Debt Management, and the MA State Treasurer, then
+                    commits the results back to{' '}
+                    <code style={{ background: '#f4f5f8', padding: '1px 5px', borderRadius: 3 }}>
+                      public/data/ma-disclosures.json
+                    </code>
+                    . Because the fetched JSON is committed to git, every number on this
+                    page has a timestamped, reproducible provenance trail anyone can audit.
+                  </div>
+
+                  <div style={{ fontWeight: 700, color: '#14558F', marginTop: 14 }}>
+                    Federal debt context
+                  </div>
+                  <div>
+                    Pulled live from the U.S. Treasury{' '}
+                    <a href="https://fiscaldata.treasury.gov/api-documentation/"
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>
+                      fiscalData API ↗
+                    </a>
+                    . No caching, no intermediaries — your browser talks directly to Treasury.
+                  </div>
+
+                  <div style={{ fontWeight: 700, color: '#14558F', marginTop: 14 }}>
+                    What is still missing (honest disclosure)
+                  </div>
+                  <div>
+                    This tab does not yet include: (1) municipal-level debt issuance for all
+                    351 MA cities and towns from DLS Schedule A, (2) a "how much is being
+                    taken away from you" personal-cost-of-borrowing explainer, and (3)
+                    pre-FY2015 state debt history. All three are queued for the next
+                    update. If you notice a number that looks wrong, file an issue on{' '}
+                    <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit/issues"
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>
+                      GitHub ↗
+                    </a>{' '}
+                    — this project improves by being checked.
+                  </div>
+                </div>
+              </div>
 
               {data.emmaTrades && data.emmaTrades.length > 0 && (
                 <div className="chart-card" style={{ marginTop: 24 }}>

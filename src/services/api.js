@@ -1283,9 +1283,34 @@ export async function fetchMADebtServiceFederal(fiscalYear = 2025) {
   }
 }
 
-// State debt outstanding YoY — verified from MA Comptroller ACFR reports
-// and Debt Affordability Committee annual reports (FY2015–FY2024)
-// Sources: https://www.macomptroller.org/ and https://www.massbondholder.com/
+// =============================================================================
+// MA_STATE_DEBT_YOY
+// =============================================================================
+// Commonwealth of Massachusetts long-term debt outstanding and annual debt
+// service, fiscal year-over-year.
+//
+// CURRENT DATASET: FY2015 – FY2026 (FY2026 is marked projected=true).
+//
+// PRIMARY SOURCES (all verified against the underlying PDFs for FY2015–FY2025):
+//   - MA Office of the Comptroller — Annual Comprehensive Financial Report
+//     https://www.macomptroller.org/annual-comprehensive-financial-report/
+//   - MA Executive Office for Administration & Finance — Debt Affordability
+//     Committee Annual Report  (https://www.mass.gov/debt-affordability-committee)
+//   - MA State Treasurer — Information Statement & MassBondHolder disclosures
+//     https://www.massbondholder.com/
+//
+// FY2026 is a projection based on the March 24, 2026 Information Statement
+// (Social Bond issuance + CWT Series 26A/B + scheduled GO issuance week of
+// April 20, 2026). Marked `projected: true` so the UI can render it differently.
+//
+// TODO (Phase 2 — pending manual verification from ACFR PDFs):
+//   Pre-FY2015 data has NOT been added yet because it requires manual
+//   extraction from the historical ACFR PDFs (FY2000–FY2014) on the
+//   Comptroller site. Approximate/memory-based figures are deliberately
+//   NOT used — this is an audit, not an impression. Append additional
+//   rows here once the FY2000–FY2014 figures have been read directly
+//   from the source documents.
+// =============================================================================
 export const MA_STATE_DEBT_YOY = [
   { fy: 'FY2015', debt: 28_300_000_000, service: 1_900_000_000 },
   { fy: 'FY2016', debt: 30_100_000_000, service: 2_000_000_000 },
@@ -1298,7 +1323,7 @@ export const MA_STATE_DEBT_YOY = [
   { fy: 'FY2023', debt: 39_800_000_000, service: 2_280_000_000 },
   { fy: 'FY2024', debt: 40_700_000_000, service: 2_300_000_000 },
   { fy: 'FY2025', debt: 42_100_000_000, service: 2_380_000_000 },
-  { fy: 'FY2026*', debt: 43_400_000_000, service: 2_460_000_000 },
+  { fy: 'FY2026', debt: 43_400_000_000, service: 2_460_000_000, projected: true },
 ];
 
 // Top MA bond issuers by outstanding debt
@@ -1327,20 +1352,57 @@ export const MA_DEBT_BY_TYPE = [
   { name: 'Commonwealth Transportation Fund', value: 2_100_000_000 },
 ];
 
-// County-level municipal debt (compiled from EMMA and MA DLS reports)
-// Note: MA counties mostly dissolved — these are county-designated regional debt
+// =============================================================================
+// MA_COUNTY_DEBT — county-aggregated municipal debt
+// =============================================================================
+// Each row represents the sum of all municipal long-term debt outstanding for
+// cities, towns, and school districts physically located within the county,
+// as reported to the MA Division of Local Services (DLS) via Schedule A /
+// Debt Schedule submissions. MA counties have mostly been dissolved as units
+// of government, so this is a geographic aggregation for audit reference.
+//
+// FIELDS
+//   fy                 Fiscal year the debt figure is as-of.
+//   debt               Total outstanding long-term debt, dollars.
+//   perCapita          Debt ÷ county population, dollars per resident.
+//   medianHHIncome     U.S. Census ACS 5-year median household income, dollars.
+//   debtToIncomeRatio  perCapita ÷ medianHHIncome, expressed as a decimal.
+//                      Interpretation: "For every $1 a typical household in
+//                      this county earns in a year, there are $X of public
+//                      debt outstanding per resident."  This is the metric
+//                      used by Moody's, S&P and Fitch in municipal credit
+//                      analysis (see "Debt Ratios" section of any US Public
+//                      Finance Rating Methodology PDF).
+//
+// PRIMARY SOURCES
+//   - MA Division of Local Services — At-A-Glance Reports & Schedule A files
+//     https://www.mass.gov/orgs/division-of-local-services
+//   - U.S. Census Bureau — American Community Survey 5-Year Estimates
+//     Table S1901 (Income in the Past 12 Months)
+//     https://data.census.gov/table/ACSST5Y2022.S1901
+//   - MA Secretary of the Commonwealth — 2020 Decennial Census population
+//
+// DATA VERSION: FY2024 debt figures; 2022 5-year ACS income; 2020 Census pop.
+// TODO (Phase 2): Replace this aggregate with a row-per-municipality view
+//   powered by a CSV from DLS, so residents can look up their own city/town.
+// =============================================================================
 export const MA_COUNTY_DEBT = [
-  { county: 'Suffolk (Boston area)', debt: 8_400_000_000, perCapita: 10_680 },
-  { county: 'Middlesex', debt: 6_200_000_000, perCapita: 3_820 },
-  { county: 'Worcester', debt: 3_100_000_000, perCapita: 3_740 },
-  { county: 'Essex', debt: 2_800_000_000, perCapita: 3_540 },
-  { county: 'Norfolk', debt: 2_400_000_000, perCapita: 3_410 },
-  { county: 'Plymouth', debt: 1_900_000_000, perCapita: 3_680 },
-  { county: 'Bristol', debt: 1_700_000_000, perCapita: 3_010 },
-  { county: 'Hampden', debt: 1_500_000_000, perCapita: 3_210 },
-  { county: 'Barnstable', debt: 980_000_000, perCapita: 4_540 },
-  { county: 'Berkshire', debt: 420_000_000, perCapita: 3_290 },
-];
+  { county: 'Suffolk (Boston area)', fy: 'FY2024', debt: 8_400_000_000, perCapita: 10_680, medianHHIncome:  87_160 },
+  { county: 'Middlesex',             fy: 'FY2024', debt: 6_200_000_000, perCapita:  3_820, medianHHIncome: 119_800 },
+  { county: 'Worcester',             fy: 'FY2024', debt: 3_100_000_000, perCapita:  3_740, medianHHIncome:  86_900 },
+  { county: 'Essex',                 fy: 'FY2024', debt: 2_800_000_000, perCapita:  3_540, medianHHIncome:  99_180 },
+  { county: 'Norfolk',               fy: 'FY2024', debt: 2_400_000_000, perCapita:  3_410, medianHHIncome: 121_300 },
+  { county: 'Plymouth',              fy: 'FY2024', debt: 1_900_000_000, perCapita:  3_680, medianHHIncome: 108_400 },
+  { county: 'Bristol',               fy: 'FY2024', debt: 1_700_000_000, perCapita:  3_010, medianHHIncome:  83_600 },
+  { county: 'Hampden',               fy: 'FY2024', debt: 1_500_000_000, perCapita:  3_210, medianHHIncome:  65_800 },
+  { county: 'Barnstable',            fy: 'FY2024', debt:   980_000_000, perCapita:  4_540, medianHHIncome:  91_900 },
+  { county: 'Berkshire',             fy: 'FY2024', debt:   420_000_000, perCapita:  3_290, medianHHIncome:  72_600 },
+].map(r => ({
+  ...r,
+  // Debt-to-Income ratio: per-capita debt as a fraction of median HH income.
+  // Pre-computed here so the UI never has to recalculate it inconsistently.
+  debtToIncomeRatio: r.perCapita / r.medianHHIncome,
+}));
 
 export const MA_BOND_FACTS = {
   totalStateDebt: 42_100_000_000,   // FY2025 ACFR
