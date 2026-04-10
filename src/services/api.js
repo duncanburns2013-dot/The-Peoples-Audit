@@ -1,4 +1,4 @@
-// testxy
+// test
 /**
  * THE PEOPLE'S AUDIT - Data Services
  * Connects to Massachusetts public financial data via CTHRU (Socrata) and USASpending APIs
@@ -857,12 +857,23 @@ export async function searchContributions(params = {}) {
 }
 
 /**
- * Fetch the most recent contribution date for a given filer (legislator/candidate).
- * OCPF returns oldest-first with no server-side sort, so we use a narrow window strategy:
- *   1. Try current year first (small result set → max date is accurate)
- *   2. If nothing, try previous year
- *   3. If still nothing, try 2 years back
- * Returns { cpfId, lastContribDate: 'YYYY-MM-DD' | null, lastContribAmount, lastContributor }
+ * Parse OCPF date string (M/D/YYYY) into epoch ms for proper comparison.
+ * OCPF returns dates like "4/10/2026" — string comparison breaks on this format.
+ */
+function parseOcpfDate(str) {
+  if (!str) return 0;
+  const parts = str.split('/');
+  if (parts.length === 3) return new Date(+parts[2], +parts[0] - 1, +parts[1]).getTime();
+  return new Date(str).getTime() || 0;
+}
+
+/**
+ * Fetch the most recent contribution for a given filer (legislator/candidate).
+ * OCPF dates are M/D/YYYY and the API returns oldest-first, so we:
+ *   1. Fetch current year first (small result set)
+ *   2. Parse dates properly for comparison (string compare fails on M/D/YYYY)
+ *   3. Fall back to prior years if nothing found
+ * Returns { cpfId, lastContribDate, lastContribAmount, lastContributor }
  */
 export async function fetchLastContribution(cpfId) {
   try {
@@ -878,10 +889,12 @@ export async function fetchLastContribution(cpfId) {
       const items = data.items || [];
       if (items.length === 0) continue;
 
-      // Find the most recent by date (API returns oldest-first)
+      // Find the most recent by parsing OCPF M/D/YYYY dates properly
       let newest = items[0];
+      let newestTime = parseOcpfDate(newest.date);
       for (let i = 1; i < items.length; i++) {
-        if ((items[i].date || '') > (newest.date || '')) newest = items[i];
+        const t = parseOcpfDate(items[i].date);
+        if (t > newestTime) { newest = items[i]; newestTime = t; }
       }
 
       // If page is full (100 items) and this isn't current year, there may be newer items on later pages.
@@ -891,7 +904,8 @@ export async function fetchLastContribution(cpfId) {
         try {
           const data2 = await ocpfQuery(`/search/items?${qs2}`);
           for (const item of (data2.items || [])) {
-            if ((item.date || '') > (newest.date || '')) newest = item;
+            const t = parseOcpfDate(item.date);
+            if (t > newestTime) { newest = item; newestTime = t; }
           }
         } catch (_) { /* ignore second-page failures */ }
       }
