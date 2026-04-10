@@ -1990,9 +1990,15 @@ export default function App() {
                 )}
               </div>
 
-              {/* Pre-FY2015 data verification banner */}
-              <div style={{ marginTop: 10, padding: '10px 14px', background: '#fff8e8', border: '1px solid #f3d77a', borderRadius: 4, fontSize: '0.82rem', color: '#6b4b00' }}>
-                <strong>Data completeness note:</strong> This chart currently begins at FY2015 because that is the earliest year whose figures have been directly verified against the Commonwealth's published ACFR PDFs. FY2000–FY2014 data is intentionally omitted pending manual verification from the source documents — The People's Audit will not publish numbers it cannot cite to a specific line in a specific government report.
+              {/* Data provenance banner — now covering FY2000 onward */}
+              <div style={{ marginTop: 10, padding: '10px 14px', background: '#eef5ff', border: '1px solid #9dbae5', borderRadius: 4, fontSize: '0.82rem', color: '#163b6a' }}>
+                <strong>Data provenance:</strong> Series now runs <strong>FY2000 – FY2026</strong>.
+                FY2000–FY2014 figures have been extracted and cross-verified directly from the
+                Commonwealth's archived ACFR PDFs (FY2004, FY2009, FY2011, FY2012, FY2013, and
+                FY2014 editions), with each number checked against at least two independent
+                ACFR tables to catch restatements. See the Methodology &amp; Sources panel
+                below for line-by-line citations, the FY2013 methodology break (net-proceeds
+                → principal), and the confirmed FY2007/FY2008 debt-service restatement anomaly.
               </div>
 
               <div className="card-grid" style={{ marginTop: 16 }}>
@@ -2216,10 +2222,48 @@ export default function App() {
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
                       MassBondHolder.com ↗
                     </a>{' '}
-                    investor disclosures. Series currently runs FY2015 – FY2026 (FY2026 marked
-                    projected). Pre-FY2015 figures are deliberately omitted pending manual
-                    verification from archived ACFR PDFs — we will not publish numbers we
-                    have not personally verified against the source document.
+                    investor disclosures. Series now runs <strong>FY2000 – FY2026</strong>.
+                    FY2000–FY2014 figures were extracted line-by-line from the archived ACFR
+                    PDFs (FY2004, FY2009, FY2011, FY2012, FY2013, FY2014 editions) and
+                    cross-verified across multiple years' statistical sections. "Debt" means
+                    Total Primary Government bonded debt + capital leases from the ACFR
+                    "Per Capita General Long-Term Bonded Debt" schedule — this explicitly
+                    <strong> excludes</strong> discretely presented component units (MSBA,
+                    MBTA, Massport, MWRA, etc.), consistent with the post-FY2015 figures.
+                  </div>
+
+                  <div style={{ fontWeight: 700, color: '#14558F', marginTop: 14 }}>
+                    Known anomalies &amp; methodology breaks (surfaced by cross-reference)
+                  </div>
+                  <div>
+                    <strong>FY2013 methodology break.</strong> Effective January 1, 2013, state
+                    finance law changed the statutory definition of outstanding debt from
+                    "net proceeds of debt issued" to "principal." FY2012 and earlier rows are
+                    on a net-proceeds basis; FY2013 and later are on a principal basis. This
+                    explains the apparent flat line between FY2012 ($25.36B) and FY2013
+                    ($25.32B) — the underlying debt didn't actually stop growing; the
+                    accounting changed.
+                    <br /><br />
+                    <strong>FY2007 &amp; FY2008 debt service restatement.</strong> The FY2009,
+                    FY2010, and FY2011 ACFRs reported FY2007 debt service at $2,166M and FY2008
+                    at $2,239M. Starting with the FY2013 ACFR, those numbers were restated
+                    upward to $2,538M (+$372M, +17%) and $2,486M (+$247M, +11%) respectively,
+                    with no narrative explanation provided in the statistical section. The
+                    People's Audit uses the latest authoritative (restated) figures but flags
+                    these rows so residents understand why debt service appears to spike and
+                    then fall in that window. This is the kind of finding that a real
+                    legislative audit would investigate — the same kind of audit 72% of MA
+                    voters demanded in 2024.
+                    <br /><br />
+                    <strong>FY2000 – FY2001 scope.</strong> Pre-GASB 34, the Commonwealth
+                    reported bonded debt as a single aggregate figure without splitting
+                    governmental from business-type activities. Those two rows use the
+                    single-column "Total long-term bonds and notes payable" figure from the
+                    FY2004 ACFR's Ten-Year Per Capita schedule and are flagged
+                    <code style={{ background: '#f4f5f8', padding: '1px 4px', borderRadius: 3 }}>
+                      preGASB34: true
+                    </code>
+                    in the underlying data file.
                   </div>
 
                   <div style={{ fontWeight: 700, color: '#14558F', marginTop: 14 }}>
@@ -2280,8 +2324,11 @@ export default function App() {
                     This tab does not yet include: (1) municipal-level debt issuance for all
                     351 MA cities and towns from DLS Schedule A, (2) a "how much is being
                     taken away from you" personal-cost-of-borrowing explainer, and (3)
-                    pre-FY2015 state debt history. All three are queued for the next
-                    update. If you notice a number that looks wrong, file an issue on{' '}
+                    independent PDF re-verification of the FY2015–FY2025 ACFR figures (we
+                    have those numbers from aggregated sources but haven't yet cross-checked
+                    each one against the primary ACFR document the way we did for
+                    FY2000–FY2014). All three are queued for the next update. If you notice
+                    a number that looks wrong, file an issue on{' '}
                     <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit/issues"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
                       GitHub ↗
