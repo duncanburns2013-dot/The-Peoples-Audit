@@ -1042,8 +1042,8 @@ function FollowTheMoney() {
   useEffect(() => {
     setLoading(true);
     Promise.allSettled([
-      fetchLegislatorFinances('2024'),
-      fetchPACFinances('2024'),
+      fetchLegislatorFinances('2025'),
+      fetchPACFinances('2025'),
     ]).then(([legResult, pacResult]) => {
       if (legResult.status === 'fulfilled') setLegislators(legResult.value);
       if (pacResult.status === 'fulfilled') setPacs(pacResult.value);
@@ -1149,7 +1149,7 @@ function FollowTheMoney() {
                 <div className="kpi-card">
                   <div className="kpi-label">Legislators Tracked</div>
                   <div className="kpi-value" style={{ color: 'var(--accent-purple)' }}>{legislators.length}</div>
-                  <div className="kpi-sub">All races, 2024 cycle</div>
+                  <div className="kpi-sub">All races, 2025 cycle</div>
                 </div>
                 <div className="kpi-card">
                   <div className="kpi-label">Total Legislator Receipts</div>
@@ -1164,13 +1164,13 @@ function FollowTheMoney() {
                 <div className="kpi-card">
                   <div className="kpi-label">Total PAC Receipts</div>
                   <div className="kpi-value">{formatMoney(totalPACReceipts)}</div>
-                  <div className="kpi-sub">PAC fundraising, 2024</div>
+                  <div className="kpi-sub">PAC fundraising, 2025</div>
                 </div>
               </div>
 
               <div className="card-grid">
                 <div className="chart-card">
-                  <h3>Top-Funded Legislators — 2024</h3>
+                  <h3>Top-Funded Legislators — 2025</h3>
                   <div className="chart-subtitle">Ranked by total campaign receipts</div>
                   {topFundedLegislators.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
@@ -1187,7 +1187,7 @@ function FollowTheMoney() {
                 </div>
 
                 <div className="chart-card">
-                  <h3>Top PACs by Receipts — 2024</h3>
+                  <h3>Top PACs by Receipts — 2025</h3>
                   <div className="chart-subtitle">Political Action Committee fundraising</div>
                   {topPACs.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
