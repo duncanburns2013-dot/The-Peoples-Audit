@@ -1359,10 +1359,12 @@ function FollowTheMoney() {
                   </thead>
                   <tbody>
                     {legislators.sort((a, b) => {
-                      const dateA = lastContribMap[a.cpfId]?.date || '';
-                      const dateB = lastContribMap[b.cpfId]?.date || '';
-                      // Sort by last contribution date (newest first); fall back to receipts
-                      if (dateA || dateB) return dateB.localeCompare(dateA) || b.receipts - a.receipts;
+                      const dA = lastContribMap[a.cpfId]?.date || '';
+                      const dB = lastContribMap[b.cpfId]?.date || '';
+                      // Parse M/D/YYYY dates for proper sort (string compare fails on this format)
+                      const pA = dA ? (() => { const p = dA.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
+                      const pB = dB ? (() => { const p = dB.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
+                      if (pA || pB) return (pB - pA) || b.receipts - a.receipts;
                       return b.receipts - a.receipts;
                     }).map((l, i) => (
                       <tr key={i} onClick={() => selectLegislatorForContribs(l)} style={{ cursor: 'pointer' }}
