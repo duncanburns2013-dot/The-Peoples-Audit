@@ -1818,8 +1818,38 @@ function MunicipalitiesExplorer() {
             </div>
           )}
 
-          <div style={{ marginTop: 24, padding: '16px 20px', background: 'rgba(20,85,143,0.08)', border: '1px solid rgba(20,85,143,0.25)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-            <strong style={{ color: '#14558F' }}>About this data:</strong> The Commonwealth's Division of Local Services collects annual Schedule A filings from every MA municipality. &quot;Total Outstanding Debt&quot; is the full principal balance on all long-term bonds and notes at year-end. &quot;Equalized Value (EQV)&quot; is the DOR's biennial full-market-value estimate for the town. &quot;Debt Per Resident&quot; divides total debt by DLS population; some tourist-heavy towns show inflated figures because their daytime or seasonal population dwarfs their permanent headcount.
+          <div style={{ marginTop: 24, padding: '20px 24px', background: 'rgba(20,85,143,0.08)', border: '1px solid rgba(20,85,143,0.25)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            <strong style={{ color: '#14558F', fontSize: '1rem' }}>What Do These Numbers Mean for You?</strong>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginTop: 16 }}>
+              <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.6)', borderRadius: 6, borderLeft: '3px solid #680A1D' }}>
+                <strong style={{ color: '#680A1D' }}>Debt / EQV %</strong>
+                <div style={{ marginTop: 6, lineHeight: 1.55 }}>
+                  This is the town's total outstanding debt divided by its <em>Equalized Valuation</em> — the state's estimate of all taxable property at full market value. Think of it as: &quot;for every $100 of property value in town, how many dollars are owed to bondholders?&quot; A town at 5% owes $5 for every $100 of property. The higher this number, the more leveraged your town is relative to its tax base. If property values fall, this ratio climbs — and so does the pressure on your tax bill.
+                </div>
+              </div>
+
+              <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.6)', borderRadius: 6, borderLeft: '3px solid #32784E' }}>
+                <strong style={{ color: '#32784E' }}>Debt Service % of Budget</strong>
+                <div style={{ marginTop: 6, lineHeight: 1.55 }}>
+                  This is the share of your town's annual budget that goes to paying off debt — principal and interest on bonds. It's money that <em>cannot</em> be spent on schools, roads, police, or any other service. A town at 10% sends a dime of every budget dollar to Wall Street before anything else gets funded. When this number rises, services get squeezed or your property taxes go up to compensate. Some towns show 0% because they report debt service in a separate enterprise fund (e.g., water/sewer) rather than the general fund.
+                </div>
+              </div>
+
+              <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.6)', borderRadius: 6, borderLeft: '3px solid #14558F' }}>
+                <strong style={{ color: '#14558F' }}>Debt / Resident</strong>
+                <div style={{ marginTop: 6, lineHeight: 1.55 }}>
+                  Total outstanding debt divided by population — your personal share of what the town owes. This is <em>on top of</em> the ~$13,000 per person you already owe as your share of Commonwealth state-level debt. Tourist-heavy towns (Cape Cod, the Islands) can show very high per-capita figures because their permanent-resident headcount is small relative to the infrastructure they finance.
+                </div>
+              </div>
+
+              <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.6)', borderRadius: 6, borderLeft: '3px solid #9a6b00' }}>
+                <strong style={{ color: '#9a6b00' }}>About the Source</strong>
+                <div style={{ marginTop: 6, lineHeight: 1.55 }}>
+                  Every MA municipality files a Schedule A with the Division of Local Services each year. &quot;Total Outstanding Debt&quot; (Part 10) is the full principal balance on all long-term bonds and notes at fiscal year-end. EQV is the DOR's biennial full-market-value appraisal. This data updates once a year as towns complete their filings — some FY2025 values may still be blank.
+                </div>
+              </div>
+            </div>
           </div>
         </>
       )}
