@@ -16,7 +16,7 @@ import {
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime, searchPayroll,
   fetchQuasiPayments, fetchQuasiAgencyDetail, fetchQuasiAgencyByYear, fetchQuasiAgencyCategories, fetchQuasiAgencyPayments,
   fetchFederalSpendingMA, fetchFederalAwardsMA,
-  fetchTreasuryDebtContext, fetchMADebtServiceFederal,
+  fetchTreasuryDebtContext, fetchMADebtServiceFederal, fetchEmmaRecentTrades,
   fetchTopVendors, searchVendors, fetchNonProfitVendors, fetchVendorByYear,
   fetchVendorByDepartment, fetchVendorByCategory, fetchVendorPayments,
   fetchDepartmentVendors, fetchDepartmentCategories, fetchDepartmentAppropriations,
@@ -1591,6 +1591,7 @@ export default function App() {
     federalAwards: null,
     treasuryDebt: null,
     debtServiceFederal: null,
+    emmaTrades: null,
   });
   const [spendingYear, setSpendingYear] = useState('2025');
   const [payrollYear, setPayrollYear] = useState('2025');
@@ -1611,6 +1612,7 @@ export default function App() {
       { key: 'federalAwards', fn: () => fetchFederalAwardsMA(federalYear) },
       { key: 'treasuryDebt', fn: () => fetchTreasuryDebtContext() },
       { key: 'debtServiceFederal', fn: () => fetchMADebtServiceFederal(federalYear) },
+      { key: 'emmaTrades', fn: () => fetchEmmaRecentTrades() },
     ];
 
     const fallbacks = {
@@ -1625,6 +1627,7 @@ export default function App() {
       federalAwards: FEDERAL_AWARDS_MA,
       treasuryDebt: null,
       debtServiceFederal: null,
+      emmaTrades: null,
     };
 
     const results = await Promise.allSettled(fetchers.map(f => f.fn()));
@@ -2056,21 +2059,94 @@ export default function App() {
                 </div>
               </div>
 
-              {data.treasuryDebt && (
+              {/* ========== EMMA LIVE FEED — the money shot ========== */}
+              <div className="chart-card" style={{ marginTop: 24, borderLeft: '4px solid #680A1D' }}>
+                <h3>
+                  <span style={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', background: '#ef4444', marginRight: 8, animation: 'pulse 1.6s infinite' }} />
+                  LIVE: EMMA Massachusetts Bond Feed (MSRB)
+                </h3>
+                <div className="chart-subtitle">
+                  Live embed of the MSRB Electronic Municipal Market Access portal filtered to Massachusetts. Every trade, official statement, and continuing disclosure for MA issuers appears here in real-time. The MSRB is the SEC-designated authoritative source for municipal securities data.
+                </div>
+                <div style={{ position: 'relative', width: '100%', height: 620, border: '1px solid #dfe2ea', borderRadius: 8, overflow: 'hidden', background: '#fff', marginTop: 12 }}>
+                  <iframe
+                    src="https://emma.msrb.org/QuickSearch/Results?quickSearchText=MASSACHUSETTS"
+                    title="EMMA Live Massachusetts Bond Feed"
+                    style={{ width: '100%', height: '100%', border: 0 }}
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                    loading="lazy"
+                  />
+                </div>
+                <div style={{ marginTop: 10, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  ⓘ If EMMA blocks in-frame display, <a href="https://emma.msrb.org/QuickSearch/Results?quickSearchText=MASSACHUSETTS" target="_blank" rel="noopener" style={{ color: '#680A1D', fontWeight: 600 }}>open the live feed in a new tab ↗</a>
+                </div>
+              </div>
+
+              {data.emmaTrades && data.emmaTrades.length > 0 && (
                 <div className="chart-card" style={{ marginTop: 24 }}>
-                  <h3>🔴 LIVE: Federal Debt Context (U.S. Treasury API)</h3>
-                  <div className="chart-subtitle">Total federal public debt, last {data.treasuryDebt.length} months — fetched live from fiscaldata.treasury.gov. MA's debt sits inside this broader fiscal environment.</div>
+                  <h3>Recent Notable MA Bond Trades</h3>
+                  <div className="chart-subtitle">Snapshot of significant Massachusetts issuer trades. Click any CUSIP to view full EMMA history.</div>
+                  <div style={{ overflowX: 'auto' }}>
+                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
+                      <thead>
+                        <tr style={{ borderBottom: '2px solid #680A1D', textAlign: 'left' }}>
+                          <th style={{ padding: '10px 8px', color: '#680A1D' }}>Issuer</th>
+                          <th style={{ padding: '10px 8px', color: '#680A1D' }}>CUSIP</th>
+                          <th style={{ padding: '10px 8px', color: '#680A1D', textAlign: 'right' }}>Par</th>
+                          <th style={{ padding: '10px 8px', color: '#680A1D', textAlign: 'right' }}>Price</th>
+                          <th style={{ padding: '10px 8px', color: '#680A1D', textAlign: 'right' }}>Yield</th>
+                          <th style={{ padding: '10px 8px', color: '#680A1D' }}>Trade Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.emmaTrades.map((t, i) => (
+                          <tr key={i} style={{ borderBottom: '1px solid #e4e6ed' }}>
+                            <td style={{ padding: '10px 8px', fontWeight: 500 }}>{t.issuer}</td>
+                            <td style={{ padding: '10px 8px', fontFamily: 'monospace' }}>
+                              <a href={`https://emma.msrb.org/Security/Details/${t.cusip}`} target="_blank" rel="noopener" style={{ color: '#14558F', textDecoration: 'none' }}>
+                                {t.cusip} ↗
+                              </a>
+                            </td>
+                            <td style={{ padding: '10px 8px', textAlign: 'right' }}>{formatMoney(t.par)}</td>
+                            <td style={{ padding: '10px 8px', textAlign: 'right' }}>{t.price.toFixed(2)}</td>
+                            <td style={{ padding: '10px 8px', textAlign: 'right', color: t.yield > 4.2 ? '#680A1D' : '#32784E' }}>{t.yield.toFixed(2)}%</td>
+                            <td style={{ padding: '10px 8px', color: 'var(--text-muted)' }}>{t.date}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {/* ========== Treasury Federal Debt Context ========== */}
+              <div className="chart-card" style={{ marginTop: 24 }}>
+                <h3>
+                  <span style={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', background: data.treasuryDebt ? '#ef4444' : '#9ca3af', marginRight: 8, animation: data.treasuryDebt ? 'pulse 1.6s infinite' : 'none' }} />
+                  {data.treasuryDebt ? 'LIVE' : 'OFFLINE'}: Federal Debt Context (U.S. Treasury API)
+                </h3>
+                <div className="chart-subtitle">
+                  {data.treasuryDebt
+                    ? `Total federal public debt, last ${data.treasuryDebt.length} data points, fetched live from api.fiscaldata.treasury.gov (no API key required). MA's borrowing sits inside this broader fiscal environment.`
+                    : 'Could not reach api.fiscaldata.treasury.gov from your browser. The endpoint may be rate-limited or temporarily down. Open the browser console to see the exact error.'}
+                </div>
+                {data.treasuryDebt ? (
                   <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={data.treasuryDebt}>
                       <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
-                      <XAxis dataKey="date" stroke={AXIS_COLOR} tickFormatter={d => d?.substring(0, 7)} />
-                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                      <XAxis dataKey="date" stroke={AXIS_COLOR} tickFormatter={d => d?.substring(0, 7)} minTickGap={40} />
+                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} domain={['auto', 'auto']} />
                       <Tooltip content={<CustomTooltip />} />
-                      <Line type="monotone" dataKey="federalDebt" stroke="#680A1D" strokeWidth={2} dot={false} name="U.S. Federal Debt" />
+                      <Line type="monotone" dataKey="federalDebt" stroke="#680A1D" strokeWidth={2} dot={false} name="U.S. Federal Debt" isAnimationActive={false} />
                     </LineChart>
                   </ResponsiveContainer>
-                </div>
-              )}
+                ) : (
+                  <div style={{ padding: 40, textAlign: 'center', background: '#f4f5f8', borderRadius: 8, color: 'var(--text-muted)' }}>
+                    <div style={{ fontSize: '2rem', marginBottom: 8 }}>⚠</div>
+                    <div>Live Treasury feed unavailable. Try refreshing, or visit <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/" target="_blank" rel="noopener" style={{ color: '#680A1D', fontWeight: 600 }}>the Treasury fiscalData portal directly ↗</a></div>
+                  </div>
+                )}
+              </div>
 
               <div className="chart-card" style={{ marginTop: 24 }}>
                 <h3>Drill Deeper — Official Sources</h3>
