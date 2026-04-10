@@ -1029,7 +1029,7 @@ function FollowTheMoney() {
   const [selectedLegislator, setSelectedLegislator] = useState(null);
   const [legislatorContributions, setLegislatorContributions] = useState(null);
   const [contribLoading, setContribLoading] = useState(false);
-  const [contribYear, setContribYear] = useState('all');
+  const [contribYear, setContribYear] = useState(String(new Date().getFullYear()));
   const [contribPage, setContribPage] = useState(0);
   const [contribSort, setContribSort] = useState('date-desc');
   const [crossRefSort, setCrossRefSort] = useState('amount-desc');
@@ -1076,12 +1076,20 @@ function FollowTheMoney() {
   }, [crossRefVendor]);
 
   // Load legislator contributions for a given year + page
+  // OCPF returns oldest-first when no date filter is set, so we always pass a date window.
   const loadContribs = useCallback((leg, year, page) => {
     setContribLoading(true);
     const params = { cpfId: leg.cpfId, pageSize: CONTRIB_PAGE_SIZE, pageIndex: page };
+    const today = new Date().toISOString().slice(0, 10);
     if (year && year !== 'all') {
       params.startDate = `${year}-01-01`;
       params.endDate = `${year}-12-31`;
+    } else {
+      // "All" mode: fetch last 5 years so we get recent data, not 2010-era results
+      const fiveYearsAgo = new Date();
+      fiveYearsAgo.setFullYear(fiveYearsAgo.getFullYear() - 5);
+      params.startDate = fiveYearsAgo.toISOString().slice(0, 10);
+      params.endDate = today;
     }
     searchContributions(params).then(data => {
       setLegislatorContributions(data);
@@ -1090,10 +1098,11 @@ function FollowTheMoney() {
   }, []);
 
   const selectLegislatorForContribs = useCallback((leg) => {
+    const currentYear = String(new Date().getFullYear());
     setSelectedLegislator(leg);
-    setContribYear('all');
+    setContribYear(currentYear);
     setContribPage(0);
-    loadContribs(leg, 'all', 0);
+    loadContribs(leg, currentYear, 0);
     setTimeout(() => contribRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
   }, [loadContribs]);
 
@@ -1244,8 +1253,8 @@ function FollowTheMoney() {
                           <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Year:</label>
                           <select value={contribYear} onChange={e => { setContribPage(0); setContribYear(e.target.value); }}
                             style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
-                            <option value="all">All years</option>
-                            {[2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010].map(y => (
+                            <option value="all">All (last 5 yrs)</option>
+                            {[2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010].map(y => (
                               <option key={y} value={y}>{y}</option>
                             ))}
                           </select>
@@ -1421,7 +1430,7 @@ function FollowTheMoney() {
                         <select value={crossRefYear} onChange={e => { setCrossRefPage(0); setCrossRefYear(e.target.value); }}
                           style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
                           <option value="all">All years</option>
-                          {[2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010].map(y => (
+                          {[2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010].map(y => (
                             <option key={y} value={y}>{y}</option>
                           ))}
                         </select>
