@@ -857,6 +857,38 @@ export async function searchContributions(params = {}) {
 }
 
 /**
+ * Fetch the most recent contribution date for a given filer (legislator/candidate).
+ * Makes one API call with a 5-year window and pageSize=100, then finds the newest date client-side.
+ * Returns { cpfId, lastContribDate: 'YYYY-MM-DD' | null, lastContribAmount, lastContributor }
+ */
+export async function fetchLastContribution(cpfId) {
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    const fiveYearsAgo = new Date();
+    fiveYearsAgo.setFullYear(fiveYearsAgo.getFullYear() - 5);
+    const start = fiveYearsAgo.toISOString().slice(0, 10);
+    const qs = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${today}&pageSize=100&pageIndex=0`;
+    const data = await ocpfQuery(`/search/items?${qs}`);
+    const items = data.items || [];
+    if (items.length === 0) return { cpfId, lastContribDate: null, lastContribAmount: null, lastContributor: null };
+    // Find the most recent by date (OCPF returns oldest-first)
+    let newest = items[0];
+    for (let i = 1; i < items.length; i++) {
+      if ((items[i].date || '') > (newest.date || '')) newest = items[i];
+    }
+    return {
+      cpfId,
+      lastContribDate: newest.date || null,
+      lastContribAmount: newest.amount || null,
+      lastContributor: newest.fullNameReverse || newest.firstName || null,
+    };
+  } catch (err) {
+    console.warn(`Last contribution fetch failed for cpfId=${cpfId}:`, err.message);
+    return { cpfId, lastContribDate: null, lastContribAmount: null, lastContributor: null };
+  }
+}
+
+/**
  * Search expenditures FROM political campaigns.
  * searchTypeCategory=B for expenditures
  */

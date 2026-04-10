@@ -23,7 +23,7 @@ import {
   fetchVendorByDepartment, fetchVendorByCategory, fetchVendorPayments,
   fetchDepartmentVendors, fetchDepartmentCategories, fetchDepartmentAppropriations,
   fetchDepartmentOverTime, fetchDepartmentPayments, fetchSpendingByCabinet,
-  fetchLegislatorFinances, fetchPACFinances, searchContributions, searchExpenditures,
+  fetchLegislatorFinances, fetchPACFinances, searchContributions, searchExpenditures, fetchLastContribution,
   crossReferenceVendorDonations, fetchCampaignFinanceTotals,
   MA_BUDGET_SUMMARY, AUDIT_FACTS,
   SPENDING_BY_DEPARTMENT, SPENDING_BY_VENDOR, SPENDING_OVER_TIME,
@@ -1039,6 +1039,10 @@ function FollowTheMoney() {
   const CONTRIB_PAGE_SIZE = 100;
   const CROSSREF_PAGE_SIZE = 24;
 
+  // Last contribution date cache: cpfId → { date, amount, contributor }
+  const [lastContribMap, setLastContribMap] = useState({});
+  const [lastContribLoading, setLastContribLoading] = useState(false);
+
   useEffect(() => {
     setLoading(true);
     Promise.allSettled([
@@ -1050,6 +1054,38 @@ function FollowTheMoney() {
       setLoading(false);
     });
   }, []);
+
+  // Batch-fetch last contribution dates for all legislators (throttled: 8 concurrent)
+  useEffect(() => {
+    if (legislators.length === 0) return;
+    setLastContribLoading(true);
+    const sorted = [...legislators].sort((a, b) => b.receipts - a.receipts);
+    const BATCH = 8;
+    let cancelled = false;
+    (async () => {
+      for (let i = 0; i < sorted.length; i += BATCH) {
+        if (cancelled) break;
+        const batch = sorted.slice(i, i + BATCH);
+        const results = await Promise.allSettled(batch.map(l => fetchLastContribution(l.cpfId)));
+        if (cancelled) break;
+        setLastContribMap(prev => {
+          const next = { ...prev };
+          results.forEach(r => {
+            if (r.status === 'fulfilled' && r.value.lastContribDate) {
+              next[r.value.cpfId] = {
+                date: r.value.lastContribDate,
+                amount: r.value.lastContribAmount,
+                contributor: r.value.lastContributor,
+              };
+            }
+          });
+          return next;
+        });
+      }
+      if (!cancelled) setLastContribLoading(false);
+    })();
+    return () => { cancelled = true; };
+  }, [legislators]);
 
   // Search contributions
   useEffect(() => {
@@ -1319,7 +1355,7 @@ function FollowTheMoney() {
               <div className="data-table-wrapper">
                 <table className="data-table">
                   <thead>
-                    <tr><th>#</th><th>Name</th><th>Office</th><th>Party</th><th>Receipts</th><th>Expenditures</th><th>Cash on Hand</th><th></th></tr>
+                    <tr><th>#</th><th>Name</th><th>Office</th><th>Party</th><th>Receipts</th><th>Expenditures</th><th>Cash on Hand</th><th>Last Contribution</th><th></th></tr>
                   </thead>
                   <tbody>
                     {legislators.sort((a, b) => b.receipts - a.receipts).map((l, i) => (
@@ -1332,6 +1368,11 @@ function FollowTheMoney() {
                         <td className="money">{formatMoney(l.receipts)}</td>
                         <td className="money" style={{ color: 'var(--accent-red)' }}>{formatMoney(l.expenditures)}</td>
                         <td className="money">{formatMoney(l.cashOnHand)}</td>
+                        <td style={{ fontSize: '0.8rem', whiteSpace: 'nowrap', color: lastContribMap[l.cpfId] ? 'var(--text-primary)' : 'var(--text-muted)' }}>
+                          {lastContribMap[l.cpfId]
+                            ? <span title={`${lastContribMap[l.cpfId].amount} from ${lastContribMap[l.cpfId].contributor}`}>{lastContribMap[l.cpfId].date}</span>
+                            : (lastContribLoading ? <span className="spinner" style={{ width: 12, height: 12, borderWidth: 2, display: 'inline-block', verticalAlign: 'middle' }} /> : '—')}
+                        </td>
                         <td><ChevronRight size={12} style={{ color: 'var(--accent-purple)' }} /></td>
                       </tr>
                     ))}
