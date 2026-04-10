@@ -13,6 +13,11 @@ import {
   MapPin
 } from 'lucide-react';
 import DisclosuresFeed from './components/DisclosuresFeed.jsx';
+import OcpfDataCenter from './components/OcpfDataCenter.jsx';
+import PacDashboard from './components/PacDashboard.jsx';
+import CostOfLivingCalculator from './components/CostOfLivingCalculator.jsx';
+import LobbyingExplorer from './components/LobbyingExplorer.jsx';
+import NonprofitLookup from './components/NonprofitLookup.jsx';
 import {
   fetchSpendingByDepartment, fetchSpendingByVendor, fetchSpendingOverTime,
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime, searchPayroll,
@@ -2046,6 +2051,10 @@ export default function App() {
     { id: 'federal', label: 'Federal Funds', icon: <Landmark size={16} />, tag: 'live' },
     { id: 'quasi', label: 'Quasi-Government', icon: <Layers size={16} />, tag: 'live' },
     { id: 'audit', label: 'The Audit Fight', icon: <Scale size={16} /> },
+    { id: 'ocpfdata', label: 'OCPF Data Center', icon: FileText, color: '#E67E22' },
+    { id: 'pacs', label: 'PAC Dashboard', icon: Scale, color: '#9B59B6' },
+    { id: 'costliving', label: 'Cost of Living', icon: Banknote, color: '#1ABC9C' },
+    { id: 'nonprofits', label: 'Nonprofit Explorer', icon: Building2, color: '#14558F' },
   ];
 
   const navigateTo = (id) => {
@@ -2835,27 +2844,64 @@ export default function App() {
 
         {/* ============ LOBBYISTS ============ */}
         {activeSection === 'lobbyists' && (
-          <motion.div key="lobbyists" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-            <div className="section">
-              <div className="section-header">
-                <span className="section-tag green">Money & Influence</span>
-                <h2>Massachusetts Lobbying Activity</h2>
-                <p>Who is paid to influence Massachusetts government? Track lobbying registrations, spending, and client relationships. Data from Massachusetts Secretary of the Commonwealth.</p>
-              </div>
+              <motion.div
+                key="lobbyists"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <LobbyingExplorer />
+              </motion.div>
+            )}
 
-              <div className="card-grid">
-                <div className="card" style={{ borderColor: 'rgba(32,120,78,0.3)' }}>
-                  <div className="card-title"><Network size={16} /> Search Lobbyists</div>
-                  <div style={{ fontSize: '0.9rem', marginTop: '12px', color: 'var(--text-secondary)' }}>
-                    <a href="https://www.sec.state.ma.us/lobbyistpublicsearch/" target="_blank" rel="noopener" style={{ color: '#32784E', textDecoration: 'none', fontWeight: '600' }}>
-                      SEC Lobbyist Public Search ↗
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
+            {activeSection === 'ocpfdata' && (
+              <motion.div
+                key="ocpfdata"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <OcpfDataCenter />
+              </motion.div>
+            )}
+
+            {activeSection === 'pacs' && (
+              <motion.div
+                key="pacs"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <PacDashboard />
+              </motion.div>
+            )}
+
+            {activeSection === 'costliving' && (
+              <motion.div
+                key="costliving"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <CostOfLivingCalculator />
+              </motion.div>
+            )}
+
+            {activeSection === 'nonprofits' && (
+              <motion.div
+                key="nonprofits"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <NonprofitLookup />
+              </motion.div>
+            )}
 
 {/* ============ FEDERAL ============ */}
         {activeSection === 'federal' && (
