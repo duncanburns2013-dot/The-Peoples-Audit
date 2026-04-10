@@ -16,6 +16,7 @@ import {
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime, searchPayroll,
   fetchQuasiPayments, fetchQuasiAgencyDetail, fetchQuasiAgencyByYear, fetchQuasiAgencyCategories, fetchQuasiAgencyPayments,
   fetchFederalSpendingMA, fetchFederalAwardsMA,
+  fetchTreasuryDebtContext, fetchMADebtServiceFederal,
   fetchTopVendors, searchVendors, fetchNonProfitVendors, fetchVendorByYear,
   fetchVendorByDepartment, fetchVendorByCategory, fetchVendorPayments,
   fetchDepartmentVendors, fetchDepartmentCategories, fetchDepartmentAppropriations,
@@ -26,6 +27,7 @@ import {
   SPENDING_BY_DEPARTMENT, SPENDING_BY_VENDOR, SPENDING_OVER_TIME,
   PAYROLL_BY_DEPARTMENT, TOP_EARNERS, PAYROLL_OVER_TIME,
   QUASI_PAYMENTS, FEDERAL_SPENDING_MA, FEDERAL_AWARDS_MA, MBTA_AUDITED_FINANCIALS,
+  MA_STATE_DEBT_YOY, MA_TOP_BOND_ISSUERS, MA_DEBT_BY_TYPE, MA_COUNTY_DEBT, MA_BOND_FACTS,
 } from './services/api';
 import './index.css';
 
@@ -1587,6 +1589,8 @@ export default function App() {
     quasiPayments: null,
     federalSpending: null,
     federalAwards: null,
+    treasuryDebt: null,
+    debtServiceFederal: null,
   });
   const [spendingYear, setSpendingYear] = useState('2025');
   const [payrollYear, setPayrollYear] = useState('2025');
@@ -1605,6 +1609,8 @@ export default function App() {
       { key: 'quasiPayments', fn: () => fetchQuasiPayments() },
       { key: 'federalSpending', fn: () => fetchFederalSpendingMA(federalYear) },
       { key: 'federalAwards', fn: () => fetchFederalAwardsMA(federalYear) },
+      { key: 'treasuryDebt', fn: () => fetchTreasuryDebtContext() },
+      { key: 'debtServiceFederal', fn: () => fetchMADebtServiceFederal(federalYear) },
     ];
 
     const fallbacks = {
@@ -1617,6 +1623,8 @@ export default function App() {
       quasiPayments: QUASI_PAYMENTS,
       federalSpending: FEDERAL_SPENDING_MA,
       federalAwards: FEDERAL_AWARDS_MA,
+      treasuryDebt: null,
+      debtServiceFederal: null,
     };
 
     const results = await Promise.allSettled(fetchers.map(f => f.fn()));
@@ -1907,30 +1915,182 @@ export default function App() {
               <div className="section-header">
                 <span className="section-tag blue">Debt Service</span>
                 <h2>Massachusetts Bonds & Borrowing</h2>
-                <p>State, county, and municipal debt obligations. Data sourced from EMMA (Electronic Municipal Market Access) and MassBondHolder. What is the true cost of Massachusetts' borrowing strategy?</p>
+                <p>State, county, and municipal debt obligations. Live federal debt context from the U.S. Treasury fiscalData API. MA-specific figures compiled from the Commonwealth's Annual Comprehensive Financial Report, the Debt Affordability Committee, MassBondHolder investor disclosures, and EMMA (MSRB) issuer filings. What is the true cost of Massachusetts' borrowing strategy?</p>
               </div>
 
               <div className="card-grid">
                 <div className="card" style={{ borderColor: 'rgba(20,85,143,0.3)' }}>
                   <div className="card-title"><Banknote size={16} /> State Debt Outstanding</div>
-                  <div className="card-value">$40.7B</div>
-                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>General Obligation & Revenue Bonds combined</div>
+                  <div className="card-value">{formatMoney(MA_BOND_FACTS.totalStateDebt)}</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>GO + Revenue + Special Obligation (FY2024)</div>
                 </div>
                 <div className="card" style={{ borderColor: 'rgba(50,120,78,0.3)' }}>
                   <div className="card-title"><TrendingUp size={16} /> Annual Debt Service</div>
-                  <div className="card-value">$2.3B</div>
-                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>5.6% of state budget (FY2025)</div>
+                  <div className="card-value">{formatMoney(MA_BOND_FACTS.annualDebtService)}</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>{MA_BOND_FACTS.percentOfBudget}% of state budget</div>
+                </div>
+                <div className="card" style={{ borderColor: 'rgba(104,10,29,0.3)' }}>
+                  <div className="card-title"><Users size={16} /> Per-Capita Debt</div>
+                  <div className="card-value">${MA_BOND_FACTS.perCapitaDebt.toLocaleString()}</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>Every MA resident owes this share</div>
+                </div>
+                <div className="card" style={{ borderColor: 'rgba(20,85,143,0.3)' }}>
+                  <div className="card-title"><Scale size={16} /> Credit Rating</div>
+                  <div className="card-value" style={{ fontSize: '1.6rem' }}>{MA_BOND_FACTS.creditRating}</div>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '12px' }}>Avg interest rate {MA_BOND_FACTS.averageInterestRate}%</div>
                 </div>
               </div>
 
-              <div className="chart-card">
-                <h3>Bond Data Sources (Live)</h3>
-                <div style={{ background: '#f4f5f8', padding: '20px', borderRadius: '8px', fontSize: '0.9rem', marginBottom: '20px', color: 'var(--text-secondary)' }}>
-                  <p><strong>EMMA (msrb.org):</strong> Massachusetts municipal and county bonds in real-time trading data</p>
-                  <p style={{ marginTop: '12px' }}><strong>MassBondHolder:</strong> Comprehensive financial documents, debt statements, redemption schedules</p>
-                  <p style={{ marginTop: '12px' }}><strong>Secretary of the Commonwealth:</strong> Official bond issuance records</p>
-                  <br />
-                  Search: <a href="https://emma.msrb.org/QuickSearch/Results?quickSearchText=MASSACHUSETTS" target="_blank" rel="noopener" style={{ color: '#14558F', textDecoration: 'none', fontWeight: '600' }}>EMMA Massachusetts ↗</a>
+              <div className="card-grid" style={{ marginTop: 24 }}>
+                <div className="chart-card">
+                  <h3>State Debt Outstanding: FY2015 – FY2024</h3>
+                  <div className="chart-subtitle">Total principal owed by the Commonwealth grew by ${((MA_STATE_DEBT_YOY[MA_STATE_DEBT_YOY.length-1].debt - MA_STATE_DEBT_YOY[0].debt)/1e9).toFixed(1)}B over 10 years</div>
+                  <ResponsiveContainer width="100%" height={360}>
+                    <AreaChart data={MA_STATE_DEBT_YOY}>
+                      <defs>
+                        <linearGradient id="debtGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#14558F" stopOpacity={0.85} />
+                          <stop offset="100%" stopColor="#14558F" stopOpacity={0.1} />
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis dataKey="fy" stroke={AXIS_COLOR} />
+                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Area type="monotone" dataKey="debt" stroke="#14558F" strokeWidth={2.5} fill="url(#debtGrad)" name="Debt Outstanding" />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <div className="chart-card">
+                  <h3>Annual Debt Service: FY2015 – FY2024</h3>
+                  <div className="chart-subtitle">Yearly interest + principal payments on Commonwealth debt</div>
+                  <ResponsiveContainer width="100%" height={360}>
+                    <LineChart data={MA_STATE_DEBT_YOY}>
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis dataKey="fy" stroke={AXIS_COLOR} />
+                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Line type="monotone" dataKey="service" stroke="#680A1D" strokeWidth={3} dot={{ r: 4, fill: '#680A1D' }} name="Debt Service" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              <div className="card-grid" style={{ marginTop: 24 }}>
+                <div className="chart-card">
+                  <h3>Top Massachusetts Bond Issuers</h3>
+                  <div className="chart-subtitle">Ranked by outstanding principal. Source: EMMA + MassBondHolder</div>
+                  <ResponsiveContainer width="100%" height={460}>
+                    <BarChart data={[...MA_TOP_BOND_ISSUERS].sort((a,b) => b.value - a.value)} layout="vertical" margin={{ left: 220 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                      <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={210} tick={({ x, y, payload }) => (
+                        <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
+                          {payload.value.length > 32 ? payload.value.substring(0, 30) + '…' : payload.value}
+                        </text>
+                      )} />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Bar dataKey="value" fill="#14558F" radius={[0, 3, 3, 0]} name="Outstanding" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <div className="chart-card">
+                  <h3>Debt Composition by Type</h3>
+                  <div className="chart-subtitle">How MA borrowing is structured</div>
+                  <ResponsiveContainer width="100%" height={460}>
+                    <PieChart>
+                      <Pie
+                        data={MA_DEBT_BY_TYPE}
+                        dataKey="value"
+                        nameKey="name"
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={150}
+                        label={({ name, percent }) => `${(percent * 100).toFixed(0)}%`}
+                      >
+                        {MA_DEBT_BY_TYPE.map((_, i) => (
+                          <Cell key={i} fill={['#14558F', '#680A1D', '#32784E', '#d48a00', '#7209b7'][i]} />
+                        ))}
+                      </Pie>
+                      <Tooltip content={<CustomTooltip />} />
+                      <Legend verticalAlign="bottom" height={60} wrapperStyle={{ fontSize: '0.8rem' }} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              <div className="chart-card" style={{ marginTop: 24 }}>
+                <h3>County-Level Debt (MA Regional)</h3>
+                <div className="chart-subtitle">Municipal debt aggregated by county. Suffolk (Boston) carries the heaviest per-capita burden.</div>
+                <div style={{ overflowX: 'auto' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+                    <thead>
+                      <tr style={{ borderBottom: '2px solid #14558F', textAlign: 'left' }}>
+                        <th style={{ padding: '12px 8px', color: '#14558F' }}>County</th>
+                        <th style={{ padding: '12px 8px', color: '#14558F', textAlign: 'right' }}>Outstanding Debt</th>
+                        <th style={{ padding: '12px 8px', color: '#14558F', textAlign: 'right' }}>Per Capita</th>
+                        <th style={{ padding: '12px 8px', color: '#14558F', textAlign: 'right' }}>Burden Index</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {MA_COUNTY_DEBT.map((c, i) => {
+                        const maxPC = Math.max(...MA_COUNTY_DEBT.map(x => x.perCapita));
+                        const pct = (c.perCapita / maxPC) * 100;
+                        return (
+                          <tr key={i} style={{ borderBottom: '1px solid #e4e6ed' }}>
+                            <td style={{ padding: '10px 8px', fontWeight: 500 }}>{c.county}</td>
+                            <td style={{ padding: '10px 8px', textAlign: 'right' }}>{formatMoney(c.debt)}</td>
+                            <td style={{ padding: '10px 8px', textAlign: 'right' }}>${c.perCapita.toLocaleString()}</td>
+                            <td style={{ padding: '10px 8px' }}>
+                              <div style={{ background: '#f4f5f8', height: 10, borderRadius: 5, overflow: 'hidden' }}>
+                                <div style={{ background: pct > 70 ? '#680A1D' : '#14558F', height: '100%', width: `${pct}%` }} />
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {data.treasuryDebt && (
+                <div className="chart-card" style={{ marginTop: 24 }}>
+                  <h3>🔴 LIVE: Federal Debt Context (U.S. Treasury API)</h3>
+                  <div className="chart-subtitle">Total federal public debt, last {data.treasuryDebt.length} months — fetched live from fiscaldata.treasury.gov. MA's debt sits inside this broader fiscal environment.</div>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <LineChart data={data.treasuryDebt}>
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis dataKey="date" stroke={AXIS_COLOR} tickFormatter={d => d?.substring(0, 7)} />
+                      <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Line type="monotone" dataKey="federalDebt" stroke="#680A1D" strokeWidth={2} dot={false} name="U.S. Federal Debt" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              )}
+
+              <div className="chart-card" style={{ marginTop: 24 }}>
+                <h3>Drill Deeper — Official Sources</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginTop: 12 }}>
+                  <a href="https://emma.msrb.org/IssuerHomePage/Issuer?id=EC7583FF8C47A63AE040A8C0E4052D69" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #14558F', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
+                    <strong style={{ color: '#14558F' }}>EMMA — MSRB Issuer Page ↗</strong>
+                    <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Live trading data, continuing disclosures, official statements for every Commonwealth of MA bond.</div>
+                  </a>
+                  <a href="https://www.massbondholder.com/" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #680A1D', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
+                    <strong style={{ color: '#680A1D' }}>MassBondHolder.com ↗</strong>
+                    <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Commonwealth Treasurer's investor portal — debt statements, POS, official statements, redemption schedules.</div>
+                  </a>
+                  <a href="https://www.macomptroller.org/annual-comprehensive-financial-report/" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #32784E', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
+                    <strong style={{ color: '#32784E' }}>MA Comptroller ACFR ↗</strong>
+                    <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Annual Comprehensive Financial Report — authoritative source for state debt figures.</div>
+                  </a>
+                  <a href="https://www.mass.gov/debt-affordability-committee" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #14558F', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
+                    <strong style={{ color: '#14558F' }}>Debt Affordability Committee ↗</strong>
+                    <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Annual report on how much new debt the Commonwealth can responsibly issue.</div>
+                  </a>
                 </div>
               </div>
             </div>

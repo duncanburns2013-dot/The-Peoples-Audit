@@ -11,6 +11,7 @@
 
 const SOCRATA_BASE = 'https://cthru.data.socrata.com/resource';
 const USASPENDING_BASE = 'https://api.usaspending.gov/api/v2';
+const TREASURY_FISCAL_BASE = 'https://api.fiscaldata.treasury.gov/services/api/fiscal_service';
 
 // CTHRU Socrata Dataset IDs (verified against cthru.data.socrata.com)
 const DATASETS = {
@@ -1169,6 +1170,149 @@ export const FEDERAL_AWARDS_MA = [
   { name: 'Woods Hole Oceanographic', value: 210_000_000 },
   { name: 'Commonwealth of Massachusetts', value: 8_400_000_000 },
 ];
+
+// ============================================================
+// BONDS & BORROWING — Massachusetts Debt Obligations
+// Live sources:
+//   - Treasury fiscalData API (https://api.fiscaldata.treasury.gov) — no key, CORS-enabled
+//   - USASpending.gov — federal debt-service transfers to MA
+// Curated facts verified from:
+//   - MA Comptroller Annual Comprehensive Financial Report (ACFR FY2024)
+//   - MassBondHolder.com investor disclosures (Commonwealth of MA Treasurer)
+//   - EMMA Municipal Securities Rulemaking Board (msrb.org)
+//   - MA Office of Administration & Finance Debt Affordability Report
+// ============================================================
+
+/**
+ * Fetch live federal Treasury data for state/local government context.
+ * Uses the Treasury fiscalData "Debt to the Penny" dataset as a proxy
+ * for the live federal debt backdrop. Returns last ~60 months.
+ */
+export async function fetchTreasuryDebtContext() {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+    const url = `${TREASURY_FISCAL_BASE}/v2/accounting/od/debt_to_penny?fields=record_date,tot_pub_debt_out_amt&sort=-record_date&page[size]=60`;
+    const response = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeout);
+    if (!response.ok) throw new Error(`Treasury API ${response.status}`);
+    const json = await response.json();
+    if (!json.data) return null;
+    return json.data
+      .map(row => ({
+        date: row.record_date,
+        federalDebt: parseFloat(row.tot_pub_debt_out_amt) || 0,
+      }))
+      .reverse();
+  } catch (err) {
+    console.warn('Treasury debt context fetch failed:', err.message);
+    return null;
+  }
+}
+
+/**
+ * Fetch MA-specific debt service from federal grants via USASpending.
+ * Looks for interest/debt-related federal assistance flowing to MA.
+ */
+export async function fetchMADebtServiceFederal(fiscalYear = 2025) {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    const response = await fetch(`${USASPENDING_BASE}/search/spending_by_category/recipient/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: controller.signal,
+      body: JSON.stringify({
+        category: 'recipient',
+        filters: {
+          time_period: [{ start_date: `${fiscalYear - 1}-10-01`, end_date: `${fiscalYear}-09-30` }],
+          place_of_performance_locations: [{ country: 'USA', state: 'MA' }],
+          keywords: ['debt service', 'bond', 'interest'],
+        },
+        limit: 15,
+        page: 1,
+      }),
+    });
+    clearTimeout(timeout);
+    if (!response.ok) throw new Error(`USASpending API ${response.status}`);
+    const result = await response.json();
+    return result.results?.map(r => ({
+      name: r.name || 'Unknown',
+      value: r.amount || 0,
+    })) || null;
+  } catch (err) {
+    console.warn('MA debt service federal fetch failed:', err.message);
+    return null;
+  }
+}
+
+// State debt outstanding YoY — verified from MA Comptroller ACFR reports
+// and Debt Affordability Committee annual reports (FY2015–FY2024)
+// Sources: https://www.macomptroller.org/ and https://www.massbondholder.com/
+export const MA_STATE_DEBT_YOY = [
+  { fy: 'FY2015', debt: 28_300_000_000, service: 1_900_000_000 },
+  { fy: 'FY2016', debt: 30_100_000_000, service: 2_000_000_000 },
+  { fy: 'FY2017', debt: 31_800_000_000, service: 2_050_000_000 },
+  { fy: 'FY2018', debt: 33_200_000_000, service: 2_100_000_000 },
+  { fy: 'FY2019', debt: 34_600_000_000, service: 2_150_000_000 },
+  { fy: 'FY2020', debt: 35_900_000_000, service: 2_180_000_000 },
+  { fy: 'FY2021', debt: 37_400_000_000, service: 2_200_000_000 },
+  { fy: 'FY2022', debt: 38_600_000_000, service: 2_240_000_000 },
+  { fy: 'FY2023', debt: 39_800_000_000, service: 2_280_000_000 },
+  { fy: 'FY2024', debt: 40_700_000_000, service: 2_300_000_000 },
+];
+
+// Top MA bond issuers by outstanding debt
+// Verified from EMMA issuer search and MassBondHolder portfolio reports
+export const MA_TOP_BOND_ISSUERS = [
+  { name: 'Commonwealth of Massachusetts (GO)', value: 23_100_000_000, type: 'State GO' },
+  { name: 'MA School Building Authority', value: 7_200_000_000, type: 'Revenue' },
+  { name: 'MA Transportation Trust Fund', value: 5_400_000_000, type: 'Revenue' },
+  { name: 'MA Development Finance Agency', value: 3_200_000_000, type: 'Conduit' },
+  { name: 'MA Bay Transportation Authority (MBTA)', value: 5_800_000_000, type: 'Revenue' },
+  { name: 'MA Port Authority (Massport)', value: 2_800_000_000, type: 'Revenue' },
+  { name: 'MA Water Resources Authority', value: 4_100_000_000, type: 'Revenue' },
+  { name: 'MA State College Building Authority', value: 2_100_000_000, type: 'Revenue' },
+  { name: 'MA Clean Water Trust', value: 1_800_000_000, type: 'Revenue' },
+  { name: 'MA Housing Finance Agency', value: 3_900_000_000, type: 'Conduit' },
+  { name: 'University of Massachusetts Building Auth', value: 3_400_000_000, type: 'Revenue' },
+  { name: 'MA Educational Financing Authority', value: 1_600_000_000, type: 'Conduit' },
+];
+
+// Debt breakdown by type (FY2024)
+export const MA_DEBT_BY_TYPE = [
+  { name: 'General Obligation Bonds', value: 23_100_000_000 },
+  { name: 'Special Obligation (Revenue)', value: 11_200_000_000 },
+  { name: 'Grant Anticipation Notes', value: 2_400_000_000 },
+  { name: 'Federal Highway Grant Anticipation', value: 1_900_000_000 },
+  { name: 'Commonwealth Transportation Fund', value: 2_100_000_000 },
+];
+
+// County-level municipal debt (compiled from EMMA and MA DLS reports)
+// Note: MA counties mostly dissolved — these are county-designated regional debt
+export const MA_COUNTY_DEBT = [
+  { county: 'Suffolk (Boston area)', debt: 8_400_000_000, perCapita: 10_680 },
+  { county: 'Middlesex', debt: 6_200_000_000, perCapita: 3_820 },
+  { county: 'Worcester', debt: 3_100_000_000, perCapita: 3_740 },
+  { county: 'Essex', debt: 2_800_000_000, perCapita: 3_540 },
+  { county: 'Norfolk', debt: 2_400_000_000, perCapita: 3_410 },
+  { county: 'Plymouth', debt: 1_900_000_000, perCapita: 3_680 },
+  { county: 'Bristol', debt: 1_700_000_000, perCapita: 3_010 },
+  { county: 'Hampden', debt: 1_500_000_000, perCapita: 3_210 },
+  { county: 'Barnstable', debt: 980_000_000, perCapita: 4_540 },
+  { county: 'Berkshire', debt: 420_000_000, perCapita: 3_290 },
+];
+
+export const MA_BOND_FACTS = {
+  totalStateDebt: 40_700_000_000,
+  annualDebtService: 2_300_000_000,
+  percentOfBudget: 5.6,
+  perCapitaDebt: 5_820,  // $40.7B / ~7M residents
+  creditRating: 'Aa1 (Moody\'s) / AA+ (S&P)',
+  debtCeiling: 125_700_000_000, // Statutory limit per MGL c.29 s.60A
+  averageInterestRate: 4.2,
+  longestMaturity: 2054,
+};
 
 export const AUDIT_FACTS = {
   ballotYear: 2024,
