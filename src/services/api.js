@@ -858,30 +858,53 @@ export async function searchContributions(params = {}) {
 
 /**
  * Fetch the most recent contribution date for a given filer (legislator/candidate).
- * Makes one API call with a 5-year window and pageSize=100, then finds the newest date client-side.
+ * OCPF returns oldest-first with no server-side sort, so we use a narrow window strategy:
+ *   1. Try current year first (small result set → max date is accurate)
+ *   2. If nothing, try previous year
+ *   3. If still nothing, try 2 years back
  * Returns { cpfId, lastContribDate: 'YYYY-MM-DD' | null, lastContribAmount, lastContributor }
  */
 export async function fetchLastContribution(cpfId) {
   try {
     const today = new Date().toISOString().slice(0, 10);
-    const fiveYearsAgo = new Date();
-    fiveYearsAgo.setFullYear(fiveYearsAgo.getFullYear() - 5);
-    const start = fiveYearsAgo.toISOString().slice(0, 10);
-    const qs = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${today}&pageSize=100&pageIndex=0`;
-    const data = await ocpfQuery(`/search/items?${qs}`);
-    const items = data.items || [];
-    if (items.length === 0) return { cpfId, lastContribDate: null, lastContribAmount: null, lastContributor: null };
-    // Find the most recent by date (OCPF returns oldest-first)
-    let newest = items[0];
-    for (let i = 1; i < items.length; i++) {
-      if ((items[i].date || '') > (newest.date || '')) newest = items[i];
+    const currentYear = new Date().getFullYear();
+
+    // Try progressively wider windows — current year first (most legislators have <100 contribs/year)
+    for (let yr = currentYear; yr >= currentYear - 2; yr--) {
+      const start = `${yr}-01-01`;
+      const end = yr === currentYear ? today : `${yr}-12-31`;
+      const qs = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${end}&pageSize=100&pageIndex=0`;
+      const data = await ocpfQuery(`/search/items?${qs}`);
+      const items = data.items || [];
+      if (items.length === 0) continue;
+
+      // Find the most recent by date (API returns oldest-first)
+      let newest = items[0];
+      for (let i = 1; i < items.length; i++) {
+        if ((items[i].date || '') > (newest.date || '')) newest = items[i];
+      }
+
+      // If page is full (100 items) and this isn't current year, there may be newer items on later pages.
+      // Fetch one more page to try to capture the true latest.
+      if (items.length >= 100) {
+        const qs2 = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${end}&pageSize=100&pageIndex=1`;
+        try {
+          const data2 = await ocpfQuery(`/search/items?${qs2}`);
+          for (const item of (data2.items || [])) {
+            if ((item.date || '') > (newest.date || '')) newest = item;
+          }
+        } catch (_) { /* ignore second-page failures */ }
+      }
+
+      return {
+        cpfId,
+        lastContribDate: newest.date || null,
+        lastContribAmount: newest.amount || null,
+        lastContributor: newest.fullNameReverse || newest.firstName || null,
+      };
     }
-    return {
-      cpfId,
-      lastContribDate: newest.date || null,
-      lastContribAmount: newest.amount || null,
-      lastContributor: newest.fullNameReverse || newest.firstName || null,
-    };
+
+    return { cpfId, lastContribDate: null, lastContribAmount: null, lastContributor: null };
   } catch (err) {
     console.warn(`Last contribution fetch failed for cpfId=${cpfId}:`, err.message);
     return { cpfId, lastContribDate: null, lastContribAmount: null, lastContributor: null };

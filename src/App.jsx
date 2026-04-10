@@ -1358,7 +1358,13 @@ function FollowTheMoney() {
                     <tr><th>#</th><th>Name</th><th>Office</th><th>Party</th><th>Receipts</th><th>Expenditures</th><th>Cash on Hand</th><th>Last Contribution</th><th></th></tr>
                   </thead>
                   <tbody>
-                    {legislators.sort((a, b) => b.receipts - a.receipts).map((l, i) => (
+                    {legislators.sort((a, b) => {
+                      const dateA = lastContribMap[a.cpfId]?.date || '';
+                      const dateB = lastContribMap[b.cpfId]?.date || '';
+                      // Sort by last contribution date (newest first); fall back to receipts
+                      if (dateA || dateB) return dateB.localeCompare(dateA) || b.receipts - a.receipts;
+                      return b.receipts - a.receipts;
+                    }).map((l, i) => (
                       <tr key={i} onClick={() => selectLegislatorForContribs(l)} style={{ cursor: 'pointer' }}
                         className={selectedLegislator?.cpfId === l.cpfId ? 'active-row' : ''}>
                         <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
