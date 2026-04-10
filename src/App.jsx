@@ -1853,6 +1853,8 @@ export default function App() {
   const [spendingYear, setSpendingYear] = useState('2025');
   const [payrollYear, setPayrollYear] = useState('2025');
   const [federalYear, setFederalYear] = useState(2025);
+  const [emmaRefreshing, setEmmaRefreshing] = useState(false);
+  const [emmaLastFetched, setEmmaLastFetched] = useState(null);
   // Bonds tab: debt history chart range toggle ("10yr" = last 10 fiscal years,
   // "all" = every row in MA_STATE_DEBT_YOY).
   const [debtRange, setDebtRange] = useState('all');
@@ -1919,10 +1921,25 @@ export default function App() {
     setData(prev => ({ ...prev, ...newData }));
     setErrors(newErrors);
     setLoading(prev => ({ ...prev, global: false }));
+    if (newData.emmaTrades) setEmmaLastFetched(new Date());
     if (liveCount > 0) console.log(`Live data loaded for ${liveCount}/${fetchers.length} sources`);
   }, [spendingYear, payrollYear, federalYear]);
 
   useEffect(() => { fetchAllData(); }, [fetchAllData]);
+
+  const refreshEmmaTrades = useCallback(async () => {
+    setEmmaRefreshing(true);
+    try {
+      const trades = await fetchEmmaRecentTrades();
+      if (trades && Array.isArray(trades) && trades.length > 0) {
+        setData(prev => ({ ...prev, emmaTrades: trades }));
+        setEmmaLastFetched(new Date());
+      }
+    } catch (err) {
+      console.error('EMMA refresh failed:', err);
+    }
+    setEmmaRefreshing(false);
+  }, []);
 
   const dataSourceCount = Object.values(data).filter(Boolean).length;
   const errorCount = Object.values(errors).filter(Boolean).length;
@@ -2596,10 +2613,45 @@ export default function App() {
               </div>
 
               {data.emmaTrades && data.emmaTrades.length > 0 && (
-                <div className="chart-card" style={{ marginTop: 24 }}>
-                  <h3>Recent Notable MA Bond Trades</h3>
-                  <div className="chart-subtitle">Snapshot of significant Massachusetts issuer trades. Click any CUSIP to view full EMMA history.</div>
-                  <div style={{ overflowX: 'auto' }}>
+                <div className="chart-card" style={{ marginTop: 24, borderLeft: '4px solid #680A1D' }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+                    <h3 style={{ margin: 0 }}>
+                      <span style={{
+                        display: 'inline-block', width: 10, height: 10, borderRadius: '50%',
+                        background: data.emmaTrades ? '#ef4444' : '#9ca3af',
+                        marginRight: 8, animation: data.emmaTrades ? 'pulse 1.6s infinite' : 'none'
+                      }} />
+                      Recent Notable MA Bond Trades
+                    </h3>
+                    <button
+                      onClick={refreshEmmaTrades}
+                      disabled={emmaRefreshing}
+                      style={{
+                        padding: '6px 12px', fontSize: '0.78rem', fontWeight: 600,
+                        border: '1px solid #680A1D',
+                        background: emmaRefreshing ? '#f4f5f8' : '#fff',
+                        color: '#680A1D', borderRadius: 4,
+                        cursor: emmaRefreshing ? 'default' : 'pointer'
+                      }}
+                      title="Re-fetch latest MA bond trades from EMMA / MSRB"
+                    >
+                      {emmaRefreshing ? 'Refreshing…' : '↻ Refresh now'}
+                    </button>
+                  </div>
+                  <div className="chart-subtitle" style={{ marginTop: 6 }}>
+                    Snapshot of significant Massachusetts issuer trades. Click any CUSIP to view full EMMA history.
+                  </div>
+                  {emmaLastFetched && (
+                    <div style={{
+                      marginTop: 8, padding: '6px 12px', background: '#f4f5f8', borderRadius: 4,
+                      fontSize: '0.82rem', color: 'var(--text-muted)'
+                    }}>
+                      <strong style={{ color: '#222' }}>Last refreshed:</strong>{' '}
+                      {emmaLastFetched.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
+                      {' · '}{data.emmaTrades.length} trades loaded
+                    </div>
+                  )}
+                  <div style={{ overflowX: 'auto', marginTop: 12 }}>
                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
                       <thead>
                         <tr style={{ borderBottom: '2px solid #680A1D', textAlign: 'left' }}>
@@ -2899,14 +2951,9 @@ export default function App() {
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#1a1d2e', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
             Share on X
           </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
-            target="_blank" rel="noopener"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#1877f2', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
-            Share on Facebook
-          </a>
           <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
             target="_blank" rel="noopener"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#0a66c2', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#0077B5', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
             Share on LinkedIn
           </a>
           <button onClick={() => { navigator.clipboard.writeText('https://duncanburns2013-dot.github.io/The-Peoples-Audit/'); }}
