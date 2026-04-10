@@ -9,7 +9,8 @@ import {
   DollarSign, Users, Building2, TrendingUp, AlertTriangle,
   ExternalLink, Search, ChevronDown, Scale, Vote, FileText,
   Landmark, Eye, Download, Menu, X, ArrowRight, Fingerprint,
-  Network, ShieldAlert, Banknote, ChevronRight, Layers, Activity
+  Network, ShieldAlert, Banknote, ChevronRight, Layers, Activity,
+  MapPin
 } from 'lucide-react';
 import DisclosuresFeed from './components/DisclosuresFeed.jsx';
 import {
@@ -1572,6 +1573,261 @@ const TreemapContent = ({ x, y, width, height, name, value, index }) => {
 };
 
 // ============================================================
+// MUNICIPALITIES EXPLORER — MA DLS Long-Term Debt (351 towns)
+// ============================================================
+
+function MunicipalitiesExplorer() {
+  const [rows, setRows] = useState(null);
+  const [loadError, setLoadError] = useState(null);
+  const [year, setYear] = useState(2025);
+  const [search, setSearch] = useState('');
+  const [sortKey, setSortKey] = useState('debt_per_capita');
+  const [sortDir, setSortDir] = useState('desc');
+  const [selectedTown, setSelectedTown] = useState(null);
+
+  useEffect(() => {
+    const url = `${import.meta.env.BASE_URL}data/ma-municipal-debt.json?t=${Date.now()}`;
+    fetch(url)
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(setRows)
+      .catch(err => setLoadError(err.message || String(err)));
+  }, []);
+
+  const years = rows ? Array.from(new Set(rows.map(r => r.fiscal_year))).sort() : [];
+  const yearRows = rows ? rows.filter(r => r.fiscal_year === year) : [];
+
+  const filtered = yearRows.filter(r => {
+    if (!search.trim()) return true;
+    return r.municipality.toLowerCase().includes(search.trim().toLowerCase());
+  });
+
+  const sorted = [...filtered].sort((a, b) => {
+    const av = a[sortKey];
+    const bv = b[sortKey];
+    const an = av == null ? -Infinity : Number(av);
+    const bn = bv == null ? -Infinity : Number(bv);
+    if (typeof av === 'string' && typeof bv === 'string') {
+      return sortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    }
+    return sortDir === 'asc' ? an - bn : bn - an;
+  });
+
+  const setSort = (key) => {
+    if (key === sortKey) setSortDir(sortDir === 'asc' ? 'desc' : 'asc');
+    else { setSortKey(key); setSortDir(key === 'municipality' ? 'asc' : 'desc'); }
+  };
+
+  // Aggregate KPIs for the selected year
+  const totalDebt = yearRows.reduce((s, r) => s + (Number(r.total_outstanding_debt) || 0), 0);
+  const totalPop = yearRows.reduce((s, r) => s + (Number(r.population) || 0), 0);
+  const statewidePerCapita = totalPop > 0 ? totalDebt / totalPop : 0;
+  const highest = yearRows
+    .filter(r => r.debt_per_capita != null)
+    .sort((a, b) => Number(b.debt_per_capita) - Number(a.debt_per_capita))[0];
+
+  // Per-town history for the drilldown
+  const townHistory = selectedTown && rows
+    ? rows.filter(r => r.municipality === selectedTown).sort((a, b) => a.fiscal_year - b.fiscal_year)
+    : [];
+
+  const arrow = (key) => sortKey === key ? (sortDir === 'asc' ? ' ▲' : ' ▼') : '';
+
+  return (
+    <div className="section">
+      <div className="section-header">
+        <span className="section-tag red">Municipal Debt</span>
+        <h2>How Much Your Town Owes</h2>
+        <p>
+          Every one of Massachusetts' 351 cities and towns. Total outstanding long-term debt,
+          debt-per-resident, and debt service as a share of the local budget — FY2021 through FY2025.
+          How much is being taken away from you?
+        </p>
+      </div>
+
+      <div className="disclaimer">
+        Source: Massachusetts Division of Local Services (DLS) Municipal Databank — Cat_6 Long-Term Debt 351 report.
+        {' '}Some FY2025 values are blank because municipal Schedule A filings are still being processed by DOR.
+      </div>
+
+      {loadError && (
+        <div className="card" style={{ borderColor: 'var(--accent-red)', marginBottom: 20 }}>
+          <div className="card-title"><AlertTriangle size={14} /> Failed to load municipal debt data</div>
+          <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: 8 }}>{loadError}</div>
+        </div>
+      )}
+
+      {!rows && !loadError && (
+        <div className="loading-skeleton" style={{ height: 400 }} />
+      )}
+
+      {rows && (
+        <>
+          <div className="kpi-row">
+            <div className="card">
+              <div className="card-title"><Banknote size={14} /> Total Municipal Debt</div>
+              <div className="card-value">{formatMoney(totalDebt)}</div>
+              <div className="card-change">All 351 towns, FY{year}</div>
+            </div>
+            <div className="card">
+              <div className="card-title"><Users size={14} /> Statewide Population</div>
+              <div className="card-value">{totalPop.toLocaleString()}</div>
+              <div className="card-change">DLS population estimate</div>
+            </div>
+            <div className="card">
+              <div className="card-title"><TrendingUp size={14} /> Avg Debt / Resident</div>
+              <div className="card-value" style={{ color: 'var(--accent-red)' }}>
+                ${Math.round(statewidePerCapita).toLocaleString()}
+              </div>
+              <div className="card-change">Weighted by population</div>
+            </div>
+            <div className="card">
+              <div className="card-title"><MapPin size={14} /> Highest Per-Capita</div>
+              <div className="card-value" style={{ fontSize: '1.5rem' }}>
+                {highest ? highest.municipality : '—'}
+              </div>
+              <div className="card-change" style={{ color: 'var(--accent-red)' }}>
+                {highest && highest.debt_per_capita != null
+                  ? `$${Number(highest.debt_per_capita).toLocaleString()}/person`
+                  : ''}
+              </div>
+            </div>
+          </div>
+
+          <div style={{
+            display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center',
+            margin: '24px 0 16px', padding: '14px 16px',
+            background: 'var(--card-bg, rgba(255,255,255,0.04))',
+            borderRadius: 8, border: '1px solid var(--border, rgba(255,255,255,0.08))'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: '1 1 260px' }}>
+              <Search size={16} />
+              <input
+                type="text"
+                placeholder="Search 351 towns..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                style={{
+                  flex: 1, background: 'transparent', border: 'none', outline: 'none',
+                  color: 'var(--text-primary)', fontSize: '0.95rem', padding: '6px 4px'
+                }}
+              />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Fiscal Year</label>
+              <select
+                value={year}
+                onChange={e => setYear(Number(e.target.value))}
+                style={{
+                  background: 'var(--card-bg, rgba(255,255,255,0.06))',
+                  color: 'var(--text-primary)', border: '1px solid var(--border, rgba(255,255,255,0.15))',
+                  borderRadius: 6, padding: '6px 10px', fontSize: '0.9rem'
+                }}
+              >
+                {years.map(y => <option key={y} value={y}>FY{y}</option>)}
+              </select>
+            </div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              Showing <strong>{sorted.length}</strong> of {yearRows.length} towns
+            </div>
+          </div>
+
+          <div className="chart-card" style={{ padding: 0, overflow: 'hidden' }}>
+            <div style={{ overflowX: 'auto', maxHeight: 640 }}>
+              <table className="data-table" style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+                <thead style={{ position: 'sticky', top: 0, background: 'var(--card-bg, #14192a)', zIndex: 1 }}>
+                  <tr>
+                    <th style={{ textAlign: 'left', padding: '10px 12px', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                        onClick={() => setSort('municipality')}>Municipality{arrow('municipality')}</th>
+                    <th style={{ textAlign: 'right', padding: '10px 12px', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                        onClick={() => setSort('total_outstanding_debt')}>Total Debt{arrow('total_outstanding_debt')}</th>
+                    <th style={{ textAlign: 'right', padding: '10px 12px', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                        onClick={() => setSort('debt_pct_eqv')}>Debt / EQV %{arrow('debt_pct_eqv')}</th>
+                    <th style={{ textAlign: 'right', padding: '10px 12px', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                        onClick={() => setSort('population')}>Population{arrow('population')}</th>
+                    <th style={{ textAlign: 'right', padding: '10px 12px', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                        onClick={() => setSort('debt_per_capita')}>Debt / Resident{arrow('debt_per_capita')}</th>
+                    <th style={{ textAlign: 'right', padding: '10px 12px', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                        onClick={() => setSort('debt_service_pct_budget')}>Debt Svc % Budget{arrow('debt_service_pct_budget')}</th>
+                    <th style={{ textAlign: 'right', padding: '10px 12px', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                        onClick={() => setSort('total_budget')}>Total Budget{arrow('total_budget')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sorted.map((r, i) => (
+                    <tr
+                      key={`${r.dor_code}-${r.fiscal_year}`}
+                      onClick={() => setSelectedTown(r.municipality)}
+                      style={{
+                        borderTop: '1px solid var(--border, rgba(255,255,255,0.06))',
+                        cursor: 'pointer',
+                        background: selectedTown === r.municipality ? 'rgba(255,51,68,0.08)' : (i % 2 ? 'rgba(255,255,255,0.02)' : 'transparent')
+                      }}
+                    >
+                      <td style={{ padding: '8px 12px', fontWeight: 500 }}>{r.municipality}</td>
+                      <td className="money" style={{ padding: '8px 12px', textAlign: 'right' }}>
+                        {r.total_outstanding_debt != null ? formatMoney(Number(r.total_outstanding_debt)) : '—'}
+                      </td>
+                      <td style={{ padding: '8px 12px', textAlign: 'right' }}>
+                        {r.debt_pct_eqv != null ? `${Number(r.debt_pct_eqv).toFixed(2)}%` : '—'}
+                      </td>
+                      <td style={{ padding: '8px 12px', textAlign: 'right' }}>
+                        {r.population != null ? Number(r.population).toLocaleString() : '—'}
+                      </td>
+                      <td style={{ padding: '8px 12px', textAlign: 'right', color: 'var(--accent-red)', fontWeight: 600 }}>
+                        {r.debt_per_capita != null ? `$${Number(r.debt_per_capita).toLocaleString()}` : '—'}
+                      </td>
+                      <td style={{ padding: '8px 12px', textAlign: 'right' }}>
+                        {r.debt_service_pct_budget != null ? `${Number(r.debt_service_pct_budget).toFixed(2)}%` : '—'}
+                      </td>
+                      <td className="money" style={{ padding: '8px 12px', textAlign: 'right' }}>
+                        {r.total_budget != null ? formatMoney(Number(r.total_budget)) : '—'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {selectedTown && townHistory.length > 0 && (
+            <div className="chart-card" style={{ marginTop: 24 }}>
+              <h3>{selectedTown} — 5-Year Debt History</h3>
+              <div className="chart-subtitle">FY2021 – FY2025 from DLS Schedule A Part 10</div>
+              <ResponsiveContainer width="100%" height={300}>
+                <AreaChart data={townHistory.map(r => ({
+                  year: `FY${r.fiscal_year}`,
+                  debt: Number(r.total_outstanding_debt) || 0,
+                  perCapita: Number(r.debt_per_capita) || 0,
+                }))}>
+                  <defs>
+                    <linearGradient id="townDebtGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#ff3344" stopOpacity={0.35} />
+                      <stop offset="95%" stopColor="#ff3344" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
+                  <XAxis dataKey="year" stroke="#9ca0b8" />
+                  <YAxis tickFormatter={formatMoney} stroke="#9ca0b8" />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Area type="monotone" dataKey="debt" stroke="#ff3344" fill="url(#townDebtGrad)" strokeWidth={2} name="Total Debt" />
+                </AreaChart>
+              </ResponsiveContainer>
+              <div style={{ marginTop: 12, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                Click another town in the table to compare. Data: MA DLS Municipal Databank.
+              </div>
+            </div>
+          )}
+
+          <div style={{ marginTop: 24, padding: '16px 20px', background: 'rgba(20,85,143,0.08)', border: '1px solid rgba(20,85,143,0.25)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            <strong style={{ color: '#14558F' }}>About this data:</strong> The Commonwealth's Division of Local Services collects annual Schedule A filings from every MA municipality. &quot;Total Outstanding Debt&quot; is the full principal balance on all long-term bonds and notes at year-end. &quot;Equalized Value (EQV)&quot; is the DOR's biennial full-market-value estimate for the town. &quot;Debt Per Resident&quot; divides total debt by DLS population; some tourist-heavy towns show inflated figures because their daytime or seasonal population dwarfs their permanent headcount.
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+// ============================================================
 // APP
 // ============================================================
 
@@ -1680,6 +1936,7 @@ export default function App() {
     { id: 'vendors', label: 'Vendors & Contracts', icon: <Building2 size={16} />, tag: 'live' },
     { id: 'campaign', label: 'Follow the Money', icon: <Fingerprint size={16} />, tag: 'new' },
     { id: 'bonds', label: 'Bonds & Borrowing', icon: <Banknote size={16} />, tag: 'critical' },
+    { id: 'municipalities', label: 'Municipalities', icon: <MapPin size={16} />, tag: 'new' },
     { id: 'lobbyists', label: 'Lobbying', icon: <Network size={16} />, tag: 'critical' },
     { id: 'federal', label: 'Federal Funds', icon: <Landmark size={16} />, tag: 'live' },
     { id: 'quasi', label: 'Quasi-Government', icon: <Layers size={16} />, tag: 'live' },
@@ -2426,6 +2683,13 @@ export default function App() {
                 </div>
               </div>
             </div>
+          </motion.div>
+        )}
+
+        {/* ============ MUNICIPALITIES ============ */}
+        {activeSection === 'municipalities' && (
+          <motion.div key="municipalities" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <MunicipalitiesExplorer />
           </motion.div>
         )}
 
