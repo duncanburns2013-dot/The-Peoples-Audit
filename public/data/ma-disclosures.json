@@ -1,0 +1,53 @@
+{
+  "fetchedAt": "2026-04-09T00:00:00.000Z",
+  "preservedFromCache": false,
+  "sources": [
+    { "name": "seed", "ok": true, "count": 4 }
+  ],
+  "warnings": [
+    "Initial seed file. Will be replaced automatically by the scheduled GitHub Action on first run."
+  ],
+  "count": 4,
+  "items": [
+    {
+      "id": "seed:gobonds-2026a",
+      "title": "Commonwealth of Massachusetts to issue ~$800M General Obligation Bonds, 2026 Series A/B/C",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Upcoming Issuance",
+      "date": "2026-04-20",
+      "url": "https://www.massbondholder.com/",
+      "summary": "Approximately $800 million in GO bonds expected to be sold via competitive sale the week of April 20, 2026.",
+      "source": "MassBondHolder"
+    },
+    {
+      "id": "seed:cwt-srf-26a",
+      "title": "Massachusetts Clean Water Trust — SRF Bonds Series 26A (Green Bonds) and 26B (Sustainability Bonds)",
+      "issuer": "Massachusetts Clean Water Trust",
+      "type": "Upcoming Issuance",
+      "date": "2026-04-09",
+      "url": "https://www.mass.gov/info-details/investor-resources",
+      "summary": "Negotiated sale of State Revolving Fund Bonds. Jefferies LLC serving as Book-running Senior Manager.",
+      "source": "MA Clean Water Trust"
+    },
+    {
+      "id": "seed:ui-social-bonds-27b",
+      "title": "Commonwealth to issue $2.7 billion in Social Bonds pursuant to the UI Improvement Act",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Official Statement",
+      "date": "2026-03-24",
+      "url": "https://www.mass.gov/news/the-commonwealth-of-massachusetts-to-issue-27-billion-in-social-bonds-pursuant-to-the-ui-improvement-act",
+      "summary": "Information Statement posted to EMMA and to massbondholder.com on March 24, 2026.",
+      "source": "mass.gov"
+    },
+    {
+      "id": "seed:investor-call-2026-04-01",
+      "title": "Investor Conference Call — March 24, 2026 Information Statement",
+      "issuer": "MA State Treasurer",
+      "type": "Investor Communication",
+      "date": "2026-04-01",
+      "url": "https://www.massbondholder.com/",
+      "summary": "Conference call held Wednesday April 1, 2026 at 11:00am EST to discuss the most recent Information Statement.",
+      "source": "MassBondHolder"
+    }
+  ]
+}

@@ -11,6 +11,7 @@ import {
   Landmark, Eye, Download, Menu, X, ArrowRight, Fingerprint,
   Network, ShieldAlert, Banknote, ChevronRight, Layers, Activity
 } from 'lucide-react';
+import DisclosuresFeed from './components/DisclosuresFeed.jsx';
 import {
   fetchSpendingByDepartment, fetchSpendingByVendor, fetchSpendingOverTime,
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime, searchPayroll,
@@ -2059,28 +2060,8 @@ export default function App() {
                 </div>
               </div>
 
-              {/* ========== EMMA LIVE FEED — the money shot ========== */}
-              <div className="chart-card" style={{ marginTop: 24, borderLeft: '4px solid #680A1D' }}>
-                <h3>
-                  <span style={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', background: '#ef4444', marginRight: 8, animation: 'pulse 1.6s infinite' }} />
-                  LIVE: EMMA Massachusetts Bond Feed (MSRB)
-                </h3>
-                <div className="chart-subtitle">
-                  Live embed of the MSRB Electronic Municipal Market Access portal filtered to Massachusetts. Every trade, official statement, and continuing disclosure for MA issuers appears here in real-time. The MSRB is the SEC-designated authoritative source for municipal securities data.
-                </div>
-                <div style={{ position: 'relative', width: '100%', height: 620, border: '1px solid #dfe2ea', borderRadius: 8, overflow: 'hidden', background: '#fff', marginTop: 12 }}>
-                  <iframe
-                    src="https://emma.msrb.org/QuickSearch/Results?quickSearchText=MASSACHUSETTS"
-                    title="EMMA Live Massachusetts Bond Feed"
-                    style={{ width: '100%', height: '100%', border: 0 }}
-                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                    loading="lazy"
-                  />
-                </div>
-                <div style={{ marginTop: 10, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  ⓘ If EMMA blocks in-frame display, <a href="https://emma.msrb.org/QuickSearch/Results?quickSearchText=MASSACHUSETTS" target="_blank" rel="noopener" style={{ color: '#680A1D', fontWeight: 600 }}>open the live feed in a new tab ↗</a>
-                </div>
-              </div>
+              {/* ========== LIVE MA Disclosures Feed (replaces broken EMMA iframe) ========== */}
+              <DisclosuresFeed />
 
               {data.emmaTrades && data.emmaTrades.length > 0 && (
                 <div className="chart-card" style={{ marginTop: 24 }}>
