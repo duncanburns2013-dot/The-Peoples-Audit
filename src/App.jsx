@@ -2051,10 +2051,10 @@ export default function App() {
     { id: 'federal', label: 'Federal Funds', icon: <Landmark size={16} />, tag: 'live' },
     { id: 'quasi', label: 'Quasi-Government', icon: <Layers size={16} />, tag: 'live' },
     { id: 'audit', label: 'The Audit Fight', icon: <Scale size={16} /> },
-    { id: 'ocpfdata', label: 'OCPF Data Center', icon: FileText, color: '#E67E22' },
-    { id: 'pacs', label: 'PAC Dashboard', icon: Scale, color: '#9B59B6' },
-    { id: 'costliving', label: 'Cost of Living', icon: Banknote, color: '#1ABC9C' },
-    { id: 'nonprofits', label: 'Nonprofit Explorer', icon: Building2, color: '#14558F' },
+    { id: 'ocpfdata', label: 'OCPF Data Center', icon: <FileText size={16} />, color: '#E67E22' },
+    { id: 'pacs', label: 'PAC Dashboard', icon: <Scale size={16} />, color: '#9B59B6' },
+    { id: 'costliving', label: 'Cost of Living', icon: <Banknote size={16} />, color: '#1ABC9C' },
+    { id: 'nonprofits', label: 'Nonprofit Explorer', icon: <Building2 size={16} />, color: '#14558F' },
   ];
 
   const navigateTo = (id) => {
