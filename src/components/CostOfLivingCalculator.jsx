@@ -172,7 +172,7 @@ export default function CostOfLivingCalculator() {
         <h3>Detailed Budget Comparison</h3>
         <div className="chart-subtitle">Expected costs vs. your proportional allocation</div>
         <div style={{ background: 'rgba(50, 120, 78, 0.06)', border: '1px solid rgba(50, 120, 78, 0.15)', borderRadius: 8, padding: '12px 16px', fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: 8, lineHeight: 1.6 }}>
-          <strong style={{ color: 'var(--accent-green)' }}>What is "Proportional Allocation"?</strong> This table compares what the average Massachusetts household spends in each category (Expected) against what your household would spend if your income were distributed in the same proportions. If your income is above the average cost of living, each category gets more budget; if below, each gets less. The "Difference" column shows the gap â green means you have more room in that category, red means you're stretched thin.
+          <strong style={{ color: 'var(--accent-green)' }}>What is "Proportional Allocation"?</strong> This table compares what the average Massachusetts household spends in each category (Expected) against what your household would spend if your income were distributed in the same proportions. If your income is above the average cost of living, each category gets more budget; if below, each gets less. The "Difference" column shows the gap — green means you have more room in that category, red means you're stretched thin.
         </div>
         <div style={{ overflowX: 'auto', marginTop: 16 }}>
           <table style={{ width: '100%', fontSize: '0.85rem', borderCollapse: 'collapse' }}>
