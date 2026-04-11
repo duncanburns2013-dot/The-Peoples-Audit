@@ -369,11 +369,9 @@ export default function LobbyingExplorer() {
   const totalLobbyists = 750;
   const totalSpending = spendingByYear[spendingByYear.length - 1] * 1e6;
   const totalClients = 450;
-  const yoyGrowth = (
-    ((spendingByYear[spendingByYear.length - 1] -
-      spendingByYear[spendingByYear.length - 2]) /
-      spendingByYear[spendingByYear.length - 2]) *
-    100
+  const prevYear = spendingByYear[spendingByYear.length - 2];
+  const yoyGrowth = prevYear === 0 ? '0.0' : (
+    ((spendingByYear[spendingByYear.length - 1] - prevYear) / prevYear) * 100
   ).toFixed(1);
 
   // Filter lobbyist directory
