@@ -2951,11 +2951,37 @@ export default function App() {
                   <p>Grants, contracts, and awards from the federal government to MA entities. Data from USASpending.gov.</p>
                 </div>
                 <select className="year-select" value={federalYear} onChange={e => setFederalYear(Number(e.target.value))}>
-                  {Array.from({ length: 10 }, (_, i) => 2025 - i).map(y => (
+                  {Array.from({ length: 10 }, (_, i) => 2026 - i).map(y => (
                     <option key={y} value={y}>FY {y}</option>
                   ))}
                 </select>
               </div>
+
+              {/* Federal KPIs */}
+              {(data.federalSpending || data.federalAwards) && (
+                <div className="kpi-row">
+                  <div className="kpi-card">
+                    <div className="kpi-label">Agencies Funding MA</div>
+                    <div className="kpi-value">{data.federalSpending?.length || 0}</div>
+                    <div className="kpi-sub">FY{federalYear}</div>
+                  </div>
+                  <div className="kpi-card">
+                    <div className="kpi-label">Total Agency Spending</div>
+                    <div className="kpi-value" style={{ color: 'var(--accent-cyan)' }}>{formatMoney((data.federalSpending || []).reduce((s, a) => s + a.value, 0))}</div>
+                    <div className="kpi-sub">All agencies combined</div>
+                  </div>
+                  <div className="kpi-card">
+                    <div className="kpi-label">Top Award Recipients</div>
+                    <div className="kpi-value">{data.federalAwards?.length || 0}</div>
+                    <div className="kpi-sub">Organizations in MA</div>
+                  </div>
+                  <div className="kpi-card">
+                    <div className="kpi-label">Total Awards</div>
+                    <div className="kpi-value" style={{ color: '#aa44ff' }}>{formatMoney((data.federalAwards || []).reduce((s, a) => s + a.value, 0))}</div>
+                    <div className="kpi-sub">Top recipients combined</div>
+                  </div>
+                </div>
+              )}
 
               <div className="card-grid">
                 {data.federalSpending ? (
@@ -2997,6 +3023,78 @@ export default function App() {
                     </ResponsiveContainer>
                   </div>
                 ) : <div className="loading-skeleton" />}
+              </div>
+
+              {/* Federal Spending Table */}
+              {data.federalSpending && (
+                <div className="chart-card" style={{ marginTop: 20 }}>
+                  <h3>All Federal Agencies — FY{federalYear}</h3>
+                  <div className="chart-subtitle">Complete list of federal agencies funding Massachusetts</div>
+                  <div className="data-table-wrapper">
+                    <table className="data-table" style={{ width: '100%' }}>
+                      <thead>
+                        <tr>
+                          <th style={{ textAlign: 'left' }}>#</th>
+                          <th style={{ textAlign: 'left' }}>Federal Agency</th>
+                          <th>Amount</th>
+                          <th>Share</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.federalSpending.map((a, i) => {
+                          const total = data.federalSpending.reduce((s, x) => s + x.value, 0);
+                          return (
+                            <tr key={i}>
+                              <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                              <td style={{ fontWeight: 600 }}>{a.name}</td>
+                              <td className="money">{formatMoney(a.value)}</td>
+                              <td style={{ color: 'var(--text-muted)' }}>{total > 0 ? ((a.value / total) * 100).toFixed(1) + '%' : '—'}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {/* Federal Recipients Table */}
+              {data.federalAwards && (
+                <div className="chart-card" style={{ marginTop: 20 }}>
+                  <h3>All Award Recipients — FY{federalYear}</h3>
+                  <div className="chart-subtitle">Organizations receiving federal money in Massachusetts</div>
+                  <div className="data-table-wrapper">
+                    <table className="data-table" style={{ width: '100%' }}>
+                      <thead>
+                        <tr>
+                          <th style={{ textAlign: 'left' }}>#</th>
+                          <th style={{ textAlign: 'left' }}>Recipient</th>
+                          <th>Amount</th>
+                          <th>Share</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.federalAwards.map((a, i) => {
+                          const total = data.federalAwards.reduce((s, x) => s + x.value, 0);
+                          return (
+                            <tr key={i}>
+                              <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                              <td style={{ fontWeight: 600 }}>{a.name}</td>
+                              <td className="money">{formatMoney(a.value)}</td>
+                              <td style={{ color: 'var(--text-muted)' }}>{total > 0 ? ((a.value / total) * 100).toFixed(1) + '%' : '—'}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(0,169,206,0.04)', borderRadius: 8, borderLeft: '4px solid var(--accent-cyan)' }}>
+                <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                  Data sourced from USASpending.gov. Federal spending includes grants, contracts, and awards to Massachusetts entities as reported by awarding agencies.
+                </p>
               </div>
             </div>
           </div>
