@@ -211,7 +211,7 @@ export default function PacDashboard() {
       {/* KPI Cards */}
       <div className="card-grid" style={{ marginBottom: '32px' }}>
         <div className="kpi-card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: start }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
             <div>
               <div className="kpi-label">Total PACs</div>
               <div className="kpi-value">{data.length.toLocaleString()}</div>
