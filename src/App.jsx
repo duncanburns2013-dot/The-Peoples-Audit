@@ -90,8 +90,10 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
   const [selectedDept, setSelectedDept] = useState(null);
   const [deptDetail, setDeptDetail] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
-  const [deptYear, setDeptYear] = useState(initialYear || '2025');
+  const [deptYear, setDeptYear] = useState(initialYear || '2026');
   const [paymentPage, setPaymentPage] = useState(0);
+  const [deptPaySortField, setDeptPaySortField] = useState('date');
+  const [deptPaySortDir, setDeptPaySortDir] = useState('desc');
   const PAYMENTS_PER_PAGE = 25;
   const detailPanelRef = useRef(null);
 
@@ -223,7 +225,16 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                 </div>
               )}
 
-              {deptDetail.payments.length > 0 && (
+              {deptDetail.payments.length > 0 && (() => {
+                const sortedDeptPayments = [...deptDetail.payments].sort((a, b) => {
+                  if (deptPaySortField === 'date') {
+                    const da = new Date(a.date || 0), db = new Date(b.date || 0);
+                    return deptPaySortDir === 'desc' ? db - da : da - db;
+                  }
+                  if (deptPaySortField === 'amount') return deptPaySortDir === 'desc' ? (b.amount || 0) - (a.amount || 0) : (a.amount || 0) - (b.amount || 0);
+                  return 0;
+                });
+                return (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
                     Individual Payments — FY{deptYear} ({deptDetail.payments.length} records)
@@ -231,10 +242,18 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
-                        <tr><th>Date</th><th>Amount</th><th>Vendor</th><th>Appropriation</th><th>Category</th><th>Method</th></tr>
+                        <tr>
+                          <th style={{ cursor: 'pointer' }} onClick={() => { setDeptPaySortField('date'); setDeptPaySortDir(d => deptPaySortField === 'date' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
+                            Date {deptPaySortField === 'date' ? (deptPaySortDir === 'desc' ? '↓' : '↑') : ''}
+                          </th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => { setDeptPaySortField('amount'); setDeptPaySortDir(d => deptPaySortField === 'amount' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
+                            Amount {deptPaySortField === 'amount' ? (deptPaySortDir === 'desc' ? '↓' : '↑') : ''}
+                          </th>
+                          <th>Vendor</th><th>Appropriation</th><th>Category</th><th>Method</th>
+                        </tr>
                       </thead>
                       <tbody>
-                        {deptDetail.payments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
+                        {sortedDeptPayments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
                           <tr key={i}>
                             <td style={{ whiteSpace: 'nowrap' }}>{p.date}</td>
                             <td className="money">{formatMoneyFull(p.amount)}</td>
@@ -256,7 +275,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                     </div>
                   )}
                 </div>
-              )}
+              );})()}
             </>
           )}
         </div>
@@ -339,11 +358,13 @@ function VendorExplorer({ spendingYear }) {
   const [selectedVendor, setSelectedVendor] = useState(null);
   const [vendorDetail, setVendorDetail] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
-  const [vendorYear, setVendorYear] = useState(spendingYear || '2025');
+  const [vendorYear, setVendorYear] = useState(spendingYear || '2026');
   const [paymentPage, setPaymentPage] = useState(0);
   const [nonProfitFilter, setNonProfitFilter] = useState(false);
   const [sortField, setSortField] = useState('total');
   const [sortDir, setSortDir] = useState('desc');
+  const [paySortField, setPaySortField] = useState('date');
+  const [paySortDir, setPaySortDir] = useState('desc');
   const PAYMENTS_PER_PAGE = 25;
 
   useEffect(() => {
@@ -515,7 +536,16 @@ function VendorExplorer({ spendingYear }) {
                 )}
               </div>
 
-              {vendorDetail.payments.length > 0 && (
+              {vendorDetail.payments.length > 0 && (() => {
+                const sortedPayments = [...vendorDetail.payments].sort((a, b) => {
+                  if (paySortField === 'date') {
+                    const da = new Date(a.date || 0), db = new Date(b.date || 0);
+                    return paySortDir === 'desc' ? db - da : da - db;
+                  }
+                  if (paySortField === 'amount') return paySortDir === 'desc' ? (b.amount || 0) - (a.amount || 0) : (a.amount || 0) - (b.amount || 0);
+                  return 0;
+                });
+                return (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
                     Individual Payments — FY{vendorYear} ({vendorDetail.payments.length} records)
@@ -523,10 +553,18 @@ function VendorExplorer({ spendingYear }) {
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
-                        <tr><th>Date</th><th>Amount</th><th>Department</th><th>Appropriation</th><th>Category</th><th>Method</th></tr>
+                        <tr>
+                          <th style={{ cursor: 'pointer' }} onClick={() => { setPaySortField('date'); setPaySortDir(d => paySortField === 'date' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
+                            Date {paySortField === 'date' ? (paySortDir === 'desc' ? '↓' : '↑') : ''}
+                          </th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => { setPaySortField('amount'); setPaySortDir(d => paySortField === 'amount' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
+                            Amount {paySortField === 'amount' ? (paySortDir === 'desc' ? '↓' : '↑') : ''}
+                          </th>
+                          <th>Department</th><th>Appropriation</th><th>Category</th><th>Method</th>
+                        </tr>
                       </thead>
                       <tbody>
-                        {vendorDetail.payments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
+                        {sortedPayments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
                           <tr key={i}>
                             <td style={{ whiteSpace: 'nowrap' }}>{p.date}</td>
                             <td className="money">{formatMoneyFull(p.amount)}</td>
@@ -548,7 +586,7 @@ function VendorExplorer({ spendingYear }) {
                     </div>
                   )}
                 </div>
-              )}
+              );})()}
             </>
           )}
         </div>
@@ -624,7 +662,7 @@ function QuasiExplorer({ quasiPayments }) {
   const [selectedAgency, setSelectedAgency] = useState(null);
   const [agencyDetail, setAgencyDetail] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
-  const [quasiYear, setQuasiYear] = useState('2025');
+  const [quasiYear, setQuasiYear] = useState('2026');
   const [paymentPage, setPaymentPage] = useState(0);
   const PAYMENTS_PER_PAGE = 25;
   const quasiDetailPanelRef = useRef(null);
@@ -1975,9 +2013,9 @@ export default function App() {
     debtServiceFederal: null,
     emmaTrades: null,
   });
-  const [spendingYear, setSpendingYear] = useState('2025');
-  const [payrollYear, setPayrollYear] = useState('2025');
-  const [federalYear, setFederalYear] = useState(2025);
+  const [spendingYear, setSpendingYear] = useState('2026');
+  const [payrollYear, setPayrollYear] = useState('2026');
+  const [federalYear, setFederalYear] = useState(2026);
   const [emmaRefreshing, setEmmaRefreshing] = useState(false);
   const [emmaLastFetched, setEmmaLastFetched] = useState(null);
   // Bonds tab: debt history chart range toggle ("10yr" = last 10 fiscal years,
@@ -2755,7 +2793,7 @@ export default function App() {
                 </div>
               </div>
 
-              {data.emmaTrades && data.emmaTrades.length > 0 && (
+              {(
                 <div className="chart-card" style={{ marginTop: 24, borderLeft: '4px solid #680A1D' }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
                     <h3 style={{ margin: 0 }}>
@@ -2784,7 +2822,7 @@ export default function App() {
                   <div className="chart-subtitle" style={{ marginTop: 6 }}>
                     Snapshot of significant Massachusetts issuer trades. Click any CUSIP to view full EMMA history.
                   </div>
-                  {emmaLastFetched && (
+                  {emmaLastFetched && data.emmaTrades && (
                     <div style={{
                       marginTop: 8, padding: '6px 12px', background: '#f4f5f8', borderRadius: 4,
                       fontSize: '0.82rem', color: 'var(--text-muted)'
@@ -2794,6 +2832,7 @@ export default function App() {
                       {' · '}{data.emmaTrades.length} trades loaded
                     </div>
                   )}
+                  {data.emmaTrades && data.emmaTrades.length > 0 ? (
                   <div style={{ overflowX: 'auto', marginTop: 12 }}>
                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
                       <thead>
@@ -2824,6 +2863,12 @@ export default function App() {
                       </tbody>
                     </table>
                   </div>
+                  ) : (
+                    <div style={{ marginTop: 16, padding: '20px 16px', background: '#f4f5f8', borderRadius: 8, textAlign: 'center', color: 'var(--text-muted)' }}>
+                      <p style={{ margin: '0 0 8px', fontWeight: 600, color: '#680A1D' }}>No bond trades loaded</p>
+                      <p style={{ margin: 0, fontSize: '0.85rem' }}>Click "↻ Refresh now" above to fetch the latest MA bond trades from EMMA / MSRB.</p>
+                    </div>
+                  )}
                 </div>
               )}
 
