@@ -172,7 +172,7 @@ export default function NonprofitLookup() {
           filings: [],
         };
         setOrgDetails(basicDetails);
-        setError('Showing local data â ProPublica API is temporarily unavailable');
+        setError('Showing local data — ProPublica API is temporarily unavailable');
       } else {
         setError('Failed to load organization details.');
       }
@@ -336,7 +336,7 @@ export default function NonprofitLookup() {
                 color: '#92400e',
                 fontWeight: 600,
               }}>
-                Showing local data â ProPublica API is temporarily unavailable
+                Showing local data — ProPublica API is temporarily unavailable
               </span>
             )}
           </div>
@@ -507,7 +507,7 @@ export default function NonprofitLookup() {
         </div>
       )}
 
-      {/* No search yet â show top nonprofits */}
+      {/* No search yet — show top nonprofits */}
       {!selectedOrg && searchResults.length === 0 && !isLoading && (
         <div className="chart-card" style={{ marginTop: 20 }}>
           <h3 style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700, color: 'var(--text-primary)' }}>
