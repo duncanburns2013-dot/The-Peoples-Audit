@@ -1,590 +1,259 @@
 import React, { useState, useMemo } from 'react';
-import {
-  BarChart,
-  Bar,
-  LineChart,
-  Line,
-  PieChart,
-  Pie,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
-import {
-  DollarSign,
-  Home,
-  Heart,
-  Car,
-  ShoppingCart,
-  Users,
-  TrendingUp,
-  Info,
-} from 'lucide-react';
-// Styles use existing index.css classes
+import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { DollarSign, Home, Heart, Car, ShoppingCart, TrendingUp, Info } from 'lucide-react';
 
-// Massachusetts data (based on real 2024-2025 figures)
 const MA_DATA = {
   minimumWage: 15.0,
-  livingWages: {
-    '1_adult_0_children': 23.81,
-    '1_adult_1_child': 45.37,
-    '2_adults_2_children': 30.33,
-    '2_adults_1_child': 25.63,
-  },
-  medianHouseholdIncome: 96505,
-  population: 7030000,
-  stateBudget: 58800000000,
-  costIndices: {
-    housing: 159,
-    healthcare: 115,
-    transportation: 108,
-    food: 105,
-    childcare: 112,
-  },
-  averageRent1BR: 2200,
-  averageHomePrice: 575000,
-  nationalAverageRent1BR: 1300,
-  nationalAverageHomePrice: 350000,
+  livingWages: { '1_adult_0_children': 23.81, '1_adult_1_child': 45.37, '2_adults_2_children': 30.33, '2_adults_1_child': 25.63 },
+  medianHouseholdIncome: 96505, population: 7030000, stateBudget: 58800000000,
+  costIndices: { housing: 159, healthcare: 115, transportation: 108, food: 105, childcare: 112 },
+  averageRent1BR: 2200, averageHomePrice: 575000, nationalAverageRent1BR: 1300, nationalAverageHomePrice: 350000,
 };
 
-// Annual cost breakdown for 1 adult, 0 children (based on MIT Living Wage)
-const ANNUAL_COSTS_1ADULT = {
-  housing: 18720, // rent
-  food: 4260,
-  transportation: 8100,
-  healthcare: 4104,
-  childcare: 0,
-  taxes: 12960,
-  other: 1856,
+const ANNUAL_COSTS = {
+  '1_adult_0_children': { housing: 18720, food: 4260, transportation: 8100, healthcare: 4104, childcare: 0, taxes: 12960, other: 1856 },
+  '1_adult_1_child': { housing: 18720, food: 7560, transportation: 8100, healthcare: 4104, childcare: 19200, taxes: 12960, other: 3564 },
+  '2_adults_1_child': { housing: 20400, food: 8400, transportation: 9000, healthcare: 6800, childcare: 19200, taxes: 14400, other: 4200 },
+  '2_adults_2_children': { housing: 20400, food: 9600, transportation: 10000, healthcare: 8400, childcare: 28800, taxes: 15600, other: 5200 },
 };
 
-const ANNUAL_COSTS_1ADULT_1CHILD = {
-  housing: 18720,
-  food: 7560,
-  transportation: 8100,
-  healthcare: 4104,
-  childcare: 19200,
-  taxes: 12960,
-  other: 3564,
-};
+const COLORS = { housing: '#680A1D', food: '#32784E', transportation: '#14558F', healthcare: '#E67E22', childcare: '#9B59B6', taxes: '#FFC72C', other: '#00A9CE' };
+const LABELS = { housing: 'Housing', food: 'Food', transportation: 'Transportation', healthcare: 'Healthcare', childcare: 'Childcare', taxes: 'Taxes', other: 'Other' };
+const ICONS = { housing: Home, food: ShoppingCart, transportation: Car, healthcare: Heart, childcare: DollarSign, taxes: DollarSign, other: DollarSign };
 
-const ANNUAL_COSTS_2ADULTS_2CHILDREN = {
-  housing: 20400,
-  food: 9600,
-  transportation: 10000,
-  healthcare: 8400,
-  childcare: 28800,
-  taxes: 15600,
-  other: 5200,
-};
+const tooltipStyle = { background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 };
+const fmt = (n) => '$' + (n >= 1000 ? (n/1000).toFixed(1) + 'k' : n.toLocaleString());
 
-const COLORS = {
-  housing: '#FF6B6B',
-  food: '#4ECDC4',
-  transportation: '#45B7D1',
-  healthcare: '#FFA07A',
-  childcare: '#98D8C8',
-  taxes: '#F7DC6F',
-  other: '#BB8FCE',
-  ma: '#0052CC',
-  national: '#6C757D',
-};
-
-const COST_CATEGORIES = [
-  { key: 'housing', label: 'Housing', icon: Home },
-  { key: 'food', label: 'Food', icon: ShoppingCart },
-  { key: 'transportation', label: 'Transportation', icon: Car },
-  { key: 'healthcare', label: 'Healthcare', icon: Heart },
-  { key: 'childcare', label: 'Childcare', icon: Users },
-  { key: 'taxes', label: 'Taxes', icon: DollarSign },
-  { key: 'other', label: 'Other', icon: TrendingUp },
-];
-
-function CostOfLivingCalculator() {
-  const [annualIncome, setAnnualIncome] = useState(60000);
+export default function CostOfLivingCalculator() {
+  const [annualIncome, setAnnualIncome] = useState(MA_DATA.medianHouseholdIncome);
   const [familySize, setFamilySize] = useState('1_adult_0_children');
-  const [showComparison, setShowComparison] = useState(false);
 
-  // Get cost breakdown based on family size
-  const getCostBreakdown = (size) => {
-    const breakdowns = {
-      '1_adult_0_children': ANNUAL_COSTS_1ADULT,
-      '1_adult_1_child': ANNUAL_COSTS_1ADULT_1CHILD,
-      '2_adults_2_children': ANNUAL_COSTS_2ADULTS_2CHILDREN,
-    };
-    return breakdowns[size] || ANNUAL_COSTS_1ADULT;
-  };
-
-  const costBreakdown = getCostBreakdown(familySize);
-  const totalAnnualCost = Object.values(costBreakdown).reduce((a, b) => a + b, 0);
-  const requiredHourlyWage = totalAnnualCost / 2080;
   const livingWage = MA_DATA.livingWages[familySize];
+  const costs = ANNUAL_COSTS[familySize];
+  const totalAnnualCost = Object.values(costs).reduce((a, b) => a + b, 0);
 
-  // Budget breakdown based on user income
   const userBudgetBreakdown = useMemo(() => {
-    const income = annualIncome;
-    const breakdown = getCostBreakdown(familySize);
-    const totalExpected = Object.values(breakdown).reduce((a, b) => a + b, 0);
+    const ratio = annualIncome / totalAnnualCost;
+    return Object.entries(costs).map(([key, expected]) => ({
+      category: key, expectedAnnual: expected, userAllocation: Math.round(expected * ratio),
+      difference: Math.round(expected * ratio - expected),
+    }));
+  }, [annualIncome, familySize, costs, totalAnnualCost]);
 
-    return Object.entries(breakdown).map(([key, cost]) => {
-      const percentage = (cost / totalExpected) * 100;
-      const userAllocation = (income * percentage) / 100;
-      const difference = userAllocation - cost;
-      return {
-        category: key,
-        expectedAnnual: cost,
-        userAllocation,
-        percentage,
-        difference,
-      };
-    });
-  }, [annualIncome, familySize]);
-
-  // Cost comparison data (MA vs National average)
   const comparisonData = [
-    {
-      name: 'Housing (1BR)',
-      ma: MA_DATA.averageRent1BR * 12,
-      national: MA_DATA.nationalAverageRent1BR * 12,
-    },
-    {
-      name: 'Healthcare',
-      ma: 8200,
-      national: 7100,
-    },
-    {
-      name: 'Transportation',
-      ma: 8400,
-      national: 7800,
-    },
-    {
-      name: 'Food (Annual)',
-      ma: 4500,
-      national: 4300,
-    },
-    {
-      name: 'Childcare (Annual)',
-      ma: 19200,
-      national: 17100,
-    },
+    { name: 'Housing (1BR)', ma: MA_DATA.averageRent1BR * 12, national: MA_DATA.nationalAverageRent1BR * 12 },
+    { name: 'Healthcare', ma: 8200, national: 7100 },
+    { name: 'Transportation', ma: 8400, national: 7800 },
+    { name: 'Food (Annual)', ma: 4500, national: 4300 },
+    { name: 'Childcare', ma: 19200, national: 17100 },
   ];
 
-  // Living wage by family size
   const livingWageData = [
-    {
-      name: '1 Adult',
-      wage: MA_DATA.livingWages['1_adult_0_children'],
-      minWage: MA_DATA.minimumWage,
-    },
-    {
-      name: '1A + 1C',
-      wage: MA_DATA.livingWages['1_adult_1_child'],
-      minWage: MA_DATA.minimumWage,
-    },
-    {
-      name: '2A + 1C',
-      wage: MA_DATA.livingWages['2_adults_1_child'],
-      minWage: MA_DATA.minimumWage,
-    },
-    {
-      name: '2A + 2C',
-      wage: MA_DATA.livingWages['2_adults_2_children'],
-      minWage: MA_DATA.minimumWage,
-    },
+    { name: '1 Adult', wage: MA_DATA.livingWages['1_adult_0_children'], minWage: MA_DATA.minimumWage },
+    { name: '1A + 1C', wage: MA_DATA.livingWages['1_adult_1_child'], minWage: MA_DATA.minimumWage },
+    { name: '2A + 1C', wage: MA_DATA.livingWages['2_adults_1_child'], minWage: MA_DATA.minimumWage },
+    { name: '2A + 2C', wage: MA_DATA.livingWages['2_adults_2_children'], minWage: MA_DATA.minimumWage },
   ];
 
-  // Budget pie chart data
-  const budgetPieData = userBudgetBreakdown.map((item) => ({
-    name: item.category,
-    value: Math.round(item.userAllocation),
-  }));
-
-  // State spending per capita
-  const spendingPerCapita = MA_DATA.stateBudget / MA_DATA.population;
-  const educationSpendingPerStudent = MA_DATA.stateBudget * 0.33 / 800000; // ~33% of budget, ~800k students
-  const healthcareSpendingPerCapita = MA_DATA.stateBudget * 0.18 / MA_DATA.population;
-  const transportationSpendingPerCapita = MA_DATA.stateBudget * 0.07 / MA_DATA.population;
-
-  // Estimate state/local taxes from income
-  const estimatedStateTaxes = annualIncome * 0.05; // ~5% state income tax
-  const estimatedLocalTaxes = annualIncome * 0.01; // ~1% local property/other taxes
-
-  const incomeBreakdown = [
-    { name: 'Take Home', value: annualIncome - estimatedStateTaxes - estimatedLocalTaxes },
-    { name: 'State Taxes', value: estimatedStateTaxes },
-    { name: 'Local Taxes', value: estimatedLocalTaxes },
-  ];
+  const budgetPieData = userBudgetBreakdown.map(i => ({ name: LABELS[i.category], value: Math.round(i.userAllocation), color: COLORS[i.category] }));
+  const estimatedStateTaxes = annualIncome * 0.05;
+  const estimatedLocalTaxes = annualIncome * 0.01;
 
   return (
-    <div className="cost-of-living-calculator">
-      <div className="calculator-header">
-        <h1>
-          <DollarSign className="header-icon" />
-          Cost of Living Calculator
-        </h1>
-        <p>
-          Understand how Massachusetts living costs compare to national averages and
-          how public spending affects your daily life.
-        </p>
+    <div className="section">
+      <div className="section-header">
+        <span className="section-tag red" style={{ background: 'rgba(0,169,206,0.12)', color: '#00A9CE' }}>Impact Calculator</span>
+        <h2 style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <DollarSign size={28} style={{ color: '#00A9CE' }} /> Cost of Living Calculator
+        </h2>
+        <p>Understand how Massachusetts living costs compare to national averages and how public spending affects your daily life.</p>
       </div>
 
-      {/* Interactive Inputs Section */}
-      <div className="inputs-section">
-        <div className="input-group">
-          <label htmlFor="income-input">Annual Household Income</label>
-          <div className="input-wrapper">
-            <span className="currency">$</span>
-            <input
-              id="income-input"
-              type="number"
-              value={annualIncome}
-              onChange={(e) => setAnnualIncome(Math.max(0, parseInt(e.target.value) || 0))}
-              className="income-input"
-            />
+      {/* Input Controls */}
+      <div className="chart-card" style={{ marginBottom: 24 }}>
+        <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-end' }}>
+          <div style={{ flex: 1, minWidth: 280 }}>
+            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem', color: 'var(--text-primary)' }}>Annual Household Income</label>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontWeight: 700, color: 'var(--text-muted)' }}>$</span>
+              <input type="number" value={annualIncome}
+                onChange={(e) => setAnnualIncome(Math.max(0, parseInt(e.target.value) || 0))}
+                style={{ width: '100%', padding: '10px 14px', border: '1px solid var(--border)', borderRadius: 8, background: 'var(--bg-card)', color: 'var(--text-primary)', fontSize: '1.1rem', fontWeight: 600, fontFamily: 'JetBrains Mono', outline: 'none' }} />
+            </div>
+            <input type="range" min="10000" max="250000" step="5000" value={annualIncome}
+              onChange={(e) => setAnnualIncome(parseInt(e.target.value))}
+              style={{ width: '100%', marginTop: 10, accentColor: 'var(--accent-blue)' }} />
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+              <span>$10k</span><span>$250k</span>
+            </div>
           </div>
-          <input
-            type="range"
-            min="10000"
-            max="250000"
-            step="5000"
-            value={annualIncome}
-            onChange={(e) => setAnnualIncome(parseInt(e.target.value))}
-            className="income-slider"
-          />
-          <div className="slider-labels">
-            <span>$10k</span>
-            <span>$250k</span>
+          <div style={{ minWidth: 220 }}>
+            <label style={{ display: 'block', fontWeight: 600, marginBottom: 8, fontSize: '0.9rem', color: 'var(--text-primary)' }}>Family Composition</label>
+            <select value={familySize} onChange={(e) => setFamilySize(e.target.value)}
+              style={{ width: '100%', padding: '10px 14px', border: '1px solid var(--border)', borderRadius: 8, background: 'var(--bg-card)', color: 'var(--text-primary)', fontSize: '0.9rem', outline: 'none' }}>
+              <option value="1_adult_0_children">1 Adult, 0 Children</option>
+              <option value="1_adult_1_child">1 Adult, 1 Child</option>
+              <option value="2_adults_1_child">2 Adults, 1 Child</option>
+              <option value="2_adults_2_children">2 Adults, 2 Children</option>
+            </select>
           </div>
-        </div>
-
-        <div className="input-group">
-          <label htmlFor="family-size">Family Composition</label>
-          <select
-            id="family-size"
-            value={familySize}
-            onChange={(e) => setFamilySize(e.target.value)}
-            className="family-select"
-          >
-            <option value="1_adult_0_children">1 Adult, 0 Children</option>
-            <option value="1_adult_1_child">1 Adult, 1 Child</option>
-            <option value="2_adults_1_child">2 Adults, 1 Child</option>
-            <option value="2_adults_2_children">2 Adults, 2 Children</option>
-          </select>
         </div>
       </div>
 
-      {/* Living Wage Summary */}
-      <div className="section-header">Living Wage Analysis</div>
-      <div className="kpi-grid">
-        <div className="kpi-card living-wage-card">
+      {/* KPI Cards */}
+      <div className="kpi-row" style={{ marginBottom: 32 }}>
+        <div className="kpi-card">
           <div className="kpi-label">Estimated Living Wage</div>
-          <div className="kpi-value">${livingWage.toFixed(2)}/hr</div>
-          <div className="kpi-subtext">For selected family</div>
-          <div className="kpi-comparison">
-            {livingWage > MA_DATA.minimumWage ? (
-              <span className="badge warning">
-                {((livingWage / MA_DATA.minimumWage - 1) * 100).toFixed(0)}% above minimum wage
-              </span>
-            ) : (
-              <span className="badge success">Above minimum wage</span>
-            )}
+          <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>${livingWage.toFixed(2)}/hr</div>
+          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>
+            {((livingWage / MA_DATA.minimumWage - 1) * 100).toFixed(0)}% above minimum wage
           </div>
         </div>
-
         <div className="kpi-card">
           <div className="kpi-label">Annual Cost of Living</div>
           <div className="kpi-value">${totalAnnualCost.toLocaleString()}</div>
-          <div className="kpi-subtext">Based on MA averages</div>
+          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Based on MA averages</div>
         </div>
-
         <div className="kpi-card">
-          <div className="kpi-label">Massachusetts Minimum Wage</div>
+          <div className="kpi-label">MA Minimum Wage</div>
           <div className="kpi-value">${MA_DATA.minimumWage.toFixed(2)}/hr</div>
-          <div className="kpi-subtext">Federal: $7.25/hr</div>
+          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Federal: $7.25/hr</div>
         </div>
-
         <div className="kpi-card">
-          <div className="kpi-label">Your Annual Taxes</div>
+          <div className="kpi-label">Your Annual Taxes (est.)</div>
           <div className="kpi-value">${(estimatedStateTaxes + estimatedLocalTaxes).toLocaleString()}</div>
-          <div className="kpi-subtext">State + Local estimate</div>
+          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>State + Local (~6%)</div>
         </div>
       </div>
 
-      {/* Living Wage Comparison Chart */}
-      <div className="section-header">Living Wage by Family Size</div>
-      <div className="chart-card">
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={livingWageData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-            <XAxis dataKey="name" stroke="#999" />
-            <YAxis stroke="#999" label={{ value: 'Hourly Wage ($)', angle: -90, position: 'insideLeft' }} />
-            <Tooltip
-              formatter={(value) => `$${value.toFixed(2)}/hr`}
-              contentStyle={{ backgroundColor: '#1a1a1a', border: '1px solid #444' }}
-            />
-            <Legend />
-            <Bar dataKey="wage" fill={COLORS.ma} name="Living Wage" />
-            <Bar dataKey="minWage" fill={COLORS.national} name="Minimum Wage" />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-
-      {/* Cost Breakdown */}
-      <div className="section-header">Your Budget Breakdown</div>
-      <div className="budget-layout">
+      {/* Charts Grid */}
+      <div className="card-grid" style={{ marginBottom: 24 }}>
         <div className="chart-card">
-          <ResponsiveContainer width="100%" height={350}>
-            <PieChart>
-              <Pie
-                data={budgetPieData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                label={({ name, value }) =>
-                  `${name}: $${(value / 1000).toFixed(0)}k`
-                }
-                outerRadius={100}
-                fill="#8884d8"
-                dataKey="value"
-              >
-                {budgetPieData.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[entry.name] || '#8884d8'}
-                  />
-                ))}
-              </Pie>
-              <Tooltip
-                formatter={(value) => `$${(value / 1000).toFixed(1)}k`}
-                contentStyle={{ backgroundColor: '#1a1a1a', border: '1px solid #444' }}
-              />
-            </PieChart>
+          <h3>Living Wage by Family Size</h3>
+          <div className="chart-subtitle">Hourly wage needed to meet basic needs</div>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={livingWageData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" />
+              <XAxis dataKey="name" stroke="rgba(0,0,0,0.4)" style={{ fontSize: 12 }} />
+              <YAxis stroke="rgba(0,0,0,0.4)" style={{ fontSize: 12 }} tickFormatter={v => `$${v}`} />
+              <Tooltip formatter={(v) => [`$${v.toFixed(2)}/hr`]} contentStyle={tooltipStyle} />
+              <Legend />
+              <Bar dataKey="wage" fill="#680A1D" name="Living Wage" radius={[4,4,0,0]} />
+              <Bar dataKey="minWage" fill="#95A5A6" name="Minimum Wage" radius={[4,4,0,0]} />
+            </BarChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="budget-table">
-          <div className="table-header">
-            <div className="header-cell">Category</div>
-            <div className="header-cell">Expected</div>
-            <div className="header-cell">Your Budget</div>
-            <div className="header-cell">Difference</div>
-          </div>
-          {userBudgetBreakdown.map((item) => {
-            const Icon = COST_CATEGORIES.find((c) => c.key === item.category)?.icon || DollarSign;
-            return (
-              <div key={item.category} className="table-row">
-                <div className="cell category-cell">
-                  <Icon size={16} />
-                  {COST_CATEGORIES.find((c) => c.key === item.category)?.label}
-                </div>
-                <div className="cell">${(item.expectedAnnual / 1000).toFixed(1)}k</div>
-                <div className="cell">${(item.userAllocation / 1000).toFixed(1)}k</div>
-                <div className={`cell diff ${item.difference >= 0 ? 'positive' : 'negative'}`}>
-                  {item.difference >= 0 ? '+' : '-'}${Math.abs(item.difference / 1000).toFixed(1)}k
-                </div>
-              </div>
-            );
-          })}
+        <div className="chart-card">
+          <h3>Your Budget Breakdown</h3>
+          <div className="chart-subtitle">Estimated annual allocation based on your income</div>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie data={budgetPieData} cx="50%" cy="50%" labelLine={false}
+                label={({ name, value }) => `${name}: ${fmt(value)}`}
+                outerRadius={90} dataKey="value">
+                {budgetPieData.map((e, i) => <Cell key={i} fill={e.color} />)}
+              </Pie>
+              <Tooltip formatter={(v) => [fmt(v)]} contentStyle={tooltipStyle} />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
-      {/* Cost Comparison Section */}
-      <div className="section-header">Massachusetts vs National Average Costs</div>
-      <div className="chart-card">
+      {/* Budget Table */}
+      <div className="chart-card" style={{ marginBottom: 24 }}>
+        <h3>Detailed Budget Comparison</h3>
+        <div className="chart-subtitle">Expected costs vs. your proportional allocation</div>
+        <div style={{ overflowX: 'auto', marginTop: 16 }}>
+          <table style={{ width: '100%', fontSize: '0.85rem', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr>
+                {['Category', 'Expected', 'Your Budget', 'Difference'].map(h => (
+                  <th key={h} style={{ textAlign: h === 'Category' ? 'left' : 'right', padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '2px solid var(--border)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {userBudgetBreakdown.map(item => {
+                const Icon = ICONS[item.category] || DollarSign;
+                return (
+                  <tr key={item.category} style={{ borderBottom: '1px solid var(--border)' }}>
+                    <td style={{ padding: '10px 12px', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 500 }}>
+                      <Icon size={14} style={{ color: COLORS[item.category] }} /> {LABELS[item.category]}
+                    </td>
+                    <td style={{ padding: '10px 12px', textAlign: 'right', fontFamily: 'JetBrains Mono', color: 'var(--text-secondary)' }}>{fmt(item.expectedAnnual)}</td>
+                    <td style={{ padding: '10px 12px', textAlign: 'right', fontFamily: 'JetBrains Mono', fontWeight: 600 }}>{fmt(item.userAllocation)}</td>
+                    <td style={{ padding: '10px 12px', textAlign: 'right', fontFamily: 'JetBrains Mono', fontWeight: 600, color: item.difference >= 0 ? 'var(--accent-green)' : 'var(--accent-red)' }}>
+                      {item.difference >= 0 ? '+' : '-'}{fmt(Math.abs(item.difference))}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* MA vs National */}
+      <div className="chart-card" style={{ marginBottom: 24 }}>
+        <h3>Massachusetts vs National Average Costs</h3>
+        <div className="chart-subtitle">Annual cost comparison across key categories</div>
         <ResponsiveContainer width="100%" height={350}>
           <BarChart data={comparisonData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-            <XAxis dataKey="name" stroke="#999" />
-            <YAxis stroke="#999" label={{ value: 'Annual Cost ($)', angle: -90, position: 'insideLeft' }} />
-            <Tooltip
-              formatter={(value) => `$${(value / 1000).toFixed(1)}k`}
-              contentStyle={{ backgroundColor: '#1a1a1a', border: '1px solid #444' }}
-            />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" />
+            <XAxis dataKey="name" stroke="rgba(0,0,0,0.4)" style={{ fontSize: 12 }} />
+            <YAxis stroke="rgba(0,0,0,0.4)" style={{ fontSize: 12 }} tickFormatter={v => fmt(v)} />
+            <Tooltip formatter={(v) => [fmt(v)]} contentStyle={tooltipStyle} />
             <Legend />
-            <Bar dataKey="ma" fill={COLORS.ma} name="Massachusetts" />
-            <Bar dataKey="national" fill={COLORS.national} name="National Average" />
+            <Bar dataKey="ma" fill="#14558F" name="Massachusetts" radius={[4,4,0,0]} />
+            <Bar dataKey="national" fill="#95A5A6" name="National Average" radius={[4,4,0,0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Cost Index Comparison */}
-      <div className="section-header">Cost Index: Massachusetts vs US (100 = US Average)</div>
-      <div className="cost-index-grid">
+      {/* Cost Index Cards */}
+      <div className="card-grid" style={{ marginBottom: 24 }}>
         {Object.entries(MA_DATA.costIndices).map(([key, index]) => {
-          const Icon = COST_CATEGORIES.find((c) => c.key === key)?.icon || DollarSign;
+          const Icon = ICONS[key] || DollarSign;
           const isAbove = index > 100;
           return (
-            <div key={key} className="cost-index-card">
-              <div className="index-header">
-                <Icon size={20} className="index-icon" />
-                <span className="index-name">
-                  {COST_CATEGORIES.find((c) => c.key === key)?.label}
-                </span>
+            <div key={key} className="chart-card" style={{ textAlign: 'center' }}>
+              <Icon size={24} style={{ color: isAbove ? 'var(--accent-red)' : 'var(--accent-green)', marginBottom: 8 }} />
+              <h3 style={{ fontSize: '0.95rem' }}>{LABELS[key] || key}</h3>
+              <div style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'JetBrains Mono', margin: '8px 0', color: isAbove ? 'var(--accent-red)' : 'var(--accent-green)' }}>{index}</div>
+              <div style={{ background: 'var(--bg-primary)', borderRadius: 6, height: 8, marginBottom: 8, overflow: 'hidden' }}>
+                <div style={{ height: '100%', width: `${Math.min(index / 2, 100)}%`, background: isAbove ? 'var(--accent-red)' : 'var(--accent-green)', borderRadius: 6 }} />
               </div>
-              <div className="index-value">{index}</div>
-              <div className="index-bar">
-                <div
-                  className="index-fill"
-                  style={{
-                    width: `${Math.min(index / 2, 100)}%`,
-                    backgroundColor: isAbove ? '#FF6B6B' : '#4ECDC4',
-                  }}
-                />
-              </div>
-              <div className="index-label">
-                {isAbove ? '+' : ''}{(index - 100).toFixed(0)}% vs US
-              </div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{isAbove ? '+' : ''}{index - 100}% vs US average</div>
             </div>
           );
         })}
       </div>
 
-      {/* Income and Tax Breakdown */}
-      <div className="section-header">Your Income and Taxes</div>
-      <div className="income-layout">
-        <div className="chart-card">
-          <ResponsiveContainer width="100%" height={250}>
-            <PieChart>
-              <Pie
-                data={incomeBreakdown}
-                cx="50%"
-                cy="50%"
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-                label={({ name, value }) =>
-                  `${name}: $${(value / 1000).toFixed(0)}k`
-                }
-              >
-                {incomeBreakdown.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={[COLORS.ma, COLORS.taxes, '#9B59B6'][index]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip
-                formatter={(value) => `$${(value / 1000).toFixed(1)}k`}
-                contentStyle={{ backgroundColor: '#1a1a1a', border: '1px solid #444' }}
-              />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className="income-summary">
-          <div className="income-item">
-            <span className="income-label">Annual Gross Income</span>
-            <span className="income-value">${annualIncome.toLocaleString()}</span>
-          </div>
-          <div className="divider" />
-          <div className="income-item">
-            <span className="income-label">State Income Tax (~5%)</span>
-            <span className="income-value">${estimatedStateTaxes.toLocaleString()}</span>
-          </div>
-          <div className="income-item">
-            <span className="income-label">Local Taxes (~1%)</span>
-            <span className="income-value">${estimatedLocalTaxes.toLocaleString()}</span>
-          </div>
-          <div className="divider" />
-          <div className="income-item highlight">
-            <span className="income-label">Take-Home Pay</span>
-            <span className="income-value">
-              ${(annualIncome - estimatedStateTaxes - estimatedLocalTaxes).toLocaleString()}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Public Spending Section */}
-      <div className="section-header">Massachusetts Public Spending Per Capita</div>
-      <div className="spending-grid">
-        <div className="spending-card">
-          <div className="spending-label">Total State Budget Per Capita</div>
-          <div className="spending-value">${spendingPerCapita.toLocaleString('en-US', { maximumFractionDigits: 0 })}</div>
-          <div className="spending-source">MA Population: {(MA_DATA.population / 1000000).toFixed(2)}M</div>
-        </div>
-
-        <div className="spending-card">
-          <div className="spending-label">Education Spending Per Student</div>
-          <div className="spending-value">${educationSpendingPerStudent.toLocaleString('en-US', { maximumFractionDigits: 0 })}</div>
-          <div className="spending-source">~33% of state budget</div>
-        </div>
-
-        <div className="spending-card">
-          <div className="spending-label">Healthcare Spending Per Capita</div>
-          <div className="spending-value">${healthcareSpendingPerCapita.toLocaleString('en-US', { maximumFractionDigits: 0 })}</div>
-          <div className="spending-source">~18% of state budget</div>
-        </div>
-
-        <div className="spending-card">
-          <div className="spending-label">Transportation Spending Per Capita</div>
-          <div className="spending-value">${transportationSpendingPerCapita.toLocaleString('en-US', { maximumFractionDigits: 0 })}</div>
-          <div className="spending-source">~7% of state budget</div>
-        </div>
-      </div>
-
       {/* Key Insights */}
-      <div className="section-header">Key Insights</div>
-      <div className="insights-grid">
-        <div className="insight-card">
-          <div className="insight-icon">
-            <Home size={24} />
+      <div className="card-grid" style={{ marginBottom: 24 }}>
+        {[
+          { icon: Home, title: 'Housing Crisis', color: 'var(--accent-red)', text: 'MA housing costs are 59% above the national average. The median home price is $575,000, requiring significant income to afford.' },
+          { icon: TrendingUp, title: 'Living Wage Gap', color: 'var(--accent-blue)', text: 'A single parent with one child needs $45.37/hour to meet basic needs - over 3x the state minimum wage of $15.00/hr.' },
+          { icon: Heart, title: 'Healthcare Costs', color: '#E67E22', text: 'MA healthcare costs are 15% above the national average, though the state maintains excellent quality and coverage rates.' },
+          { icon: DollarSign, title: 'Tax Burden', color: '#9B59B6', text: 'MA residents pay ~6% of income in state and local taxes. Understanding where these taxes go helps inform participation in budget decisions.' },
+        ].map(({ icon: Icon, title, color, text }) => (
+          <div key={title} className="chart-card">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+              <div style={{ width: 36, height: 36, borderRadius: 8, background: color + '18', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Icon size={18} style={{ color }} />
+              </div>
+              <h3 style={{ margin: 0 }}>{title}</h3>
+            </div>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{text}</p>
           </div>
-          <h3>Housing Crisis</h3>
-          <p>
-            MA housing costs are 59% above the national average. The median home price is
-            $575,000, requiring significant income to afford without financial stress.
-          </p>
-        </div>
-
-        <div className="insight-card">
-          <div className="insight-icon">
-            <TrendingUp size={24} />
-          </div>
-          <h3>Living Wage Gap</h3>
-          <p>
-            A single parent with one child needs to earn $45.37/hour to meet basic needsâover
-            6 times the federal minimum wage. This is $21.56 above the state minimum wage.
-          </p>
-        </div>
-
-        <div className="insight-card">
-          <div className="insight-icon">
-            <Heart size={24} />
-          </div>
-          <h3>Healthcare Costs</h3>
-          <p>
-            MA healthcare costs are 15% above the national average. Despite having higher costs,
-            the state maintains excellent healthcare quality and coverage rates.
-          </p>
-        </div>
-
-        <div className="insight-card">
-          <div className="insight-icon">
-            <DollarSign size={24} />
-          </div>
-          <h3>Tax Burden</h3>
-          <p>
-            MA residents pay approximately 6% of income in state and local taxes. Understanding
-            where these taxes go helps inform citizen participation in budget decisions.
-          </p>
-        </div>
+        ))}
       </div>
 
-      {/* Data Source Note */}
-      <div className="data-note">
-        <Info size={16} />
-        <span>
-          Data based on 2024-2025 figures from MIT Living Wage Calculator, U.S. Census Bureau,
-          and Massachusetts Department of Revenue. Figures are estimates for illustration purposes.
-        </span>
+      <div style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px', fontSize: '0.82rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+        <Info size={16} style={{ flexShrink: 0, marginTop: 2 }} />
+        <span>Data based on 2024-2025 figures from MIT Living Wage Calculator, U.S. Census Bureau, and Massachusetts Department of Revenue. Figures are estimates for illustration purposes.</span>
       </div>
     </div>
   );
 }
-
-export default CostOfLivingCalculator;
