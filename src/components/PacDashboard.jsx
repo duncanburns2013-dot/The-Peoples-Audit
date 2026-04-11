@@ -493,7 +493,7 @@ export default function PacDashboard() {
               color: 'var(--text-secondary)',
             }}
           >
-            Ã
+            ×
           </button>
 
           <h3 style={{ marginTop: 0, marginBottom: '8px', color: 'var(--text-primary)' }}>
