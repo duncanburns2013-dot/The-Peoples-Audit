@@ -166,7 +166,7 @@ function PoliticianSearch({ onSelect, loading }) {
         >
           <p>
             Selected: <strong>{selectedPolitician.name}</strong>
-            {selectedPolitician.office && ` â ${selectedPolitician.office}`}
+            {selectedPolitician.office && ` — ${selectedPolitician.office}`}
             {selectedPolitician.district && ` (District ${selectedPolitician.district})`}
           </p>
         </motion.div>
@@ -190,7 +190,7 @@ function PoliticianSearch({ onSelect, loading }) {
               style={{ textAlign: 'left', justifyContent: 'space-between', display: 'flex', alignItems: 'center' }}
             >
               <span>
-                <strong>{leg.name}</strong> â {leg.office} {leg.district && `(${leg.district})`}
+                <strong>{leg.name}</strong> — {leg.office} {leg.district && `(${leg.district})`}
               </span>
               <ChevronRight size={16} />
             </motion.button>
