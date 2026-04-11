@@ -2157,7 +2157,7 @@ export default function App() {
       </div>
 
       {/* ============ MAIN CONTENT ============ */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         <motion.div key={activeSection} variants={pageVariants} initial="initial" animate="animate" exit="exit">
         {/* ============ OVERVIEW ============ */}
         {activeSection === 'overview' && (
