@@ -2158,9 +2158,10 @@ export default function App() {
 
       {/* ============ MAIN CONTENT ============ */}
       <AnimatePresence mode="wait">
+        <motion.div key={activeSection} variants={pageVariants} initial="initial" animate="animate" exit="exit">
         {/* ============ OVERVIEW ============ */}
         {activeSection === 'overview' && (
-          <motion.div key="overview" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <div className="section">
               <div className="section-header">
                 <span className="section-tag red">FY{budget.fiscalYear} Snapshot</span>
@@ -2264,40 +2265,40 @@ export default function App() {
                 </div>
               )}
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* ============ SPENDING EXPLORER ============ */}
         {activeSection === 'spending' && (
-          <motion.div key="spending" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <SpendingExplorer departments={data.spendingByDept} spendingOverTime={data.spendingOverTime} initialYear={spendingYear} />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ PAYROLL ============ */}
         {activeSection === 'payroll' && (
-          <motion.div key="payroll" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <PayrollSearcher payrollYear={payrollYear} setPayrollYear={setPayrollYear} data={data} />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ VENDOR EXPLORER ============ */}
         {activeSection === 'vendors' && (
-          <motion.div key="vendors" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <VendorExplorer spendingYear={spendingYear} />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ FOLLOW THE MONEY ============ */}
         {activeSection === 'campaign' && (
-          <motion.div key="campaign" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <FollowTheMoney />
-          </motion.div>
+          </div>
         )}
 
 {/* ============ BONDS & BORROWING ============ */}
         {activeSection === 'bonds' && (
-          <motion.div key="bonds" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <div className="section">
               <div className="section-header">
                 <span className="section-tag blue">Debt Service</span>
@@ -2832,80 +2833,50 @@ export default function App() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* ============ MUNICIPALITIES ============ */}
         {activeSection === 'municipalities' && (
-          <motion.div key="municipalities" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <MunicipalitiesExplorer />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ LOBBYISTS ============ */}
         {activeSection === 'lobbyists' && (
-              <motion.div
-                key="lobbyists"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div>
                 <LobbyingExplorer />
-              </motion.div>
+              </div>
             )}
 
             {activeSection === 'ocpfdata' && (
-              <motion.div
-                key="ocpfdata"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div>
                 <OcpfDataCenter />
-              </motion.div>
+              </div>
             )}
 
             {activeSection === 'pacs' && (
-              <motion.div
-                key="pacs"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div>
                 <PacDashboard />
-              </motion.div>
+              </div>
             )}
 
             {activeSection === 'costliving' && (
-              <motion.div
-                key="costliving"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div>
                 <CostOfLivingCalculator />
-              </motion.div>
+              </div>
             )}
 
             {activeSection === 'nonprofits' && (
-              <motion.div
-                key="nonprofits"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div>
                 <NonprofitLookup />
-              </motion.div>
+              </div>
             )}
 
 {/* ============ FEDERAL ============ */}
         {activeSection === 'federal' && (
-          <motion.div key="federal" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <div className="section">
               <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
                 <div>
@@ -2962,19 +2933,19 @@ export default function App() {
                 ) : <div className="loading-skeleton" />}
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* ============ QUASI-GOVERNMENT ============ */}
         {activeSection === 'quasi' && (
-          <motion.div key="quasi" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <QuasiExplorer quasiPayments={data.quasiPayments} />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ THE AUDIT FIGHT ============ */}
         {activeSection === 'audit' && (
-          <motion.div key="audit" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <div className="section">
               <div className="section-header">
                 <span className="section-tag red">Democracy in Action</span>
@@ -3069,8 +3040,9 @@ export default function App() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
+              </motion.div>
       </AnimatePresence>
 
       {/* ============ SHARE ============ */}
