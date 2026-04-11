@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line, AreaChart, Area, Treemap,
@@ -2157,8 +2157,7 @@ export default function App() {
       </div>
 
       {/* ============ MAIN CONTENT ============ */}
-      <AnimatePresence>
-        <motion.div key={activeSection} variants={pageVariants} initial="initial" animate="animate" exit="exit">
+      <div>
         {/* ============ OVERVIEW ============ */}
         {activeSection === 'overview' && (
           <div>
@@ -3042,8 +3041,7 @@ export default function App() {
             </div>
           </div>
         )}
-              </motion.div>
-      </AnimatePresence>
+              </div>
 
       {/* ============ SHARE ============ */}
       <div style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)', padding: '40px 24px', textAlign: 'center' }}>
