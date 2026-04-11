@@ -650,102 +650,6 @@ function VendorExplorer({ spendingYear }) {
           </div>
         </>
       )}
-    </d             <th style={{ cursor: 'pointer' }} onClick={() => { setPaySortField('date'); setPaySortDir(d => paySortField === 'date' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
-                            Date {paySortField === 'date' ? (paySortDir === 'desc' ? 'â' : 'â') : ''}
-                          </th>
-                          <th style={{ cursor: 'pointer' }} onClick={() => { setPaySortField('amount'); setPaySortDir(d => paySortField === 'amount' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
-                            Amount {paySortField === 'amount' ? (paySortDir === 'desc' ? 'â' : 'â') : ''}
-                          </th>
-                          <th>Department</th><th>Appropriation</th><th>Category</th><th>Method</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {sortedPayments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
-                          <tr key={i}>
-                            <td style={{ whiteSpace: 'nowrap' }}>{p.date}</td>
-                            <td className="money">{formatMoneyFull(p.amount)}</td>
-                            <td style={{ fontSize: '0.8rem' }}>{p.department}</td>
-                            <td style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{p.appropriation.replace(/^\([^)]+\)\s*/, '')}</td>
-                            <td style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{p.category.replace(/^\([^)]+\)\s*/, '')}</td>
-                            <td style={{ fontSize: '0.8rem' }}>{p.paymentMethod}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                  {vendorDetail.payments.length > PAYMENTS_PER_PAGE && (
-                    <div className="pagination">
-                      <button disabled={paymentPage === 0} onClick={() => setPaymentPage(p => p - 1)}>Previous</button>
-                      <span className="page-info">Page {paymentPage + 1} of {Math.ceil(vendorDetail.payments.length / PAYMENTS_PER_PAGE)}</span>
-                      <button disabled={(paymentPage + 1) * PAYMENTS_PER_PAGE >= vendorDetail.payments.length}
-                        onClick={() => setPaymentPage(p => p + 1)}>Next</button>
-                    </div>
-                  )}
-                </div>
-              );})()}
-            </>
-          )}
-        </div>
-      )}
-
-      {vendorsLoading ? (
-        <div className="loading-skeleton" style={{ height: 400 }} />
-      ) : (
-        <>
-          <div className="chart-card">
-            <h3>{vendorSearch ? `Search Results for "${vendorSearch}"` : `Top Vendors by Payment â FY${vendorYear}`}</h3>
-            <div className="chart-subtitle">{vendorSearch ? `${vendors.length} vendors found` : 'Click any vendor to drill down into every payment'}</div>
-            {vendors.length > 0 && (
-              <ResponsiveContainer width="100%" height={Math.min(800, vendors.slice(0, 30).length * 26 + 40)}>
-                <BarChart data={vendors.slice(0, 30)} layout="vertical" margin={{ left: 220 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
-                  <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
-                  <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={210} tick={({ x, y, payload }) => (
-                    <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
-                      {payload.value.length > 28 ? payload.value.substring(0, 26) + 'â¦' : payload.value}
-                    </text>
-                  )} />
-                  <Tooltip content={<CustomTooltip />} />
-                  <Bar dataKey="total" fill="#22cc66" radius={[0, 3, 3, 0]} name="Total Paid" cursor="pointer"
-                    onClick={(data) => data && selectVendor(data.vendor)} />
-                </BarChart>
-              </ResponsiveContainer>
-            )}
-          </div>
-
-          <div className="data-table-wrapper" style={{ marginTop: 24 }}>
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th style={{ cursor: 'pointer' }} onClick={() => { setSortField('vendor'); setSortDir(d => sortField === 'vendor' ? (d === 'asc' ? 'desc' : 'asc') : 'asc'); }}>
-                    Vendor / Contractor {sortField === 'vendor' ? (sortDir === 'asc' ? 'â' : 'â') : ''}
-                  </th>
-                  <th style={{ cursor: 'pointer' }} onClick={() => { setSortField('total'); setSortDir(d => sortField === 'total' ? (d === 'asc' ? 'desc' : 'asc') : 'desc'); }}>
-                    Total Payments {sortField === 'total' ? (sortDir === 'asc' ? 'â' : 'â') : ''}
-                  </th>
-                  <th># Transactions</th>
-                  <th>Avg Payment</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {sortedVendors.map((v, i) => (
-                  <tr key={i} onClick={() => selectVendor(v.vendor)} style={{ cursor: 'pointer' }}
-                    className={selectedVendor === v.vendor ? 'active-row' : ''}>
-                    <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
-                    <td style={{ fontWeight: selectedVendor === v.vendor ? 700 : 400 }}>{v.vendor}</td>
-                    <td className="money">{formatMoney(v.total)}</td>
-                    <td>{v.paymentCount.toLocaleString()}</td>
-                    <td style={{ color: 'var(--text-muted)' }}>{v.paymentCount > 0 ? formatMoney(v.total / v.paymentCount) : 'N/A'}</td>
-                    <td><ChevronRight size={12} style={{ color: 'var(--accent-purple)' }} /></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </>
-      )}
     </div>
   );
 }
@@ -1330,7 +1234,107 @@ function FollowTheMoney() {
         Campaign finance data from the Massachusetts Office of Campaign and Political Finance (OCPF) public API.
         Cross-references show contributions from entities matching vendor names â correlation does not imply wrongdoing.
         All data is publicly available under Massachusetts open records laws.
-      </dsetLegislatorContributions(null); }}>Close</button>
+      </div>
+
+      {/* Sub-navigation tabs */}
+      <div className="filter-toggle" style={{ marginBottom: 24 }}>
+        <button className={`filter-btn ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}>
+          <Activity size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Overview
+        </button>
+        <button className={`filter-btn ${activeTab === 'legislators' ? 'active' : ''}`} onClick={() => setActiveTab('legislators')}>
+          <Landmark size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Legislators
+        </button>
+        <button className={`filter-btn ${activeTab === 'crossref' ? 'active' : ''}`} onClick={() => setActiveTab('crossref')}>
+          <Network size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Cross-Reference
+        </button>
+        <button className={`filter-btn ${activeTab === 'search' ? 'active' : ''}`} onClick={() => setActiveTab('search')}>
+          <Search size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Search
+        </button>
+        <span style={{ width: 1, height: 20, background: 'var(--border)', margin: '0 4px' }} />
+        <button className={`filter-btn ${activeTab === 'ocpf' ? 'active' : ''}`} onClick={() => setActiveTab('ocpf')}>
+          <FileText size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> OCPF Data
+        </button>
+        <button className={`filter-btn ${activeTab === 'pacs' ? 'active' : ''}`} onClick={() => setActiveTab('pacs')}>
+          <Scale size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> PACs
+        </button>
+        <button className={`filter-btn ${activeTab === 'nonprofits' ? 'active' : ''}`} onClick={() => setActiveTab('nonprofits')}>
+          <Building2 size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Nonprofits
+        </button>
+      </div>
+
+      {loading ? (
+        <div className="loading-skeleton" style={{ height: 400 }} />
+      ) : (
+        <>
+          {/* === OVERVIEW TAB === */}
+          {activeTab === 'overview' && (
+            <motion.div {...pageVariants} key="ftm-overview">
+              <div className="kpi-row">
+                <div className="kpi-card">
+                  <div className="kpi-label">Legislators Tracked</div>
+                  <div className="kpi-value" style={{ color: 'var(--accent-purple)' }}>{legislators.length}</div>
+                  <div className="kpi-sub">All races, 2025 cycle</div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">Total Legislator Receipts</div>
+                  <div className="kpi-value">{formatMoney(totalLegReceipts)}</div>
+                  <div className="kpi-sub">Campaign contributions</div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">PACs Tracked</div>
+                  <div className="kpi-value" style={{ color: 'var(--accent-gold)' }}>{pacs.length}</div>
+                  <div className="kpi-sub">Political Action Committees</div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">Total PAC Receipts</div>
+                  <div className="kpi-value">{formatMoney(totalPACReceipts)}</div>
+                  <div className="kpi-sub">PAC fundraising, 2025</div>
+                </div>
+              </div>
+
+              <div className="card-grid">
+                <div className="chart-card">
+                  <h3>Top-Funded Legislators â 2025</h3>
+                  <div className="chart-subtitle">Ranked by total campaign receipts</div>
+                  {topFundedLegislators.length > 0 && (
+                    <ResponsiveContainer width="100%" height={500}>
+                      <BarChart data={topFundedLegislators} layout="vertical" margin={{ left: 180 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={170} tick={{ fontSize: 10 }} />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Bar dataKey="receipts" fill="#9955ff" radius={[0, 3, 3, 0]} name="Receipts" cursor="pointer"
+                          onClick={(data) => data && selectLegislatorForContribs(data)} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  )}
+                </div>
+
+                <div className="chart-card">
+                  <h3>Top PACs by Receipts â 2025</h3>
+                  <div className="chart-subtitle">Political Action Committee fundraising</div>
+                  {topPACs.length > 0 && (
+                    <ResponsiveContainer width="100%" height={500}>
+                      <BarChart data={topPACs} layout="vertical" margin={{ left: 200 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                        <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
+                        <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={{ fontSize: 9 }} />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Bar dataKey="receipts" fill="#ffaa22" radius={[0, 3, 3, 0]} name="Receipts" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* === LEGISLATORS TAB === */}
+          {activeTab === 'legislators' && (
+            <motion.div {...pageVariants} key="ftm-legislators">
+              {selectedLegislator && (
+                <div ref={contribRef} className="detail-panel" style={{ marginBottom: 24 }}>
+                  <button className="close-btn" onClick={() => { setSelectedLegislator(null); setLegislatorContributions(null); }}>Close</button>
                   <h3 style={{ color: 'var(--accent-purple)' }}>{selectedLegislator.name}</h3>
                   <div className="chart-subtitle">
                     {selectedLegislator.office} {selectedLegislator.district && `â ${selectedLegislator.district}`} | {selectedLegislator.party}
