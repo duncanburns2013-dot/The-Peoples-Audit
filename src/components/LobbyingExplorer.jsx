@@ -1,42 +1,15 @@
 import React, { useState, useMemo } from 'react';
 import {
-  LineChart,
-  Line,
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
+  LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
-import {
-  TrendingUp,
-  Users,
-  DollarSign,
-  Building2,
-  Search,
-  Network,
-  Filter,
-} from 'lucide-react';
+import { TrendingUp, Users, DollarSign, Building2, Search, Network } from 'lucide-react';
 
-// Data
 const spendingByYear = [
-  { year: 2015, spending: 75 },
-  { year: 2016, spending: 78 },
-  { year: 2017, spending: 80 },
-  { year: 2018, spending: 82 },
-  { year: 2019, spending: 85 },
-  { year: 2020, spending: 72 },
-  { year: 2021, spending: 78 },
-  { year: 2022, spending: 84 },
-  { year: 2023, spending: 88 },
-  { year: 2024, spending: 92 },
-  { year: 2025, spending: 95 },
+  { year: 2015, spending: 75 }, { year: 2016, spending: 78 }, { year: 2017, spending: 80 },
+  { year: 2018, spending: 82 }, { year: 2019, spending: 85 }, { year: 2020, spending: 72 },
+  { year: 2021, spending: 78 }, { year: 2022, spending: 84 }, { year: 2023, spending: 88 },
+  { year: 2024, spending: 92 }, { year: 2025, spending: 95 },
 ];
 
 const topSpenders = [
@@ -64,278 +37,40 @@ const lobbyingFirms = [
 ];
 
 const industryData = [
-  { name: 'Healthcare', value: 25 },
-  { name: 'Energy/Utilities', value: 15 },
-  { name: 'Technology', value: 12 },
-  { name: 'Insurance', value: 10 },
-  { name: 'Real Estate', value: 8 },
-  { name: 'Education', value: 8 },
-  { name: 'Financial Services', value: 7 },
-  { name: 'Retail/Commerce', value: 6 },
-  { name: 'Transportation', value: 5 },
-  { name: 'Other', value: 4 },
+  { name: 'Healthcare', value: 25 }, { name: 'Energy/Utilities', value: 15 },
+  { name: 'Technology', value: 12 }, { name: 'Insurance', value: 10 },
+  { name: 'Real Estate', value: 8 }, { name: 'Education', value: 8 },
+  { name: 'Financial Services', value: 7 }, { name: 'Retail/Commerce', value: 6 },
+  { name: 'Transportation', value: 5 }, { name: 'Other', value: 4 },
 ];
 
 const lobbyistDirectory = [
-  {
-    id: 1,
-    name: 'James M. Stiles',
-    firm: 'ML Strategies',
-    topClients: 'Partners HealthCare, Blue Cross Blue Shield',
-    estimatedSpending: 2850000,
-    yearsActive: '2012-2025',
-  },
-  {
-    id: 2,
-    name: 'Patricia Chen',
-    firm: 'Rasky Partners',
-    topClients: 'Eversource Energy, National Grid',
-    estimatedSpending: 2120000,
-    yearsActive: '2008-2025',
-  },
-  {
-    id: 3,
-    name: 'Robert Walsh',
-    firm: "O'Neill and Associates",
-    topClients: 'Amazon, Technology Coalition',
-    estimatedSpending: 1420000,
-    yearsActive: '2015-2025',
-  },
-  {
-    id: 4,
-    name: 'Michael Donovan',
-    firm: 'Holland & Knight LLP',
-    topClients: 'Comcast Cable Communications',
-    estimatedSpending: 1210000,
-    yearsActive: '2010-2025',
-  },
-  {
-    id: 5,
-    name: 'Katherine Murphy',
-    firm: 'ML Strategies',
-    topClients: 'Massachusetts Hospital Association',
-    estimatedSpending: 875000,
-    yearsActive: '2014-2025',
-  },
-  {
-    id: 6,
-    name: 'David Sorensen',
-    firm: 'Cornerstone Government Affairs',
-    topClients: 'SEIU Massachusetts Council',
-    estimatedSpending: 785000,
-    yearsActive: '2011-2025',
-  },
-  {
-    id: 7,
-    name: 'Jennifer Liu',
-    firm: 'K&L Gates',
-    topClients: 'Pharmaceutical Research & Manufacturers',
-    estimatedSpending: 1105000,
-    yearsActive: '2013-2025',
-  },
-  {
-    id: 8,
-    name: 'Thomas McGrath',
-    firm: 'Goulston & Storrs PC',
-    topClients: 'Real Estate Board of Massachusetts',
-    estimatedSpending: 625000,
-    yearsActive: '2009-2025',
-  },
-  {
-    id: 9,
-    name: 'Amanda Richardson',
-    firm: 'ML Strategies',
-    topClients: 'Massachusetts Medical Society',
-    estimatedSpending: 945000,
-    yearsActive: '2016-2025',
-  },
-  {
-    id: 10,
-    name: 'Charles Thompson',
-    firm: 'Rasky Partners',
-    topClients: 'Business Roundtable, Chamber of Commerce',
-    estimatedSpending: 720000,
-    yearsActive: '2012-2025',
-  },
-  {
-    id: 11,
-    name: 'Susan Martinez',
-    firm: 'Holland & Knight LLP',
-    topClients: 'Insurance Agents & Brokers Association',
-    estimatedSpending: 580000,
-    yearsActive: '2015-2025',
-  },
-  {
-    id: 12,
-    name: 'George Petropoulos',
-    firm: 'ML Strategies',
-    topClients: 'Education Reform Alliance',
-    estimatedSpending: 510000,
-    yearsActive: '2014-2025',
-  },
-  {
-    id: 13,
-    name: 'Lisa Bergman',
-    firm: "O'Neill and Associates",
-    topClients: 'Environmental Advocates Massachusetts',
-    estimatedSpending: 445000,
-    yearsActive: '2017-2025',
-  },
-  {
-    id: 14,
-    name: 'Mark Goldstein',
-    firm: 'Cornerstone Government Affairs',
-    topClients: 'Tech Industry Coalition, Start-Up Alliance',
-    estimatedSpending: 480000,
-    yearsActive: '2013-2025',
-  },
-  {
-    id: 15,
-    name: 'Victoria Hayes',
-    firm: 'K&L Gates',
-    topClients: 'Massachusetts Bankers Association',
-    estimatedSpending: 425000,
-    yearsActive: '2016-2025',
-  },
-  {
-    id: 16,
-    name: 'Nicholas Rossi',
-    firm: 'Mintz Group',
-    topClients: 'Construction Industry Association',
-    estimatedSpending: 390000,
-    yearsActive: '2015-2025',
-  },
-  {
-    id: 17,
-    name: 'Rebecca Stone',
-    firm: 'Goulston & Storrs PC',
-    topClients: 'Massachusetts Bar Association',
-    estimatedSpending: 360000,
-    yearsActive: '2012-2025',
-  },
-  {
-    id: 18,
-    name: 'Anthony Cavallo',
-    firm: 'Holland & Knight LLP',
-    topClients: 'Retail Merchants Association',
-    estimatedSpending: 335000,
-    yearsActive: '2014-2025',
-  },
-  {
-    id: 19,
-    name: 'Diana Walsh',
-    firm: 'Rasky Partners',
-    topClients: 'Transportation Authority Coalition',
-    estimatedSpending: 310000,
-    yearsActive: '2018-2025',
-  },
-  {
-    id: 20,
-    name: 'Eric Nordstrom',
-    firm: 'ML Strategies',
-    topClients: 'Higher Education Consortium',
-    estimatedSpending: 285000,
-    yearsActive: '2013-2025',
-  },
-  {
-    id: 21,
-    name: 'Margaret Fuller',
-    firm: "O'Neill and Associates",
-    topClients: 'Labor Union Coalition',
-    estimatedSpending: 265000,
-    yearsActive: '2016-2025',
-  },
-  {
-    id: 22,
-    name: 'Steven Price',
-    firm: 'Cornerstone Government Affairs',
-    topClients: 'Housing Development Alliance',
-    estimatedSpending: 240000,
-    yearsActive: '2015-2025',
-  },
-  {
-    id: 23,
-    name: 'Helen Jacobson',
-    firm: 'K&L Gates',
-    topClients: 'Energy Efficiency Coalition',
-    estimatedSpending: 220000,
-    yearsActive: '2017-2025',
-  },
-  {
-    id: 24,
-    name: 'William Barrett',
-    firm: 'Goulston & Storrs PC',
-    topClients: 'Professional Services Alliance',
-    estimatedSpending: 195000,
-    yearsActive: '2014-2025',
-  },
-  {
-    id: 25,
-    name: 'Carolyn Hart',
-    firm: 'Mintz Group',
-    topClients: 'Restaurant Industry Association',
-    estimatedSpending: 175000,
-    yearsActive: '2016-2025',
-  },
-  {
-    id: 26,
-    name: 'Frank Morrison',
-    firm: 'Holland & Knight LLP',
-    topClients: 'Healthcare Innovation Council',
-    estimatedSpending: 165000,
-    yearsActive: '2013-2025',
-  },
-  {
-    id: 27,
-    name: 'Grace Teng',
-    firm: 'ML Strategies',
-    topClients: 'Green Energy Initiative',
-    estimatedSpending: 145000,
-    yearsActive: '2018-2025',
-  },
-  {
-    id: 28,
-    name: 'James Liu',
-    firm: 'Rasky Partners',
-    topClients: 'Manufacturing Council Massachusetts',
-    estimatedSpending: 135000,
-    yearsActive: '2015-2025',
-  },
-  {
-    id: 29,
-    name: 'Olivia Schmidt',
-    firm: "O'Neill and Associates",
-    topClients: 'Veterans Services Coalition',
-    estimatedSpending: 125000,
-    yearsActive: '2017-2025',
-  },
-  {
-    id: 30,
-    name: 'Paul Emerson',
-    firm: 'Cornerstone Government Affairs',
-    topClients: 'Senior Services Alliance',
-    estimatedSpending: 110000,
-    yearsActive: '2016-2025',
-  },
+  { id: 1, name: 'James M. Stiles', firm: 'ML Strategies', topClients: 'Partners HealthCare, Blue Cross Blue Shield', estimatedSpending: 2850000, yearsActive: '2012-2025' },
+  { id: 2, name: 'Patricia Chen', firm: 'Rasky Partners', topClients: 'Eversource Energy, National Grid', estimatedSpending: 2120000, yearsActive: '2008-2025' },
+  { id: 3, name: 'Robert Walsh', firm: "O'Neill and Associates", topClients: 'Amazon, Technology Coalition', estimatedSpending: 1420000, yearsActive: '2015-2025' },
+  { id: 4, name: 'Michael Donovan', firm: 'Holland & Knight LLP', topClients: 'Comcast Cable Communications', estimatedSpending: 1210000, yearsActive: '2010-2025' },
+  { id: 5, name: 'Katherine Murphy', firm: 'ML Strategies', topClients: 'Massachusetts Hospital Association', estimatedSpending: 875000, yearsActive: '2014-2025' },
+  { id: 6, name: 'David Sorensen', firm: 'Cornerstone Government Affairs', topClients: 'SEIU Massachusetts Council', estimatedSpending: 785000, yearsActive: '2011-2025' },
+  { id: 7, name: 'Jennifer Liu', firm: 'K&L Gates', topClients: 'Pharmaceutical Research & Manufacturers', estimatedSpending: 1105000, yearsActive: '2013-2025' },
+  { id: 8, name: 'Thomas McGrath', firm: 'Goulston & Storrs PC', topClients: 'Real Estate Board of Massachusetts', estimatedSpending: 625000, yearsActive: '2009-2025' },
+  { id: 9, name: 'Amanda Richardson', firm: 'ML Strategies', topClients: 'Massachusetts Medical Society', estimatedSpending: 945000, yearsActive: '2016-2025' },
+  { id: 10, name: 'Charles Thompson', firm: 'Rasky Partners', topClients: 'Business Roundtable, Chamber of Commerce', estimatedSpending: 720000, yearsActive: '2012-2025' },
+  { id: 11, name: 'Susan Martinez', firm: 'Holland & Knight LLP', topClients: 'Insurance Agents & Brokers Association', estimatedSpending: 580000, yearsActive: '2015-2025' },
+  { id: 12, name: 'George Petropoulos', firm: 'ML Strategies', topClients: 'Education Reform Alliance', estimatedSpending: 510000, yearsActive: '2014-2025' },
+  { id: 13, name: 'Lisa Bergman', firm: "O'Neill and Associates", topClients: 'Environmental Advocates Massachusetts', estimatedSpending: 445000, yearsActive: '2017-2025' },
+  { id: 14, name: 'Mark Goldstein', firm: 'Cornerstone Government Affairs', topClients: 'Tech Industry Coalition', estimatedSpending: 480000, yearsActive: '2013-2025' },
+  { id: 15, name: 'Victoria Hayes', firm: 'K&L Gates', topClients: 'Massachusetts Bankers Association', estimatedSpending: 425000, yearsActive: '2016-2025' },
+  { id: 16, name: 'Nicholas Rossi', firm: 'Mintz Group', topClients: 'Construction Industry Association', estimatedSpending: 390000, yearsActive: '2015-2025' },
+  { id: 17, name: 'Rebecca Stone', firm: 'Goulston & Storrs PC', topClients: 'Massachusetts Bar Association', estimatedSpending: 360000, yearsActive: '2012-2025' },
+  { id: 18, name: 'Anthony Cavallo', firm: 'Holland & Knight LLP', topClients: 'Retail Merchants Association', estimatedSpending: 335000, yearsActive: '2014-2025' },
+  { id: 19, name: 'Diana Walsh', firm: 'Rasky Partners', topClients: 'Transportation Authority Coalition', estimatedSpending: 310000, yearsActive: '2018-2025' },
+  { id: 20, name: 'Eric Nordstrom', firm: 'ML Strategies', topClients: 'Higher Education Consortium', estimatedSpending: 285000, yearsActive: '2013-2025' },
 ];
 
-const INDUSTRY_COLORS = [
-  '#32784E',
-  '#4a9f6f',
-  '#62c89a',
-  '#7dd1b1',
-  '#98dac8',
-  '#b3e3df',
-  '#cdeef6',
-  '#e8f8f5',
-  '#d5e8d4',
-  '#a2d5c6',
-];
+const INDUSTRY_COLORS = ['#680A1D', '#14558F', '#32784E', '#E67E22', '#9B59B6', '#00A9CE', '#FFC72C', '#8E44AD', '#2C3E50', '#95A5A6'];
+const GRID_COLOR = 'rgba(0,0,0,0.06)';
+const AXIS_COLOR = 'rgba(0,0,0,0.4)';
 
-const GRID_COLOR = 'rgba(255,255,255,0.06)';
-const AXIS_COLOR = 'rgba(255,255,255,0.4)';
-
-// Utility functions
 const formatMoney = (n) => {
   if (!n) return '$0';
   if (Math.abs(n) >= 1e9) return '$' + (n / 1e9).toFixed(1) + 'B';
@@ -344,360 +79,227 @@ const formatMoney = (n) => {
   return '$' + n.toLocaleString();
 };
 
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-slate-900 border border-slate-700 rounded-lg p-3 shadow-lg">
-        <p className="text-white text-sm font-medium">
-          {payload[0].payload.name || payload[0].payload.year || label}
-        </p>
-        <p className="text-accent-green text-sm font-semibold">
-          {formatMoney(payload[0].value * 1e6 || payload[0].value)}
-        </p>
-      </div>
-    );
-  }
-  return null;
-};
-
 export default function LobbyingExplorer() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [industryFilter, setIndustryFilter] = useState('all');
   const [firmFilter, setFirmFilter] = useState('all');
 
-  // Calculate KPIs
   const totalLobbyists = 750;
-  const totalSpending = spendingByYear[spendingByYear.length - 1] * 1e6;
+  const totalSpending = spendingByYear[spendingByYear.length - 1].spending * 1e6;
   const totalClients = 450;
-  const prevYear = spendingByYear[spendingByYear.length - 2];
-  const yoyGrowth = prevYear === 0 ? '0.0' : (
-    ((spendingByYear[spendingByYear.length - 1] - prevYear) / prevYear) * 100
-  ).toFixed(1);
+  const prevYear = spendingByYear[spendingByYear.length - 2].spending;
+  const currYear = spendingByYear[spendingByYear.length - 1].spending;
+  const yoyGrowth = prevYear === 0 ? '0.0' : (((currYear - prevYear) / prevYear) * 100).toFixed(1);
 
-  // Filter lobbyist directory
   const filteredLobbyists = useMemo(() => {
-    return lobbyistDirectory.filter((lobbyist) => {
-      const matchesSearch =
-        searchTerm === '' ||
-        lobbyist.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        lobbyist.firm.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        lobbyist.topClients.toLowerCase().includes(searchTerm.toLowerCase());
-
-      const matchesFirm =
-        firmFilter === 'all' || lobbyist.firm === firmFilter;
-
+    return lobbyistDirectory.filter((l) => {
+      const matchesSearch = searchTerm === '' ||
+        l.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        l.firm.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        l.topClients.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesFirm = firmFilter === 'all' || l.firm === firmFilter;
       return matchesSearch && matchesFirm;
     });
   }, [searchTerm, firmFilter]);
 
-  const topSpendersFormatted = topSpenders.map((item) => ({
-    ...item,
-    spendingM: item.spending / 1e6,
-  }));
+  const topSpendersFormatted = topSpenders.map((item) => ({ ...item, spendingM: item.spending / 1e6 }));
 
   return (
-    <div className="bg-slate-950 text-white min-h-screen p-6">
-      <div className="max-w-7xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="space-y-2">
-          <h1 className="text-4xl font-bold text-white flex items-center gap-3">
-            <Network className="w-10 h-10 text-accent-green" />
-            Lobbying Explorer
-          </h1>
-          <p className="text-slate-400 text-lg">
-            Explore lobbying spending, key players, and influence in Massachusetts
-          </p>
-        </div>
+    <div className="section">
+      <div className="section-header">
+        <span className="section-tag red" style={{ background: 'var(--accent-green-glow)', color: 'var(--accent-green)' }}>Influence Tracker</span>
+        <h2 style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <Network size={28} style={{ color: 'var(--accent-green)' }} /> Lobbying Explorer
+        </h2>
+        <p>Explore lobbying spending, key players, and influence in Massachusetts politics.</p>
+      </div>
 
-        {/* KPI Cards */}
-        <div className="card-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="kpi-card bg-slate-900 border border-slate-700 rounded-lg p-6 hover:border-accent-green transition-colors">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-slate-400 text-sm mb-2">Total Registered Lobbyists</p>
-                <p className="text-3xl font-bold text-white">{totalLobbyists.toLocaleString()}</p>
-              </div>
-              <Users className="w-10 h-10 text-accent-green opacity-20" />
+      {/* KPI Cards */}
+      <div className="kpi-row" style={{ marginBottom: 32 }}>
+        <div className="kpi-card">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div className="kpi-label">Total Registered Lobbyists</div>
+              <div className="kpi-value">{totalLobbyists.toLocaleString()}</div>
             </div>
-          </div>
-
-          <div className="kpi-card bg-slate-900 border border-slate-700 rounded-lg p-6 hover:border-accent-green transition-colors">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-slate-400 text-sm mb-2">Total Lobbying Spending (2025)</p>
-                <p className="text-3xl font-bold text-white">{formatMoney(totalSpending)}</p>
-              </div>
-              <DollarSign className="w-10 h-10 text-accent-green opacity-20" />
-            </div>
-          </div>
-
-          <div className="kpi-card bg-slate-900 border border-slate-700 rounded-lg p-6 hover:border-accent-green transition-colors">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-slate-400 text-sm mb-2">Lobbying Clients</p>
-                <p className="text-3xl font-bold text-white">{totalClients.toLocaleString()}</p>
-              </div>
-              <Building2 className="w-10 h-10 text-accent-green opacity-20" />
-            </div>
-          </div>
-
-          <div className="kpi-card bg-slate-900 border border-slate-700 rounded-lg p-6 hover:border-accent-green transition-colors">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-slate-400 text-sm mb-2">YoY Spending Growth</p>
-                <p className="text-3xl font-bold text-accent-green">{yoyGrowth}%</p>
-              </div>
-              <TrendingUp className="w-10 h-10 text-accent-green opacity-20" />
-            </div>
+            <Users size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
           </div>
         </div>
+        <div className="kpi-card">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div className="kpi-label">Total Lobbying Spending (2025)</div>
+              <div className="kpi-value">{formatMoney(totalSpending)}</div>
+            </div>
+            <DollarSign size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
+          </div>
+        </div>
+        <div className="kpi-card">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div className="kpi-label">Lobbying Clients</div>
+              <div className="kpi-value">{totalClients.toLocaleString()}</div>
+            </div>
+            <Building2 size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
+          </div>
+        </div>
+        <div className="kpi-card">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div className="kpi-label">YoY Spending Growth</div>
+              <div className="kpi-value" style={{ color: 'var(--accent-green)' }}>+{yoyGrowth}%</div>
+            </div>
+            <TrendingUp size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
+          </div>
+        </div>
+      </div>
 
-        {/* Spending Over Time Chart */}
-        <div className="chart-card bg-slate-900 border border-slate-700 rounded-lg p-6">
-          <h2 className="section-header text-xl font-bold text-white mb-6">
-            Lobbying Spending Over Time (2015-2025)
-          </h2>
-          <ResponsiveContainer width="100%" height={350}>
-            <LineChart data={spendingByYear}>
-              <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
-              <XAxis
-                dataKey="year"
-                stroke={AXIS_COLOR}
-                style={{ fontSize: '12px' }}
-              />
-              <YAxis
-                stroke={AXIS_COLOR}
-                style={{ fontSize: '12px' }}
-                label={{ value: 'Spending ($M)', angle: -90, position: 'insideLeft' }}
-              />
-              <Tooltip content={<CustomTooltip />} />
-              <Line
-                type="monotone"
-                dataKey="spending"
-                stroke="#32784E"
-                strokeWidth={3}
-                dot={{ fill: '#32784E', r: 5 }}
-                activeDot={{ r: 7 }}
-              />
-            </LineChart>
+      {/* Spending Over Time */}
+      <div className="chart-card" style={{ marginBottom: 24 }}>
+        <h3>Lobbying Spending Over Time (2015-2025)</h3>
+        <div className="chart-subtitle">Annual lobbying expenditures in millions</div>
+        <ResponsiveContainer width="100%" height={350}>
+          <LineChart data={spendingByYear}>
+            <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+            <XAxis dataKey="year" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} />
+            <YAxis stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}M`} />
+            <Tooltip formatter={(v) => [`$${v}M`, 'Spending']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+            <Line type="monotone" dataKey="spending" stroke="#32784E" strokeWidth={3} dot={{ fill: '#32784E', r: 5 }} activeDot={{ r: 7 }} />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Top Spenders */}
+      <div className="chart-card" style={{ marginBottom: 24 }}>
+        <h3>Top 10 Lobbying Spenders (2025)</h3>
+        <div className="chart-subtitle">Estimated annual spending by organization</div>
+        <ResponsiveContainer width="100%" height={400}>
+          <BarChart data={topSpendersFormatted} layout="vertical">
+            <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+            <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}M`} />
+            <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={220} style={{ fontSize: '11px' }} />
+            <Tooltip formatter={(v) => [formatMoney(v * 1e6), 'Spending']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+            <Bar dataKey="spendingM" fill="#680A1D" radius={[0, 6, 6, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Industry + Firms Grid */}
+      <div className="card-grid" style={{ marginBottom: 24 }}>
+        {/* Industry Breakdown */}
+        <div className="chart-card">
+          <h3>Industry Breakdown</h3>
+          <div className="chart-subtitle">Share of lobbying spending by sector</div>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie data={industryData} cx="50%" cy="50%" labelLine={false}
+                label={({ name, value }) => `${name} ${value}%`}
+                outerRadius={90} dataKey="value">
+                {industryData.map((entry, i) => (
+                  <Cell key={i} fill={INDUSTRY_COLORS[i % INDUSTRY_COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip formatter={(v) => [`${v}%`, 'Share']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+            </PieChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Top Spenders Chart */}
-        <div className="chart-card bg-slate-900 border border-slate-700 rounded-lg p-6">
-          <h2 className="section-header text-xl font-bold text-white mb-6">
-            Top 10 Lobbying Spenders (2025)
-          </h2>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={topSpendersFormatted} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
-              <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} />
-              <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={200} style={{ fontSize: '11px' }} />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: '#1e293b',
-                  border: '1px solid #475569',
-                  borderRadius: '0.5rem',
-                }}
-                formatter={(value) => formatMoney(value * 1e6)}
-              />
-              <Bar dataKey="spending" fill="#32784E" radius={[0, 8, 8, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Industry Breakdown and Top Firms */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Industry Breakdown */}
-          <div className="chart-card bg-slate-900 border border-slate-700 rounded-lg p-6">
-            <h2 className="section-header text-xl font-bold text-white mb-6">
-              Industry Breakdown
-            </h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={industryData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name, value }) => `${name} ${value}%`}
-                  outerRadius={90}
-                  fill="#32784E"
-                  dataKey="value"
-                >
-                  {industryData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={INDUSTRY_COLORS[index % INDUSTRY_COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: '#1e293b',
-                    border: '1px solid #475569',
-                    borderRadius: '0.5rem',
-                  }}
-                  formatter={(value) => `${value}%`}
-                />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-
-          {/* Top Lobbying Firms */}
-          <div className="card bg-slate-900 border border-slate-700 rounded-lg p-6">
-            <h2 className="section-header text-xl font-bold text-white mb-6">
-              Top Lobbying Firms
-            </h2>
-            <div className="space-y-3">
-              {lobbyingFirms.map((firm, idx) => (
-                <div
-                  key={idx}
-                  className="bg-slate-800 rounded-lg p-4 border border-slate-700 hover:border-accent-green transition-colors"
-                >
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-semibold text-accent-green">{firm.name}</h3>
-                    <span className="text-slate-400 text-sm">#{idx + 1}</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div>
-                      <p className="text-slate-400">Lobbyists</p>
-                      <p className="text-white font-semibold">{firm.lobbyists}</p>
-                    </div>
-                    <div>
-                      <p className="text-slate-400">Clients Served</p>
-                      <p className="text-white font-semibold">{firm.clientsServed}</p>
-                    </div>
-                  </div>
+        {/* Top Lobbying Firms */}
+        <div className="chart-card">
+          <h3>Top Lobbying Firms</h3>
+          <div className="chart-subtitle">By number of registered lobbyists and clients</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 16 }}>
+            {lobbyingFirms.map((firm, idx) => (
+              <div key={idx} style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                  <span style={{ fontWeight: 600, color: 'var(--accent-blue)', fontSize: '0.95rem' }}>{firm.name}</span>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>#{idx + 1}</span>
                 </div>
-              ))}
-            </div>
+                <div style={{ display: 'flex', gap: 24, fontSize: '0.85rem' }}>
+                  <span><span style={{ color: 'var(--text-muted)' }}>Lobbyists:</span> <strong>{firm.lobbyists}</strong></span>
+                  <span><span style={{ color: 'var(--text-muted)' }}>Clients:</span> <strong>{firm.clientsServed}</strong></span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Lobbyist Directory */}
-        <div className="card bg-slate-900 border border-slate-700 rounded-lg p-6">
-          <div className="mb-6">
-            <h2 className="section-header text-xl font-bold text-white mb-4">
-              Registered Lobbyists Directory
-            </h2>
+      {/* Lobbyist Directory */}
+      <div className="chart-card" style={{ marginBottom: 24 }}>
+        <h3>Registered Lobbyists Directory</h3>
+        <div className="chart-subtitle">Search and filter Massachusetts registered lobbyists</div>
 
-            {/* Filters */}
-            <div className="space-y-4">
-              {/* Search */}
-              <div className="relative">
-                <Search className="absolute left-3 top-3 w-5 h-5 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search by name, firm, or clients..."
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-10 pr-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:border-accent-green"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
-
-              {/* Firm Filter */}
-              <div>
-                <label className="text-slate-400 text-sm mb-2 block">Filter by Firm</label>
-                <select
-                  value={firmFilter}
-                  onChange={(e) => setFirmFilter(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent-green"
-                >
-                  <option value="all">All Firms</option>
-                  {[...new Set(lobbyistDirectory.map((l) => l.firm))].map((firm) => (
-                    <option key={firm} value={firm}>
-                      {firm}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
+        <div style={{ display: 'flex', gap: 12, marginTop: 16, marginBottom: 16, flexWrap: 'wrap' }}>
+          <div style={{ position: 'relative', flex: 1, minWidth: 250 }}>
+            <Search size={16} style={{ position: 'absolute', left: 12, top: 11, color: 'var(--text-muted)' }} />
+            <input
+              type="text"
+              placeholder="Search by name, firm, or clients..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{ width: '100%', padding: '8px 12px 8px 36px', border: '1px solid var(--border)', borderRadius: 8, background: 'var(--bg-card)', color: 'var(--text-primary)', fontSize: '0.9rem', outline: 'none' }}
+            />
           </div>
+          <select
+            value={firmFilter}
+            onChange={(e) => setFirmFilter(e.target.value)}
+            style={{ padding: '8px 12px', border: '1px solid var(--border)', borderRadius: 8, background: 'var(--bg-card)', color: 'var(--text-primary)', fontSize: '0.9rem', minWidth: 200, outline: 'none' }}
+          >
+            <option value="all">All Firms</option>
+            {[...new Set(lobbyistDirectory.map(l => l.firm))].map(firm => (
+              <option key={firm} value={firm}>{firm}</option>
+            ))}
+          </select>
+        </div>
 
-          {/* Directory Table */}
-          <div className="overflow-x-auto">
-            <table className="data-table w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-700">
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold">Name</th>
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold">Firm</th>
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold">Top Clients</th>
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold">Est. Spending</th>
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold">Active</th>
+        <div style={{ overflowX: 'auto' }}>
+          <table className="data-table" style={{ width: '100%', fontSize: '0.85rem' }}>
+            <thead>
+              <tr>
+                <th style={{ textAlign: 'left', padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '2px solid var(--border)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Name</th>
+                <th style={{ textAlign: 'left', padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '2px solid var(--border)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Firm</th>
+                <th style={{ textAlign: 'left', padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '2px solid var(--border)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Top Clients</th>
+                <th style={{ textAlign: 'right', padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '2px solid var(--border)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Est. Spending</th>
+                <th style={{ textAlign: 'left', padding: '10px 12px', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '2px solid var(--border)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Active</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredLobbyists.map((l) => (
+                <tr key={l.id} style={{ borderBottom: '1px solid var(--border)' }}>
+                  <td style={{ padding: '10px 12px', fontWeight: 500 }}>{l.name}</td>
+                  <td style={{ padding: '10px 12px', color: 'var(--text-secondary)' }}>{l.firm}</td>
+                  <td style={{ padding: '10px 12px', color: 'var(--text-secondary)', fontSize: '0.8rem' }}>{l.topClients}</td>
+                  <td style={{ padding: '10px 12px', textAlign: 'right', fontFamily: 'JetBrains Mono', fontWeight: 600, color: 'var(--accent-red)' }}>{formatMoney(l.estimatedSpending)}</td>
+                  <td style={{ padding: '10px 12px', color: 'var(--text-muted)', fontSize: '0.8rem' }}>{l.yearsActive}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {filteredLobbyists.length > 0 ? (
-                  filteredLobbyists.map((lobbyist) => (
-                    <tr
-                      key={lobbyist.id}
-                      className="border-b border-slate-800 hover:bg-slate-800 transition-colors"
-                    >
-                      <td className="py-3 px-4 text-white font-medium">{lobbyist.name}</td>
-                      <td className="py-3 px-4 text-slate-300">{lobbyist.firm}</td>
-                      <td className="py-3 px-4 text-slate-300 text-xs">{lobbyist.topClients}</td>
-                      <td className="py-3 px-4 text-accent-green font-semibold">
-                        {formatMoney(lobbyist.estimatedSpending)}
-                      </td>
-                      <td className="py-3 px-4 text-slate-400">{lobbyist.yearsActive}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="5" className="py-8 px-4 text-center text-slate-400">
-                      No lobbyists found matching your search.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-slate-400 text-sm mt-4">
-            Showing {filteredLobbyists.length} of {lobbyistDirectory.length} registered lobbyists
-          </p>
+              ))}
+              {filteredLobbyists.length === 0 && (
+                <tr><td colSpan="5" style={{ padding: 32, textAlign: 'center', color: 'var(--text-muted)' }}>No lobbyists found matching your search.</td></tr>
+              )}
+            </tbody>
+          </table>
         </div>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', marginTop: 12 }}>
+          Showing {filteredLobbyists.length} of {lobbyistDirectory.length} registered lobbyists
+        </p>
+      </div>
 
-        {/* Resources Section */}
-        <div className="bg-slate-900 border border-slate-700 rounded-lg p-6">
-          <h2 className="section-header text-xl font-bold text-white mb-4">Official Sources</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <a
-              href="https://www.sec.state.ma.us/LobbyistPublicSearch/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-slate-800 border border-slate-700 rounded-lg p-4 hover:border-accent-green transition-colors group"
-            >
-              <h3 className="text-accent-green font-semibold group-hover:text-white transition-colors">
-                MA Secretary of State - Lobbyist Public Search
-              </h3>
-              <p className="text-slate-400 text-sm mt-2">
-                Official database of registered lobbyists and lobbying clients
-              </p>
-            </a>
+      {/* Official Sources */}
+      <div className="card-grid" style={{ marginBottom: 24 }}>
+        <a href="https://www.sec.state.ma.us/LobbyistPublicSearch/" target="_blank" rel="noopener noreferrer"
+          className="chart-card" style={{ textDecoration: 'none', cursor: 'pointer' }}>
+          <h3 style={{ color: 'var(--accent-blue)' }}>MA Secretary of State - Lobbyist Public Search</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: 6 }}>Official database of registered lobbyists and lobbying clients</p>
+        </a>
+        <a href="https://www.opensecrets.org/states/MA/lobbying/" target="_blank" rel="noopener noreferrer"
+          className="chart-card" style={{ textDecoration: 'none', cursor: 'pointer' }}>
+          <h3 style={{ color: 'var(--accent-blue)' }}>OpenSecrets - Massachusetts Lobbying Data</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: 6 }}>Independent analysis of lobbying spending and influence</p>
+        </a>
+      </div>
 
-            <a
-              href="https://www.opensecrets.org/states/MA/lobbying/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-slate-800 border border-slate-700 rounded-lg p-4 hover:border-accent-green transition-colors group"
-            >
-              <h3 className="text-accent-green font-semibold group-hover:text-white transition-colors">
-                OpenSecrets - Massachusetts Lobbying Data
-              </h3>
-              <p className="text-slate-400 text-sm mt-2">
-                Independent analysis of lobbying spending and influence
-              </p>
-            </a>
-          </div>
-        </div>
-
-        {/* Data Notes */}
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 text-slate-300 text-sm">
-          <p>
-            <strong>Data Note:</strong> This explorer uses embedded static data representing real Massachusetts lobbying information based on MA Secretary of State filings. Figures are approximate and based on public lobbying disclosures. Data shown covers 2015-2025 (2025 as estimated).
-          </p>
-        </div>
+      <div style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px', fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+        <strong>Data Note:</strong> This explorer uses embedded data representing real Massachusetts lobbying information based on MA Secretary of State filings. Figures are approximate and based on public lobbying disclosures. Data shown covers 2015-2025 (2025 as estimated).
       </div>
     </div>
   );
