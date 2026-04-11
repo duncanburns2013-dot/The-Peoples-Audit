@@ -1186,6 +1186,16 @@ function FollowTheMoney() {
         <button className={`filter-btn ${activeTab === 'search' ? 'active' : ''}`} onClick={() => setActiveTab('search')}>
           <Search size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Search
         </button>
+        <span style={{ width: 1, height: 20, background: 'var(--border)', margin: '0 4px' }} />
+        <button className={`filter-btn ${activeTab === 'ocpf' ? 'active' : ''}`} onClick={() => setActiveTab('ocpf')}>
+          <FileText size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> OCPF Data
+        </button>
+        <button className={`filter-btn ${activeTab === 'pacs' ? 'active' : ''}`} onClick={() => setActiveTab('pacs')}>
+          <Scale size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> PACs
+        </button>
+        <button className={`filter-btn ${activeTab === 'nonprofits' ? 'active' : ''}`} onClick={() => setActiveTab('nonprofits')}>
+          <Building2 size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Nonprofits
+        </button>
       </div>
 
       {loading ? (
@@ -1609,6 +1619,27 @@ function FollowTheMoney() {
               )}
             </motion.div>
           )}
+
+          {/* === OCPF DATA CENTER SUB-TAB === */}
+          {activeTab === 'ocpf' && (
+            <motion.div {...pageVariants} key="ftm-ocpf">
+              <OcpfDataCenter />
+            </motion.div>
+          )}
+
+          {/* === PAC DASHBOARD SUB-TAB === */}
+          {activeTab === 'pacs' && (
+            <motion.div {...pageVariants} key="ftm-pacs">
+              <PacDashboard />
+            </motion.div>
+          )}
+
+          {/* === NONPROFIT EXPLORER SUB-TAB === */}
+          {activeTab === 'nonprofits' && (
+            <motion.div {...pageVariants} key="ftm-nonprofits">
+              <NonprofitLookup />
+            </motion.div>
+          )}
         </>
       )}
     </div>
@@ -1926,6 +1957,7 @@ function MunicipalitiesExplorer() {
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('overview');
+  const [overviewSubTab, setOverviewSubTab] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loading, setLoading] = useState({});
   const [errors, setErrors] = useState({});
@@ -2051,10 +2083,6 @@ export default function App() {
     { id: 'federal', label: 'Federal Funds', icon: <Landmark size={16} />, tag: 'live' },
     { id: 'quasi', label: 'Quasi-Government', icon: <Layers size={16} />, tag: 'live' },
     { id: 'audit', label: 'The Audit Fight', icon: <Scale size={16} /> },
-    { id: 'ocpfdata', label: 'OCPF Data Center', icon: <FileText size={16} />, color: '#E67E22' },
-    { id: 'pacs', label: 'PAC Dashboard', icon: <Scale size={16} />, color: '#9B59B6' },
-    { id: 'costliving', label: 'Cost of Living', icon: <Banknote size={16} />, color: '#1ABC9C' },
-    { id: 'nonprofits', label: 'Nonprofit Explorer', icon: <Building2 size={16} />, color: '#14558F' },
   ];
 
   const navigateTo = (id) => {
@@ -2161,6 +2189,23 @@ export default function App() {
         {/* ============ OVERVIEW ============ */}
         {activeSection === 'overview' && (
           <div>
+            {/* Overview Sub-tabs */}
+            <div className="filter-toggle" style={{ marginBottom: 0, padding: '12px 24px', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border)' }}>
+              <button className={`filter-btn ${overviewSubTab === 'dashboard' ? 'active' : ''}`} onClick={() => setOverviewSubTab('dashboard')}>
+                <Eye size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Dashboard
+              </button>
+              <button className={`filter-btn ${overviewSubTab === 'costliving' ? 'active' : ''}`} onClick={() => setOverviewSubTab('costliving')}>
+                <Banknote size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Cost of Living
+              </button>
+            </div>
+
+            {overviewSubTab === 'costliving' && (
+              <div className="section">
+                <CostOfLivingCalculator />
+              </div>
+            )}
+
+            {overviewSubTab === 'dashboard' && (
             <div className="section">
               <div className="section-header">
                 <span className="section-tag red">FY{budget.fiscalYear} Snapshot</span>
@@ -2264,6 +2309,7 @@ export default function App() {
                 </div>
               )}
             </div>
+            )}
           </div>
         )}
 
@@ -2846,30 +2892,6 @@ export default function App() {
         {activeSection === 'lobbyists' && (
               <div>
                 <LobbyingExplorer />
-              </div>
-            )}
-
-            {activeSection === 'ocpfdata' && (
-              <div>
-                <OcpfDataCenter />
-              </div>
-            )}
-
-            {activeSection === 'pacs' && (
-              <div>
-                <PacDashboard />
-              </div>
-            )}
-
-            {activeSection === 'costliving' && (
-              <div>
-                <CostOfLivingCalculator />
-              </div>
-            )}
-
-            {activeSection === 'nonprofits' && (
-              <div>
-                <NonprofitLookup />
               </div>
             )}
 
