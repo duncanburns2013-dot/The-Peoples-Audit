@@ -83,7 +83,7 @@ const pageVariants = {
 };
 
 // ============================================================
-// SPENDING EXPLORER â Department Drill-Down
+// SPENDING EXPLORER — Department Drill-Down
 // ============================================================
 
 function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
@@ -137,7 +137,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
           <button className="close-btn" onClick={() => { setSelectedDept(null); setDeptDetail(null); }}>Close</button>
 
           <h3 style={{ color: 'var(--accent-red)', marginBottom: 4 }}>{selectedDept}</h3>
-          <div className="chart-subtitle">Complete spending breakdown â every vendor, every dollar</div>
+          <div className="chart-subtitle">Complete spending breakdown — every vendor, every dollar</div>
 
           {detailLoading ? (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
@@ -167,7 +167,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 20, marginTop: 24 }}>
                 {deptDetail.vendors.length > 0 && (
                   <div>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Top Vendors â FY{deptYear}</h4>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Top Vendors — FY{deptYear}</h4>
                     <ResponsiveContainer width="100%" height={Math.max(200, Math.min(15, deptDetail.vendors.length) * 28 + 40)}>
                       <BarChart data={deptDetail.vendors.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
@@ -182,7 +182,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
 
                 {deptDetail.categories.length > 0 && (
                   <div>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories â FY{deptYear}</h4>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories — FY{deptYear}</h4>
                     <ResponsiveContainer width="100%" height={300}>
                       <PieChart>
                         <Pie data={deptDetail.categories.slice(0, 8)} dataKey="total" nameKey="category" cx="50%" cy="50%" outerRadius={100} label={({ percent }) => `${(percent * 100).toFixed(0)}%`}>
@@ -194,7 +194,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', fontSize: '0.75rem' }}>
                       {deptDetail.categories.slice(0, 8).map((c, i) => (
                         <span key={i} style={{ color: COLORS[i % COLORS.length] }}>
-                          {c.category.replace(/^\([^)]+\)\s*/, '')} â {formatMoney(c.total)}
+                          {c.category.replace(/^\([^)]+\)\s*/, '')} — {formatMoney(c.total)}
                         </span>
                       ))}
                     </div>
@@ -204,7 +204,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
 
               {deptDetail.appropriations.length > 0 && (
                 <div style={{ marginTop: 24 }}>
-                  <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Budget Appropriations â FY{deptYear}</h4>
+                  <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Budget Appropriations — FY{deptYear}</h4>
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
@@ -237,17 +237,17 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                 return (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
-                    Individual Payments â FY{deptYear} ({deptDetail.payments.length} records)
+                    Individual Payments — FY{deptYear} ({deptDetail.payments.length} records)
                   </h4>
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
                         <tr>
                           <th style={{ cursor: 'pointer' }} onClick={() => { setDeptPaySortField('date'); setDeptPaySortDir(d => deptPaySortField === 'date' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
-                            Date {deptPaySortField === 'date' ? (deptPaySortDir === 'desc' ? 'â' : 'â') : ''}
+                            Date {deptPaySortField === 'date' ? (deptPaySortDir === 'desc' ? '↓' : '↑') : ''}
                           </th>
                           <th style={{ cursor: 'pointer' }} onClick={() => { setDeptPaySortField('amount'); setDeptPaySortDir(d => deptPaySortField === 'amount' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
-                            Amount {deptPaySortField === 'amount' ? (deptPaySortDir === 'desc' ? 'â' : 'â') : ''}
+                            Amount {deptPaySortField === 'amount' ? (deptPaySortDir === 'desc' ? '↓' : '↑') : ''}
                           </th>
                           <th>Vendor</th><th>Appropriation</th><th>Category</th><th>Method</th>
                         </tr>
@@ -284,7 +284,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
       {departments ? (
         <>
           <div className="chart-card">
-            <h3>Spending by Department â FY{deptYear}</h3>
+            <h3>Spending by Department — FY{deptYear}</h3>
             <div className="chart-subtitle">Click any department to see the full breakdown</div>
             <ResponsiveContainer width="100%" height={600}>
               <BarChart data={departments.slice(0, 20)} layout="vertical" margin={{ left: 200 }}>
@@ -292,7 +292,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                 <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                 <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={({ x, y, payload }) => (
                   <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
-                    {payload.value.length > 28 ? payload.value.substring(0, 26) + 'â¦' : payload.value}
+                    {payload.value.length > 28 ? payload.value.substring(0, 26) + '…' : payload.value}
                   </text>
                 )} />
                 <Tooltip content={<CustomTooltip />} />
@@ -316,7 +316,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                 </AreaChart>
               </ResponsiveContainer>
               <div style={{ marginTop: 12, padding: '10px 14px', background: 'rgba(20, 85, 143, 0.08)', border: '1px solid rgba(20, 85, 143, 0.25)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                ð <strong style={{ color: '#14558F' }}>Data through FY2024</strong> â the latest fiscal year published by CTHRU. FY2025 data will appear after official publication.
+                📊 <strong style={{ color: '#14558F' }}>Data through FY2024</strong> — the latest fiscal year published by CTHRU. FY2025 data will appear after official publication.
               </div>
             </div>
           )}
@@ -348,7 +348,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
 }
 
 // ============================================================
-// VENDOR EXPLORER â "Track Every Dollar"
+// VENDOR EXPLORER — "Track Every Dollar"
 // ============================================================
 
 function VendorExplorer({ spendingYear }) {
@@ -474,7 +474,7 @@ function VendorExplorer({ spendingYear }) {
         <div ref={vendorDetailPanelRef} className="detail-panel" style={{ marginBottom: 24 }}>
           <button className="close-btn" onClick={() => { setSelectedVendor(null); setVendorDetail(null); }}>Close</button>
           <h3 style={{ color: 'var(--accent-gold)', marginBottom: 4 }}>{selectedVendor}</h3>
-          <div className="chart-subtitle">Complete payment history â every dollar tracked</div>
+          <div className="chart-subtitle">Complete payment history — every dollar tracked</div>
 
           {detailLoading ? (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
@@ -508,7 +508,7 @@ function VendorExplorer({ spendingYear }) {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 20, marginTop: 24 }}>
                 {vendorDetail.byDept.length > 0 && (
                   <div>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Paying Departments â FY{vendorYear}</h4>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Paying Departments — FY{vendorYear}</h4>
                     <ResponsiveContainer width="100%" height={Math.max(200, vendorDetail.byDept.length * 32)}>
                       <BarChart data={vendorDetail.byDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
@@ -523,7 +523,7 @@ function VendorExplorer({ spendingYear }) {
 
                 {vendorDetail.byCat.length > 0 && (
                   <div>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories â FY{vendorYear}</h4>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories — FY{vendorYear}</h4>
                     <ResponsiveContainer width="100%" height={300}>
                       <PieChart>
                         <Pie data={vendorDetail.byCat.slice(0, 8)} dataKey="total" nameKey="category" cx="50%" cy="50%" outerRadius={100} label={({ percent }) => `${(percent * 100).toFixed(0)}%`}>
@@ -548,17 +548,17 @@ function VendorExplorer({ spendingYear }) {
                 return (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
-                    Individual Payments â FY{vendorYear} ({vendorDetail.payments.length} records)
+                    Individual Payments — FY{vendorYear} ({vendorDetail.payments.length} records)
                   </h4>
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
                         <tr>
                           <th style={{ cursor: 'pointer' }} onClick={() => { setPaySortField('date'); setPaySortDir(d => paySortField === 'date' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
-                            Date {paySortField === 'date' ? (paySortDir === 'desc' ? 'â' : 'â') : ''}
+                            Date {paySortField === 'date' ? (paySortDir === 'desc' ? '↓' : '↑') : ''}
                           </th>
                           <th style={{ cursor: 'pointer' }} onClick={() => { setPaySortField('amount'); setPaySortDir(d => paySortField === 'amount' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
-                            Amount {paySortField === 'amount' ? (paySortDir === 'desc' ? 'â' : 'â') : ''}
+                            Amount {paySortField === 'amount' ? (paySortDir === 'desc' ? '↓' : '↑') : ''}
                           </th>
                           <th>Department</th><th>Appropriation</th><th>Category</th><th>Method</th>
                         </tr>
@@ -597,7 +597,7 @@ function VendorExplorer({ spendingYear }) {
       ) : (
         <>
           <div className="chart-card">
-            <h3>{vendorSearch ? `Search Results for "${vendorSearch}"` : `Top Vendors by Payment â FY${vendorYear}`}</h3>
+            <h3>{vendorSearch ? `Search Results for "${vendorSearch}"` : `Top Vendors by Payment — FY${vendorYear}`}</h3>
             <div className="chart-subtitle">{vendorSearch ? `${vendors.length} vendors found` : 'Click any vendor to drill down into every payment'}</div>
             {vendors.length > 0 && (
               <ResponsiveContainer width="100%" height={Math.min(800, vendors.slice(0, 30).length * 26 + 40)}>
@@ -606,7 +606,7 @@ function VendorExplorer({ spendingYear }) {
                   <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                   <YAxis type="category" dataKey="vendor" stroke={AXIS_COLOR} width={210} tick={({ x, y, payload }) => (
                     <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
-                      {payload.value.length > 28 ? payload.value.substring(0, 26) + 'â¦' : payload.value}
+                      {payload.value.length > 28 ? payload.value.substring(0, 26) + '…' : payload.value}
                     </text>
                   )} />
                   <Tooltip content={<CustomTooltip />} />
@@ -623,10 +623,10 @@ function VendorExplorer({ spendingYear }) {
                 <tr>
                   <th>#</th>
                   <th style={{ cursor: 'pointer' }} onClick={() => { setSortField('vendor'); setSortDir(d => sortField === 'vendor' ? (d === 'asc' ? 'desc' : 'asc') : 'asc'); }}>
-                    Vendor / Contractor {sortField === 'vendor' ? (sortDir === 'asc' ? 'â' : 'â') : ''}
+                    Vendor / Contractor {sortField === 'vendor' ? (sortDir === 'asc' ? '↑' : '↓') : ''}
                   </th>
                   <th style={{ cursor: 'pointer' }} onClick={() => { setSortField('total'); setSortDir(d => sortField === 'total' ? (d === 'asc' ? 'desc' : 'asc') : 'desc'); }}>
-                    Total Payments {sortField === 'total' ? (sortDir === 'asc' ? 'â' : 'â') : ''}
+                    Total Payments {sortField === 'total' ? (sortDir === 'asc' ? '↑' : '↓') : ''}
                   </th>
                   <th># Transactions</th>
                   <th>Avg Payment</th>
@@ -655,7 +655,7 @@ function VendorExplorer({ spendingYear }) {
 }
 
 // ============================================================
-// QUASI EXPLORER â Quasi-Government Drill-Down
+// QUASI EXPLORER — Quasi-Government Drill-Down
 // ============================================================
 
 function QuasiExplorer({ quasiPayments }) {
@@ -677,7 +677,7 @@ function QuasiExplorer({ quasiPayments }) {
       fetchQuasiAgencyDetail(agencyName, quasiYear),
       fetchQuasiAgencyPayments(agencyName, quasiYear, 500),
     ]).then(([byYear, categories, vendors, payments]) => {
-      // Merge MBTA audited financials (CTHRU only tracks stateâMBTA payments through ~2017;
+      // Merge MBTA audited financials (CTHRU only tracks state→MBTA payments through ~2017;
       // these come from MBTA's own published Comprehensive Annual Financial Reports)
       let mergedByYear = byYear;
       const isMBTA = /MBTA|Massachusetts Bay Transportation/i.test(agencyName);
@@ -715,7 +715,7 @@ function QuasiExplorer({ quasiPayments }) {
         <div ref={quasiDetailPanelRef} className="detail-panel" style={{ marginBottom: 24 }}>
           <button className="close-btn" onClick={() => { setSelectedAgency(null); setAgencyDetail(null); }}>Close</button>
           <h3 style={{ color: 'var(--accent-cyan)', marginBottom: 4 }}>{selectedAgency}</h3>
-          <div className="chart-subtitle">Complete budget breakdown â every vendor, every dollar, every category</div>
+          <div className="chart-subtitle">Complete budget breakdown — every vendor, every dollar, every category</div>
 
           {detailLoading ? (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
@@ -725,9 +725,9 @@ function QuasiExplorer({ quasiPayments }) {
             <>
               {agencyDetail.isMBTA && (
                 <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(20, 85, 143, 0.08)', border: '1px solid rgba(20, 85, 143, 0.3)', borderRadius: 10, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                  ð <strong style={{ color: '#14558F' }}>MBTA Note:</strong> CTHRU tracks state payments to MBTA through ~FY2017. Years 2018â2025 below are pulled from the MBTA's own published audited financial statements.
+                  📊 <strong style={{ color: '#14558F' }}>MBTA Note:</strong> CTHRU tracks state payments to MBTA through ~FY2017. Years 2018–2025 below are pulled from the MBTA's own published audited financial statements.
                   {' '}<a href="https://www.mbta.com/financials/audited-financials" target="_blank" rel="noopener" style={{ color: '#14558F', fontWeight: 600 }}>Audited Financials</a>
-                  {' Â· '}
+                  {' · '}
                   <a href="https://www.mbta.com/financials" target="_blank" rel="noopener" style={{ color: '#14558F', fontWeight: 600 }}>MBTA Financial Center</a>
                 </div>
               )}
@@ -737,7 +737,7 @@ function QuasiExplorer({ quasiPayments }) {
                   <div className="kpi-label">Years of Data</div>
                   <div className="kpi-value" style={{ color: 'var(--accent-cyan)' }}>{agencyDetail.byYear.length}</div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>
-                    {agencyDetail.byYear.length > 0 ? `FY${agencyDetail.byYear[0].year} â FY${agencyDetail.byYear[agencyDetail.byYear.length - 1].year}` : 'N/A'}
+                    {agencyDetail.byYear.length > 0 ? `FY${agencyDetail.byYear[0].year} — FY${agencyDetail.byYear[agencyDetail.byYear.length - 1].year}` : 'N/A'}
                   </div>
                 </div>
                 <div className="kpi-card">
@@ -771,10 +771,10 @@ function QuasiExplorer({ quasiPayments }) {
                   </ResponsiveContainer>
                   {agencyDetail.byYear.length > 0 && (
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', display: 'block', marginTop: 8 }}>
-                      Data available: FY{agencyDetail.byYear[0].year} â FY{agencyDetail.byYear[agencyDetail.byYear.length - 1].year}
+                      Data available: FY{agencyDetail.byYear[0].year} — FY{agencyDetail.byYear[agencyDetail.byYear.length - 1].year}
                       {!agencyDetail.byYear.find(y => y.year === quasiYear) && (
                         <span style={{ color: 'var(--accent-red)', marginLeft: 8 }}>
-                          (No data for FY{quasiYear} â showing available years)
+                          (No data for FY{quasiYear} — showing available years)
                         </span>
                       )}
                     </span>
@@ -785,7 +785,7 @@ function QuasiExplorer({ quasiPayments }) {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 20, marginTop: 24 }}>
                 {agencyDetail.vendors.length > 0 && (
                   <div>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Top Vendors â FY{quasiYear}</h4>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Top Vendors — FY{quasiYear}</h4>
                     <ResponsiveContainer width="100%" height={Math.max(200, Math.min(15, agencyDetail.vendors.length) * 28 + 40)}>
                       <BarChart data={agencyDetail.vendors.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
@@ -800,7 +800,7 @@ function QuasiExplorer({ quasiPayments }) {
 
                 {agencyDetail.categories.length > 0 && (
                   <div>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories â FY{quasiYear}</h4>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories — FY{quasiYear}</h4>
                     <ResponsiveContainer width="100%" height={300}>
                       <PieChart>
                         <Pie data={agencyDetail.categories.slice(0, 8)} dataKey="total" nameKey="category" cx="50%" cy="50%" outerRadius={100} label={({ percent }) => `${(percent * 100).toFixed(0)}%`}>
@@ -816,7 +816,7 @@ function QuasiExplorer({ quasiPayments }) {
               {agencyDetail.payments.length > 0 && (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
-                    Individual Payments â FY{quasiYear} ({agencyDetail.payments.length} records)
+                    Individual Payments — FY{quasiYear} ({agencyDetail.payments.length} records)
                   </h4>
                   <div className="data-table-wrapper">
                     <table className="data-table">
@@ -896,7 +896,7 @@ function QuasiExplorer({ quasiPayments }) {
 }
 
 // ============================================================
-// PAYROLL SEARCHER â Search by name or department
+// PAYROLL SEARCHER — Search by name or department
 // ============================================================
 
 function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
@@ -939,7 +939,7 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
         <div className="card-grid">
           <div className="chart-card">
             <h3>Total Payroll by Department</h3>
-            <div className="chart-subtitle">Aggregate compensation â {payrollYear}</div>
+            <div className="chart-subtitle">Aggregate compensation — {payrollYear}</div>
             <ResponsiveContainer width="100%" height={500}>
               <BarChart data={data.payrollByDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
@@ -952,7 +952,7 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
           </div>
           <div className="chart-card">
             <h3>Headcount by Department</h3>
-            <div className="chart-subtitle">Employee count â {payrollYear}</div>
+            <div className="chart-subtitle">Employee count — {payrollYear}</div>
             <ResponsiveContainer width="100%" height={500}>
               <BarChart data={data.payrollByDept.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
@@ -1033,7 +1033,7 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
 
       {data.topEarners && !payrollSearch && (
         <div style={{ marginTop: 32 }}>
-          <h3 style={{ marginBottom: 16 }}>Top 50 Highest-Paid State Employees â {payrollYear}</h3>
+          <h3 style={{ marginBottom: 16 }}>Top 50 Highest-Paid State Employees — {payrollYear}</h3>
           <div className="data-table-wrapper">
             <table className="data-table">
               <thead>
@@ -1081,7 +1081,7 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
 }
 
 // ============================================================
-// FOLLOW THE MONEY â Campaign Finance + Cross-Reference
+// FOLLOW THE MONEY — Campaign Finance + Cross-Reference
 // ============================================================
 
 function FollowTheMoney() {
@@ -1108,7 +1108,7 @@ function FollowTheMoney() {
   const CONTRIB_PAGE_SIZE = 100;
   const CROSSREF_PAGE_SIZE = 24;
 
-  // Last contribution date cache: cpfId â { date, amount, contributor }
+  // Last contribution date cache: cpfId → { date, amount, contributor }
   const [lastContribMap, setLastContribMap] = useState({});
   const [lastContribLoading, setLastContribLoading] = useState(false);
 
@@ -1169,7 +1169,7 @@ function FollowTheMoney() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Cross-reference vendor â pulls a wide window so client-side sort/filter works
+  // Cross-reference vendor — pulls a wide window so client-side sort/filter works
   const runCrossRef = useCallback(() => {
     if (!crossRefVendor.trim()) return;
     setCrossRefLoading(true);
@@ -1227,12 +1227,12 @@ function FollowTheMoney() {
       <div className="section-header">
         <span className="section-tag purple">Campaign Finance</span>
         <h2>Follow the Money</h2>
-        <p>Cross-referencing OCPF campaign finance data with state spending. Who pays to play â and who profits?</p>
+        <p>Cross-referencing OCPF campaign finance data with state spending. Who pays to play — and who profits?</p>
       </div>
 
       <div className="disclaimer">
         Campaign finance data from the Massachusetts Office of Campaign and Political Finance (OCPF) public API.
-        Cross-references show contributions from entities matching vendor names â correlation does not imply wrongdoing.
+        Cross-references show contributions from entities matching vendor names — correlation does not imply wrongdoing.
         All data is publicly available under Massachusetts open records laws.
       </div>
 
@@ -1294,7 +1294,7 @@ function FollowTheMoney() {
 
               <div className="card-grid">
                 <div className="chart-card">
-                  <h3>Top-Funded Legislators â 2025</h3>
+                  <h3>Top-Funded Legislators — 2025</h3>
                   <div className="chart-subtitle">Ranked by total campaign receipts</div>
                   {topFundedLegislators.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
@@ -1311,7 +1311,7 @@ function FollowTheMoney() {
                 </div>
 
                 <div className="chart-card">
-                  <h3>Top PACs by Receipts â 2025</h3>
+                  <h3>Top PACs by Receipts — 2025</h3>
                   <div className="chart-subtitle">Political Action Committee fundraising</div>
                   {topPACs.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
@@ -1337,7 +1337,7 @@ function FollowTheMoney() {
                   <button className="close-btn" onClick={() => { setSelectedLegislator(null); setLegislatorContributions(null); }}>Close</button>
                   <h3 style={{ color: 'var(--accent-purple)' }}>{selectedLegislator.name}</h3>
                   <div className="chart-subtitle">
-                    {selectedLegislator.office} {selectedLegislator.district && `â ${selectedLegislator.district}`} | {selectedLegislator.party}
+                    {selectedLegislator.office} {selectedLegislator.district && `— ${selectedLegislator.district}`} | {selectedLegislator.party}
                   </div>
                   <div className="kpi-row" style={{ marginTop: 16 }}>
                     <div className="kpi-card">
@@ -1378,18 +1378,18 @@ function FollowTheMoney() {
                             style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
                             <option value="date-desc">Date (newest)</option>
                             <option value="date-asc">Date (oldest)</option>
-                            <option value="amount-desc">Amount (high â low)</option>
-                            <option value="amount-asc">Amount (low â high)</option>
-                            <option value="contributor">Contributor (AâZ)</option>
+                            <option value="amount-desc">Amount (high → low)</option>
+                            <option value="amount-asc">Amount (low → high)</option>
+                            <option value="contributor">Contributor (A→Z)</option>
                           </select>
                           <button onClick={() => setContribPage(p => Math.max(0, p - 1))} disabled={contribPage === 0}
                             style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: contribPage === 0 ? 'not-allowed' : 'pointer', opacity: contribPage === 0 ? 0.5 : 1 }}>
-                            â Prev
+                            ← Prev
                           </button>
                           <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Page {contribPage + 1}</span>
                           <button onClick={() => setContribPage(p => p + 1)} disabled={legislatorContributions.items.length < CONTRIB_PAGE_SIZE}
                             style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: legislatorContributions.items.length < CONTRIB_PAGE_SIZE ? 'not-allowed' : 'pointer', opacity: legislatorContributions.items.length < CONTRIB_PAGE_SIZE ? 0.5 : 1 }}>
-                            Next â
+                            Next →
                           </button>
                         </div>
                       </div>
@@ -1458,7 +1458,7 @@ function FollowTheMoney() {
                         <td style={{ fontSize: '0.8rem', whiteSpace: 'nowrap', color: lastContribMap[l.cpfId] ? 'var(--text-primary)' : 'var(--text-muted)' }}>
                           {lastContribMap[l.cpfId]
                             ? <span title={`${lastContribMap[l.cpfId].amount} from ${lastContribMap[l.cpfId].contributor}`}>{lastContribMap[l.cpfId].date}</span>
-                            : (lastContribLoading ? <span className="spinner" style={{ width: 12, height: 12, borderWidth: 2, display: 'inline-block', verticalAlign: 'middle' }} /> : 'â')}
+                            : (lastContribLoading ? <span className="spinner" style={{ width: 12, height: 12, borderWidth: 2, display: 'inline-block', verticalAlign: 'middle' }} /> : '—')}
                         </td>
                         <td><ChevronRight size={12} style={{ color: 'var(--accent-purple)' }} /></td>
                       </tr>
@@ -1475,7 +1475,7 @@ function FollowTheMoney() {
               <div className="chart-card highlighted" style={{ marginBottom: 24 }}>
                 <h3 style={{ color: 'var(--accent-purple)' }}>
                   <Fingerprint size={18} style={{ verticalAlign: 'middle', marginRight: 8 }} />
-                  Vendor â Donor Cross-Reference
+                  Vendor → Donor Cross-Reference
                 </h3>
                 <div className="chart-subtitle">
                   Enter a state vendor name to see if anyone associated with that company donated to MA politicians.
@@ -1528,7 +1528,7 @@ function FollowTheMoney() {
                 <div>
                   <h4 style={{ marginBottom: 12, color: 'var(--text-secondary)' }}>
                     {sorted.length > 0
-                      ? `Found ${sorted.length} contribution(s) matching "${crossRefVendor}"${crossRefResults.length >= 500 ? ' (capped at 500 â narrow your search for more)' : ''}`
+                      ? `Found ${sorted.length} contribution(s) matching "${crossRefVendor}"${crossRefResults.length >= 500 ? ' (capped at 500 — narrow your search for more)' : ''}`
                       : `No contributions found matching "${crossRefVendor}"${crossRefYear !== 'all' ? ` for ${crossRefYear}` : ''}`}
                   </h4>
 
@@ -1565,19 +1565,19 @@ function FollowTheMoney() {
                         <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginLeft: 8 }}>Sort:</label>
                         <select value={crossRefSort} onChange={e => { setCrossRefPage(0); setCrossRefSort(e.target.value); }}
                           style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
-                          <option value="amount-desc">Amount (high â low)</option>
-                          <option value="amount-asc">Amount (low â high)</option>
+                          <option value="amount-desc">Amount (high → low)</option>
+                          <option value="amount-asc">Amount (low → high)</option>
                           <option value="date-desc">Date (newest)</option>
                           <option value="date-asc">Date (oldest)</option>
-                          <option value="contributor">Contributor (AâZ)</option>
-                          <option value="recipient">Recipient (AâZ)</option>
+                          <option value="contributor">Contributor (A→Z)</option>
+                          <option value="recipient">Recipient (A→Z)</option>
                         </select>
                         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 }}>
                           <button onClick={() => setCrossRefPage(p => Math.max(0, p - 1))} disabled={crossRefPage === 0}
-                            style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: crossRefPage === 0 ? 'not-allowed' : 'pointer', opacity: crossRefPage === 0 ? 0.5 : 1 }}>â Prev</button>
+                            style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: crossRefPage === 0 ? 'not-allowed' : 'pointer', opacity: crossRefPage === 0 ? 0.5 : 1 }}>← Prev</button>
                           <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Page {crossRefPage + 1} / {totalPages}</span>
                           <button onClick={() => setCrossRefPage(p => Math.min(totalPages - 1, p + 1))} disabled={crossRefPage >= totalPages - 1}
-                            style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: crossRefPage >= totalPages - 1 ? 'not-allowed' : 'pointer', opacity: crossRefPage >= totalPages - 1 ? 0.5 : 1 }}>Next â</button>
+                            style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', cursor: crossRefPage >= totalPages - 1 ? 'not-allowed' : 'pointer', opacity: crossRefPage >= totalPages - 1 ? 0.5 : 1 }}>Next →</button>
                         </div>
                       </div>
 
@@ -1721,7 +1721,7 @@ const TreemapContent = ({ x, y, width, height, name, value, index }) => {
       <rect x={x} y={y} width={width} height={height} rx={4}
         style={{ fill: COLORS[index % COLORS.length], stroke: '#ffffff', strokeWidth: 2, opacity: 0.9 }} />
       <text x={x + width / 2} y={y + height / 2 - 8} textAnchor="middle" fill="#fff" fontSize={width > 120 ? 12 : 10} fontWeight={600}>
-        {name?.length > 20 ? name.substring(0, 18) + 'â¦' : name}
+        {name?.length > 20 ? name.substring(0, 18) + '…' : name}
       </text>
       <text x={x + width / 2} y={y + height / 2 + 10} textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize={10}>
         {formatMoney(value)}
@@ -1731,7 +1731,7 @@ const TreemapContent = ({ x, y, width, height, name, value, index }) => {
 };
 
 // ============================================================
-// MUNICIPALITIES EXPLORER â MA DLS Long-Term Debt (351 towns)
+// MUNICIPALITIES EXPLORER — MA DLS Long-Term Debt (351 towns)
 // ============================================================
 
 function MunicipalitiesExplorer() {
@@ -1788,7 +1788,7 @@ function MunicipalitiesExplorer() {
     ? rows.filter(r => r.municipality === selectedTown).sort((a, b) => a.fiscal_year - b.fiscal_year)
     : [];
 
-  const arrow = (key) => sortKey === key ? (sortDir === 'asc' ? ' â²' : ' â¼') : '';
+  const arrow = (key) => sortKey === key ? (sortDir === 'asc' ? ' ▲' : ' ▼') : '';
 
   return (
     <div className="section">
@@ -1797,13 +1797,13 @@ function MunicipalitiesExplorer() {
         <h2>How Much Your Town Owes</h2>
         <p>
           Every one of Massachusetts' 351 cities and towns. Total outstanding long-term debt,
-          debt-per-resident, and debt service as a share of the local budget â FY2021 through FY2025.
+          debt-per-resident, and debt service as a share of the local budget — FY2021 through FY2025.
           How much is being taken away from you?
         </p>
       </div>
 
       <div className="disclaimer">
-        Source: Massachusetts Division of Local Services (DLS) Municipal Databank â Cat_6 Long-Term Debt 351 report.
+        Source: Massachusetts Division of Local Services (DLS) Municipal Databank — Cat_6 Long-Term Debt 351 report.
         {' '}Some FY2025 values are blank because municipal Schedule A filings are still being processed by DOR.
       </div>
 
@@ -1841,7 +1841,7 @@ function MunicipalitiesExplorer() {
             <div className="card">
               <div className="card-title"><MapPin size={14} /> Highest Per-Capita</div>
               <div className="card-value" style={{ fontSize: '1.5rem' }}>
-                {highest ? highest.municipality : 'â'}
+                {highest ? highest.municipality : '—'}
               </div>
               <div className="card-change" style={{ color: 'var(--accent-red)' }}>
                 {highest && highest.debt_per_capita != null
@@ -1923,22 +1923,22 @@ function MunicipalitiesExplorer() {
                     >
                       <td style={{ padding: '8px 12px', fontWeight: 500 }}>{r.municipality}</td>
                       <td className="money" style={{ padding: '8px 12px', textAlign: 'right' }}>
-                        {r.total_outstanding_debt != null ? formatMoney(Number(r.total_outstanding_debt)) : 'â'}
+                        {r.total_outstanding_debt != null ? formatMoney(Number(r.total_outstanding_debt)) : '—'}
                       </td>
                       <td style={{ padding: '8px 12px', textAlign: 'right' }}>
-                        {r.debt_pct_eqv != null ? `${Number(r.debt_pct_eqv).toFixed(2)}%` : 'â'}
+                        {r.debt_pct_eqv != null ? `${Number(r.debt_pct_eqv).toFixed(2)}%` : '—'}
                       </td>
                       <td style={{ padding: '8px 12px', textAlign: 'right' }}>
-                        {r.population != null ? Number(r.population).toLocaleString() : 'â'}
+                        {r.population != null ? Number(r.population).toLocaleString() : '—'}
                       </td>
                       <td style={{ padding: '8px 12px', textAlign: 'right', color: 'var(--accent-red)', fontWeight: 600 }}>
-                        {r.debt_per_capita != null ? `$${Number(r.debt_per_capita).toLocaleString()}` : 'â'}
+                        {r.debt_per_capita != null ? `$${Number(r.debt_per_capita).toLocaleString()}` : '—'}
                       </td>
                       <td style={{ padding: '8px 12px', textAlign: 'right' }}>
-                        {r.debt_service_pct_budget != null ? `${Number(r.debt_service_pct_budget).toFixed(2)}%` : 'â'}
+                        {r.debt_service_pct_budget != null ? `${Number(r.debt_service_pct_budget).toFixed(2)}%` : '—'}
                       </td>
                       <td className="money" style={{ padding: '8px 12px', textAlign: 'right' }}>
-                        {r.total_budget != null ? formatMoney(Number(r.total_budget)) : 'â'}
+                        {r.total_budget != null ? formatMoney(Number(r.total_budget)) : '—'}
                       </td>
                     </tr>
                   ))}
@@ -1949,8 +1949,8 @@ function MunicipalitiesExplorer() {
 
           {selectedTown && townHistory.length > 0 && (
             <div className="chart-card" style={{ marginTop: 24 }}>
-              <h3>{selectedTown} â 5-Year Debt History</h3>
-              <div className="chart-subtitle">FY2021 â FY2025 from DLS Schedule A Part 10</div>
+              <h3>{selectedTown} — 5-Year Debt History</h3>
+              <div className="chart-subtitle">FY2021 – FY2025 from DLS Schedule A Part 10</div>
               <ResponsiveContainer width="100%" height={300}>
                 <AreaChart data={townHistory.map(r => ({
                   year: `FY${r.fiscal_year}`,
@@ -1983,28 +1983,28 @@ function MunicipalitiesExplorer() {
               <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.6)', borderRadius: 6, borderLeft: '3px solid #680A1D' }}>
                 <strong style={{ color: '#680A1D' }}>Debt / EQV %</strong>
                 <div style={{ marginTop: 6, lineHeight: 1.55 }}>
-                  This is the town's total outstanding debt divided by its <em>Equalized Valuation</em> â the state's estimate of all taxable property at full market value. Think of it as: &quot;for every $100 of property value in town, how many dollars are owed to bondholders?&quot; A town at 5% owes $5 for every $100 of property. The higher this number, the more leveraged your town is relative to its tax base. If property values fall, this ratio climbs â and so does the pressure on your tax bill.
+                  This is the town's total outstanding debt divided by its <em>Equalized Valuation</em> — the state's estimate of all taxable property at full market value. Think of it as: &quot;for every $100 of property value in town, how many dollars are owed to bondholders?&quot; A town at 5% owes $5 for every $100 of property. The higher this number, the more leveraged your town is relative to its tax base. If property values fall, this ratio climbs — and so does the pressure on your tax bill.
                 </div>
               </div>
 
               <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.6)', borderRadius: 6, borderLeft: '3px solid #32784E' }}>
                 <strong style={{ color: '#32784E' }}>Debt Service % of Budget</strong>
                 <div style={{ marginTop: 6, lineHeight: 1.55 }}>
-                  This is the share of your town's annual budget that goes to paying off debt â principal and interest on bonds. It's money that <em>cannot</em> be spent on schools, roads, police, or any other service. A town at 10% sends a dime of every budget dollar to Wall Street before anything else gets funded. When this number rises, services get squeezed or your property taxes go up to compensate. Some towns show 0% because they report debt service in a separate enterprise fund (e.g., water/sewer) rather than the general fund.
+                  This is the share of your town's annual budget that goes to paying off debt — principal and interest on bonds. It's money that <em>cannot</em> be spent on schools, roads, police, or any other service. A town at 10% sends a dime of every budget dollar to Wall Street before anything else gets funded. When this number rises, services get squeezed or your property taxes go up to compensate. Some towns show 0% because they report debt service in a separate enterprise fund (e.g., water/sewer) rather than the general fund.
                 </div>
               </div>
 
               <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.6)', borderRadius: 6, borderLeft: '3px solid #14558F' }}>
                 <strong style={{ color: '#14558F' }}>Debt / Resident</strong>
                 <div style={{ marginTop: 6, lineHeight: 1.55 }}>
-                  Total outstanding debt divided by population â your personal share of what the town owes. This is <em>on top of</em> the ~$13,000 per person you already owe as your share of Commonwealth state-level debt. Tourist-heavy towns (Cape Cod, the Islands) can show very high per-capita figures because their permanent-resident headcount is small relative to the infrastructure they finance.
+                  Total outstanding debt divided by population — your personal share of what the town owes. This is <em>on top of</em> the ~$13,000 per person you already owe as your share of Commonwealth state-level debt. Tourist-heavy towns (Cape Cod, the Islands) can show very high per-capita figures because their permanent-resident headcount is small relative to the infrastructure they finance.
                 </div>
               </div>
 
               <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.6)', borderRadius: 6, borderLeft: '3px solid #9a6b00' }}>
                 <strong style={{ color: '#9a6b00' }}>About the Source</strong>
                 <div style={{ marginTop: 6, lineHeight: 1.55 }}>
-                  Every MA municipality files a Schedule A with the Division of Local Services each year. &quot;Total Outstanding Debt&quot; (Part 10) is the full principal balance on all long-term bonds and notes at fiscal year-end. EQV is the DOR's biennial full-market-value appraisal. This data updates once a year as towns complete their filings â some FY2025 values may still be blank.
+                  Every MA municipality files a Schedule A with the Division of Local Services each year. &quot;Total Outstanding Debt&quot; (Part 10) is the full principal balance on all long-term bonds and notes at fiscal year-end. EQV is the DOR's biennial full-market-value appraisal. This data updates once a year as towns complete their filings — some FY2025 values may still be blank.
                 </div>
               </div>
             </div>
@@ -2053,7 +2053,7 @@ export default function App() {
     : MA_STATE_DEBT_YOY;
   const debtSeriesFirst = debtSeries[0];
   const debtSeriesLast  = debtSeries[debtSeries.length - 1];
-  const debtSeriesLabel = `${debtSeriesFirst.fy} â ${debtSeriesLast.fy}`;
+  const debtSeriesLabel = `${debtSeriesFirst.fy} – ${debtSeriesLast.fy}`;
   const debtSeriesGrowthB = ((debtSeriesLast.debt - debtSeriesFirst.debt) / 1e9).toFixed(1);
   const debtSeriesYears   = debtSeries.length - 1;
   const debtSeriesHasProjection = debtSeries.some(r => r.projected);
@@ -2163,7 +2163,7 @@ export default function App() {
     <>
       {/* ============ HERO ============ */}
       <section className="hero">
-        {/* Ominous official portraits â flex row, big and evenly spaced */}
+        {/* Ominous official portraits — flex row, big and evenly spaced */}
         <div className="hero-figures">
           <img className="hero-figure" src="/The-Peoples-Audit/images/Official1.png" alt="" />
           <img className="hero-figure" src="/The-Peoples-Audit/images/Official2.png" alt="" />
@@ -2176,7 +2176,7 @@ export default function App() {
           <h1>The People's Audit</h1>
           <p className="subtitle">
             Massachusetts voters demanded accountability. The legislature refused.
-            So we're putting every public dollar on display â and following the money to its source.
+            So we're putting every public dollar on display — and following the money to its source.
           </p>
           <div className="audit-stat">
             <span className="big-number">{audit.percentYes}%</span>
@@ -2185,24 +2185,6 @@ export default function App() {
               to auditing the legislature ({audit.ballotQuestion}, {audit.ballotYear})
             </span>
           </div>
-          <div className="hero-search" style={{ margin: '30px auto', width: '100%', maxWidth: '640px', display: 'flex', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.12)', padding: '14px 22px', borderRadius: '10px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', width: '100%' }}>
-              <Search size={20} style={{ color: '#fff', flexShrink: 0 }} />
-              <input
-                type="text"
-                placeholder="Search for vendors, people, organizations..."
-                value={heroSearchValue}
-                onChange={(e) => setHeroSearchValue(e.target.value)}
-                style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: '1rem', width: '100%', outline: 'none' }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && heroSearchValue.trim()) {
-                    navigateTo('vendors', heroSearchValue);
-                  }
-                }}
-              />
-            </div>
-          </div>
-
           <div className="hero-cta">
             <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit" target="_blank" rel="noopener" className="btn-secondary">
               <FileText size={18} /> Source Code
@@ -2233,7 +2215,7 @@ export default function App() {
             {loading.global
               ? 'Connecting to Massachusetts public records + OCPF campaign finance...'
               : dataSourceCount > 0 && errorCount === 0
-                ? `Connected to ${dataSourceCount} live data feeds + OCPF campaign finance â all sources online`
+                ? `Connected to ${dataSourceCount} live data feeds + OCPF campaign finance — all sources online`
                 : dataSourceCount > 0
                   ? `${dataSourceCount} live feeds active | ${errorCount} source(s) using cached public records`
                   : `Displaying cached public records data from CTHRU, USASpending.gov, OCPF & official reports`
@@ -2287,7 +2269,7 @@ export default function App() {
               <div className="section-header">
                 <span className="section-tag red">FY{budget.fiscalYear} Snapshot</span>
                 <h2>Massachusetts at a Glance</h2>
-                <p>A high-level view of state finances â budget, revenue, expenditure, and workforce.</p>
+                <p>A high-level view of state finances — budget, revenue, expenditure, and workforce.</p>
               </div>
 
               <div className="kpi-row">
@@ -2317,7 +2299,7 @@ export default function App() {
 
               {/* Budget Treemap */}
               <div className="chart-card highlighted" style={{ marginTop: 24 }}>
-                <h3>Budget Treemap â Where {formatMoney(budget.totalBudget)} Goes</h3>
+                <h3>Budget Treemap — Where {formatMoney(budget.totalBudget)} Goes</h3>
                 <div className="chart-subtitle">Proportional visualization of FY{budget.fiscalYear} spending categories. Larger = more money.</div>
                 <ResponsiveContainer width="100%" height={420}>
                   <Treemap
@@ -2364,7 +2346,7 @@ export default function App() {
               {data.spendingOverTime && (
                 <div className="chart-card" style={{ marginTop: 24 }}>
                   <h3>State Spending Over Time</h3>
-                  <div className="chart-subtitle">Total expenditures by fiscal year â live from CTHRU (data through latest completed fiscal year)</div>
+                  <div className="chart-subtitle">Total expenditures by fiscal year — live from CTHRU (data through latest completed fiscal year)</div>
                   <ResponsiveContainer width="100%" height={350}>
                     <AreaChart data={data.spendingOverTime}>
                       <defs>
@@ -2381,7 +2363,7 @@ export default function App() {
                     </AreaChart>
                   </ResponsiveContainer>
                   <div style={{ marginTop: 12, padding: '10px 14px', background: 'rgba(20, 85, 143, 0.08)', border: '1px solid rgba(20, 85, 143, 0.25)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                    ð <strong style={{ color: '#14558F' }}>Data through FY2024</strong> â the latest fiscal year published by CTHRU. FY2025 expenditure data will be added after official publication by the Comptroller.
+                    📊 <strong style={{ color: '#14558F' }}>Data through FY2024</strong> — the latest fiscal year published by CTHRU. FY2025 expenditure data will be added after official publication by the Comptroller.
                   </div>
                 </div>
               )}
@@ -2457,7 +2439,7 @@ export default function App() {
                   History window:
                 </span>
                 {[
-                  { key: 'all',  label: `All available (${MA_STATE_DEBT_YOY[0].fy}â${MA_STATE_DEBT_YOY[MA_STATE_DEBT_YOY.length-1].fy})` },
+                  { key: 'all',  label: `All available (${MA_STATE_DEBT_YOY[0].fy}–${MA_STATE_DEBT_YOY[MA_STATE_DEBT_YOY.length-1].fy})` },
                   { key: '10yr', label: 'Last 10 years' },
                 ].map(opt => (
                   <button
@@ -2479,20 +2461,20 @@ export default function App() {
                 ))}
                 {debtSeriesHasProjection && (
                   <span style={{ fontSize: '0.78rem', color: '#9a6b00', marginLeft: 6 }}>
-                    * FY2026 figures are projected from the March 24, 2026 Information Statement â not yet reported in an ACFR.
+                    * FY2026 figures are projected from the March 24, 2026 Information Statement — not yet reported in an ACFR.
                   </span>
                 )}
               </div>
 
-              {/* Data provenance banner â now covering FY2000 onward */}
+              {/* Data provenance banner — now covering FY2000 onward */}
               <div style={{ marginTop: 10, padding: '10px 14px', background: '#eef5ff', border: '1px solid #9dbae5', borderRadius: 4, fontSize: '0.82rem', color: '#163b6a' }}>
-                <strong>Data provenance:</strong> Series now runs <strong>FY2000 â FY2026</strong>.
-                FY2000âFY2014 figures have been extracted and cross-verified directly from the
+                <strong>Data provenance:</strong> Series now runs <strong>FY2000 – FY2026</strong>.
+                FY2000–FY2014 figures have been extracted and cross-verified directly from the
                 Commonwealth's archived ACFR PDFs (FY2004, FY2009, FY2011, FY2012, FY2013, and
                 FY2014 editions), with each number checked against at least two independent
                 ACFR tables to catch restatements. See the Methodology &amp; Sources panel
                 below for line-by-line citations, the FY2013 methodology break (net-proceeds
-                â principal), and the confirmed FY2007/FY2008 debt-service restatement anomaly.
+                → principal), and the confirmed FY2007/FY2008 debt-service restatement anomaly.
               </div>
 
               <div className="card-grid" style={{ marginTop: 16 }}>
@@ -2545,7 +2527,7 @@ export default function App() {
                       <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={210} tick={({ x, y, payload }) => (
                         <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
-                          {payload.value.length > 32 ? payload.value.substring(0, 30) + 'â¦' : payload.value}
+                          {payload.value.length > 32 ? payload.value.substring(0, 30) + '…' : payload.value}
                         </text>
                       )} />
                       <Tooltip content={<CustomTooltip />} />
@@ -2619,12 +2601,12 @@ export default function App() {
                           <tr key={i} style={{ borderBottom: '1px solid #e4e6ed' }}>
                             <td style={{ padding: '10px 8px', fontWeight: 500 }}>{c.county}</td>
                             <td style={{ padding: '10px 8px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.82rem' }}>
-                              {c.fy || 'â'}
+                              {c.fy || '—'}
                             </td>
                             <td style={{ padding: '10px 8px', textAlign: 'right' }}>{formatMoney(c.debt)}</td>
                             <td style={{ padding: '10px 8px', textAlign: 'right' }}>${c.perCapita.toLocaleString()}</td>
                             <td style={{ padding: '10px 8px', textAlign: 'right' }}>
-                              {c.medianHHIncome ? `$${c.medianHHIncome.toLocaleString()}` : 'â'}
+                              {c.medianHHIncome ? `$${c.medianHHIncome.toLocaleString()}` : '—'}
                             </td>
                             <td style={{ padding: '10px 8px', textAlign: 'right', fontWeight: 600, color }}>
                               {ratioPct}%
@@ -2636,7 +2618,7 @@ export default function App() {
                   </table>
                 </div>
 
-                {/* Plain-English explanation of the Debt-to-Income Ratio â replaces the undocumented "Burden Index" */}
+                {/* Plain-English explanation of the Debt-to-Income Ratio — replaces the undocumented "Burden Index" */}
                 <div
                   style={{
                     marginTop: 16,
@@ -2652,14 +2634,14 @@ export default function App() {
                     How to read the Debt-to-Income Ratio
                   </div>
                   <div style={{ color: '#333' }}>
-                    <strong>Formula:</strong> per-capita municipal debt Ã· median household income
+                    <strong>Formula:</strong> per-capita municipal debt ÷ median household income
                     for that county. A ratio of <strong>12%</strong> means that for every $100
                     the typical household in that county earns in a year, there is $12 of local
                     government debt attributed to each resident. This is the same metric Moody's,
                     S&amp;P, and Fitch use when rating municipal bonds, because it answers the
                     question regular residents actually care about: <em>how heavy is this debt
-                    relative to what we actually make?</em> Under 5% is modest, 5â10% moderate,
-                    10â15% elevated, above 15% high.
+                    relative to what we actually make?</em> Under 5% is modest, 5–10% moderate,
+                    10–15% elevated, above 15% high.
                   </div>
                   <div style={{ marginTop: 10, fontSize: '0.78rem', color: 'var(--text-muted)' }}>
                     <strong>Sources:</strong> Outstanding debt from MA Division of Local Services
@@ -2672,7 +2654,7 @@ export default function App() {
                       rel="noopener"
                       style={{ color: '#14558F' }}
                     >
-                      data.census.gov â
+                      data.census.gov ↗
                     </a>
                     ). Fiscal years shown in the "Data as of" column reflect the most recent
                     audited filing available for each jurisdiction.
@@ -2688,7 +2670,7 @@ export default function App() {
                 className="chart-card"
                 style={{ marginTop: 24, borderLeft: '4px solid #14558F' }}
               >
-                <h3>Methodology &amp; Sources â Bonds &amp; Borrowing</h3>
+                <h3>Methodology &amp; Sources — Bonds &amp; Borrowing</h3>
                 <div className="chart-subtitle">
                   Every number on this tab traces back to a primary-source document.
                   We publish our methodology openly because the whole point of an
@@ -2703,25 +2685,25 @@ export default function App() {
                     Pulled from the Commonwealth of Massachusetts{' '}
                     <a href="https://www.macomptroller.org/annual-comprehensive-financial-report/"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
-                      Annual Comprehensive Financial Report (ACFR) â
+                      Annual Comprehensive Financial Report (ACFR) ↗
                     </a>{' '}
                     published each year by the Office of the State Comptroller, cross-checked
                     against the{' '}
                     <a href="https://www.mass.gov/orgs/debt-affordability-committee"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
-                      MA Debt Affordability Committee â
+                      MA Debt Affordability Committee ↗
                     </a>{' '}
                     annual report and{' '}
                     <a href="https://www.massbondholder.com/"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
-                      MassBondHolder.com â
+                      MassBondHolder.com ↗
                     </a>{' '}
-                    investor disclosures. Series now runs <strong>FY2000 â FY2026</strong>.
-                    FY2000âFY2014 figures were extracted line-by-line from the archived ACFR
+                    investor disclosures. Series now runs <strong>FY2000 – FY2026</strong>.
+                    FY2000–FY2014 figures were extracted line-by-line from the archived ACFR
                     PDFs (FY2004, FY2009, FY2011, FY2012, FY2013, FY2014 editions) and
                     cross-verified across multiple years' statistical sections. "Debt" means
                     Total Primary Government bonded debt + capital leases from the ACFR
-                    "Per Capita General Long-Term Bonded Debt" schedule â this explicitly
+                    "Per Capita General Long-Term Bonded Debt" schedule — this explicitly
                     <strong> excludes</strong> discretely presented component units (MSBA,
                     MBTA, Massport, MWRA, etc.), consistent with the post-FY2015 figures.
                   </div>
@@ -2735,7 +2717,7 @@ export default function App() {
                     "net proceeds of debt issued" to "principal." FY2012 and earlier rows are
                     on a net-proceeds basis; FY2013 and later are on a principal basis. This
                     explains the apparent flat line between FY2012 ($25.36B) and FY2013
-                    ($25.32B) â the underlying debt didn't actually stop growing; the
+                    ($25.32B) — the underlying debt didn't actually stop growing; the
                     accounting changed.
                     <br /><br />
                     <strong>FY2007 &amp; FY2008 debt service restatement.</strong> The FY2009,
@@ -2746,10 +2728,10 @@ export default function App() {
                     People's Audit uses the latest authoritative (restated) figures but flags
                     these rows so residents understand why debt service appears to spike and
                     then fall in that window. This is the kind of finding that a real
-                    legislative audit would investigate â the same kind of audit 72% of MA
+                    legislative audit would investigate — the same kind of audit 72% of MA
                     voters demanded in 2024.
                     <br /><br />
-                    <strong>FY2000 â FY2001 scope.</strong> Pre-GASB 34, the Commonwealth
+                    <strong>FY2000 – FY2001 scope.</strong> Pre-GASB 34, the Commonwealth
                     reported bonded debt as a single aggregate figure without splitting
                     governmental from business-type activities. Those two rows use the
                     single-column "Total long-term bonds and notes payable" figure from the
@@ -2767,7 +2749,7 @@ export default function App() {
                     Outstanding debt aggregated from the MA{' '}
                     <a href="https://www.mass.gov/orgs/division-of-local-services"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
-                      Division of Local Services (DLS) â
+                      Division of Local Services (DLS) ↗
                     </a>{' '}
                     Schedule A filings that every city and town is legally required to file,
                     plus county ACFRs where the county itself is the issuer. Median household
@@ -2775,7 +2757,7 @@ export default function App() {
                     Table{' '}
                     <a href="https://data.census.gov/table/ACSST5Y2022.S1901"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
-                      S1901 â
+                      S1901 ↗
                     </a>
                     . The Debt-to-Income Ratio is the same metric used by Moody's, S&amp;P,
                     and Fitch municipal credit analysts.
@@ -2786,7 +2768,7 @@ export default function App() {
                   </div>
                   <div>
                     The MSRB's EMMA site (<a href="https://emma.msrb.org/"
-                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>emma.msrb.org â</a>)
+                       target="_blank" rel="noopener" style={{ color: '#14558F' }}>emma.msrb.org ↗</a>)
                     blocks all third-party iframe embedding for security reasons
                     (X-Frame-Options: DENY). Instead, a scheduled GitHub Action in this
                     repository fetches the latest Massachusetts disclosures every 6 hours
@@ -2806,9 +2788,9 @@ export default function App() {
                     Pulled live from the U.S. Treasury{' '}
                     <a href="https://fiscaldata.treasury.gov/api-documentation/"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
-                      fiscalData API â
+                      fiscalData API ↗
                     </a>
-                    . No caching, no intermediaries â your browser talks directly to Treasury.
+                    . No caching, no intermediaries — your browser talks directly to Treasury.
                   </div>
 
                   <div style={{ fontWeight: 700, color: '#14558F', marginTop: 14 }}>
@@ -2818,16 +2800,16 @@ export default function App() {
                     This tab does not yet include: (1) municipal-level debt issuance for all
                     351 MA cities and towns from DLS Schedule A, (2) a "how much is being
                     taken away from you" personal-cost-of-borrowing explainer, and (3)
-                    independent PDF re-verification of the FY2015âFY2025 ACFR figures (we
+                    independent PDF re-verification of the FY2015–FY2025 ACFR figures (we
                     have those numbers from aggregated sources but haven't yet cross-checked
                     each one against the primary ACFR document the way we did for
-                    FY2000âFY2014). All three are queued for the next update. If you notice
+                    FY2000–FY2014). All three are queued for the next update. If you notice
                     a number that looks wrong, file an issue on{' '}
                     <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit/issues"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
-                      GitHub â
+                      GitHub ↗
                     </a>{' '}
-                    â this project improves by being checked.
+                    — this project improves by being checked.
                   </div>
                 </div>
               </div>
@@ -2855,7 +2837,7 @@ export default function App() {
                       }}
                       title="Re-fetch latest MA bond trades from EMMA / MSRB"
                     >
-                      {emmaRefreshing ? 'Refreshingâ¦' : 'â» Refresh now'}
+                      {emmaRefreshing ? 'Refreshing…' : '↻ Refresh now'}
                     </button>
                   </div>
                   <div className="chart-subtitle" style={{ marginTop: 6 }}>
@@ -2868,7 +2850,7 @@ export default function App() {
                     }}>
                       <strong style={{ color: '#222' }}>Last refreshed:</strong>{' '}
                       {emmaLastFetched.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
-                      {' Â· '}{data.emmaTrades.length} trades loaded
+                      {' · '}{data.emmaTrades.length} trades loaded
                     </div>
                   )}
                   {data.emmaTrades && data.emmaTrades.length > 0 ? (
@@ -2890,7 +2872,7 @@ export default function App() {
                             <td style={{ padding: '10px 8px', fontWeight: 500 }}>{t.issuer}</td>
                             <td style={{ padding: '10px 8px', fontFamily: 'monospace' }}>
                               <a href={`https://emma.msrb.org/Security/Details/${t.cusip}`} target="_blank" rel="noopener" style={{ color: '#14558F', textDecoration: 'none' }}>
-                                {t.cusip} â
+                                {t.cusip} ↗
                               </a>
                             </td>
                             <td style={{ padding: '10px 8px', textAlign: 'right' }}>{formatMoney(t.par)}</td>
@@ -2905,7 +2887,7 @@ export default function App() {
                   ) : (
                     <div style={{ marginTop: 16, padding: '20px 16px', background: '#f4f5f8', borderRadius: 8, textAlign: 'center', color: 'var(--text-muted)' }}>
                       <p style={{ margin: '0 0 8px', fontWeight: 600, color: '#680A1D' }}>No bond trades loaded</p>
-                      <p style={{ margin: 0, fontSize: '0.85rem' }}>Click "â» Refresh now" above to fetch the latest MA bond trades from EMMA / MSRB.</p>
+                      <p style={{ margin: 0, fontSize: '0.85rem' }}>Click "↻ Refresh now" above to fetch the latest MA bond trades from EMMA / MSRB.</p>
                     </div>
                   )}
                 </div>
@@ -2934,29 +2916,29 @@ export default function App() {
                   </ResponsiveContainer>
                 ) : (
                   <div style={{ padding: 40, textAlign: 'center', background: '#f4f5f8', borderRadius: 8, color: 'var(--text-muted)' }}>
-                    <div style={{ fontSize: '2rem', marginBottom: 8 }}>â </div>
-                    <div>Live Treasury feed unavailable. Try refreshing, or visit <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/" target="_blank" rel="noopener" style={{ color: '#680A1D', fontWeight: 600 }}>the Treasury fiscalData portal directly â</a></div>
+                    <div style={{ fontSize: '2rem', marginBottom: 8 }}>⚠</div>
+                    <div>Live Treasury feed unavailable. Try refreshing, or visit <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/" target="_blank" rel="noopener" style={{ color: '#680A1D', fontWeight: 600 }}>the Treasury fiscalData portal directly ↗</a></div>
                   </div>
                 )}
               </div>
 
               <div className="chart-card" style={{ marginTop: 24 }}>
-                <h3>Drill Deeper â Official Sources</h3>
+                <h3>Drill Deeper — Official Sources</h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginTop: 12 }}>
                   <a href="https://emma.msrb.org/IssuerHomePage/Issuer?id=EC7583FF8C47A63AE040A8C0E4052D69" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #14558F', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
-                    <strong style={{ color: '#14558F' }}>EMMA â MSRB Issuer Page â</strong>
+                    <strong style={{ color: '#14558F' }}>EMMA — MSRB Issuer Page ↗</strong>
                     <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Live trading data, continuing disclosures, official statements for every Commonwealth of MA bond.</div>
                   </a>
                   <a href="https://www.massbondholder.com/" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #680A1D', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
-                    <strong style={{ color: '#680A1D' }}>MassBondHolder.com â</strong>
-                    <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Commonwealth Treasurer's investor portal â debt statements, POS, official statements, redemption schedules.</div>
+                    <strong style={{ color: '#680A1D' }}>MassBondHolder.com ↗</strong>
+                    <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Commonwealth Treasurer's investor portal — debt statements, POS, official statements, redemption schedules.</div>
                   </a>
                   <a href="https://www.macomptroller.org/annual-comprehensive-financial-report/" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #32784E', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
-                    <strong style={{ color: '#32784E' }}>MA Comptroller ACFR â</strong>
-                    <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Annual Comprehensive Financial Report â authoritative source for state debt figures.</div>
+                    <strong style={{ color: '#32784E' }}>MA Comptroller ACFR ↗</strong>
+                    <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Annual Comprehensive Financial Report — authoritative source for state debt figures.</div>
                   </a>
                   <a href="https://www.mass.gov/debt-affordability-committee" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #14558F', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
-                    <strong style={{ color: '#14558F' }}>Debt Affordability Committee â</strong>
+                    <strong style={{ color: '#14558F' }}>Debt Affordability Committee ↗</strong>
                     <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Annual report on how much new debt the Commonwealth can responsibly issue.</div>
                   </a>
                 </div>
@@ -3008,7 +2990,7 @@ export default function App() {
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                         <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={({ x, y, payload }) => (
                           <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
-                            {payload.value.length > 28 ? payload.value.substring(0, 26) + 'â¦' : payload.value}
+                            {payload.value.length > 28 ? payload.value.substring(0, 26) + '…' : payload.value}
                           </text>
                         )} />
                         <Tooltip content={<CustomTooltip />} />
@@ -3028,7 +3010,7 @@ export default function App() {
                         <XAxis type="number" tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                         <YAxis type="category" dataKey="name" stroke={AXIS_COLOR} width={190} tick={({ x, y, payload }) => (
                           <text x={x} y={y} dy={4} textAnchor="end" fill={AXIS_COLOR} fontSize={10}>
-                            {payload.value.length > 28 ? payload.value.substring(0, 26) + 'â¦' : payload.value}
+                            {payload.value.length > 28 ? payload.value.substring(0, 26) + '…' : payload.value}
                           </text>
                         )} />
                         <Tooltip content={<CustomTooltip />} />
@@ -3066,7 +3048,7 @@ export default function App() {
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
                     On November 5, 2024, Massachusetts {audit.ballotQuestion} asked voters whether the
                     State Auditor should have explicit authority to audit the Legislature.
-                    <strong style={{ color: 'var(--text-primary)' }}> Nearly 72% voted YES</strong> â an
+                    <strong style={{ color: 'var(--text-primary)' }}> Nearly 72% voted YES</strong> — an
                     overwhelming, bipartisan mandate for transparency.
                   </p>
                 </div>
@@ -3075,7 +3057,7 @@ export default function App() {
                   <div className="card-title"><AlertTriangle size={14} /> The Blockade</div>
                   <div className="card-value" style={{ color: 'var(--accent-red)', fontSize: '1.6rem' }}>Refused</div>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                    Despite the voter mandate, legislative leaders â including {audit.legislativeLeaders.join(' and ')} â
+                    Despite the voter mandate, legislative leaders — including {audit.legislativeLeaders.join(' and ')} —
                     have refused to comply. In January 2025, the House hired outside legal counsel
                     to fight the audit, arguing &quot;separation of powers.&quot;
                   </p>
@@ -3096,7 +3078,7 @@ export default function App() {
                   <div className="card-value" style={{ color: 'var(--accent-green)', fontSize: '1.3rem' }}>Transparency</div>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
                     If the Legislature won't allow a formal audit, the people will audit them with
-                    the data that's already public. Every dollar, every vendor, every salary â
+                    the data that's already public. Every dollar, every vendor, every salary —
                     and now, every campaign contribution.
                   </p>
                 </div>
@@ -3108,11 +3090,11 @@ export default function App() {
                   {[
                     { date: '2022', event: 'Diana DiZoglio elected State Auditor on a platform of legislative accountability', color: '#3388ff' },
                     { date: '2023', event: 'Auditor DiZoglio attempts audit; Legislature refuses, citing lack of authority', color: '#ffaa22' },
-                    { date: 'Nov 2024', event: 'Ballot Question 1 passes with 71.8% YES â voters affirm the auditor\'s authority', color: '#22cc66' },
+                    { date: 'Nov 2024', event: 'Ballot Question 1 passes with 71.8% YES — voters affirm the auditor\'s authority', color: '#22cc66' },
                     { date: 'Nov 2024', event: 'DiZoglio announces plans to begin the audit immediately', color: '#22cc66' },
                     { date: 'Jan 2025', event: 'House of Representatives hires outside counsel to fight the audit', color: '#ff3344' },
                     { date: 'Feb 2026', event: 'DiZoglio files complaint with Supreme Judicial Court to enforce Question 1', color: '#aa44ff' },
-                    { date: '2026', event: 'The People\'s Audit goes live â if they won\'t audit, we will', color: '#ff3344' },
+                    { date: '2026', event: 'The People\'s Audit goes live — if they won\'t audit, we will', color: '#ff3344' },
                   ].map((item, i) => (
                     <div key={i} style={{
                       display: 'flex', gap: 20, padding: '16px 0',
@@ -3154,7 +3136,7 @@ export default function App() {
       <div style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)', padding: '40px 24px', textAlign: 'center' }}>
         <h3 style={{ marginBottom: 8, fontSize: '1.3rem', fontWeight: 700 }}>Share This Dashboard</h3>
         <p style={{ color: 'var(--text-secondary)', marginBottom: 20, fontSize: '0.9rem' }}>
-          Help spread transparency â share The People's Audit with your network.
+          Help spread transparency — share The People's Audit with your network.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="https://twitter.com/intent/tweet?text=Massachusetts%20voters%20demanded%20a%20legislative%20audit.%20The%20legislature%20refused.%20So%20we%20built%20The%20People%27s%20Audit%20%E2%80%94%20tracking%20every%20public%20dollar.&url=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
@@ -3166,6 +3148,11 @@ export default function App() {
             target="_blank" rel="noopener"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#0077B5', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
             Share on LinkedIn
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
+            target="_blank" rel="noopener"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#1877F2', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
+            Share on Facebook
           </a>
           <button onClick={() => { navigator.clipboard.writeText('https://duncanburns2013-dot.github.io/The-Peoples-Audit/'); }}
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: 'var(--bg-primary)', color: 'var(--text-primary)', border: '1px solid var(--border)', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s' }}>
