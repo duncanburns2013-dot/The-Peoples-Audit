@@ -4,10 +4,10 @@ import { DollarSign, Home, Heart, Car, ShoppingCart, TrendingUp, Info } from 'lu
 
 const MA_DATA = {
   minimumWage: 15.0,
-  livingWages: { '1_adult_0_children': 23.81, '1_adult_1_child': 45.37, '2_adults_2_children': 30.33, '2_adults_1_child': 25.63 },
+  livingWages: { '1_adult_0_children': 23.81, '1_adult_1_child': 45.37, '2_adults_2_children': 30.33, '2_adults_1_child': 25.63, '2_adults_3_children': 35.12, '2_adults_4_children': 39.87 },
   medianHouseholdIncome: 96505, population: 7030000, stateBudget: 58800000000,
   costIndices: { housing: 159, healthcare: 115, transportation: 108, food: 105, childcare: 112 },
-  averageRent1BR: 2200, averageHomePrice: 575000, nationalAverageRent1BR: 1300, nationalAverageHomePrice: 350000,
+  averageRent1BR: 2200, averageRent2BR: 2800, averageRent3BR: 3300, averageHomePrice: 575000, nationalAverageRent1BR: 1300, nationalAverageRent2BR: 1650, nationalAverageRent3BR: 1950, nationalAverageHomePrice: 350000,
 };
 
 const ANNUAL_COSTS = {
@@ -15,6 +15,8 @@ const ANNUAL_COSTS = {
   '1_adult_1_child': { housing: 18720, food: 7560, transportation: 8100, healthcare: 4104, childcare: 19200, taxes: 12960, other: 3564 },
   '2_adults_1_child': { housing: 20400, food: 8400, transportation: 9000, healthcare: 6800, childcare: 19200, taxes: 14400, other: 4200 },
   '2_adults_2_children': { housing: 20400, food: 9600, transportation: 10000, healthcare: 8400, childcare: 28800, taxes: 15600, other: 5200 },
+  '2_adults_3_children': { housing: 22000, food: 11000, transportation: 11000, healthcare: 9800, childcare: 38400, taxes: 16800, other: 6200 },
+  '2_adults_4_children': { housing: 24000, food: 12500, transportation: 12000, healthcare: 11200, childcare: 48000, taxes: 18000, other: 7200 },
 };
 
 const COLORS = { housing: '#680A1D', food: '#32784E', transportation: '#14558F', healthcare: '#E67E22', childcare: '#9B59B6', taxes: '#FFC72C', other: '#00A9CE' };
@@ -41,7 +43,8 @@ export default function CostOfLivingCalculator() {
   }, [annualIncome, familySize, costs, totalAnnualCost]);
 
   const comparisonData = [
-    { name: 'Housing (1BR)', ma: MA_DATA.averageRent1BR * 12, national: MA_DATA.nationalAverageRent1BR * 12 },
+    { name: 'Housing (2BR)', ma: MA_DATA.averageRent2BR * 12, national: MA_DATA.nationalAverageRent2BR * 12 },
+    { name: 'Housing (3BR)', ma: MA_DATA.averageRent3BR * 12, national: MA_DATA.nationalAverageRent3BR * 12 },
     { name: 'Healthcare', ma: 8200, national: 7100 },
     { name: 'Transportation', ma: 8400, national: 7800 },
     { name: 'Food (Annual)', ma: 4500, national: 4300 },
@@ -53,6 +56,8 @@ export default function CostOfLivingCalculator() {
     { name: '1A + 1C', wage: MA_DATA.livingWages['1_adult_1_child'], minWage: MA_DATA.minimumWage },
     { name: '2A + 1C', wage: MA_DATA.livingWages['2_adults_1_child'], minWage: MA_DATA.minimumWage },
     { name: '2A + 2C', wage: MA_DATA.livingWages['2_adults_2_children'], minWage: MA_DATA.minimumWage },
+    { name: '2A + 3C', wage: MA_DATA.livingWages['2_adults_3_children'], minWage: MA_DATA.minimumWage },
+    { name: '2A + 4C', wage: MA_DATA.livingWages['2_adults_4_children'], minWage: MA_DATA.minimumWage },
   ];
 
   const budgetPieData = userBudgetBreakdown.map(i => ({ name: LABELS[i.category], value: Math.round(i.userAllocation), color: COLORS[i.category] }));
@@ -95,6 +100,8 @@ export default function CostOfLivingCalculator() {
               <option value="1_adult_1_child">1 Adult, 1 Child</option>
               <option value="2_adults_1_child">2 Adults, 1 Child</option>
               <option value="2_adults_2_children">2 Adults, 2 Children</option>
+              <option value="2_adults_3_children">2 Adults, 3 Children</option>
+              <option value="2_adults_4_children">2 Adults, 4 Children</option>
             </select>
           </div>
         </div>
@@ -164,6 +171,9 @@ export default function CostOfLivingCalculator() {
       <div className="chart-card" style={{ marginBottom: 24 }}>
         <h3>Detailed Budget Comparison</h3>
         <div className="chart-subtitle">Expected costs vs. your proportional allocation</div>
+        <div style={{ background: 'rgba(50, 120, 78, 0.06)', border: '1px solid rgba(50, 120, 78, 0.15)', borderRadius: 8, padding: '12px 16px', fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: 8, lineHeight: 1.6 }}>
+          <strong style={{ color: 'var(--accent-green)' }}>What is "Proportional Allocation"?</strong> This table compares what the average Massachusetts household spends in each category (Expected) against what your household would spend if your income were distributed in the same proportions. If your income is above the average cost of living, each category gets more budget; if below, each gets less. The "Difference" column shows the gap â green means you have more room in that category, red means you're stretched thin.
+        </div>
         <div style={{ overflowX: 'auto', marginTop: 16 }}>
           <table style={{ width: '100%', fontSize: '0.85rem', borderCollapse: 'collapse' }}>
             <thead>
@@ -198,6 +208,9 @@ export default function CostOfLivingCalculator() {
       <div className="chart-card" style={{ marginBottom: 24 }}>
         <h3>Massachusetts vs National Average Costs</h3>
         <div className="chart-subtitle">Annual cost comparison across key categories</div>
+        <div style={{ background: 'rgba(20,85,143,0.06)', border: '1px solid rgba(20,85,143,0.15)', borderRadius: 10, padding: '12px 16px', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 16, lineHeight: 1.6 }}>
+          <strong style={{ color: 'var(--accent-blue)' }}>All figures represent annual per-household costs</strong>
+        </div>
         <ResponsiveContainer width="100%" height={350}>
           <BarChart data={comparisonData}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" />
@@ -212,7 +225,10 @@ export default function CostOfLivingCalculator() {
       </div>
 
       {/* Cost Index Cards */}
-      <div className="card-grid" style={{ marginBottom: 24 }}>
+      <div style={{ background: 'rgba(20,85,143,0.06)', border: '1px solid rgba(20,85,143,0.15)', borderRadius: 10, padding: '14px 18px', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 16, lineHeight: 1.6 }}>
+        <strong style={{ color: 'var(--accent-blue)' }}>Understanding Cost Index Scores:</strong> Each score compares Massachusetts costs to the national average of 100. A score of 159 for housing means MA housing costs are 59% higher than the U.S. average. Scores above 100 indicate higher-than-average costs; below 100 means lower. Source: Council for Community and Economic Research (C2ER) Cost of Living Index.
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16, marginBottom: 24 }}>
         {Object.entries(MA_DATA.costIndices).map(([key, index]) => {
           const Icon = ICONS[key] || DollarSign;
           const isAbove = index > 100;
