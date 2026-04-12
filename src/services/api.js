@@ -795,8 +795,37 @@ async function ocpfQuery(endpoint, timeout = 20000) {
  * Get all MA legislators with financial summaries from depository reports.
  * Returns: cpfId, filerName, officeSought, partyAffiliation, receiptsYtd, expendituresYtd, currentCashOnHand, etc.
  */
-export async function fetchLegislatorFinances(year) {
-  const years = year ? [year] : getOcpfYears();
+/**
+ * Fetch legislator finances from OCPF depository reports.
+ * MA state elections are even years; odd years are municipal.
+ * By default, fetches STATE legislators (even years) first,
+ * then municipal as fallback.
+ * Pass raceType='municipal' to specifically get municipal races.
+ * Pass raceType='state' (default) for state legislators.
+ */
+export async function fetchLegislatorFinances(year, raceType = 'state') {
+  const currentYear = new Date().getFullYear();
+
+  let years;
+  if (year) {
+    years = [year];
+  } else if (raceType === 'municipal') {
+    // Odd years for municipal: try current, then recent odd years
+    const oddYears = [];
+    for (let y = currentYear; y >= currentYear - 4; y--) {
+      if (y % 2 === 1) oddYears.push(String(y));
+    }
+    years = oddYears.length > 0 ? oddYears : getOcpfYears();
+  } else {
+    // State legislators: try even years first (state election cycles)
+    const evenYears = [];
+    for (let y = currentYear; y >= currentYear - 4; y--) {
+      if (y % 2 === 0) evenYears.push(String(y));
+    }
+    // Also try current year in case there's data
+    years = [String(currentYear), ...evenYears.filter(y => y !== String(currentYear))];
+  }
+
   for (const yr of years) {
     try {
       const data = await ocpfQuery(`/reports/legislative/race/depository/${yr}`);

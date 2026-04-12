@@ -1118,7 +1118,7 @@ function FollowTheMoney() {
   useEffect(() => {
     setLoading(true);
     Promise.allSettled([
-      fetchLegislatorFinances(),
+      fetchLegislatorFinances(null, 'state'),   // Even years → state reps/senators
       fetchPACFinances(),
     ]).then(([legResult, pacResult]) => {
       if (legResult.status === 'fulfilled') {
@@ -1447,7 +1447,7 @@ function FollowTheMoney() {
               )}
 
               <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 8 }}>
-                Click any row to see individual contributions. Click column headers to sort.
+                State legislators — {dataYear} election cycle. Click any row to see individual contributions. Click column headers to sort.
               </p>
               <div className="data-table-wrapper">
                 <table className="data-table">
@@ -1456,7 +1456,7 @@ function FollowTheMoney() {
                       <th>#</th>
                       {[
                         { col: 'name', label: 'Name' },
-                        { col: 'office', label: 'Office' },
+                        { col: 'office', label: 'District' },
                         { col: 'party', label: 'Party' },
                         { col: 'receipts', label: 'Receipts' },
                         { col: 'expenditures', label: 'Expenditures' },
