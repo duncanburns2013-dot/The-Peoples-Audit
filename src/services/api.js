@@ -1036,20 +1036,17 @@ export async function fetchFilerProfile(cpfId) {
  */
 export async function crossReferenceVendorDonations(vendorName, pageSize = 200) {
   try {
-    // OCPF searchPhrase searches ALL fields (name, employer, address, city).
-    // For a meaningful vendor cross-reference, we fetch a large set then filter
-    // client-side to only show donors whose EMPLOYER matches the vendor name.
+    // Use the OCPF dedicated "employer" parameter — this searches ONLY the
+    // employer field, not name/address/city like searchPhrase does.
     const queryParts = [
       'searchTypeCategory=A',
-      `searchPhrase=${encodeURIComponent(vendorName)}`,
+      `employer=${encodeURIComponent(vendorName)}`,
       `pageSize=${pageSize}`,
       'pageIndex=0',
     ];
     const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
-    const vendorLower = vendorName.toLowerCase().trim();
 
-    // Map all results, then filter to only those with a matching employer
-    const allMapped = (data.items || []).map(d => ({
+    return (data.items || []).map(d => ({
       contributor: d.fullNameReverse || 'Unknown',
       amount: d.amount || '$0',
       amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
@@ -1061,16 +1058,6 @@ export async function crossReferenceVendorDonations(vendorName, pageSize = 200) 
       city: d.city || '',
       state: d.state || '',
     }));
-
-    // Filter: employer must contain the vendor name (case-insensitive)
-    const employerMatches = allMapped.filter(d =>
-      d.employer.toLowerCase().includes(vendorLower)
-    );
-
-    // Only return results where the employer actually matches the vendor name.
-    // If nobody lists this vendor as their employer, return empty — don't show
-    // random people whose address happens to contain the search term.
-    return employerMatches;
   } catch (err) {
     console.warn('Vendor cross-reference failed:', err.message);
     return [];
