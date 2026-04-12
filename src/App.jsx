@@ -1463,7 +1463,7 @@ function FollowTheMoney() {
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 8 }}>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: 0 }}>
-                  {dataYear ? (parseInt(dataYear) % 2 === 0 ? 'State legislators' : 'Municipal candidates') : 'Legislators'} — {dataYear || '...'} OCPF data. Click any row for contributions.
+                  Live OCPF data. Click any row for contributions. Click column headers to sort.
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <select value={legYear} onChange={e => { setLegYear(e.target.value); setSelectedLegislator(null); setLegislatorContributions(null); }}
