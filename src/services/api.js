@@ -757,10 +757,21 @@ export async function fetchSpendingByCabinet(fiscalYear = '2025', limit = 20) {
 
 const OCPF_BASE = 'https://api.ocpf.us';
 
-/** Return the current year as a string, and the previous year for fallback */
+/** Return the current year and fallback years for OCPF queries */
 function getOcpfYears() {
   const yr = new Date().getFullYear();
   return [String(yr), String(yr - 1), String(yr - 2)];
+}
+
+/**
+ * Parse OCPF date string (M/D/YYYY) into epoch ms for proper comparison.
+ * OCPF returns dates like "4/10/2026" — string comparison breaks on this format.
+ */
+function parseOcpfDate(str) {
+  if (!str) return 0;
+  const parts = str.split('/');
+  if (parts.length === 3) return new Date(+parts[2], +parts[0] - 1, +parts[1]).getTime();
+  return new Date(str).getTime() || 0;
 }
 
 async function ocpfQuery(endpoint, timeout = 12000) {
@@ -782,8 +793,7 @@ async function ocpfQuery(endpoint, timeout = 12000) {
 
 /**
  * Get all MA legislators with financial summaries from depository reports.
- * Tries current year first, then falls back to prior years.
- * Returns: { data: [...], year: '2026' }
+ * Returns: cpfId, filerName, officeSought, partyAffiliation, receiptsYtd, expendituresYtd, currentCashOnHand, etc.
  */
 export async function fetchLegislatorFinances(year) {
   const years = year ? [year] : getOcpfYears();
@@ -810,14 +820,12 @@ export async function fetchLegislatorFinances(year) {
       console.warn(`Legislator finances fetch failed for ${yr}:`, err.message);
     }
   }
-  console.warn('All OCPF legislator year attempts failed — using fallback data');
-  return { data: LEGISLATOR_FALLBACK, year: 'cached' };
+  console.warn('All OCPF years failed for legislators, using fallback');
+  return { data: [], year: 'cached' };
 }
 
 /**
  * Get PAC (Political Action Committee) financial summaries.
- * Tries current year first, then falls back to prior years.
- * Returns: { data: [...], year: '2026' }
  */
 export async function fetchPACFinances(year) {
   const years = year ? [year] : getOcpfYears();
@@ -840,8 +848,8 @@ export async function fetchPACFinances(year) {
       console.warn(`PAC finances fetch failed for ${yr}:`, err.message);
     }
   }
-  console.warn('All OCPF PAC year attempts failed — using fallback data');
-  return { data: PAC_FALLBACK, year: 'cached' };
+  console.warn('All OCPF years failed for PACs, using fallback');
+  return { data: [], year: 'cached' };
 }
 
 /**
@@ -855,7 +863,239 @@ export async function searchContributions(params = {}) {
     if (params.cpfId) queryParts.push(`cpfId=${params.cpfId}`);
     if (params.searchPhrase) queryParts.push(`searchPhrase=${encodeURIComponent(params.searchPhrase)}`);
     if (params.startDate) queryParts.push(`startDate=${params.startDate}`);
-    if (G&�2�V�DFFR�VW'�'G2�W6��V�DFFS�G�&�2�V�DFFW����VW'�'G2�W6��vU6��S�G�&�2�vU6��R��S����VW'�'G2�W6��vT��FW��G�&�2�vT��FW�������6��7BFF�v�B�7eVW'���6V&6���FV�3�G�VW'�'G2����rbr�����&WGW&����FV�3��FF�FV�2���Ғ���B�����6��G&�'WF�#�B�gV����U&WfW'6R��uV���v�r��f�'7D��S�B�f�'7D��R��rr���7D��S�B��7D��R��rr����V�C�B���V�B��rCr����V�D�VӢ'6Tf��B��B���V�B��sr��&W�6R���B���r�rr������&V6��V�C�B�f��W$gV����U&WfW'6R��uV���v�r��&V6��V�D7d�C�B�f��W$7d�B����V����W#�B�V����W"��rr���67WF���B��67WF�����rr��FFS�B�FFR��rr��G�S�B�&V6�&EG�TFW67&�F�����rr��6�G��B�6�G���rr��7FFS�B�7FFR��rr��Ғ���7V��'��FF�7V��'���Ӱ��6F6��W'"���6��6��R�v&�t6��G&�'WF���6V&6�f��VC�r�W'"��W76vR���&WGW&���FV�3����7V��'���V��Ӱ�ЧР�򢠢�'6R�5bFFR7G&��r���B��������F�FFR�&�V7Bf�"&�W"6��&�6����&WGW&�2W�6��2��bV�'6V&�R����gV�7F���'6T�7dFFR�7G"����b�7G"�&WGW&���6��7B'G2�7G"�7ƗB�r�r����b�'G2��V�wF����2�&WGW&��WrFFR��'G5�%���'G5�����'G5�Ғ�vWEF��R����&WGW&��WrFFR�7G"��vWEF��R������Р�򢠢�fWF6�F�R��7B&V6V�B6��G&�'WF���f�"v�fV�f��W"��Vv�6�F�"�6�F�FFR����5bFFW2&R��B������BF�R�&WGW&�2��FW7B�f�'7B�6�vS����fWF6�7W'&V�B�V"f�'7B�6���&W7V�B6WB���"�'6RFFW2&�W&ǒf�"6��&�6���7G&��r6��&Rf��2����B��������2�f��&6�F�&��"�V'2�b��F���rf�V�@��&WGW&�2�7d�B��7D6��G&�$FFR��7D6��G&�$��V�B��7D6��G&�'WF�"Т��W��'B7��2gV�7F���fWF6��7D6��G&�'WF���7d�B���G'���6��7BF�F���WrFFR���F��4�7G&��r���6Ɩ6R�����6��7B7W'&V�E�V"��WrFFR���vWDgV�ŖV"�����f�"��WB�"�7W'&V�E�V#��"��7W'&V�E�V"�#��"�Ғ��6��7B7F'B�G��'�����6��7BV�B��"���7W'&V�E�V"�F�F��G��'��"�3��6��7B2�6V&6�G�T6FVv�'��f7d�C�G�7d�G�g7F'DFFS�G�7F'G�fV�DFFS�G�V�G�gvU6��S�gvT��FW����6��7BFF�v�B�7eVW'���6V&6���FV�3�G�7����6��7B�FV�2�FF�FV�2���Ӱ��b��FV�2��V�wF�����6��F��VS�����f��BF�R��7B&V6V�B'�'6��r�5b��B�����FFW2&�W&ǐ��WB�WvW7B��FV�5�Ӱ��WB�WvW7EF��R�'6T�7dFFR��WvW7B�FFR���f�"��WB������FV�2��V�wF��������6��7BB�'6T�7dFFR��FV�5����FFR����b�B��WvW7EF��R���WvW7B��FV�5��Ӳ�WvW7EF��R�C�ТР����bvR�2gV���6�V6��W�BvRF���b��FV�2��V�wF������G'���6��7B3"�6V&6�G�T6FVv�'��f7d�C�G�7d�G�g7F'DFFS�G�7F'G�fV�DFFS�G�V�G�gvU6��S�gvT��FW����6��7BFF"�v�B�7eVW'���6V&6���FV�3�G�3'����f�"�6��7B�FV��b�FF"�FV�2���Ғ���6��7BB�'6T�7dFFR��FV��FFR����b�B��WvW7EF��R���WvW7B��FVӲ�WvW7EF��R�C�ТТ�6F6������v��&R6V6��B�vRf��W&W2��ТР�&WGW&���7d�B���7D6��G&�$FFS��WvW7B�FFR���V�����7D6��G&�$��V�C��WvW7B���V�B���V�����7D6��G&�'WF�#��WvW7B�gV����U&WfW'6R���WvW7B�f�'7D��R���V����Ӱ�Р�&WGW&��7d�B��7D6��G&�$FFS��V����7D6��G&�$��V�C��V����7D6��G&�'WF�#��V��Ӱ��6F6��W'"���6��6��R�v&��7B6��G&�'WF���fWF6�f��VBf�"7d�C�G�7d�GӦ�W'"��W76vR���&WGW&��7d�B��7D6��G&�$FFS��V����7D6��G&�$��V�C��V����7D6��G&�'WF�#��V��Ӱ�ЧР�򢠢�6V&6�W�V�F�GW&W2e$���ƗF�6�6��v�2��6V&6�G�T6FVv�'��"f�"W�V�F�GW&W0���W��'B7��2gV�7F���6V&6�W�V�F�GW&W2�&�2��Ғ��G'���6��7BVW'�'G2��w6V&6�G�T6FVv�'��"uӰ��b�&�2�7d�B�VW'�'G2�W6��7d�C�G�&�2�7d�G�����b�&�2�6V&6��&6R�VW'�'G2�W6��6V&6��&6S�G�V�6�FUU$�6����V�B�&�2�6V&6��&6R������b�&�2�7F'DFFR�VW'�'G2�W6��7F'DFFS�G�&�2�7F'DFFW�����b�&�2�V�DFFR�VW'�'G2�W6��V�DFFS�G�&�2�V�DFFW����VW'�'G2�W6��vU6��S�G�&�2�vU6��R��S����VW'�'G2�W6��vT��FW��G�&�2�vT��FW�������6��7BFF�v�B�7eVW'���6V&6���FV�3�G�VW'�'G2����rbr�����&WGW&����FV�3��FF�FV�2���Ғ���B������VS�B�gV����U&WfW'6R��uV���v�r����V�C�B���V�B��rCr����V�D�VӢ'6Tf��B��B���V�B��sr��&W�6R���B���r�rr�������W#�B�f��W$gV����U&WfW'6R��uV���v�r���W$7d�C�B�f��W$7d�B����FFS�B�FFR��rr��G�S�B�&V6�&EG�TFW67&�F�����rr��FW67&�F���B�FW67&�F�����rr��6�G��B�6�G���rr��7FFS�B�7FFR��rr��Ғ���7V��'��FF�7V��'���Ӱ��6F6��W'"���6��6��R�v&�tW�V�F�GW&R6V&6�f��VC�r�W'"��W76vR���&WGW&���FV�3����7V��'���V��Ӱ�ЧР�򢠢�vWB7V6�f�2�Vv�6�F�"�f��W"w2gV��&�f��R���W��'B7��2gV�7F���fWF6�f��W%&�f��R�7d�B���G'���6��7BFF�v�B�7eVW'���f��W"����B�G�7d�G����&WGW&���f��W#�FF�f��W"�������FE&W�'C�FF�FE&W�'B��������u&W�'G3�FF���u&W�'G2������Ӱ��6F6��W'"���6��6��R�v&�tf��W"&�f��RfWF6�f��VC�r�W'"��W76vR���&WGW&��V�ð�ЧР�򢠢�7&�72�&VfW&V�6S�6V&6�f�"6��G&�'WF���2v�W&RF�RV����W"�F6�W27FFRfV�F�"��R��F��2�2F�R�W�gV�7F���F�B6���V7G2'v��vWG27FFR���W�"F�'v��F��FW2F��ƗF�6��2� ���W��'B7��2gV�7F���7&�75&VfW&V�6UfV�F�$F��F���2�fV�F�$��R�vU6��R�S���G'�����6V&6�6��G&�'WF���2v�W&RF�R6��G&�'WF�"w2V����W"�F6�W2F�RfV�F�"��P�6��7BVW'�'G2���w6V&6�G�T6FVv�'��r��6V&6��&6S�G�V�6�FUU$�6����V�B�fV�F�$��R����vU6��S�G�vU6��W���wvT��FW��r��Ӱ�6��7BFF�v�B�7eVW'���6V&6���FV�3�G�VW'�'G2����rbr�����&WGW&��FF�FV�2���Ғ���B�����6��G&�'WF�#�B�gV����U&WfW'6R��uV���v�r����V�C�B���V�B��rCr����V�D�VӢ'6Tf��B��B���V�B��sr��&W�6R���B���r�rr������&V6��V�C�B�f��W$gV����U&WfW'6R��uV���v�r��&V6��V�D7d�C�B�f��W$7d�B����V����W#�B�V����W"��rr���67WF���B��67WF�����rr��FFS�B�FFR��rr��6�G��B�6�G���rr��7FFS�B�7FFR��rr��Ғ����6F6��W'"���6��6��R�v&�ufV�F�"7&�72�&VfW&V�6Rf��VC�r�W'"��W76vR���&WGW&��Ӱ�ЧР�򢠢�vWB�DB�fW&��6��v�f���6RF�F�2f�"F�R7FFR���W��'B7��2gV�7F���fWF6�6��v�f���6UF�F�2����G'���6��7BFF�v�B�7eVW'��r�FF��FEF�F�2r���&WGW&�FF���6F6��W'"���6��6��R�v&�t6��v�f���6RF�F�2fWF6�f��VC�r�W'"��W76vR���&WGW&��V�ð�ЧР��������������������������������������������������������������Т���5bd��$4�DD(	BW6VBv�V�ƗfR�5b��2V�f��&�P���&6VB��V&Ɩ6ǒf��&�R�5bFW�6�F�'�&W�'G0��������������������������������������������������������������Р�6��7B�Tt�4�D�%�d��$4�����7d�C�C�R���S�t�V�W���W&r��ff�6S�tv�fW&��"r�F�7G&�7C�rr�'G��tFV��7&F�2r�&V6V�G3�C#�Sc�W�V�F�GW&W3�3#C�66����C��s#3��5v���W#�G'VR����7d�C�c##B���S�tG&�66�������r��ff�6S�t�B�v�fW&��"r�F�7G&�7C�rr�'G��tFV��7&F�2r�&V6V�G3�CSc#�W�V�F�GW&W3�#��66����C�S#C��5v���W#�G'VR����7d�C�3����S�t�&����&���Br��ff�6S�u7FFR&W&W6V�FF�fRr�F�7G&�7C�s7&B��&f�Ʋr�'G��tFV��7&F�2r�&V6V�G3���SC�W�V�F�GW&W3�c#3�66����C�#CSc��5v���W#�G'VR����7d�C�S3"���S�u7�ƶ��&V�R�r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�s&�B֖FF�W6W��B��&f�Ʋr�'G��tFV��7&F�2r�&V6V�G3��s#�W�V�F�GW&W3�S3C#�66����C��sC��5v���W#�G'VR����7d�C�SCs����S�t7&�v�F���'&V�F��r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�s7&BW76W�r�'G��tFV��7&F�2r�&V6V�G3�cCS#�W�V�F�GW&W3�C#��66����C�3��c��5v���W#�G'VR����7d�C�C"���S�u&�G&�wVW2�֖6�V���r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�s7B'&�7F���Bǖ��WF�r�'G��tFV��7&F�2r�&V6V�G3�c#��W�V�F�GW&W3�C��#�66����C�s#C��5v���W#�G'VR����7d�C�c�����S�tFV6�W"��&��&�R2�r��ff�6S�u7FFR&W&W6V�FF�fRr�F�7G&�7C�s#WF�֖FF�W6W�r�'G��tFV��7&F�2r�&V6V�G3�Ss�C�W�V�F�GW&W3�C#3�66����C�3#���5v���W#�G'VR����7d�C�#CR���S�tV�G&�FvR���W2"�r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�t֖FF�W6W��Bv�&6W7FW"r�'G��tFV��7&F�2r�&V6V�G3�S3Cc�W�V�F�GW&W3�3��#�66����C�CScs��5v���W#�G'VR����7d�C�3Scr���S�tv�f���v��Ɩ�b�r��ff�6S�u6V7&WF'��b7FFRr�F�7G&�7C�rr�'G��tFV��7&F�2r�&V6V�G3�#CS��W�V�F�GW&W3����C�66����C�c�s#��5v���W#�G'VR����7d�C�S�����S�t֖6��Wv�G��&��r��ff�6S�u7FFR&W&W6V�FF�fRr�F�7G&�7C�s7&B7Vff�Ʋr�'G��tFV��7&F�2r�&V6V�G3�C��s�W�V�F�GW&W3�3Sc#�66����C�S3C��5v���W#�G'VR����7d�C�#cs����S�uF'"�''V6RR�r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�s7BW76W��B֖FF�W6W�r�'G��u&WV&Ɩ6�r�&V6V�G3�Cs�#�W�V�F�GW&W3�3#C�66����C�c#3��5v���W#�G'VR����7d�C�C33B���S�t��fVǒ����"�r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�s&�BW76W�r�'G��tFV��7&F�2r�&V6V�G3�CCSc�W�V�F�GW&W3�#��s�66����C�3s����5v���W#�G'VR����7d�C�c"���S�tv&&��W��6V�r��ff�6S�u7FFR&W&W6V�FF�fRr�F�7G&�7C�s#7&B֖FF�W6W�r�'G��tFV��7&F�2r�&V6V�G3�C#3�W�V�F�GW&W3�#�sc�66����C�#��C��5v���W#�G'VR����7d�C������S�u6�V6���&2"�r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�s7Bǖ��WF��B'&�7F��r�'G��tFV��7&F�2r�&V6V�G3�3��s�W�V�F�GW&W3�#cs��66����C�S3C#��5v���W#�G'VR����7d�C�S#3B���S�tv�&F����V��WF���r��ff�6S�u7FFR&W&W6V�FF�fRr�F�7G&�7C�s#7B֖FF�W6W�r�'G��tFV��7&F�2r�&V6V�G3�3s�C�W�V�F�GW&W3�#CSc�66����C�3#��5v���W#�G'VR����7d�C�3�����S�t�V��V��G&�6�B�r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�s&�B֖FF�W6W�r�'G��tFV��7&F�2r�&V6V�G3�3Sc��W�V�F�GW&W3�#3CS�66����C�CCSc��5v���W#�G'VR����7d�C�#"���S�tF���W��6�v�r��ff�6S�u7FFR&W&W6V�FF�fRr�F�7G&�7C�s�F���&f�Ʋr�'G��u&WV&Ɩ6�r�&V6V�G3�33C#�W�V�F�GW&W3�#Scs�66����C�s�C��5v���W#�G'VR����7d�C�cScr���S�t��&��g&��r��ff�6S�u7FFR&W&W6V�FF�fRr�F�7G&�7C�swF�W76W�r�'G��tFV��7&F�2r�&V6V�G3�3#��W�V�F�GW&W3�#3C�66����C���s��5v���W#�G'VR����7d�C�Ccs����S�t7&����6��&RB�r��ff�6S�u7FFR&W&W6V�FF�fRr�F�7G&�7C�sF�ǖ��WF�r�'G��tFV��7&F�2r�&V6V�G3�#��C�W�V�F�GW&W3���s�66����C�3Sc#��5v���W#�G'VR����7d�C�Scs����S�tfGF���'��2�r��ff�6S�u7FFR6V�F�"r�F�7G&�7C�uv�&6W7FW"�B��&f�Ʋr�'G��u&WV&Ɩ6�r�&V6V�G3�#cs��W�V�F�GW&W3���C�66����C�3#S��5v���W#�G'VR���Ӱ��6��7B5�d��$4�����7d�C�s���S�s��4T�R�766�W6WGG22r�&V6V�G3�#CSc�W�V�F�GW&W3���sC�66����C�CSc#����7d�C�s"���S�t�766�W6WGG2FV6�W'276�6�F���2r�&V6V�G3�#C�W�V�F�GW&W3��scS�66����C�3��s����7d�C�s2���S�t�$Ur��6�22r�&V6V�G3���s#�W�V�F�GW&W3�sCSc�66����C�C#3����7d�C�sB���S�t�766�W6WGG2&V�W7FFR2r�&V6V�G3��scS�W�V�F�GW&W3�cSC3�66����C�3s������7d�C�sR���S�t�'V��F��rG&FW26�V�6��2r�&V6V�G3��#3�W�V�F�GW&W3�c#3C�66����C�3CSc����7d�C�sb���S�t76�6�FVB��GW7G&�W2�b�2r�&V6V�G3�sCS#�W�V�F�GW&W3�Scs��66����C�#��C����7d�C�sr���S�t��VF�6�6�6�WG�2r�&V6V�G3�cs�C�W�V�F�GW&W3�S#3�66����C�3#����7d�C�s����S�t�&�&W'2V�����6�#"2r�&V6V�G3�c#3�W�V�F�GW&W3�C��s�66����C�#cs�����7d�C�s����S�t�&�W'276�6�F���2r�&V6V�G3�Scs��W�V�F�GW&W3�C#3�66����C�#��C����7d�C�s���S�t�F����w&�B�2r�&V6V�G3�S#C�W�V�F�GW&W3�3��#�66����C�#3CS����7d�C�s���S�tWfW'6�W&6RV�W&w�2r�&V6V�G3�C��#�W�V�F�GW&W3�3cs��66����C�##3����7d�C�s"���S�t�766�W6WGG2�W'6W276�6�F���2r�&V6V�G3�CScs�W�V�F�GW&W3�3CS#�66����C���s����7d�C�s2���S�t�WF�FV�W'276�6�F���2r�&V6V�G3�C#3�W�V�F�GW&W3�3#C�66����C�s������7d�C�sB���S�t&VW"F�7G&�'WF�'22�b�r�&V6V�G3�3s���W�V�F�GW&W3�#��C�66����C�Sc#����7d�C�sR���S�t���7W&�6RfVFW&F���2r�&V6V�G3�3CS#�W�V�F�GW&W3�#cs��66����C�3CS���Ӱ���������������������������������������������������������������Т����$%���r(	B6V&6��5bf�"6��G&�'WF���2Ɩ�VBF���&'���rV�F�F�W0���F�R�6V7&WF'��b7FFR��&'��7BFF&6R�2C�����GG3���wwr�6V2�7FFR���W2���&'��7EV&Ɩ56V&6����6��6RF�B6�FRF�W6�wBW��6RV&Ɩ2�4����vRW6R�5`���6��G&�'WF���FFF�7&�72�&VfW&V�6R��&'���rV�F�F�W2��������������������������������������������������������������Р�򢠢�6V&6��5b6��G&�'WF���2f�"F��F���2Ɩ�VBF����v���&'���rf�&�2�V�F�F�W2��F��26V&6�W26��G&�'WF�"V����W"f�V�Bf�"F�Rf�&���R���W��'B7��2gV�7F���6V&6���&'���t6��G&�'WF���2�f�&��$6ƖV�B�vU6��R����G'���6��7BVW'�'G2���w6V&6�G�T6FVv�'��r��6V&6��&6S�G�V�6�FUU$�6����V�B�f�&��$6ƖV�B����vU6��S�G�vU6��W���wvT��FW��r��Ӱ�6��7BFF�v�B�7eVW'���6V&6���FV�3�G�VW'�'G2����rbr�����&WGW&����FV�3��FF�FV�2���Ғ���B�����6��G&�'WF�#�B�gV����U&WfW'6R��uV���v�r��f�'7D��S�B�f�'7D��R��rr���7D��S�B��7D��R��rr����V�C�B���V�B��rCr����V�D�VӢ'6Tf��B��B���V�B��sr��&W�6R���B���r�rr������&V6��V�C�B�f��W$gV����U&WfW'6R��uV���v�r��&V6��V�D7d�C�B�f��W$7d�B����V����W#�B�V����W"��rr���67WF���B��67WF�����rr��FFS�B�FFR��rr��6�G��B�6�G���rr��7FFS�B�7FFR��rr��Ғ���F�FâFF�F�F�6�V�B���FF�FV�2���Ғ��V�wF���Ӱ��6F6��W'"���6��6��R�v&�t��&'���r6��G&�'WF���6V&6�f��VC�r�W'"��W76vR���&WGW&���FV�3����F�FâӰ�ЧР�򢠢�&F6��6V&6��5bf�"6��G&�'WF���2g&���V�F��R��&'���rf�&�2��&WGW&�2vw&VvFVB&W7V�G2W"f�&����W��'B7��2gV�7F���fWF6���&'���tf�&�6��G&�'WF���2�f�&���W2���6��7B&W7V�G2��Ӱ�6��7B$D4��C��f�"��WB�����f�&���W2��V�wF�����$D4����6��7B&F6��f�&���W2�6Ɩ6R�����$D4����6��7B6WGF�VB�v�B&�֗6R���6WGF�VB��&F6������R��6V&6���&'���t6��G&�'WF���2���R�S������&F6��f�$V6�����R��G�������b�6WGF�VE��G���7FGW2���vgV�f���VBr���6��7B&W2�6WGF�VE��G���f�VS��&W7V�G5���U����F�F�6��G&�'WF���3�&W2�FV�2��V�wF���F�F���V�C�&W2�FV�2�&VGV6R��2�2���2�2���V�D�V�����F�&V6��V�G3������Wr6WB�&W2�FV�2���2��2�&V6��V�B����6Ɩ6R��R����FV�3�&W2�FV�2�6Ɩ6R��#���Ӱ��V�6R��&W7V�G5���U���F�F�6��G&�'WF���3��F�F���V�C��F�&V6��V�G3�����FV�3���Ӱ�Тғ��Т&WGW&�&W7V�G3��Р��������������������������������������������������������������Т��4��$T�T�4�dRd��$4��44�TBDD���6����VBg&���766�W6WGG24e"�v�fW&��"w2'VFvWB�5D�%R�'F������74�V�&���2��B�ff�6��V&Ɩ2&V6�&G2�����F��2FF�vW'2F�RF6�&�&Bv�V�ƗfR�2&RV�f��&�R�����f�wW&W2&Rg&��V&Ɩ6ǒf��&�Rv�fW&��V�B&W�'G2��������������������������������������������������������������Р�W��'B6��7B��%TDtUE�5T��%����f�66ŖV#�##R��F�F�'VFvWC�S��S5����F�F�&WfV�VS�C�#����F�F�W�V�F�GW&S�Se�����6FVv�&�W3������S�t�V�F�b�V��6W'f�6W2r�f�VS�#5�C��������S�tVGV6F���r�f�VS�����������S�tFV'B6W'f�6Rr�f�VS�5�c��������S�uG&�7�'FF���r�f�VS�5�#��������S�uV&Ɩ26fWG�r�f�VS�%���������S�tF֖�7G&F���bf���6Rr�f�VS�%���������S�t��W6��rbV6���֖2FWbr�f�VS����������S�t�VF�6�'�r�f�VS����������S�tV�f�&���V�BbV�W&w�r�f�VS����������S�t�Vv�6�GW&Rr�f�VS��U��������S�t�F�W"r�f�VS��c���������&WfV�VU6�W&6W3������S�t��6��RF�r�f�VS�u�#��������S�tfVFW&�&V��'W'6V�V�G2r�f�VS�%�c��������S�u6�W2bW6RF�r�f�VS���C��������S�t6�'�&FR�'W6��W72F�r�f�VS�5���������S�t�F�W"&WfV�VRr�f�VS�U���������Ӱ������7F�&�6�7V�F��r'�f�66��V"�g&��5D�%R�6��G&���W"&W�'G2��W��'B6��7B5T�D��u��dU%�D��R�����V#�s#Rr�F�Fâ3��S�������V#�s#br�F�Fâ3���������V#�s#rr�F�FâC�#�������V#�s#�r�F�FâC%�c�������V#�s#�r�F�FâCE��������V#�s##r�F�FâC��#�������V#�s##r�F�FâSU�3�������V#�s##"r�F�FâSE��������V#�s##2r�F�FâSe��������V#�s##Br�F�FâSu�C�������V#�s##Rr�F�FâS��S5�����ӽ;
+    if (params.endDate) queryParts.push(`endDate=${params.endDate}`);
+    queryParts.push(`pageSize=${params.pageSize || 50}`);
+    queryParts.push(`pageIndex=${params.pageIndex || 0}`);
+    const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
+    return {
+      items: (data.items || []).map(d => ({
+        contributor: d.fullNameReverse || 'Unknown',
+        firstName: d.firstName || '',
+        lastName: d.lastName || '',
+        amount: d.amount || '$0',
+        amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
+        recipient: d.filerFullNameReverse || 'Unknown',
+        recipientCpfId: d.filerCpfId || 0,
+        employer: d.employer || '',
+        occupation: d.occupation || '',
+        date: d.date || '',
+        type: d.recordTypeDescription || '',
+        city: d.city || '',
+        state: d.state || '',
+      })),
+      summary: data.summary,
+    };
+  } catch (err) {
+    console.warn('Contribution search failed:', err.message);
+    return { items: [], summary: null };
+  }
+}
+
+/**
+ * Fetch the most recent contribution date for a given filer (legislator/candidate).
+ * OCPF returns oldest-first with no server-side sort, so we use a narrow window strategy:
+ *   1. Try current year first (small result set → max date is accurate)
+ *   2. If nothing, try previous year
+ *   3. If still nothing, try 2 years back
+ * Returns { cpfId, lastContribDate: 'YYYY-MM-DD' | null, lastContribAmount, lastContributor }
+ */
+export async function fetchLastContribution(cpfId) {
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    const currentYear = new Date().getFullYear();
+
+    // Try progressively wider windows — current year first (most legislators have <100 contribs/year)
+    for (let yr = currentYear; yr >= currentYear - 2; yr--) {
+      const start = `${yr}-01-01`;
+      const end = yr === currentYear ? today : `${yr}-12-31`;
+      const qs = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${end}&pageSize=100&pageIndex=0`;
+      const data = await ocpfQuery(`/search/items?${qs}`);
+      const items = data.items || [];
+      if (items.length === 0) continue;
+
+      // Find the most recent by parsing OCPF M/D/YYYY dates properly
+      let newest = items[0];
+      let newestTime = parseOcpfDate(newest.date);
+      for (let i = 1; i < items.length; i++) {
+        const t = parseOcpfDate(items[i].date);
+        if (t > newestTime) { newest = items[i]; newestTime = t; }
+      }
+
+      // If page is full (100 items), there may be newer items on later pages.
+      // Fetch one more page to try to capture the true latest.
+      if (items.length >= 100) {
+        const qs2 = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${end}&pageSize=100&pageIndex=1`;
+        try {
+          const data2 = await ocpfQuery(`/search/items?${qs2}`);
+          for (const item of (data2.items || [])) {
+            const t = parseOcpfDate(item.date);
+            if (t > newestTime) { newest = item; newestTime = t; }
+          }
+        } catch (_) { /* ignore second-page failures */ }
+      }
+
+      return {
+        cpfId,
+        lastContribDate: newest.date || null,
+        lastContribAmount: newest.amount || null,
+        lastContributor: newest.fullNameReverse || newest.firstName || null,
+      };
+    }
+
+    return { cpfId, lastContribDate: null, lastContribAmount: null, lastContributor: null };
+  } catch (err) {
+    console.warn(`Last contribution fetch failed for cpfId=${cpfId}:`, err.message);
+    return { cpfId, lastContribDate: null, lastContribAmount: null, lastContributor: null };
+  }
+}
+
+/**
+ * Search expenditures FROM political campaigns.
+ * searchTypeCategory=B for expenditures
+ */
+export async function searchExpenditures(params = {}) {
+  try {
+    const queryParts = ['searchTypeCategory=B'];
+    if (params.cpfId) queryParts.push(`cpfId=${params.cpfId}`);
+    if (params.searchPhrase) queryParts.push(`searchPhrase=${encodeURIComponent(params.searchPhrase)}`);
+    if (params.startDate) queryParts.push(`startDate=${params.startDate}`);
+    if (params.endDate) queryParts.push(`endDate=${params.endDate}`);
+    queryParts.push(`pageSize=${params.pageSize || 50}`);
+    queryParts.push(`pageIndex=${params.pageIndex || 0}`);
+    const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
+    return {
+      items: (data.items || []).map(d => ({
+        payee: d.fullNameReverse || 'Unknown',
+        amount: d.amount || '$0',
+        amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
+        payer: d.filerFullNameReverse || 'Unknown',
+        payerCpfId: d.filerCpfId || 0,
+        date: d.date || '',
+        type: d.recordTypeDescription || '',
+        description: d.description || '',
+        city: d.city || '',
+        state: d.state || '',
+      })),
+      summary: data.summary,
+    };
+  } catch (err) {
+    console.warn('Expenditure search failed:', err.message);
+    return { items: [], summary: null };
+  }
+}
+
+/**
+ * Get a specific legislator/filer's full profile.
+ */
+export async function fetchFilerProfile(cpfId) {
+  try {
+    const data = await ocpfQuery(`/filer/payload/${cpfId}`);
+    return {
+      filer: data.filer || {},
+      ytdReport: data.ytdReport || {},
+      logReports: data.logReports || [],
+    };
+  } catch (err) {
+    console.warn('Filer profile fetch failed:', err.message);
+    return null;
+  }
+}
+
+/**
+ * Cross-reference: Search for contributions where the employer matches a state vendor name.
+ * This is the key function that connects "who gets state money" to "who donates to politicians."
+ */
+export async function crossReferenceVendorDonations(vendorName, pageSize = 50) {
+  try {
+    // Search contributions where the contributor's employer matches the vendor name
+    const queryParts = [
+      'searchTypeCategory=A',
+      `searchPhrase=${encodeURIComponent(vendorName)}`,
+      `pageSize=${pageSize}`,
+      'pageIndex=0',
+    ];
+    const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
+    return (data.items || []).map(d => ({
+      contributor: d.fullNameReverse || 'Unknown',
+      amount: d.amount || '$0',
+      amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
+      recipient: d.filerFullNameReverse || 'Unknown',
+      recipientCpfId: d.filerCpfId || 0,
+      employer: d.employer || '',
+      occupation: d.occupation || '',
+      date: d.date || '',
+      city: d.city || '',
+      state: d.state || '',
+    }));
+  } catch (err) {
+    console.warn('Vendor cross-reference failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Get YTD overall campaign finance totals for the state.
+ */
+export async function fetchCampaignFinanceTotals() {
+  try {
+    const data = await ocpfQuery('/data/ytdTotals');
+    return data;
+  } catch (err) {
+    console.warn('Campaign finance totals fetch failed:', err.message);
+    return null;
+  }
+}
+
+// ============================================================
+// COMPREHENSIVE FALLBACK / CACHED DATA
+// Compiled from Massachusetts CAFR, Governor's Budget, CTHRU portal,
+// MassOpenBooks, and official public records.
+//
+// This data powers the dashboard when live APIs are unavailable.
+// All figures are from publicly available government reports.
+// ============================================================
+
+export const MA_BUDGET_SUMMARY = {
+  fiscalYear: 2025,
+  totalBudget: 58_053_000_000,
+  totalRevenue: 41_200_000_000,
+  totalExpenditure: 56_800_000_000,
+  categories: [
+    { name: 'Health & Human Services', value: 23_400_000_000 },
+    { name: 'Education', value: 8_900_000_000 },
+    { name: 'Debt Service', value: 3_600_000_000 },
+    { name: 'Transportation', value: 3_200_000_000 },
+    { name: 'Public Safety', value: 2_800_000_000 },
+    { name: 'Administration & Finance', value: 2_100_000_000 },
+    { name: 'Housing & Economic Dev', value: 1_900_000_000 },
+    { name: 'Judiciary', value: 1_100_000_000 },
+    { name: 'Environment & Energy', value: 800_000_000 },
+    { name: 'Legislature', value: 85_000_000 },
+    { name: 'Other', value: 10_168_000_000 },
+  ],
+  revenueSources: [
+    { name: 'Income Tax', value: 17_200_000_000 },
+    { name: 'Federal Reimbursements', value: 12_600_000_000 },
+    { name: 'Sales & Use Tax', value: 8_400_000_000 },
+    { name: 'Corporate/Business Tax', value: 3_100_000_000 },
+    { name: 'Other Revenue', value: 5_900_000_000 },
+  ],
+};
+
+// Historical spending by fiscal year (from CTHRU / Comptroller reports)
+export const SPENDING_OVER_TIME = [
+  { year: '2015', total: 38_500_000_000 },
+  { year: '2016', total: 39_800_000_000 },
+  { year: '2017', total: 41_200_000_000 },
+  { year: '2018', total: 42_600_000_000 },
+  { year: '2019', total: 44_100_000_000 },
+  { year: '2020', total: 49_200_000_000 },
+  { year: '2021', total: 55_300_000_000 },
+  { year: '2022', total: 54_800_000_000 },
+  { year: '2023', total: 56_100_000_000 },
+  { year: '2024', total: 57_400_000_000 },
+  { year: '2025', total: 58_053_000_000 },
+];
 
 // Top departments by spending (compiled from CTHRU FY2024 data)
 export const SPENDING_BY_DEPARTMENT = [
@@ -1344,3 +1584,94 @@ export const AUDIT_FACTS = {
   courtFilingDate: 'February 10, 2026',
   courtAction: 'Complaint filed with Massachusetts Supreme Judicial Court to enforce Question 1',
 };
+
+// ============================================================
+// LOBBYING — OCPF contribution search for lobbying firms & industries
+// ============================================================
+
+/**
+ * Search OCPF contributions filtered by a lobbying-related search phrase.
+ * Uses the same /search/items endpoint as searchContributions.
+ * @param {string} query - Firm name, lobbyist name, or industry keyword
+ * @param {object} opts - { year, pageSize, pageIndex }
+ */
+export async function searchLobbyingContributions(query, opts = {}) {
+  try {
+    const currentYear = new Date().getFullYear();
+    const year = opts.year || currentYear;
+    const queryParts = [
+      'searchTypeCategory=A',
+      `searchPhrase=${encodeURIComponent(query)}`,
+      `startDate=${year}-01-01`,
+      `endDate=${year}-12-31`,
+      `pageSize=${opts.pageSize || 50}`,
+      `pageIndex=${opts.pageIndex || 0}`,
+    ];
+    const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
+    return {
+      items: (data.items || []).map(d => ({
+        contributor: d.fullNameReverse || 'Unknown',
+        firstName: d.firstName || '',
+        lastName: d.lastName || '',
+        employer: d.employer || '',
+        address: d.address || '',
+        city: d.city || '',
+        state: d.state || '',
+        zip: d.zip || '',
+        amount: parseFloat(d.amount) || 0,
+        date: d.date || '',
+        recipient: d.cpfName || '',
+        cpfId: d.cpfId || '',
+      })),
+      totalCount: data.totalCount || 0,
+      year: String(year),
+    };
+  } catch (err) {
+    console.warn('Lobbying contributions search failed:', err.message);
+    return { items: [], totalCount: 0, year: String(opts.year || new Date().getFullYear()) };
+  }
+}
+
+/**
+ * Fetch all contributions from a specific lobbying firm (by name).
+ * Searches across multiple years if needed.
+ * @param {string} firmName - The lobbying firm name
+ * @param {object} opts - { years, pageSize }
+ */
+export async function fetchLobbyingFirmContributions(firmName, opts = {}) {
+  const currentYear = new Date().getFullYear();
+  const years = opts.years || [currentYear, currentYear - 1];
+  const allItems = [];
+
+  for (const yr of years) {
+    try {
+      const result = await searchLobbyingContributions(firmName, {
+        year: yr,
+        pageSize: opts.pageSize || 100,
+      });
+      allItems.push(...result.items);
+    } catch (err) {
+      console.warn(`Lobbying firm contributions failed for ${firmName} in ${yr}:`, err.message);
+    }
+  }
+
+  // Aggregate by recipient
+  const byRecipient = {};
+  for (const item of allItems) {
+    const key = item.cpfId || item.recipient;
+    if (!byRecipient[key]) {
+      byRecipient[key] = { recipient: item.recipient, cpfId: item.cpfId, total: 0, count: 0, contributions: [] };
+    }
+    byRecipient[key].total += item.amount;
+    byRecipient[key].count += 1;
+    byRecipient[key].contributions.push(item);
+  }
+
+  return {
+    firm: firmName,
+    totalContributions: allItems.length,
+    totalAmount: allItems.reduce((sum, i) => sum + i.amount, 0),
+    byRecipient: Object.values(byRecipient).sort((a, b) => b.total - a.total),
+    items: allItems,
+  };
+}
