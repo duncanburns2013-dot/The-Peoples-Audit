@@ -1303,7 +1303,7 @@ function FollowTheMoney() {
                 <div className="kpi-card">
                   <div className="kpi-label">Legislators Tracked</div>
                   <div className="kpi-value" style={{ color: 'var(--accent-purple)' }}>{legislators.length}</div>
-                  <div className="kpi-sub">All races, {dataYear === 'cached' ? 'cached' : dataYear} cycle</div>
+                  <div className="kpi-sub">MA state legislators</div>
                 </div>
                 <div className="kpi-card">
                   <div className="kpi-label">Total Legislator Receipts</div>
@@ -1318,14 +1318,14 @@ function FollowTheMoney() {
                 <div className="kpi-card">
                   <div className="kpi-label">Total PAC Receipts</div>
                   <div className="kpi-value">{formatMoney(totalPACReceipts)}</div>
-                  <div className="kpi-sub">PAC fundraising, {pacYear === 'cached' ? 'cached' : pacYear}</div>
+                  <div className="kpi-sub">PAC fundraising</div>
                 </div>
               </div>
 
               <div className="card-grid">
                 <div className="chart-card">
-                  <h3>Top-Funded Legislators — {dataYear === 'cached' ? 'Cached Data' : dataYear}</h3>
-                  <div className="chart-subtitle">Ranked by total campaign receipts</div>
+                  <h3>Top-Funded State Legislators</h3>
+                  <div className="chart-subtitle">Ranked by total campaign receipts (OCPF depository reports)</div>
                   {topFundedLegislators.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
                       <BarChart data={topFundedLegislators} layout="vertical" margin={{ left: 180 }}>
@@ -1341,8 +1341,8 @@ function FollowTheMoney() {
                 </div>
 
                 <div className="chart-card">
-                  <h3>Top PACs by Receipts — {pacYear === 'cached' ? 'Cached Data' : pacYear}</h3>
-                  <div className="chart-subtitle">Political Action Committee fundraising</div>
+                  <h3>Top PACs by Receipts</h3>
+                  <div className="chart-subtitle">Political Action Committee fundraising (OCPF)</div>
                   {topPACs.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
                       <BarChart data={topPACs} layout="vertical" margin={{ left: 200 }}>
