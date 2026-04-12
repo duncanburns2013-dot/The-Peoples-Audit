@@ -1106,6 +1106,7 @@ function FollowTheMoney() {
   const [crossRefPage, setCrossRefPage] = useState(0);
   const [legSort, setLegSort] = useState({ col: 'lastContrib', dir: 'desc' });
   const [refreshKey, setRefreshKey] = useState(0);
+  const [legYear, setLegYear] = useState('auto');
   const contribRef = useRef(null);
   const CONTRIB_PAGE_SIZE = 100;
   const CROSSREF_PAGE_SIZE = 24;
@@ -1113,13 +1114,18 @@ function FollowTheMoney() {
   // Last contribution date cache: cpfId → { date, amount, contributor }
   const [lastContribMap, setLastContribMap] = useState({});
   const [lastContribLoading, setLastContribLoading] = useState(false);
-  const [dataYear, setDataYear] = useState(String(new Date().getFullYear()));
+  const [dataYear, setDataYear] = useState('');
   const [pacYear, setPacYear] = useState(String(new Date().getFullYear()));
 
+  // Fetch legislators — responds to year dropdown changes
   useEffect(() => {
     setLoading(true);
+    const legFetchArgs = legYear === 'auto'
+      ? [null, 'state']       // auto = latest even year (state legislators)
+      : [parseInt(legYear)];  // specific year selected
+
     Promise.allSettled([
-      fetchLegislatorFinances(null, 'state'),   // Even years → state reps/senators
+      fetchLegislatorFinances(...legFetchArgs),
       fetchPACFinances(),
     ]).then(([legResult, pacResult]) => {
       if (legResult.status === 'fulfilled') {
@@ -1132,7 +1138,7 @@ function FollowTheMoney() {
       }
       setLoading(false);
     });
-  }, []);
+  }, [legYear]);
 
   // Batch-fetch last contribution dates for all legislators (throttled: 8 concurrent)
   useEffect(() => {
@@ -1448,21 +1454,34 @@ function FollowTheMoney() {
                 </div>
               )}
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 8 }}>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: 0 }}>
-                  State legislators — {dataYear} election cycle. Click any row to see individual contributions. Click column headers to sort.
+                  {dataYear ? (parseInt(dataYear) % 2 === 0 ? 'State legislators' : 'Municipal candidates') : 'Legislators'} — {dataYear || '...'} OCPF data. Click any row for contributions.
                 </p>
-                <button onClick={() => setRefreshKey(k => k + 1)} disabled={lastContribLoading}
-                  style={{
-                    padding: '6px 14px', borderRadius: 6, border: '1px solid var(--border)',
-                    background: lastContribLoading ? 'var(--bg-card-hover)' : '#fff',
-                    cursor: lastContribLoading ? 'not-allowed' : 'pointer',
-                    fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-purple)',
-                    display: 'flex', alignItems: 'center', gap: 6,
-                    opacity: lastContribLoading ? 0.6 : 1,
-                  }}>
-                  {lastContribLoading ? '↻ Refreshing...' : '↻ Refresh Data'}
-                </button>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <select value={legYear} onChange={e => { setLegYear(e.target.value); setSelectedLegislator(null); setLegislatorContributions(null); }}
+                    style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+                    <option value="auto">State Legislators (latest)</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025 (Municipal)</option>
+                    <option value="2024">2024 (State)</option>
+                    <option value="2023">2023 (Municipal)</option>
+                    <option value="2022">2022 (State)</option>
+                    <option value="2021">2021 (Municipal)</option>
+                    <option value="2020">2020 (State)</option>
+                  </select>
+                  <button onClick={() => setRefreshKey(k => k + 1)} disabled={lastContribLoading}
+                    style={{
+                      padding: '6px 14px', borderRadius: 6, border: '1px solid var(--border)',
+                      background: lastContribLoading ? 'var(--bg-card-hover)' : '#fff',
+                      cursor: lastContribLoading ? 'not-allowed' : 'pointer',
+                      fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-purple)',
+                      display: 'flex', alignItems: 'center', gap: 6,
+                      opacity: lastContribLoading ? 0.6 : 1,
+                    }}>
+                    {lastContribLoading ? '↻ Refreshing...' : '↻ Refresh'}
+                  </button>
+                </div>
               </div>
               <div className="data-table-wrapper">
                 <table className="data-table">
@@ -1471,7 +1490,7 @@ function FollowTheMoney() {
                       <th>#</th>
                       {[
                         { col: 'name', label: 'Name' },
-                        { col: 'office', label: 'District' },
+                        { col: 'office', label: dataYear && parseInt(dataYear) % 2 === 1 ? 'City' : 'District' },
                         { col: 'party', label: 'Party' },
                         { col: 'receipts', label: 'Receipts' },
                         { col: 'expenditures', label: 'Expenditures' },
