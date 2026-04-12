@@ -1120,9 +1120,16 @@ function FollowTheMoney() {
   // Fetch legislators — responds to year dropdown changes
   useEffect(() => {
     setLoading(true);
-    const legFetchArgs = legYear === 'auto'
-      ? [null, 'state']       // auto = latest even year (state legislators)
-      : [parseInt(legYear)];  // specific year selected
+    let legFetchArgs;
+    if (legYear === 'auto') {
+      legFetchArgs = [null, 'state'];
+    } else if (legYear.endsWith('-state')) {
+      legFetchArgs = [parseInt(legYear), 'state'];
+    } else if (legYear.endsWith('-municipal')) {
+      legFetchArgs = [parseInt(legYear), 'municipal'];
+    } else {
+      legFetchArgs = [parseInt(legYear)];
+    }
 
     Promise.allSettled([
       fetchLegislatorFinances(...legFetchArgs),
@@ -1462,9 +1469,10 @@ function FollowTheMoney() {
                   <select value={legYear} onChange={e => { setLegYear(e.target.value); setSelectedLegislator(null); setLegislatorContributions(null); }}
                     style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)' }}>
                     <option value="auto">State Legislators (latest)</option>
-                    {Array.from({ length: 11 }, (_, i) => 2026 - i).map(y => (
-                      <option key={y} value={y}>{y} ({y % 2 === 0 ? 'State' : 'Municipal'})</option>
-                    ))}
+                    {Array.from({ length: 11 }, (_, i) => 2026 - i).flatMap(y => [
+                      <option key={`${y}-s`} value={`${y}-state`}>{y} — State</option>,
+                      <option key={`${y}-m`} value={`${y}-municipal`}>{y} — Municipal</option>,
+                    ])}
                   </select>
                   <button onClick={() => setRefreshKey(k => k + 1)} disabled={lastContribLoading}
                     style={{
