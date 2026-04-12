@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line, AreaChart, Area, Treemap,
@@ -13,6 +13,11 @@ import {
   MapPin
 } from 'lucide-react';
 import DisclosuresFeed from './components/DisclosuresFeed.jsx';
+import OcpfDataCenter from './components/OcpfDataCenter.jsx';
+import PacDashboard from './components/PacDashboard.jsx';
+import CostOfLivingCalculator from './components/CostOfLivingCalculator.jsx';
+import LobbyingExplorer from './components/LobbyingExplorer.jsx';
+import NonprofitLookup from './components/NonprofitLookup.jsx';
 import {
   fetchSpendingByDepartment, fetchSpendingByVendor, fetchSpendingOverTime,
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime, searchPayroll,
@@ -85,8 +90,10 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
   const [selectedDept, setSelectedDept] = useState(null);
   const [deptDetail, setDeptDetail] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
-  const [deptYear, setDeptYear] = useState(initialYear || '2025');
+  const [deptYear, setDeptYear] = useState(initialYear || '2026');
   const [paymentPage, setPaymentPage] = useState(0);
+  const [deptPaySortField, setDeptPaySortField] = useState('date');
+  const [deptPaySortDir, setDeptPaySortDir] = useState('desc');
   const PAYMENTS_PER_PAGE = 25;
   const detailPanelRef = useRef(null);
 
@@ -218,7 +225,16 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                 </div>
               )}
 
-              {deptDetail.payments.length > 0 && (
+              {deptDetail.payments.length > 0 && (() => {
+                const sortedDeptPayments = [...deptDetail.payments].sort((a, b) => {
+                  if (deptPaySortField === 'date') {
+                    const da = new Date(a.date || 0), db = new Date(b.date || 0);
+                    return deptPaySortDir === 'desc' ? db - da : da - db;
+                  }
+                  if (deptPaySortField === 'amount') return deptPaySortDir === 'desc' ? (b.amount || 0) - (a.amount || 0) : (a.amount || 0) - (b.amount || 0);
+                  return 0;
+                });
+                return (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
                     Individual Payments — FY{deptYear} ({deptDetail.payments.length} records)
@@ -226,10 +242,18 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
-                        <tr><th>Date</th><th>Amount</th><th>Vendor</th><th>Appropriation</th><th>Category</th><th>Method</th></tr>
+                        <tr>
+                          <th style={{ cursor: 'pointer' }} onClick={() => { setDeptPaySortField('date'); setDeptPaySortDir(d => deptPaySortField === 'date' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
+                            Date {deptPaySortField === 'date' ? (deptPaySortDir === 'desc' ? '↓' : '↑') : ''}
+                          </th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => { setDeptPaySortField('amount'); setDeptPaySortDir(d => deptPaySortField === 'amount' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
+                            Amount {deptPaySortField === 'amount' ? (deptPaySortDir === 'desc' ? '↓' : '↑') : ''}
+                          </th>
+                          <th>Vendor</th><th>Appropriation</th><th>Category</th><th>Method</th>
+                        </tr>
                       </thead>
                       <tbody>
-                        {deptDetail.payments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
+                        {sortedDeptPayments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
                           <tr key={i}>
                             <td style={{ whiteSpace: 'nowrap' }}>{p.date}</td>
                             <td className="money">{formatMoneyFull(p.amount)}</td>
@@ -251,7 +275,7 @@ function SpendingExplorer({ departments, spendingOverTime, initialYear }) {
                     </div>
                   )}
                 </div>
-              )}
+              );})()}
             </>
           )}
         </div>
@@ -334,11 +358,13 @@ function VendorExplorer({ spendingYear }) {
   const [selectedVendor, setSelectedVendor] = useState(null);
   const [vendorDetail, setVendorDetail] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
-  const [vendorYear, setVendorYear] = useState(spendingYear || '2025');
+  const [vendorYear, setVendorYear] = useState(spendingYear || '2026');
   const [paymentPage, setPaymentPage] = useState(0);
   const [nonProfitFilter, setNonProfitFilter] = useState(false);
   const [sortField, setSortField] = useState('total');
   const [sortDir, setSortDir] = useState('desc');
+  const [paySortField, setPaySortField] = useState('date');
+  const [paySortDir, setPaySortDir] = useState('desc');
   const PAYMENTS_PER_PAGE = 25;
 
   useEffect(() => {
@@ -510,7 +536,16 @@ function VendorExplorer({ spendingYear }) {
                 )}
               </div>
 
-              {vendorDetail.payments.length > 0 && (
+              {vendorDetail.payments.length > 0 && (() => {
+                const sortedPayments = [...vendorDetail.payments].sort((a, b) => {
+                  if (paySortField === 'date') {
+                    const da = new Date(a.date || 0), db = new Date(b.date || 0);
+                    return paySortDir === 'desc' ? db - da : da - db;
+                  }
+                  if (paySortField === 'amount') return paySortDir === 'desc' ? (b.amount || 0) - (a.amount || 0) : (a.amount || 0) - (b.amount || 0);
+                  return 0;
+                });
+                return (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
                     Individual Payments — FY{vendorYear} ({vendorDetail.payments.length} records)
@@ -518,10 +553,18 @@ function VendorExplorer({ spendingYear }) {
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
-                        <tr><th>Date</th><th>Amount</th><th>Department</th><th>Appropriation</th><th>Category</th><th>Method</th></tr>
+                        <tr>
+                          <th style={{ cursor: 'pointer' }} onClick={() => { setPaySortField('date'); setPaySortDir(d => paySortField === 'date' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
+                            Date {paySortField === 'date' ? (paySortDir === 'desc' ? '↓' : '↑') : ''}
+                          </th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => { setPaySortField('amount'); setPaySortDir(d => paySortField === 'amount' ? (d === 'desc' ? 'asc' : 'desc') : 'desc'); setPaymentPage(0); }}>
+                            Amount {paySortField === 'amount' ? (paySortDir === 'desc' ? '↓' : '↑') : ''}
+                          </th>
+                          <th>Department</th><th>Appropriation</th><th>Category</th><th>Method</th>
+                        </tr>
                       </thead>
                       <tbody>
-                        {vendorDetail.payments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
+                        {sortedPayments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
                           <tr key={i}>
                             <td style={{ whiteSpace: 'nowrap' }}>{p.date}</td>
                             <td className="money">{formatMoneyFull(p.amount)}</td>
@@ -543,7 +586,7 @@ function VendorExplorer({ spendingYear }) {
                     </div>
                   )}
                 </div>
-              )}
+              );})()}
             </>
           )}
         </div>
@@ -619,7 +662,7 @@ function QuasiExplorer({ quasiPayments }) {
   const [selectedAgency, setSelectedAgency] = useState(null);
   const [agencyDetail, setAgencyDetail] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
-  const [quasiYear, setQuasiYear] = useState('2025');
+  const [quasiYear, setQuasiYear] = useState('2026');
   const [paymentPage, setPaymentPage] = useState(0);
   const PAYMENTS_PER_PAGE = 25;
   const quasiDetailPanelRef = useRef(null);
@@ -672,7 +715,7 @@ function QuasiExplorer({ quasiPayments }) {
         <div ref={quasiDetailPanelRef} className="detail-panel" style={{ marginBottom: 24 }}>
           <button className="close-btn" onClick={() => { setSelectedAgency(null); setAgencyDetail(null); }}>Close</button>
           <h3 style={{ color: 'var(--accent-cyan)', marginBottom: 4 }}>{selectedAgency}</h3>
-          <div className="chart-subtitle">Complete spending breakdown — every vendor, every dollar</div>
+          <div className="chart-subtitle">Complete budget breakdown — every vendor, every dollar, every category</div>
 
           {detailLoading ? (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
@@ -688,6 +731,32 @@ function QuasiExplorer({ quasiPayments }) {
                   <a href="https://www.mbta.com/financials" target="_blank" rel="noopener" style={{ color: '#14558F', fontWeight: 600 }}>MBTA Financial Center</a>
                 </div>
               )}
+              {/* KPI summary for selected agency */}
+              <div className="kpi-row" style={{ marginTop: 16 }}>
+                <div className="kpi-card">
+                  <div className="kpi-label">Years of Data</div>
+                  <div className="kpi-value" style={{ color: 'var(--accent-cyan)' }}>{agencyDetail.byYear.length}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>
+                    {agencyDetail.byYear.length > 0 ? `FY${agencyDetail.byYear[0].year} — FY${agencyDetail.byYear[agencyDetail.byYear.length - 1].year}` : 'N/A'}
+                  </div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">Top Vendors</div>
+                  <div className="kpi-value" style={{ color: 'var(--accent-green)' }}>{agencyDetail.vendors.length}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Unique vendors paid</div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">Spending Categories</div>
+                  <div className="kpi-value" style={{ color: '#E67E22' }}>{agencyDetail.categories.length}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Budget line items</div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">Total Payments</div>
+                  <div className="kpi-value">{agencyDetail.payments.length.toLocaleString()}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Individual transactions in FY{quasiYear}</div>
+                </div>
+              </div>
+
               {agencyDetail.byYear.length > 0 && (
                 <div style={{ marginTop: 20 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Agency Spending by Fiscal Year</h4>
@@ -1042,15 +1111,23 @@ function FollowTheMoney() {
   // Last contribution date cache: cpfId → { date, amount, contributor }
   const [lastContribMap, setLastContribMap] = useState({});
   const [lastContribLoading, setLastContribLoading] = useState(false);
+  const [dataYear, setDataYear] = useState(String(new Date().getFullYear()));
+  const [pacYear, setPacYear] = useState(String(new Date().getFullYear()));
 
   useEffect(() => {
     setLoading(true);
     Promise.allSettled([
-      fetchLegislatorFinances('2025'),
-      fetchPACFinances('2025'),
+      fetchLegislatorFinances(),
+      fetchPACFinances(),
     ]).then(([legResult, pacResult]) => {
-      if (legResult.status === 'fulfilled') setLegislators(legResult.value);
-      if (pacResult.status === 'fulfilled') setPacs(pacResult.value);
+      if (legResult.status === 'fulfilled') {
+        setLegislators(legResult.value.data);
+        setDataYear(legResult.value.year);
+      }
+      if (pacResult.status === 'fulfilled') {
+        setPacs(pacResult.value.data);
+        setPacYear(pacResult.value.year);
+      }
       setLoading(false);
     });
   }, []);
@@ -1181,6 +1258,16 @@ function FollowTheMoney() {
         <button className={`filter-btn ${activeTab === 'search' ? 'active' : ''}`} onClick={() => setActiveTab('search')}>
           <Search size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Search
         </button>
+        <span style={{ width: 1, height: 20, background: 'var(--border)', margin: '0 4px' }} />
+        <button className={`filter-btn ${activeTab === 'ocpf' ? 'active' : ''}`} onClick={() => setActiveTab('ocpf')}>
+          <FileText size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> OCPF Data
+        </button>
+        <button className={`filter-btn ${activeTab === 'pacs' ? 'active' : ''}`} onClick={() => setActiveTab('pacs')}>
+          <Scale size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> PACs
+        </button>
+        <button className={`filter-btn ${activeTab === 'nonprofits' ? 'active' : ''}`} onClick={() => setActiveTab('nonprofits')}>
+          <Building2 size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Nonprofits
+        </button>
       </div>
 
       {loading ? (
@@ -1194,7 +1281,7 @@ function FollowTheMoney() {
                 <div className="kpi-card">
                   <div className="kpi-label">Legislators Tracked</div>
                   <div className="kpi-value" style={{ color: 'var(--accent-purple)' }}>{legislators.length}</div>
-                  <div className="kpi-sub">All races, 2025 cycle</div>
+                  <div className="kpi-sub">All races, {dataYear === 'cached' ? 'cached' : dataYear} cycle</div>
                 </div>
                 <div className="kpi-card">
                   <div className="kpi-label">Total Legislator Receipts</div>
@@ -1209,13 +1296,13 @@ function FollowTheMoney() {
                 <div className="kpi-card">
                   <div className="kpi-label">Total PAC Receipts</div>
                   <div className="kpi-value">{formatMoney(totalPACReceipts)}</div>
-                  <div className="kpi-sub">PAC fundraising, 2025</div>
+                  <div className="kpi-sub">PAC fundraising, {pacYear === 'cached' ? 'cached' : pacYear}</div>
                 </div>
               </div>
 
               <div className="card-grid">
                 <div className="chart-card">
-                  <h3>Top-Funded Legislators — 2025</h3>
+                  <h3>Top-Funded Legislators — {dataYear === 'cached' ? 'Cached Data' : dataYear}</h3>
                   <div className="chart-subtitle">Ranked by total campaign receipts</div>
                   {topFundedLegislators.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
@@ -1232,7 +1319,7 @@ function FollowTheMoney() {
                 </div>
 
                 <div className="chart-card">
-                  <h3>Top PACs by Receipts — 2025</h3>
+                  <h3>Top PACs by Receipts — {pacYear === 'cached' ? 'Cached Data' : pacYear}</h3>
                   <div className="chart-subtitle">Political Action Committee fundraising</div>
                   {topPACs.length > 0 && (
                     <ResponsiveContainer width="100%" height={500}>
@@ -1359,10 +1446,12 @@ function FollowTheMoney() {
                   </thead>
                   <tbody>
                     {legislators.sort((a, b) => {
-                      const dateA = lastContribMap[a.cpfId]?.date || '';
-                      const dateB = lastContribMap[b.cpfId]?.date || '';
-                      // Sort by last contribution date (newest first); fall back to receipts
-                      if (dateA || dateB) return dateB.localeCompare(dateA) || b.receipts - a.receipts;
+                      const dA = lastContribMap[a.cpfId]?.date || '';
+                      const dB = lastContribMap[b.cpfId]?.date || '';
+                      // Parse M/D/YYYY dates for proper sort (string compare fails on this format)
+                      const pA = dA ? (() => { const p = dA.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
+                      const pB = dB ? (() => { const p = dB.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
+                      if (pA || pB) return (pB - pA) || b.receipts - a.receipts;
                       return b.receipts - a.receipts;
                     }).map((l, i) => (
                       <tr key={i} onClick={() => selectLegislatorForContribs(l)} style={{ cursor: 'pointer' }}
@@ -1600,6 +1689,27 @@ function FollowTheMoney() {
                   )}
                 </div>
               )}
+            </motion.div>
+          )}
+
+          {/* === OCPF DATA CENTER SUB-TAB === */}
+          {activeTab === 'ocpf' && (
+            <motion.div {...pageVariants} key="ftm-ocpf">
+              <OcpfDataCenter />
+            </motion.div>
+          )}
+
+          {/* === PAC DASHBOARD SUB-TAB === */}
+          {activeTab === 'pacs' && (
+            <motion.div {...pageVariants} key="ftm-pacs">
+              <PacDashboard />
+            </motion.div>
+          )}
+
+          {/* === NONPROFIT EXPLORER SUB-TAB === */}
+          {activeTab === 'nonprofits' && (
+            <motion.div {...pageVariants} key="ftm-nonprofits">
+              <NonprofitLookup />
             </motion.div>
           )}
         </>
@@ -1919,7 +2029,9 @@ function MunicipalitiesExplorer() {
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('overview');
+  const [overviewSubTab, setOverviewSubTab] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [heroSearchValue, setHeroSearchValue] = useState('');
   const [loading, setLoading] = useState({});
   const [errors, setErrors] = useState({});
   const [data, setData] = useState({
@@ -1936,9 +2048,9 @@ export default function App() {
     debtServiceFederal: null,
     emmaTrades: null,
   });
-  const [spendingYear, setSpendingYear] = useState('2025');
-  const [payrollYear, setPayrollYear] = useState('2025');
-  const [federalYear, setFederalYear] = useState(2025);
+  const [spendingYear, setSpendingYear] = useState('2026');
+  const [payrollYear, setPayrollYear] = useState('2026');
+  const [federalYear, setFederalYear] = useState(2026);
   const [emmaRefreshing, setEmmaRefreshing] = useState(false);
   const [emmaLastFetched, setEmmaLastFetched] = useState(null);
   // Bonds tab: debt history chart range toggle ("10yr" = last 10 fiscal years,
@@ -2046,8 +2158,11 @@ export default function App() {
     { id: 'audit', label: 'The Audit Fight', icon: <Scale size={16} /> },
   ];
 
-  const navigateTo = (id) => {
+  const navigateTo = (id, searchQuery = null) => {
     setActiveSection(id);
+    if (searchQuery) {
+      setHeroSearchValue(searchQuery);
+    }
     setSidebarOpen(false);
     window.scrollTo({ top: document.getElementById('dashboard')?.offsetTop || 0, behavior: 'smooth' });
   };
@@ -2078,30 +2193,7 @@ export default function App() {
               to auditing the legislature ({audit.ballotQuestion}, {audit.ballotYear})
             </span>
           </div>
-          <div className="hero-search" style={{ margin: '30px auto', width: '100%', maxWidth: '640px', display: 'flex', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.12)', padding: '14px 22px', borderRadius: '10px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', width: '100%' }}>
-              <Search size={20} style={{ color: '#fff', flexShrink: 0 }} />
-              <input
-                type="text"
-                placeholder="Search for vendors, people, organizations..."
-                style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: '1rem', width: '100%', outline: 'none' }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    navigateTo('spending');
-                  }
-                }}
-              />
-            </div>
-          </div>
-
           <div className="hero-cta">
-            <button className="btn-primary" onClick={() => navigateTo('overview')}>
-              <Eye size={18} /> Explore the Data
-            </button>
-            <button className="btn-primary" onClick={() => navigateTo('bonds')}
-              style={{ background: 'linear-gradient(135deg, #680A1D 0%, #14558F 50%, #32784E 100%)' }}>
-              <Banknote size={18} /> Bonds & Borrowing
-            </button>
             <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit" target="_blank" rel="noopener" className="btn-secondary">
               <FileText size={18} /> Source Code
             </a>
@@ -2146,10 +2238,41 @@ export default function App() {
       </div>
 
       {/* ============ MAIN CONTENT ============ */}
-      <AnimatePresence mode="wait">
+      <div>
         {/* ============ OVERVIEW ============ */}
         {activeSection === 'overview' && (
-          <motion.div key="overview" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
+            {/* Overview Sub-tabs */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 0, padding: '0', background: 'var(--bg-secondary)', borderBottom: '2px solid var(--border)' }}>
+              <button onClick={() => setOverviewSubTab('dashboard')}
+                style={{
+                  padding: '16px 32px', fontSize: '1rem', fontWeight: 700, cursor: 'pointer',
+                  background: overviewSubTab === 'dashboard' ? 'var(--bg-card)' : 'transparent',
+                  color: overviewSubTab === 'dashboard' ? 'var(--accent-red)' : 'var(--text-secondary)',
+                  border: 'none', borderBottom: overviewSubTab === 'dashboard' ? '3px solid var(--accent-red)' : '3px solid transparent',
+                  display: 'flex', alignItems: 'center', gap: 8, transition: 'all 0.2s ease',
+                }}>
+                <Eye size={18} /> Dashboard
+              </button>
+              <button onClick={() => setOverviewSubTab('costliving')}
+                style={{
+                  padding: '16px 32px', fontSize: '1rem', fontWeight: 700, cursor: 'pointer',
+                  background: overviewSubTab === 'costliving' ? 'var(--bg-card)' : 'transparent',
+                  color: overviewSubTab === 'costliving' ? 'var(--accent-blue)' : 'var(--text-secondary)',
+                  border: 'none', borderBottom: overviewSubTab === 'costliving' ? '3px solid var(--accent-blue)' : '3px solid transparent',
+                  display: 'flex', alignItems: 'center', gap: 8, transition: 'all 0.2s ease',
+                }}>
+                <Banknote size={18} /> Cost of Living
+              </button>
+            </div>
+
+            {overviewSubTab === 'costliving' && (
+              <div className="section">
+                <CostOfLivingCalculator />
+              </div>
+            )}
+
+            {overviewSubTab === 'dashboard' && (
             <div className="section">
               <div className="section-header">
                 <span className="section-tag red">FY{budget.fiscalYear} Snapshot</span>
@@ -2253,40 +2376,41 @@ export default function App() {
                 </div>
               )}
             </div>
-          </motion.div>
+            )}
+          </div>
         )}
 
         {/* ============ SPENDING EXPLORER ============ */}
         {activeSection === 'spending' && (
-          <motion.div key="spending" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <SpendingExplorer departments={data.spendingByDept} spendingOverTime={data.spendingOverTime} initialYear={spendingYear} />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ PAYROLL ============ */}
         {activeSection === 'payroll' && (
-          <motion.div key="payroll" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <PayrollSearcher payrollYear={payrollYear} setPayrollYear={setPayrollYear} data={data} />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ VENDOR EXPLORER ============ */}
         {activeSection === 'vendors' && (
-          <motion.div key="vendors" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <VendorExplorer spendingYear={spendingYear} />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ FOLLOW THE MONEY ============ */}
         {activeSection === 'campaign' && (
-          <motion.div key="campaign" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <FollowTheMoney />
-          </motion.div>
+          </div>
         )}
 
 {/* ============ BONDS & BORROWING ============ */}
         {activeSection === 'bonds' && (
-          <motion.div key="bonds" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <div className="section">
               <div className="section-header">
                 <span className="section-tag blue">Debt Service</span>
@@ -2698,7 +2822,7 @@ export default function App() {
                 </div>
               </div>
 
-              {data.emmaTrades && data.emmaTrades.length > 0 && (
+              {(
                 <div className="chart-card" style={{ marginTop: 24, borderLeft: '4px solid #680A1D' }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
                     <h3 style={{ margin: 0 }}>
@@ -2727,7 +2851,7 @@ export default function App() {
                   <div className="chart-subtitle" style={{ marginTop: 6 }}>
                     Snapshot of significant Massachusetts issuer trades. Click any CUSIP to view full EMMA history.
                   </div>
-                  {emmaLastFetched && (
+                  {emmaLastFetched && data.emmaTrades && (
                     <div style={{
                       marginTop: 8, padding: '6px 12px', background: '#f4f5f8', borderRadius: 4,
                       fontSize: '0.82rem', color: 'var(--text-muted)'
@@ -2737,6 +2861,7 @@ export default function App() {
                       {' · '}{data.emmaTrades.length} trades loaded
                     </div>
                   )}
+                  {data.emmaTrades && data.emmaTrades.length > 0 ? (
                   <div style={{ overflowX: 'auto', marginTop: 12 }}>
                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
                       <thead>
@@ -2767,6 +2892,12 @@ export default function App() {
                       </tbody>
                     </table>
                   </div>
+                  ) : (
+                    <div style={{ marginTop: 16, padding: '20px 16px', background: '#f4f5f8', borderRadius: 8, textAlign: 'center', color: 'var(--text-muted)' }}>
+                      <p style={{ margin: '0 0 8px', fontWeight: 600, color: '#680A1D' }}>No bond trades loaded</p>
+                      <p style={{ margin: 0, fontSize: '0.85rem' }}>Click "↻ Refresh now" above to fetch the latest MA bond trades from EMMA / MSRB.</p>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -2821,43 +2952,27 @@ export default function App() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* ============ MUNICIPALITIES ============ */}
         {activeSection === 'municipalities' && (
-          <motion.div key="municipalities" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <MunicipalitiesExplorer />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ LOBBYISTS ============ */}
         {activeSection === 'lobbyists' && (
-          <motion.div key="lobbyists" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-            <div className="section">
-              <div className="section-header">
-                <span className="section-tag green">Money & Influence</span>
-                <h2>Massachusetts Lobbying Activity</h2>
-                <p>Who is paid to influence Massachusetts government? Track lobbying registrations, spending, and client relationships. Data from Massachusetts Secretary of the Commonwealth.</p>
+              <div>
+                <LobbyingExplorer />
               </div>
+            )}
 
-              <div className="card-grid">
-                <div className="card" style={{ borderColor: 'rgba(32,120,78,0.3)' }}>
-                  <div className="card-title"><Network size={16} /> Search Lobbyists</div>
-                  <div style={{ fontSize: '0.9rem', marginTop: '12px', color: 'var(--text-secondary)' }}>
-                    <a href="https://www.sec.state.ma.us/lobbyistpublicsearch/" target="_blank" rel="noopener" style={{ color: '#32784E', textDecoration: 'none', fontWeight: '600' }}>
-                      SEC Lobbyist Public Search ↗
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
 
 {/* ============ FEDERAL ============ */}
         {activeSection === 'federal' && (
-          <motion.div key="federal" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <div className="section">
               <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
                 <div>
@@ -2914,19 +3029,19 @@ export default function App() {
                 ) : <div className="loading-skeleton" />}
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* ============ QUASI-GOVERNMENT ============ */}
         {activeSection === 'quasi' && (
-          <motion.div key="quasi" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <QuasiExplorer quasiPayments={data.quasiPayments} />
-          </motion.div>
+          </div>
         )}
 
         {/* ============ THE AUDIT FIGHT ============ */}
         {activeSection === 'audit' && (
-          <motion.div key="audit" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+          <div>
             <div className="section">
               <div className="section-header">
                 <span className="section-tag red">Democracy in Action</span>
@@ -3021,9 +3136,9 @@ export default function App() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+              </div>
 
       {/* ============ SHARE ============ */}
       <div style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)', padding: '40px 24px', textAlign: 'center' }}>
@@ -3041,6 +3156,11 @@ export default function App() {
             target="_blank" rel="noopener"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#0077B5', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
             Share on LinkedIn
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
+            target="_blank" rel="noopener"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#1877F2', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
+            Share on Facebook
           </a>
           <button onClick={() => { navigator.clipboard.writeText('https://duncanburns2013-dot.github.io/The-Peoples-Audit/'); }}
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: 'var(--bg-primary)', color: 'var(--text-primary)', border: '1px solid var(--border)', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s' }}>
