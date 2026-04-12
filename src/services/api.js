@@ -774,7 +774,7 @@ function parseOcpfDate(str) {
   return new Date(str).getTime() || 0;
 }
 
-async function ocpfQuery(endpoint, timeout = 12000) {
+async function ocpfQuery(endpoint, timeout = 20000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeout);
   try {

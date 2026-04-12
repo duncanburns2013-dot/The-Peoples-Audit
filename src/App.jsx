@@ -1172,6 +1172,9 @@ function FollowTheMoney() {
       searchContributions({ searchPhrase: searchQuery, pageSize: 50 }).then(data => {
         setSearchResults(data);
         setSearchLoading(false);
+      }).catch(() => {
+        setSearchResults({ items: [], totalCount: 0 });
+        setSearchLoading(false);
       });
     }, 500);
     return () => clearTimeout(timer);
@@ -1182,8 +1185,11 @@ function FollowTheMoney() {
     if (!crossRefVendor.trim()) return;
     setCrossRefLoading(true);
     setCrossRefPage(0);
-    crossReferenceVendorDonations(crossRefVendor, 500).then(data => {
+    crossReferenceVendorDonations(crossRefVendor, 200).then(data => {
       setCrossRefResults(data);
+      setCrossRefLoading(false);
+    }).catch(() => {
+      setCrossRefResults([]);
       setCrossRefLoading(false);
     });
   }, [crossRefVendor]);
@@ -1515,14 +1521,25 @@ function FollowTheMoney() {
                 // Apply year filter and sort client-side
                 const filtered = crossRefResults.filter(c => {
                   if (crossRefYear === 'all') return true;
-                  return (c.date || '').startsWith(String(crossRefYear));
+                  // OCPF dates are M/D/YYYY format — extract the year from the end
+                  const parts = (c.date || '').split('/');
+                  const yr = parts.length === 3 ? parts[2] : '';
+                  return yr === String(crossRefYear);
                 });
                 const sorted = [...filtered].sort((a, b) => {
                   switch (crossRefSort) {
                     case 'amount-desc': return b.amountNum - a.amountNum;
                     case 'amount-asc': return a.amountNum - b.amountNum;
-                    case 'date-desc': return (b.date || '').localeCompare(a.date || '');
-                    case 'date-asc': return (a.date || '').localeCompare(b.date || '');
+                    case 'date-desc': {
+                      const pa = a.date ? (() => { const p = a.date.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
+                      const pb = b.date ? (() => { const p = b.date.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
+                      return pb - pa;
+                    }
+                    case 'date-asc': {
+                      const pa2 = a.date ? (() => { const p = a.date.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
+                      const pb2 = b.date ? (() => { const p = b.date.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
+                      return pa2 - pb2;
+                    }
                     case 'contributor': return (a.contributor || '').localeCompare(b.contributor || '');
                     case 'recipient': return (a.recipient || '').localeCompare(b.recipient || '');
                     default: return 0;
