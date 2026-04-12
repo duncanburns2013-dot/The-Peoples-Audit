@@ -888,13 +888,24 @@ export async function fetchPACFinances(year) {
  */
 export async function searchContributions(params = {}) {
   try {
+    // OCPF API uses specific named parameters (not searchPhrase which is ignored).
+    // Discovered by inspecting network requests on ocpf.us/Data/SearchItems.
+    // The 'name' parameter searches contributor names. Other fields have dedicated params.
     const queryParts = ['searchTypeCategory=A'];
     if (params.cpfId) queryParts.push(`cpfId=${params.cpfId}`);
-    if (params.searchPhrase) queryParts.push(`searchPhrase=${encodeURIComponent(params.searchPhrase)}`);
+    if (params.searchPhrase) queryParts.push(`name=${encodeURIComponent(params.searchPhrase)}`);
+    if (params.name) queryParts.push(`name=${encodeURIComponent(params.name)}`);
+    if (params.employer) queryParts.push(`employer=${encodeURIComponent(params.employer)}`);
+    if (params.occupation) queryParts.push(`occupation=${encodeURIComponent(params.occupation)}`);
+    if (params.city) queryParts.push(`cityCode=${encodeURIComponent(params.city)}`);
     if (params.startDate) queryParts.push(`startDate=${params.startDate}`);
     if (params.endDate) queryParts.push(`endDate=${params.endDate}`);
-    queryParts.push(`pageSize=${params.pageSize || 50}`);
-    queryParts.push(`pageIndex=${params.pageIndex || 0}`);
+    if (params.minAmount) queryParts.push(`minAmount=${params.minAmount}`);
+    if (params.maxAmount) queryParts.push(`maxAmount=${params.maxAmount}`);
+    queryParts.push(`pagesize=${params.pageSize || 50}`);
+    queryParts.push(`startIndex=${(params.pageIndex || 0) * (params.pageSize || 50) + 1}`);
+    queryParts.push('sortDirection=DESC');
+    queryParts.push('withSummary=true');
     const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
     return {
       items: (data.items || []).map(d => ({
@@ -937,7 +948,7 @@ export async function fetchLastContribution(cpfId) {
     for (let yr = currentYear; yr >= currentYear - 2; yr--) {
       const start = `${yr}-01-01`;
       const end = yr === currentYear ? today : `${yr}-12-31`;
-      const qs = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${end}&pageSize=100&pageIndex=0`;
+      const qs = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${end}&pagesize=100&startIndex=1&sortDirection=DESC`;
       const data = await ocpfQuery(`/search/items?${qs}`);
       const items = data.items || [];
       if (items.length === 0) continue;
@@ -953,7 +964,7 @@ export async function fetchLastContribution(cpfId) {
       // If page is full (100 items), there may be newer items on later pages.
       // Fetch one more page to try to capture the true latest.
       if (items.length >= 100) {
-        const qs2 = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${end}&pageSize=100&pageIndex=1`;
+        const qs2 = `searchTypeCategory=A&cpfId=${cpfId}&startDate=${start}&endDate=${end}&pagesize=100&startIndex=101&sortDirection=DESC`;
         try {
           const data2 = await ocpfQuery(`/search/items?${qs2}`);
           for (const item of (data2.items || [])) {
@@ -986,11 +997,17 @@ export async function searchExpenditures(params = {}) {
   try {
     const queryParts = ['searchTypeCategory=B'];
     if (params.cpfId) queryParts.push(`cpfId=${params.cpfId}`);
-    if (params.searchPhrase) queryParts.push(`searchPhrase=${encodeURIComponent(params.searchPhrase)}`);
+    if (params.searchPhrase) queryParts.push(`name=${encodeURIComponent(params.searchPhrase)}`);
+    if (params.name) queryParts.push(`name=${encodeURIComponent(params.name)}`);
+    if (params.description) queryParts.push(`description=${encodeURIComponent(params.description)}`);
     if (params.startDate) queryParts.push(`startDate=${params.startDate}`);
     if (params.endDate) queryParts.push(`endDate=${params.endDate}`);
-    queryParts.push(`pageSize=${params.pageSize || 50}`);
-    queryParts.push(`pageIndex=${params.pageIndex || 0}`);
+    if (params.minAmount) queryParts.push(`minAmount=${params.minAmount}`);
+    if (params.maxAmount) queryParts.push(`maxAmount=${params.maxAmount}`);
+    queryParts.push(`pagesize=${params.pageSize || 50}`);
+    queryParts.push(`startIndex=${(params.pageIndex || 0) * (params.pageSize || 50) + 1}`);
+    queryParts.push('sortDirection=DESC');
+    queryParts.push('withSummary=true');
     const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
     return {
       items: (data.items || []).map(d => ({
@@ -1041,8 +1058,10 @@ export async function crossReferenceVendorDonations(vendorName, pageSize = 200) 
     const queryParts = [
       'searchTypeCategory=A',
       `employer=${encodeURIComponent(vendorName)}`,
-      `pageSize=${pageSize}`,
-      'pageIndex=0',
+      `pagesize=${pageSize}`,
+      'startIndex=1',
+      'sortDirection=DESC',
+      'withSummary=true',
     ];
     const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
 
@@ -1084,7 +1103,7 @@ export async function fetchCampaignFinanceTotals() {
 export async function fetchPACContributions(cpfId, pageSize = 50) {
   try {
     const data = await ocpfQuery(
-      `/search/items?searchTypeCategory=A&filerCpfId=${cpfId}&pageSize=${pageSize}&pageIndex=0`
+      `/search/items?searchTypeCategory=A&cpfId=${cpfId}&pagesize=${pageSize}&startIndex=1&sortDirection=DESC&withSummary=true`
     );
     return (data.items || []).map(d => ({
       name: d.fullNameReverse || 'Unknown',
@@ -1110,7 +1129,7 @@ export async function fetchPACContributions(cpfId, pageSize = 50) {
 export async function fetchPACExpenditures(cpfId, pageSize = 50) {
   try {
     const data = await ocpfQuery(
-      `/search/items?searchTypeCategory=B&filerCpfId=${cpfId}&pageSize=${pageSize}&pageIndex=0`
+      `/search/items?searchTypeCategory=B&cpfId=${cpfId}&pagesize=${pageSize}&startIndex=1&sortDirection=DESC&withSummary=true`
     );
     return (data.items || []).map(d => ({
       vendor: d.vendor || d.vendorName || 'Unknown',
@@ -1683,11 +1702,13 @@ export async function searchLobbyingContributions(query, opts = {}) {
     const year = opts.year || currentYear;
     const queryParts = [
       'searchTypeCategory=A',
-      `searchPhrase=${encodeURIComponent(query)}`,
+      `name=${encodeURIComponent(query)}`,
       `startDate=${year}-01-01`,
       `endDate=${year}-12-31`,
-      `pageSize=${opts.pageSize || 50}`,
-      `pageIndex=${opts.pageIndex || 0}`,
+      `pagesize=${opts.pageSize || 50}`,
+      `startIndex=${(opts.pageIndex || 0) * (opts.pageSize || 50) + 1}`,
+      'sortDirection=DESC',
+      'withSummary=true',
     ];
     const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
     return {

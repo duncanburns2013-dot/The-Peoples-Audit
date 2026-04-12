@@ -1091,6 +1091,7 @@ function FollowTheMoney() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState(null);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [searchSort, setSearchSort] = useState('amount-desc');
   const [crossRefVendor, setCrossRefVendor] = useState('');
   const [crossRefResults, setCrossRefResults] = useState(null);
   const [crossRefLoading, setCrossRefLoading] = useState(false);
@@ -1787,19 +1788,58 @@ function FollowTheMoney() {
                 </div>
               )}
 
-              {searchResults && !searchLoading && (
+              {searchResults && !searchLoading && (() => {
+                const parseDate = (d) => { const p = (d||'').split('/'); return p.length===3 ? new Date(+p[2],+p[0]-1,+p[1]).getTime() : 0; };
+                const sorted = [...searchResults.items].sort((a, b) => {
+                  switch (searchSort) {
+                    case 'amount-desc': return b.amountNum - a.amountNum;
+                    case 'amount-asc': return a.amountNum - b.amountNum;
+                    case 'date-desc': return parseDate(b.date) - parseDate(a.date);
+                    case 'date-asc': return parseDate(a.date) - parseDate(b.date);
+                    case 'contributor': return (a.contributor||'').localeCompare(b.contributor||'');
+                    case 'recipient': return (a.recipient||'').localeCompare(b.recipient||'');
+                    case 'employer': return (a.employer||'').localeCompare(b.employer||'');
+                    case 'occupation': return (a.occupation||'').localeCompare(b.occupation||'');
+                    case 'city': return (a.city||'').localeCompare(b.city||'');
+                    default: return 0;
+                  }
+                });
+                return (
                 <div>
                   <h4 style={{ marginBottom: 12, color: 'var(--text-secondary)' }}>
-                    {searchResults.items.length} contributions found
+                    {sorted.length} contributions found
                   </h4>
-                  {searchResults.items.length > 0 && (
+                  {sorted.length > 0 && (
                     <div className="data-table-wrapper">
                       <table className="data-table">
                         <thead>
-                          <tr><th>Date</th><th>Contributor</th><th>Amount</th><th>Recipient</th><th>Employer</th><th>Occupation</th><th>City</th></tr>
+                          <tr>
+                            {[
+                              { key: 'date', label: 'Date', asc: 'date-asc', desc: 'date-desc' },
+                              { key: 'contributor', label: 'Contributor', asc: 'contributor', desc: 'contributor' },
+                              { key: 'amount', label: 'Amount', asc: 'amount-asc', desc: 'amount-desc' },
+                              { key: 'recipient', label: 'Recipient', asc: 'recipient', desc: 'recipient' },
+                              { key: 'employer', label: 'Employer', asc: 'employer', desc: 'employer' },
+                              { key: 'occupation', label: 'Occupation', asc: 'occupation', desc: 'occupation' },
+                              { key: 'city', label: 'City', asc: 'city', desc: 'city' },
+                            ].map(col => {
+                              const isActive = searchSort === col.asc || searchSort === col.desc;
+                              const isAsc = searchSort === col.asc;
+                              return (
+                                <th key={col.key}
+                                  onClick={() => {
+                                    if (col.asc === col.desc) { setSearchSort(col.asc); }
+                                    else { setSearchSort(isActive && !isAsc ? col.asc : col.desc); }
+                                  }}
+                                  style={{ cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' }}>
+                                  {col.label} <span style={{ color: isActive ? 'var(--accent-purple)' : '#ccc', fontSize: '0.7rem' }}>{isActive ? (isAsc ? ' ▲' : ' ▼') : ' ▼'}</span>
+                                </th>
+                              );
+                            })}
+                          </tr>
                         </thead>
                         <tbody>
-                          {searchResults.items.map((c, i) => (
+                          {sorted.map((c, i) => (
                             <tr key={i}>
                               <td style={{ whiteSpace: 'nowrap', fontSize: '0.8rem' }}>{c.date}</td>
                               <td>{c.contributor}</td>
@@ -1815,7 +1855,8 @@ function FollowTheMoney() {
                     </div>
                   )}
                 </div>
-              )}
+                );
+              })()}
             </motion.div>
           )}
 
