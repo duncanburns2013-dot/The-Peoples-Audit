@@ -56,6 +56,8 @@ function PACDetailView({ pac, onBack }) {
   const [expenditures, setExpenditures] = useState([]);
   const [loadingDetail, setLoadingDetail] = useState(true);
   const [activeTab, setActiveTab] = useState('contributions');
+  const [contribSort, setContribSort] = useState({ col: 'date', dir: 'desc' });
+  const [expendSort, setExpendSort] = useState({ col: 'date', dir: 'desc' });
 
   useEffect(() => {
     if (!pac?.cpfId) { setLoadingDetail(false); return; }
@@ -96,6 +98,46 @@ function PACDetailView({ pac, onBack }) {
     if (e.purpose) expendByVendor[key].purposes.add(e.purpose);
   });
   const topVendors = Object.values(expendByVendor).sort((a, b) => b.total - a.total).slice(0, 15);
+
+  // Parse M/D/YYYY dates for sorting
+  const parseDate = (d) => {
+    if (!d) return 0;
+    const parts = d.split('/');
+    if (parts.length === 3) return new Date(parts[2], parts[0] - 1, parts[1]).getTime();
+    return 0;
+  };
+
+  // Sort contributions
+  const sortedContribs = [...contributions].sort((a, b) => {
+    let cmp = 0;
+    if (contribSort.col === 'date') cmp = parseDate(a.date) - parseDate(b.date);
+    else if (contribSort.col === 'amount') cmp = a.amountNum - b.amountNum;
+    else if (contribSort.col === 'name') cmp = (a.name || '').localeCompare(b.name || '');
+    return contribSort.dir === 'desc' ? -cmp : cmp;
+  });
+
+  // Sort expenditures
+  const sortedExpend = [...expenditures].sort((a, b) => {
+    let cmp = 0;
+    if (expendSort.col === 'date') cmp = parseDate(a.date) - parseDate(b.date);
+    else if (expendSort.col === 'amount') cmp = a.amountNum - b.amountNum;
+    else if (expendSort.col === 'vendor') cmp = (a.vendor || '').localeCompare(b.vendor || '');
+    return expendSort.dir === 'desc' ? -cmp : cmp;
+  });
+
+  const toggleSort = (setter, current, col) => {
+    if (current.col === col) setter({ col, dir: current.dir === 'desc' ? 'asc' : 'desc' });
+    else setter({ col, dir: 'desc' });
+  };
+
+  const SortHeader = ({ label, col, current, setter, align }) => (
+    <th style={{ textAlign: align || 'left', cursor: 'pointer', userSelect: 'none' }} onClick={() => toggleSort(setter, current, col)}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '4px', justifyContent: align === 'right' ? 'flex-end' : 'flex-start' }}>
+        {label}
+        {current.col === col && <ArrowUpDown size={12} style={{ color: 'var(--accent-purple)', transform: current.dir === 'desc' ? 'rotate(180deg)' : 'none' }} />}
+      </div>
+    </th>
+  );
 
   return (
     <div style={{ padding: '24px' }}>
@@ -202,15 +244,15 @@ function PACDetailView({ pac, onBack }) {
                     <table className="data-table" style={{ width: '100%' }}>
                       <thead>
                         <tr>
-                          <th style={{ textAlign: 'left' }}>Contributor</th>
+                          <SortHeader label="Contributor" col="name" current={contribSort} setter={setContribSort} />
                           <th style={{ textAlign: 'left' }}>Employer / Occupation</th>
                           <th style={{ textAlign: 'left' }}>City</th>
-                          <th>Date</th>
-                          <th>Amount</th>
+                          <SortHeader label="Date" col="date" current={contribSort} setter={setContribSort} />
+                          <SortHeader label="Amount" col="amount" current={contribSort} setter={setContribSort} align="right" />
                         </tr>
                       </thead>
                       <tbody>
-                        {contributions.map((c, i) => (
+                        {sortedContribs.map((c, i) => (
                           <tr key={i}>
                             <td style={{ textAlign: 'left', fontWeight: 500 }}>{c.name}</td>
                             <td style={{ textAlign: 'left', fontSize: '13px', color: 'var(--text-secondary)' }}>
@@ -219,7 +261,7 @@ function PACDetailView({ pac, onBack }) {
                             </td>
                             <td style={{ textAlign: 'left', fontSize: '13px' }}>{c.city}{c.state ? `, ${c.state}` : ''}</td>
                             <td style={{ fontSize: '13px', whiteSpace: 'nowrap' }}>{c.date}</td>
-                            <td style={{ fontWeight: 600, color: 'var(--accent-green)', whiteSpace: 'nowrap' }}>{c.amount}</td>
+                            <td style={{ fontWeight: 600, color: 'var(--accent-green)', whiteSpace: 'nowrap', textAlign: 'right' }}>{c.amount}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -266,21 +308,21 @@ function PACDetailView({ pac, onBack }) {
                     <table className="data-table" style={{ width: '100%' }}>
                       <thead>
                         <tr>
-                          <th style={{ textAlign: 'left' }}>Vendor</th>
+                          <SortHeader label="Vendor" col="vendor" current={expendSort} setter={setExpendSort} />
                           <th style={{ textAlign: 'left' }}>Purpose</th>
                           <th style={{ textAlign: 'left' }}>City</th>
-                          <th>Date</th>
-                          <th>Amount</th>
+                          <SortHeader label="Date" col="date" current={expendSort} setter={setExpendSort} />
+                          <SortHeader label="Amount" col="amount" current={expendSort} setter={setExpendSort} align="right" />
                         </tr>
                       </thead>
                       <tbody>
-                        {expenditures.map((e, i) => (
+                        {sortedExpend.map((e, i) => (
                           <tr key={i}>
                             <td style={{ textAlign: 'left', fontWeight: 500 }}>{e.vendor}</td>
                             <td style={{ textAlign: 'left', fontSize: '13px', color: 'var(--text-secondary)' }}>{e.purpose}</td>
                             <td style={{ textAlign: 'left', fontSize: '13px' }}>{e.city}{e.state ? `, ${e.state}` : ''}</td>
                             <td style={{ fontSize: '13px', whiteSpace: 'nowrap' }}>{e.date}</td>
-                            <td style={{ fontWeight: 600, color: '#ff006e', whiteSpace: 'nowrap' }}>{e.amount}</td>
+                            <td style={{ fontWeight: 600, color: '#ff006e', whiteSpace: 'nowrap', textAlign: 'right' }}>{e.amount}</td>
                           </tr>
                         ))}
                       </tbody>
