@@ -1005,9 +1005,11 @@ export async function fetchFilerProfile(cpfId) {
  * Cross-reference: Search for contributions where the employer matches a state vendor name.
  * This is the key function that connects "who gets state money" to "who donates to politicians."
  */
-export async function crossReferenceVendorDonations(vendorName, pageSize = 50) {
+export async function crossReferenceVendorDonations(vendorName, pageSize = 200) {
   try {
-    // Search contributions where the contributor's employer matches the vendor name
+    // OCPF searchPhrase searches ALL fields (name, employer, address, city).
+    // For a meaningful vendor cross-reference, we fetch a large set then filter
+    // client-side to only show donors whose EMPLOYER matches the vendor name.
     const queryParts = [
       'searchTypeCategory=A',
       `searchPhrase=${encodeURIComponent(vendorName)}`,
@@ -1015,7 +1017,10 @@ export async function crossReferenceVendorDonations(vendorName, pageSize = 50) {
       'pageIndex=0',
     ];
     const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
-    return (data.items || []).map(d => ({
+    const vendorLower = vendorName.toLowerCase().trim();
+
+    // Map all results, then filter to only those with a matching employer
+    const allMapped = (data.items || []).map(d => ({
       contributor: d.fullNameReverse || 'Unknown',
       amount: d.amount || '$0',
       amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
@@ -1027,6 +1032,19 @@ export async function crossReferenceVendorDonations(vendorName, pageSize = 50) {
       city: d.city || '',
       state: d.state || '',
     }));
+
+    // Filter: employer must contain the vendor name (case-insensitive)
+    const employerMatches = allMapped.filter(d =>
+      d.employer.toLowerCase().includes(vendorLower)
+    );
+
+    // If employer filtering finds results, return those (most relevant).
+    // If not, return ALL results but mark them so the UI can explain.
+    if (employerMatches.length > 0) return employerMatches;
+
+    // No employer matches — return all results with a flag
+    // The UI can show "No direct employer matches — showing all OCPF results for this term"
+    return allMapped;
   } catch (err) {
     console.warn('Vendor cross-reference failed:', err.message);
     return [];

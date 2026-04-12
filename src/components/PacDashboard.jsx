@@ -464,93 +464,102 @@ export default function PacDashboard() {
         </div>
       </div>
 
-      {/* PAC Detail Panel */}
+      {/* PAC Detail Panel — inline below table */}
       {selectedPAC && (
-        <div className="detail-panel" style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          width: '400px',
-          height: '100vh',
-          backgroundColor: 'var(--bg-card)',
-          border: '1px solid var(--border)',
-          borderLeft: '2px solid var(--accent-purple)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-          overflowY: 'auto',
-          zIndex: 1000,
-          padding: '24px',
+        <div className="chart-card" style={{
+          marginTop: '24px',
+          borderLeft: '3px solid var(--accent-purple)',
         }}>
-          <button
-            className="close-btn"
-            onClick={() => setSelectedPAC(null)}
-            style={{
-              position: 'absolute',
-              top: '16px',
-              right: '16px',
-              background: 'none',
-              border: 'none',
-              fontSize: '24px',
-              cursor: 'pointer',
-              color: 'var(--text-secondary)',
-            }}
-          >
-            ×
-          </button>
-
-          <h3 style={{ marginTop: 0, marginBottom: '8px', color: 'var(--text-primary)' }}>
-            {selectedPAC.name}
-          </h3>
-          <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '20px' }}>
-            Financial overview from OCPF (Massachusetts Office of Campaign and Political Finance)
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+            <div>
+              <h3 style={{ margin: '0 0 4px', fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)' }}>
+                {selectedPAC.name}
+              </h3>
+              <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)' }}>
+                Financial overview from OCPF (Massachusetts Office of Campaign and Political Finance)
+              </p>
+            </div>
+            <button
+              onClick={() => setSelectedPAC(null)}
+              style={{
+                background: 'var(--bg-primary)',
+                border: '1px solid var(--border)',
+                borderRadius: '6px',
+                padding: '4px 12px',
+                fontSize: '14px',
+                cursor: 'pointer',
+                color: 'var(--text-secondary)',
+                fontWeight: 600,
+              }}
+            >
+              Close
+            </button>
+          </div>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '16px',
-            marginBottom: '24px',
           }}>
             <div style={{
-              padding: '12px',
+              padding: '16px',
               backgroundColor: 'var(--bg-primary)',
-              borderRadius: '6px',
+              borderRadius: '8px',
               border: '1px solid var(--border)',
             }}>
-              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '4px' }}>
+              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '6px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Receipts
               </div>
-              <div style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--accent-green)' }}>
+              <div style={{ fontSize: '22px', fontWeight: 800, color: 'var(--accent-green)' }}>
                 {formatMoney(selectedPAC.receipts || 0)}
               </div>
             </div>
             <div style={{
-              padding: '12px',
+              padding: '16px',
               backgroundColor: 'var(--bg-primary)',
-              borderRadius: '6px',
+              borderRadius: '8px',
               border: '1px solid var(--border)',
             }}>
-              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '4px' }}>
+              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '6px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Expenditures
               </div>
-              <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff006e' }}>
+              <div style={{ fontSize: '22px', fontWeight: 800, color: '#ff006e' }}>
                 {formatMoney(selectedPAC.expenditures || 0)}
               </div>
             </div>
             <div style={{
-              gridColumn: '1 / -1',
-              padding: '12px',
+              padding: '16px',
               backgroundColor: 'var(--bg-primary)',
-              borderRadius: '6px',
+              borderRadius: '8px',
               border: '1px solid var(--border)',
             }}>
-              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '4px' }}>
+              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '6px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Cash on Hand
               </div>
-              <div style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--accent-gold)' }}>
+              <div style={{ fontSize: '22px', fontWeight: 800, color: 'var(--accent-gold)' }}>
                 {formatMoney(selectedPAC.cashOnHand || 0)}
               </div>
             </div>
           </div>
+
+          {/* Net balance indicator */}
+          {(() => {
+            const net = (selectedPAC.receipts || 0) - (selectedPAC.expenditures || 0);
+            return (
+              <div style={{
+                marginTop: '16px',
+                padding: '10px 16px',
+                borderRadius: '8px',
+                background: net >= 0 ? 'rgba(42, 157, 143, 0.08)' : 'rgba(255, 0, 110, 0.08)',
+                border: `1px solid ${net >= 0 ? 'rgba(42, 157, 143, 0.2)' : 'rgba(255, 0, 110, 0.2)'}`,
+                fontSize: '14px',
+                color: net >= 0 ? 'var(--accent-green)' : '#ff006e',
+                fontWeight: 600,
+              }}>
+                Net: {net >= 0 ? '+' : ''}{formatMoney(net)} ({net >= 0 ? 'surplus' : 'deficit'})
+              </div>
+            );
+          })()}
         </div>
       )}
     </div>

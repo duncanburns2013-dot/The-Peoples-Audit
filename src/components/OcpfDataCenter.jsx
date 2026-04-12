@@ -94,14 +94,43 @@ function PoliticianSearch({ onSelect, loading }) {
 
     setSearching(true);
     try {
+      // First: search depository report filers (candidates who filed)
       const result = await fetchLegislatorFinances();
-      // Handle both { data, year } object and plain array returns
       const allLegislators = Array.isArray(result) ? result : (result?.data || []);
-      // Search by name (case-insensitive)
       const filtered = allLegislators.filter(leg =>
         leg.name.toLowerCase().includes(searchText.toLowerCase())
       );
-      setLegislators(filtered);
+
+      if (filtered.length > 0) {
+        setLegislators(filtered);
+      } else {
+        // Not found in depository reports — search OCPF contributions
+        // to find the politician as a recipient
+        const contribResult = await searchContributions({
+          searchPhrase: searchText,
+          pageSize: 50,
+        });
+        const items = contribResult?.items || contribResult || [];
+        // Extract unique recipients that match the search
+        const recipientMap = {};
+        items.forEach(c => {
+          const name = c.recipient || c.cpfName || '';
+          if (name.toLowerCase().includes(searchText.toLowerCase()) && !recipientMap[name]) {
+            recipientMap[name] = {
+              cpfId: c.cpfId || c.recipientCpfId || 0,
+              name: name,
+              office: '',
+              district: '',
+              party: '',
+              receipts: 0,
+              expenditures: 0,
+              cashOnHand: 0,
+            };
+          }
+        });
+        const fromContribs = Object.values(recipientMap);
+        setLegislators(fromContribs.length > 0 ? fromContribs : []);
+      }
     } catch (err) {
       console.error('Failed to fetch legislators:', err);
       setLegislators([]);

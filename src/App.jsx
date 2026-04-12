@@ -1551,11 +1551,16 @@ function FollowTheMoney() {
                 const totalPages = Math.max(1, Math.ceil(sorted.length / CROSSREF_PAGE_SIZE));
                 return (
                 <div>
-                  <h4 style={{ marginBottom: 12, color: 'var(--text-secondary)' }}>
+                  <h4 style={{ marginBottom: 4, color: 'var(--text-secondary)' }}>
                     {sorted.length > 0
-                      ? `Found ${sorted.length} contribution(s) matching "${crossRefVendor}"${crossRefResults.length >= 500 ? ' (capped at 500 — narrow your search for more)' : ''}`
-                      : `No contributions found matching "${crossRefVendor}"${crossRefYear !== 'all' ? ` for ${crossRefYear}` : ''}`}
+                      ? `Found ${sorted.length} contribution(s) from employees of "${crossRefVendor}"`
+                      : `No contributions found from employees of "${crossRefVendor}"${crossRefYear !== 'all' ? ` for ${crossRefYear}` : ''}`}
                   </h4>
+                  {sorted.length > 0 && (
+                    <p style={{ marginBottom: 12, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                      Showing donors whose listed employer matches "{crossRefVendor}". Each card shows who donated, how much, and which politician received it.
+                    </p>
+                  )}
 
                   {sorted.length > 0 && (
                     <>
@@ -1610,20 +1615,22 @@ function FollowTheMoney() {
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 16, marginBottom: 24 }}>
                         {cardSlice.map((c, i) => (
                           <div key={i} className="connection-card">
-                            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                              Contribution Match
-                            </div>
+                            {c.employer && (
+                              <div style={{ fontSize: '0.7rem', color: '#fff', background: 'var(--accent-purple)', padding: '2px 8px', borderRadius: 4, display: 'inline-block', marginBottom: 8 }}>
+                                {c.employer}
+                              </div>
+                            )}
+                            {!c.employer && (
+                              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                                Contribution Match
+                              </div>
+                            )}
                             <div style={{ fontWeight: 600, marginBottom: 4 }}>{c.contributor}</div>
                             <div className="connection-amount">{c.amount}</div>
                             <div style={{ marginTop: 8, fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
-                              <ArrowRight size={12} style={{ color: 'var(--accent-purple)', verticalAlign: 'middle', marginRight: 4 }} />
+                              Donated to <ArrowRight size={12} style={{ color: 'var(--accent-purple)', verticalAlign: 'middle', marginRight: 4 }} />
                               {c.recipient}
                             </div>
-                            {c.employer && (
-                              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>
-                                Employer: {c.employer}
-                              </div>
-                            )}
                             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>
                               {c.date} | {c.city}{c.state ? `, ${c.state}` : ''}
                             </div>

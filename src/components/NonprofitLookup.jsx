@@ -115,28 +115,43 @@ export default function NonprofitLookup() {
     setOrgDetails(null);
     setIsUsingFallback(false);
 
+    // Search local database first (instant results)
+    const query = searchQuery.toLowerCase();
+    const localResults = MA_NONPROFITS_DATABASE.filter((org) =>
+      org.name.toLowerCase().includes(query)
+    ).map(org => ({
+      ...org,
+      income_amount: org.revenue, // normalize field name for display
+    }));
+
+    // Show local results immediately
+    if (localResults.length > 0) {
+      setSearchResults(localResults);
+      setTotalResults(localResults.length);
+      setIsUsingFallback(true);
+    }
+
+    // Try ProPublica API in background to enhance results
     try {
-      // Try ProPublica API first
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
       const response = await fetch(
         `https://projects.propublica.org/nonprofits/api/v2/search.json?q=${encodeURIComponent(searchQuery)}&state[id]=MA&page=1`,
-        { timeout: 8000 }
+        { signal: controller.signal }
       );
+      clearTimeout(timeoutId);
       if (!response.ok) throw new Error('API returned error');
       const data = await response.json();
-      setSearchResults(data.organizations || []);
-      setTotalResults(data.total_results || 0);
+      const apiResults = data.organizations || [];
+      if (apiResults.length > 0) {
+        setSearchResults(apiResults);
+        setTotalResults(data.total_results || apiResults.length);
+        setIsUsingFallback(false);
+      }
     } catch (err) {
-      // Fallback to local database search
-      const query = searchQuery.toLowerCase();
-      const fallbackResults = MA_NONPROFITS_DATABASE.filter((org) =>
-        org.name.toLowerCase().includes(query)
-      );
-      setSearchResults(fallbackResults);
-      setTotalResults(fallbackResults.length);
-      setIsUsingFallback(true);
-
-      if (fallbackResults.length === 0) {
-        setError('No nonprofits found matching your search. ProPublica API is temporarily unavailable.');
+      // ProPublica failed (CORS or network) — keep local results
+      if (localResults.length === 0) {
+        setError('No nonprofits found matching your search in our Massachusetts database.');
       }
     } finally {
       setIsLoading(false);
@@ -149,32 +164,37 @@ export default function NonprofitLookup() {
     setOrgDetails(null);
     setSelectedOrg(ein);
 
+    // Show local data immediately
+    const foundOrg = MA_NONPROFITS_DATABASE.find((org) => org.ein === ein);
+    if (foundOrg) {
+      setOrgDetails({
+        name: foundOrg.name,
+        ein: foundOrg.ein,
+        state: 'MA',
+        city: foundOrg.city,
+        income_amount: foundOrg.revenue,
+        filings: [],
+      });
+    }
+
+    // Try ProPublica API in background for richer data
     try {
-      // Try ProPublica API first
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
       const response = await fetch(
         `https://projects.propublica.org/nonprofits/api/v2/organizations/${ein}.json`,
-        { timeout: 8000 }
+        { signal: controller.signal }
       );
+      clearTimeout(timeoutId);
       if (!response.ok) throw new Error('Failed to fetch from API');
       const data = await response.json();
-      setOrgDetails(data.organization || null);
+      if (data.organization) {
+        setOrgDetails(data.organization);
+      }
     } catch (err) {
-      // Fallback to local database
-      const foundOrg = MA_NONPROFITS_DATABASE.find((org) => org.ein === ein);
-      if (foundOrg) {
-        // Create a basic org details object from local data
-        const basicDetails = {
-          name: foundOrg.name,
-          ein: foundOrg.ein,
-          state: 'MA',
-          city: foundOrg.city,
-          income_amount: foundOrg.revenue,
-          filings: [],
-        };
-        setOrgDetails(basicDetails);
-        setError('Showing local data — ProPublica API is temporarily unavailable');
-      } else {
-        setError('Failed to load organization details.');
+      // ProPublica failed — keep local data, no error shown since we have data
+      if (!foundOrg) {
+        setError('Organization details not available. Try searching for a different nonprofit.');
       }
     } finally {
       setIsLoading(false);
@@ -297,7 +317,7 @@ export default function NonprofitLookup() {
           </button>
         </form>
         <p style={{ margin: '8px 0 0', fontSize: 12, color: 'var(--text-secondary)' }}>
-          Data from ProPublica Nonprofit Explorer. Searches Massachusetts nonprofits only.
+          Searches Massachusetts nonprofits. Data sourced from IRS Form 990 filings.
         </p>
       </div>
 
@@ -332,11 +352,11 @@ export default function NonprofitLookup() {
                 fontSize: 11,
                 padding: '4px 8px',
                 borderRadius: 4,
-                background: '#fef3c7',
-                color: '#92400e',
+                background: 'rgba(67, 97, 238, 0.08)',
+                color: 'var(--accent-blue)',
                 fontWeight: 600,
               }}>
-                Showing local data — ProPublica API is temporarily unavailable
+                MA Nonprofit Database
               </span>
             )}
           </div>
@@ -367,10 +387,10 @@ export default function NonprofitLookup() {
                     <span style={{ color: 'var(--text-secondary)' }}>City</span>
                     <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{org.city || 'N/A'}</span>
                   </div>
-                  {org.income_amount != null && (
+                  {(org.income_amount != null || org.revenue != null) && (
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                       <span style={{ color: 'var(--text-secondary)' }}>Revenue</span>
-                      <span style={{ fontWeight: 700, color: 'var(--accent-green)' }}>{formatMoney(org.income_amount)}</span>
+                      <span style={{ fontWeight: 700, color: 'var(--accent-green)' }}>{formatMoney(org.income_amount || org.revenue)}</span>
                     </div>
                   )}
                 </div>
