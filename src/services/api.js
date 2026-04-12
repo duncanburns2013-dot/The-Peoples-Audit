@@ -1067,13 +1067,10 @@ export async function crossReferenceVendorDonations(vendorName, pageSize = 200) 
       d.employer.toLowerCase().includes(vendorLower)
     );
 
-    // If employer filtering finds results, return those (most relevant).
-    // If not, return ALL results but mark them so the UI can explain.
-    if (employerMatches.length > 0) return employerMatches;
-
-    // No employer matches — return all results with a flag
-    // The UI can show "No direct employer matches — showing all OCPF results for this term"
-    return allMapped;
+    // Only return results where the employer actually matches the vendor name.
+    // If nobody lists this vendor as their employer, return empty — don't show
+    // random people whose address happens to contain the search term.
+    return employerMatches;
   } catch (err) {
     console.warn('Vendor cross-reference failed:', err.message);
     return [];
