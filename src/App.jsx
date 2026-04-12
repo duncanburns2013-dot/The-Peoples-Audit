@@ -1091,7 +1091,9 @@ function FollowTheMoney() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState(null);
   const [searchLoading, setSearchLoading] = useState(false);
-  const [searchSort, setSearchSort] = useState('amount-desc');
+  const [searchSort, setSearchSort] = useState('date-desc');
+  const [searchEmployer, setSearchEmployer] = useState('');
+  const [searchCity, setSearchCity] = useState('');
   const [crossRefVendor, setCrossRefVendor] = useState('');
   const [crossRefResults, setCrossRefResults] = useState(null);
   const [crossRefLoading, setCrossRefLoading] = useState(false);
@@ -1181,21 +1183,22 @@ function FollowTheMoney() {
     return () => { cancelled = true; };
   }, [legislators, refreshKey]);
 
-  // Search contributions
-  useEffect(() => {
-    if (!searchQuery.trim()) { setSearchResults(null); return; }
-    const timer = setTimeout(() => {
-      setSearchLoading(true);
-      searchContributions({ searchPhrase: searchQuery, pageSize: 50 }).then(data => {
-        setSearchResults(data);
-        setSearchLoading(false);
-      }).catch(() => {
-        setSearchResults({ items: [], totalCount: 0 });
-        setSearchLoading(false);
-      });
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [searchQuery]);
+  // Search contributions — triggered by runSearch callback
+  const runSearch = useCallback(() => {
+    if (!searchQuery.trim() && !searchEmployer.trim()) { setSearchResults(null); return; }
+    setSearchLoading(true);
+    const params = { pageSize: 200 };
+    if (searchQuery.trim()) params.searchPhrase = searchQuery.trim();
+    if (searchEmployer.trim()) params.employer = searchEmployer.trim();
+    if (searchCity.trim()) params.city = searchCity.trim();
+    searchContributions(params).then(data => {
+      setSearchResults(data);
+      setSearchLoading(false);
+    }).catch(() => {
+      setSearchResults({ items: [], summary: null });
+      setSearchLoading(false);
+    });
+  }, [searchQuery, searchEmployer, searchCity]);
 
   // Cross-reference vendor — pulls a wide window so client-side sort/filter works
   const runCrossRef = useCallback(() => {
@@ -1773,13 +1776,40 @@ function FollowTheMoney() {
           {/* === SEARCH TAB === */}
           {activeTab === 'search' && (
             <motion.div {...pageVariants} key="ftm-search">
-              <div style={{ marginBottom: 24 }}>
-                <div style={{ position: 'relative' }}>
-                  <Search size={16} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', zIndex: 1 }} />
-                  <input type="text" className="search-input"
-                    placeholder="Search all campaign contributions (by name, employer, or keyword)..."
-                    value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
+              <div style={{ marginBottom: 24, padding: 20, background: 'var(--bg-card)', borderRadius: 12, border: '1px solid var(--border)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr auto', gap: 12, alignItems: 'end' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Contributor Name</label>
+                    <div style={{ position: 'relative' }}>
+                      <Search size={14} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                      <input type="text" className="search-input" style={{ paddingLeft: 32 }}
+                        placeholder="e.g. Spilka, Baker, Smith..."
+                        value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                        onKeyDown={e => e.key === 'Enter' && runSearch()} />
+                    </div>
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Employer</label>
+                    <input type="text" className="search-input"
+                      placeholder="e.g. Accenture, Harvard..."
+                      value={searchEmployer} onChange={e => setSearchEmployer(e.target.value)}
+                      onKeyDown={e => e.key === 'Enter' && runSearch()} />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.5px' }}>City</label>
+                    <input type="text" className="search-input"
+                      placeholder="e.g. Boston, Cambridge..."
+                      value={searchCity} onChange={e => setSearchCity(e.target.value)}
+                      onKeyDown={e => e.key === 'Enter' && runSearch()} />
+                  </div>
+                  <button onClick={runSearch}
+                    style={{ padding: '10px 24px', background: 'linear-gradient(135deg, var(--accent-purple), #e91e63)', color: '#fff', border: 'none', borderRadius: 10, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap', height: 42 }}>
+                    <Search size={14} style={{ verticalAlign: 'middle', marginRight: 6 }} />Search
+                  </button>
                 </div>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 8 }}>
+                  Search OCPF contribution records. Use one or more fields to narrow results. Press Enter or click Search.
+                </p>
               </div>
 
               {searchLoading && (
@@ -1804,11 +1834,30 @@ function FollowTheMoney() {
                     default: return 0;
                   }
                 });
+                const summary = searchResults.summary;
+                const totalCount = summary ? summary.count : sorted.length;
+                const totalDollars = summary ? summary.totalDisplay : formatMoney(sorted.reduce((s, c) => s + c.amountNum, 0));
                 return (
                 <div>
-                  <h4 style={{ marginBottom: 12, color: 'var(--text-secondary)' }}>
-                    {sorted.length} contributions found
-                  </h4>
+                  <div className="kpi-row" style={{ marginBottom: 16 }}>
+                    <div className="kpi-card" style={{ borderColor: 'rgba(153,85,255,0.3)' }}>
+                      <div className="kpi-label">Contributions Found</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-purple)' }}>{totalCount.toLocaleString()}</div>
+                      {totalCount > sorted.length && <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Showing {sorted.length} of {totalCount.toLocaleString()}</div>}
+                    </div>
+                    <div className="kpi-card">
+                      <div className="kpi-label">Total Amount</div>
+                      <div className="kpi-value">{totalDollars}</div>
+                    </div>
+                    <div className="kpi-card">
+                      <div className="kpi-label">Unique Recipients</div>
+                      <div className="kpi-value">{new Set(sorted.map(c => c.recipient)).size}</div>
+                    </div>
+                    <div className="kpi-card">
+                      <div className="kpi-label">Unique Donors</div>
+                      <div className="kpi-value">{new Set(sorted.map(c => c.contributor)).size}</div>
+                    </div>
+                  </div>
                   {sorted.length > 0 && (
                     <div className="data-table-wrapper">
                       <table className="data-table">
