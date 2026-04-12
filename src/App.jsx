@@ -1105,6 +1105,7 @@ function FollowTheMoney() {
   const [crossRefYear, setCrossRefYear] = useState('all');
   const [crossRefPage, setCrossRefPage] = useState(0);
   const [legSort, setLegSort] = useState({ col: 'lastContrib', dir: 'desc' });
+  const [refreshKey, setRefreshKey] = useState(0);
   const contribRef = useRef(null);
   const CONTRIB_PAGE_SIZE = 100;
   const CROSSREF_PAGE_SIZE = 24;
@@ -1136,6 +1137,7 @@ function FollowTheMoney() {
   // Batch-fetch last contribution dates for all legislators (throttled: 8 concurrent)
   useEffect(() => {
     if (legislators.length === 0) return;
+    setLastContribMap({});
     setLastContribLoading(true);
     const sorted = [...legislators].sort((a, b) => b.receipts - a.receipts);
     const BATCH = 8;
@@ -1163,7 +1165,7 @@ function FollowTheMoney() {
       if (!cancelled) setLastContribLoading(false);
     })();
     return () => { cancelled = true; };
-  }, [legislators]);
+  }, [legislators, refreshKey]);
 
   // Search contributions
   useEffect(() => {
@@ -1446,9 +1448,22 @@ function FollowTheMoney() {
                 </div>
               )}
 
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 8 }}>
-                State legislators — {dataYear} election cycle. Click any row to see individual contributions. Click column headers to sort.
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: 0 }}>
+                  State legislators — {dataYear} election cycle. Click any row to see individual contributions. Click column headers to sort.
+                </p>
+                <button onClick={() => setRefreshKey(k => k + 1)} disabled={lastContribLoading}
+                  style={{
+                    padding: '6px 14px', borderRadius: 6, border: '1px solid var(--border)',
+                    background: lastContribLoading ? 'var(--bg-card-hover)' : '#fff',
+                    cursor: lastContribLoading ? 'not-allowed' : 'pointer',
+                    fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent-purple)',
+                    display: 'flex', alignItems: 'center', gap: 6,
+                    opacity: lastContribLoading ? 0.6 : 1,
+                  }}>
+                  {lastContribLoading ? '↻ Refreshing...' : '↻ Refresh Data'}
+                </button>
+              </div>
               <div className="data-table-wrapper">
                 <table className="data-table">
                   <thead>
