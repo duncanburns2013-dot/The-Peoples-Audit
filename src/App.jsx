@@ -1617,6 +1617,8 @@ function FollowTheMoney() {
                     }
                     case 'contributor': return (a.contributor || '').localeCompare(b.contributor || '');
                     case 'recipient': return (a.recipient || '').localeCompare(b.recipient || '');
+                    case 'employer': return (a.employer || '').localeCompare(b.employer || '');
+                    case 'city': return (a.city || '').localeCompare(b.city || '');
                     default: return 0;
                   }
                 });
@@ -1713,11 +1715,37 @@ function FollowTheMoney() {
                         ))}
                       </div>
 
-                      {/* Full sorted table */}
+                      {/* Full sorted table with clickable headers */}
                       <div className="data-table-wrapper">
                         <table className="data-table">
                           <thead>
-                            <tr><th>Date</th><th>Contributor</th><th>Amount</th><th>Recipient</th><th>Employer</th><th>City</th></tr>
+                            <tr>
+                              {[
+                                { key: 'date', label: 'Date', asc: 'date-asc', desc: 'date-desc' },
+                                { key: 'contributor', label: 'Contributor', asc: 'contributor', desc: 'contributor' },
+                                { key: 'amount', label: 'Amount', asc: 'amount-asc', desc: 'amount-desc' },
+                                { key: 'recipient', label: 'Recipient', asc: 'recipient', desc: 'recipient' },
+                                { key: 'employer', label: 'Employer', asc: 'employer', desc: 'employer' },
+                                { key: 'city', label: 'City', asc: 'city', desc: 'city' },
+                              ].map(col => {
+                                const isActive = crossRefSort === col.asc || crossRefSort === col.desc;
+                                const isAsc = crossRefSort === col.asc;
+                                return (
+                                  <th key={col.key}
+                                    onClick={() => {
+                                      if (col.asc === col.desc) {
+                                        setCrossRefSort(col.asc);
+                                      } else {
+                                        setCrossRefSort(isActive && !isAsc ? col.asc : col.desc);
+                                      }
+                                      setCrossRefPage(0);
+                                    }}
+                                    style={{ cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' }}>
+                                    {col.label} <span style={{ color: isActive ? 'var(--accent-purple)' : '#ccc', fontSize: '0.7rem' }}>{isActive ? (isAsc ? ' ▲' : ' ▼') : ' ▼'}</span>
+                                  </th>
+                                );
+                              })}
+                            </tr>
                           </thead>
                           <tbody>
                             {sorted.map((c, i) => (
