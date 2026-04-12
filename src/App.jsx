@@ -1462,13 +1462,9 @@ function FollowTheMoney() {
                   <select value={legYear} onChange={e => { setLegYear(e.target.value); setSelectedLegislator(null); setLegislatorContributions(null); }}
                     style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: '#fff', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)' }}>
                     <option value="auto">State Legislators (latest)</option>
-                    <option value="2026">2026</option>
-                    <option value="2025">2025 (Municipal)</option>
-                    <option value="2024">2024 (State)</option>
-                    <option value="2023">2023 (Municipal)</option>
-                    <option value="2022">2022 (State)</option>
-                    <option value="2021">2021 (Municipal)</option>
-                    <option value="2020">2020 (State)</option>
+                    {Array.from({ length: 11 }, (_, i) => 2026 - i).map(y => (
+                      <option key={y} value={y}>{y} ({y % 2 === 0 ? 'State' : 'Municipal'})</option>
+                    ))}
                   </select>
                   <button onClick={() => setRefreshKey(k => k + 1)} disabled={lastContribLoading}
                     style={{
