@@ -1104,6 +1104,7 @@ function FollowTheMoney() {
   const [crossRefSort, setCrossRefSort] = useState('amount-desc');
   const [crossRefYear, setCrossRefYear] = useState('all');
   const [crossRefPage, setCrossRefPage] = useState(0);
+  const [legSort, setLegSort] = useState({ col: 'lastContrib', dir: 'desc' });
   const contribRef = useRef(null);
   const CONTRIB_PAGE_SIZE = 100;
   const CROSSREF_PAGE_SIZE = 24;
@@ -1445,38 +1446,74 @@ function FollowTheMoney() {
                 </div>
               )}
 
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 8 }}>
+                Click any row to see individual contributions. Click column headers to sort.
+              </p>
               <div className="data-table-wrapper">
                 <table className="data-table">
                   <thead>
-                    <tr><th>#</th><th>Name</th><th>Office</th><th>Party</th><th>Receipts</th><th>Expenditures</th><th>Cash on Hand</th><th>Last Contribution</th><th></th></tr>
+                    <tr>
+                      <th>#</th>
+                      {[
+                        { col: 'name', label: 'Name' },
+                        { col: 'office', label: 'Office' },
+                        { col: 'party', label: 'Party' },
+                        { col: 'receipts', label: 'Receipts' },
+                        { col: 'expenditures', label: 'Expenditures' },
+                        { col: 'cashOnHand', label: 'Cash on Hand' },
+                        { col: 'lastContrib', label: 'Last Contribution' },
+                      ].map(h => (
+                        <th key={h.col} style={{ cursor: 'pointer', userSelect: 'none' }}
+                          onClick={() => setLegSort(prev => prev.col === h.col ? { col: h.col, dir: prev.dir === 'desc' ? 'asc' : 'desc' } : { col: h.col, dir: 'desc' })}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                            {h.label}
+                            {legSort.col === h.col && <span style={{ color: 'var(--accent-purple)', fontSize: '0.7rem' }}>{legSort.dir === 'desc' ? '▼' : '▲'}</span>}
+                          </div>
+                        </th>
+                      ))}
+                      <th></th>
+                    </tr>
                   </thead>
                   <tbody>
-                    {legislators.sort((a, b) => {
-                      const dA = lastContribMap[a.cpfId]?.date || '';
-                      const dB = lastContribMap[b.cpfId]?.date || '';
-                      // Parse M/D/YYYY dates for proper sort (string compare fails on this format)
-                      const pA = dA ? (() => { const p = dA.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
-                      const pB = dB ? (() => { const p = dB.split('/'); return new Date(+p[2], +p[0]-1, +p[1]).getTime(); })() : 0;
-                      if (pA || pB) return (pB - pA) || b.receipts - a.receipts;
-                      return b.receipts - a.receipts;
-                    }).map((l, i) => (
-                      <tr key={i} onClick={() => selectLegislatorForContribs(l)} style={{ cursor: 'pointer' }}
-                        className={selectedLegislator?.cpfId === l.cpfId ? 'active-row' : ''}>
-                        <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
-                        <td style={{ fontWeight: selectedLegislator?.cpfId === l.cpfId ? 700 : 400 }}>{l.name}</td>
-                        <td style={{ fontSize: '0.8rem' }}>{l.office}</td>
-                        <td style={{ fontSize: '0.8rem', color: l.party === 'Democratic' ? '#3388ff' : l.party === 'Republican' ? '#ff3344' : 'var(--text-muted)' }}>{l.party}</td>
-                        <td className="money">{formatMoney(l.receipts)}</td>
-                        <td className="money" style={{ color: 'var(--accent-red)' }}>{formatMoney(l.expenditures)}</td>
-                        <td className="money">{formatMoney(l.cashOnHand)}</td>
-                        <td style={{ fontSize: '0.8rem', whiteSpace: 'nowrap', color: lastContribMap[l.cpfId] ? 'var(--text-primary)' : 'var(--text-muted)' }}>
-                          {lastContribMap[l.cpfId]
-                            ? <span title={`${lastContribMap[l.cpfId].amount} from ${lastContribMap[l.cpfId].contributor}`}>{lastContribMap[l.cpfId].date}</span>
-                            : (lastContribLoading ? <span className="spinner" style={{ width: 12, height: 12, borderWidth: 2, display: 'inline-block', verticalAlign: 'middle' }} /> : '—')}
-                        </td>
-                        <td><ChevronRight size={12} style={{ color: 'var(--accent-purple)' }} /></td>
-                      </tr>
-                    ))}
+                    {(() => {
+                      const parseContribDate = (cpfId) => {
+                        const d = lastContribMap[cpfId]?.date || '';
+                        if (!d) return 0;
+                        const p = d.split('/');
+                        return p.length === 3 ? new Date(+p[2], +p[0]-1, +p[1]).getTime() : 0;
+                      };
+                      return [...legislators].sort((a, b) => {
+                        let cmp = 0;
+                        switch (legSort.col) {
+                          case 'name': cmp = (a.name || '').localeCompare(b.name || ''); break;
+                          case 'office': cmp = (a.office || '').localeCompare(b.office || ''); break;
+                          case 'party': cmp = (a.party || '').localeCompare(b.party || ''); break;
+                          case 'receipts': cmp = (a.receipts || 0) - (b.receipts || 0); break;
+                          case 'expenditures': cmp = (a.expenditures || 0) - (b.expenditures || 0); break;
+                          case 'cashOnHand': cmp = (a.cashOnHand || 0) - (b.cashOnHand || 0); break;
+                          case 'lastContrib': cmp = parseContribDate(a.cpfId) - parseContribDate(b.cpfId); break;
+                          default: cmp = 0;
+                        }
+                        return legSort.dir === 'desc' ? -cmp : cmp;
+                      }).map((l, i) => (
+                        <tr key={l.cpfId || i} onClick={() => selectLegislatorForContribs(l)} style={{ cursor: 'pointer' }}
+                          className={selectedLegislator?.cpfId === l.cpfId ? 'active-row' : ''}>
+                          <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                          <td style={{ fontWeight: selectedLegislator?.cpfId === l.cpfId ? 700 : 400 }}>{l.name}</td>
+                          <td style={{ fontSize: '0.8rem' }}>{l.office}</td>
+                          <td style={{ fontSize: '0.8rem', color: l.party === 'Democratic' ? '#3388ff' : l.party === 'Republican' ? '#ff3344' : 'var(--text-muted)' }}>{l.party}</td>
+                          <td className="money">{formatMoney(l.receipts)}</td>
+                          <td className="money" style={{ color: 'var(--accent-red)' }}>{formatMoney(l.expenditures)}</td>
+                          <td className="money">{formatMoney(l.cashOnHand)}</td>
+                          <td style={{ fontSize: '0.8rem', whiteSpace: 'nowrap', color: lastContribMap[l.cpfId] ? 'var(--text-primary)' : 'var(--text-muted)' }}>
+                            {lastContribMap[l.cpfId]
+                              ? <span title={`${lastContribMap[l.cpfId].amount} from ${lastContribMap[l.cpfId].contributor}`}>{lastContribMap[l.cpfId].date}</span>
+                              : (lastContribLoading ? <span className="spinner" style={{ width: 12, height: 12, borderWidth: 2, display: 'inline-block', verticalAlign: 'middle' }} /> : '—')}
+                          </td>
+                          <td><ChevronRight size={12} style={{ color: 'var(--accent-purple)' }} /></td>
+                        </tr>
+                      ));
+                    })()}
                   </tbody>
                 </table>
               </div>
