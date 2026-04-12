@@ -1064,6 +1064,57 @@ export async function fetchCampaignFinanceTotals() {
   }
 }
 
+/**
+ * Fetch contributions TO a specific PAC by cpfId.
+ * Returns array of contribution records with donor info.
+ */
+export async function fetchPACContributions(cpfId, pageSize = 50) {
+  try {
+    const data = await ocpfQuery(
+      `/search/items?searchTypeCategory=A&filerCpfId=${cpfId}&pageSize=${pageSize}&pageIndex=0`
+    );
+    return (data.items || []).map(d => ({
+      name: d.fullNameReverse || 'Unknown',
+      amount: d.amount || '$0',
+      amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
+      date: d.date || '',
+      employer: d.employer || '',
+      occupation: d.occupation || '',
+      city: d.city || '',
+      state: d.state || '',
+      source: d.sourceDescription || '',
+    }));
+  } catch (err) {
+    console.warn('PAC contributions fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
+ * Fetch expenditures FROM a specific PAC by cpfId.
+ * Returns array of expenditure records with vendor/purpose info.
+ */
+export async function fetchPACExpenditures(cpfId, pageSize = 50) {
+  try {
+    const data = await ocpfQuery(
+      `/search/items?searchTypeCategory=B&filerCpfId=${cpfId}&pageSize=${pageSize}&pageIndex=0`
+    );
+    return (data.items || []).map(d => ({
+      vendor: d.vendor || d.vendorName || 'Unknown',
+      amount: d.amount || '$0',
+      amountNum: parseFloat((d.amount || '0').replace(/[$,]/g, '')) || 0,
+      date: d.date || '',
+      purpose: d.purpose || d.clarifiedPurpose || '',
+      city: d.city || '',
+      state: d.state || '',
+      source: d.sourceDescription || '',
+    }));
+  } catch (err) {
+    console.warn('PAC expenditures fetch failed:', err.message);
+    return [];
+  }
+}
+
 // ============================================================
 // COMPREHENSIVE FALLBACK / CACHED DATA
 // Compiled from Massachusetts CAFR, Governor's Budget, CTHRU portal,
