@@ -3157,11 +3157,6 @@ export default function App() {
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#0077B5', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
             Share on LinkedIn
           </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
-            target="_blank" rel="noopener"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#1877F2', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
-            Share on Facebook
-          </a>
           <button onClick={() => { navigator.clipboard.writeText('https://duncanburns2013-dot.github.io/The-Peoples-Audit/'); }}
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: 'var(--bg-primary)', color: 'var(--text-primary)', border: '1px solid var(--border)', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s' }}>
             Copy Link
