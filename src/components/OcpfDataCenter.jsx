@@ -94,7 +94,9 @@ function PoliticianSearch({ onSelect, loading }) {
 
     setSearching(true);
     try {
-      const allLegislators = await fetchLegislatorFinances();
+      const result = await fetchLegislatorFinances();
+      // Handle both { data, year } object and plain array returns
+      const allLegislators = Array.isArray(result) ? result : (result?.data || []);
       // Search by name (case-insensitive)
       const filtered = allLegislators.filter(leg =>
         leg.name.toLowerCase().includes(searchText.toLowerCase())

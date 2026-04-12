@@ -91,7 +91,8 @@ export default function PacDashboard() {
       try {
         setLoading(true);
         const result = await fetchPACFinances(year);
-        setData(result);
+        // Handle both { data, year } object and plain array returns
+        setData(Array.isArray(result) ? result : (result?.data || []));
       } catch (err) {
         setError(err.message);
         setData([]);
