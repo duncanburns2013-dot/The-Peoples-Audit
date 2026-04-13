@@ -1741,7 +1741,7 @@ export const AUDIT_FACTS = {
  */
 export async function searchLobbyingContributions(query, opts = {}) {
   const currentYear = new Date().getFullYear();
-  const years = opts.years || [currentYear, currentYear - 1, currentYear - 2, currentYear - 3];
+  const years = opts.years || Array.from({ length: currentYear - 2017 }, (_, i) => currentYear - i); // 2018–current
   const pageSize = opts.pageSize || 50;
   const allItems = [];
   let totalCount = 0;
@@ -1834,7 +1834,7 @@ export async function searchLobbyingContributions(query, opts = {}) {
  */
 export async function fetchLobbyingFirmContributions(firmName, opts = {}) {
   const currentYear = new Date().getFullYear();
-  const years = opts.years || [currentYear, currentYear - 1, currentYear - 2, currentYear - 3];
+  const years = opts.years || Array.from({ length: currentYear - 2017 }, (_, i) => currentYear - i);
 
   try {
     const result = await searchLobbyingContributions(firmName, {

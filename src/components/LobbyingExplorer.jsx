@@ -70,6 +70,15 @@ const formatMoney = (n) => {
   return '$' + n.toLocaleString();
 };
 
+const formatDate = (dateStr) => {
+  if (!dateStr) return '';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  } catch { return dateStr; }
+};
+
 export default function LobbyingExplorer() {
   // === Live OCPF Search State ===
   const [searchTerm, setSearchTerm] = useState('');
@@ -249,7 +258,7 @@ export default function LobbyingExplorer() {
               Search OCPF campaign finance records for political contributions by name or employer. This queries
               the Office of Campaign and Political Finance — a separate entity from the MA Secretary of State which handles
               lobbying registrations. Use this to find where lobbying-connected individuals and organizations also make
-              political contributions. Searches across 2023–2026 by contributor name and employer.
+              political contributions. Searches across 2018–present by contributor name and employer.
             </div>
             <div style={{ display: 'flex', gap: 12, marginTop: 16 }}>
               <div style={{ flex: 1, position: 'relative' }}>
@@ -274,7 +283,7 @@ export default function LobbyingExplorer() {
 
           {searchLoading && (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
-              <div className="spinner" style={{ margin: '0 auto 12px' }} /> Searching OCPF records across multiple years (2023–2026)... This may take a moment.
+              <div className="spinner" style={{ margin: '0 auto 12px' }} /> Searching OCPF records across multiple years (2018–present)... This may take a moment.
             </div>
           )}
 
@@ -329,7 +338,7 @@ export default function LobbyingExplorer() {
                           </div>
                         )}
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>
-                          {c.date} | {c.city}{c.state ? `, ${c.state}` : ''}
+                          {formatDate(c.date)} | {c.city}{c.state ? `, ${c.state}` : ''}
                         </div>
                       </div>
                     ))}
@@ -344,7 +353,7 @@ export default function LobbyingExplorer() {
                       <tbody>
                         {searchResults.items.map((c, i) => (
                           <tr key={i}>
-                            <td style={{ whiteSpace: 'nowrap', fontSize: '0.8rem' }}>{c.date}</td>
+                            <td style={{ whiteSpace: 'nowrap', fontSize: '0.8rem' }}>{formatDate(c.date)}</td>
                             <td>{c.contributor}</td>
                             <td className="money">{formatMoney(c.amount)}</td>
                             <td style={{ color: 'var(--accent-green)' }}>{c.recipient}</td>
@@ -367,7 +376,7 @@ export default function LobbyingExplorer() {
           {!searchResults && !searchLoading && (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)', background: 'var(--bg-card-hover)', borderRadius: 10 }}>
               <Search size={32} style={{ margin: '0 auto 12px', display: 'block', opacity: 0.3 }} />
-              Search OCPF campaign finance records by contributor name or employer. Searches across 2023–2026 and matches both direct name and employer fields.
+              Search OCPF campaign finance records by contributor name or employer. Searches across 2018–present and matches both direct name and employer fields.
             </div>
           )}
         </div>
@@ -378,7 +387,7 @@ export default function LobbyingExplorer() {
         <div>
           <div className="chart-card" style={{ marginBottom: 24 }}>
             <h3>Major Lobbying Firms in Massachusetts</h3>
-            <div className="chart-subtitle">Registered firms (MA Secretary of State) cross-referenced with OCPF campaign contribution records. Searches by firm name and employer across 2023–2026.</div>
+            <div className="chart-subtitle">Registered firms (MA Secretary of State) cross-referenced with OCPF campaign contribution records. Searches by firm name and employer across 2018–present.</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 16 }}>
               {majorLobbyingFirms.map((firm, idx) => {
                 const firmKey = firm.name.replace(/ LLC| Inc\.| LLP| PC/g, '').trim();
@@ -563,7 +572,7 @@ export default function LobbyingExplorer() {
       </div>
 
       <div style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px', fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
-        <strong>Data Sources:</strong> Overview and Industry statistics are derived from <strong>MA Secretary of the Commonwealth</strong> lobbying disclosure reports (sec.state.ma.us). Search and Cross-Reference tabs query the <strong>OCPF</strong> (Office of Campaign and Political Finance) public API for campaign contribution records — a separate database from lobbying registrations. OCPF searches cover 2023–2026 by both contributor name and employer field.
+        <strong>Data Sources:</strong> Overview and Industry statistics are derived from <strong>MA Secretary of the Commonwealth</strong> lobbying disclosure reports (sec.state.ma.us). Search and Cross-Reference tabs query the <strong>OCPF</strong> (Office of Campaign and Political Finance) public API for campaign contribution records — a separate database from lobbying registrations. OCPF searches cover 2018–present by both contributor name and employer field.
       </div>
     </div>
   );
