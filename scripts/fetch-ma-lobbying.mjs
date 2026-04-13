@@ -261,13 +261,13 @@ async function main() {
   // Sort by total expenditure descending
   records.sort((a, b) => (b.totalExpenditure || 0) - (a.totalExpenditure || 0));
 
-  // If scrape failed, preserve previous data
+  // If scrape failed, preserve previous data (check both records and top20)
   const existing = await loadExisting();
   let preservedFromCache = false;
-  if (records.length === 0 && existing?.records?.length) {
-    records = existing.records;
+  if (records.length === 0 && (existing?.records?.length || existing?.top20?.length)) {
+    records = existing.records?.length ? existing.records : existing.top20;
     preservedFromCache = true;
-    warnings.push('Using cached data from previous successful scrape.');
+    warnings.push('Scraper returned 0 records — preserving data from previous successful run.');
   }
 
   // Build top 20 summary
@@ -310,9 +310,19 @@ async function main() {
   }
 }
 
-main().catch((err) => {
+main().catch(async (err) => {
   console.error('[ma-lobbying] Fatal:', err);
-  // Write a stub so CI never fails and the site never blanks
+  // Try to preserve existing data so the site never blanks
+  const existing = await loadExisting().catch(() => null);
+  if (existing?.top20?.length) {
+    existing.warnings = [`fatal: ${err?.message || String(err)} — preserving previous data`];
+    existing.scrapedSuccessfully = false;
+    existing.preservedFromCache = true;
+    await mkdir(dirname(OUTPUT_PATH), { recursive: true });
+    await writeFile(OUTPUT_PATH, JSON.stringify(existing, null, 2) + '\n');
+    console.log('[ma-lobbying] Preserved existing data after fatal error');
+    return;
+  }
   const stub = {
     fetchedAt: new Date().toISOString(),
     source: 'MA Secretary of State — Lobbyist Public Search',
