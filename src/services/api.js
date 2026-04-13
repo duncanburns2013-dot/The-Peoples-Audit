@@ -1733,90 +1733,136 @@ export const AUDIT_FACTS = {
 // ============================================================
 
 /**
- * Search OCPF contributions filtered by a lobbying-related search phrase.
+ * Search OCPF campaign contributions by contributor name or employer.
+ * Searches across multiple years (default: 2020–current) for better coverage.
  * Uses the same /search/items endpoint as searchContributions.
- * @param {string} query - Firm name, lobbyist name, or industry keyword
- * @param {object} opts - { year, pageSize, pageIndex }
+ * @param {string} query - Person name, firm name, or keyword
+ * @param {object} opts - { years, pageSize, searchByEmployer }
  */
 export async function searchLobbyingContributions(query, opts = {}) {
-  try {
-    const currentYear = new Date().getFullYear();
-    const year = opts.year || currentYear;
-    const queryParts = [
-      'searchTypeCategory=A',
-      `name=${encodeURIComponent(query)}`,
-      `startDate=${year}-01-01`,
-      `endDate=${year}-12-31`,
-      `pagesize=${opts.pageSize || 50}`,
-      `startIndex=${(opts.pageIndex || 0) * (opts.pageSize || 50) + 1}`,
-      'sortDirection=DESC',
-      'withSummary=true',
-    ];
-    const data = await ocpfQuery(`/search/items?${queryParts.join('&')}`);
-    return {
-      items: (data.items || []).map(d => ({
-        contributor: d.fullNameReverse || 'Unknown',
+  const currentYear = new Date().getFullYear();
+  const years = opts.years || [currentYear, currentYear - 1, currentYear - 2, currentYear - 3];
+  const pageSize = opts.pageSize || 50;
+  const allItems = [];
+  let totalCount = 0;
+
+  for (const year of years) {
+    try {
+      // Search by contributor name
+      const nameQuery = [
+        `name=${encodeURIComponent(query)}`,
+        `startDate=${year}-01-01`,
+        `endDate=${year}-12-31`,
+        `pagesize=${pageSize}`,
+        `startIndex=1`,
+        'sortDirection=DESC',
+        'withSummary=true',
+      ];
+      const data = await ocpfQuery(`/search/items?${nameQuery.join('&')}`);
+      const items = (data.items || []).map(d => ({
+        contributor: d.fullNameReverse || d.firstName + ' ' + d.lastName || 'Unknown',
         firstName: d.firstName || '',
         lastName: d.lastName || '',
         employer: d.employer || '',
-        address: d.address || '',
         city: d.city || '',
         state: d.state || '',
-        zip: d.zip || '',
-        amount: parseFloat(d.amount) || 0,
+        amount: parseFloat(String(d.amount || '0').replace(/[$,]/g, '')) || 0,
         date: d.date || '',
-        recipient: d.cpfName || '',
-        cpfId: d.cpfId || '',
-      })),
-      totalCount: data.totalCount || 0,
-      year: String(year),
-    };
-  } catch (err) {
-    console.warn('Lobbying contributions search failed:', err.message);
-    return { items: [], totalCount: 0, year: String(opts.year || new Date().getFullYear()) };
+        recipient: d.filerFullNameReverse || d.cpfName || '',
+        cpfId: d.filerCpfId || d.cpfId || '',
+        year,
+      }));
+      allItems.push(...items);
+      totalCount += data.totalCount || items.length;
+
+      // Also search by employer name (lobbyists contribute as individuals)
+      if (opts.searchByEmployer !== false) {
+        const empQuery = [
+          `employer=${encodeURIComponent(query)}`,
+          `startDate=${year}-01-01`,
+          `endDate=${year}-12-31`,
+          `pagesize=${pageSize}`,
+          `startIndex=1`,
+          'sortDirection=DESC',
+          'withSummary=true',
+        ];
+        const empData = await ocpfQuery(`/search/items?${empQuery.join('&')}`);
+        const empItems = (empData.items || []).map(d => ({
+          contributor: d.fullNameReverse || d.firstName + ' ' + d.lastName || 'Unknown',
+          firstName: d.firstName || '',
+          lastName: d.lastName || '',
+          employer: d.employer || '',
+          city: d.city || '',
+          state: d.state || '',
+          amount: parseFloat(String(d.amount || '0').replace(/[$,]/g, '')) || 0,
+          date: d.date || '',
+          recipient: d.filerFullNameReverse || d.cpfName || '',
+          cpfId: d.filerCpfId || d.cpfId || '',
+          year,
+        }));
+        // Deduplicate by contributor+date+amount
+        const seen = new Set(allItems.map(i => `${i.contributor}|${i.date}|${i.amount}`));
+        for (const item of empItems) {
+          const key = `${item.contributor}|${item.date}|${item.amount}`;
+          if (!seen.has(key)) {
+            allItems.push(item);
+            seen.add(key);
+          }
+        }
+        totalCount += empData.totalCount || 0;
+      }
+    } catch (err) {
+      console.warn(`OCPF search failed for "${query}" in ${year}:`, err.message);
+    }
   }
+
+  // Sort by date descending
+  allItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+  return {
+    items: allItems,
+    totalCount,
+    years: years.map(String),
+  };
 }
 
 /**
- * Fetch all contributions from a specific lobbying firm (by name).
- * Searches across multiple years if needed.
+ * Fetch campaign contributions linked to a specific lobbying firm.
+ * Searches by both firm name and employer name across multiple years.
  * @param {string} firmName - The lobbying firm name
  * @param {object} opts - { years, pageSize }
  */
 export async function fetchLobbyingFirmContributions(firmName, opts = {}) {
   const currentYear = new Date().getFullYear();
-  const years = opts.years || [currentYear, currentYear - 1];
-  const allItems = [];
+  const years = opts.years || [currentYear, currentYear - 1, currentYear - 2, currentYear - 3];
 
-  for (const yr of years) {
-    try {
-      const result = await searchLobbyingContributions(firmName, {
-        year: yr,
-        pageSize: opts.pageSize || 100,
-      });
-      allItems.push(...result.items);
-    } catch (err) {
-      console.warn(`Lobbying firm contributions failed for ${firmName} in ${yr}:`, err.message);
+  try {
+    const result = await searchLobbyingContributions(firmName, {
+      years,
+      pageSize: opts.pageSize || 50,
+      searchByEmployer: true,
+    });
+
+    // Aggregate by recipient
+    const byRecipient = {};
+    for (const item of result.items) {
+      const key = item.cpfId || item.recipient;
+      if (!byRecipient[key]) {
+        byRecipient[key] = { recipient: item.recipient, cpfId: item.cpfId, total: 0, count: 0 };
+      }
+      byRecipient[key].total += item.amount;
+      byRecipient[key].count += 1;
     }
-  }
 
-  // Aggregate by recipient
-  const byRecipient = {};
-  for (const item of allItems) {
-    const key = item.cpfId || item.recipient;
-    if (!byRecipient[key]) {
-      byRecipient[key] = { recipient: item.recipient, cpfId: item.cpfId, total: 0, count: 0, contributions: [] };
-    }
-    byRecipient[key].total += item.amount;
-    byRecipient[key].count += 1;
-    byRecipient[key].contributions.push(item);
+    return {
+      firm: firmName,
+      totalContributions: result.items.length,
+      totalAmount: result.items.reduce((sum, i) => sum + i.amount, 0),
+      byRecipient: Object.values(byRecipient).sort((a, b) => b.total - a.total),
+      items: result.items,
+    };
+  } catch (err) {
+    console.warn(`Firm contributions fetch failed for ${firmName}:`, err.message);
+    return { firm: firmName, totalContributions: 0, totalAmount: 0, byRecipient: [], items: [] };
   }
-
-  return {
-    firm: firmName,
-    totalContributions: allItems.length,
-    totalAmount: allItems.reduce((sum, i) => sum + i.amount, 0),
-    byRecipient: Object.values(byRecipient).sort((a, b) => b.total - a.total),
-    items: allItems,
-  };
 }

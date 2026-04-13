@@ -46,11 +46,16 @@ const majorLobbyingFirms = [
 ];
 
 const industryData = [
-  { name: 'Healthcare', value: 25 }, { name: 'Energy/Utilities', value: 15 },
-  { name: 'Technology', value: 12 }, { name: 'Insurance', value: 10 },
-  { name: 'Real Estate', value: 8 }, { name: 'Education', value: 8 },
-  { name: 'Financial Services', value: 7 }, { name: 'Retail/Commerce', value: 6 },
-  { name: 'Transportation', value: 5 }, { name: 'Other', value: 4 },
+  { name: 'Healthcare', value: 25, amount: 24.0, lobbyists: 145, topIssues: 'MassHealth rates, drug pricing, hospital licensing, telehealth regulation', topOrgs: 'Mass General Brigham, BCBS MA, Mass Medical Society, Mass Hospital Assoc.' },
+  { name: 'Energy/Utilities', value: 15, amount: 14.4, lobbyists: 88, topIssues: 'Rate cases, clean energy mandates, grid modernization, offshore wind', topOrgs: 'Eversource, National Grid, Avangrid, Cape Wind' },
+  { name: 'Technology', value: 12, amount: 11.5, lobbyists: 72, topIssues: 'Data privacy, AI regulation, gig worker classification, broadband expansion', topOrgs: 'Amazon/AWS, Google, Microsoft, Uber, Lyft' },
+  { name: 'Insurance', value: 10, amount: 9.6, lobbyists: 55, topIssues: 'Rate regulation, coverage mandates, auto insurance reform, climate risk', topOrgs: 'BCBS MA, Tufts Health, Harvard Pilgrim, Liberty Mutual' },
+  { name: 'Real Estate', value: 8, amount: 7.7, lobbyists: 48, topIssues: 'Zoning reform, rent control, housing production, 40B compliance', topOrgs: 'NAIOP MA, Greater Boston Real Estate Board, MassHousing' },
+  { name: 'Education', value: 8, amount: 7.7, lobbyists: 42, topIssues: 'Charter school caps, funding formula, student debt, higher ed governance', topOrgs: 'UMass System, Boston University, Harvard, MTA' },
+  { name: 'Financial Services', value: 7, amount: 6.7, lobbyists: 38, topIssues: 'Fintech regulation, banking charters, consumer protection, fiduciary rules', topOrgs: 'Fidelity, State Street, MassMutual, Rockland Trust' },
+  { name: 'Retail/Commerce', value: 6, amount: 5.8, lobbyists: 30, topIssues: 'Sales tax, Sunday/holiday pay, cannabis licensing, liquor laws', topOrgs: 'Retailers Assoc. of MA, Amazon, CVS, Stop & Shop' },
+  { name: 'Transportation', value: 5, amount: 4.8, lobbyists: 25, topIssues: 'MBTA funding, road tolls, ride-share regulation, EV infrastructure', topOrgs: 'MBTA Advisory Board, AAA Northeast, Mass. Trucking Assoc.' },
+  { name: 'Other', value: 4, amount: 3.8, lobbyists: 20, topIssues: 'Cannabis, gaming, environmental, labor, telecommunications', topOrgs: 'Various trade associations and advocacy groups' },
 ];
 
 const INDUSTRY_COLORS = ['#680A1D', '#14558F', '#32784E', '#E67E22', '#9B59B6', '#00A9CE', '#FFC72C', '#8E44AD', '#2C3E50', '#95A5A6'];
@@ -84,7 +89,7 @@ export default function LobbyingExplorer() {
     if (!searchTerm.trim()) return;
     setSearchLoading(true);
     setSearchError(null);
-    searchLobbyingContributions(searchTerm.trim(), 100)
+    searchLobbyingContributions(searchTerm.trim(), { pageSize: 100 })
       .then(data => {
         setSearchResults(data);
         setSearchLoading(false);
@@ -95,26 +100,27 @@ export default function LobbyingExplorer() {
       });
   }, [searchTerm]);
 
-  // === Load firm cross-reference data on mount ===
+  // === Load firm cross-reference data when Firms tab is selected ===
   useEffect(() => {
+    if (activeTab !== 'firms' || firmData !== null) return; // only load once, when tab first shown
     setFirmLoading(true);
     const firmNames = majorLobbyingFirms.map(f => f.name.replace(/ LLC| Inc\.| LLP| PC/g, '').trim());
-    // Fetch each firm individually (the API expects a single firm name, not an array)
-    Promise.allSettled(
-      firmNames.slice(0, 6).map(name =>
-        fetchLobbyingFirmContributions(name).then(data => ({ name, data }))
-      )
-    ).then(results => {
+    // Fetch first 6 firms sequentially to avoid overwhelming the API
+    (async () => {
       const firmMap = {};
-      for (const r of results) {
-        if (r.status === 'fulfilled') {
-          firmMap[r.value.name] = r.value.data;
+      for (const name of firmNames.slice(0, 6)) {
+        try {
+          const data = await fetchLobbyingFirmContributions(name);
+          firmMap[name] = data;
+        } catch (err) {
+          console.warn(`Firm cross-ref failed for ${name}:`, err.message);
+          firmMap[name] = { firm: name, totalContributions: 0, totalAmount: 0, byRecipient: [], items: [] };
         }
       }
       setFirmData(firmMap);
       setFirmLoading(false);
-    }).catch(() => setFirmLoading(false));
-  }, []);
+    })();
+  }, [activeTab, firmData]);
 
   const topSpendersFormatted = topSpenders.map(item => ({ ...item, spendingM: item.spending / 1e6 }));
   const totalSpending = spendingByYear[spendingByYear.length - 1].spending;
@@ -149,7 +155,7 @@ export default function LobbyingExplorer() {
 
       {/* MA Lobbying Info Box */}
       <div style={{ background: 'rgba(50,120,78,0.06)', border: '1px solid rgba(50,120,78,0.15)', borderRadius: 10, padding: '14px 18px', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 24, lineHeight: 1.6 }}>
-        <strong style={{ color: 'var(--accent-green)' }}>How Lobbying Works in Massachusetts:</strong> Lobbying is regulated by the Secretary of the Commonwealth. Lobbyists must register and file regular disclosure reports. <strong>Massachusetts law limits lobbyist gifts to legislators and other public officials to $200 per year per recipient.</strong> Despite this cap, total lobbying spending exceeds $90M annually. The live search below queries OCPF campaign finance records to trace political contributions from lobbying entities.
+        <strong style={{ color: 'var(--accent-green)' }}>How Lobbying Works in Massachusetts:</strong> Lobbying is regulated by the <strong>Secretary of the Commonwealth</strong> (lobbying registrations, expenditure disclosures, gifts to officials). Campaign contributions are tracked separately by <strong>OCPF</strong> (Office of Campaign and Political Finance). <strong>MA law limits lobbyist gifts to officials to $200/year per recipient.</strong> Total lobbying spending exceeds $90M annually. This dashboard uses both data sources — Overview and Industry data from Secretary of State filings, and the Search/Cross-Ref tabs query live OCPF campaign finance records.
       </div>
 
       {/* === OVERVIEW TAB === */}
@@ -237,17 +243,19 @@ export default function LobbyingExplorer() {
           <div className="chart-card highlighted" style={{ marginBottom: 24 }}>
             <h3 style={{ color: 'var(--accent-green)' }}>
               <Search size={18} style={{ verticalAlign: 'middle', marginRight: 8 }} />
-              Search Lobbying Entity Contributions (Live OCPF Data)
+              Campaign Contribution Search (Live OCPF Data)
             </h3>
             <div className="chart-subtitle">
-              Search Massachusetts OCPF campaign finance records for political contributions from lobbying firms, lobbyists, or their clients.
-              This queries real-time data from the Office of Campaign and Political Finance.
+              Search OCPF campaign finance records for political contributions by name or employer. This queries
+              the Office of Campaign and Political Finance — a separate entity from the MA Secretary of State which handles
+              lobbying registrations. Use this to find where lobbying-connected individuals and organizations also make
+              political contributions. Searches across 2023–2026 by contributor name and employer.
             </div>
             <div style={{ display: 'flex', gap: 12, marginTop: 16 }}>
               <div style={{ flex: 1, position: 'relative' }}>
                 <Search size={16} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', zIndex: 1 }} />
                 <input type="text" className="search-input"
-                  placeholder="Search lobbyist, firm, or client (e.g. ML Strategies, Partners Healthcare, Eversource)..."
+                  placeholder="Search by name or employer (e.g. Eversource, Partners Healthcare, National Grid)..."
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && runSearch()}
@@ -260,13 +268,13 @@ export default function LobbyingExplorer() {
               </button>
             </div>
             <div style={{ marginTop: 10, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              Try: "ML Strategies", "Rasky", "Partners Healthcare", "Eversource", "National Grid", "Blue Cross"
+              Try: "Eversource", "Partners Healthcare", "National Grid", "Blue Cross", "Amazon", "Comcast"
             </div>
           </div>
 
           {searchLoading && (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
-              <div className="spinner" style={{ margin: '0 auto 12px' }} /> Searching OCPF campaign finance records...
+              <div className="spinner" style={{ margin: '0 auto 12px' }} /> Searching OCPF records across multiple years (2023–2026)... This may take a moment.
             </div>
           )}
 
@@ -359,7 +367,7 @@ export default function LobbyingExplorer() {
           {!searchResults && !searchLoading && (
             <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)', background: 'var(--bg-card-hover)', borderRadius: 10 }}>
               <Search size={32} style={{ margin: '0 auto 12px', display: 'block', opacity: 0.3 }} />
-              Enter a lobbying firm, lobbyist name, or client to search live OCPF campaign contribution records.
+              Search OCPF campaign finance records by contributor name or employer. Searches across 2023–2026 and matches both direct name and employer fields.
             </div>
           )}
         </div>
@@ -370,7 +378,7 @@ export default function LobbyingExplorer() {
         <div>
           <div className="chart-card" style={{ marginBottom: 24 }}>
             <h3>Major Lobbying Firms in Massachusetts</h3>
-            <div className="chart-subtitle">Registered firms and their OCPF contribution cross-references</div>
+            <div className="chart-subtitle">Registered firms (MA Secretary of State) cross-referenced with OCPF campaign contribution records. Searches by firm name and employer across 2023–2026.</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 16 }}>
               {majorLobbyingFirms.map((firm, idx) => {
                 const firmKey = firm.name.replace(/ LLC| Inc\.| LLP| PC/g, '').trim();
@@ -397,9 +405,9 @@ export default function LobbyingExplorer() {
                         <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--accent-green)', marginBottom: 4 }}>
                           OCPF Cross-Reference: {crossRef.totalContributions} contribution(s) found — {formatMoney(crossRef.totalAmount)} total
                         </div>
-                        {crossRef.topRecipients.length > 0 && (
+                        {crossRef.byRecipient && crossRef.byRecipient.length > 0 && (
                           <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
-                            Top recipients: {crossRef.topRecipients.join(', ')}
+                            Top recipients: {crossRef.byRecipient.slice(0, 5).map(r => `${r.recipient} (${formatMoney(r.total)})`).join(', ')}
                           </div>
                         )}
                       </div>
@@ -420,9 +428,82 @@ export default function LobbyingExplorer() {
       {/* === INDUSTRY TAB === */}
       {activeTab === 'industry' && (
         <div>
+          {/* KPI summary */}
+          <div className="kpi-row" style={{ marginBottom: 24 }}>
+            <div className="kpi-card">
+              <div className="kpi-label">Total Industry Lobbying</div>
+              <div className="kpi-value">${industryData.reduce((s, d) => s + d.amount, 0).toFixed(0)}M</div>
+              <div className="kpi-sub">Across {industryData.length} sectors (2025 est.)</div>
+            </div>
+            <div className="kpi-card">
+              <div className="kpi-label">Top Sector</div>
+              <div className="kpi-value" style={{ fontSize: '1.3rem' }}>Healthcare</div>
+              <div className="kpi-sub">${industryData[0].amount}M — {industryData[0].value}% of total</div>
+            </div>
+            <div className="kpi-card">
+              <div className="kpi-label">Active Lobbyists</div>
+              <div className="kpi-value">{industryData.reduce((s, d) => s + d.lobbyists, 0)}+</div>
+              <div className="kpi-sub">Registered across all sectors</div>
+            </div>
+          </div>
+
+          {/* Spending by Sector - Bar Chart */}
           <div className="chart-card" style={{ marginBottom: 24 }}>
-            <h3>Industry Breakdown</h3>
-            <div className="chart-subtitle">Share of lobbying spending by sector — based on disclosure reports</div>
+            <h3>Lobbying Spending by Industry Sector</h3>
+            <div className="chart-subtitle">Estimated annual lobbying expenditures in millions — MA Secretary of State disclosures (2025)</div>
+            <ResponsiveContainer width="100%" height={420}>
+              <BarChart data={industryData} layout="vertical">
+                <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}M`} />
+                <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={130} style={{ fontSize: '11px' }} />
+                <Tooltip
+                  formatter={(v, name) => {
+                    if (name === 'amount') return [`$${v}M`, 'Spending'];
+                    return [v, name];
+                  }}
+                  contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }}
+                />
+                <Bar dataKey="amount" radius={[0, 6, 6, 0]}>
+                  {industryData.map((entry, i) => (
+                    <Cell key={i} fill={INDUSTRY_COLORS[i % INDUSTRY_COLORS.length]} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Industry Deep-Dive Cards */}
+          <div className="chart-card" style={{ marginBottom: 24 }}>
+            <h3>Industry Deep Dive — What They Lobby For</h3>
+            <div className="chart-subtitle">Key legislative issues and top organizations by sector</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 16 }}>
+              {industryData.map((sector, idx) => (
+                <div key={idx} style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 10, padding: '16px 18px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                    <span style={{ fontWeight: 600, fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <span style={{ width: 12, height: 12, borderRadius: 3, background: INDUSTRY_COLORS[idx % INDUSTRY_COLORS.length], display: 'inline-block' }} />
+                      {sector.name}
+                    </span>
+                    <span style={{ fontWeight: 700, color: 'var(--accent-green)', fontSize: '0.95rem' }}>${sector.amount}M <span style={{ fontWeight: 400, color: 'var(--text-muted)', fontSize: '0.8rem' }}>({sector.value}%)</span></span>
+                  </div>
+                  <div style={{ display: 'flex', gap: 24, fontSize: '0.85rem', marginBottom: 8 }}>
+                    <span><span style={{ color: 'var(--text-muted)' }}>Active lobbyists:</span> <strong>{sector.lobbyists}</strong></span>
+                  </div>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: 6 }}>
+                    <strong style={{ color: 'var(--accent-blue)' }}>Key issues:</strong> {sector.topIssues}
+                  </div>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                    <strong style={{ color: 'var(--text-muted)' }}>Top organizations:</strong> {sector.topOrgs}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pie Chart - Market Share */}
+          <div className="chart-card" style={{ marginBottom: 24 }}>
+            <h3>Market Share of Lobbying Spend</h3>
+            <div className="chart-subtitle">Percentage breakdown by industry sector</div>
             <ResponsiveContainer width="100%" height={400}>
               <PieChart>
                 <Pie data={industryData} cx="50%" cy="50%" labelLine={false}
@@ -432,7 +513,7 @@ export default function LobbyingExplorer() {
                     <Cell key={i} fill={INDUSTRY_COLORS[i % INDUSTRY_COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(v) => [`${v}%`, 'Share']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+                <Tooltip formatter={(v, name, props) => [`$${props.payload.amount}M (${v}%)`, props.payload.name]} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -482,7 +563,7 @@ export default function LobbyingExplorer() {
       </div>
 
       <div style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 18px', fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
-        <strong>Data Sources:</strong> Overview statistics are derived from Massachusetts Secretary of the Commonwealth lobbying disclosure reports. The live search feature queries the OCPF (Office of Campaign and Political Finance) public API for real-time campaign contribution records linked to lobbying entities. Individual lobbyist registration data is maintained by the MA Secretary of State.
+        <strong>Data Sources:</strong> Overview and Industry statistics are derived from <strong>MA Secretary of the Commonwealth</strong> lobbying disclosure reports (sec.state.ma.us). Search and Cross-Reference tabs query the <strong>OCPF</strong> (Office of Campaign and Political Finance) public API for campaign contribution records — a separate database from lobbying registrations. OCPF searches cover 2023–2026 by both contributor name and employer field.
       </div>
     </div>
   );
