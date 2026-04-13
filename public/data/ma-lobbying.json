@@ -1,46 +1,14 @@
 {
-  "fetchedAt": "2026-04-13T00:00:00.000Z",
+  "fetchedAt": "2026-04-13T11:17:21.734Z",
   "source": "MA Secretary of State — Lobbyist Public Search",
   "sourceUrl": "https://www.sec.state.ma.us/lobbyistpublicsearch/",
   "scrapedSuccessfully": false,
   "preservedFromCache": false,
-  "warnings": ["Starter data from public rankings and SOS filings — awaiting first automated scrape"],
-  "totalRecords": 30,
-  "top20": [
-    { "rank": 1, "name": "Smith, Costello & Crawford", "type": "Lobbying Firm", "clients": "50+", "totalExpenditure": 6200000, "expenditureToOfficials": 145000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Healthcare, Cannabis, Energy" },
-    { "rank": 2, "name": "Tremont Strategies Group", "type": "Lobbying Firm", "clients": "45+", "totalExpenditure": 4500000, "expenditureToOfficials": 98000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Government Affairs, Multi-sector" },
-    { "rank": 3, "name": "O'Neill and Partners", "type": "Lobbying Firm", "clients": "52+", "totalExpenditure": 4100000, "expenditureToOfficials": 92000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Bipartisan Advocacy" },
-    { "rank": 4, "name": "ML Strategies", "type": "Lobbying / Consulting", "clients": "87+", "totalExpenditure": 3850000, "expenditureToOfficials": 85000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Affiliate of Mintz Levin, Multi-sector" },
-    { "rank": 5, "name": "Dempsey Associates", "type": "Lobbying Firm", "clients": "35+", "totalExpenditure": 3400000, "expenditureToOfficials": 78000, "registrationYear": "2006", "address": "Boston, MA", "focus": "Multi-sector" },
-    { "rank": 6, "name": "Kearney, Donovan & McGee", "type": "Lobbying Firm", "clients": "40+", "totalExpenditure": 3100000, "expenditureToOfficials": 72000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Large institutional interests" },
-    { "rank": 7, "name": "Bay State Strategies Group", "type": "Lobbying Firm", "clients": "30+", "totalExpenditure": 2800000, "expenditureToOfficials": 65000, "registrationYear": "2008", "address": "Boston, MA", "focus": "State-level lobbying" },
-    { "rank": 8, "name": "Dewey Square Group", "type": "Lobbying / Consulting", "clients": "35+", "totalExpenditure": 2650000, "expenditureToOfficials": 58000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Public affairs, Grassroots" },
-    { "rank": 9, "name": "TSK Associates", "type": "Lobbying Firm", "clients": "25+", "totalExpenditure": 2400000, "expenditureToOfficials": 55000, "registrationYear": "2007", "address": "Boston, MA", "focus": "Founded by Robert Travaglini (former Senate President)" },
-    { "rank": 10, "name": "Brian S. Hickey Associates", "type": "Lobbying Firm", "clients": "20+", "totalExpenditure": 2100000, "expenditureToOfficials": 48000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Government relations" },
-    { "rank": 11, "name": "Rasky Partners Inc.", "type": "Lobbying / PR", "clients": "64+", "totalExpenditure": 1950000, "expenditureToOfficials": 42000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Government relations, Public affairs" },
-    { "rank": 12, "name": "Holland & Knight LLP", "type": "Law Firm / Lobbying", "clients": "45+", "totalExpenditure": 1800000, "expenditureToOfficials": 38000, "registrationYear": "2008", "address": "Boston, MA", "focus": "National firm with MA practice" },
-    { "rank": 13, "name": "Cornerstone Government Affairs", "type": "Lobbying Firm", "clients": "38+", "totalExpenditure": 1650000, "expenditureToOfficials": 35000, "registrationYear": "2010", "address": "Boston, MA", "focus": "State + federal lobbying" },
-    { "rank": 14, "name": "K&L Gates LLP", "type": "Law Firm / Lobbying", "clients": "35+", "totalExpenditure": 1500000, "expenditureToOfficials": 32000, "registrationYear": "2007", "address": "Boston, MA", "focus": "Global law firm" },
-    { "rank": 15, "name": "Goulston & Storrs PC", "type": "Law Firm / Lobbying", "clients": "28+", "totalExpenditure": 1380000, "expenditureToOfficials": 28000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Real estate + regulatory" },
-    { "rank": 16, "name": "Mintz Levin (Mintz)", "type": "Law Firm / Lobbying", "clients": "25+", "totalExpenditure": 1250000, "expenditureToOfficials": 25000, "registrationYear": "2005", "address": "Boston, MA", "focus": "Health, Tech specialization" },
-    { "rank": 17, "name": "Foley Hoag LLP", "type": "Law Firm / Lobbying", "clients": "22+", "totalExpenditure": 1120000, "expenditureToOfficials": 22000, "registrationYear": "2006", "address": "Boston, MA", "focus": "Environmental, Energy policy" },
-    { "rank": 18, "name": "Nelson Mullins Riley & Scarborough", "type": "Law Firm / Lobbying", "clients": "18+", "totalExpenditure": 980000, "expenditureToOfficials": 19000, "registrationYear": "2012", "address": "Boston, MA", "focus": "Growing MA presence" },
-    { "rank": 19, "name": "Government Strategies Inc.", "type": "Lobbying Firm", "clients": "24+", "totalExpenditure": 860000, "expenditureToOfficials": 17000, "registrationYear": "2007", "address": "Boston, MA", "focus": "State government affairs" },
-    { "rank": 20, "name": "Capitol Consulting Group", "type": "Lobbying Firm", "clients": "18+", "totalExpenditure": 750000, "expenditureToOfficials": 14000, "registrationYear": "2008", "address": "Boston, MA", "focus": "Beacon Hill advocacy" }
+  "warnings": [
+    "Scraper returned 0 records — site structure may have changed"
   ],
-  "keyIndividuals": [
-    { "name": "Jim Smith", "firm": "Smith, Costello & Crawford", "role": "Founding Partner", "note": "Consistently leads MA lobbying revenue" },
-    { "name": "Robert Travaglini", "firm": "TSK Associates", "role": "Founder", "note": "Former Massachusetts Senate President" },
-    { "name": "Chet Atkins", "firm": "Tremont Strategies Group", "role": "Partner", "note": "Former U.S. Representative" },
-    { "name": "Brian S. Hickey", "firm": "Brian S. Hickey Associates", "role": "President", "note": "Veteran Beacon Hill lobbyist" },
-    { "name": "Thomas Dempsey", "firm": "Dempsey Associates", "role": "Principal", "note": "Top-five earning firm consistently" },
-    { "name": "Kevin Kearney", "firm": "Kearney, Donovan & McGee", "role": "Partner", "note": "Represents large institutional interests" }
-  ],
+  "totalRecords": 0,
+  "top20": [],
   "records": [],
-  "industrySummary": [
-    { "type": "Lobbying Firm", "count": 14, "totalSpend": 30795000 },
-    { "type": "Law Firm / Lobbying", "count": 6, "totalSpend": 8030000 },
-    { "type": "Lobbying / Consulting", "count": 2, "totalSpend": 6500000 },
-    { "type": "Lobbying / PR", "count": 1, "totalSpend": 1950000 }
-  ]
+  "industrySummary": []
 }
