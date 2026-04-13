@@ -1817,7 +1817,14 @@ export async function searchLobbyingContributions(query, opts = {}) {
   }
 
   // Sort by date descending
-  allItems.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  // Sort by date descending (most recent first) using actual Date parsing
+  allItems.sort((a, b) => {
+    const da = a.date ? new Date(a.date).getTime() : 0;
+    const db = b.date ? new Date(b.date).getTime() : 0;
+    if (isNaN(da)) return 1;
+    if (isNaN(db)) return -1;
+    return db - da;
+  });
 
   return {
     items: allItems,
