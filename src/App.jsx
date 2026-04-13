@@ -3108,7 +3108,7 @@ export default function App() {
                           <tr key={i} style={{ borderBottom: '1px solid #e4e6ed' }}>
                             <td style={{ padding: '10px 8px', fontWeight: 500 }}>{t.issuer}</td>
                             <td style={{ padding: '10px 8px', fontFamily: 'monospace' }}>
-                              <a href={`https://emma.msrb.org/Security/Details/${t.cusip}`} target="_blank" rel="noopener" style={{ color: '#14558F', textDecoration: 'none' }}>
+                              <a href={`https://emma.msrb.org/QuickSearch/Results?quickSearchText=${t.cusip}`} target="_blank" rel="noopener" style={{ color: '#14558F', textDecoration: 'none' }}>
                                 {t.cusip} ↗
                               </a>
                             </td>
