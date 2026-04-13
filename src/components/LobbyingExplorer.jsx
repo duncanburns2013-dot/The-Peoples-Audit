@@ -68,7 +68,7 @@ export default function LobbyingExplorer() {
 
   // Load SOS lobbying data
   useEffect(() => {
-    fetch('/data/ma-lobbying.json')
+    fetch(`${import.meta.env.BASE_URL}data/ma-lobbying.json?t=${Date.now()}`)
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
