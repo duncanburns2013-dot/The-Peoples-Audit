@@ -1097,6 +1097,27 @@ export async function fetchCampaignFinanceTotals() {
 }
 
 /**
+ * Fetch monthly fundraising chart data from OCPF.
+ * This is the same endpoint that powers the official OCPF Monthly Fundraising Dashboard.
+ * @param {string} chartType - 'C-TOTAL' for contributions, 'E-TOTAL' for expenditures
+ * @param {string} startDate - MM/DD/YYYY format
+ * @param {string} endDate - MM/DD/YYYY format
+ * @param {number} officeTypeId - 0 = all offices
+ * Returns array of { cpfId, filerName, total, count, category, officeSoughtDescription, partyAffiliation }
+ */
+export async function fetchMonthlyChartData(chartType = 'C-TOTAL', startDate, endDate, officeTypeId = 0) {
+  try {
+    const data = await ocpfQuery(
+      `/chartData/monthly?chartType=${chartType}&startDate=${encodeURIComponent(startDate)}&endDate=${encodeURIComponent(endDate)}&officeTypeId=${officeTypeId}`
+    );
+    return Array.isArray(data) ? data : [];
+  } catch (err) {
+    console.warn('Monthly chart data fetch failed:', err.message);
+    return [];
+  }
+}
+
+/**
  * Fetch contributions TO a specific PAC by cpfId.
  * Returns array of contribution records with donor info.
  */
