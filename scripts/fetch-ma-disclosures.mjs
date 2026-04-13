@@ -10,9 +10,13 @@
  * regex-based HTML parser. Runs in GitHub Actions on a schedule.
  *
  * Sources, in priority order:
- *   1. EMMA QuickSearch results for Massachusetts (HTML)
- *   2. Mass.gov "Debt Management" organization news/press releases (HTML)
- *   3. Mass.gov "Office of the Treasurer" news (HTML)
+ *   1. MassBondHolder.com news page (MA Treasurer's investor portal)
+ *   2. MassBondHolder.com financial documents / official statements
+ *   3. Mass.gov "Debt Management" organization news/press releases (HTML)
+ *   4. Mass.gov "Office of the Treasurer" news (HTML)
+ *
+ * Note: EMMA (emma.msrb.org) is NOT used as a source because it requires
+ * Terms of Use acceptance (cookie-gated) which blocks server-side scraping.
  *
  * Design rules:
  *   - NEVER throw. Always write a valid JSON file. Failures are recorded as
@@ -100,36 +104,55 @@ async function fetchText(url, { timeoutMs = 15000 } = {}) {
 }
 
 /* ------------------------------------------------------------------ */
-/* Source 1: EMMA QuickSearch (Massachusetts)                          */
+/* Source 1: MassBondHolder.com news page                             */
 /* ------------------------------------------------------------------ */
 
-async function fetchEmma() {
-  const url =
-    'https://emma.msrb.org/QuickSearch/Results?quickSearchText=MASSACHUSETTS';
-  const html = await fetchText(url);
+async function fetchMassBondHolderNews() {
+  const base = 'https://www.massbondholder.com';
+  const html = await fetchText(`${base}/news`);
   const items = [];
 
-  // EMMA's results page is largely Angular-rendered, but the initial HTML
-  // does include any anchors to /Security/Details/{cusip} or
-  // /IssuerHomePage/Issuer?id=... that happen to be present. Extract them.
-  for (const m of matchAll(
-    html,
-    /<a[^>]+href="(\/(?:Security\/Details|IssuerHomePage\/Issuer)[^"]+)"[^>]*>([^<]{3,200})<\/a>/gi
-  )) {
-    const href = absUrl(m[1], 'https://emma.msrb.org');
-    const title = stripTags(m[2]);
-    if (!href || !title) continue;
+  // MassBondHolder news page has article links with titles and dates.
+  // Pattern: <a href="/some-news-slug">Title Text</a> near date text
+  // Look for article-like blocks with links to internal pages
+  const blockRe = /<a[^>]+href="(\/[a-z0-9][a-z0-9\-]+[a-z0-9])"[^>]*>([\s\S]*?)<\/a>/gi;
+
+  for (const m of matchAll(html, blockRe)) {
+    const href = absUrl(m[1], base);
+    const inner = m[2];
+    if (!href) continue;
+
+    const title = stripTags(inner);
+    if (!title || title.length < 10 || title.length > 300) continue;
+
+    // Skip navigation links
+    if (/^(who we are|bonds|financial|contact|privacy|disclaimer|accessibility|our team|news|all news|next|prev)/i.test(title)) continue;
+
+    // Look for dates near this link in surrounding context
+    // We'll try to find a date in the title or nearby text
+    const dateMatch = title.match(
+      /\b((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4})\b/i
+    ) || title.match(/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4})\b/i);
+    const date = parseLooseDate(dateMatch ? dateMatch[1] : null);
+
+    // Classify type based on title keywords
+    let type = 'News / Disclosure';
+    const lower = title.toLowerCase();
+    if (/upcoming|notice.*sale|proposed.*sale|competitive.*sale/i.test(lower)) type = 'Upcoming Issuance';
+    else if (/official\s+statement/i.test(lower)) type = 'Official Statement';
+    else if (/investor\s+call|conference\s+call/i.test(lower)) type = 'Investor Communication';
+    else if (/rating|moody|s&p|fitch/i.test(lower)) type = 'Credit Rating';
+    else if (/revenue|collection/i.test(lower)) type = 'Revenue Update';
+
     items.push({
-      id: `emma:${href}`,
+      id: `mbh:${m[1]}`,
       title,
-      issuer: 'Massachusetts (EMMA)',
-      type: href.includes('Security/Details')
-        ? 'Security Detail'
-        : 'Issuer Page',
-      date: null,
+      issuer: 'Commonwealth of Massachusetts',
+      type,
+      date,
       url: href,
-      summary: 'Direct link from EMMA QuickSearch results.',
-      source: 'EMMA',
+      summary: '',
+      source: 'MassBondHolder',
     });
   }
 
@@ -137,7 +160,48 @@ async function fetchEmma() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Source 2 & 3: Mass.gov organization news pages                      */
+/* Source 2: MassBondHolder.com official statements                    */
+/* ------------------------------------------------------------------ */
+
+async function fetchMassBondHolderOfficialStatements() {
+  const base = 'https://www.massbondholder.com';
+  const html = await fetchText(`${base}/financial-documents/official-statements`);
+  const items = [];
+
+  // Official statements page has links to PDF documents
+  const linkRe = /<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+
+  for (const m of matchAll(html, linkRe)) {
+    const href = absUrl(m[1], base);
+    const title = stripTags(m[2]);
+    if (!href || !title || title.length < 10) continue;
+
+    // Only include links that look like official statements or bond documents
+    if (!/bond|series|obligation|commonwealth|massachusetts/i.test(title)) continue;
+
+    // Try to extract date from title
+    const dateMatch = title.match(
+      /\b((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4})\b/i
+    );
+    const date = parseLooseDate(dateMatch ? dateMatch[1] : null);
+
+    items.push({
+      id: `mbh-os:${href}`,
+      title,
+      issuer: 'Commonwealth of Massachusetts',
+      type: 'Official Statement',
+      date,
+      url: href,
+      summary: 'Official Statement from MassBondHolder.com',
+      source: 'MassBondHolder',
+    });
+  }
+
+  return items;
+}
+
+/* ------------------------------------------------------------------ */
+/* Source 3 & 4: Mass.gov organization news pages                      */
 /* ------------------------------------------------------------------ */
 
 async function fetchMassGovOrgNews(orgPath, label) {
@@ -246,8 +310,9 @@ async function main() {
     }
   };
 
-  const [emma, debtMgmt, treasurer] = await Promise.all([
-    tryFetch('EMMA QuickSearch (MA)', fetchEmma),
+  const [mbhNews, mbhOS, debtMgmt, treasurer] = await Promise.all([
+    tryFetch('massbondholder.com · News', fetchMassBondHolderNews),
+    tryFetch('massbondholder.com · Official Statements', fetchMassBondHolderOfficialStatements),
     tryFetch('mass.gov · Debt Management', () =>
       fetchMassGovOrgNews('/orgs/debt-management', 'Debt Management')
     ),
@@ -259,7 +324,7 @@ async function main() {
     ),
   ]);
 
-  let merged = dedupe([...debtMgmt, ...treasurer, ...emma]);
+  let merged = dedupe([...mbhNews, ...mbhOS, ...debtMgmt, ...treasurer]);
   merged = sortByDate(merged).slice(0, MAX_ITEMS);
 
   // If every source failed, preserve previous items so the UI never goes blank.
