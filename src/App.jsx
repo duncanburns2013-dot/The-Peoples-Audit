@@ -3377,6 +3377,9 @@ export default function App() {
                 <div style={{ marginTop: 12, fontSize: '0.78rem', color: 'var(--text-muted)', textAlign: 'center' }}>
                   2020–2021: COVID-era federal relief (CARES Act, ARPA) temporarily flipped MA to net recipient. Source: Rockefeller Institute Balance of Payments reports.
                 </div>
+                <div style={{ marginTop: 8, padding: '10px 14px', background: 'rgba(20,85,143,0.06)', border: '1px solid rgba(20,85,143,0.15)', borderRadius: 8, fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
+                  <strong style={{ color: '#14558F' }}>Why does this chart end at FY2023?</strong> The net balance of payments (taxes paid vs. federal spending received) is calculated by the <a href="https://rockinst.org/issue-areas/fiscal-analysis/balance-of-payments-portal/" target="_blank" rel="noopener noreferrer" style={{ color: '#14558F' }}>Rockefeller Institute of Government</a>, which publishes annually with a ~2-year lag. Their most recent report (2025) covers through FY2023. FY2024 data is expected in their next edition. USASpending.gov tracks individual grants and contracts in near-real-time, but the full donor/recipient calculation requires IRS tax collection data that takes longer to finalize.
+                </div>
               </div>
 
               <div className="card-grid">
