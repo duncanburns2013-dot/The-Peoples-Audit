@@ -845,11 +845,16 @@ function QuasiExplorer({ quasiPayments }) {
                 )}
               </div>
 
-              {agencyDetail.payments.length > 0 && (
+              {agencyDetail.payments.length > 0 ? (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
                     Individual Payments — FY{agencyDetail.effectiveYear || quasiYear} ({agencyDetail.payments.length} records)
                   </h4>
+                  {parseInt(agencyDetail.effectiveYear || quasiYear) < 2020 && (
+                    <div style={{ padding: '10px 14px', background: 'rgba(230, 126, 34, 0.08)', border: '1px solid rgba(230, 126, 34, 0.25)', borderRadius: 8, fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: 12 }}>
+                      <strong style={{ color: '#E67E22' }}>Stale Data:</strong> This agency last submitted detailed payment records to CTHRU in FY{agencyDetail.effectiveYear || quasiYear}. Quasi-government reporting is voluntary — the spending chart above includes more recent data from the agency's own audited financial statements, but individual vendor-level payment records are only available for years the agency reported to CTHRU.
+                    </div>
+                  )}
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
@@ -882,6 +887,10 @@ function QuasiExplorer({ quasiPayments }) {
                         onClick={() => setPaymentPage(p => p + 1)}>Next</button>
                     </div>
                   )}
+                </div>
+              ) : agencyDetail.hasSupplemental && (
+                <div style={{ marginTop: 24, padding: '14px 18px', background: 'rgba(230, 126, 34, 0.08)', border: '1px solid rgba(230, 126, 34, 0.25)', borderRadius: 10, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                  <strong style={{ color: '#E67E22' }}>No Payment Records Available:</strong> This agency has not submitted individual payment records to CTHRU. The spending chart above uses data from the agency's own audited financial statements. Detailed vendor-level payment breakdowns are only available for agencies that voluntarily report to the MA Comptroller's CTHRU portal.
                 </div>
               )}
             </>
