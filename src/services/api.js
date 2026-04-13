@@ -1441,25 +1441,46 @@ export async function fetchTreasuryDebtContext() {
 
 /**
  * Fetch recent EMMA trade activity via the MSRB public trade data feed.
- * EMMA doesn't expose a documented CORS-enabled JSON API, so this function
- * returns a curated snapshot of recent high-volume MA issuer trades plus
- * a deep link the UI renders as an embedded live EMMA search.
+ * Loads from the automated snapshot in public/data/ma-bond-trades.json,
+ * which is refreshed every 6 hours by GitHub Actions.
  */
 export async function fetchEmmaRecentTrades() {
-  // EMMA's real-time trade feed is subscription-only. The UI embeds the live
-  // EMMA Massachusetts search page in an iframe as the "live feed" view.
-  // This function returns a small snapshot of recent notable MA trades so the
-  // UI has something to render below the iframe even if cross-origin blocks the frame.
-  return [
-    { issuer: 'Commonwealth of MA GO 2054', cusip: '57582RXH4', price: 98.42, yield: 4.31, par: 5_000_000, date: '2026-04-08' },
-    { issuer: 'MBTA Sales Tax Rev 2048', cusip: '57563RQW1', price: 101.12, yield: 3.98, par: 2_500_000, date: '2026-04-08' },
-    { issuer: 'MA School Bldg Auth 2042', cusip: '57606PWZ2', price: 99.85, yield: 4.05, par: 4_000_000, date: '2026-04-07' },
-    { issuer: 'UMass Bldg Auth 2044', cusip: '91341JBC3', price: 100.45, yield: 4.12, par: 1_800_000, date: '2026-04-07' },
-    { issuer: 'MA Water Resources 2050', cusip: '57602RKM9', price: 97.80, yield: 4.45, par: 3_100_000, date: '2026-04-07' },
-    { issuer: 'Massport Rev 2049', cusip: '575896DK7', price: 98.95, yield: 4.22, par: 2_200_000, date: '2026-04-06' },
-    { issuer: 'MA Dev Finance Agency 2045', cusip: '57582NEE1', price: 99.10, yield: 4.18, par: 1_500_000, date: '2026-04-06' },
-    { issuer: 'MA Clean Water Trust 2040', cusip: '575797YE3', price: 100.25, yield: 3.92, par: 2_800_000, date: '2026-04-06' },
-  ];
+  try {
+    const res = await fetch(`${window.location.origin}/The-Peoples-Audit/data/ma-bond-trades.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    return {
+      trades: (data.trades || []).map(t => ({
+        issuer: t.issuer || '',
+        cusip: t.cusip || '',
+        price: t.price || 0,
+        yield: t.yield || 0,
+        par: t.par || 0,
+        date: t.tradeDate || '',
+      })),
+      lastRefreshed: data.lastRefreshed || null,
+      source: data.source || 'EMMA automated snapshot',
+      count: data.count || 0,
+    };
+  } catch (err) {
+    console.warn('Bond trades fetch failed:', err.message);
+    // Fallback to hardcoded data if JSON not available
+    return {
+      trades: [
+        { issuer: 'Commonwealth of MA GO 2054', cusip: '57582RXH4', price: 98.42, yield: 4.31, par: 5_000_000, date: '2026-04-08' },
+        { issuer: 'MBTA Sales Tax Rev 2048', cusip: '57563RQW1', price: 101.12, yield: 3.98, par: 2_500_000, date: '2026-04-08' },
+        { issuer: 'MA School Bldg Auth 2042', cusip: '57606PWZ2', price: 99.85, yield: 4.05, par: 4_000_000, date: '2026-04-07' },
+        { issuer: 'UMass Bldg Auth 2044', cusip: '91341JBC3', price: 100.45, yield: 4.12, par: 1_800_000, date: '2026-04-07' },
+        { issuer: 'MA Water Resources 2050', cusip: '57602RKM9', price: 97.80, yield: 4.45, par: 3_100_000, date: '2026-04-07' },
+        { issuer: 'Massport Rev 2049', cusip: '575896DK7', price: 98.95, yield: 4.22, par: 2_200_000, date: '2026-04-06' },
+        { issuer: 'MA Dev Finance Agency 2045', cusip: '57582NEE1', price: 99.10, yield: 4.18, par: 1_500_000, date: '2026-04-06' },
+        { issuer: 'MA Clean Water Trust 2040', cusip: '575797YE3', price: 100.25, yield: 3.92, par: 2_800_000, date: '2026-04-06' },
+      ],
+      lastRefreshed: null,
+      source: 'Static fallback',
+      count: 8,
+    };
+  }
 }
 
 /**

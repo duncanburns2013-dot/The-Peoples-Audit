@@ -1,0 +1,51 @@
+name: Refresh MA Bond Trades
+
+on:
+  schedule:
+    # Every 6 hours, on the hour
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: 'fetch-bond-trades'
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run fetcher
+        run: node scripts/fetch-ma-bond-trades.mjs
+
+      - name: Show output (debug)
+        run: |
+          echo "----- ma-bond-trades.json -----"
+          head -c 4000 public/data/ma-bond-trades.json || true
+          echo
+          echo "-------------------------------"
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "the-peoples-audit-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- public/data/ma-bond-trades.json; then
+            echo "No bond trade changes."
+            exit 0
+          fi
+          git add public/data/ma-bond-trades.json
+          git commit -m "chore(data): refresh MA bond trades from EMMA [skip ci]"
+          git push

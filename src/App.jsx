@@ -2324,7 +2324,18 @@ export default function App() {
     results.forEach((result, i) => {
       const key = fetchers[i].key;
       const val = result.status === 'fulfilled' ? result.value : null;
-      if (val && Array.isArray(val) && val.length > 0) {
+
+      // Special handling for emmaTrades: it now returns an object with { trades, lastRefreshed, source, count }
+      if (key === 'emmaTrades') {
+        if (val && val.trades && Array.isArray(val.trades) && val.trades.length > 0) {
+          newData[key] = val;
+          if (val.lastRefreshed) setEmmaLastFetched(new Date(val.lastRefreshed));
+          liveCount++;
+        } else {
+          newData[key] = fallbacks[key] || null;
+          if (!val) newErrors[key] = true;
+        }
+      } else if (val && Array.isArray(val) && val.length > 0) {
         newData[key] = val;
         liveCount++;
       } else {
@@ -2336,7 +2347,6 @@ export default function App() {
     setData(prev => ({ ...prev, ...newData }));
     setErrors(newErrors);
     setLoading(prev => ({ ...prev, global: false }));
-    if (newData.emmaTrades) setEmmaLastFetched(new Date());
     if (liveCount > 0) console.log(`Live data loaded for ${liveCount}/${fetchers.length} sources`);
   }, [spendingYear, payrollYear, federalYear]);
 
@@ -2345,10 +2355,10 @@ export default function App() {
   const refreshEmmaTrades = useCallback(async () => {
     setEmmaRefreshing(true);
     try {
-      const trades = await fetchEmmaRecentTrades();
-      if (trades && Array.isArray(trades) && trades.length > 0) {
-        setData(prev => ({ ...prev, emmaTrades: trades }));
-        setEmmaLastFetched(new Date());
+      const result = await fetchEmmaRecentTrades();
+      if (result && result.trades && Array.isArray(result.trades) && result.trades.length > 0) {
+        setData(prev => ({ ...prev, emmaTrades: result }));
+        if (result.lastRefreshed) setEmmaLastFetched(new Date(result.lastRefreshed));
       }
     } catch (err) {
       console.error('EMMA refresh failed:', err);
@@ -3066,19 +3076,21 @@ export default function App() {
                     </button>
                   </div>
                   <div className="chart-subtitle" style={{ marginTop: 6 }}>
-                    Snapshot of significant Massachusetts issuer trades. Click any CUSIP to view full EMMA history.
+                    Automated snapshot from EMMA — refreshed nightly. Click any CUSIP to view full EMMA history.
                   </div>
-                  {emmaLastFetched && data.emmaTrades && (
+                  {data.emmaTrades && data.emmaTrades.lastRefreshed && (
                     <div style={{
                       marginTop: 8, padding: '6px 12px', background: '#f4f5f8', borderRadius: 4,
                       fontSize: '0.82rem', color: 'var(--text-muted)'
                     }}>
                       <strong style={{ color: '#222' }}>Last refreshed:</strong>{' '}
-                      {emmaLastFetched.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
-                      {' · '}{data.emmaTrades.length} trades loaded
+                      {new Date(data.emmaTrades.lastRefreshed).toLocaleString('en-US', {
+                        month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+                      })}
+                      {' · '}{data.emmaTrades.source}
                     </div>
                   )}
-                  {data.emmaTrades && data.emmaTrades.length > 0 ? (
+                  {data.emmaTrades && data.emmaTrades.trades && data.emmaTrades.trades.length > 0 ? (
                   <div style={{ overflowX: 'auto', marginTop: 12 }}>
                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
                       <thead>
@@ -3092,7 +3104,7 @@ export default function App() {
                         </tr>
                       </thead>
                       <tbody>
-                        {data.emmaTrades.map((t, i) => (
+                        {data.emmaTrades.trades.map((t, i) => (
                           <tr key={i} style={{ borderBottom: '1px solid #e4e6ed' }}>
                             <td style={{ padding: '10px 8px', fontWeight: 500 }}>{t.issuer}</td>
                             <td style={{ padding: '10px 8px', fontFamily: 'monospace' }}>
