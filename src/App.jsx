@@ -33,7 +33,7 @@ import {
   MA_BUDGET_SUMMARY, AUDIT_FACTS,
   SPENDING_BY_DEPARTMENT, SPENDING_BY_VENDOR, SPENDING_OVER_TIME,
   PAYROLL_BY_DEPARTMENT, TOP_EARNERS, PAYROLL_OVER_TIME,
-  QUASI_PAYMENTS, FEDERAL_SPENDING_MA, FEDERAL_AWARDS_MA, MBTA_AUDITED_FINANCIALS,
+  QUASI_PAYMENTS, FEDERAL_SPENDING_MA, FEDERAL_AWARDS_MA, QUASI_SUPPLEMENTAL_DATA,
   MA_STATE_DEBT_YOY, MA_TOP_BOND_ISSUERS, MA_DEBT_BY_TYPE, MA_COUNTY_DEBT, MA_BOND_FACTS,
 } from './services/api';
 import './index.css';
@@ -673,14 +673,15 @@ function QuasiExplorer({ quasiPayments }) {
     setPaymentPage(0);
     // First fetch by-year data to find the latest year with actual data
     fetchQuasiAgencyByYear(agencyName).then(byYear => {
-      // Merge MBTA audited financials
+      // Merge supplemental audited financials for ANY agency that has them
       let mergedByYear = byYear;
+      const supplemental = QUASI_SUPPLEMENTAL_DATA[agencyName];
       const isMBTA = /MBTA|Massachusetts Bay Transportation/i.test(agencyName);
-      if (isMBTA) {
+      if (supplemental) {
         const have = new Set(byYear.map(y => String(y.year)));
-        const fromAudit = MBTA_AUDITED_FINANCIALS
+        const fromAudit = supplemental
           .filter(r => !have.has(String(r.year)))
-          .map(r => ({ year: r.year, total: r.operatingExpenses, paymentCount: 0, source: r.source, audited: true }));
+          .map(r => ({ year: r.year, total: r.total, paymentCount: 0, source: r.source, audited: true }));
         mergedByYear = [...byYear, ...fromAudit].sort((a, b) => String(a.year).localeCompare(String(b.year)));
       }
       // If selected year has no CTHRU data, fall back to the most recent year that does
@@ -693,7 +694,8 @@ function QuasiExplorer({ quasiPayments }) {
         fetchQuasiAgencyDetail(agencyName, effectiveYear),
         fetchQuasiAgencyPayments(agencyName, effectiveYear, 500),
       ]).then(([categories, vendors, payments]) => {
-        setAgencyDetail({ byYear: mergedByYear, categories, vendors, payments, isMBTA, effectiveYear });
+        const hasSupplemental = !!supplemental;
+        setAgencyDetail({ byYear: mergedByYear, categories, vendors, payments, isMBTA, hasSupplemental, effectiveYear });
         setDetailLoading(false);
         setTimeout(() => {
           quasiDetailPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -729,12 +731,12 @@ function QuasiExplorer({ quasiPayments }) {
             </div>
           ) : agencyDetail && (
             <>
-              {agencyDetail.isMBTA && (
+              {agencyDetail.hasSupplemental && (
                 <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(20, 85, 143, 0.08)', border: '1px solid rgba(20, 85, 143, 0.3)', borderRadius: 10, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                  📊 <strong style={{ color: '#14558F' }}>MBTA Note:</strong> CTHRU tracks state payments to MBTA through ~FY2017. Years 2018–2025 below are pulled from the MBTA's own published audited financial statements.
-                  {' '}<a href="https://www.mbta.com/financials/audited-financials" target="_blank" rel="noopener" style={{ color: '#14558F', fontWeight: 600 }}>Audited Financials</a>
-                  {' · '}
-                  <a href="https://www.mbta.com/financials" target="_blank" rel="noopener" style={{ color: '#14558F', fontWeight: 600 }}>MBTA Financial Center</a>
+                  <strong style={{ color: '#14558F' }}>Data Note:</strong> CTHRU quasi-government reporting is voluntary. Years with no CTHRU submissions are supplemented with data from the agency's own published audited financial statements (ACFRs) and the MA Comptroller's Annual Comprehensive Financial Report.
+                  {agencyDetail.isMBTA && (<>
+                    {' '}<a href="https://www.mbta.com/financials/audited-financials" target="_blank" rel="noopener" style={{ color: '#14558F', fontWeight: 600 }}>MBTA Audited Financials</a>
+                  </>)}
                 </div>
               )}
               {/* KPI summary for selected agency */}
@@ -772,15 +774,25 @@ function QuasiExplorer({ quasiPayments }) {
                       <XAxis dataKey="year" stroke={AXIS_COLOR} />
                       <YAxis tickFormatter={formatMoney} stroke={AXIS_COLOR} />
                       <Tooltip content={<CustomTooltip />} />
-                      <Bar dataKey="total" fill="#22ddee" radius={[3, 3, 0, 0]} name="Total Spent" />
+                      <Bar dataKey="total" radius={[3, 3, 0, 0]} name="Total Spent">
+                        {agencyDetail.byYear.map((entry, i) => (
+                          <Cell key={i} fill={entry.audited ? '#5ba3cf' : '#22ddee'} />
+                        ))}
+                      </Bar>
                     </BarChart>
                   </ResponsiveContainer>
                   {agencyDetail.byYear.length > 0 && (
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', display: 'block', marginTop: 8 }}>
                       Data available: FY{agencyDetail.byYear[0].year} — FY{agencyDetail.byYear[agencyDetail.byYear.length - 1].year}
-                      {!agencyDetail.byYear.find(y => y.year === quasiYear) && (
+                      {!agencyDetail.byYear.find(y => String(y.year) === quasiYear) && (
                         <span style={{ color: 'var(--accent-red)', marginLeft: 8 }}>
                           (No data for FY{quasiYear} — showing available years)
+                        </span>
+                      )}
+                      {agencyDetail.hasSupplemental && agencyDetail.byYear.some(y => y.audited) && (
+                        <span style={{ marginLeft: 12 }}>
+                          <span style={{ display: 'inline-block', width: 10, height: 10, background: '#22ddee', borderRadius: 2, marginRight: 4, verticalAlign: 'middle' }} />CTHRU
+                          <span style={{ display: 'inline-block', width: 10, height: 10, background: '#5ba3cf', borderRadius: 2, marginLeft: 10, marginRight: 4, verticalAlign: 'middle' }} />Audited Financials
                         </span>
                       )}
                     </span>
