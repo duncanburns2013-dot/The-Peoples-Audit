@@ -99,12 +99,21 @@ export default function LobbyingExplorer() {
   useEffect(() => {
     setFirmLoading(true);
     const firmNames = majorLobbyingFirms.map(f => f.name.replace(/ LLC| Inc\.| LLP| PC/g, '').trim());
-    fetchLobbyingFirmContributions(firmNames.slice(0, 6))
-      .then(data => {
-        setFirmData(data);
-        setFirmLoading(false);
-      })
-      .catch(() => setFirmLoading(false));
+    // Fetch each firm individually (the API expects a single firm name, not an array)
+    Promise.allSettled(
+      firmNames.slice(0, 6).map(name =>
+        fetchLobbyingFirmContributions(name).then(data => ({ name, data }))
+      )
+    ).then(results => {
+      const firmMap = {};
+      for (const r of results) {
+        if (r.status === 'fulfilled') {
+          firmMap[r.value.name] = r.value.data;
+        }
+      }
+      setFirmData(firmMap);
+      setFirmLoading(false);
+    }).catch(() => setFirmLoading(false));
   }, []);
 
   const topSpendersFormatted = topSpenders.map(item => ({ ...item, spendingM: item.spending / 1e6 }));
@@ -273,13 +282,13 @@ export default function LobbyingExplorer() {
                 <div className="kpi-card" style={{ borderColor: 'rgba(50,120,78,0.3)' }}>
                   <div className="kpi-label">Contributions Found</div>
                   <div className="kpi-value" style={{ color: 'var(--accent-green)' }}>{searchResults.items.length}</div>
-                  {searchResults.total > searchResults.items.length && (
-                    <div className="kpi-sub">{searchResults.total} total matches</div>
+                  {searchResults.totalCount > searchResults.items.length && (
+                    <div className="kpi-sub">{searchResults.totalCount} total matches</div>
                   )}
                 </div>
                 <div className="kpi-card">
                   <div className="kpi-label">Total Amount</div>
-                  <div className="kpi-value">{formatMoney(searchResults.items.reduce((s, c) => s + c.amountNum, 0))}</div>
+                  <div className="kpi-value">{formatMoney(searchResults.items.reduce((s, c) => s + c.amount, 0))}</div>
                 </div>
                 <div className="kpi-card">
                   <div className="kpi-label">Unique Recipients</div>
@@ -301,7 +310,7 @@ export default function LobbyingExplorer() {
                           OCPF Contribution Record
                         </div>
                         <div style={{ fontWeight: 600, marginBottom: 4 }}>{c.contributor}</div>
-                        <div className="connection-amount">{c.amount}</div>
+                        <div className="connection-amount">{formatMoney(c.amount)}</div>
                         <div style={{ marginTop: 8, fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
                           <ArrowRight size={12} style={{ color: 'var(--accent-green)', verticalAlign: 'middle', marginRight: 4 }} />
                           {c.recipient}
@@ -329,7 +338,7 @@ export default function LobbyingExplorer() {
                           <tr key={i}>
                             <td style={{ whiteSpace: 'nowrap', fontSize: '0.8rem' }}>{c.date}</td>
                             <td>{c.contributor}</td>
-                            <td className="money">{c.amount}</td>
+                            <td className="money">{formatMoney(c.amount)}</td>
                             <td style={{ color: 'var(--accent-green)' }}>{c.recipient}</td>
                             <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{c.employer}</td>
                             <td style={{ fontSize: '0.8rem' }}>{c.city}</td>
