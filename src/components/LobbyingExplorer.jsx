@@ -101,8 +101,12 @@ export default function LobbyingExplorer() {
 
   // Derived data
   const top20 = lobbyData?.top20 || [];
+  const keyIndividuals = lobbyData?.keyIndividuals || [];
   const filteredFirms = firmSearch
-    ? top20.filter(f => f.name.toLowerCase().includes(firmSearch.toLowerCase()))
+    ? top20.filter(f =>
+        f.name.toLowerCase().includes(firmSearch.toLowerCase()) ||
+        (f.focus || '').toLowerCase().includes(firmSearch.toLowerCase())
+      )
     : top20;
 
   const totalSpending = spendingByYear[spendingByYear.length - 1].spending;
@@ -310,9 +314,31 @@ export default function LobbyingExplorer() {
                   <span><span style={{ color: 'var(--text-muted)' }}>To Officials:</span> <strong style={{ color: '#E67E22' }}>{firm.expenditureToOfficials > 0 ? formatMoney(firm.expenditureToOfficials) : '—'}</strong></span>
                   {firm.address && <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>{firm.address}</span>}
                 </div>
+                {firm.focus && (
+                  <div style={{ marginTop: 6, fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                    <strong style={{ color: 'var(--accent-green)' }}>Focus:</strong> {firm.focus}
+                  </div>
+                )}
               </div>
             ))}
           </div>
+
+          {/* Key Individuals */}
+          {keyIndividuals.length > 0 && (
+            <div className="chart-card" style={{ marginTop: 24 }}>
+              <h3>Key Lobbyists on Beacon Hill</h3>
+              <div className="chart-subtitle">Prominent individual lobbyists and their affiliations</div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 12, marginTop: 16 }}>
+                {keyIndividuals.map((person, idx) => (
+                  <div key={idx} style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 10, padding: '14px 16px' }}>
+                    <div style={{ fontWeight: 600, fontSize: '0.95rem', marginBottom: 4 }}>{person.name}</div>
+                    <div style={{ fontSize: '0.82rem', color: 'var(--accent-blue)', marginBottom: 4 }}>{person.role} — {person.firm}</div>
+                    {person.note && <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{person.note}</div>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
