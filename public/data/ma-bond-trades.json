@@ -1,15 +1,82 @@
 {
-  "lastRefreshed": "2026-04-12T20:00:00Z",
-  "source": "Seed data — awaiting first automated refresh",
+  "lastRefreshed": "2026-04-13T07:45:44.431Z",
+  "source": "Cached snapshot (live fetch failed)",
+  "preservedFromCache": true,
+  "sources": [
+    {
+      "name": "EMMA TradeData (MA)",
+      "ok": true,
+      "count": 0
+    }
+  ],
+  "warnings": [
+    "All live sources returned 0 trades — preserving cached trades."
+  ],
   "count": 8,
   "trades": [
-    { "issuer": "Commonwealth of MA GO 2054", "cusip": "57582RXH4", "par": 5000000, "price": 98.42, "yield": 4.31, "tradeDate": "2026-04-08" },
-    { "issuer": "MBTA Sales Tax Rev 2048", "cusip": "57563RQW1", "par": 2500000, "price": 101.12, "yield": 3.98, "tradeDate": "2026-04-08" },
-    { "issuer": "MA School Bldg Auth 2042", "cusip": "57606PWZ2", "par": 4000000, "price": 99.85, "yield": 4.05, "tradeDate": "2026-04-07" },
-    { "issuer": "UMass Bldg Auth 2044", "cusip": "91341JBC3", "par": 1800000, "price": 100.45, "yield": 4.12, "tradeDate": "2026-04-07" },
-    { "issuer": "MA Water Resources 2050", "cusip": "57602RKM9", "par": 3100000, "price": 97.80, "yield": 4.45, "tradeDate": "2026-04-07" },
-    { "issuer": "Massport Rev 2049", "cusip": "575896DK7", "par": 2200000, "price": 98.95, "yield": 4.22, "tradeDate": "2026-04-06" },
-    { "issuer": "MA Dev Finance Agency 2045", "cusip": "57582NEE1", "par": 1500000, "price": 99.10, "yield": 4.18, "tradeDate": "2026-04-06" },
-    { "issuer": "MA Clean Water Trust 2040", "cusip": "575797YE3", "par": 2800000, "price": 100.25, "yield": 3.92, "tradeDate": "2026-04-06" }
+    {
+      "issuer": "Commonwealth of MA GO 2054",
+      "cusip": "57582RXH4",
+      "par": 5000000,
+      "price": 98.42,
+      "yield": 4.31,
+      "tradeDate": "2026-04-08"
+    },
+    {
+      "issuer": "MBTA Sales Tax Rev 2048",
+      "cusip": "57563RQW1",
+      "par": 2500000,
+      "price": 101.12,
+      "yield": 3.98,
+      "tradeDate": "2026-04-08"
+    },
+    {
+      "issuer": "MA School Bldg Auth 2042",
+      "cusip": "57606PWZ2",
+      "par": 4000000,
+      "price": 99.85,
+      "yield": 4.05,
+      "tradeDate": "2026-04-07"
+    },
+    {
+      "issuer": "UMass Bldg Auth 2044",
+      "cusip": "91341JBC3",
+      "par": 1800000,
+      "price": 100.45,
+      "yield": 4.12,
+      "tradeDate": "2026-04-07"
+    },
+    {
+      "issuer": "MA Water Resources 2050",
+      "cusip": "57602RKM9",
+      "par": 3100000,
+      "price": 97.8,
+      "yield": 4.45,
+      "tradeDate": "2026-04-07"
+    },
+    {
+      "issuer": "Massport Rev 2049",
+      "cusip": "575896DK7",
+      "par": 2200000,
+      "price": 98.95,
+      "yield": 4.22,
+      "tradeDate": "2026-04-06"
+    },
+    {
+      "issuer": "MA Dev Finance Agency 2045",
+      "cusip": "57582NEE1",
+      "par": 1500000,
+      "price": 99.1,
+      "yield": 4.18,
+      "tradeDate": "2026-04-06"
+    },
+    {
+      "issuer": "MA Clean Water Trust 2040",
+      "cusip": "575797YE3",
+      "par": 2800000,
+      "price": 100.25,
+      "yield": 3.92,
+      "tradeDate": "2026-04-06"
+    }
   ]
 }
