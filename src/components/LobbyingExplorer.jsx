@@ -60,14 +60,47 @@ export default function LobbyingExplorer() {
   const [lobbyError, setLobbyError] = useState(null);
   const [firmSearch, setFirmSearch] = useState('');
   const [selectedFirm, setSelectedFirm] = useState(null);
+  const [firmOcpf, setFirmOcpf] = useState(null);
+  const [firmOcpfLoading, setFirmOcpfLoading] = useState(false);
   const firmDetailRef = useRef(null);
 
   const handleFirmClick = useCallback((firm) => {
     const isAlreadySelected = selectedFirm?.name === firm.name;
-    setSelectedFirm(isAlreadySelected ? null : firm);
-    if (!isAlreadySelected) {
-      setTimeout(() => firmDetailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    if (isAlreadySelected) {
+      setSelectedFirm(null);
+      setFirmOcpf(null);
+      return;
     }
+    setSelectedFirm(firm);
+    setFirmOcpf(null);
+    setFirmOcpfLoading(true);
+    // Auto-search OCPF for this firm's name (employer field)
+    searchLobbyingContributions(firm.name, { pageSize: 100 })
+      .then(data => {
+        // Group by recipient to show top officials who received contributions
+        const byRecipient = {};
+        for (const c of data.items) {
+          const key = c.recipient || 'Unknown';
+          if (!byRecipient[key]) byRecipient[key] = { recipient: key, total: 0, count: 0, latestDate: '' };
+          byRecipient[key].total += c.amount;
+          byRecipient[key].count++;
+          if (c.date > byRecipient[key].latestDate) byRecipient[key].latestDate = c.date;
+        }
+        const topRecipients = Object.values(byRecipient).sort((a, b) => b.total - a.total).slice(0, 15);
+        setFirmOcpf({
+          totalAmount: data.items.reduce((s, c) => s + c.amount, 0),
+          totalCount: data.items.length,
+          uniqueRecipients: Object.keys(byRecipient).length,
+          topRecipients,
+          recentItems: data.items.slice(0, 10),
+        });
+        setFirmOcpfLoading(false);
+      })
+      .catch(() => {
+        setFirmOcpf({ totalAmount: 0, totalCount: 0, uniqueRecipients: 0, topRecipients: [], recentItems: [] });
+        setFirmOcpfLoading(false);
+      });
+    setTimeout(() => firmDetailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
   }, [selectedFirm]);
 
   // === OCPF Cross-Reference State ===
@@ -328,11 +361,75 @@ export default function LobbyingExplorer() {
                   );
                 })()}
 
-                <div style={{ marginTop: 16 }}>
+                {/* OCPF Campaign Contribution Cross-Reference */}
+                <div style={{ marginTop: 20 }}>
+                  <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: 8 }}>
+                    Campaign Contributions — OCPF Cross-Reference
+                    <span style={{ fontSize: '0.72rem', background: 'rgba(230,126,34,0.1)', color: '#E67E22', padding: '2px 8px', borderRadius: 4, fontWeight: 500 }}>Separate Database</span>
+                  </h4>
+                  {firmOcpfLoading ? (
+                    <div style={{ padding: 20, textAlign: 'center', color: 'var(--text-muted)' }}>
+                      <div className="spinner" style={{ margin: '0 auto 8px' }} /> Searching OCPF records for "{selectedFirm.name}"...
+                    </div>
+                  ) : firmOcpf && firmOcpf.totalCount > 0 ? (
+                    <div>
+                      <div className="kpi-row" style={{ marginBottom: 12 }}>
+                        <div className="kpi-card" style={{ borderColor: 'rgba(230,126,34,0.25)' }}>
+                          <div className="kpi-label">Contributions Found</div>
+                          <div className="kpi-value" style={{ color: '#E67E22' }}>{firmOcpf.totalCount}</div>
+                        </div>
+                        <div className="kpi-card">
+                          <div className="kpi-label">Total Donated</div>
+                          <div className="kpi-value">{formatMoney(firmOcpf.totalAmount)}</div>
+                        </div>
+                        <div className="kpi-card">
+                          <div className="kpi-label">Unique Recipients</div>
+                          <div className="kpi-value" style={{ color: 'var(--accent-blue)' }}>{firmOcpf.uniqueRecipients}</div>
+                        </div>
+                      </div>
+                      {firmOcpf.topRecipients.length > 0 && (
+                        <div>
+                          <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>Top Recipients (Officials & Committees)</div>
+                          <div className="data-table-wrapper" style={{ maxHeight: 280, overflow: 'auto' }}>
+                            <table className="data-table">
+                              <thead>
+                                <tr><th>Recipient</th><th>Total</th><th>Count</th><th>Latest</th></tr>
+                              </thead>
+                              <tbody>
+                                {firmOcpf.topRecipients.map((r, i) => (
+                                  <tr key={i}>
+                                    <td style={{ fontWeight: 500, color: 'var(--accent-blue)' }}>{r.recipient}</td>
+                                    <td className="money">{formatMoney(r.total)}</td>
+                                    <td style={{ textAlign: 'center' }}>{r.count}</td>
+                                    <td style={{ fontSize: '0.8rem', whiteSpace: 'nowrap' }}>{formatDate(r.latestDate)}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      )}
+                      <div style={{ marginTop: 8, fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                        Source: MA Office of Campaign and Political Finance (OCPF). Searches by employer name — includes contributions from firm employees, not just the firm itself.
+                      </div>
+                    </div>
+                  ) : firmOcpf ? (
+                    <div style={{ padding: 16, textAlign: 'center', color: 'var(--text-muted)', background: 'var(--bg-card-hover)', borderRadius: 8, fontSize: '0.85rem' }}>
+                      No OCPF campaign contribution records found for "{selectedFirm.name}".
+                    </div>
+                  ) : null}
+                </div>
+
+                <div style={{ marginTop: 16, display: 'flex', gap: 12 }}>
                   <a href="https://www.sec.state.ma.us/lobbyistpublicsearch/Default.aspx"
                     target="_blank" rel="noopener noreferrer"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: 'var(--accent-blue)', color: '#fff', borderRadius: 6, fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none' }}>
                     <ExternalLink size={14} /> View on SOS Site
+                  </a>
+                  <a href="https://www.ocpf.us/Filers"
+                    target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: '#E67E22', color: '#fff', borderRadius: 6, fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none' }}>
+                    <ExternalLink size={14} /> Search OCPF
                   </a>
                 </div>
               </div>
