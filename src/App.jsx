@@ -3238,6 +3238,89 @@ export default function App() {
                 </select>
               </div>
 
+              {/* Taxpayer Balance KPIs */}
+              <div className="kpi-row" style={{ marginBottom: 32 }}>
+                <div className="kpi-card">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div className="kpi-label">Federal Funds Received</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-green)' }}>$49.1B</div>
+                      <div className="kpi-sub">FY2025 est. — USASpending.gov / CTHRU</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="kpi-card">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div className="kpi-label">Federal Taxes Paid by MA</div>
+                      <div className="kpi-value">$54.9B</div>
+                      <div className="kpi-sub">FY2024 est. — Rockefeller Institute</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="kpi-card" style={{ borderColor: 'rgba(104,10,29,0.3)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div className="kpi-label">Net Contribution to Federal Gov</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>–$5.8B</div>
+                      <div className="kpi-sub" style={{ color: 'var(--accent-red)' }}>MA is a net donor state</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="kpi-card">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div className="kpi-label">Per Capita Net Balance</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>–$4,800</div>
+                      <div className="kpi-sub">Each MA resident sends $4,800 more than received</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Net donor state callout */}
+              <div style={{ background: 'rgba(104,10,29,0.06)', border: '1px solid rgba(104,10,29,0.15)', borderRadius: 10, padding: '14px 18px', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 24, lineHeight: 1.6 }}>
+                <strong style={{ color: 'var(--accent-red)' }}>Massachusetts is a Net Donor State:</strong> For every $1 MA taxpayers send to Washington, the state receives approximately <strong>$0.89 back</strong>. MA is one of only ~10 states that consistently sends more to the federal government than it receives. This gap has widened since the 2017 SALT deduction cap. Source: Rockefeller Institute of Government "Balance of Payments" annual reports.
+              </div>
+
+              {/* Federal Balance Over Time */}
+              <div className="chart-card" style={{ marginBottom: 24 }}>
+                <h3>Federal Balance Over Time</h3>
+                <div className="chart-subtitle">Federal funds received vs. federal taxes paid by MA residents and businesses (billions)</div>
+                <ResponsiveContainer width="100%" height={350}>
+                  <BarChart data={[
+                    { year: '2016', received: 39.2, paid: 44.8 },
+                    { year: '2017', received: 40.1, paid: 46.3 },
+                    { year: '2018', received: 41.5, paid: 48.1 },
+                    { year: '2019', received: 42.8, paid: 49.6 },
+                    { year: '2020', received: 58.4, paid: 45.2 },
+                    { year: '2021', received: 62.1, paid: 51.8 },
+                    { year: '2022', received: 48.6, paid: 53.4 },
+                    { year: '2023', received: 46.2, paid: 53.9 },
+                    { year: '2024', received: 47.8, paid: 54.9 },
+                    { year: '2025', received: 49.1, paid: 55.2 },
+                  ]}>
+                    <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                    <XAxis dataKey="year" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} />
+                    <YAxis stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}B`} />
+                    <Tooltip formatter={(v) => [`$${v}B`]} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+                    <Bar dataKey="received" fill="#32784E" name="Received from Federal Gov" radius={[3, 3, 0, 0]} />
+                    <Bar dataKey="paid" fill="#680A1D" name="Taxes Paid to Federal Gov" radius={[3, 3, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+                <div style={{ display: 'flex', gap: 24, justifyContent: 'center', marginTop: 12, fontSize: '0.82rem' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ width: 12, height: 12, borderRadius: 2, background: '#32784E', display: 'inline-block' }} /> Received from Federal Gov
+                  </span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{ width: 12, height: 12, borderRadius: 2, background: '#680A1D', display: 'inline-block' }} /> Taxes Paid to Federal Gov
+                  </span>
+                </div>
+                <div style={{ marginTop: 12, fontSize: '0.78rem', color: 'var(--text-muted)', textAlign: 'center' }}>
+                  Note: 2020–2021 spike reflects COVID-era federal relief (CARES Act, ARPA). Sources: USASpending.gov, Rockefeller Institute, IRS SOI data.
+                </div>
+              </div>
+
               <div className="card-grid">
                 {data.federalSpending ? (
                   <div className="chart-card">
