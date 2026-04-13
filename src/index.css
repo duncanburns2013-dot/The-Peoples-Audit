@@ -112,9 +112,15 @@ body {
 
   padding: 8px 16px;
 
-  display: flex; align-items: center; flex-wrap: wrap; gap: 4px 2px;
+  display: flex; align-items: center; gap: 12px;
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+}
+
+.tab-nav-tabs {
+
+  display: flex; flex-wrap: wrap; gap: 4px 2px; flex: 1; max-width: 1000px;
 
 }
 

@@ -2481,15 +2481,17 @@ export default function App() {
       {/* ============ TOP TAB NAV ============ */}
       <nav className="tab-nav" id="dashboard">
         <div className="tab-nav-brand">THE PEOPLE'S <span>AUDIT</span></div>
-        {sections.map(s => (
-          <button key={s.id}
-            className={`tab-link ${activeSection === s.id ? 'active' : ''}`}
-            onClick={() => navigateTo(s.id)}>
-            {s.icon}
-            {s.label}
-            {s.tag && <span className={`tab-badge ${s.tag}`}>{s.tag}</span>}
-          </button>
-        ))}
+        <div className="tab-nav-tabs">
+          {sections.map(s => (
+            <button key={s.id}
+              className={`tab-link ${activeSection === s.id ? 'active' : ''}`}
+              onClick={() => navigateTo(s.id)}>
+              {s.icon}
+              {s.label}
+              {s.tag && <span className={`tab-badge ${s.tag}`}>{s.tag}</span>}
+            </button>
+          ))}
+        </div>
       </nav>
 
       {/* ============ STATUS BAR ============ */}
