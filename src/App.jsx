@@ -725,6 +725,7 @@ function QuasiExplorer({ quasiPayments }) {
           <span className="section-tag cyan">Quasi-Public Entities</span>
           <h2>The Shadow Government</h2>
           <p>Quasi-government organizations operate with public funds but often with less oversight. Click any agency to see detailed spending breakdown.</p>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU Quasi-Public Spending &middot; Supplemented with audited financials &middot; Last updated April 2026</div>
         </div>
         <select className="year-select" value={quasiYear} onChange={e => { setQuasiYear(e.target.value); setSelectedAgency(null); setAgencyDetail(null); }}>
           {Array.from({ length: 17 }, (_, i) => 2026 - i).map(y => (
@@ -973,6 +974,7 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
           <span className="section-tag gold">Compensation</span>
           <h2>Public Employee Payroll</h2>
           <p>Every salary, every department. Data from CTHRU Statewide Payroll.</p>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU Payroll &middot; Last updated April 2026</div>
         </div>
         <select className="year-select" value={payrollYear} onChange={e => setPayrollYear(e.target.value)}>
           {Array.from({ length: 17 }, (_, i) => 2026 - i).map(y => (
@@ -1308,6 +1310,7 @@ function FollowTheMoney() {
         <span className="section-tag purple">Campaign Finance</span>
         <h2>Follow the Money</h2>
         <p>Cross-referencing OCPF campaign finance data with state spending. Who pays to play — and who profits?</p>
+        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: OCPF Campaign Finance API &middot; Last updated April 2026</div>
       </div>
 
       <div className="disclaimer">
@@ -2071,6 +2074,7 @@ function MunicipalitiesExplorer() {
           debt-per-resident, and debt service as a share of the local budget — FY2021 through FY2025.
           How much is being taken away from you?
         </p>
+        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: DLS Municipal Databank &middot; Last updated April 2026</div>
       </div>
 
       <div className="disclaimer">
@@ -2453,7 +2457,7 @@ export default function App() {
           <img className="hero-figure" src="/The-Peoples-Audit/images/Official5.png" alt="" />
         </div>
         <div className="hero-content">
-          <div className="hero-badge">Public Financial Investigation</div>
+          <div className="hero-badge">Public Financial Transparency Dashboard</div>
           <h1>The People's Audit</h1>
           <p className="subtitle">
             Massachusetts voters demanded accountability. The legislature refused.
@@ -2551,6 +2555,7 @@ export default function App() {
                 <span className="section-tag red">FY{budget.fiscalYear} Snapshot</span>
                 <h2>Massachusetts at a Glance</h2>
                 <p>A high-level view of state finances — budget, revenue, expenditure, and workforce.</p>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU / MassOpenBooks &middot; Last updated April 2026</div>
               </div>
 
               <div className="kpi-row">
@@ -2689,6 +2694,7 @@ export default function App() {
                 <span className="section-tag blue">Debt Service</span>
                 <h2>Massachusetts Bonds & Borrowing</h2>
                 <p>State, county, and municipal debt obligations. Live federal debt context from the U.S. Treasury fiscalData API. MA-specific figures compiled from the Commonwealth's Annual Comprehensive Financial Report, the Debt Affordability Committee, MassBondHolder investor disclosures, and EMMA (MSRB) issuer filings. What is the true cost of Massachusetts' borrowing strategy?</p>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: ACFR, Treasury fiscalData, EMMA/MSRB &middot; Last updated April 2026</div>
               </div>
 
               <div className="card-grid">
@@ -3276,6 +3282,7 @@ export default function App() {
                   <span className="section-tag blue">Federal Funding</span>
                   <h2>Federal Money Flowing to Massachusetts</h2>
                   <p>Grants, contracts, and awards from the federal government to MA entities. Data from USASpending.gov.</p>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: USASpending.gov, Rockefeller Institute &middot; Last updated April 2026</div>
                 </div>
                 <select className="year-select" value={federalYear} onChange={e => setFederalYear(Number(e.target.value))}>
                   {Array.from({ length: 10 }, (_, i) => 2025 - i).map(y => (
@@ -3552,6 +3559,11 @@ export default function App() {
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#0077B5', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
             Share on LinkedIn
           </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://duncanburns2013-dot.github.io/The-Peoples-Audit/"
+            target="_blank" rel="noopener"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: '#1877F2', color: '#fff', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s' }}>
+            Share on Facebook
+          </a>
           <button onClick={() => { navigator.clipboard.writeText('https://duncanburns2013-dot.github.io/The-Peoples-Audit/'); }}
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 20px', borderRadius: 8, background: 'var(--bg-primary)', color: 'var(--text-primary)', border: '1px solid var(--border)', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s' }}>
             Copy Link
@@ -3572,6 +3584,7 @@ export default function App() {
         </p>
         <div className="footer-links">
           <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit/issues/new?title=Data+issue+or+feedback&body=Describe+the+issue+or+suggestion+here" target="_blank" rel="noopener" style={{ color: '#E67E22' }}>Report an Issue</a>
           <a href="https://cthrupayroll.mass.gov/" target="_blank" rel="noopener">CTHRU Payroll</a>
           <a href="https://cthruspending.mass.gov/" target="_blank" rel="noopener">CTHRU Spending</a>
           <a href="https://api.ocpf.us" target="_blank" rel="noopener">OCPF API</a>

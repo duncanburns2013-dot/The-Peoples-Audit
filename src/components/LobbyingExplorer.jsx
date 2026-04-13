@@ -164,6 +164,7 @@ export default function LobbyingExplorer() {
           <Network size={28} style={{ color: 'var(--accent-green)' }} /> Lobbying Explorer
         </h2>
         <p>Track lobbying spending, registered firms, and political influence in Massachusetts.</p>
+        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: MA Secretary of State Lobbyist Filings, OCPF &middot; Last updated April 2026</div>
       </div>
 
       {/* Sub-navigation tabs */}
