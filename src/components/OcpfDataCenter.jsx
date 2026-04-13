@@ -80,7 +80,7 @@ export default function OcpfDataCenter() {
 
   // Top candidates by year (depository reports)
   const [topCandidates, setTopCandidates] = useState([]);
-  const [topYear, setTopYear] = useState('2024');
+  const [topYear, setTopYear] = useState('2024-state');
   const [topLoading, setTopLoading] = useState(true);
 
   // Politician search + detail
@@ -121,8 +121,9 @@ export default function OcpfDataCenter() {
   // Load top candidates by year (depository reports)
   useEffect(() => {
     setTopLoading(true);
-    const yr = parseInt(topYear);
-    fetchLegislatorFinances(yr, yr % 2 === 0 ? 'state' : 'municipal').then(data => {
+    const [yrStr, raceType] = topYear.split('-');
+    const yr = parseInt(yrStr);
+    fetchLegislatorFinances(yr, raceType || 'state').then(data => {
       const arr = Array.isArray(data) ? data : (data?.data || []);
       setTopCandidates([...arr].sort((a, b) => (b.receipts || 0) - (a.receipts || 0)));
       setTopLoading(false);
@@ -379,14 +380,15 @@ export default function OcpfDataCenter() {
               Annual Depository Reports — Top Funded
             </h3>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              {parseInt(topYear) % 2 === 0 ? 'State' : 'Municipal'} race depository reports — ranked by total receipts
+              {topYear.includes('state') ? 'State' : 'Municipal'} race depository reports — ranked by total receipts
             </p>
           </div>
           <select value={topYear} onChange={e => setTopYear(e.target.value)}
             style={{ padding: '6px 12px', borderRadius: 8, border: '1px solid var(--border)', background: '#fff', fontSize: '0.85rem' }}>
-            {Array.from({ length: 10 }, (_, i) => currentYear - i).map(y => (
-              <option key={y} value={y}>{y} — {y % 2 === 0 ? 'State' : 'Municipal'}</option>
-            ))}
+            {Array.from({ length: currentYear - 2016 + 1 }, (_, i) => currentYear - i).flatMap(y => [
+              <option key={`${y}-state`} value={`${y}-state`}>{y} — State</option>,
+              <option key={`${y}-municipal`} value={`${y}-municipal`}>{y} — Municipal</option>,
+            ])}
           </select>
         </div>
 
@@ -395,7 +397,7 @@ export default function OcpfDataCenter() {
             <div className="spinner" style={{ margin: '0 auto 8px' }} /> Loading depository reports...
           </div>
         ) : topCandidates.length === 0 ? (
-          <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>No depository reports found for {topYear}.</div>
+          <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>No depository reports found for {topYear.split('-')[0]} ({topYear.includes('state') ? 'State' : 'Municipal'}).</div>
         ) : (
           <>
             <ResponsiveContainer width="100%" height={Math.min(400, topCandidates.slice(0, 15).length * 32 + 40)}>
