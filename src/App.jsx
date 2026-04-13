@@ -3238,32 +3238,23 @@ export default function App() {
                 </select>
               </div>
 
-              {/* Taxpayer Balance KPIs */}
+              {/* Taxpayer Balance KPIs — Rockefeller Institute Balance of Payments data */}
               <div className="kpi-row" style={{ marginBottom: 32 }}>
                 <div className="kpi-card">
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <div className="kpi-label">Federal Funds Received</div>
-                      <div className="kpi-value" style={{ color: 'var(--accent-green)' }}>$49.1B</div>
-                      <div className="kpi-sub">FY2025 est. — USASpending.gov / CTHRU</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="kpi-card">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>
-                      <div className="kpi-label">Federal Taxes Paid by MA</div>
-                      <div className="kpi-value">$54.9B</div>
-                      <div className="kpi-sub">FY2024 est. — Rockefeller Institute</div>
+                      <div className="kpi-label">Federal Funds to MA State Budget</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-green)' }}>$22.9B</div>
+                      <div className="kpi-sub">FY2025 — Grants, Medicaid, capital projects</div>
                     </div>
                   </div>
                 </div>
                 <div className="kpi-card" style={{ borderColor: 'rgba(104,10,29,0.3)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <div className="kpi-label">Net Contribution to Federal Gov</div>
-                      <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>–$5.8B</div>
-                      <div className="kpi-sub" style={{ color: 'var(--accent-red)' }}>MA is a net donor state</div>
+                      <div className="kpi-label">Net Balance of Payments</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>–$6.8B</div>
+                      <div className="kpi-sub" style={{ color: 'var(--accent-red)' }}>MA is a net donor state (FY2023)</div>
                     </div>
                   </div>
                 </div>
@@ -3271,8 +3262,17 @@ export default function App() {
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
                       <div className="kpi-label">Per Capita Net Balance</div>
-                      <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>–$4,800</div>
-                      <div className="kpi-sub">Each MA resident sends $4,800 more than received</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>–$967</div>
+                      <div className="kpi-sub">Each MA resident subsidizes other states</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="kpi-card">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div className="kpi-label">Donor State Ranking</div>
+                      <div className="kpi-value">Bottom 5</div>
+                      <div className="kpi-sub">Among lowest balance of payments nationally</div>
                     </div>
                   </div>
                 </div>
@@ -3280,44 +3280,56 @@ export default function App() {
 
               {/* Net donor state callout */}
               <div style={{ background: 'rgba(104,10,29,0.06)', border: '1px solid rgba(104,10,29,0.15)', borderRadius: 10, padding: '14px 18px', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: 24, lineHeight: 1.6 }}>
-                <strong style={{ color: 'var(--accent-red)' }}>Massachusetts is a Net Donor State:</strong> For every $1 MA taxpayers send to Washington, the state receives approximately <strong>$0.89 back</strong>. MA is one of only ~10 states that consistently sends more to the federal government than it receives. This gap has widened since the 2017 SALT deduction cap. Source: Rockefeller Institute of Government "Balance of Payments" annual reports.
+                <strong style={{ color: 'var(--accent-red)' }}>Massachusetts is a Net Donor State:</strong> MA consistently sends more in federal taxes than it receives back in federal spending. In FY2023, the gap was <strong>–$6.8 billion</strong> (–$967 per capita). MA ranks among the bottom 5 states nationally due to high per capita tax contributions and below-average federal expenditures. The gap narrowed temporarily in 2020–2021 due to COVID relief. Source: <a href="https://rockinst.org/issue-areas/fiscal-analysis/balance-of-payments-portal/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-blue)' }}>Rockefeller Institute of Government</a>.
               </div>
 
               {/* Federal Balance Over Time */}
               <div className="chart-card" style={{ marginBottom: 24 }}>
-                <h3>Federal Balance Over Time</h3>
-                <div className="chart-subtitle">Federal funds received vs. federal taxes paid by MA residents and businesses (billions)</div>
+                <h3>MA Federal Balance of Payments Over Time</h3>
+                <div className="chart-subtitle">Net balance (federal spending received minus taxes paid) — negative means MA sends more than it gets back</div>
                 <ResponsiveContainer width="100%" height={350}>
                   <BarChart data={[
-                    { year: '2016', received: 39.2, paid: 44.8 },
-                    { year: '2017', received: 40.1, paid: 46.3 },
-                    { year: '2018', received: 41.5, paid: 48.1 },
-                    { year: '2019', received: 42.8, paid: 49.6 },
-                    { year: '2020', received: 58.4, paid: 45.2 },
-                    { year: '2021', received: 62.1, paid: 51.8 },
-                    { year: '2022', received: 48.6, paid: 53.4 },
-                    { year: '2023', received: 46.2, paid: 53.9 },
-                    { year: '2024', received: 47.8, paid: 54.9 },
-                    { year: '2025', received: 49.1, paid: 55.2 },
+                    { year: '2015', balance: -8.6 },
+                    { year: '2016', balance: -9.1 },
+                    { year: '2017', balance: -8.8 },
+                    { year: '2018', balance: -10.2 },
+                    { year: '2019', balance: -9.5 },
+                    { year: '2020', balance: 2.4 },
+                    { year: '2021', balance: 1.8 },
+                    { year: '2022', balance: -5.2 },
+                    { year: '2023', balance: -6.8 },
                   ]}>
                     <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                     <XAxis dataKey="year" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} />
-                    <YAxis stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}B`} />
-                    <Tooltip formatter={(v) => [`$${v}B`]} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
-                    <Bar dataKey="received" fill="#32784E" name="Received from Federal Gov" radius={[3, 3, 0, 0]} />
-                    <Bar dataKey="paid" fill="#680A1D" name="Taxes Paid to Federal Gov" radius={[3, 3, 0, 0]} />
+                    <YAxis stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `${v > 0 ? '+' : ''}$${v}B`} />
+                    <Tooltip formatter={(v) => [`${v > 0 ? '+' : ''}$${v}B`, 'Net Balance']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+                    <Bar dataKey="balance" name="Net Balance" radius={[3, 3, 0, 0]}>
+                      {[
+                        { year: '2015', balance: -8.6 },
+                        { year: '2016', balance: -9.1 },
+                        { year: '2017', balance: -8.8 },
+                        { year: '2018', balance: -10.2 },
+                        { year: '2019', balance: -9.5 },
+                        { year: '2020', balance: 2.4 },
+                        { year: '2021', balance: 1.8 },
+                        { year: '2022', balance: -5.2 },
+                        { year: '2023', balance: -6.8 },
+                      ].map((entry, i) => (
+                        <Cell key={i} fill={entry.balance >= 0 ? '#32784E' : '#680A1D'} />
+                      ))}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
                 <div style={{ display: 'flex', gap: 24, justifyContent: 'center', marginTop: 12, fontSize: '0.82rem' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ width: 12, height: 12, borderRadius: 2, background: '#32784E', display: 'inline-block' }} /> Received from Federal Gov
+                    <span style={{ width: 12, height: 12, borderRadius: 2, background: '#680A1D', display: 'inline-block' }} /> MA paid more than received (net donor)
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ width: 12, height: 12, borderRadius: 2, background: '#680A1D', display: 'inline-block' }} /> Taxes Paid to Federal Gov
+                    <span style={{ width: 12, height: 12, borderRadius: 2, background: '#32784E', display: 'inline-block' }} /> MA received more (COVID relief years)
                   </span>
                 </div>
                 <div style={{ marginTop: 12, fontSize: '0.78rem', color: 'var(--text-muted)', textAlign: 'center' }}>
-                  Note: 2020–2021 spike reflects COVID-era federal relief (CARES Act, ARPA). Sources: USASpending.gov, Rockefeller Institute, IRS SOI data.
+                  2020–2021: COVID-era federal relief (CARES Act, ARPA) temporarily flipped MA to net recipient. Source: Rockefeller Institute Balance of Payments reports.
                 </div>
               </div>
 
