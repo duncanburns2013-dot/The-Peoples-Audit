@@ -664,8 +664,22 @@ function QuasiExplorer({ quasiPayments }) {
   const [detailLoading, setDetailLoading] = useState(false);
   const [quasiYear, setQuasiYear] = useState('2026');
   const [paymentPage, setPaymentPage] = useState(0);
+  const [paymentSort, setPaymentSort] = useState({ key: 'amount', dir: 'desc' });
   const PAYMENTS_PER_PAGE = 25;
   const quasiDetailPanelRef = useRef(null);
+
+  const togglePaymentSort = (key) => {
+    setPaymentSort(prev => prev.key === key ? { key, dir: prev.dir === 'desc' ? 'asc' : 'desc' } : { key, dir: 'desc' });
+    setPaymentPage(0);
+  };
+  const sortArrow = (key) => paymentSort.key === key ? (paymentSort.dir === 'desc' ? ' ▼' : ' ▲') : '';
+  const sortedPayments = agencyDetail?.payments ? [...agencyDetail.payments].sort((a, b) => {
+    const dir = paymentSort.dir === 'desc' ? -1 : 1;
+    if (paymentSort.key === 'amount') return dir * (a.amount - b.amount);
+    if (paymentSort.key === 'date') return dir * (new Date(a.date).getTime() - new Date(b.date).getTime());
+    if (paymentSort.key === 'vendor') return dir * (a.vendor || '').localeCompare(b.vendor || '');
+    return 0;
+  }) : [];
 
   const selectAgency = useCallback((agencyName) => {
     setSelectedAgency(agencyName);
@@ -839,10 +853,15 @@ function QuasiExplorer({ quasiPayments }) {
                   <div className="data-table-wrapper">
                     <table className="data-table">
                       <thead>
-                        <tr><th>Date</th><th>Amount</th><th>Vendor</th><th>Account</th><th>Department</th><th>Category</th></tr>
+                        <tr>
+                          <th style={{ cursor: 'pointer', userSelect: 'none' }} onClick={() => togglePaymentSort('date')}>Date{sortArrow('date')}</th>
+                          <th style={{ cursor: 'pointer', userSelect: 'none' }} onClick={() => togglePaymentSort('amount')}>Amount{sortArrow('amount')}</th>
+                          <th style={{ cursor: 'pointer', userSelect: 'none' }} onClick={() => togglePaymentSort('vendor')}>Vendor{sortArrow('vendor')}</th>
+                          <th>Account</th><th>Department</th><th>Category</th>
+                        </tr>
                       </thead>
                       <tbody>
-                        {agencyDetail.payments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
+                        {sortedPayments.slice(paymentPage * PAYMENTS_PER_PAGE, (paymentPage + 1) * PAYMENTS_PER_PAGE).map((p, i) => (
                           <tr key={i}>
                             <td style={{ whiteSpace: 'nowrap' }}>{p.date}</td>
                             <td className="money">{formatMoneyFull(p.amount)}</td>
