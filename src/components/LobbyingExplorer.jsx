@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import {
   LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -60,6 +60,15 @@ export default function LobbyingExplorer() {
   const [lobbyError, setLobbyError] = useState(null);
   const [firmSearch, setFirmSearch] = useState('');
   const [selectedFirm, setSelectedFirm] = useState(null);
+  const firmDetailRef = useRef(null);
+
+  const handleFirmClick = useCallback((firm) => {
+    const isAlreadySelected = selectedFirm?.name === firm.name;
+    setSelectedFirm(isAlreadySelected ? null : firm);
+    if (!isAlreadySelected) {
+      setTimeout(() => firmDetailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+  }, [selectedFirm]);
 
   // === OCPF Cross-Reference State ===
   const [ocpfTerm, setOcpfTerm] = useState('');
@@ -256,6 +265,79 @@ export default function LobbyingExplorer() {
               />
             </div>
 
+            {/* Selected Firm Detail Panel — above the table for visibility */}
+            {selectedFirm && (
+              <div ref={firmDetailRef} className="detail-panel" style={{ marginBottom: 16 }}>
+                <button className="close-btn" onClick={() => setSelectedFirm(null)}>Close</button>
+                <h3 style={{ color: 'var(--accent-green)', marginBottom: 4 }}>{selectedFirm.name}</h3>
+                {selectedFirm.type && <div className="chart-subtitle">{selectedFirm.type}</div>}
+
+                <div className="kpi-row" style={{ marginTop: 16 }}>
+                  <div className="kpi-card">
+                    <div className="kpi-label">Total Expenditure</div>
+                    <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>{formatMoney(selectedFirm.totalExpenditure)}</div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Reported to MA Secretary of State</div>
+                  </div>
+                  <div className="kpi-card">
+                    <div className="kpi-label">To Officials</div>
+                    <div className="kpi-value" style={{ color: '#E67E22' }}>
+                      {selectedFirm.expenditureToOfficials > 0 ? formatMoney(selectedFirm.expenditureToOfficials) : '—'}
+                    </div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Gifts, meals, travel ($200/yr cap)</div>
+                  </div>
+                  <div className="kpi-card">
+                    <div className="kpi-label">Active Clients</div>
+                    <div className="kpi-value" style={{ color: 'var(--accent-cyan)' }}>{selectedFirm.clients || '—'}</div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Registered lobbying clients</div>
+                  </div>
+                  {selectedFirm.yearFounded && (
+                    <div className="kpi-card">
+                      <div className="kpi-label">Year Founded</div>
+                      <div className="kpi-value">{selectedFirm.yearFounded}</div>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>{new Date().getFullYear() - selectedFirm.yearFounded} years in operation</div>
+                    </div>
+                  )}
+                </div>
+
+                {selectedFirm.focus && (
+                  <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(50,120,78,0.06)', border: '1px solid rgba(50,120,78,0.15)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                    <strong style={{ color: 'var(--accent-green)' }}>Focus Areas:</strong> {selectedFirm.focus}
+                  </div>
+                )}
+
+                {(() => {
+                  const firmPeople = keyIndividuals.filter(p => p.firm === selectedFirm.name);
+                  if (!firmPeople.length) return null;
+                  return (
+                    <div style={{ marginTop: 16 }}>
+                      <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Key Individuals</h4>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 10 }}>
+                        {firmPeople.map((person, idx) => (
+                          <div key={idx} style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 8, padding: '12px 14px' }}>
+                            <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{person.name}</div>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--accent-blue)', marginTop: 2 }}>{person.role}</div>
+                            {person.notableClients && (
+                              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>
+                                Notable clients: {person.notableClients}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
+
+                <div style={{ marginTop: 16 }}>
+                  <a href="https://www.sec.state.ma.us/lobbyistpublicsearch/Default.aspx"
+                    target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: 'var(--accent-blue)', color: '#fff', borderRadius: 6, fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none' }}>
+                    <ExternalLink size={14} /> View on SOS Site
+                  </a>
+                </div>
+              </div>
+            )}
+
             {lobbyLoading ? (
               <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
                 <div className="spinner" style={{ margin: '0 auto 12px' }} /> Loading lobbying data...
@@ -279,7 +361,7 @@ export default function LobbyingExplorer() {
                   </thead>
                   <tbody>
                     {filteredFirms.map((f, i) => (
-                      <tr key={i} onClick={() => setSelectedFirm(selectedFirm?.name === f.name ? null : f)}
+                      <tr key={i} onClick={() => handleFirmClick(f)}
                         style={{ cursor: 'pointer', background: selectedFirm?.name === f.name ? 'rgba(50,120,78,0.06)' : undefined }}>
                         <td style={{ color: 'var(--text-muted)' }}>{f.rank || i + 1}</td>
                         <td style={{ fontWeight: 600 }}>{f.name} <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginLeft: 4 }}>▶</span></td>
@@ -302,79 +384,6 @@ export default function LobbyingExplorer() {
             </div>
           </div>
 
-          {/* Selected Firm Detail Panel */}
-          {selectedFirm && (
-            <div className="detail-panel" style={{ marginTop: 16, marginBottom: 24 }}>
-              <button className="close-btn" onClick={() => setSelectedFirm(null)}>Close</button>
-              <h3 style={{ color: 'var(--accent-green)', marginBottom: 4 }}>{selectedFirm.name}</h3>
-              {selectedFirm.type && <div className="chart-subtitle">{selectedFirm.type}</div>}
-
-              <div className="kpi-row" style={{ marginTop: 16 }}>
-                <div className="kpi-card">
-                  <div className="kpi-label">Total Expenditure</div>
-                  <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>{formatMoney(selectedFirm.totalExpenditure)}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Reported to MA Secretary of State</div>
-                </div>
-                <div className="kpi-card">
-                  <div className="kpi-label">To Officials</div>
-                  <div className="kpi-value" style={{ color: '#E67E22' }}>
-                    {selectedFirm.expenditureToOfficials > 0 ? formatMoney(selectedFirm.expenditureToOfficials) : '—'}
-                  </div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Gifts, meals, travel ($200/yr cap)</div>
-                </div>
-                <div className="kpi-card">
-                  <div className="kpi-label">Active Clients</div>
-                  <div className="kpi-value" style={{ color: 'var(--accent-cyan)' }}>{selectedFirm.clients || '—'}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Registered lobbying clients</div>
-                </div>
-                {selectedFirm.yearFounded && (
-                  <div className="kpi-card">
-                    <div className="kpi-label">Year Founded</div>
-                    <div className="kpi-value">{selectedFirm.yearFounded}</div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>{new Date().getFullYear() - selectedFirm.yearFounded} years in operation</div>
-                  </div>
-                )}
-              </div>
-
-              {selectedFirm.focus && (
-                <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(50,120,78,0.06)', border: '1px solid rgba(50,120,78,0.15)', borderRadius: 8, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                  <strong style={{ color: 'var(--accent-green)' }}>Focus Areas:</strong> {selectedFirm.focus}
-                </div>
-              )}
-
-              {/* Key individuals at this firm */}
-              {(() => {
-                const firmPeople = keyIndividuals.filter(p => p.firm === selectedFirm.name);
-                if (!firmPeople.length) return null;
-                return (
-                  <div style={{ marginTop: 16 }}>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Key Individuals</h4>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 10 }}>
-                      {firmPeople.map((person, idx) => (
-                        <div key={idx} style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 8, padding: '12px 14px' }}>
-                          <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{person.name}</div>
-                          <div style={{ fontSize: '0.8rem', color: 'var(--accent-blue)', marginTop: 2 }}>{person.role}</div>
-                          {person.notableClients && (
-                            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>
-                              Notable clients: {person.notableClients}
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })()}
-
-              <div style={{ marginTop: 16, display: 'flex', gap: 12 }}>
-                <a href={`https://www.sec.state.ma.us/lobbyistpublicsearch/Default.aspx`}
-                  target="_blank" rel="noopener noreferrer"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: 'var(--accent-blue)', color: '#fff', borderRadius: 6, fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none' }}>
-                  <ExternalLink size={14} /> View on SOS Site
-                </a>
-              </div>
-            </div>
-          )}
 
           {/* Key Individuals */}
           {keyIndividuals.length > 0 && (
