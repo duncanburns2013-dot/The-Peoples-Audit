@@ -2924,7 +2924,7 @@ export default function App() {
                     </a>{' '}
                     published each year by the Office of the State Comptroller, cross-checked
                     against the{' '}
-                    <a href="https://www.mass.gov/orgs/debt-affordability-committee"
+                    <a href="https://www.mass.gov/capital-debt-affordability-committee"
                        target="_blank" rel="noopener" style={{ color: '#14558F' }}>
                       MA Debt Affordability Committee ↗
                     </a>{' '}
@@ -3076,7 +3076,8 @@ export default function App() {
                     </button>
                   </div>
                   <div className="chart-subtitle" style={{ marginTop: 6 }}>
-                    Automated snapshot from EMMA — refreshed nightly. Click any CUSIP to view full EMMA history.
+                    Automated snapshot from EMMA — refreshed nightly. Click any CUSIP to copy it, then{' '}
+                    <a href="https://emma.msrb.org" target="_blank" rel="noopener" style={{ color: '#14558F' }}>search on EMMA ↗</a>{' '}to view full trade history.
                   </div>
                   {data.emmaTrades && data.emmaTrades.lastRefreshed && (
                     <div style={{
@@ -3108,9 +3109,13 @@ export default function App() {
                           <tr key={i} style={{ borderBottom: '1px solid #e4e6ed' }}>
                             <td style={{ padding: '10px 8px', fontWeight: 500 }}>{t.issuer}</td>
                             <td style={{ padding: '10px 8px', fontFamily: 'monospace' }}>
-                              <a href={`https://emma.msrb.org/QuickSearch/Results?quickSearchText=${t.cusip}`} target="_blank" rel="noopener" style={{ color: '#14558F', textDecoration: 'none' }}>
-                                {t.cusip} ↗
-                              </a>
+                              <span
+                                title="Click to copy CUSIP"
+                                style={{ color: '#14558F', cursor: 'pointer', borderBottom: '1px dashed #14558F' }}
+                                onClick={() => { navigator.clipboard.writeText(t.cusip); const el = document.getElementById(`cusip-${i}`); if (el) { el.textContent = '✓ copied'; setTimeout(() => { el.textContent = t.cusip; }, 1200); } }}
+                              >
+                                <span id={`cusip-${i}`}>{t.cusip}</span>
+                              </span>
                             </td>
                             <td style={{ padding: '10px 8px', textAlign: 'right' }}>{formatMoney(t.par)}</td>
                             <td style={{ padding: '10px 8px', textAlign: 'right' }}>{t.price.toFixed(2)}</td>
@@ -3174,7 +3179,7 @@ export default function App() {
                     <strong style={{ color: '#32784E' }}>MA Comptroller ACFR ↗</strong>
                     <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Annual Comprehensive Financial Report — authoritative source for state debt figures.</div>
                   </a>
-                  <a href="https://www.mass.gov/debt-affordability-committee" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #14558F', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
+                  <a href="https://www.mass.gov/capital-debt-affordability-committee" target="_blank" rel="noopener" style={{ padding: 16, background: '#f4f5f8', borderLeft: '4px solid #14558F', textDecoration: 'none', color: 'inherit', borderRadius: 4 }}>
                     <strong style={{ color: '#14558F' }}>Debt Affordability Committee ↗</strong>
                     <div style={{ fontSize: '0.85rem', marginTop: 6, color: 'var(--text-muted)' }}>Annual report on how much new debt the Commonwealth can responsibly issue.</div>
                   </a>
