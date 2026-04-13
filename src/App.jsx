@@ -3060,24 +3060,41 @@ export default function App() {
                       }} />
                       Recent Notable MA Bond Trades
                     </h3>
-                    <button
-                      onClick={refreshEmmaTrades}
-                      disabled={emmaRefreshing}
-                      style={{
-                        padding: '6px 12px', fontSize: '0.78rem', fontWeight: 600,
-                        border: '1px solid #680A1D',
-                        background: emmaRefreshing ? '#f4f5f8' : '#fff',
-                        color: '#680A1D', borderRadius: 4,
-                        cursor: emmaRefreshing ? 'default' : 'pointer'
-                      }}
-                      title="Re-fetch latest MA bond trades from EMMA / MSRB"
-                    >
-                      {emmaRefreshing ? 'Refreshing…' : '↻ Refresh now'}
-                    </button>
+                    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                      <a
+                        href="https://www.massbondholder.com/"
+                        target="_blank" rel="noopener"
+                        style={{
+                          padding: '6px 14px', fontSize: '0.78rem', fontWeight: 600,
+                          border: 'none',
+                          background: '#14558F',
+                          color: '#fff', borderRadius: 4,
+                          textDecoration: 'none',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        MassBondHolder.com ↗
+                      </a>
+                      <button
+                        onClick={refreshEmmaTrades}
+                        disabled={emmaRefreshing}
+                        style={{
+                          padding: '6px 12px', fontSize: '0.78rem', fontWeight: 600,
+                          border: '1px solid #680A1D',
+                          background: emmaRefreshing ? '#f4f5f8' : '#fff',
+                          color: '#680A1D', borderRadius: 4,
+                          cursor: emmaRefreshing ? 'default' : 'pointer'
+                        }}
+                        title="Re-fetch latest MA bond trades"
+                      >
+                        {emmaRefreshing ? 'Refreshing…' : '↻ Refresh'}
+                      </button>
+                    </div>
                   </div>
                   <div className="chart-subtitle" style={{ marginTop: 6 }}>
-                    Automated snapshot from EMMA — refreshed nightly. Click any CUSIP to copy it, then{' '}
-                    <a href="https://emma.msrb.org" target="_blank" rel="noopener" style={{ color: '#14558F' }}>search on EMMA ↗</a>{' '}to view full trade history.
+                    Snapshot from EMMA (secondary market) — automated nightly. Click any CUSIP to copy, then paste into{' '}
+                    <a href="https://www.massbondholder.com/" target="_blank" rel="noopener" style={{ color: '#14558F' }}>MassBondHolder</a>{' '}
+                    or <a href="https://emma.msrb.org" target="_blank" rel="noopener" style={{ color: '#14558F' }}>EMMA</a> search.
                   </div>
                   {data.emmaTrades && data.emmaTrades.lastRefreshed && (
                     <div style={{
