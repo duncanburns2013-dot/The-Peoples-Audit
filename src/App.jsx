@@ -671,14 +671,9 @@ function QuasiExplorer({ quasiPayments }) {
     setSelectedAgency(agencyName);
     setDetailLoading(true);
     setPaymentPage(0);
-    Promise.all([
-      fetchQuasiAgencyByYear(agencyName),
-      fetchQuasiAgencyCategories(agencyName, quasiYear),
-      fetchQuasiAgencyDetail(agencyName, quasiYear),
-      fetchQuasiAgencyPayments(agencyName, quasiYear, 500),
-    ]).then(([byYear, categories, vendors, payments]) => {
-      // Merge MBTA audited financials (CTHRU only tracks state→MBTA payments through ~2017;
-      // these come from MBTA's own published Comprehensive Annual Financial Reports)
+    // First fetch by-year data to find the latest year with actual data
+    fetchQuasiAgencyByYear(agencyName).then(byYear => {
+      // Merge MBTA audited financials
       let mergedByYear = byYear;
       const isMBTA = /MBTA|Massachusetts Bay Transportation/i.test(agencyName);
       if (isMBTA) {
@@ -688,11 +683,22 @@ function QuasiExplorer({ quasiPayments }) {
           .map(r => ({ year: r.year, total: r.operatingExpenses, paymentCount: 0, source: r.source, audited: true }));
         mergedByYear = [...byYear, ...fromAudit].sort((a, b) => String(a.year).localeCompare(String(b.year)));
       }
-      setAgencyDetail({ byYear: mergedByYear, categories, vendors, payments, isMBTA });
-      setDetailLoading(false);
-      setTimeout(() => {
-        quasiDetailPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 0);
+      // If selected year has no CTHRU data, fall back to the most recent year that does
+      const cthruYears = byYear.filter(y => y.paymentCount > 0).map(y => String(y.year));
+      const effectiveYear = cthruYears.includes(quasiYear)
+        ? quasiYear
+        : (cthruYears.length > 0 ? cthruYears[cthruYears.length - 1] : quasiYear);
+      return Promise.all([
+        fetchQuasiAgencyCategories(agencyName, effectiveYear),
+        fetchQuasiAgencyDetail(agencyName, effectiveYear),
+        fetchQuasiAgencyPayments(agencyName, effectiveYear, 500),
+      ]).then(([categories, vendors, payments]) => {
+        setAgencyDetail({ byYear: mergedByYear, categories, vendors, payments, isMBTA, effectiveYear });
+        setDetailLoading(false);
+        setTimeout(() => {
+          quasiDetailPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 0);
+      });
     });
   }, [quasiYear]);
 
@@ -753,7 +759,7 @@ function QuasiExplorer({ quasiPayments }) {
                 <div className="kpi-card">
                   <div className="kpi-label">Total Payments</div>
                   <div className="kpi-value">{agencyDetail.payments.length.toLocaleString()}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Individual transactions in FY{quasiYear}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Individual transactions in FY{agencyDetail.effectiveYear || quasiYear}</div>
                 </div>
               </div>
 
@@ -785,7 +791,7 @@ function QuasiExplorer({ quasiPayments }) {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 20, marginTop: 24 }}>
                 {agencyDetail.vendors.length > 0 && (
                   <div>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Top Vendors — FY{quasiYear}</h4>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Top Vendors — FY{agencyDetail.effectiveYear || quasiYear}</h4>
                     <ResponsiveContainer width="100%" height={Math.max(200, Math.min(15, agencyDetail.vendors.length) * 28 + 40)}>
                       <BarChart data={agencyDetail.vendors.slice(0, 15)} layout="vertical" margin={{ left: 180 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
@@ -800,7 +806,7 @@ function QuasiExplorer({ quasiPayments }) {
 
                 {agencyDetail.categories.length > 0 && (
                   <div>
-                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories — FY{quasiYear}</h4>
+                    <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>Spending Categories — FY{agencyDetail.effectiveYear || quasiYear}</h4>
                     <ResponsiveContainer width="100%" height={300}>
                       <PieChart>
                         <Pie data={agencyDetail.categories.slice(0, 8)} dataKey="total" nameKey="category" cx="50%" cy="50%" outerRadius={100} label={({ percent }) => `${(percent * 100).toFixed(0)}%`}>
@@ -816,7 +822,7 @@ function QuasiExplorer({ quasiPayments }) {
               {agencyDetail.payments.length > 0 && (
                 <div style={{ marginTop: 24 }}>
                   <h4 style={{ marginBottom: 8, color: 'var(--text-secondary)' }}>
-                    Individual Payments — FY{quasiYear} ({agencyDetail.payments.length} records)
+                    Individual Payments — FY{agencyDetail.effectiveYear || quasiYear} ({agencyDetail.payments.length} records)
                   </h4>
                   <div className="data-table-wrapper">
                     <table className="data-table">
