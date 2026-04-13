@@ -312,13 +312,6 @@ export default function LobbyingExplorer() {
                     <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Reported to MA Secretary of State</div>
                   </div>
                   <div className="kpi-card">
-                    <div className="kpi-label">To Officials</div>
-                    <div className="kpi-value" style={{ color: '#E67E22' }}>
-                      {selectedFirm.expenditureToOfficials > 0 ? formatMoney(selectedFirm.expenditureToOfficials) : '—'}
-                    </div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Gifts, meals, travel ($200/yr cap)</div>
-                  </div>
-                  <div className="kpi-card">
                     <div className="kpi-label">Active Clients</div>
                     <div className="kpi-value" style={{ color: 'var(--accent-cyan)' }}>{selectedFirm.clients || '—'}</div>
                     <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>Registered lobbying clients</div>
@@ -450,10 +443,9 @@ export default function LobbyingExplorer() {
                     <tr>
                       <th>#</th>
                       <th>Firm / Entity</th>
-                      <th>Type</th>
+                      <th>Focus</th>
                       <th>Clients</th>
                       <th>Total Expenditure</th>
-                      <th>To Officials</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -462,12 +454,9 @@ export default function LobbyingExplorer() {
                         style={{ cursor: 'pointer', background: selectedFirm?.name === f.name ? 'rgba(50,120,78,0.06)' : undefined }}>
                         <td style={{ color: 'var(--text-muted)' }}>{f.rank || i + 1}</td>
                         <td style={{ fontWeight: 600 }}>{f.name} <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginLeft: 4 }}>▶</span></td>
-                        <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{f.type}</td>
+                        <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{f.focus || f.type}</td>
                         <td style={{ textAlign: 'center' }}>{f.clients}</td>
                         <td className="money" style={{ color: 'var(--accent-red)' }}>{formatMoney(f.totalExpenditure)}</td>
-                        <td className="money" style={{ color: '#E67E22', fontWeight: 600 }}>
-                          {f.expenditureToOfficials > 0 ? formatMoney(f.expenditureToOfficials) : '—'}
-                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -477,7 +466,7 @@ export default function LobbyingExplorer() {
 
             {/* $200 gift limit callout */}
             <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(104,10,29,0.06)', border: '1px solid rgba(104,10,29,0.15)', borderRadius: 8, fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
-              <strong style={{ color: 'var(--accent-red)' }}>Gift Limit:</strong> Massachusetts law (M.G.L. c. 3, §43) limits lobbyist gifts to legislators and other public officials to <strong>$200 per year per recipient</strong>. "Expenditure to Officials" above reflects reported spending on gifts, meals, travel, and entertainment provided directly to state officials.
+              <strong style={{ color: 'var(--accent-red)' }}>Gift Limit:</strong> Massachusetts law (M.G.L. c. 3, §43) limits lobbyist gifts to legislators and other public officials to <strong>$200 per year per recipient</strong>. This includes spending on gifts, meals, travel, and entertainment provided directly to state officials.
             </div>
           </div>
 
