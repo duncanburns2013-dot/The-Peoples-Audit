@@ -1,36 +1,14 @@
 {
-  "fetchedAt": "2026-04-13T00:00:00.000Z",
+  "fetchedAt": "2026-04-13T11:03:04.400Z",
   "source": "MA Secretary of State — Lobbyist Public Search",
   "sourceUrl": "https://www.sec.state.ma.us/lobbyistpublicsearch/",
   "scrapedSuccessfully": false,
   "preservedFromCache": false,
-  "warnings": ["Initial starter data — awaiting first automated scrape from SOS site"],
-  "totalRecords": 25,
-  "top20": [
-    { "rank": 1, "name": "ML Strategies LLC", "type": "Lobbying Firm", "clients": "87+", "totalExpenditure": 4850000, "expenditureToOfficials": 38200, "registrationYear": "2005", "address": "Boston, MA" },
-    { "rank": 2, "name": "Rasky Partners Inc.", "type": "Lobbying Firm", "clients": "64+", "totalExpenditure": 3720000, "expenditureToOfficials": 31500, "registrationYear": "2005", "address": "Boston, MA" },
-    { "rank": 3, "name": "O'Neill and Associates", "type": "Lobbying Firm", "clients": "52+", "totalExpenditure": 3150000, "expenditureToOfficials": 27800, "registrationYear": "2005", "address": "Boston, MA" },
-    { "rank": 4, "name": "Holland & Knight LLP", "type": "Law Firm / Lobbying", "clients": "45+", "totalExpenditure": 2980000, "expenditureToOfficials": 24100, "registrationYear": "2008", "address": "Boston, MA" },
-    { "rank": 5, "name": "Smith Costello & Crawford", "type": "Lobbying Firm", "clients": "40+", "totalExpenditure": 2650000, "expenditureToOfficials": 22500, "registrationYear": "2006", "address": "Boston, MA" },
-    { "rank": 6, "name": "Cornerstone Government Affairs", "type": "Lobbying Firm", "clients": "38+", "totalExpenditure": 2420000, "expenditureToOfficials": 19800, "registrationYear": "2010", "address": "Boston, MA" },
-    { "rank": 7, "name": "K&L Gates LLP", "type": "Law Firm / Lobbying", "clients": "35+", "totalExpenditure": 2180000, "expenditureToOfficials": 18200, "registrationYear": "2007", "address": "Boston, MA" },
-    { "rank": 8, "name": "Goulston & Storrs PC", "type": "Law Firm / Lobbying", "clients": "28+", "totalExpenditure": 1950000, "expenditureToOfficials": 15600, "registrationYear": "2005", "address": "Boston, MA" },
-    { "rank": 9, "name": "Mintz Levin Cohn Ferris", "type": "Law Firm / Lobbying", "clients": "25+", "totalExpenditure": 1780000, "expenditureToOfficials": 14200, "registrationYear": "2005", "address": "Boston, MA" },
-    { "rank": 10, "name": "Foley Hoag LLP", "type": "Law Firm / Lobbying", "clients": "22+", "totalExpenditure": 1620000, "expenditureToOfficials": 12800, "registrationYear": "2006", "address": "Boston, MA" },
-    { "rank": 11, "name": "Nelson Mullins Riley & Scarborough", "type": "Law Firm / Lobbying", "clients": "18+", "totalExpenditure": 1480000, "expenditureToOfficials": 11500, "registrationYear": "2012", "address": "Boston, MA" },
-    { "rank": 12, "name": "Tremont Strategies Group", "type": "Lobbying Firm", "clients": "32+", "totalExpenditure": 1350000, "expenditureToOfficials": 10800, "registrationYear": "2009", "address": "Boston, MA" },
-    { "rank": 13, "name": "Preti Flaherty Beliveau & Pachios", "type": "Law Firm / Lobbying", "clients": "20+", "totalExpenditure": 1220000, "expenditureToOfficials": 9600, "registrationYear": "2008", "address": "Boston, MA" },
-    { "rank": 14, "name": "Bowditch & Dewey LLP", "type": "Law Firm / Lobbying", "clients": "15+", "totalExpenditure": 1080000, "expenditureToOfficials": 8400, "registrationYear": "2005", "address": "Worcester, MA" },
-    { "rank": 15, "name": "Government Strategies Inc.", "type": "Lobbying Firm", "clients": "24+", "totalExpenditure": 980000, "expenditureToOfficials": 7800, "registrationYear": "2007", "address": "Boston, MA" },
-    { "rank": 16, "name": "McDermott Will & Emery", "type": "Law Firm / Lobbying", "clients": "12+", "totalExpenditure": 890000, "expenditureToOfficials": 7200, "registrationYear": "2010", "address": "Boston, MA" },
-    { "rank": 17, "name": "Pierce Atwood LLP", "type": "Law Firm / Lobbying", "clients": "14+", "totalExpenditure": 820000, "expenditureToOfficials": 6500, "registrationYear": "2011", "address": "Boston, MA" },
-    { "rank": 18, "name": "Capitol Consulting Group", "type": "Lobbying Firm", "clients": "18+", "totalExpenditure": 750000, "expenditureToOfficials": 5900, "registrationYear": "2008", "address": "Boston, MA" },
-    { "rank": 19, "name": "Fenton & Kessler Associates", "type": "Lobbying Firm", "clients": "10+", "totalExpenditure": 680000, "expenditureToOfficials": 5200, "registrationYear": "2006", "address": "Boston, MA" },
-    { "rank": 20, "name": "WilmerHale", "type": "Law Firm / Lobbying", "clients": "8+", "totalExpenditure": 620000, "expenditureToOfficials": 4800, "registrationYear": "2009", "address": "Boston, MA" }
+  "warnings": [
+    "Scraper failed: Cannot find package 'playwright' imported from /home/runner/work/The-Peoples-Audit/The-Peoples-Audit/scripts/fetch-ma-lobbying.mjs"
   ],
+  "totalRecords": 0,
+  "top20": [],
   "records": [],
-  "industrySummary": [
-    { "type": "Lobbying Firm", "count": 11, "totalSpend": 18455000 },
-    { "type": "Law Firm / Lobbying", "count": 9, "totalSpend": 14620000 }
-  ]
+  "industrySummary": []
 }
