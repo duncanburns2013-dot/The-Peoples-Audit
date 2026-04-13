@@ -989,3 +989,9 @@ body {
 .footer p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
 
 .footer p strong { color: var(--text-secondary); }
+
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-top: 16px; }
+
+.footer-links a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; padding: 4px 0; transition: color 0.2s; }
+
+.footer-links a:hover { color: var(--accent-cyan); }
