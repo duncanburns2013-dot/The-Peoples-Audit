@@ -110,11 +110,9 @@ body {
 
   border-bottom: 2px solid var(--border);
 
-  padding: 0 24px;
+  padding: 8px 16px;
 
-  display: flex; align-items: stretch; gap: 0;
-
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 4px 2px;
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 
@@ -122,11 +120,11 @@ body {
 
 .tab-nav-brand {
 
-  display: flex; align-items: center; padding: 0 20px 0 0; margin-right: 8px;
+  display: flex; align-items: center; padding: 6px 16px 6px 0; margin-right: 8px;
 
   font-family: 'JetBrains Mono', monospace; font-weight: 700;
 
-  font-size: 0.85rem; color: var(--text-primary); letter-spacing: 1px;
+  font-size: 0.82rem; color: var(--text-primary); letter-spacing: 1px;
 
   white-space: nowrap; border-right: 1px solid var(--border);
 
@@ -136,15 +134,15 @@ body {
 
 .tab-link {
 
-  display: flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 5px;
 
-  padding: 16px 14px; border: none; background: none;
+  padding: 8px 12px; border: none; background: none;
 
-  color: var(--text-secondary); font-size: 0.82rem; font-weight: 500;
+  color: var(--text-secondary); font-size: 0.78rem; font-weight: 500;
 
   cursor: pointer; font-family: inherit; white-space: nowrap;
 
-  border-bottom: 3px solid transparent; margin-bottom: -2px;
+  border-radius: 6px;
 
   transition: all 0.2s;
 
@@ -159,9 +157,8 @@ body {
   color: #fff;
   font-weight: 600;
   background: #14558F;
-  border-bottom-color: #14558F;
-  border-radius: 8px 8px 0 0;
-  padding: 16px 18px;
+  border-radius: 6px;
+  padding: 8px 14px;
 }
 
 .tab-link.active:hover {
