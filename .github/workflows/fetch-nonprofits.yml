@@ -1,0 +1,59 @@
+name: Refresh MA Nonprofit Data
+
+on:
+  schedule:
+    # 1st of every month at 6am UTC
+    - cron: '0 6 1 * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: 'fetch-nonprofits'
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run nonprofit fetcher
+        run: node scripts/fetch-ma-nonprofits.mjs
+        timeout-minutes: 20
+
+      - name: Show output (debug)
+        run: |
+          echo "----- ma-nonprofits.json stats -----"
+          node -e "
+            const d = require('./public/data/ma-nonprofits.json');
+            console.log('Fetched:', d.fetchedSuccessfully);
+            console.log('Orgs:', d.organizations?.length || 0);
+            console.log('Warnings:', d.warnings);
+          " || true
+          echo
+          echo "File size:"
+          ls -lh public/data/ma-nonprofits.json || true
+          echo "------------------------------------"
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "the-peoples-audit-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- public/data/ma-nonprofits.json; then
+            echo "No nonprofit data changes."
+            exit 0
+          fi
+          git add public/data/ma-nonprofits.json
+          git commit -m "chore(data): refresh MA nonprofit data [skip ci]"
+          git push
