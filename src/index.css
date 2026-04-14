@@ -110,9 +110,9 @@ body {
 
   border-bottom: 2px solid var(--border);
 
-  padding: 8px 16px;
+  padding: 10px 24px;
 
-  display: flex; align-items: center; gap: 12px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 
@@ -120,19 +120,19 @@ body {
 
 .tab-nav-tabs {
 
-  display: flex; flex-wrap: wrap; gap: 4px 2px; flex: 1; max-width: 1000px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 6px;
 
 }
 
 .tab-nav-brand {
 
-  display: flex; align-items: center; padding: 6px 16px 6px 0; margin-right: 8px;
+  display: flex; align-items: center; padding: 6px 0;
 
   font-family: 'JetBrains Mono', monospace; font-weight: 700;
 
-  font-size: 0.82rem; color: var(--text-primary); letter-spacing: 1px;
+  font-size: 0.9rem; color: var(--text-primary); letter-spacing: 1px;
 
-  white-space: nowrap; border-right: 1px solid var(--border);
+  white-space: nowrap;
 
 }
 
@@ -140,11 +140,11 @@ body {
 
 .tab-link {
 
-  display: flex; align-items: center; gap: 5px;
+  display: flex; align-items: center; gap: 6px;
 
-  padding: 8px 12px; border: none; background: none;
+  padding: 8px 14px; border: none; background: none;
 
-  color: var(--text-secondary); font-size: 0.78rem; font-weight: 500;
+  color: var(--text-secondary); font-size: 0.85rem; font-weight: 500;
 
   cursor: pointer; font-family: inherit; white-space: nowrap;
 
@@ -164,7 +164,7 @@ body {
   font-weight: 600;
   background: #14558F;
   border-radius: 6px;
-  padding: 8px 14px;
+  padding: 8px 16px;
 }
 
 .tab-link.active:hover {
