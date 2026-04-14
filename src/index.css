@@ -998,3 +998,96 @@ body {
 .footer-links a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; padding: 4px 0; transition: color 0.2s; }
 
 .footer-links a:hover { color: var(--accent-cyan); }
+
+/* ==============================
+   MOBILE RESPONSIVE
+   ============================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .section { padding: 36px 16px; }
+  .card-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .kpi-row { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .card-value { font-size: 1.8rem; }
+  .chart-card { padding: 18px; }
+  .tab-nav { padding: 8px 12px; }
+  .tab-link { font-size: 0.78rem; padding: 6px 10px; }
+  .tab-nav-brand { font-size: 0.78rem; }
+  .filter-toggle { flex-wrap: wrap; }
+  .filter-btn { padding: 6px 12px; font-size: 0.75rem; }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  .section { padding: 24px 12px; }
+
+  /* Tab nav: scrollable single row on phone */
+  .tab-nav { padding: 6px 8px; gap: 4px; flex-direction: row; align-items: center; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tab-nav-brand { font-size: 0.7rem; padding: 4px 10px 4px 0; border-right: 1px solid var(--border); flex-shrink: 0; }
+  .tab-nav-tabs { flex-wrap: nowrap; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tab-link { font-size: 0.72rem; padding: 6px 8px; gap: 4px; }
+  .tab-link svg { display: none; }
+  .tab-badge { font-size: 0.5rem !important; padding: 1px 4px !important; }
+
+  /* Card grids: stack on phone */
+  .card-grid { grid-template-columns: 1fr; gap: 12px; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  /* Cards */
+  .card { padding: 16px; }
+  .card-value { font-size: 1.5rem; }
+  .card-title { font-size: 0.68rem; letter-spacing: 1px; margin-bottom: 10px; }
+  .card-change { font-size: 0.72rem; }
+
+  /* KPI cards */
+  .kpi-card { padding: 12px; }
+  .kpi-label { font-size: 0.68rem; }
+  .kpi-value { font-size: 1.3rem; }
+
+  /* Chart cards */
+  .chart-card { padding: 14px; }
+  .chart-card h3 { font-size: 0.95rem; }
+  .chart-card .chart-subtitle { font-size: 0.75rem; margin-bottom: 16px; }
+
+  /* Data tables */
+  .data-table { font-size: 0.72rem; }
+  .data-table th { padding: 8px 6px; font-size: 0.68rem; }
+  .data-table td { padding: 8px 6px; }
+
+  /* Filter toggles */
+  .filter-toggle { flex-wrap: wrap; border-radius: 6px; }
+  .filter-btn { padding: 6px 10px; font-size: 0.72rem; }
+
+  /* Status bar */
+  .status-bar { font-size: 0.72rem; flex-wrap: wrap; }
+
+  /* Disclaimer */
+  .disclaimer { font-size: 0.72rem; padding: 12px; }
+
+  /* Section headers */
+  .section-header h2 { font-size: 1.3rem; }
+  .section-header p { font-size: 0.82rem; }
+  .section-tag { font-size: 0.65rem; padding: 4px 10px; }
+
+  /* Hero adjustments */
+  .hero { min-height: 70vh; padding: 40px 16px; }
+  .hero h1 { font-size: 2.2rem; margin-bottom: 16px; }
+  .hero .subtitle { font-size: 0.9rem; margin-bottom: 24px; }
+  .audit-stat { padding: 14px 20px; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .audit-stat .big-number { font-size: 2.2rem; }
+  .audit-stat .stat-label { font-size: 0.78rem; }
+  .hero-badge { font-size: 0.65rem; padding: 6px 16px; letter-spacing: 2px; }
+  .hero-cta { gap: 10px; }
+  .hero-cta a, .hero-cta button { font-size: 0.8rem; padding: 10px 20px; }
+
+  /* Footer */
+  .footer { padding: 24px 16px; }
+  .footer-brand { font-size: 0.85rem; }
+  .footer-links { gap: 6px 16px; }
+  .footer-links a { font-size: 0.75rem; }
+
+  /* Year selects */
+  .year-select { font-size: 0.78rem; padding: 6px 8px; }
+}
+
+.footer-links a:hover { color: var(--accent-cyan); }
