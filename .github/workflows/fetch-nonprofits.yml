@@ -50,10 +50,10 @@ jobs:
         run: |
           git config user.name  "the-peoples-audit-bot"
           git config user.email "actions@users.noreply.github.com"
-          if git diff --quiet -- public/data/ma-nonprofits.json; then
+                    git add public/data/ma-nonprofits.json
+          if git diff --cached --quiet -- public/data/ma-nonprofits.json; then
             echo "No nonprofit data changes."
             exit 0
           fi
-          git add public/data/ma-nonprofits.json
           git commit -m "chore(data): refresh MA nonprofit data"
           git push
