@@ -13,6 +13,7 @@ import {
   MapPin
 } from 'lucide-react';
 import DisclosuresFeed from './components/DisclosuresFeed.jsx';
+import LifeInMA from './components/LifeInMA.jsx';
 import OcpfDataCenter from './components/OcpfDataCenter.jsx';
 import PacDashboard from './components/PacDashboard.jsx';
 import CostOfLivingCalculator from './components/CostOfLivingCalculator.jsx';
@@ -2432,6 +2433,7 @@ export default function App() {
     { id: 'lobbyists', label: 'Lobbying', icon: <Network size={16} />, tag: 'critical' },
     { id: 'federal', label: 'Federal Funds', icon: <Landmark size={16} />, tag: 'live' },
     { id: 'quasi', label: 'Quasi-Government', icon: <Layers size={16} />, tag: 'live' },
+    { id: 'lifeinma', label: 'Life in MA', icon: <Activity size={16} />, tag: 'new' },
     { id: 'audit', label: 'The Audit Fight', icon: <Scale size={16} /> },
   ];
 
@@ -3441,6 +3443,11 @@ export default function App() {
           <div>
             <QuasiExplorer quasiPayments={data.quasiPayments} />
           </div>
+        )}
+
+        {/* ============ LIFE IN MA ============ */}
+        {activeSection === 'lifeinma' && (
+          <LifeInMA />
         )}
 
         {/* ============ THE AUDIT FIGHT ============ */}
