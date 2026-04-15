@@ -107,46 +107,26 @@ async function scrapeLobbyists() {
     let html = await page.content();
     console.log(`[ma-lobbying] Initial page: ${html.length} bytes`);
 
-    // Quick check: do we already have results?
+    // Submit search via JavaScript form submission (clicking button breaks ASPX in headless)
+    console.log('[ma-lobbying] Submitting search via JS form POST...');
+    await page.evaluate(() => {
+      // Set page size to "View all"
+      const ps = document.querySelector('#ContentPlaceHolder1_drpPageSize');
+      if (ps) ps.value = '20000';
+      // Set type to ALL
+      const tp = document.querySelector('#ContentPlaceHolder1_ucSearchCriteriaByType_drpType');
+      if (tp) tp.value = 'Z';
+      // Submit form via ASPX postback
+      __doPostBack('ctl00$ContentPlaceHolder1$btnSearch', '');
+    });
+
+    // Wait for the page to reload with results
+    await page.waitForTimeout(10000);
+    await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => {});
+
+    html = await page.content();
     let initialRecords = parseResultsFromHtml(html);
-    console.log(`[ma-lobbying] Initial page has ${initialRecords.length} records`);
-
-    // ---- Step 2: Try to get ALL results by changing page size ----
-    if (initialRecords.length > 0) {
-      try {
-        console.log('[ma-lobbying] Trying to set "View all results" and re-search...');
-
-        // Change page size to 20000 ("View all results")
-        await page.selectOption('#ContentPlaceHolder1_drpPageSize', '20000').catch(() => {
-          console.log('[ma-lobbying]   Could not change page size dropdown');
-        });
-
-        // Click the search button
-        await page.click('#ContentPlaceHolder1_btnSearch', { timeout: 5000 }).catch(() => {
-          console.log('[ma-lobbying]   Could not click search button');
-        });
-
-        // Wait for results to load
-        await page.waitForTimeout(8000);
-        await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => {});
-
-        const allHtml = await page.content();
-        const allResults = parseResultsFromHtml(allHtml);
-        console.log(`[ma-lobbying] After "View all": ${allResults.length} records (${allHtml.length} bytes)`);
-
-        if (allResults.length > initialRecords.length) {
-          html = allHtml;
-          initialRecords = allResults;
-        }
-      } catch (err) {
-        console.log(`[ma-lobbying] "View all" attempt failed: ${err.message} — using initial results`);
-      }
-    }
-
-    // ---- Step 3: If we have records from the initial load, use them ----
-    if (initialRecords.length > 0) {
-      allRecords.push(...initialRecords);
-      console.log(`[ma-lobbying] Using ${allRecords.length} records from page`);
+    console.log(`[ma-lobbying] After search: ${html.length} bytes, ${initialRecords.length} records`);
 
       // ---- Step 3b: Handle pagination if we're on 100-per-page ----
       if (initialRecords.length >= 90 && initialRecords.length <= 100) {
