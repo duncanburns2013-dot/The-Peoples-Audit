@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-14T18:57:14.360Z",
+  "fetchedAt": "2026-04-15T14:50:52.998Z",
   "source": "MA Secretary of State — Lobbyist Public Search",
   "sourceUrl": "https://www.sec.state.ma.us/lobbyistpublicsearch/",
   "scrapedSuccessfully": false,
@@ -8,7 +8,12 @@
     "Scraper returned 0 records — site structure may have changed",
     "Scraper returned 0 records — preserving data from previous successful run."
   ],
-  "totalRecords": 20,
+  "totalRecords": 0,
+  "summary": {
+    "totalClients": 0,
+    "totalLobbyists": 0,
+    "totalEntities": 0
+  },
   "top20": [
     {
       "rank": 1,
@@ -171,153 +176,7 @@
       "yearFounded": 1934
     }
   ],
-  "records": [
-    {
-      "name": "Smith Costello & Crawford",
-      "totalExpenditure": 6200000,
-      "clients": 48,
-      "focus": "Healthcare, Cannabis, Energy",
-      "yearFounded": 1998
-    },
-    {
-      "name": "Tremont Strategies Group",
-      "totalExpenditure": 4500000,
-      "clients": 35,
-      "focus": "Healthcare, Higher Ed, Telecom",
-      "yearFounded": 2003
-    },
-    {
-      "name": "O'Neill and Associates",
-      "totalExpenditure": 4100000,
-      "clients": 42,
-      "focus": "Real Estate, Healthcare, Gaming",
-      "yearFounded": 1986
-    },
-    {
-      "name": "ML Strategies",
-      "totalExpenditure": 3850000,
-      "clients": 55,
-      "focus": "Technology, Energy, Financial Services",
-      "yearFounded": 2001
-    },
-    {
-      "name": "Dempsey Associates",
-      "totalExpenditure": 3400000,
-      "clients": 30,
-      "focus": "Insurance, Finance, Transportation",
-      "yearFounded": 1995
-    },
-    {
-      "name": "Kearney Donovan & McGee",
-      "totalExpenditure": 3100000,
-      "clients": 28,
-      "focus": "Education, Healthcare, Utilities",
-      "yearFounded": 1990
-    },
-    {
-      "name": "Bay State Strategies",
-      "totalExpenditure": 2800000,
-      "clients": 22,
-      "focus": "Cannabis, Real Estate, Technology",
-      "yearFounded": 2015
-    },
-    {
-      "name": "Dewey Square Group",
-      "totalExpenditure": 2650000,
-      "clients": 38,
-      "focus": "Energy, Environment, Healthcare",
-      "yearFounded": 1993
-    },
-    {
-      "name": "TSK Associates",
-      "totalExpenditure": 2400000,
-      "clients": 20,
-      "focus": "Construction, Labor, Transportation",
-      "yearFounded": 2005
-    },
-    {
-      "name": "Brian S. Hickey Associates",
-      "totalExpenditure": 2100000,
-      "clients": 18,
-      "focus": "Insurance, Healthcare, Finance",
-      "yearFounded": 2000
-    },
-    {
-      "name": "Capitol Strategies Group",
-      "totalExpenditure": 1950000,
-      "clients": 25,
-      "focus": "Energy, Cannabis, Technology",
-      "yearFounded": 2010
-    },
-    {
-      "name": "Rasky Partners",
-      "totalExpenditure": 1850000,
-      "clients": 32,
-      "focus": "Higher Ed, Tech, Life Sciences",
-      "yearFounded": 1989
-    },
-    {
-      "name": "Government Strategies",
-      "totalExpenditure": 1700000,
-      "clients": 16,
-      "focus": "Gaming, Hospitality, Real Estate",
-      "yearFounded": 2008
-    },
-    {
-      "name": "Meehan Boyle & Cohen",
-      "totalExpenditure": 1600000,
-      "clients": 22,
-      "focus": "Transportation, Construction, Labor",
-      "yearFounded": 1997
-    },
-    {
-      "name": "Nelson Mullins Riley & Scarborough",
-      "totalExpenditure": 1450000,
-      "clients": 28,
-      "focus": "Healthcare, Life Sciences, Finance",
-      "yearFounded": 2012
-    },
-    {
-      "name": "Prism Group",
-      "totalExpenditure": 1350000,
-      "clients": 15,
-      "focus": "Cannabis, Real Estate, Retail",
-      "yearFounded": 2016
-    },
-    {
-      "name": "Corry Associates",
-      "totalExpenditure": 1200000,
-      "clients": 12,
-      "focus": "Education, Nonprofits, Healthcare",
-      "yearFounded": 2002
-    },
-    {
-      "name": "Holland & Knight",
-      "totalExpenditure": 1100000,
-      "clients": 20,
-      "focus": "Real Estate, Energy, Finance",
-      "yearFounded": 1968
-    },
-    {
-      "name": "Foley Hoag",
-      "totalExpenditure": 980000,
-      "clients": 18,
-      "focus": "Life Sciences, Technology, Environment",
-      "yearFounded": 1943
-    },
-    {
-      "name": "McDermott Will & Emery",
-      "totalExpenditure": 920000,
-      "clients": 14,
-      "focus": "Healthcare, Tax, Energy",
-      "yearFounded": 1934
-    }
-  ],
-  "industrySummary": [
-    {
-      "type": "Unknown",
-      "count": 20,
-      "totalSpend": 49200000
-    }
-  ]
+  "records": [],
+  "entityDetails": [],
+  "industrySummary": []
 }
