@@ -82,8 +82,12 @@ async function scrapeLobbyists() {
   const { chromium } = await import('playwright');
 
   const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext();
-  const page = await context.newPage();
+const context = await browser.newContext({
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  viewport: { width: 1280, height: 800 },
+  locale: 'en-US',
+});
+const page = await context.newPage();
 
   const allRecords = [];       // all entities from the search results
   const entityDetails = [];    // detail data for Lobbyist Entities
@@ -92,9 +96,12 @@ async function scrapeLobbyists() {
     // ---- Step 1: Load the search page ----
     console.log('[ma-lobbying] Navigating to Lobbyist Public Search...');
     await page.goto('https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx', {
-      waitUntil: 'networkidle',
-      timeout: 60000,
-    });
+  waitUntil: 'domcontentloaded',
+  timeout: 60000,
+});
+// Give ASPX page time to fully render all scripts
+await page.waitForTimeout(5000);
+await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => {});
 
     // ---- Step 2: Configure search and submit ----
     // Set "View all results" (value 20000) to avoid pagination entirely
