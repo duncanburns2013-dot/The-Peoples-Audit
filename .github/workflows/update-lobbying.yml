@@ -35,7 +35,7 @@ jobs:
 
       - name: Run lobbying scraper
         run: node scripts/fetch-ma-lobbying.mjs
-        timeout-minutes: 5
+        timeout-minutes: 15
 
       - name: Show output (debug)
         run: |
