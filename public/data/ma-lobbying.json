@@ -1,0 +1,7394 @@
+{
+  "fetchedAt": "2026-04-15T23:33:07.587Z",
+  "source": "Massachusetts Secretary of State - Lobbyist Public Search",
+  "registrationYears": [
+    "2025",
+    "2026"
+  ],
+  "totalRecords": 336,
+  "stats": {
+    "entities2025": 175,
+    "entities2026": 161,
+    "entitiesWithData": 157,
+    "totalRevenue2025": 88409949,
+    "totalRevenue2026": 0,
+    "uniqueClients": 1278,
+    "uniqueLobbyists": 521
+  },
+  "top20": [
+    {
+      "rank": 1,
+      "name": "Smith, Costello & Crawford Public Policy Group, LLC",
+      "totalExpenditure": 7899259,
+      "directExpenses": 726240,
+      "clients": 118,
+      "lobbyistCount": 25,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "One State Street, 15th Floor,  Boston, MA, 02109 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Avangrid Power, LLC",
+          "amount": 180000
+        },
+        {
+          "name": "HG Vora Capital Management, LLC",
+          "amount": 180000
+        },
+        {
+          "name": "Sports Betting Alliance",
+          "amount": 180000
+        },
+        {
+          "name": "Lifespan of Massachusetts, Inc.",
+          "amount": 162000
+        },
+        {
+          "name": "Commonwealth Care Alliance, Inc.",
+          "amount": 150000
+        },
+        {
+          "name": "FirstLight Power Inc.",
+          "amount": 150000
+        },
+        {
+          "name": "Sterling Suffolk Racecourse, LLC",
+          "amount": 150000
+        },
+        {
+          "name": "Tufts Medicine, Inc.",
+          "amount": 144000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Carlo Basile",
+          "salary": 825000
+        },
+        {
+          "name": "Michael Costello",
+          "salary": 670000
+        },
+        {
+          "name": "James Smith",
+          "salary": 610000
+        },
+        {
+          "name": "Adam Marx",
+          "salary": 330000
+        },
+        {
+          "name": "Beth Card",
+          "salary": 285000
+        },
+        {
+          "name": "Jennifer K. Crawford",
+          "salary": 275000
+        },
+        {
+          "name": "DJ Napolitano",
+          "salary": 190000
+        },
+        {
+          "name": "Sira Grant",
+          "salary": 162000
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Tremont Strategies Group LLC",
+      "totalExpenditure": 5688978,
+      "directExpenses": 506898,
+      "clients": 85,
+      "lobbyistCount": 18,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "One Beacon Street, Suite 16300,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Beth Israel Lahey Health, Inc.",
+          "amount": 132000
+        },
+        {
+          "name": "Massachusetts Audubon Society, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "The Association of Dental Support Organizations, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Uber Technologies, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Unitil Resources, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Dimock Community Foundation, Inc.",
+          "amount": 102000
+        },
+        {
+          "name": "FanDuel Inc.",
+          "amount": 102000
+        },
+        {
+          "name": "KPMG LLP",
+          "amount": 99996
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Michael Bergan",
+          "salary": 600000
+        },
+        {
+          "name": "Michael Morris",
+          "salary": 600000
+        },
+        {
+          "name": "Jason Aluia",
+          "salary": 255000
+        },
+        {
+          "name": "Steve Byrne",
+          "salary": 245000
+        },
+        {
+          "name": "Chet Atkins",
+          "salary": 200000
+        },
+        {
+          "name": "Savannah Kelleher",
+          "salary": 200000
+        },
+        {
+          "name": "Daniel Collins",
+          "salary": 140000
+        },
+        {
+          "name": "National Grid USA",
+          "salary": 122000
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "O'Neill and Partners LLC.",
+      "totalExpenditure": 4583814,
+      "directExpenses": 347058,
+      "clients": 63,
+      "lobbyistCount": 28,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "18 Tremont Street, SUITE 600,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Habit OPCO LLC",
+          "amount": 144000
+        },
+        {
+          "name": "Alstom Transport Holding US Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Specialty Minerals Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Ultragenyx Pharmaceutical Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Massachusetts Fine Wine & Spirits, LLC",
+          "amount": 111000
+        },
+        {
+          "name": "PepsiCo, Inc.",
+          "amount": 110000
+        },
+        {
+          "name": "Everytown for Gun Safety Action Fund, Inc.",
+          "amount": 102000
+        },
+        {
+          "name": "American Wagering, Inc",
+          "amount": 96000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Thomas O'Neill",
+          "salary": 350000
+        },
+        {
+          "name": "Matthew Irish",
+          "salary": 320000
+        },
+        {
+          "name": "Benjamin Josephson",
+          "salary": 250000
+        },
+        {
+          "name": "Christopher Niles",
+          "salary": 230000
+        },
+        {
+          "name": "Lindsay Toghill",
+          "salary": 230000
+        },
+        {
+          "name": "SEIU Local 32BJ",
+          "salary": 171500
+        },
+        {
+          "name": "James Dunbar",
+          "salary": 140000
+        },
+        {
+          "name": "Erin Riley",
+          "salary": 130000
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Dempsey Associates LLC",
+      "totalExpenditure": 4388300,
+      "directExpenses": 300789,
+      "clients": 65,
+      "lobbyistCount": 4,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "11 Beacon Street, Suite 1120,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "ACREFI CS U, LLC",
+          "amount": 250000
+        },
+        {
+          "name": "Suffolk Construction Company, Inc.",
+          "amount": 220000
+        },
+        {
+          "name": "DraftKings Inc.",
+          "amount": 195000
+        },
+        {
+          "name": "New Bedford Foss Marine Terminal,LLC",
+          "amount": 180000
+        },
+        {
+          "name": "Sports Betting Alliance",
+          "amount": 180000
+        },
+        {
+          "name": "Beth Israel Lahey Health, Inc.",
+          "amount": 168000
+        },
+        {
+          "name": "NextEra Energy Project Management, LLC",
+          "amount": 150000
+        },
+        {
+          "name": "The HYM Investment Group",
+          "amount": 150000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Brian S. Dempsey",
+          "salary": 725000
+        },
+        {
+          "name": "Compassion & Choices Action Network",
+          "salary": 70000
+        },
+        {
+          "name": "American Innovators Network",
+          "salary": 60000
+        },
+        {
+          "name": "Ava Cabana",
+          "salary": 30000
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Kearney, Donovan & McGee, LLC",
+      "totalExpenditure": 3692600,
+      "directExpenses": 181704,
+      "clients": 46,
+      "lobbyistCount": 19,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "40 Court Street, 11th Floor,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Anheuser Busch Companies, LLC",
+          "amount": 120000
+        },
+        {
+          "name": "CGI Technologies & Solutions Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Feeney Brothers Excavation LLC",
+          "amount": 120000
+        },
+        {
+          "name": "American Property Casualty Insurance Association",
+          "amount": 100000
+        },
+        {
+          "name": "Cumberland Farms, Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "Massachusetts Credit Union Share Insurance Corporation",
+          "amount": 96000
+        },
+        {
+          "name": "Comcast Cable Communications Management, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Constellation Energy Generation, LLC",
+          "amount": 90000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Paul T. Donovan",
+          "salary": 630635
+        },
+        {
+          "name": "Charlene D. Rideout",
+          "salary": 422518
+        },
+        {
+          "name": "Michelle R. McGee",
+          "salary": 322095
+        },
+        {
+          "name": "Anthony W. Petruccelli",
+          "salary": 317857
+        },
+        {
+          "name": "Mass General Brigham Incorporated",
+          "salary": 306000
+        },
+        {
+          "name": "Daniel R. Cullinane",
+          "salary": 141771
+        },
+        {
+          "name": "Ashley N. Powers",
+          "salary": 88863
+        },
+        {
+          "name": "Continental Casualty Company",
+          "salary": 72000
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Bay State Strategies Group, LLC",
+      "totalExpenditure": 3168150,
+      "directExpenses": 469935,
+      "clients": 46,
+      "lobbyistCount": 9,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "6 Beacon Street, Suite 312,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Pharmaceutical Research and Manufacturers of America Corporation",
+          "amount": 207500
+        },
+        {
+          "name": "Sports Betting Alliance",
+          "amount": 150000
+        },
+        {
+          "name": "Liberty Mutual Insurance Company",
+          "amount": 120000
+        },
+        {
+          "name": "Lyft, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "National Strategies, LLC",
+          "amount": 108000
+        },
+        {
+          "name": "Deloitte Consulting LLP",
+          "amount": 95500
+        },
+        {
+          "name": "American Chemistry Council",
+          "amount": 90000
+        },
+        {
+          "name": "Dental Service of Massachusetts, Inc.",
+          "amount": 84000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "David Shapiro",
+          "salary": 423225
+        },
+        {
+          "name": "Robert Bernstein",
+          "salary": 423225
+        },
+        {
+          "name": "Frank Shea",
+          "salary": 356327
+        },
+        {
+          "name": "James M Guerin",
+          "salary": 174234
+        },
+        {
+          "name": "Microsoft Corporation",
+          "salary": 96000
+        },
+        {
+          "name": "Synchrony Financial",
+          "salary": 78000
+        },
+        {
+          "name": "WinnDevelopment Company Limited Partnership",
+          "salary": 60000
+        },
+        {
+          "name": "Grace Emeline Durant",
+          "salary": 42000
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "ML Strategies, LLC",
+      "totalExpenditure": 2391832,
+      "directExpenses": 445800,
+      "clients": 28,
+      "lobbyistCount": 17,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "One Financial Center Boston, MA, 02111 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Brighton Marine Inc",
+          "amount": 225000
+        },
+        {
+          "name": "Wynn MA, LLC",
+          "amount": 140000
+        },
+        {
+          "name": "Vicinity Energy, LLC",
+          "amount": 120000
+        },
+        {
+          "name": "Johnson & Johnson Services, Inc.",
+          "amount": 101336
+        },
+        {
+          "name": "Boston Harbor Cruises, LLC",
+          "amount": 97500
+        },
+        {
+          "name": "Everett Landco, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Hancock Street Partners",
+          "amount": 90000
+        },
+        {
+          "name": "United HealthCare Services, Inc.",
+          "amount": 90000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Steven A. Baddour",
+          "salary": 340000
+        },
+        {
+          "name": "Boston Electrometallurgical Corporation",
+          "salary": 300000
+        },
+        {
+          "name": "Daniel J. Connelly",
+          "salary": 220000
+        },
+        {
+          "name": "Taylor C. Shepherd",
+          "salary": 220000
+        },
+        {
+          "name": "Stephen P. Tocco",
+          "salary": 200000
+        },
+        {
+          "name": "Daniel F. Conley",
+          "salary": 170000
+        },
+        {
+          "name": "Stephen J. Silveira",
+          "salary": 170000
+        },
+        {
+          "name": "Wiliam F. Weld",
+          "salary": 100000
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Issues Management Group Public Affairs, LLC",
+      "totalExpenditure": 2334013,
+      "directExpenses": 12492,
+      "clients": 34,
+      "lobbyistCount": 18,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "30 Winter Street, 6th Floor,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Mutual Life Insurance Company",
+          "amount": 156000
+        },
+        {
+          "name": "The Boston Beer Company, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Commonwealth Care Alliance, Inc.",
+          "amount": 108000
+        },
+        {
+          "name": "Massachusetts Dental Society",
+          "amount": 108000
+        },
+        {
+          "name": "UHS of Delaware, Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "2Life Communities, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "New England Connectivity and Telecommunications Association, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Waymo LLC",
+          "amount": 88000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Maureen Glynn",
+          "salary": 313200
+        },
+        {
+          "name": "Roger Donoghue",
+          "salary": 251000
+        },
+        {
+          "name": "Tara O'Donnell",
+          "salary": 213600
+        },
+        {
+          "name": "Dan Cence",
+          "salary": 150000
+        },
+        {
+          "name": "Kathy Bell",
+          "salary": 140800
+        },
+        {
+          "name": "Margaret Horan",
+          "salary": 119100
+        },
+        {
+          "name": "Conor Yunits",
+          "salary": 60000
+        },
+        {
+          "name": "FedEx Corporation",
+          "salary": 60000
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "The Suffolk Group, LLC",
+      "totalExpenditure": 2108122,
+      "directExpenses": 190880,
+      "clients": 39,
+      "lobbyistCount": 5,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "24 School Street , Suite 501,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "PROFESSIONAL AMBULANCE AND OXYGEN SERVICE, INC",
+          "amount": 120000
+        },
+        {
+          "name": "EMD Serono, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "EchoStor Technologies, LLC",
+          "amount": 78000
+        },
+        {
+          "name": "eBay, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "Government Employees Insurance Company",
+          "amount": 72000
+        },
+        {
+          "name": "NATIONAL COALITION FOR ASSISTIVE AND REHAB TECHNOLGY (NCART) CORP.",
+          "amount": 72000
+        },
+        {
+          "name": "Robinhood Markets, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "Sellers, Dorsey & Associates, LLC",
+          "amount": 72000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "William F Cass",
+          "salary": 216000
+        },
+        {
+          "name": "Jason Jon Godin",
+          "salary": 150000
+        },
+        {
+          "name": "Steven L Goldblatt L. Goldblatt",
+          "salary": 150000
+        },
+        {
+          "name": "Dell Marketing Limited Partnership",
+          "salary": 91000
+        },
+        {
+          "name": "Associated Subcontractors of Massachusetts",
+          "salary": 72000
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "Rasky Partners, Inc.",
+      "totalExpenditure": 2085980,
+      "directExpenses": 586882,
+      "clients": 30,
+      "lobbyistCount": 16,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "14 Beacon Street, Suite 401,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Society of Anesthesiologists Inc., The",
+          "amount": 100800
+        },
+        {
+          "name": "Schneider Electric Digital, Inc.",
+          "amount": 98880
+        },
+        {
+          "name": "Jupiter Power MA Management LLC",
+          "amount": 82500
+        },
+        {
+          "name": "American Academy of Family Physicians Mass Chapter, Inc.",
+          "amount": 79500
+        },
+        {
+          "name": "Massachusetts Package Stores Association, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "Mastercard Transaction Services (US) LLC",
+          "amount": 70000
+        },
+        {
+          "name": "College Entrance Examination Board",
+          "amount": 64000
+        },
+        {
+          "name": "Massachusetts Council on Gaming and Health, Inc.",
+          "amount": 63000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "George Cronin",
+          "salary": 215008
+        },
+        {
+          "name": "Jeff Terrey",
+          "salary": 212147
+        },
+        {
+          "name": "Dell Marketing Limited Partnership",
+          "salary": 180000
+        },
+        {
+          "name": "Museum of Science",
+          "salary": 92700
+        },
+        {
+          "name": "Christina Ascolillo",
+          "salary": 78071
+        },
+        {
+          "name": "Humane World for Animals",
+          "salary": 60000
+        },
+        {
+          "name": "Orijin, PBC",
+          "salary": 60000
+        },
+        {
+          "name": "Vertex Pharmaceuticals Incorporated",
+          "salary": 60000
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "name": "TSK Associates LLC",
+      "totalExpenditure": 2001841,
+      "directExpenses": 406638,
+      "clients": 29,
+      "lobbyistCount": 8,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "One International Place, Suite 1820,  BOSTON, MA, 02110 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Crowley Maritime Corp.",
+          "amount": 135000
+        },
+        {
+          "name": "Cambridge Health Alliance",
+          "amount": 124087
+        },
+        {
+          "name": "InterPark Holdings LLC",
+          "amount": 112500
+        },
+        {
+          "name": "Braeburn Inc",
+          "amount": 104000
+        },
+        {
+          "name": "Vineyard Offshore LLC",
+          "amount": 96000
+        },
+        {
+          "name": "Massachusetts Senior Care Association Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Scientific Games, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Solar Energy Industries Association, Inc.",
+          "amount": 86004
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Robert E Travaglini",
+          "salary": 650000
+        },
+        {
+          "name": "Christian Scorzoni",
+          "salary": 590000
+        },
+        {
+          "name": "Arthur Bernard",
+          "salary": 309808
+        },
+        {
+          "name": "Jennifer Gorke",
+          "salary": 309808
+        },
+        {
+          "name": "Michael Travaglini",
+          "salary": 233365
+        },
+        {
+          "name": "Cypress Creek Renewables",
+          "salary": 75000
+        },
+        {
+          "name": "CleanChoice Energy",
+          "salary": 66000
+        },
+        {
+          "name": "Brian P. Lees",
+          "salary": 36000
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "name": "Preti Strategies, LLC",
+      "totalExpenditure": 1858228,
+      "directExpenses": 322366,
+      "clients": 38,
+      "lobbyistCount": 11,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "60 State Street, Suite 1100,  Boston, MA, 02109 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "National Strategies, LLC",
+          "amount": 223000
+        },
+        {
+          "name": "Wellpath Recovery Solutions, LLC",
+          "amount": 133333
+        },
+        {
+          "name": "WSP USA Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Fresenius Medical Care Holdings, Inc.",
+          "amount": 87000
+        },
+        {
+          "name": "CRC Communications LLC",
+          "amount": 72000
+        },
+        {
+          "name": "International Interior Design Association, New England Chapter",
+          "amount": 72000
+        },
+        {
+          "name": "Boston AFC 2.0 OpCo LLC",
+          "amount": 60000
+        },
+        {
+          "name": "Cubic Transportation Systems, Inc.",
+          "amount": 60000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "James C Eisenberg",
+          "salary": 440447
+        },
+        {
+          "name": "Richard R Tisei",
+          "salary": 394644
+        },
+        {
+          "name": "Kris R Erickson",
+          "salary": 293913
+        },
+        {
+          "name": "Andrea M Costa",
+          "salary": 132795
+        },
+        {
+          "name": "Bloom Energy Corporation",
+          "salary": 90000
+        },
+        {
+          "name": "Transdev North America",
+          "salary": 60000
+        },
+        {
+          "name": "Mary Kate Nelson",
+          "salary": 12500
+        },
+        {
+          "name": "Protect Democracy United",
+          "salary": 10000
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "name": "BCB Government Relations, Inc.",
+      "totalExpenditure": 1824833,
+      "directExpenses": 257670,
+      "clients": 32,
+      "lobbyistCount": 4,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "44 School Street, Suite 710,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Beverage Association, Inc.",
+          "amount": 155000
+        },
+        {
+          "name": "Orsted Wind Power North America LLC",
+          "amount": 150000
+        },
+        {
+          "name": "General Motors LLC",
+          "amount": 108000
+        },
+        {
+          "name": "TAKEDA PHARMACEUTICALS AMERICA, INC.",
+          "amount": 96000
+        },
+        {
+          "name": "Comcast Cable Communications Management, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Casella Waste Systems, Inc.",
+          "amount": 84000
+        },
+        {
+          "name": "Astellas Pharma US, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "Embecta Corp.",
+          "amount": 72000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "David D Cahill",
+          "salary": 500000
+        },
+        {
+          "name": "Stephen A Boksanski",
+          "salary": 500000
+        },
+        {
+          "name": "Warren R Lent",
+          "salary": 100000
+        },
+        {
+          "name": "FedEx Corporation",
+          "salary": 80000
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "name": "Benchmark Strategies, Inc.",
+      "totalExpenditure": 1773911,
+      "directExpenses": 201060,
+      "clients": 27,
+      "lobbyistCount": 9,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "1 Boston Place, Suite 2600,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Mettler Packaging LLC",
+          "amount": 110000
+        },
+        {
+          "name": "Sartorius Stedim North America, Inc.",
+          "amount": 110000
+        },
+        {
+          "name": "Pre-Paid Legal Services, Inc.",
+          "amount": 102000
+        },
+        {
+          "name": "Veterans Guardian VA Claim Consulting LLC",
+          "amount": 100000
+        },
+        {
+          "name": "Axon Enterprise, Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "Carvana, LLC",
+          "amount": 96000
+        },
+        {
+          "name": "ReUp Education, Inc.",
+          "amount": 91500
+        },
+        {
+          "name": "Indigo Technologies, Inc.",
+          "amount": 90000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Patrick Bench",
+          "salary": 190000
+        },
+        {
+          "name": "Brian Domoretsky",
+          "salary": 180000
+        },
+        {
+          "name": "Lauren Scribi",
+          "salary": 140000
+        },
+        {
+          "name": "Brian Richard O'Connor",
+          "salary": 90000
+        },
+        {
+          "name": "Sapient Corporation",
+          "salary": 90000
+        },
+        {
+          "name": "Alexi Nowokunski",
+          "salary": 85000
+        },
+        {
+          "name": "Ryan McGeown-Conron",
+          "salary": 30000
+        },
+        {
+          "name": "Electric Hydrogen Co.",
+          "salary": 30000
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "name": "Commonwealth Counsel, LLC.",
+      "totalExpenditure": 1679000,
+      "directExpenses": 79976,
+      "clients": 23,
+      "lobbyistCount": 6,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "146 Bowdoin Street, Unit G-7,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Alexion Pharmaceuticals, Inc.",
+          "amount": 150000
+        },
+        {
+          "name": "Flatiron Energy Development LLC",
+          "amount": 144000
+        },
+        {
+          "name": "Keolis Commuter Services, LLC",
+          "amount": 120000
+        },
+        {
+          "name": "SouthCoast Wind Energy LLC",
+          "amount": 108000
+        },
+        {
+          "name": "Massachusetts Biotechnology Council, Inc",
+          "amount": 90000
+        },
+        {
+          "name": "American Kratom Association",
+          "amount": 84000
+        },
+        {
+          "name": "Cartwheel Care, Inc.",
+          "amount": 80000
+        },
+        {
+          "name": "Massachusetts Alliance for Economic Development",
+          "amount": 78000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Joseph A. Boncore",
+          "salary": 424000
+        },
+        {
+          "name": "Shannon Moore",
+          "salary": 183400
+        },
+        {
+          "name": "Friends of the Children-Boston",
+          "salary": 90000
+        },
+        {
+          "name": "New England Aquarium Corporation",
+          "salary": 67500
+        },
+        {
+          "name": "Michael Edward Falcone",
+          "salary": 26400
+        },
+        {
+          "name": "Rebecca Rebecca Kaiser Kaiser",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "name": "BRIAN S HICKEY ASSOCIATES, INC.",
+      "totalExpenditure": 1610500,
+      "directExpenses": 250294,
+      "clients": 20,
+      "lobbyistCount": 7,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "9 Park Street, Suite 200,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "National Shooting Sports Foundation",
+          "amount": 208000
+        },
+        {
+          "name": "Pulte Homes of New England LLC",
+          "amount": 130000
+        },
+        {
+          "name": "Coalition for Automotive Repair Equality",
+          "amount": 127500
+        },
+        {
+          "name": "Reworld Waste, LLC",
+          "amount": 127000
+        },
+        {
+          "name": "B. Braun Medical Inc.",
+          "amount": 100000
+        },
+        {
+          "name": "Massachusetts Chapter of the National Association of Housing",
+          "amount": 80000
+        },
+        {
+          "name": "T-Mobile USA, Inc",
+          "amount": 80000
+        },
+        {
+          "name": "Massachusetts Society of Optometrists",
+          "amount": 78000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Tommy J Hickey",
+          "salary": 318000
+        },
+        {
+          "name": "Brian S Hickey",
+          "salary": 300000
+        },
+        {
+          "name": "Neil T. O'Brien",
+          "salary": 185000
+        },
+        {
+          "name": "Eversource Energy",
+          "salary": 180000
+        },
+        {
+          "name": "Thomas Bonarrigo",
+          "salary": 86250
+        },
+        {
+          "name": "BlueTriton Brands",
+          "salary": 65000
+        },
+        {
+          "name": "William F. Malloy, Jr.",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "name": "Shawmut Strategies Group, LLC",
+      "totalExpenditure": 1461100,
+      "directExpenses": 87962,
+      "clients": 28,
+      "lobbyistCount": 16,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "11 Beacon Street, Suite 1125,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "National Mentor Holdings, LLC",
+          "amount": 172600
+        },
+        {
+          "name": "Flock Group, Inc. dba Flock Safety",
+          "amount": 120000
+        },
+        {
+          "name": "MADDD Equities, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Arrow International, LLC",
+          "amount": 85000
+        },
+        {
+          "name": "State Police Association of Massachusetts",
+          "amount": 84000
+        },
+        {
+          "name": "Oracle America, Inc.",
+          "amount": 77000
+        },
+        {
+          "name": "Sazerac Company, Inc.",
+          "amount": 66000
+        },
+        {
+          "name": "Massachusetts Partnerships for Youth, Inc.",
+          "amount": 58000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Chris Keohan",
+          "salary": 150000
+        },
+        {
+          "name": "Dianne Morad",
+          "salary": 150000
+        },
+        {
+          "name": "Joseph Giannino",
+          "salary": 150000
+        },
+        {
+          "name": "Kevin Mulvey",
+          "salary": 150000
+        },
+        {
+          "name": "Joe Rull",
+          "salary": 110000
+        },
+        {
+          "name": "The Pew Charitable Trusts",
+          "salary": 90000
+        },
+        {
+          "name": "Eastman Chemical Company",
+          "salary": 84000
+        },
+        {
+          "name": "Raymond Bennett",
+          "salary": 70000
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "name": "Bulfinch Strategies Group LLC",
+      "totalExpenditure": 1445189,
+      "directExpenses": 228404,
+      "clients": 29,
+      "lobbyistCount": 8,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "6 Beacon Street, STE 200,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Youth Villages, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Foundation Medicine, Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "Southcoast Hospitals Group, Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "Massachusetts Housing Coalition, Inc.",
+          "amount": 84000
+        },
+        {
+          "name": "Commonwealth Beverage Coalition, Inc.",
+          "amount": 83000
+        },
+        {
+          "name": "American Association of Dental Boards, Inc.",
+          "amount": 78000
+        },
+        {
+          "name": "Center for Human Development, Incorporated",
+          "amount": 72335
+        },
+        {
+          "name": "Shipt, Inc.",
+          "amount": 72000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Jay Youmans",
+          "salary": 345000
+        },
+        {
+          "name": "Jefferson R Smith",
+          "salary": 345000
+        },
+        {
+          "name": "Thomas P Mangan",
+          "salary": 345000
+        },
+        {
+          "name": "Ayah Hassan Roda",
+          "salary": 100000
+        },
+        {
+          "name": "People Incorporated",
+          "salary": 48223
+        },
+        {
+          "name": "Innsure Corporation",
+          "salary": 21000
+        },
+        {
+          "name": "StationMD Professional Corporation",
+          "salary": 18000
+        },
+        {
+          "name": "Nathan Melech Simms",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "name": "Charles Group Consulting",
+      "totalExpenditure": 1444176,
+      "directExpenses": 283376,
+      "clients": 42,
+      "lobbyistCount": 10,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "128A Tremont Street, 4th Floor,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Law Reform Institute, Inc.",
+          "amount": 190649
+        },
+        {
+          "name": "International Institute of New England, Inc",
+          "amount": 63560
+        },
+        {
+          "name": "Ascentria Care Alliance, Inc.",
+          "amount": 60541
+        },
+        {
+          "name": "Jewish Community Relations Council of Greater Boston, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "THE MASSACHUSETTS INTERNATIONAL FESTIVAL OF THE ARTS",
+          "amount": 52000
+        },
+        {
+          "name": "Massachusetts Aging Access Association, Inc.",
+          "amount": 50876
+        },
+        {
+          "name": "Massachusetts Association for Community Action (MASSCAP)",
+          "amount": 46389
+        },
+        {
+          "name": "Healthy Children Project Inc DBA ALPP",
+          "amount": 45500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Charles Glick",
+          "salary": 406695
+        },
+        {
+          "name": "Kate Worrall",
+          "salary": 334000
+        },
+        {
+          "name": "Ariela Lovett",
+          "salary": 100283
+        },
+        {
+          "name": "Calli Masters",
+          "salary": 67552
+        },
+        {
+          "name": "Boston Debate League",
+          "salary": 27000
+        },
+        {
+          "name": "American National Red Cross",
+          "salary": 24000
+        },
+        {
+          "name": "826 Boston",
+          "salary": 20000
+        },
+        {
+          "name": "Aaron Agulnek",
+          "salary": 13375
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "name": "Serlin Haley LLP",
+      "totalExpenditure": 1386090,
+      "directExpenses": 101321,
+      "clients": 29,
+      "lobbyistCount": 6,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "51 Franklin Street, 3rd Floor,  Boston, MA, 02110 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Grubhub Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Northeastern University",
+          "amount": 120000
+        },
+        {
+          "name": "Massachusetts Assisted Living Association, Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "Enterprise Rent A Car Company of Boston",
+          "amount": 72000
+        },
+        {
+          "name": "Clean Fuels Alliance America Corporation",
+          "amount": 64800
+        },
+        {
+          "name": "Consumer Technology Association",
+          "amount": 60800
+        },
+        {
+          "name": "Dart Container Sales Company LLC",
+          "amount": 60000
+        },
+        {
+          "name": "Meta Platforms, Inc.",
+          "amount": 57600
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Pierce J. Haley",
+          "salary": 81754
+        },
+        {
+          "name": "Andrea Serlin",
+          "salary": 75964
+        },
+        {
+          "name": "Georgia-Pacific Limited Liability Company",
+          "salary": 48000
+        },
+        {
+          "name": "Museum of Fine Arts",
+          "salary": 48000
+        },
+        {
+          "name": "Alexandra McGerigle",
+          "salary": 33485
+        },
+        {
+          "name": "Flint Hills Resources, Limited Partnership",
+          "salary": 12000
+        }
+      ]
+    },
+    {
+      "rank": 21,
+      "name": "WBD Strategies LLC",
+      "totalExpenditure": 1344250,
+      "directExpenses": 97466,
+      "clients": 21,
+      "lobbyistCount": 11,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "470 Atlantic Avenue, Suite 600,  Boston, MA, 02210 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Association of Health Plans",
+          "amount": 114000
+        },
+        {
+          "name": "Tripadvisor LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Uber Technologies, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Applied Materials Inc.",
+          "amount": 87500
+        },
+        {
+          "name": "Arbella Mutual Insurance Company",
+          "amount": 78000
+        },
+        {
+          "name": "Hazel Health, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "AbbVie Inc.",
+          "amount": 70000
+        },
+        {
+          "name": "Eastern Salt Company, Inc.",
+          "amount": 70000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Martin Thomas Nastasia",
+          "salary": 252000
+        },
+        {
+          "name": "John J MCGLYNN Jr",
+          "salary": 250000
+        },
+        {
+          "name": "Elizabeth Mullen",
+          "salary": 170000
+        },
+        {
+          "name": "Colleen McGlynn",
+          "salary": 131040
+        },
+        {
+          "name": "paul g afonso",
+          "salary": 50000
+        },
+        {
+          "name": "The Hertz Corporation",
+          "salary": 35750
+        },
+        {
+          "name": "Vivid Seats",
+          "salary": 30000
+        },
+        {
+          "name": "JetBlue Airways",
+          "salary": 27500
+        }
+      ]
+    },
+    {
+      "rank": 22,
+      "name": "The Karol Group, Inc.",
+      "totalExpenditure": 1278000,
+      "directExpenses": 147094,
+      "clients": 24,
+      "lobbyistCount": 5,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "6 Beacon Street, Suite 710,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Bank of America Corporation",
+          "amount": 114000
+        },
+        {
+          "name": "Gainwell Technologies LLC",
+          "amount": 96000
+        },
+        {
+          "name": "Philips North America LLC",
+          "amount": 96000
+        },
+        {
+          "name": "AT&T Services, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "ISO New England, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Scheidt & Bachmann USA, Inc.",
+          "amount": 78000
+        },
+        {
+          "name": "New England Convenience Store and Energy Marketers Association, Inc.",
+          "amount": 70000
+        },
+        {
+          "name": "AMERICA'S HEALTH INSURANCE PLANS, INC.",
+          "amount": 69000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Kevin M Grant",
+          "salary": 275000
+        },
+        {
+          "name": "Stephen J Karol",
+          "salary": 200000
+        },
+        {
+          "name": "W. Paul White",
+          "salary": 200000
+        },
+        {
+          "name": "Toby J Morelli",
+          "salary": 155000
+        },
+        {
+          "name": "Biotechnology Innovation Organization",
+          "salary": 30000
+        }
+      ]
+    },
+    {
+      "rank": 23,
+      "name": "Ventry Associates LLP",
+      "totalExpenditure": 1251913,
+      "directExpenses": 153660,
+      "clients": 16,
+      "lobbyistCount": 4,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "1 Walnut Street, 4th Floor,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Association of Insurance Agents, Inc.",
+          "amount": 135000
+        },
+        {
+          "name": "Massachusetts Alliance of Boys & Girls Clubs",
+          "amount": 120000
+        },
+        {
+          "name": "AMERICAN MEDICAL RESPONSE OF MASSACHUSETTS, INC.",
+          "amount": 119284
+        },
+        {
+          "name": "Massachusetts Propane Association Inc",
+          "amount": 110000
+        },
+        {
+          "name": "USA Hauling & Recycling Inc",
+          "amount": 105000
+        },
+        {
+          "name": "Peckham Industries, Inc.",
+          "amount": 93500
+        },
+        {
+          "name": "MASSACHUSETTS URGENT CARE ASSOCIATION, INC.",
+          "amount": 77000
+        },
+        {
+          "name": "Massachusetts Association of Vocational Administrators, Inc.",
+          "amount": 67167
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Dennis Murphy",
+          "salary": 480176
+        },
+        {
+          "name": "Anthony Abdelahad",
+          "salary": 276675
+        },
+        {
+          "name": "Massachusetts Municipal Wholesale Electric Company",
+          "salary": 150000
+        },
+        {
+          "name": "John J Pregmon",
+          "salary": 68425
+        }
+      ]
+    },
+    {
+      "rank": 24,
+      "name": "Nixon Peabody LLP",
+      "totalExpenditure": 1246750,
+      "directExpenses": 66166,
+      "clients": 14,
+      "lobbyistCount": 5,
+      "focus": "Real Estate & Housing",
+      "type": "Registered Lobbying Entity",
+      "address": "211 High Point Drive, Suite 110,  Victor, NY, 14564 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "DraftKings Inc.",
+          "amount": 144000
+        },
+        {
+          "name": "The Elevance Health Companies, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Biogen Inc.",
+          "amount": 117000
+        },
+        {
+          "name": "Medtronic, Inc.",
+          "amount": 99000
+        },
+        {
+          "name": "Affordable Housing and Services Collaborative, Inc.",
+          "amount": 82500
+        },
+        {
+          "name": "Vietnam Veterans Workshop, Inc",
+          "amount": 79750
+        },
+        {
+          "name": "EverDriven Technologies, LLC",
+          "amount": 78000
+        },
+        {
+          "name": "Metropolitan Boston Housing Partnership, Inc.",
+          "amount": 78000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "James A Vallee",
+          "salary": 533095
+        },
+        {
+          "name": "Citizens Enterprises Corporation",
+          "salary": 97500
+        },
+        {
+          "name": "AAA Northeast",
+          "salary": 81000
+        },
+        {
+          "name": "RTX Corporation",
+          "salary": 55000
+        },
+        {
+          "name": "Dave McNeill",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 25,
+      "name": "The Brennan Group, Inc.",
+      "totalExpenditure": 1144208,
+      "directExpenses": 53263,
+      "clients": 11,
+      "lobbyistCount": 7,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "1 Walnut Street, 3rd Floor,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Cummings School of Veterinary Medicine at Tufts University",
+          "amount": 254572
+        },
+        {
+          "name": "BXP, Inc.",
+          "amount": 180000
+        },
+        {
+          "name": "Massachusetts Charter Public School Association, Inc.",
+          "amount": 155000
+        },
+        {
+          "name": "Trustees of Boston College",
+          "amount": 108000
+        },
+        {
+          "name": "Depositors Insurance Fund",
+          "amount": 105030
+        },
+        {
+          "name": "The Hanover Insurance Group, Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "MBTA Retirement Fund",
+          "amount": 84000
+        },
+        {
+          "name": "The Savings Bank Mutual Life Insurance Company of Massachusetts",
+          "amount": 37500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "John A. Brennan, Jr.",
+          "salary": 140000
+        },
+        {
+          "name": "Daniel O'Brien",
+          "salary": 90000
+        },
+        {
+          "name": "UniBank for Savings",
+          "salary": 78481
+        },
+        {
+          "name": "John Brennan, III",
+          "salary": 20000
+        },
+        {
+          "name": "Lynda Bernard",
+          "salary": 20000
+        },
+        {
+          "name": "Nikki Dostoomian",
+          "salary": 20000
+        },
+        {
+          "name": "Timothy Brennan",
+          "salary": 20000
+        }
+      ]
+    },
+    {
+      "rank": 26,
+      "name": "Dewey Square Group, LLC",
+      "totalExpenditure": 1140464,
+      "directExpenses": 35110,
+      "clients": 14,
+      "lobbyistCount": 9,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "100 Cambridge Street, 1301,  Boston, MA, 02114 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Tenet Business Services Corporation",
+          "amount": 250000
+        },
+        {
+          "name": "The Stepping Stones Group",
+          "amount": 120000
+        },
+        {
+          "name": "Molina Healthcare, Inc.",
+          "amount": 96800
+        },
+        {
+          "name": "Reach Out and Read, Inc.",
+          "amount": 85000
+        },
+        {
+          "name": "Scholastic, Inc.",
+          "amount": 70000
+        },
+        {
+          "name": "Massachusetts Interscholastic Athletic Association, Incorp.",
+          "amount": 60000
+        },
+        {
+          "name": "MAXIMUS, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Outfront Media LLC",
+          "amount": 60000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Joseph Ricca",
+          "salary": 310000
+        },
+        {
+          "name": "Allwyn North America",
+          "salary": 126414
+        },
+        {
+          "name": "Matthew Mariano",
+          "salary": 30000
+        },
+        {
+          "name": "Lynda Tocci",
+          "salary": 20000
+        },
+        {
+          "name": "Danielle L McCourt",
+          "salary": 5000
+        },
+        {
+          "name": "Thomas McShane",
+          "salary": 5000
+        },
+        {
+          "name": "Zachary Last",
+          "salary": 4000
+        },
+        {
+          "name": "Brennan Spencer",
+          "salary": 2000
+        }
+      ]
+    },
+    {
+      "rank": 27,
+      "name": "Charles Street Strategies, LLC",
+      "totalExpenditure": 997000,
+      "directExpenses": 48800,
+      "clients": 12,
+      "lobbyistCount": 4,
+      "focus": "Real Estate & Housing",
+      "type": "Registered Lobbying Entity",
+      "address": "10 Derne St Boston, MA, 02114 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Bayside Property Holdings LLC",
+          "amount": 120000
+        },
+        {
+          "name": "PMI US Corporate Services Inc",
+          "amount": 120000
+        },
+        {
+          "name": "First Atlantic, LLC",
+          "amount": 96000
+        },
+        {
+          "name": "RSM US, LLP",
+          "amount": 96000
+        },
+        {
+          "name": "Brighton Marine Inc",
+          "amount": 90000
+        },
+        {
+          "name": "Final Offer, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Greater Boston Convention and Visitors Bureau, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Holtec Pilgrim LLC",
+          "amount": 87000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Matthew B LeBretton",
+          "salary": 360000
+        },
+        {
+          "name": "Dennis Callahan",
+          "salary": 180000
+        },
+        {
+          "name": "Jamaica Plain Company",
+          "salary": 50000
+        },
+        {
+          "name": "National Grid USA",
+          "salary": 14000
+        }
+      ]
+    },
+    {
+      "rank": 28,
+      "name": "Charles Stefanini Consulting LLC",
+      "totalExpenditure": 974203,
+      "directExpenses": 193549,
+      "clients": 18,
+      "lobbyistCount": 3,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "6 Beacon Street, Suite 215,  Boston, MA, 02018 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Pine Street Inn, Inc.",
+          "amount": 120000
+        },
+        {
+          "name": "Teach For America, Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "Novo Nordisk Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "Massachusetts Nurses Association",
+          "amount": 69000
+        },
+        {
+          "name": "Seqirus USA Inc.",
+          "amount": 66000
+        },
+        {
+          "name": "Massachusetts Association of Early Education & Care",
+          "amount": 60000
+        },
+        {
+          "name": "American Cancer Society Cancer Action Network, Inc.",
+          "amount": 59998
+        },
+        {
+          "name": "Baystate Racing LLC",
+          "amount": 45000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Charles A Stefanini",
+          "salary": 650000
+        },
+        {
+          "name": "Compassion & Choices Action Network",
+          "salary": 60000
+        },
+        {
+          "name": "IATSE Local 481",
+          "salary": 30000
+        }
+      ]
+    },
+    {
+      "rank": 29,
+      "name": "McDermott, Quilty, Miller & Hanley LLP",
+      "totalExpenditure": 843640,
+      "directExpenses": 52206,
+      "clients": 8,
+      "lobbyistCount": 6,
+      "focus": "Education",
+      "type": "Registered Lobbying Entity",
+      "address": "28 State Street, Suite 802,  Boston, MA, 02109 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Wine & Spirit Wholesalers of Massachusetts",
+          "amount": 308000
+        },
+        {
+          "name": "Dana-Farber Cancer Institute, Inc. - Boston, MA",
+          "amount": 90000
+        },
+        {
+          "name": "CSX Transportation, Inc",
+          "amount": 72000
+        },
+        {
+          "name": "Tufts Medicine, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "Mallinckrodt, LLC",
+          "amount": 66000
+        },
+        {
+          "name": "Nellie Mae Education Foundation",
+          "amount": 66000
+        },
+        {
+          "name": "Merck Sharp & Dohme LLC",
+          "amount": 56000
+        },
+        {
+          "name": "American Families for Vaccines Action Fund, Inc.",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Jan Z. Rose",
+          "salary": 285820
+        },
+        {
+          "name": "William P. McDermott",
+          "salary": 201820
+        },
+        {
+          "name": "Stephen V. Miller",
+          "salary": 200000
+        },
+        {
+          "name": "Terence P. McDermott",
+          "salary": 156000
+        },
+        {
+          "name": "Bristol-Myers Squibb Company",
+          "salary": 60000
+        },
+        {
+          "name": "New England Baptist Hosptial",
+          "salary": 23640
+        }
+      ]
+    },
+    {
+      "rank": 30,
+      "name": "Corry Associates, LLC",
+      "totalExpenditure": 795333,
+      "directExpenses": 0,
+      "clients": 9,
+      "lobbyistCount": 4,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "6 Beacon Street, Suite 312,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Beer Distributors of Massachusetts, Inc.",
+          "amount": 200000
+        },
+        {
+          "name": "Motion Picture Association, Inc.",
+          "amount": 159333
+        },
+        {
+          "name": "AstraZeneca Pharmaceuticals, LP",
+          "amount": 110000
+        },
+        {
+          "name": "Massachusetts Nurses Association",
+          "amount": 90000
+        },
+        {
+          "name": "Sanofi US Services Inc.",
+          "amount": 75000
+        },
+        {
+          "name": "Harness Horseman's Association of New England, Inc.",
+          "amount": 70000
+        },
+        {
+          "name": "Massachusetts State Auto Dealers Association",
+          "amount": 36000
+        },
+        {
+          "name": "The Eric Carle Museum of Picture Book Art, Inc.",
+          "amount": 5000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Martin G. Corry",
+          "salary": 400000
+        },
+        {
+          "name": "Dominique Salogar",
+          "salary": 85050
+        },
+        {
+          "name": "Charles A Stefanini",
+          "salary": 80000
+        },
+        {
+          "name": "Cape Cod Chamber of Commerce",
+          "salary": 50000
+        }
+      ]
+    },
+    {
+      "rank": 31,
+      "name": "Government Insight Group LLC",
+      "totalExpenditure": 693000,
+      "directExpenses": 0,
+      "clients": 3,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "25 Dorchester Ave., P.O. Box 51250,  Boston, MA, 02205 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Kerbey Harrington  LLP",
+          "amount": 180000
+        },
+        {
+          "name": "Telecommunications Insight Group Inc.",
+          "amount": 180000
+        },
+        {
+          "name": "CV Properties LLC",
+          "amount": 120000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Cabot Corporation",
+          "salary": 213000
+        },
+        {
+          "name": "McFall Kerbey III",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 32,
+      "name": "Morrissey & Associates, LLC",
+      "totalExpenditure": 648000,
+      "directExpenses": 44154,
+      "clients": 6,
+      "lobbyistCount": 7,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "One Beacon Street, Suite #16300,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Google Public Sector LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Google Client Services LLC",
+          "amount": 84000
+        },
+        {
+          "name": "Metrc, LLC",
+          "amount": 72000
+        },
+        {
+          "name": "TD Bank US Holding Company",
+          "amount": 72000
+        },
+        {
+          "name": "Motorola Solutions, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Othram, Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Sean M. Morrissey",
+          "salary": 300000
+        },
+        {
+          "name": "Allwyn North America",
+          "salary": 90000
+        },
+        {
+          "name": "Eli Lilly and Company",
+          "salary": 72000
+        },
+        {
+          "name": "Special Olympics Massachusetts",
+          "salary": 60000
+        },
+        {
+          "name": "Environmental Products Corporation",
+          "salary": 48000
+        },
+        {
+          "name": "Christopher Christopher Stanley Koczela Koczela",
+          "salary": 45000
+        },
+        {
+          "name": "Matthew B LeBretton",
+          "salary": 45000
+        }
+      ]
+    },
+    {
+      "rank": 33,
+      "name": "BALLARD PARTNERS, INC.",
+      "totalExpenditure": 609500,
+      "directExpenses": 146286,
+      "clients": 9,
+      "lobbyistCount": 3,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "6 Beacon Street Suite 312 Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Thrive Operations, LLC",
+          "amount": 97500
+        },
+        {
+          "name": "Simon Wiesenthal Center, Inc.",
+          "amount": 84000
+        },
+        {
+          "name": "Versaterm Public Safety Inc.",
+          "amount": 82500
+        },
+        {
+          "name": "Amazon.com Services LLC",
+          "amount": 60000
+        },
+        {
+          "name": "Democracy Live, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Murphy Pipeline Contractors LLC",
+          "amount": 60000
+        },
+        {
+          "name": "DoorDash, Inc.",
+          "amount": 45500
+        },
+        {
+          "name": "L3Harris Technologies, Inc.",
+          "amount": 45000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Stephen Passacantilli",
+          "salary": 237750
+        },
+        {
+          "name": "Eugene O'Flaherty",
+          "salary": 190500
+        },
+        {
+          "name": "SePRO Corporation",
+          "salary": 75000
+        }
+      ]
+    },
+    {
+      "rank": 34,
+      "name": "Keswick Consulting LLC",
+      "totalExpenditure": 588500,
+      "directExpenses": 24988,
+      "clients": 9,
+      "lobbyistCount": 2,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "76 Buckingham Road Milton, MA, 02186 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Slalom, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Sterling Suffolk Racecourse, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "DocuSign, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Facility Management Corporation",
+          "amount": 60000
+        },
+        {
+          "name": "First Data Government Solutions, LP",
+          "amount": 60000
+        },
+        {
+          "name": "TriNet USA Inc",
+          "amount": 51000
+        },
+        {
+          "name": "HUB Technical Services LLC",
+          "amount": 30000
+        },
+        {
+          "name": "Vocational Careers Corp",
+          "amount": 24000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Matt Keswick",
+          "salary": 600000
+        },
+        {
+          "name": "NWN Corporation",
+          "salary": 110000
+        }
+      ]
+    },
+    {
+      "rank": 35,
+      "name": "William F. Coyne, Jr., Esq. P.C.",
+      "totalExpenditure": 579000,
+      "directExpenses": 84478,
+      "clients": 9,
+      "lobbyistCount": 3,
+      "focus": "Real Estate & Housing",
+      "type": "Registered Lobbying Entity",
+      "address": "6 Beacon Street, Suite 505,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "SEB Lynn Harbor Property LLC",
+          "amount": 165000
+        },
+        {
+          "name": "Verizon Corporate Resources Group LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Cigar Association of America, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Oyster Pond EP Trust",
+          "amount": 55000
+        },
+        {
+          "name": "Massachusetts Restaurant Association",
+          "amount": 50000
+        },
+        {
+          "name": "MV 100 Oyster Pond Road LLC",
+          "amount": 50000
+        },
+        {
+          "name": "Molson Coors Beverage Company USA LLC",
+          "amount": 41000
+        },
+        {
+          "name": "HRP Group",
+          "amount": 32000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "William F. Coyne, Jr.",
+          "salary": 200000
+        },
+        {
+          "name": "Patricia E. McCarthy",
+          "salary": 100000
+        },
+        {
+          "name": "Eastman Chemical Company",
+          "salary": 36000
+        }
+      ]
+    },
+    {
+      "rank": 36,
+      "name": "Park Street Strategies, LLC",
+      "totalExpenditure": 534500,
+      "directExpenses": 28772,
+      "clients": 7,
+      "lobbyistCount": 3,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "121 Mount Vernon Street  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Biotechnology Council, Inc",
+          "amount": 120000
+        },
+        {
+          "name": "Acuity Strategic Partners LLC",
+          "amount": 100000
+        },
+        {
+          "name": "Amgen Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "Sage Therapeutics, Inc.",
+          "amount": 66000
+        },
+        {
+          "name": "Acadia Pharmaceuticals Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "UCB, Inc.",
+          "amount": 57500
+        },
+        {
+          "name": "NanoDx, Inc",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "John F.X. Heffernan",
+          "salary": 234000
+        },
+        {
+          "name": "Biotechnology Innovation Organization",
+          "salary": 59000
+        },
+        {
+          "name": "PTC Therapeutics",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 37,
+      "name": "Liberty Square Group, Inc.",
+      "totalExpenditure": 520650,
+      "directExpenses": 0,
+      "clients": 14,
+      "lobbyistCount": 7,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "90 Sherman St Cambridge, MA, 02140 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "American Physical Therapy Association of Massachusetts",
+          "amount": 89000
+        },
+        {
+          "name": "Committee of Interns and Residents/SEIU",
+          "amount": 45000
+        },
+        {
+          "name": "Massachusetts Cannabis Coalition",
+          "amount": 36000
+        },
+        {
+          "name": "Massachusetts Veterinary Medical Association",
+          "amount": 32000
+        },
+        {
+          "name": "Decriminalize Sex Work, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "USS Constitution Museum, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "Horizons for Homeless Children, Inc.",
+          "amount": 24000
+        },
+        {
+          "name": "Aunt Bertha, A Public Benefit Corporation",
+          "amount": 22500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Timothy Sullivan",
+          "salary": 240900
+        },
+        {
+          "name": "The Coca Cola Company",
+          "salary": 90000
+        },
+        {
+          "name": "James Leahy",
+          "salary": 89500
+        },
+        {
+          "name": "Stacey Monahan",
+          "salary": 83500
+        },
+        {
+          "name": "First American Title Company",
+          "salary": 54000
+        },
+        {
+          "name": "Jennifer Flanagan",
+          "salary": 51000
+        },
+        {
+          "name": "Amanda Cox",
+          "salary": 26250
+        }
+      ]
+    },
+    {
+      "rank": 38,
+      "name": "Cascade Strategies, LLC",
+      "totalExpenditure": 512000,
+      "directExpenses": 67741,
+      "clients": 10,
+      "lobbyistCount": 2,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "10 Myrtle Street Winchester, MA, 01890-2808 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Utility Contractors association of New England, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "American Traffic Solutions Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "McLane Company, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Trucking Association of Massachusetts",
+          "amount": 59000
+        },
+        {
+          "name": "Zones, LLC",
+          "amount": 54000
+        },
+        {
+          "name": "New England College of Optometry",
+          "amount": 36000
+        },
+        {
+          "name": "Self Storage Association, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "SPECIALIZED CARRIERS & RIGGING ASSOCIATION (SC&RA) CORPORATION",
+          "amount": 36000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Mark Keough Molloy",
+          "salary": 430000
+        },
+        {
+          "name": "Massachusetts Foot and Ankle Scoiety",
+          "salary": 48000
+        }
+      ]
+    },
+    {
+      "rank": 39,
+      "name": "Philip W. Johnston Associates, LLC",
+      "totalExpenditure": 491610,
+      "directExpenses": 70393,
+      "clients": 16,
+      "lobbyistCount": 5,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "PO Box 608 Marshfield, MA, 02050 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Greater New Bedford Community Health Center, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Robert F. Kennedy Community Alliance, Inc.",
+          "amount": 45000
+        },
+        {
+          "name": "Volunteers of America of Massachusetts Inc.",
+          "amount": 45000
+        },
+        {
+          "name": "Walker, Inc.",
+          "amount": 45000
+        },
+        {
+          "name": "MAXIMUS, Inc.",
+          "amount": 39000
+        },
+        {
+          "name": "Brookline Community Mental Health Center, Inc.",
+          "amount": 37500
+        },
+        {
+          "name": "Edward M. Kennedy Community Health Center, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "Massachusetts Down Syndrome Congress, Inc.",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Philip W. Johnston",
+          "salary": 312610
+        },
+        {
+          "name": "James Michael Daiute",
+          "salary": 73000
+        },
+        {
+          "name": "Salvatore Francis DiMasi",
+          "salary": 57500
+        },
+        {
+          "name": "Jane Lane",
+          "salary": 32500
+        },
+        {
+          "name": "Caroline Haigh",
+          "salary": 16000
+        }
+      ]
+    },
+    {
+      "rank": 40,
+      "name": "Sanchez Strategies, LLC",
+      "totalExpenditure": 482000,
+      "directExpenses": 73202,
+      "clients": 5,
+      "lobbyistCount": 3,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "17 Armstrong St., 3,  Boston, MA, 02130 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "The Massachusetts League of Community Health Centers, Inc.",
+          "amount": 85000
+        },
+        {
+          "name": "1199SEIU United Healthcare Workers East",
+          "amount": 70000
+        },
+        {
+          "name": "Health Equity Compact",
+          "amount": 70000
+        },
+        {
+          "name": "Holocaust Legacy Foundation, Inc",
+          "amount": 56000
+        },
+        {
+          "name": "CHARLES RIVER COMMUNITY HEALTH, INC.",
+          "amount": 45000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Jeffrey Sanchez",
+          "salary": 505606
+        },
+        {
+          "name": "Latinos for Education",
+          "salary": 96000
+        },
+        {
+          "name": "Community Care Cooperative",
+          "salary": 60000
+        }
+      ]
+    },
+    {
+      "rank": 41,
+      "name": "NATIONAL STRATEGIES, LLC",
+      "totalExpenditure": 481000,
+      "directExpenses": 0,
+      "clients": 11,
+      "lobbyistCount": 0,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "2020 K ST NW , STE 505,  Washington, DC, 20006 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Pure Storage, Inc.",
+          "amount": 150000
+        },
+        {
+          "name": "Tanium, Inc.",
+          "amount": 78000
+        },
+        {
+          "name": "Compass Pathways, Inc.",
+          "amount": 63000
+        },
+        {
+          "name": "Association of Social Work Boards, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Autism Spectrum Therapies, LLC",
+          "amount": 41250
+        },
+        {
+          "name": "Behavioral Concepts Innovation, LLC",
+          "amount": 41250
+        },
+        {
+          "name": "SKYDIO INC.",
+          "amount": 30000
+        },
+        {
+          "name": "Knox Associates, Inc.",
+          "amount": 17500
+        }
+      ],
+      "lobbyists": []
+    },
+    {
+      "rank": 42,
+      "name": "Beacon Hill Consulting Group, LLC",
+      "totalExpenditure": 472854,
+      "directExpenses": 163653,
+      "clients": 10,
+      "lobbyistCount": 3,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "20 Ashburton Place, 2nd Floor,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Alliance for Automotive Innovation",
+          "amount": 95646
+        },
+        {
+          "name": "Associated Builders and Contractors, MA Chapter",
+          "amount": 92508
+        },
+        {
+          "name": "Health Care For All, Inc.",
+          "amount": 75000
+        },
+        {
+          "name": "StaffDocs, LLC",
+          "amount": 40000
+        },
+        {
+          "name": "PENN Entertainment, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "National Association of Settlement Purchasers",
+          "amount": 28000
+        },
+        {
+          "name": "Natural Product Association",
+          "amount": 28000
+        },
+        {
+          "name": "New England Trail Rider Association Incorporated",
+          "amount": 26500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "John C Bartley",
+          "salary": 272630
+        },
+        {
+          "name": "Berkshire Gas",
+          "salary": 43200
+        },
+        {
+          "name": "Report amendment 11/19/2025",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 43,
+      "name": "Wallace and Associates Consulting, LLC",
+      "totalExpenditure": 456000,
+      "directExpenses": 7749,
+      "clients": 12,
+      "lobbyistCount": 3,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "121 Revere Street, Unit B,  Canton, MA, 02021 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "The Massachusetts Medical Society",
+          "amount": 58000
+        },
+        {
+          "name": "Massachusetts Chapter, American Academy of Pediatrics, Inc.",
+          "amount": 45000
+        },
+        {
+          "name": "Massachusetts Section, American Congress of Obstetricians and Gynecologists",
+          "amount": 45000
+        },
+        {
+          "name": "Massachusetts Orthopaedic Association",
+          "amount": 40000
+        },
+        {
+          "name": "Massachusetts College of Emergency Physicians",
+          "amount": 38000
+        },
+        {
+          "name": "Massachusetts Radiological Society",
+          "amount": 36000
+        },
+        {
+          "name": "Massachusetts Society of Clinical Oncologists, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "Massachusetts Association of Ambulatory Surgery Centers, Inc.",
+          "amount": 32000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Ronna Ronna Wallace Wallace",
+          "salary": 424095
+        },
+        {
+          "name": "Massachusetts Academy of Dermatology",
+          "salary": 48000
+        },
+        {
+          "name": "Patrick J Huntington",
+          "salary": 22500
+        }
+      ]
+    },
+    {
+      "rank": 44,
+      "name": "Manatt, Phelps & Phillips LLP",
+      "totalExpenditure": 452047,
+      "directExpenses": 1665,
+      "clients": 4,
+      "lobbyistCount": 3,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "1 Beacon Street, Suite 28-200,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Biotechnology Council, Inc",
+          "amount": 180047
+        },
+        {
+          "name": "Epic Systems Corporation",
+          "amount": 92000
+        },
+        {
+          "name": "Gilead Sciences, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Amgen Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Pat Anthony Cerundolo",
+          "salary": 360000
+        },
+        {
+          "name": "Vertex Pharmaceuticals Incorporated",
+          "salary": 120000
+        },
+        {
+          "name": "Nicholas Doherty",
+          "salary": 92000
+        }
+      ]
+    },
+    {
+      "rank": 45,
+      "name": "J Wagner Strategies, LLC",
+      "totalExpenditure": 449000,
+      "directExpenses": 11616,
+      "clients": 8,
+      "lobbyistCount": 5,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "131 Edward Street Chicopee, MA, 01020 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Greater Springfield Convention and Visitors Bureau, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "New England Connectivity and Telecommunications Association, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Health New England Inc",
+          "amount": 42000
+        },
+        {
+          "name": "Baystate Health, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "New England Collectors Association",
+          "amount": 36000
+        },
+        {
+          "name": "MASSACHUSETTS SHERIFFS ORGANIZATION INC",
+          "amount": 20000
+        },
+        {
+          "name": "TECH FOUNDRY, INC.",
+          "amount": 19500
+        },
+        {
+          "name": "Springfield Regional Chamber of Commerce, Inc.",
+          "amount": 7500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Joseph Wagner",
+          "salary": 300000
+        },
+        {
+          "name": "Michael McCary",
+          "salary": 137250
+        },
+        {
+          "name": "Springfield Day Nursery Corporation",
+          "salary": 60000
+        },
+        {
+          "name": "WinnDevelopment Company Limited Partnership",
+          "salary": 60000
+        },
+        {
+          "name": "Eastern States Exposition",
+          "salary": 36000
+        }
+      ]
+    },
+    {
+      "rank": 46,
+      "name": "Lynch & Fierro LLP",
+      "totalExpenditure": 445237,
+      "directExpenses": 17823,
+      "clients": 10,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "6 Beacon Street, Suite 700,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Home Builders and Remodelers Association of Massachusetts, Inc.",
+          "amount": 122196
+        },
+        {
+          "name": "Association for Behavioral Healthcare",
+          "amount": 111188
+        },
+        {
+          "name": "Greater Boston Legal Services, Inc.",
+          "amount": 42000
+        },
+        {
+          "name": "American Nurses Association Massachusetts,  Inc.",
+          "amount": 39104
+        },
+        {
+          "name": "Massachusetts Correctional Legal Services d/b/a Prisoners' Legal Services",
+          "amount": 38400
+        },
+        {
+          "name": "Northeast Justice Center, LLC",
+          "amount": 36000
+        },
+        {
+          "name": "The Real Estate Bar Association for Massachusetts, Inc.",
+          "amount": 28350
+        },
+        {
+          "name": "Massachusetts Psychological Association, Inc., The",
+          "amount": 28000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Benjamin Fierro",
+          "salary": 227605
+        }
+      ]
+    },
+    {
+      "rank": 47,
+      "name": "Steven C. Panagiotakos, Lobbyist/Consultant",
+      "totalExpenditure": 432500,
+      "directExpenses": 9532,
+      "clients": 12,
+      "lobbyistCount": 6,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "138 Highland AVenue , 5,  Lowell, MA, 01851 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Association of Health Plans",
+          "amount": 60000
+        },
+        {
+          "name": "Lowell Community Health Center",
+          "amount": 42000
+        },
+        {
+          "name": "NEW ENGLAND POLICE BENEVOLENT ASSOCIATION",
+          "amount": 42000
+        },
+        {
+          "name": "The Massachusetts Chiropractic Society, INC",
+          "amount": 30000
+        },
+        {
+          "name": "Marwick, LLC",
+          "amount": 18000
+        },
+        {
+          "name": "Massachusetts Coalition for Adult Education",
+          "amount": 18000
+        },
+        {
+          "name": "New England Studios @ Devens LLC",
+          "amount": 18000
+        },
+        {
+          "name": "RCG 45 Merrimack OZ Business LLC",
+          "amount": 15000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Steven Christopher Panagiotakos",
+          "salary": 432300
+        },
+        {
+          "name": "Community Teamwork",
+          "salary": 48000
+        },
+        {
+          "name": "WinnDevelopment Company Limited Partnership",
+          "salary": 30000
+        },
+        {
+          "name": "Pollard Banknote Limited",
+          "salary": 28000
+        },
+        {
+          "name": "S&R Corporation",
+          "salary": 24000
+        },
+        {
+          "name": "Vinfen Corporation",
+          "salary": 21000
+        }
+      ]
+    },
+    {
+      "rank": 48,
+      "name": "The Glodis Group, LLC",
+      "totalExpenditure": 431900,
+      "directExpenses": 21769,
+      "clients": 13,
+      "lobbyistCount": 2,
+      "focus": "Labor & Unions",
+      "type": "Registered Lobbying Entity",
+      "address": "66 Homers Dock Road Yarmouthport, MA, 02675 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Correction Officers Federated Union",
+          "amount": 51000
+        },
+        {
+          "name": "Taylor Brothers Doorlock, LLC",
+          "amount": 48000
+        },
+        {
+          "name": "VitalSource Technologies, LLC",
+          "amount": 44000
+        },
+        {
+          "name": "Alliance of Automotive Service Providers of Massachusetts, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "Massachusetts Concrete & Aggregate Producers Association, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "International Union of Operating Engineers Local 4",
+          "amount": 30000
+        },
+        {
+          "name": "New England Chapter of the American Society of Home Inspectors, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "Plymouth and Brockton Street Railway Company",
+          "amount": 27000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Guy W. Glodis",
+          "salary": 443900
+        },
+        {
+          "name": "Discover Central MA",
+          "salary": 36000
+        }
+      ]
+    },
+    {
+      "rank": 49,
+      "name": "Pilgrim Strategies, LLC",
+      "totalExpenditure": 428000,
+      "directExpenses": 25054,
+      "clients": 6,
+      "lobbyistCount": 5,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "20 Ashburton Place, 2nd Floor,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Enbridge (U.S.) Inc.",
+          "amount": 100000
+        },
+        {
+          "name": "Turquoise Southfield NR LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Dental Service of Massachusetts, Inc.",
+          "amount": 84000
+        },
+        {
+          "name": "Pharmaceutical Care Management Association",
+          "amount": 54000
+        },
+        {
+          "name": "Coalition for Community Solar Access",
+          "amount": 34000
+        },
+        {
+          "name": "PENN Entertainment, Inc.",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Christopher J. Chapman",
+          "salary": 193400
+        },
+        {
+          "name": "William Ryan",
+          "salary": 193400
+        },
+        {
+          "name": "Robert A Rio",
+          "salary": 79200
+        },
+        {
+          "name": "Standardbred Owners of Massachusetts, Incorporated",
+          "salary": 36000
+        },
+        {
+          "name": "James Quigley",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 50,
+      "name": "Fort Point Strategies LLC",
+      "totalExpenditure": 412950,
+      "directExpenses": 37397,
+      "clients": 10,
+      "lobbyistCount": 1,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "20 Ashburton Place, 2nd Flr,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "American Honda Motor Company, Inc.",
+          "amount": 74000
+        },
+        {
+          "name": "American Express Travel Related Services Company, Inc.",
+          "amount": 61000
+        },
+        {
+          "name": "Consumer Data Industry Association, Inc.",
+          "amount": 55500
+        },
+        {
+          "name": "American Heart Association Inc.",
+          "amount": 46000
+        },
+        {
+          "name": "Parallel Products of New England Inc.",
+          "amount": 46000
+        },
+        {
+          "name": "Fiserv, Inc.",
+          "amount": 42000
+        },
+        {
+          "name": "New England Pest Control Association, Inc.",
+          "amount": 32450
+        },
+        {
+          "name": "Western Union Financial Services, Inc.",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Christopher Christopher Stanley Koczela Koczela",
+          "salary": 325000
+        }
+      ]
+    },
+    {
+      "rank": 51,
+      "name": "Governmental Strategies, Inc.",
+      "totalExpenditure": 409881,
+      "directExpenses": 25157,
+      "clients": 12,
+      "lobbyistCount": 6,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "23 Falmouth Rd WATERTOWN, MA, 02472 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Infant Toddler Advocates, Inc.",
+          "amount": 80000
+        },
+        {
+          "name": "Massachusetts Veterinary Technician Association",
+          "amount": 60000
+        },
+        {
+          "name": "Home Care Aide Council",
+          "amount": 42350
+        },
+        {
+          "name": "Hospice & Palliative Care Federation of Massachusetts",
+          "amount": 32980
+        },
+        {
+          "name": "Regional Housing Network of Massachusetts, Inc.",
+          "amount": 30450
+        },
+        {
+          "name": "Brockton Area Multi-Services Inc.",
+          "amount": 14100
+        },
+        {
+          "name": "The Cambridge Young Women's Christian Association",
+          "amount": 3889
+        },
+        {
+          "name": "Young Women's Christian Association of Lowell",
+          "amount": 3889
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Mary Ann Mulligan",
+          "salary": 160804
+        },
+        {
+          "name": "Massachusetts Legal Assistance Corporation",
+          "salary": 115000
+        },
+        {
+          "name": "Mary Ann Walsh",
+          "salary": 78072
+        },
+        {
+          "name": "YW Boston",
+          "salary": 3889
+        },
+        {
+          "name": "YWCA Northeastern Massachusetts",
+          "salary": 3889
+        },
+        {
+          "name": "YWCA of Western Massachusetts",
+          "salary": 3889
+        }
+      ]
+    },
+    {
+      "rank": 52,
+      "name": "TENAX STRATEGIES, INC.",
+      "totalExpenditure": 399300,
+      "directExpenses": 32506,
+      "clients": 5,
+      "lobbyistCount": 3,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "100 Franklin Street, Suite 404,  Boston, MA, 02109 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Altria Client Services LLC",
+          "amount": 192000
+        },
+        {
+          "name": "Massachusetts Association of Residential Care Homes",
+          "amount": 69300
+        },
+        {
+          "name": "Triangle Inc",
+          "amount": 48000
+        },
+        {
+          "name": "Massachusetts Concrete & Aggregate Producers Association, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "NATIONAL GUARD ASSOCIATION OF MASSACHUSETTS, INC., THE",
+          "amount": 12000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Gregory Michael Dagostino",
+          "salary": 130000
+        },
+        {
+          "name": "Matthew Paul McKenna",
+          "salary": 113664
+        },
+        {
+          "name": "Professional Firefighters of Massachusetts",
+          "salary": 42000
+        }
+      ]
+    },
+    {
+      "rank": 53,
+      "name": "Delaney & Associates, Inc.",
+      "totalExpenditure": 398000,
+      "directExpenses": 42510,
+      "clients": 8,
+      "lobbyistCount": 4,
+      "focus": "Real Estate & Housing",
+      "type": "Registered Lobbying Entity",
+      "address": "6 BEACON ST STE 700, 700,  BOSTON, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Association of Realtors",
+          "amount": 110636
+        },
+        {
+          "name": "Greater Boston Real Estate Board",
+          "amount": 77364
+        },
+        {
+          "name": "SUNRISE SENIOR LIVING MANAGEMENT, INC.",
+          "amount": 44000
+        },
+        {
+          "name": "Air Conditioning Association of New England",
+          "amount": 40000
+        },
+        {
+          "name": "Verizon Corporate Resources Group LLC",
+          "amount": 30000
+        },
+        {
+          "name": "Massachusetts Manufactured Housing Association",
+          "amount": 13500
+        },
+        {
+          "name": "Acupuncture Society of Massachusetts",
+          "amount": 0
+        },
+        {
+          "name": "Massasoit Greyhound Association, Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Mark J Delaney",
+          "salary": 130000
+        },
+        {
+          "name": "Scott J Delaney",
+          "salary": 77500
+        },
+        {
+          "name": "Steel Fabricators of New England",
+          "salary": 50000
+        },
+        {
+          "name": "Taunton Municipal Lighting Plant",
+          "salary": 32500
+        }
+      ]
+    },
+    {
+      "rank": 54,
+      "name": "Massachusetts  Bay Associates, Inc.",
+      "totalExpenditure": 393470,
+      "directExpenses": 9131,
+      "clients": 5,
+      "lobbyistCount": 3,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "49 Fairbanks Road, MILTON MA,  Milton, MA, 02186 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Waste Management of Massachusetts, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Massachusetts Chain Pharmacy Council",
+          "amount": 83970
+        },
+        {
+          "name": "NRLA Enterprises, Inc.",
+          "amount": 43000
+        },
+        {
+          "name": "Massachusetts State Auto Dealers Association",
+          "amount": 36000
+        },
+        {
+          "name": "Massachusetts Society for Medical Research, Inc.",
+          "amount": 18000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "CRRC MA Corporation",
+          "salary": 122500
+        },
+        {
+          "name": "Robert Emmet Hayes",
+          "salary": 117645
+        },
+        {
+          "name": "Patrick J Huntington",
+          "salary": 48500
+        }
+      ]
+    },
+    {
+      "rank": 55,
+      "name": "Troutman Pepper Hamilton Sanders LLP",
+      "totalExpenditure": 393172,
+      "directExpenses": 103275,
+      "clients": 6,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "111 Huntington Ave Boston, MA, 02199 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "CVS PHARMACY, INC.",
+          "amount": 144000
+        },
+        {
+          "name": "GLOBAL KRATOM COALITION, INC",
+          "amount": 90000
+        },
+        {
+          "name": "Pattern Energy Group Limited Partnership",
+          "amount": 84000
+        },
+        {
+          "name": "PowerOptions, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "MA Insurers Insolvency Fund",
+          "amount": 22902
+        },
+        {
+          "name": "Carlyle Investment Management, LLC",
+          "amount": 22270
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Warren Jay Myers",
+          "salary": 280000
+        }
+      ]
+    },
+    {
+      "rank": 56,
+      "name": "Hub Strategies",
+      "totalExpenditure": 387493,
+      "directExpenses": 13143,
+      "clients": 12,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "PO Box 136 Boston , MA, 02133 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Psychiatric Society",
+          "amount": 72093
+        },
+        {
+          "name": "The Key Program Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Massachusetts Council of Human Services Providers, Inc.",
+          "amount": 45000
+        },
+        {
+          "name": "Alternative Home Health Care LLC",
+          "amount": 36000
+        },
+        {
+          "name": "New England Connectivity and Telecommunications Association, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "Massachusetts Children's Alliance",
+          "amount": 32400
+        },
+        {
+          "name": "Association for Competitive Technology",
+          "amount": 24000
+        },
+        {
+          "name": "Massachusetts Head Start Association",
+          "amount": 24000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "LISA I SIMONETTI",
+          "salary": 320000
+        }
+      ]
+    },
+    {
+      "rank": 57,
+      "name": "27 South Strategies, LLC",
+      "totalExpenditure": 353600,
+      "directExpenses": 4994,
+      "clients": 8,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "21 Magnolia Rd Sharon, MA, 02067 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Gobrands, Inc",
+          "amount": 120000
+        },
+        {
+          "name": "Veterinary Emergency Group, LLC",
+          "amount": 72000
+        },
+        {
+          "name": "THE MASSACHUSETTS INTERNATIONAL FESTIVAL OF THE ARTS",
+          "amount": 48000
+        },
+        {
+          "name": "Science Club for Girls, Inc",
+          "amount": 31500
+        },
+        {
+          "name": "We The Protestors, Inc.",
+          "amount": 24000
+        },
+        {
+          "name": "LEADS INC.",
+          "amount": 21000
+        },
+        {
+          "name": "Guardian Community Trust, Inc.",
+          "amount": 2000
+        },
+        {
+          "name": "Boston Center for Independent Living Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Thrive Scholars",
+          "salary": 35100
+        },
+        {
+          "name": "Aaron Agulnek",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 58,
+      "name": "New Boston Strategies Group Ltd.",
+      "totalExpenditure": 336000,
+      "directExpenses": 3600,
+      "clients": 4,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "1208 VFW Parkway, Suite 301,  West Roxbury, MA, 02132 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "National Strategies, LLC",
+          "amount": 150000
+        },
+        {
+          "name": "Semperis Inc.",
+          "amount": 96000
+        },
+        {
+          "name": "xfact inc",
+          "amount": 90000
+        },
+        {
+          "name": "Pure Storage, Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "John F Harrington",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 59,
+      "name": "Grant Associates",
+      "totalExpenditure": 320000,
+      "directExpenses": 46468,
+      "clients": 5,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "130 Bowdoin Street, Suite 1701,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "The Massachusetts Medical Society",
+          "amount": 145000
+        },
+        {
+          "name": "Massachusetts Society of Eye Physicians and Surgeons",
+          "amount": 60000
+        },
+        {
+          "name": "Massachusetts Senior Care Association Inc.",
+          "amount": 40000
+        },
+        {
+          "name": "The Children's Hospital Corporation",
+          "amount": 40000
+        },
+        {
+          "name": "Professional Liability Foundation, Ltd.",
+          "amount": 35000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Joseph M Grant",
+          "salary": 150000
+        }
+      ]
+    },
+    {
+      "rank": 60,
+      "name": "Rauschenbach Associates",
+      "totalExpenditure": 316000,
+      "directExpenses": 28950,
+      "clients": 7,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "65 Far Fields Road Brewster, MA, 02631 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Cape Cod Healthcare",
+          "amount": 65000
+        },
+        {
+          "name": "Turo, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Blue Cross Blue Shield of Massachusetts, Inc.",
+          "amount": 50000
+        },
+        {
+          "name": "Baystate Health, Inc.",
+          "amount": 45000
+        },
+        {
+          "name": "Cengage Learning, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "Green Berkshires, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "Manet Community Health Center",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Henri S Rauschenbach",
+          "salary": 298000
+        }
+      ]
+    },
+    {
+      "rank": 61,
+      "name": "Robert F White Consulting Inc",
+      "totalExpenditure": 302500,
+      "directExpenses": 115110,
+      "clients": 8,
+      "lobbyistCount": 1,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "25 Beach Street, Floor 3R,  Dorchester, MA, 02122 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Keolis Commuter Services, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "WORK INC",
+          "amount": 60000
+        },
+        {
+          "name": "Arbella Mutual Insurance Company",
+          "amount": 50000
+        },
+        {
+          "name": "Ascentria Care Alliance, Inc.",
+          "amount": 27000
+        },
+        {
+          "name": "Global Partners, LP",
+          "amount": 24000
+        },
+        {
+          "name": "Massachusetts Energy Marketers Association, Inc.",
+          "amount": 24000
+        },
+        {
+          "name": "Massachusetts Medical Malpractice Reinsurance Plan",
+          "amount": 22500
+        },
+        {
+          "name": "Leominster Development Group LLC",
+          "amount": 5000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Robert F White",
+          "salary": 64518
+        }
+      ]
+    },
+    {
+      "rank": 62,
+      "name": "Joyce & Joyce",
+      "totalExpenditure": 291500,
+      "directExpenses": 53182,
+      "clients": 4,
+      "lobbyistCount": 2,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "121 Portland Street, Suite 901,  Boston, MA, 02114 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "MASSACHUSETTS BANKERS ASSOCIATION, INC.",
+          "amount": 110000
+        },
+        {
+          "name": "Franciscan Hospital for Children, Inc.",
+          "amount": 70000
+        },
+        {
+          "name": "Addiction Treatment Center of New England",
+          "amount": 48000
+        },
+        {
+          "name": "Massachusetts Town Clerks Association, Inc.",
+          "amount": 37500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Thomas M Joyce",
+          "salary": 291500
+        },
+        {
+          "name": "National Grid USA",
+          "salary": 26000
+        }
+      ]
+    },
+    {
+      "rank": 63,
+      "name": "Waterville Consulting",
+      "totalExpenditure": 282000,
+      "directExpenses": 50210,
+      "clients": 4,
+      "lobbyistCount": 1,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "84 State Street, suite 900,  Boston, MA, 02109 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Accenture LLP",
+          "amount": 120000
+        },
+        {
+          "name": "Amazon.com Services LLC",
+          "amount": 84000
+        },
+        {
+          "name": "NetApp U.S. Public Sector, Inc.",
+          "amount": 39000
+        },
+        {
+          "name": "Snowflake Inc",
+          "amount": 39000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Sean Sean Q Curran Curran",
+          "salary": 230140
+        }
+      ]
+    },
+    {
+      "rank": 64,
+      "name": "Smith, Rauschenbach & Halloran LLC",
+      "totalExpenditure": 281500,
+      "directExpenses": 28950,
+      "clients": 5,
+      "lobbyistCount": 4,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "65 Far Fields Road Brewster, MA, 02631 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Pharmaceutical Care Management Association",
+          "amount": 90000
+        },
+        {
+          "name": "PACE Funding Group, LLC dba Home Run Financing",
+          "amount": 60000
+        },
+        {
+          "name": "The Massachusetts League of Community Health Centers, Inc.",
+          "amount": 42000
+        },
+        {
+          "name": "Harbor Health Services, Inc",
+          "amount": 30000
+        },
+        {
+          "name": "State Police Commissioned Officers Association of Massachusetts Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Henri S Rauschenbach",
+          "salary": 231900
+        },
+        {
+          "name": "Kenneth P Halloran",
+          "salary": 49600
+        },
+        {
+          "name": "International Business Machines Corporation (IBM)",
+          "salary": 46000
+        },
+        {
+          "name": "NeighborHealth Corporation",
+          "salary": 13500
+        }
+      ]
+    },
+    {
+      "rank": 65,
+      "name": "John V. Fernandes",
+      "totalExpenditure": 271700,
+      "directExpenses": 20955,
+      "clients": 6,
+      "lobbyistCount": 2,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "100 Cambridge Street, Suite 1301,  Boston, MA, 02114 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Sira Naturals, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "Cape Cod Cranberry Growers' Association",
+          "amount": 63600
+        },
+        {
+          "name": "Massachusetts Collectors and Treasurers Association",
+          "amount": 54600
+        },
+        {
+          "name": "Massachusetts Association of Dairy Farmers, Inc.",
+          "amount": 27500
+        },
+        {
+          "name": "Massachusetts Nursery and Landscape Association, Inc.",
+          "amount": 27500
+        },
+        {
+          "name": "Massachusetts Flower Growers' Association, Inc.",
+          "amount": 18500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "John V. Fernandes",
+          "salary": 255045
+        },
+        {
+          "name": "Theatre Owners of New England",
+          "salary": 8000
+        }
+      ]
+    },
+    {
+      "rank": 66,
+      "name": "Finneran Global Strategies LLC",
+      "totalExpenditure": 270500,
+      "directExpenses": 0,
+      "clients": 4,
+      "lobbyistCount": 2,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "7 Countryside Drive Boston, MA, 02126 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Pharmaceutical Research and Manufacturers of America Corporation",
+          "amount": 72500
+        },
+        {
+          "name": "Cooperative Credit Union Association, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "Baystate Racing LLC",
+          "amount": 30000
+        },
+        {
+          "name": "Holistic Alternative Recovery Trust",
+          "amount": 12000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Thomas Finneran",
+          "salary": 156250
+        },
+        {
+          "name": "Vertex Pharmaceuticals Incorporated",
+          "salary": 120000
+        }
+      ]
+    },
+    {
+      "rank": 67,
+      "name": "Capitol Consulting",
+      "totalExpenditure": 252000,
+      "directExpenses": 15635,
+      "clients": 4,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "130 Bowdoin Street, Suite 1801,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "BusPatrol America LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Sterling Suffolk Racecourse, LLC",
+          "amount": 90000
+        },
+        {
+          "name": "Massachusetts Health & Hospital Association",
+          "amount": 60000
+        },
+        {
+          "name": "Kelley & Ryan Associates, Inc.",
+          "amount": 12000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Charles F Flaherty",
+          "salary": 200000
+        }
+      ]
+    },
+    {
+      "rank": 68,
+      "name": "Gateway Public Solutions LLC",
+      "totalExpenditure": 222000,
+      "directExpenses": 0,
+      "clients": 3,
+      "lobbyistCount": 1,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "11 Wentworth Rd Natick, MA, 01760 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Equitable Financial Life Insurance Company",
+          "amount": 90000
+        },
+        {
+          "name": "ENHANCED CAPITAL MASSACHUSETTS RURAL FUND LLC",
+          "amount": 72000
+        },
+        {
+          "name": "Massachusetts Independent Physician Practice Association, Inc.",
+          "amount": 60000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Marty Walsh",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 69,
+      "name": "Joyce Strategies LLC",
+      "totalExpenditure": 216000,
+      "directExpenses": 47146,
+      "clients": 2,
+      "lobbyistCount": 3,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "50 Franklin St.  Boston, MA, 02110 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Neutron Holdings, Inc.",
+          "amount": 72000
+        },
+        {
+          "name": "J2 Software Solutions, Inc.",
+          "amount": 24000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "CITGO Petroleum Corporation",
+          "salary": 120000
+        },
+        {
+          "name": "Kevin John Joyce",
+          "salary": 60000
+        },
+        {
+          "name": "Anthony Joseph Gallagher",
+          "salary": 30000
+        }
+      ]
+    },
+    {
+      "rank": 70,
+      "name": "Durand & Anastas Environmental Strategies, Inc",
+      "totalExpenditure": 192000,
+      "directExpenses": 1713,
+      "clients": 3,
+      "lobbyistCount": 2,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "39 Red Spring Road Marlborough, MA, 01752 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "RCAP Solutions, Inc.",
+          "amount": 78000
+        },
+        {
+          "name": "Vicinity Energy, LLC",
+          "amount": 72000
+        },
+        {
+          "name": "Maritime Alliance in Defense of Designated Port Areas Inc.",
+          "amount": 42000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Robert A Durand",
+          "salary": 170108
+        },
+        {
+          "name": "Martin Suuberg",
+          "salary": 164000
+        }
+      ]
+    },
+    {
+      "rank": 71,
+      "name": "Wilby Public Affairs, LLC",
+      "totalExpenditure": 192000,
+      "directExpenses": 3625,
+      "clients": 3,
+      "lobbyistCount": 1,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "89 Spring St. Brunswick, ME, 04011 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Longroad Energy Management, LLC",
+          "amount": 78000
+        },
+        {
+          "name": "Jupiter Power MA Management LLC",
+          "amount": 60000
+        },
+        {
+          "name": "Great River Hydro, LLC",
+          "amount": 54000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "David A. Wilby",
+          "salary": 192000
+        }
+      ]
+    },
+    {
+      "rank": 72,
+      "name": "Rosewood Consulting Inc",
+      "totalExpenditure": 190000,
+      "directExpenses": 24535,
+      "clients": 3,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "1 Rosewood Drive North Providence, RI, 02904 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Naismith Memorial Basketball Hall of Fame, Inc.",
+          "amount": 82500
+        },
+        {
+          "name": "Allied Waste Services of Massachusetts, LLC",
+          "amount": 50000
+        },
+        {
+          "name": "New England Public Media, Inc",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Lisa M Andoscia",
+          "salary": 85000
+        },
+        {
+          "name": "Springfield Symphony Orchestra",
+          "salary": 27500
+        }
+      ]
+    },
+    {
+      "rank": 73,
+      "name": "Isaacson Political Consulting",
+      "totalExpenditure": 187502,
+      "directExpenses": 11386,
+      "clients": 3,
+      "lobbyistCount": 1,
+      "focus": "Environment & Clean Energy",
+      "type": "Registered Lobbying Entity",
+      "address": "POBox 246   State House Boston, MA, 02133 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "American Civil Liberties Union of Massachusetts, Inc.",
+          "amount": 97500
+        },
+        {
+          "name": "Community Land & Water Coalition, Inc.",
+          "amount": 90000
+        },
+        {
+          "name": "Massachusetts Gay and Lesbian Political Caucus",
+          "amount": 2
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Arline Isaacson",
+          "salary": 70000
+        }
+      ]
+    },
+    {
+      "rank": 74,
+      "name": "Berkshire Resources",
+      "totalExpenditure": 177500,
+      "directExpenses": 500,
+      "clients": 3,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "16 Hutchinson Lane Lenox, MA, 01240 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Navigator Homes of Martha's Vineyard, Inc.",
+          "amount": 67500
+        },
+        {
+          "name": "Massachusetts Chief Probation Officers Association, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Integritus Healthcare, Inc.",
+          "amount": 50000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Christopher Joseph Hodgkins",
+          "salary": 180000
+        }
+      ]
+    },
+    {
+      "rank": 75,
+      "name": "ENE Strategies, LLC",
+      "totalExpenditure": 176480,
+      "directExpenses": 15476,
+      "clients": 5,
+      "lobbyistCount": 5,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "5 Hampshire Street, Suite 100,  Mansfield, MA, 02048 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "FirstLight Power Inc.",
+          "amount": 41800
+        },
+        {
+          "name": "Reading Municipal Light Department",
+          "amount": 31670
+        },
+        {
+          "name": "Braintree Electric Light Department",
+          "amount": 23265
+        },
+        {
+          "name": "Littleton Electric Light and Water Department",
+          "amount": 11275
+        },
+        {
+          "name": "Merrimac Municipal Light Department",
+          "amount": 4510
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Vincent J Ragucci, III",
+          "salary": 146264
+        },
+        {
+          "name": "Taunton Municipal Lighting Plant",
+          "salary": 23535
+        },
+        {
+          "name": "Concord Municipal Light Plant",
+          "salary": 13475
+        },
+        {
+          "name": "Hudson Light and Power",
+          "salary": 13475
+        },
+        {
+          "name": "Wellesley Municipal Light Plant",
+          "salary": 13475
+        }
+      ]
+    },
+    {
+      "rank": 76,
+      "name": "Foley Hoag LLP",
+      "totalExpenditure": 170000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 4,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "155 Seaport Boulevard Boston, MA, 02210 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "American Chemistry Council",
+          "amount": 50000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Microsoft Corporation",
+          "salary": 120000
+        },
+        {
+          "name": "Kevin C Conroy",
+          "salary": 90000
+        },
+        {
+          "name": "Carol J Holahan",
+          "salary": 50000
+        },
+        {
+          "name": "Andrew London",
+          "salary": 30000
+        }
+      ]
+    },
+    {
+      "rank": 77,
+      "name": "Michael J. McCormack",
+      "totalExpenditure": 170000,
+      "directExpenses": 1875,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "15 Morgan Drive, Unit 409,  Natick, MA, 01760 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Keolis Commuter Services, LLC",
+          "amount": 120000
+        },
+        {
+          "name": "Delaware North America, LLC",
+          "amount": 50000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Michael J McCormack",
+          "salary": 170000
+        }
+      ]
+    },
+    {
+      "rank": 78,
+      "name": "The Malloy Group, Inc.",
+      "totalExpenditure": 168063,
+      "directExpenses": 19617,
+      "clients": 7,
+      "lobbyistCount": 2,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "9 Park Street, #200,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Life Insurance Association of Massachusetts Inc.",
+          "amount": 80000
+        },
+        {
+          "name": "The Savings Bank Mutual Life Insurance Company of Massachusetts",
+          "amount": 27563
+        },
+        {
+          "name": "Coin Machine Industries Association of Massachusetts, Inc.",
+          "amount": 12000
+        },
+        {
+          "name": "Propane Association of New England",
+          "amount": 12000
+        },
+        {
+          "name": "Massachusetts Speech Language Hearing Association",
+          "amount": 10500
+        },
+        {
+          "name": "MBTA Police Association",
+          "amount": 8000
+        },
+        {
+          "name": "Massachusetts Patient Advocacy Alliance, Inc.",
+          "amount": 6000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "William F. Malloy, Jr.",
+          "salary": 140000
+        },
+        {
+          "name": "Solar Mobility Corporation",
+          "salary": 12000
+        }
+      ]
+    },
+    {
+      "rank": 79,
+      "name": "Black Lion Strategies, LLC",
+      "totalExpenditure": 166500,
+      "directExpenses": 14762,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "50 Milk Street, 16th Floor,  Boston, MA, 02109 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "United Way of Massachusetts Bay, Inc.",
+          "amount": 141500
+        },
+        {
+          "name": "GenUnity Inc.",
+          "amount": 25000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Samuel Gebru",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 80,
+      "name": "Patrick Moynihan & Associates LLC",
+      "totalExpenditure": 165000,
+      "directExpenses": 766,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "53 High Street, 53 High Street,  Natick, MA, 01760 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Keolis Commuter Services, LLC",
+          "amount": 120000
+        },
+        {
+          "name": "Delaware North America, LLC",
+          "amount": 45000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Patrick J. Moynihan",
+          "salary": 165000
+        }
+      ]
+    },
+    {
+      "rank": 81,
+      "name": "Nutter McClennen & Fish LLC",
+      "totalExpenditure": 156000,
+      "directExpenses": 0,
+      "clients": 3,
+      "lobbyistCount": 2,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "155 Seaport Blvd Boston, MA, 02210 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "The Commerce Insurance Company",
+          "amount": 60000
+        },
+        {
+          "name": "Verizon Corporate Resources Group LLC",
+          "amount": 60000
+        },
+        {
+          "name": "Construction Industries of Massachusetts, Inc.",
+          "amount": 36000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "William Kennedy",
+          "salary": 156000
+        },
+        {
+          "name": "Melissa Scorzoni",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 82,
+      "name": "Ferriter Scobbo & Rodophele, PC",
+      "totalExpenditure": 153750,
+      "directExpenses": 113760,
+      "clients": 6,
+      "lobbyistCount": 2,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "Ferriter Scobbo & Rodophele, PC, 125 High St. Ste. 200,  Boston, MA, 02110 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Property Insurance Underwriting Association",
+          "amount": 36000
+        },
+        {
+          "name": "Municipal Electric Association of Massachusetts",
+          "amount": 33750
+        },
+        {
+          "name": "American Family Life Assurance Co. of Columbus (Aflac)",
+          "amount": 33000
+        },
+        {
+          "name": "Council for Responsible Nutrition",
+          "amount": 21000
+        },
+        {
+          "name": "Wine Institute",
+          "amount": 21000
+        },
+        {
+          "name": "Encore Capital Group, Inc.",
+          "amount": 9000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Robert P. Rodophele",
+          "salary": 99714
+        },
+        {
+          "name": "Report amendment 1/26/2026",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 83,
+      "name": "21c, LLC",
+      "totalExpenditure": 149540,
+      "directExpenses": 0,
+      "clients": 4,
+      "lobbyistCount": 2,
+      "focus": "Education",
+      "type": "Registered Lobbying Entity",
+      "address": "7 Old Sudbury Road Wayland, MA, 01778 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Amplify Education, Inc.",
+          "amount": 37500
+        },
+        {
+          "name": "The Massachusetts Alliance for Early College, Inc.",
+          "amount": 36540
+        },
+        {
+          "name": "Benjamin Franklin Cummings Institute of Technology",
+          "amount": 32500
+        },
+        {
+          "name": "EDUCATION TRUST, INC. (THE)",
+          "amount": 18000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Artists For Humanity",
+          "salary": 25000
+        },
+        {
+          "name": "Hugh R. Jones, III",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 84,
+      "name": "Potomac Communications Strategies, Inc.",
+      "totalExpenditure": 144000,
+      "directExpenses": 0,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "2850 Eisenhower Avenue, Suite 100,  Alexandria, VA, 22314 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "DCI Group AZ, L.L.C.",
+          "amount": 72000
+        },
+        {
+          "name": "Verizon Corporate Resources Group LLC",
+          "amount": 72000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "William Dal Col",
+          "salary": 72000
+        }
+      ]
+    },
+    {
+      "rank": 85,
+      "name": "Considine & Furey, LLP",
+      "totalExpenditure": 142000,
+      "directExpenses": 5872,
+      "clients": 4,
+      "lobbyistCount": 3,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "One Beacon Street, 22nd Floor,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Underdog Sports, LLC",
+          "amount": 78000
+        },
+        {
+          "name": "New Bedford Foss Marine Terminal,LLC",
+          "amount": 40000
+        },
+        {
+          "name": "Southcoast Hospitals Group, Inc.",
+          "amount": 24000
+        },
+        {
+          "name": "NE Games, LLC",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Kevin M. Considine",
+          "salary": 130000
+        },
+        {
+          "name": "Andrew S Hunt",
+          "salary": 12000
+        },
+        {
+          "name": "Alexander Furey",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 86,
+      "name": "Sage Consulting Services, LLC.",
+      "totalExpenditure": 141600,
+      "directExpenses": 0,
+      "clients": 4,
+      "lobbyistCount": 2,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "75 State St, Suite 100,  Boston, MA, 02109 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Ameresco, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Hayden AI Technologies, Inc",
+          "amount": 60000
+        },
+        {
+          "name": "Zipcar, Inc.",
+          "amount": 21600
+        },
+        {
+          "name": "TDC Development Group, LLC",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Paul Scapicchio",
+          "salary": 141600
+        },
+        {
+          "name": "Robert A Rio",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 87,
+      "name": "Burke Strategies, Inc.",
+      "totalExpenditure": 141000,
+      "directExpenses": 23900,
+      "clients": 3,
+      "lobbyistCount": 2,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "20 Ashburton Place Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "PENN Entertainment, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "Trinity Health of New England Corporation, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "American International Group Inc.",
+          "amount": 27000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "John P. Burke",
+          "salary": 152446
+        },
+        {
+          "name": "Corebridge Financial",
+          "salary": 54000
+        }
+      ]
+    },
+    {
+      "rank": 88,
+      "name": "Pezzella and Company, LLC",
+      "totalExpenditure": 138000,
+      "directExpenses": 8269,
+      "clients": 1,
+      "lobbyistCount": 2,
+      "focus": "Labor & Unions",
+      "type": "Registered Lobbying Entity",
+      "address": "100 Cambridge Street, 13th Floor,  Boston, MA, 02114 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "1199SEIU United Healthcare Workers East",
+          "amount": 90000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Paul Pezzella",
+          "salary": 129731
+        },
+        {
+          "name": "Worcester Business Development Corporation",
+          "salary": 48000
+        }
+      ]
+    },
+    {
+      "rank": 89,
+      "name": "Salvatore Francis DiMasi",
+      "totalExpenditure": 137000,
+      "directExpenses": 0,
+      "clients": 6,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "585 Main Street, Apt 414,  Melrose, MA, 02176 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Housing and Shelter Alliance, Inc",
+          "amount": 36000
+        },
+        {
+          "name": "Harvard Street Neighborhood Health Center Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "North End Community Health Committee, Inc.",
+          "amount": 30000
+        },
+        {
+          "name": "Montachusett Veterans Outreach Center, Inc.",
+          "amount": 18000
+        },
+        {
+          "name": "Volunteers of America of Massachusetts Inc.",
+          "amount": 15000
+        },
+        {
+          "name": "Small Property Owners Association, Inc.",
+          "amount": 8000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Salvatore Francis DiMasi",
+          "salary": 75000
+        }
+      ]
+    },
+    {
+      "rank": 90,
+      "name": "Glynn Associates",
+      "totalExpenditure": 126500,
+      "directExpenses": 13145,
+      "clients": 3,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "5 Champney Place Boston, MA, 02114 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Easter Seals Massachusetts, Inc",
+          "amount": 31000
+        },
+        {
+          "name": "Catie's Closet, Inc",
+          "amount": 30000
+        },
+        {
+          "name": "Children's Services of Roxbury",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Kristine Glynn",
+          "salary": 117530
+        },
+        {
+          "name": "Hope & Comfort",
+          "salary": 35500
+        }
+      ]
+    },
+    {
+      "rank": 91,
+      "name": "Compass Consulting LLC",
+      "totalExpenditure": 126334,
+      "directExpenses": 7484,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "20 Forest Street, Box 57 Medford, MA, 02155 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Cambridge Health Alliance",
+          "amount": 126334
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Donna K. Fox",
+          "salary": 126334
+        }
+      ]
+    },
+    {
+      "rank": 92,
+      "name": "RAI Services Company",
+      "totalExpenditure": 126217,
+      "directExpenses": 1710,
+      "clients": 3,
+      "lobbyistCount": 5,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "401 N. Main Street Winston-Salem, NC, 27102 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "American Snuff Company, LLC",
+          "amount": 20653
+        },
+        {
+          "name": "Santa Fe Natural Tobacco Company, Inc.",
+          "amount": 8800
+        },
+        {
+          "name": "Modoral Brands Inc.",
+          "amount": 342
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "R.J. Reynolds Tobacco Company",
+          "salary": 95741
+        },
+        {
+          "name": "David D Cahill",
+          "salary": 61650
+        },
+        {
+          "name": "Stephen A Boksanski",
+          "salary": 61650
+        },
+        {
+          "name": "Jessica Bowman",
+          "salary": 2917
+        },
+        {
+          "name": "R.J. Reynolds Vapor Company",
+          "salary": 682
+        }
+      ]
+    },
+    {
+      "rank": 93,
+      "name": "Delaney Policy Group",
+      "totalExpenditure": 121000,
+      "directExpenses": 0,
+      "clients": 5,
+      "lobbyistCount": 3,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "11 Beacon St, Suite 431,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Holistic Alternative Recovery Trust",
+          "amount": 54000
+        },
+        {
+          "name": "The Louis D. Brown Peace Institute Corporation",
+          "amount": 18000
+        },
+        {
+          "name": "Acupuncture Society of Massachusetts",
+          "amount": 16000
+        },
+        {
+          "name": "Museum of African American History, Incorporated",
+          "amount": 15000
+        },
+        {
+          "name": "Massachusetts Funeral Directors Association, Inc.",
+          "amount": 6000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Daniel J Delaney",
+          "salary": 131500
+        },
+        {
+          "name": "Parole Review For All",
+          "salary": 12000
+        },
+        {
+          "name": "Andrea Delaney",
+          "salary": 2000
+        }
+      ]
+    },
+    {
+      "rank": 94,
+      "name": "RPR Consulting",
+      "totalExpenditure": 120000,
+      "directExpenses": 14897,
+      "clients": 5,
+      "lobbyistCount": 1,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "125 High St, 200,  Boston, MA, 02210 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Property Insurance Underwriting Association",
+          "amount": 36000
+        },
+        {
+          "name": "American Family Life Assurance Co. of Columbus (Aflac)",
+          "amount": 33000
+        },
+        {
+          "name": "Council for Responsible Nutrition",
+          "amount": 21000
+        },
+        {
+          "name": "Wine Institute",
+          "amount": 21000
+        },
+        {
+          "name": "Encore Capital Group, Inc.",
+          "amount": 9000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Robert P. Rodophele",
+          "salary": 105103
+        }
+      ]
+    },
+    {
+      "rank": 95,
+      "name": "Golledge Strategies & Solutions LLC",
+      "totalExpenditure": 110000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "11 Howards Point Lane Brunswick, ME, 04011 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Reworld Waste, LLC",
+          "amount": 110000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Robert W Golledge Jr",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 96,
+      "name": "Orrick, Herrington & Sutcliffe LLP",
+      "totalExpenditure": 107640,
+      "directExpenses": 0,
+      "clients": 3,
+      "lobbyistCount": 6,
+      "focus": "Gaming & Entertainment",
+      "type": "Registered Lobbying Entity",
+      "address": "51 West 52nd Street New York, NY, 10019 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "DraftKings Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "FanDuel Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "DIRECTV, LLC",
+          "amount": 18000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "DISH DBS Corporation",
+          "salary": 17640
+        },
+        {
+          "name": "Adam Braun",
+          "salary": 0
+        },
+        {
+          "name": "Damon Stewart",
+          "salary": 0
+        },
+        {
+          "name": "Jeremy Kudon",
+          "salary": 0
+        },
+        {
+          "name": "Sarah Filosa",
+          "salary": 0
+        },
+        {
+          "name": "Zachary Kahn",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 97,
+      "name": "Quinn and Morris PC",
+      "totalExpenditure": 97500,
+      "directExpenses": 30380,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "2 Granite Ave, Ste 420,  Milton, MA, 02186 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Academy of Trial Attorneys, Inc.",
+          "amount": 97500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "James Thomas Morris",
+          "salary": 40000
+        }
+      ]
+    },
+    {
+      "rank": 98,
+      "name": "Dan Bosley Consulting",
+      "totalExpenditure": 96800,
+      "directExpenses": 6989,
+      "clients": 4,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "3 Elmwood Ave North Adams, Ma, 01247 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Soldier On, Inc.",
+          "amount": 60800
+        },
+        {
+          "name": "Massachusetts Farm Bureau Federation, Incorporated",
+          "amount": 24000
+        },
+        {
+          "name": "Massachusetts Forest Alliance Limited",
+          "amount": 12000
+        },
+        {
+          "name": "SUSTAINABLE ABRAHAMIC INFRASTRUCTURE DEVELOPMENT COMPANY LLC",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Daniel Edward Bosley",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 99,
+      "name": "H + Z Strategies, LLC",
+      "totalExpenditure": 96000,
+      "directExpenses": 0,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "30 Soley Street Charlestown, MA, 02129 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Planned Parenthood Advocacy Fund, Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Boston Public Market Association, Inc.",
+          "amount": 36000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Rebecca Rebecca Kaiser Kaiser",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 100,
+      "name": "Northwind Strategies LLC",
+      "totalExpenditure": 96000,
+      "directExpenses": 1170,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "P.O. Box 364 Raynham, MA, 02767 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "IGT Global Solutions Corporation",
+          "amount": 96000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Doug Rubin",
+          "salary": 99000
+        }
+      ]
+    },
+    {
+      "rank": 101,
+      "name": "New Horizons Consulting",
+      "totalExpenditure": 95000,
+      "directExpenses": 3555,
+      "clients": 7,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "Box 228 Amherst, MA, 01004 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Cengage Learning, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "InstaTrac, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "Holyoke Health Center, Inc.",
+          "amount": 18000
+        },
+        {
+          "name": "Leominster Development Group LLC",
+          "amount": 5000
+        },
+        {
+          "name": "Arctevity Inc.",
+          "amount": 0
+        },
+        {
+          "name": "CitySpace, Inc.",
+          "amount": 0
+        },
+        {
+          "name": "SUSTAINABLE ABRAHAMIC INFRASTRUCTURE DEVELOPMENT COMPANY LLC",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Stanley C Rosenberg",
+          "salary": 95000
+        }
+      ]
+    },
+    {
+      "rank": 102,
+      "name": "Keegan Werlin LLP",
+      "totalExpenditure": 84713,
+      "directExpenses": 5700,
+      "clients": 1,
+      "lobbyistCount": 4,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "99 High Street, Ste. 2900,  Boston, MA, 02110 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Liberty Utilities (New England Natural Gas Company) Corp.",
+          "amount": 84000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Kevin Francis Penders",
+          "salary": 10875
+        },
+        {
+          "name": "Eversource Energy",
+          "salary": 713
+        },
+        {
+          "name": "John Kenneth Habib",
+          "salary": 525
+        },
+        {
+          "name": "Jonathan Alan Goldberg",
+          "salary": 400
+        }
+      ]
+    },
+    {
+      "rank": 103,
+      "name": "EPM Consulting LLC",
+      "totalExpenditure": 84500,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "32 Meridian Street Melrose, MA, 02176 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Employer Coalition on Health. Inc.",
+          "amount": 84500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Eileen Patricia McAnneny",
+          "salary": 84500
+        }
+      ]
+    },
+    {
+      "rank": 104,
+      "name": "Donovan Strategies LLC",
+      "totalExpenditure": 80000,
+      "directExpenses": 0,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "10 Mazzeo Drive, Ste 201c,  RANDOLPH, MA, 02368 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Organogenesis Inc.",
+          "amount": 60000
+        },
+        {
+          "name": "Gulfstream Services Corporation",
+          "amount": 20000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Joseph Matthew Donovan",
+          "salary": 80000
+        }
+      ]
+    },
+    {
+      "rank": 105,
+      "name": "Ellen Murphy & Associates",
+      "totalExpenditure": 79800,
+      "directExpenses": 520,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "28 Johnson Road Andover, MA, 01810 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Signature Healthcare Corporation",
+          "amount": 60000
+        },
+        {
+          "name": "Neuro-Rehab. Associates Inc",
+          "amount": 19800
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Ellen Murphy Meehan",
+          "salary": 79800
+        }
+      ]
+    },
+    {
+      "rank": 106,
+      "name": "Michael Muse Attorney",
+      "totalExpenditure": 76600,
+      "directExpenses": 5005,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "50 landing lane Brewster, MA, 02631 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Cigna Corporate Services, LLC",
+          "amount": 55000
+        },
+        {
+          "name": "boston police detectives benevolent society",
+          "amount": 21600
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Michael muse",
+          "salary": 58300
+        }
+      ]
+    },
+    {
+      "rank": 107,
+      "name": "Robert Finneran Consulting Services",
+      "totalExpenditure": 72000,
+      "directExpenses": 17680,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "42 8th street, 1410,  Charlestown, MA, 02129 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Robert C Finneran",
+          "salary": 72000
+        },
+        {
+          "name": "Sprinkler Fitters Local 550",
+          "salary": 72000
+        }
+      ]
+    },
+    {
+      "rank": 108,
+      "name": "Lanton Strategies LLC",
+      "totalExpenditure": 60000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 3,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "82 WENDELL AVE. , STE 100,  PITTSFIELD, MA, 01201 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Society of Health-System Pharmacists, Inc.",
+          "amount": 24000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Northeast Pharmacy Service Corporation",
+          "salary": 36000
+        },
+        {
+          "name": "Ron Lanton",
+          "salary": 30000
+        },
+        {
+          "name": "Maria Sosa",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 109,
+      "name": "Raymond Consulting LLC",
+      "totalExpenditure": 55000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "80 Essex Road Ipswich, MA, 01938 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "A Place for Rover, Inc.",
+          "amount": 55000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Samuel Raymond",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 110,
+      "name": "Buchanan & Associates",
+      "totalExpenditure": 54700,
+      "directExpenses": 0,
+      "clients": 3,
+      "lobbyistCount": 0,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "100 Cambridge Street, Suite 1400,  Boston, MA, 02114 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Marine Trades Association (MMTA)",
+          "amount": 30000
+        },
+        {
+          "name": "Northeast Marine Pilots Inc",
+          "amount": 24700
+        },
+        {
+          "name": "Jamy Buchanan Madeja, Esq. Jamy Buchanan Madeja, Esq. Jamy Buchanan Madeja, Esq.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": []
+    },
+    {
+      "rank": 111,
+      "name": "Gregory and Associates",
+      "totalExpenditure": 54200,
+      "directExpenses": 20775,
+      "clients": 5,
+      "lobbyistCount": 2,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "85 Merrimac St., Suite 400,  Boston , MA, 02114 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "National Chapter of Elder Law Attorneys MA Chapter",
+          "amount": 22000
+        },
+        {
+          "name": "The Massachusetts Association of Council on Aging and Senior Center Directors, Inc.",
+          "amount": 13200
+        },
+        {
+          "name": "Action Inc.",
+          "amount": 10000
+        },
+        {
+          "name": "MassPACE Association",
+          "amount": 9000
+        },
+        {
+          "name": "Northeast Energy Efficiency and Electrification Council, Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Nomita Ganguly",
+          "salary": 39184
+        },
+        {
+          "name": "Christopher Gregory",
+          "salary": 15016
+        }
+      ]
+    },
+    {
+      "rank": 112,
+      "name": "Hunt Associates",
+      "totalExpenditure": 50000,
+      "directExpenses": 2182,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "4 Autumn Lane, unit 4,  Marshfield, MA, 02050 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Thoroughbred Breeders Association",
+          "amount": 50000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Andrew S Hunt",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 113,
+      "name": "In-House Alternatives, LLC",
+      "totalExpenditure": 45000,
+      "directExpenses": 0,
+      "clients": 2,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "2 Ninth Street Hull, MA, 02045 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Coalition for the Homeless, Inc.",
+          "amount": 36000
+        },
+        {
+          "name": "Ellie Fund, Inc.",
+          "amount": 9000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Brian M Condron",
+          "salary": 0
+        },
+        {
+          "name": "Samantha Hall Linnehan",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 114,
+      "name": "Jack Hart Strategies LLC",
+      "totalExpenditure": 45000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "7 Dickerman Lane  Braintree, MA, 02184 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Live Nation Worldwide, Inc.",
+          "amount": 45000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Jack Hart",
+          "salary": 75000
+        }
+      ]
+    },
+    {
+      "rank": 115,
+      "name": "O'Sullivan and Associates",
+      "totalExpenditure": 42000,
+      "directExpenses": 940,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "18 Laurelwood Drive Norwell, MA, 02061 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Paul J O'Sullivan",
+          "salary": 42000
+        },
+        {
+          "name": "IUEC Local 4",
+          "salary": 42000
+        }
+      ]
+    },
+    {
+      "rank": 116,
+      "name": "Minahan Strategic Solutions",
+      "totalExpenditure": 40000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "50 Eustis Avenue Wakefield, MA, 01880 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "JERA Americas Inc.",
+          "amount": 40000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Alfred A. Minahan",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 117,
+      "name": "Patricia Cannon on behalf of Seqirus Inc. and Seqirus USA Inc.",
+      "totalExpenditure": 40000,
+      "directExpenses": 2722,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "909 Wilson Ave Tullahoma, TN, 37388 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Seqirus USA Inc.",
+          "amount": 40000
+        },
+        {
+          "name": "Seqirus, Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Patricia Cannon",
+          "salary": 80000
+        }
+      ]
+    },
+    {
+      "rank": 118,
+      "name": "Mara Associates",
+      "totalExpenditure": 39000,
+      "directExpenses": 2250,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Financial Services",
+      "type": "Registered Lobbying Entity",
+      "address": "85 Fairview Ave Brockton, Ma, 02301 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Arbella Mutual Insurance Company",
+          "amount": 30000
+        },
+        {
+          "name": "Massachusetts Society of Certified Public Accountants",
+          "amount": 9000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Francis Gerard Mara",
+          "salary": 39000
+        }
+      ]
+    },
+    {
+      "rank": 119,
+      "name": "Vicente LLP",
+      "totalExpenditure": 37250,
+      "directExpenses": 0,
+      "clients": 3,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "800 Boylston St, 15th Floor,  Boston, MA, 02199 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Rolling Releaf LLC",
+          "amount": 25000
+        },
+        {
+          "name": "Rise Holdings, Inc.",
+          "amount": 7000
+        },
+        {
+          "name": "Cresco Labs Inc.",
+          "amount": 5250
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Jennifer Flanagan-Long",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 120,
+      "name": "FINI LLC",
+      "totalExpenditure": 37000,
+      "directExpenses": 0,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "99 Eastern Ave Worcester, MA, 01603 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "SEIU Local 509",
+          "salary": 37000
+        },
+        {
+          "name": "Italo Paula Fini",
+          "salary": 25000
+        }
+      ]
+    },
+    {
+      "rank": 121,
+      "name": "McDonough Associates",
+      "totalExpenditure": 36000,
+      "directExpenses": 2200,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "22 Hayden Drive Foxboro, Ma, 02035 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Roadway Management Technologies",
+          "amount": 36000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Richard William McDonough",
+          "salary": 36000
+        }
+      ]
+    },
+    {
+      "rank": 122,
+      "name": "Mickey Long",
+      "totalExpenditure": 36000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Labor & Unions",
+      "type": "Registered Lobbying Entity",
+      "address": "193 Old Colony Ave  Boston, MA, 02127 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Iron Workers Union 7",
+          "amount": 36000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Mickey Long",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 123,
+      "name": "RAR Strategies LLC",
+      "totalExpenditure": 36000,
+      "directExpenses": 1726,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Technology",
+      "type": "Registered Lobbying Entity",
+      "address": "74 Riverside Drive Reading, MA, 01867 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Chemistry & Technology Alliance, Inc.",
+          "amount": 36000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Robert A Rio",
+          "salary": 36000
+        }
+      ]
+    },
+    {
+      "rank": 124,
+      "name": "Marty Walz and Associates Inc.",
+      "totalExpenditure": 35000,
+      "directExpenses": 0,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "45 West 3rd Street, Suite 408,  South Boston, MA, 02127 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Education Reform Now Advocacy",
+          "salary": 35000
+        },
+        {
+          "name": "Martha M Walz",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 125,
+      "name": "Fitch Law Partners LLP",
+      "totalExpenditure": 33241,
+      "directExpenses": 0,
+      "clients": 0,
+      "lobbyistCount": 3,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "84 State Street, 11th Floor,  Boston, MA, 02109 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Hometown America, L.L.C.",
+          "salary": 33241
+        },
+        {
+          "name": "Andrea Studley Knowles",
+          "salary": 0
+        },
+        {
+          "name": "Lisa C. Goodheart",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 126,
+      "name": "KG Consulting LLC",
+      "totalExpenditure": 32600,
+      "directExpenses": 567,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "11 Cady St., #1F,  Lowell, MA, 01852 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Coalition for an Equitable Economy",
+          "amount": 18800
+        },
+        {
+          "name": "The EON Foundation, Inc.",
+          "amount": 13800
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Kevin B. Gilnack",
+          "salary": 32600
+        }
+      ]
+    },
+    {
+      "rank": 127,
+      "name": "Brian P. Lees",
+      "totalExpenditure": 31550,
+      "directExpenses": 1658,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "5 Millbrook Circle East Longmeadow, MA, 01028 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Baystate Health, Inc.",
+          "amount": 24000
+        },
+        {
+          "name": "Latino Economic Development Corporation, Inc.",
+          "amount": 7550
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Brian P. Lees",
+          "salary": 31550
+        }
+      ]
+    },
+    {
+      "rank": 128,
+      "name": "Edward J Smith",
+      "totalExpenditure": 31199,
+      "directExpenses": 485,
+      "clients": 1,
+      "lobbyistCount": 2,
+      "focus": "Real Estate & Housing",
+      "type": "Registered Lobbying Entity",
+      "address": "350 GREENE ST UNIT 402, Suite 402,  North Andover, MA, 01845 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "The Real Estate Bar Association for Massachusetts, Inc.",
+          "amount": 26199
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "EDWARD JAMES SMITH",
+          "salary": 30714
+        },
+        {
+          "name": "Theatre Owners of New England",
+          "salary": 5000
+        }
+      ]
+    },
+    {
+      "rank": 129,
+      "name": "David Scott Partners, LLC",
+      "totalExpenditure": 30000,
+      "directExpenses": 693,
+      "clients": 1,
+      "lobbyistCount": 3,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "7813 Winston Rd Philadelphia, PA, 19118 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "ABA Centers of America LLC",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "David D Dunphy",
+          "salary": 15000
+        },
+        {
+          "name": "Thomas Jefferson Hurst",
+          "salary": 15000
+        },
+        {
+          "name": "Jermaine Veasy",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 130,
+      "name": "The Homegrown Consulting Group, LLC",
+      "totalExpenditure": 30000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "PO Box 866 Webster, MA, 01570 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Commonwealth Beverage Coalition, Inc.",
+          "amount": 30000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Nicholas Adamopoulos",
+          "salary": 0
+        },
+        {
+          "name": "Shawn Patrick Collins",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 131,
+      "name": "Hart Government Relations",
+      "totalExpenditure": 29000,
+      "directExpenses": 0,
+      "clients": 8,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "13 Hollis Street Cambridge, MA, 02140-1806 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Boston Health Care for the Homeless Program, Inc.",
+          "amount": 5000
+        },
+        {
+          "name": "Community Servings, Inc.",
+          "amount": 5000
+        },
+        {
+          "name": "Fenway Community Health Center Inc.",
+          "amount": 5000
+        },
+        {
+          "name": "Multicultural AIDS Coalition",
+          "amount": 5000
+        },
+        {
+          "name": "Victory Programs, Inc.",
+          "amount": 5000
+        },
+        {
+          "name": "AIDS Project - Worcester Inc.",
+          "amount": 2500
+        },
+        {
+          "name": "AID Support Group of Cape Cod, Inc",
+          "amount": 1500
+        },
+        {
+          "name": "Massachusetts Society of Naturopathic Doctors, Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Mary Ann Hart",
+          "salary": 29000
+        }
+      ]
+    },
+    {
+      "rank": 132,
+      "name": "Altria Client Services LLC",
+      "totalExpenditure": 28539,
+      "directExpenses": 115698,
+      "clients": 5,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "101 Constitution Avenue, N.W., Suite 400W,  Washington, DC, 20001 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Altria Client Services LLC for Philip Morris USA Inc.",
+          "amount": 23262
+        },
+        {
+          "name": "Altria Client Services LLC for U.S. Smokeless Tobacco Co.",
+          "amount": 3430
+        },
+        {
+          "name": "Altria Client Services LLC for John Middleton Co.",
+          "amount": 1755
+        },
+        {
+          "name": "Altria Client Services LLC for NJOY LLC",
+          "amount": 46
+        },
+        {
+          "name": "Altria Client Services LLC for Helix Innovations LLC",
+          "amount": 46
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Jonathan Shaer",
+          "salary": 28539
+        }
+      ]
+    },
+    {
+      "rank": 133,
+      "name": "Paul Kujawski",
+      "totalExpenditure": 28000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "One Mercantile Street, Suite 630,  Worcester, MA, 01608 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Zero Point Development Inc.",
+          "amount": 28000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Paul Kujawski",
+          "salary": 28000
+        }
+      ]
+    },
+    {
+      "rank": 134,
+      "name": "Akin, Gump, Strauss, Hauer, & Feld LLP",
+      "totalExpenditure": 26061,
+      "directExpenses": 1141,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "33 Arch St, Suite 2500,  Boston, MA, 02110 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Asurion LLC",
+          "amount": 26061
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Mark R Herring",
+          "salary": 26061
+        }
+      ]
+    },
+    {
+      "rank": 135,
+      "name": "Newsome Law",
+      "totalExpenditure": 24000,
+      "directExpenses": 362,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "51 Saw Mill Road Stow, MA, 01775 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Association of Nurse Anesthesiology, Inc.",
+          "amount": 24000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Jay Huxley Newsome",
+          "salary": 24000
+        }
+      ]
+    },
+    {
+      "rank": 136,
+      "name": "Thorn Run Partners LLC",
+      "totalExpenditure": 24000,
+      "directExpenses": 0,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "100 M Street, SE, Suite 750,  Washington, DC, 20003 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Thayer Surette Roberts",
+          "salary": 24000
+        },
+        {
+          "name": "Partnership to Improve Patient Care",
+          "salary": 24000
+        }
+      ]
+    },
+    {
+      "rank": 137,
+      "name": "Law Office of Robert Ambrogi",
+      "totalExpenditure": 20000,
+      "directExpenses": 1435,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "128 Main St Gloucester, MA, 01930 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Newspaper Publishers Association",
+          "amount": 20000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Robert J Ambrogi",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 138,
+      "name": "Zakim Strategies LLC",
+      "totalExpenditure": 18000,
+      "directExpenses": 0,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "10 Tremont St, Suite 210,  Boston, MA, 02108 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Josh Zakim",
+          "salary": 18000
+        },
+        {
+          "name": "Housing Forward-MA",
+          "salary": 18000
+        }
+      ]
+    },
+    {
+      "rank": 139,
+      "name": "Peak Strategies LLC",
+      "totalExpenditure": 17000,
+      "directExpenses": 5323,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "5 Abbottswood Sudbury, MA, 01776 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Massachusetts Nonprofit Network",
+          "salary": 17000
+        },
+        {
+          "name": "Jessica Seney",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 140,
+      "name": "Urban League of Eastern Massachusetts, Inc.",
+      "totalExpenditure": 17000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "88 Warren St. Roxbury, MA, 02119 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Urban League of Eastern Massachusetts, Inc.",
+          "amount": 17000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Rahsaan Hall",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 141,
+      "name": "Castling Strategies LLC",
+      "totalExpenditure": 16400,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 2,
+      "focus": "Environment & Clean Energy",
+      "type": "Registered Lobbying Entity",
+      "address": "68 Harrison Ave St,  605  PMB 722697  ,  Boston, MA, 02111 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Charles River Watershed Association",
+          "amount": 5850
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Cabell T Eames",
+          "salary": 16400
+        },
+        {
+          "name": "Vote Solar",
+          "salary": 10550
+        }
+      ]
+    },
+    {
+      "rank": 142,
+      "name": "MDF Strategies",
+      "totalExpenditure": 15000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "512 Cobby Creek Lane Johns Island, SC, 29455-7172 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Padagis US LLC",
+          "amount": 15000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Michelle Ford",
+          "salary": 2025
+        }
+      ]
+    },
+    {
+      "rank": 143,
+      "name": "The JCN Group LLC",
+      "totalExpenditure": 15000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "103 Sylvan St, Unit 2,  Danvers, MA, 01923 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Crown Castle Fiber LLC",
+          "amount": 15000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Joseph P Caiazzo",
+          "salary": 15000
+        }
+      ]
+    },
+    {
+      "rank": 144,
+      "name": "Spillane & Spillane, LLP",
+      "totalExpenditure": 13500,
+      "directExpenses": 9163,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Education",
+      "type": "Registered Lobbying Entity",
+      "address": "23 Institute Road Worcester, MA, 01609 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Association of Non-Profit Schools and Colleges",
+          "amount": 13500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "John J Spillane",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 145,
+      "name": "Jim DeMay on behalf of Seqirus Inc. and Seqirus USA Inc.",
+      "totalExpenditure": 11000,
+      "directExpenses": 875,
+      "clients": 2,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "5 Ironwood Lane North Oaks, MN, 55127 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Seqirus USA Inc.",
+          "amount": 11000
+        },
+        {
+          "name": "Seqirus, Inc.",
+          "amount": 0
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "James DeMay",
+          "salary": 11000
+        }
+      ]
+    },
+    {
+      "rank": 146,
+      "name": "Law Office of Eugene R. Curry",
+      "totalExpenditure": 10616,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Healthcare & Life Sciences",
+      "type": "Registered Lobbying Entity",
+      "address": "3010 Main Street Barnstable, MA, 02630 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Healthy Children Project Inc DBA ALPP",
+          "amount": 10616
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Eugene Curry",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 147,
+      "name": "Ernst & Young LLP",
+      "totalExpenditure": 10381,
+      "directExpenses": 2068,
+      "clients": 1,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "200 Clarendon Street Boston, MA, 02116 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "BXP, Inc.",
+          "amount": 10381
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Jason Zorfas",
+          "salary": 2757
+        },
+        {
+          "name": "Scott Roberti",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 148,
+      "name": "Strategies 64 LLC",
+      "totalExpenditure": 10000,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "1312 17th St. , #388,  Denver, CO, 80202 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Cresco Labs Inc.",
+          "amount": 10000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Daniel Smith",
+          "salary": 7500
+        }
+      ]
+    },
+    {
+      "rank": 149,
+      "name": "Brownstein Hyatt Farber Schreck, LLP",
+      "totalExpenditure": 9466,
+      "directExpenses": 0,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "675 15th Street, Suite 2900,  Denver, CO, 80202 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Elsa Jacobsen",
+          "salary": 9466
+        },
+        {
+          "name": "Early Care and Education Consortium",
+          "salary": 9466
+        }
+      ]
+    },
+    {
+      "rank": 150,
+      "name": "Scott Taylor",
+      "totalExpenditure": 8113,
+      "directExpenses": 3511,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "P.O. Box 143 Southborough, MA, 01772 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Massachusetts Municipal Police Coalition",
+          "amount": 8113
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Scott Taylor",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 151,
+      "name": "Doura-Schawohl Consulting LLC",
+      "totalExpenditure": 5000,
+      "directExpenses": 2310,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "1775 Wiehle Ave, Suite 400,  Reston, VA, 20190 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Derek Webb LLC",
+          "amount": 5000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Brianne Doura",
+          "salary": 5000
+        }
+      ]
+    },
+    {
+      "rank": 152,
+      "name": "FGRHUB LLC",
+      "totalExpenditure": 3500,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 5,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "328 K Street Boston, MA, 02127 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "AGC America Inc.",
+          "amount": 1000
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Xerox and its affiliates",
+          "salary": 2500
+        },
+        {
+          "name": "Matt Fisher",
+          "salary": 0
+        },
+        {
+          "name": "Patrick J Huntington",
+          "salary": 0
+        },
+        {
+          "name": "Stephanie M Monteiro",
+          "salary": 0
+        },
+        {
+          "name": "Susan M Tevnan",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 153,
+      "name": "Paul E. Caron Associates",
+      "totalExpenditure": 2500,
+      "directExpenses": 1541,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Energy & Utilities",
+      "type": "Registered Lobbying Entity",
+      "address": "15 Crestview Road  East Longmeadow , MA, 01028 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Thorndike Energy, LLC",
+          "amount": 2500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Paul Eugene Caron",
+          "salary": 2500
+        }
+      ]
+    },
+    {
+      "rank": 154,
+      "name": "Strategic Legislative Services, Inc.",
+      "totalExpenditure": 1629,
+      "directExpenses": 16,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "1494 KATHY CT LAWRENCEBURG, IN, 47025 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "National Association of Tobacco Outlets",
+          "amount": 1629
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Timothy W. McKinney",
+          "salary": 1629
+        }
+      ]
+    },
+    {
+      "rank": 155,
+      "name": "Mariner Strategies LLC",
+      "totalExpenditure": 1500,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 1,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "38 School St. Manchester-by-the-Sea, MA, 01944 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "State Privacy and Security Coalition, Inc.",
+          "amount": 1500
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Andrew Kingman",
+          "salary": 1500
+        }
+      ]
+    },
+    {
+      "rank": 156,
+      "name": "Chinese Progressive Association, Inc.",
+      "totalExpenditure": 523,
+      "directExpenses": 0,
+      "clients": 0,
+      "lobbyistCount": 2,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "28 Ash St Boston, MA, 02111 US",
+      "year": "2025",
+      "topClients": [],
+      "lobbyists": [
+        {
+          "name": "Chinese Progressive Political Action",
+          "salary": 523
+        },
+        {
+          "name": "Karen Y Chen",
+          "salary": 0
+        }
+      ]
+    },
+    {
+      "rank": 157,
+      "name": "K Courtney and Associates Inc.",
+      "totalExpenditure": 404,
+      "directExpenses": 0,
+      "clients": 1,
+      "lobbyistCount": 3,
+      "focus": "Multi-sector",
+      "type": "Registered Lobbying Entity",
+      "address": "7 Central Lane  Andover , MA, 01810 US",
+      "year": "2025",
+      "topClients": [
+        {
+          "name": "Foundation for Fair Contracting of MA",
+          "amount": 404
+        }
+      ],
+      "lobbyists": [
+        {
+          "name": "Karen G Courtney",
+          "salary": 0
+        },
+        {
+          "name": "Patrick Mark Courtney",
+          "salary": 0
+        },
+        {
+          "name": "I.B.E.W. Local 103",
+          "salary": 0
+        }
+      ]
+    }
+  ],
+  "keyIndividuals": [
+    {
+      "name": "Carlo Basile",
+      "role": "Registered Lobbyist",
+      "firm": "Smith, Costello & Crawford Public Policy Group, LLC",
+      "firms": [
+        "Smith, Costello & Crawford Public Policy Group, LLC"
+      ],
+      "totalSalary": 825000,
+      "note": ""
+    },
+    {
+      "name": "Charles A Stefanini",
+      "role": "Registered Lobbyist",
+      "firm": "Charles Stefanini Consulting LLC",
+      "firms": [
+        "Charles Stefanini Consulting LLC",
+        "Corry Associates, LLC"
+      ],
+      "totalSalary": 730000,
+      "note": "Registered at multiple firms"
+    },
+    {
+      "name": "Brian S. Dempsey",
+      "role": "Registered Lobbyist",
+      "firm": "Dempsey Associates LLC",
+      "firms": [
+        "Dempsey Associates LLC"
+      ],
+      "totalSalary": 725000,
+      "note": ""
+    },
+    {
+      "name": "Michael Costello",
+      "role": "Registered Lobbyist",
+      "firm": "Smith, Costello & Crawford Public Policy Group, LLC",
+      "firms": [
+        "Smith, Costello & Crawford Public Policy Group, LLC"
+      ],
+      "totalSalary": 670000,
+      "note": ""
+    },
+    {
+      "name": "Robert E Travaglini",
+      "role": "Registered Lobbyist",
+      "firm": "TSK Associates LLC",
+      "firms": [
+        "TSK Associates LLC"
+      ],
+      "totalSalary": 650000,
+      "note": ""
+    },
+    {
+      "name": "Paul T. Donovan",
+      "role": "Registered Lobbyist",
+      "firm": "Kearney, Donovan & McGee, LLC",
+      "firms": [
+        "Kearney, Donovan & McGee, LLC"
+      ],
+      "totalSalary": 630635,
+      "note": ""
+    },
+    {
+      "name": "James Smith",
+      "role": "Registered Lobbyist",
+      "firm": "Smith, Costello & Crawford Public Policy Group, LLC",
+      "firms": [
+        "Smith, Costello & Crawford Public Policy Group, LLC"
+      ],
+      "totalSalary": 610000,
+      "note": ""
+    },
+    {
+      "name": "Michael Bergan",
+      "role": "Registered Lobbyist",
+      "firm": "Cornerstone Government Affairs, Inc.",
+      "firms": [
+        "Cornerstone Government Affairs, Inc.",
+        "Tremont Strategies Group LLC"
+      ],
+      "totalSalary": 600000,
+      "note": "Registered at multiple firms"
+    },
+    {
+      "name": "Matt Keswick",
+      "role": "Registered Lobbyist",
+      "firm": "Keswick Consulting LLC",
+      "firms": [
+        "Keswick Consulting LLC"
+      ],
+      "totalSalary": 600000,
+      "note": ""
+    },
+    {
+      "name": "Michael Morris",
+      "role": "Registered Lobbyist",
+      "firm": "Tremont Strategies Group LLC",
+      "firms": [
+        "Tremont Strategies Group LLC"
+      ],
+      "totalSalary": 600000,
+      "note": ""
+    },
+    {
+      "name": "Christian Scorzoni",
+      "role": "Registered Lobbyist",
+      "firm": "TSK Associates LLC",
+      "firms": [
+        "TSK Associates LLC"
+      ],
+      "totalSalary": 590000,
+      "note": ""
+    },
+    {
+      "name": "David D Cahill",
+      "role": "Registered Lobbyist",
+      "firm": "BCB Government Relations, Inc.",
+      "firms": [
+        "BCB Government Relations, Inc.",
+        "RAI Services Company"
+      ],
+      "totalSalary": 561650,
+      "note": "Registered at multiple firms"
+    },
+    {
+      "name": "Stephen A Boksanski",
+      "role": "Registered Lobbyist",
+      "firm": "BCB Government Relations, Inc.",
+      "firms": [
+        "BCB Government Relations, Inc.",
+        "RAI Services Company"
+      ],
+      "totalSalary": 561650,
+      "note": "Registered at multiple firms"
+    },
+    {
+      "name": "James A Vallee",
+      "role": "Registered Lobbyist",
+      "firm": "Nixon Peabody LLP",
+      "firms": [
+        "Nixon Peabody LLP"
+      ],
+      "totalSalary": 533095,
+      "note": ""
+    },
+    {
+      "name": "Henri S Rauschenbach",
+      "role": "Registered Lobbyist",
+      "firm": "Rauschenbach Associates",
+      "firms": [
+        "Rauschenbach Associates",
+        "Smith, Rauschenbach & Halloran LLC"
+      ],
+      "totalSalary": 529900,
+      "note": "Registered at multiple firms"
+    },
+    {
+      "name": "Jeffrey Sanchez",
+      "role": "Registered Lobbyist",
+      "firm": "Rasky Partners, Inc.",
+      "firms": [
+        "Rasky Partners, Inc.",
+        "Sanchez Strategies, LLC"
+      ],
+      "totalSalary": 515606,
+      "note": "Registered at multiple firms"
+    },
+    {
+      "name": "Dennis Murphy",
+      "role": "Registered Lobbyist",
+      "firm": "Ventry Associates LLP",
+      "firms": [
+        "Ventry Associates LLP"
+      ],
+      "totalSalary": 480176,
+      "note": ""
+    },
+    {
+      "name": "Guy W. Glodis",
+      "role": "Registered Lobbyist",
+      "firm": "The Glodis Group, LLC",
+      "firms": [
+        "The Glodis Group, LLC"
+      ],
+      "totalSalary": 443900,
+      "note": ""
+    },
+    {
+      "name": "James C Eisenberg",
+      "role": "Registered Lobbyist",
+      "firm": "Preti Strategies, LLC",
+      "firms": [
+        "Preti Strategies, LLC"
+      ],
+      "totalSalary": 440447,
+      "note": ""
+    },
+    {
+      "name": "Steven Christopher Panagiotakos",
+      "role": "Registered Lobbyist",
+      "firm": "Steven C. Panagiotakos, Lobbyist/Consultant",
+      "firms": [
+        "Steven C. Panagiotakos, Lobbyist/Consultant"
+      ],
+      "totalSalary": 432300,
+      "note": ""
+    },
+    {
+      "name": "Mark Keough Molloy",
+      "role": "Registered Lobbyist",
+      "firm": "Cascade Strategies, LLC",
+      "firms": [
+        "Cascade Strategies, LLC"
+      ],
+      "totalSalary": 430000,
+      "note": ""
+    },
+    {
+      "name": "Ronna Ronna Wallace Wallace",
+      "role": "Registered Lobbyist",
+      "firm": "Wallace and Associates Consulting, LLC",
+      "firms": [
+        "Wallace and Associates Consulting, LLC"
+      ],
+      "totalSalary": 424095,
+      "note": ""
+    },
+    {
+      "name": "Joseph A. Boncore",
+      "role": "Registered Lobbyist",
+      "firm": "Commonwealth Counsel, LLC.",
+      "firms": [
+        "Commonwealth Counsel, LLC."
+      ],
+      "totalSalary": 424000,
+      "note": ""
+    },
+    {
+      "name": "David Shapiro",
+      "role": "Registered Lobbyist",
+      "firm": "Bay State Strategies Group, LLC",
+      "firms": [
+        "Bay State Strategies Group, LLC"
+      ],
+      "totalSalary": 423225,
+      "note": ""
+    },
+    {
+      "name": "Robert Bernstein",
+      "role": "Registered Lobbyist",
+      "firm": "Bay State Strategies Group, LLC",
+      "firms": [
+        "Bay State Strategies Group, LLC"
+      ],
+      "totalSalary": 423225,
+      "note": ""
+    },
+    {
+      "name": "Charlene D. Rideout",
+      "role": "Registered Lobbyist",
+      "firm": "Kearney, Donovan & McGee, LLC",
+      "firms": [
+        "Kearney, Donovan & McGee, LLC"
+      ],
+      "totalSalary": 422518,
+      "note": ""
+    },
+    {
+      "name": "Charles Glick",
+      "role": "Registered Lobbyist",
+      "firm": "Charles Group Consulting",
+      "firms": [
+        "Charles Group Consulting"
+      ],
+      "totalSalary": 406695,
+      "note": ""
+    },
+    {
+      "name": "Matthew B LeBretton",
+      "role": "Registered Lobbyist",
+      "firm": "Charles Street Strategies, LLC",
+      "firms": [
+        "Charles Street Strategies, LLC",
+        "Morrissey & Associates, LLC"
+      ],
+      "totalSalary": 405000,
+      "note": "Registered at multiple firms"
+    },
+    {
+      "name": "Martin G. Corry",
+      "role": "Registered Lobbyist",
+      "firm": "Corry Associates, LLC",
+      "firms": [
+        "Corry Associates, LLC"
+      ],
+      "totalSalary": 400000,
+      "note": ""
+    },
+    {
+      "name": "Richard R Tisei",
+      "role": "Registered Lobbyist",
+      "firm": "Preti Strategies, LLC",
+      "firms": [
+        "Preti Strategies, LLC"
+      ],
+      "totalSalary": 394644,
+      "note": ""
+    },
+    {
+      "name": "Christopher Christopher Stanley Koczela Koczela",
+      "role": "Registered Lobbyist",
+      "firm": "Fort Point Strategies LLC",
+      "firms": [
+        "Fort Point Strategies LLC",
+        "Morrissey & Associates, LLC"
+      ],
+      "totalSalary": 370000,
+      "note": "Registered at multiple firms"
+    },
+    {
+      "name": "Pat Anthony Cerundolo",
+      "role": "Registered Lobbyist",
+      "firm": "Manatt, Phelps & Phillips LLP",
+      "firms": [
+        "Manatt, Phelps & Phillips LLP"
+      ],
+      "totalSalary": 360000,
+      "note": ""
+    },
+    {
+      "name": "Frank Shea",
+      "role": "Registered Lobbyist",
+      "firm": "Bay State Strategies Group, LLC",
+      "firms": [
+        "Bay State Strategies Group, LLC"
+      ],
+      "totalSalary": 356327,
+      "note": ""
+    },
+    {
+      "name": "Thomas O'Neill",
+      "role": "Registered Lobbyist",
+      "firm": "O'Neill and Partners LLC.",
+      "firms": [
+        "O'Neill and Partners LLC."
+      ],
+      "totalSalary": 350000,
+      "note": ""
+    },
+    {
+      "name": "Jay Youmans",
+      "role": "Registered Lobbyist",
+      "firm": "Bulfinch Strategies Group LLC",
+      "firms": [
+        "Bulfinch Strategies Group LLC"
+      ],
+      "totalSalary": 345000,
+      "note": ""
+    },
+    {
+      "name": "Jefferson R Smith",
+      "role": "Registered Lobbyist",
+      "firm": "Bulfinch Strategies Group LLC",
+      "firms": [
+        "Bulfinch Strategies Group LLC"
+      ],
+      "totalSalary": 345000,
+      "note": ""
+    },
+    {
+      "name": "Thomas P Mangan",
+      "role": "Registered Lobbyist",
+      "firm": "Bulfinch Strategies Group LLC",
+      "firms": [
+        "Bulfinch Strategies Group LLC"
+      ],
+      "totalSalary": 345000,
+      "note": ""
+    },
+    {
+      "name": "Steven A. Baddour",
+      "role": "Registered Lobbyist",
+      "firm": "ML Strategies, LLC",
+      "firms": [
+        "ML Strategies, LLC"
+      ],
+      "totalSalary": 340000,
+      "note": ""
+    },
+    {
+      "name": "Kate Worrall",
+      "role": "Registered Lobbyist",
+      "firm": "Charles Group Consulting",
+      "firms": [
+        "Charles Group Consulting"
+      ],
+      "totalSalary": 334000,
+      "note": ""
+    },
+    {
+      "name": "Adam Marx",
+      "role": "Registered Lobbyist",
+      "firm": "Smith, Costello & Crawford Public Policy Group, LLC",
+      "firms": [
+        "Smith, Costello & Crawford Public Policy Group, LLC"
+      ],
+      "totalSalary": 330000,
+      "note": ""
+    }
+  ],
+  "warnings": [
+    "2026 expenditure data shows $0 for most entities — disclosure reports not yet due. 2025 data is complete.",
+    "totalExpenditure = salaries received by lobbying firms from clients (firm revenue). directExpenses = additional spending on behalf of clients."
+  ]
+}
