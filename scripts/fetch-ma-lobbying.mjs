@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * fetch-ma-lobbying.mjs - v6 - STRICT-MODE SAFE
- * Fixed the __doPostBack strict-mode error by using native form.submit()
+ * fetch-ma-lobbying.mjs - v7 - BUTTON CLICK + DEBUG
  */
 
 import { chromium } from 'playwright';
@@ -11,7 +10,7 @@ const OUTPUT_PATH = './public/data/ma-lobbying.json';
 const SOURCE_URL = 'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx';
 
 async function main() {
-  console.log('[ma-lobbying] Starting MA Lobbyist scraper (v6 - strict-mode safe)...');
+  console.log('[ma-lobbying] Starting MA Lobbyist scraper (v7 - button click + debug)...');
 
   let browser;
   try {
@@ -31,50 +30,34 @@ async function main() {
     console.log(`[ma-lobbying] Page loaded: ${htmlLength} bytes`);
 
     const hasViewstate = await page.evaluate(() => !!document.querySelector('input[name="__VIEWSTATE"]'));
-    const hasSearchBtn = await page.evaluate(() => !!document.querySelector('#ContentPlaceHolder1_btnSearch, input[name*="btnSearch"]'));
+    const hasSearchBtn = await page.evaluate(() => !!document.querySelector('#ContentPlaceHolder1_btnSearch'));
     console.log(`[ma-lobbying] VIEWSTATE=${hasViewstate}, SearchButton=${hasSearchBtn}`);
 
-    // ====================== SET "VIEW ALL RESULTS" ======================
-    console.log('[ma-lobbying] Setting page size to "View all results"...');
-    await page.evaluate(() => {
-      const select = document.querySelector('#ContentPlaceHolder1_drpPageSize');
-      if (!select) return;
-      const allOption = Array.from(select.options).find(opt =>
-        opt.text.toLowerCase().includes('view all') || parseInt(opt.value) >= 1000
-      );
-      if (allOption) select.value = allOption.value;
-    });
+    // ====================== SUBMIT SEARCH WITH REAL BUTTON CLICK ======================
+    console.log('[ma-lobbying] Clicking Search button...');
+    await page.click('#ContentPlaceHolder1_btnSearch');
 
-    // ====================== SUBMIT SEARCH (STRICT-MODE SAFE) ======================
-    console.log('[ma-lobbying] Submitting search via native form.submit()...');
-    await page.evaluate(() => {
-      const form = document.querySelector('form');
-      if (!form) return;
-
-      // Set the postback fields manually (this is what __doPostBack does internally)
-      const eventTarget = form.querySelector('input[name="__EVENTTARGET"]');
-      const eventArgument = form.querySelector('input[name="__EVENTARGUMENT"]');
-      if (eventTarget) eventTarget.value = 'ctl00$ContentPlaceHolder1$btnSearch';
-      if (eventArgument) eventArgument.value = '';
-
-      form.submit();
-    });
-
-    // Wait for the ASPX postback to complete
-    await page.waitForTimeout(10000);
-    await page.waitForLoadState('networkidle', { timeout: 60000 }).catch(() => {
+    // Wait for ASPX postback
+    await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => {
       console.log('[ma-lobbying] networkidle timeout (normal for ASPX)');
     });
+    await page.waitForTimeout(5000);
 
-    const resultsHtmlLength = (await page.content()).length;
-    console.log(`[ma-lobbying] Results page loaded: ${resultsHtmlLength} bytes`);
+    const resultsLength = (await page.content()).length;
+    const title = await page.title();
+    console.log(`[ma-lobbying] Results page loaded: ${resultsLength} bytes`);
+    console.log(`[ma-lobbying] Page title after search: "${title}"`);
+
+    // Debug: show first 600 chars so we can see if it's an error page
+    const snippet = (await page.content()).substring(0, 600);
+    console.log(`[ma-lobbying] HTML snippet: ${snippet}...`);
 
     // ====================== PARSE RESULTS ======================
     console.log('[ma-lobbying] Parsing results table...');
     const records = await page.evaluate(() => {
       const table = document.querySelector('#ContentPlaceHolder1_ucSearchResultByTypeAndCategory_grdvSearchResultByTypeAndCategory');
       if (!table) {
-        console.log('[ma-lobbying] Results table not found');
+        console.log('[ma-lobbying] Results table NOT found');
         return [];
       }
 
