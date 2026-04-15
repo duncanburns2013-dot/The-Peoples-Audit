@@ -1,18 +1,17 @@
 #!/usr/bin/env node
 /**
- * fetch-ma-lobbying.mjs - FINAL FIXED VERSION
- * Uses Playwright + native ASPX __doPostBack to scrape all lobbyist records
- * Outputs to public/data/ma-lobbying.json exactly like before
+ * fetch-ma-lobbying.mjs - v6 - STRICT-MODE SAFE
+ * Fixed the __doPostBack strict-mode error by using native form.submit()
  */
 
 import { chromium } from 'playwright';
-import { writeFileSync, readFileSync, existsSync } from 'fs';
+import { writeFileSync, existsSync } from 'fs';
 
 const OUTPUT_PATH = './public/data/ma-lobbying.json';
 const SOURCE_URL = 'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx';
 
 async function main() {
-  console.log('[ma-lobbying] Starting MA Lobbyist scraper (v5 - ASPX fixed)...');
+  console.log('[ma-lobbying] Starting MA Lobbyist scraper (v6 - strict-mode safe)...');
 
   let browser;
   try {
@@ -24,16 +23,15 @@ async function main() {
     });
     const page = await context.newPage();
 
-    // ====================== NAVIGATE ======================
     console.log('[ma-lobbying] Navigating to Lobbyist Public Search...');
     await page.goto(SOURCE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await page.waitForTimeout(5000); // ASPX needs time for scripts
+    await page.waitForTimeout(5000);
 
     const htmlLength = (await page.content()).length;
     console.log(`[ma-lobbying] Page loaded: ${htmlLength} bytes`);
 
     const hasViewstate = await page.evaluate(() => !!document.querySelector('input[name="__VIEWSTATE"]'));
-    const hasSearchBtn = await page.evaluate(() => !!document.querySelector('#ContentPlaceHolder1_btnSearch, input[name$="btnSearch"]'));
+    const hasSearchBtn = await page.evaluate(() => !!document.querySelector('#ContentPlaceHolder1_btnSearch, input[name*="btnSearch"]'));
     console.log(`[ma-lobbying] VIEWSTATE=${hasViewstate}, SearchButton=${hasSearchBtn}`);
 
     // ====================== SET "VIEW ALL RESULTS" ======================
@@ -42,27 +40,27 @@ async function main() {
       const select = document.querySelector('#ContentPlaceHolder1_drpPageSize');
       if (!select) return;
       const allOption = Array.from(select.options).find(opt =>
-        opt.text.includes('View all') || parseInt(opt.value) >= 1000
+        opt.text.toLowerCase().includes('view all') || parseInt(opt.value) >= 1000
       );
-      if (allOption) {
-        select.value = allOption.value;
-        select.dispatchEvent(new Event('change', { bubbles: true }));
-      }
+      if (allOption) select.value = allOption.value;
     });
 
-    // ====================== SUBMIT SEARCH VIA NATIVE POSTBACK ======================
-    console.log('[ma-lobbying] Submitting search via __doPostBack...');
+    // ====================== SUBMIT SEARCH (STRICT-MODE SAFE) ======================
+    console.log('[ma-lobbying] Submitting search via native form.submit()...');
     await page.evaluate(() => {
-      if (typeof __doPostBack === 'function') {
-        __doPostBack('ctl00$ContentPlaceHolder1$btnSearch', '');
-      } else {
-        // fallback
-        const form = document.querySelector('form');
-        if (form) form.submit();
-      }
+      const form = document.querySelector('form');
+      if (!form) return;
+
+      // Set the postback fields manually (this is what __doPostBack does internally)
+      const eventTarget = form.querySelector('input[name="__EVENTTARGET"]');
+      const eventArgument = form.querySelector('input[name="__EVENTARGUMENT"]');
+      if (eventTarget) eventTarget.value = 'ctl00$ContentPlaceHolder1$btnSearch';
+      if (eventArgument) eventArgument.value = '';
+
+      form.submit();
     });
 
-    // Wait for the postback to finish
+    // Wait for the ASPX postback to complete
     await page.waitForTimeout(10000);
     await page.waitForLoadState('networkidle', { timeout: 60000 }).catch(() => {
       console.log('[ma-lobbying] networkidle timeout (normal for ASPX)');
@@ -71,18 +69,20 @@ async function main() {
     const resultsHtmlLength = (await page.content()).length;
     console.log(`[ma-lobbying] Results page loaded: ${resultsHtmlLength} bytes`);
 
-    // ====================== PARSE RESULTS TABLE ======================
+    // ====================== PARSE RESULTS ======================
     console.log('[ma-lobbying] Parsing results table...');
     const records = await page.evaluate(() => {
       const table = document.querySelector('#ContentPlaceHolder1_ucSearchResultByTypeAndCategory_grdvSearchResultByTypeAndCategory');
-      if (!table) return [];
+      if (!table) {
+        console.log('[ma-lobbying] Results table not found');
+        return [];
+      }
 
       const rows = table.querySelectorAll('tr.GridItem, tr.AlternatingGridItem');
       console.log(`[ma-lobbying] Found ${rows.length} GridItem rows`);
 
       return Array.from(rows).map(row => {
         const cells = Array.from(row.querySelectorAll('td')).map(td => td.innerText.trim());
-        // Column order based on your earlier HTML paste + typical layout
         return {
           client: cells[0] || '',
           lobbyist: cells[1] || '',
@@ -96,7 +96,6 @@ async function main() {
 
     console.log(`[ma-lobbying] Collected ${records.length} total records`);
 
-    // ====================== WRITE OUTPUT ======================
     const output = {
       fetchedAt: new Date().toISOString(),
       source: "MA Secretary of State — Lobbyist Public Search",
@@ -115,7 +114,6 @@ async function main() {
 
   } catch (err) {
     console.error('[ma-lobbying] Scraping error:', err.message);
-    // Preserve old data on failure (same as your original script)
     if (existsSync(OUTPUT_PATH)) {
       console.log('[ma-lobbying] Preserving data from previous successful run.');
     }
