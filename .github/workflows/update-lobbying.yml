@@ -53,5 +53,5 @@ jobs:
             exit 0
           fi
           git add public/data/ma-lobbying.json
-          git commit -m "chore(data): refresh MA lobbying data [skip ci]"
+          git commit -m "chore(data): refresh MA lobbying data"
           git push
