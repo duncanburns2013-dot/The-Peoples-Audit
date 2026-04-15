@@ -200,7 +200,7 @@ export default function NonprofitLookup() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 6000);
       const response = await fetch(
-        `https://projects.propublica.org/nonprofits/api/v2/search.json?q=${encodeURIComponent(searchQuery)}&state[id]=MA&page=1`,
+        `https://peoples-audit-proxy.duncanburns2013.workers.dev/nonprofits/api/v2/search.json?q=${encodeURIComponent(searchQuery)}&state[id]=MA&page=1`,
         { signal: controller.signal }
       );
       clearTimeout(timeoutId);
@@ -248,7 +248,7 @@ export default function NonprofitLookup() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 6000);
       const response = await fetch(
-        `https://projects.propublica.org/nonprofits/api/v2/organizations/${ein}.json`,
+        `https://peoples-audit-proxy.duncanburns2013.workers.dev/nonprofits/api/v2/organizations/${ein}.json`,
         { signal: controller.signal }
       );
       clearTimeout(timeoutId);
