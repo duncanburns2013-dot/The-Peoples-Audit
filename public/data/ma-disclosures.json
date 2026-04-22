@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-04-22T13:27:15.749Z",
+  "fetchedAt": "2026-04-22T19:13:16.869Z",
   "preservedFromCache": false,
   "sources": [
     {
-      "name": "massbondholder.com · News",
+      "name": "mass.gov · Office of the Treasurer",
       "ok": true,
-      "count": 17
+      "count": 0
     },
     {
       "name": "mass.gov · Debt Management",
@@ -13,14 +13,14 @@
       "count": 0
     },
     {
+      "name": "massbondholder.com · News",
+      "ok": true,
+      "count": 17
+    },
+    {
       "name": "massbondholder.com · Official Statements",
       "ok": true,
       "count": 195
-    },
-    {
-      "name": "mass.gov · Office of the Treasurer",
-      "ok": true,
-      "count": 0
     }
   ],
   "warnings": [],
@@ -33,16 +33,6 @@
       "type": "News / Disclosure",
       "date": "2026-04-13",
       "url": "https://www.massbondholder.com/april-13-2026-supplement-now-available",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh:/april-2026-bond-sale-mdfa-boston-university-issue-series-2026",
-      "title": "Read more about April 2026 Bond Sale: MDFA Boston University Issue, Series 2026",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "News / Disclosure",
-      "date": "2026-04-01",
-      "url": "https://www.massbondholder.com/april-2026-bond-sale-mdfa-boston-university-issue-series-2026",
       "summary": "",
       "source": "MassBondHolder"
     },
@@ -203,6 +193,16 @@
       "type": "Revenue Update",
       "date": null,
       "url": "https://www.massbondholder.com/january-revenue-collections-total-4333-billion",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
+    {
+      "id": "mbh:/fy25-statutory-basis-financial-report-now-available",
+      "title": "Read more about FY25 Statutory Basis Financial Report is Now Available",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "News / Disclosure",
+      "date": null,
+      "url": "https://www.massbondholder.com/fy25-statutory-basis-financial-report-now-available",
       "summary": "",
       "source": "MassBondHolder"
     },
