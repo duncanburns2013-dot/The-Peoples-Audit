@@ -56,4 +56,6 @@ jobs:
             exit 0
           fi
           git commit -m "chore(data): refresh MA nonprofit data"
+          git pull --rebase origin main
           git push
+
