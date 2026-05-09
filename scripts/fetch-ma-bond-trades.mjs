@@ -219,8 +219,10 @@ async function main() {
     warnings.push('All live sources returned 0 trades — preserving cached trades.');
   }
 
+  const now = new Date().toISOString();
   const payload = {
-    lastRefreshed: new Date().toISOString(),
+    fetchedAt: now,
+    lastRefreshed: now, // legacy alias consumed by App.jsx EMMA trade card
     source: preservedFromCache
       ? 'Cached snapshot (live fetch failed)'
       : 'Automated snapshot from EMMA / MSRB',
@@ -246,8 +248,10 @@ async function main() {
 main().catch((err) => {
   // Even an unexpected crash should not break CI — write a stub file.
   console.error('[ma-bond-trades] fatal:', err);
+  const now = new Date().toISOString();
   const stub = {
-    lastRefreshed: new Date().toISOString(),
+    fetchedAt: now,
+    lastRefreshed: now,
     source: 'Error fallback',
     preservedFromCache: false,
     sources: [],

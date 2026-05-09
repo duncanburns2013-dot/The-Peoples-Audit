@@ -1,9 +1,19 @@
 {
-  "generatedAt": "2026-05-09T11:25:10.960Z",
+  "generatedAt": "2026-05-09T12:42:16.478Z",
   "snapshots": [
+    {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-09T11:11:30.976Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
+    },
     {
       "file": "ma-disclosures.json",
       "fetchedAt": "2026-05-09T07:56:14.630Z",
+      "fetchedAtSource": "fetchedAt",
       "count": 30,
       "preservedFromCache": false,
       "sources": [
@@ -31,24 +41,9 @@
       "sizeBytes": 14745
     },
     {
-      "file": "ma-lobbying.json",
-      "fetchedAt": "2026-04-15T23:33:07.587Z",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 190055
-    },
-    {
-      "file": "ma-nonprofits.json",
-      "fetchedAt": "2026-04-15T10:42:28.623Z",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 12162018
-    },
-    {
       "file": "ma-bond-trades.json",
-      "fetchedAt": null,
+      "fetchedAt": "2026-05-09T07:29:10.696Z",
+      "fetchedAtSource": "fetchedAt",
       "count": 8,
       "preservedFromCache": true,
       "sources": [
@@ -58,15 +53,25 @@
           "count": 0
         }
       ],
-      "sizeBytes": 1890
+      "sizeBytes": 1934
     },
     {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": null,
+      "file": "ma-lobbying.json",
+      "fetchedAt": "2026-04-15T23:33:07.587Z",
+      "fetchedAtSource": "fetchedAt",
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 444256
+      "sizeBytes": 190055
+    },
+    {
+      "file": "ma-nonprofits.json",
+      "fetchedAt": "2026-04-15T10:42:28.623Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 12162018
     }
   ]
 }

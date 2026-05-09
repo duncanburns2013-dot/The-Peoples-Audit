@@ -2369,12 +2369,17 @@ export default function App() {
       .then((r) => (r.ok ? r.json() : null))
       .then((payload) => {
         if (!payload?.snapshots?.length) return;
-        const dated = payload.snapshots.filter((s) => s.fetchedAt);
-        if (!dated.length) return;
-        const newest = dated.reduce((a, b) =>
+        // Use only snapshots where the timestamp came from a real
+        // fetched-at/last-refreshed field, not the file's mtime — mtime
+        // reflects when the file was committed, not when the data was sourced.
+        const explicit = payload.snapshots.filter(
+          (s) => s.fetchedAt && s.fetchedAtSource !== 'mtime',
+        );
+        if (!explicit.length) return;
+        const newest = explicit.reduce((a, b) =>
           Date.parse(a.fetchedAt) > Date.parse(b.fetchedAt) ? a : b,
         );
-        const oldest = dated.reduce((a, b) =>
+        const oldest = explicit.reduce((a, b) =>
           Date.parse(a.fetchedAt) < Date.parse(b.fetchedAt) ? a : b,
         );
         setFreshness({ newest, oldest, count: payload.snapshots.length });

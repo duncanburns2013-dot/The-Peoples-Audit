@@ -43,14 +43,36 @@ async function readSnapshot(filePath) {
     const raw = await readFile(filePath, 'utf8');
     const parsed = JSON.parse(raw);
     const stats = await stat(filePath);
+
+    // Some scripts use `fetchedAt`, the bond-trades script historically used
+    // `lastRefreshed`, and `ma-municipal-debt.json` is a raw array with no
+    // metadata at all. Fall back through these in order, finally using the
+    // file's mtime so every snapshot contributes to the freshness banner.
+    const isArray = Array.isArray(parsed);
+    const fetchedAt =
+      (!isArray && (parsed.fetchedAt ?? parsed.lastRefreshed)) ||
+      stats.mtime.toISOString();
+    const fetchedAtSource = isArray
+      ? 'mtime'
+      : parsed.fetchedAt
+        ? 'fetchedAt'
+        : parsed.lastRefreshed
+          ? 'lastRefreshed'
+          : 'mtime';
+
+    let count = null;
+    if (isArray) count = parsed.length;
+    else if (typeof parsed.count === 'number') count = parsed.count;
+    else if (Array.isArray(parsed.items)) count = parsed.items.length;
+    else if (Array.isArray(parsed.trades)) count = parsed.trades.length;
+
     return {
       file,
-      fetchedAt: parsed.fetchedAt ?? null,
-      count: typeof parsed.count === 'number'
-        ? parsed.count
-        : Array.isArray(parsed.items) ? parsed.items.length : null,
-      preservedFromCache: parsed.preservedFromCache ?? false,
-      sources: Array.isArray(parsed.sources) ? parsed.sources : [],
+      fetchedAt,
+      fetchedAtSource,
+      count,
+      preservedFromCache: !isArray && (parsed.preservedFromCache ?? false),
+      sources: !isArray && Array.isArray(parsed.sources) ? parsed.sources : [],
       sizeBytes: stats.size,
     };
   } catch (err) {
