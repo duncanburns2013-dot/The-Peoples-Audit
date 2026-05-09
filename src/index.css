@@ -1091,3 +1091,52 @@ body {
 }
 
 .footer-links a:hover { color: var(--accent-cyan); }
+
+/* ==========================================================
+   Accessibility additions
+   ========================================================== */
+
+/* Skip-to-main-content link — visible only when focused via keyboard. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 10000;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  padding: 12px 20px;
+  background: var(--accent-blue, #14558F);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  outline: 3px solid var(--accent-gold, #FFC72C);
+  outline-offset: 2px;
+}
+
+/* Visible focus ring for keyboard users on every interactive element. */
+*:focus-visible {
+  outline: 3px solid var(--accent-gold, #FFC72C);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Honor users who request reduced motion (vestibular disorders, etc.). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
