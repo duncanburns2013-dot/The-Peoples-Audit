@@ -14,6 +14,24 @@ const SOCRATA_BASE = 'https://cthru.data.socrata.com/resource';
 const USASPENDING_BASE = 'https://api.usaspending.gov/api/v2';
 const TREASURY_FISCAL_BASE = 'https://api.fiscaldata.treasury.gov/services/api/fiscal_service';
 
+// Pre-aggregated CTHRU snapshot built nightly by scripts/fetch-cthru-aggregates.mjs
+// and committed to public/data/cthru-aggregates.json. Loaded once per session;
+// each fetch* function below tries the snapshot before reaching for live Socrata.
+// Falls back transparently if the snapshot is missing or doesn't have the
+// requested year — so legacy years and dev environments without the file
+// keep working.
+let CTHRU_SNAPSHOT_PROMISE = null;
+function loadCthruSnapshot() {
+  if (!CTHRU_SNAPSHOT_PROMISE) {
+    const base = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+    const url = `${base}data/cthru-aggregates.json`;
+    CTHRU_SNAPSHOT_PROMISE = fetch(url)
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null);
+  }
+  return CTHRU_SNAPSHOT_PROMISE;
+}
+
 // CTHRU Socrata Dataset IDs (verified against cthru.data.socrata.com)
 const DATASETS = {
   spending: 'pegc-naaa',       // Comptroller of the Commonwealth Spending
@@ -65,6 +83,9 @@ async function socrataQuery(datasetId, params = {}) {
 // ============================================================
 
 export async function fetchSpendingByDepartment(fiscalYear = '2025', limit = 50) {
+  const snap = await loadCthruSnapshot();
+  const cached = snap?.spendingByDepartment?.[String(fiscalYear)];
+  if (cached?.length) return cached.slice(0, limit);
   try {
     const data = await socrataQuery(DATASETS.spending, {
       '$select': 'department, SUM(amount) as total_spent',
@@ -84,6 +105,9 @@ export async function fetchSpendingByDepartment(fiscalYear = '2025', limit = 50)
 }
 
 export async function fetchSpendingByVendor(fiscalYear = '2025', limit = 25) {
+  const snap = await loadCthruSnapshot();
+  const cached = snap?.spendingByVendor?.[String(fiscalYear)];
+  if (cached?.length) return cached.slice(0, limit);
   try {
     const data = await socrataQuery(DATASETS.spending, {
       '$select': 'vendor, SUM(amount) as total_paid',
@@ -103,6 +127,8 @@ export async function fetchSpendingByVendor(fiscalYear = '2025', limit = 25) {
 }
 
 export async function fetchSpendingOverTime(limit = 15) {
+  const snap = await loadCthruSnapshot();
+  if (snap?.spendingOverTime?.length) return snap.spendingOverTime.slice(-limit);
   try {
     const data = await socrataQuery(DATASETS.spending, {
       '$select': 'budget_fiscal_year, SUM(amount) as total_spent',
@@ -125,6 +151,9 @@ export async function fetchSpendingOverTime(limit = 15) {
 // ============================================================
 
 export async function fetchPayrollByDepartment(calendarYear = '2024', limit = 30) {
+  const snap = await loadCthruSnapshot();
+  const cached = snap?.payrollByDepartment?.[String(calendarYear)];
+  if (cached?.length) return cached.slice(0, limit);
   try {
     const data = await socrataQuery(DATASETS.payroll, {
       '$select': 'department_division, SUM(pay_total_actual) as total_pay, COUNT(*) as employee_count',
@@ -145,6 +174,9 @@ export async function fetchPayrollByDepartment(calendarYear = '2024', limit = 30
 }
 
 export async function fetchTopEarners(calendarYear = '2024', limit = 50) {
+  const snap = await loadCthruSnapshot();
+  const cached = snap?.topEarners?.[String(calendarYear)];
+  if (cached?.length) return cached.slice(0, limit);
   try {
     const data = await socrataQuery(DATASETS.payroll, {
       '$select': 'name_first, name_last, department_division, position_title, pay_total_actual',
@@ -165,6 +197,8 @@ export async function fetchTopEarners(calendarYear = '2024', limit = 50) {
 }
 
 export async function fetchPayrollOverTime(limit = 15) {
+  const snap = await loadCthruSnapshot();
+  if (snap?.payrollOverTime?.length) return snap.payrollOverTime.slice(-limit);
   try {
     const data = await socrataQuery(DATASETS.payroll, {
       '$select': 'year, SUM(pay_total_actual) as total_payroll, COUNT(*) as headcount',
@@ -221,6 +255,8 @@ export async function searchPayroll(query, calendarYear = '2025', searchType = '
 // ============================================================
 
 export async function fetchQuasiPayments(limit = 30) {
+  const snap = await loadCthruSnapshot();
+  if (snap?.quasiByAgency?.length) return snap.quasiByAgency.slice(0, limit);
   try {
     const data = await socrataQuery(DATASETS.quasiPayments, {
       '$select': 'quasi_agency_name, SUM(amount) as total_paid',

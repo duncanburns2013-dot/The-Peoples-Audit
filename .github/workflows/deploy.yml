@@ -3,6 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ['main']
+  # Data-refresh workflows commit with [skip ci] so they don't double-deploy
+  # on every snapshot. This nightly schedule guarantees that whatever data
+  # has accumulated in main makes it to GitHub Pages within 24 hours,
+  # regardless of whether any code changed.
+  schedule:
+    - cron: '0 8 * * *'
   workflow_dispatch:
 
 permissions:

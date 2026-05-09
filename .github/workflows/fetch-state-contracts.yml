@@ -1,0 +1,52 @@
+name: Refresh MA State Contracts
+
+on:
+  schedule:
+    # Daily at 09:30 UTC, half an hour after the aggregates run so the two
+    # don't race for Socrata bandwidth.
+    - cron: '30 9 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: 'fetch-state-contracts'
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run fetcher
+        run: node scripts/fetch-state-contracts.mjs
+
+      - name: Show output (debug)
+        run: |
+          node -e "const d = JSON.parse(require('fs').readFileSync('public/data/ma-contracts.json','utf8')); console.log('fetchedAt:', d.fetchedAt, 'FY:', d.fiscalYear, 'count:', d.count); console.log('top1:', d.items[0]);"
+
+      - name: Rebuild data freshness index
+        run: node scripts/build-data-index.mjs
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "the-peoples-audit-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- public/data/ma-contracts.json public/data/_index.json; then
+            echo "No state contract changes."
+            exit 0
+          fi
+          git add public/data/ma-contracts.json public/data/_index.json
+          git commit -m "chore(data): refresh MA state contracts [skip ci]"
+          git push

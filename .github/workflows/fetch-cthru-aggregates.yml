@@ -1,0 +1,52 @@
+name: Refresh CTHRU Aggregates
+
+on:
+  schedule:
+    # Daily at 09:00 UTC (~5am ET) — after the bond/disclosure refreshes
+    # have settled, before the typical user lookup hours.
+    - cron: '0 9 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: 'fetch-cthru-aggregates'
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run fetcher
+        run: node scripts/fetch-cthru-aggregates.mjs
+
+      - name: Show source health (debug)
+        run: |
+          node -e "const d = JSON.parse(require('fs').readFileSync('public/data/cthru-aggregates.json','utf8')); console.log('fetchedAt:', d.fetchedAt); console.log('sources:', JSON.stringify(d.sources, null, 2));"
+
+      - name: Rebuild data freshness index
+        run: node scripts/build-data-index.mjs
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "the-peoples-audit-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- public/data/cthru-aggregates.json public/data/_index.json; then
+            echo "No CTHRU aggregate changes."
+            exit 0
+          fi
+          git add public/data/cthru-aggregates.json public/data/_index.json
+          git commit -m "chore(data): refresh CTHRU aggregates [skip ci]"
+          git push

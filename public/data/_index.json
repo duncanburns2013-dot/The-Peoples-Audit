@@ -1,6 +1,96 @@
 {
-  "generatedAt": "2026-05-09T12:42:16.478Z",
+  "generatedAt": "2026-05-09T15:40:40.556Z",
   "snapshots": [
+    {
+      "file": "cthru-aggregates.json",
+      "fetchedAt": "2026-05-09T15:29:45.879Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "spending.byDepartment.2024",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byVendor.2024",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byDepartment.2025",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byVendor.2025",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byDepartment.2026",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byVendor.2026",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.overTime",
+          "ok": true,
+          "count": 17
+        },
+        {
+          "name": "payroll.byDepartment.2024",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "payroll.topEarners.2024",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "payroll.byDepartment.2025",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "payroll.topEarners.2025",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "payroll.overTime",
+          "ok": true,
+          "count": 18
+        },
+        {
+          "name": "quasi.byAgency",
+          "ok": true,
+          "count": 18
+        }
+      ],
+      "sizeBytes": 68816
+    },
+    {
+      "file": "ma-contracts.json",
+      "fetchedAt": "2026-05-09T15:27:17.621Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 300,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "cthru.spending.contracts.2026",
+          "ok": true,
+          "count": 300
+        }
+      ],
+      "sizeBytes": 165841
+    },
     {
       "file": "ma-municipal-debt.json",
       "fetchedAt": "2026-05-09T11:11:30.976Z",
