@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prebuild": "node scripts/build-data-index.mjs",
+    "build:index": "node scripts/build-data-index.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
