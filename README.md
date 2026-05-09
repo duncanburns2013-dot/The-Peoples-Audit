@@ -52,9 +52,21 @@ npm run dev
 
 This site is automatically deployed to GitHub Pages via GitHub Actions on every push to `main`.
 
+## Roadmap
+
+Things we're working toward — contributions on any of these are welcome:
+
+- **Deep-linkable views.** Encode the active tab, year, and filters into the URL so a finding can be shared. (Utilities are in [`src/utils/useUrlState.js`](src/utils/useUrlState.js); wiring is per-tab.)
+- **CSV export everywhere.** Helpers in [`src/utils/csv.js`](src/utils/csv.js); each table view should ship a Download button.
+- **Data freshness banner.** The build now produces [`public/data/_index.json`](public/data/_index.json) summarizing every snapshot's `fetchedAt`. Wire a small "Last updated" badge into the dashboard header.
+- **Mobile pass.** Recharts dashboards need a real device review.
+- **Accessibility.** Lighthouse + axe pass; ARIA on charts; keyboard nav on every tab.
+- **More data sources.** Municipal CAFRs, MBTA spending, MassDOT contracts, MassHealth managed-care payments. File a Data Source Request issue if you have one in mind.
+- **Tests.** A small Vitest suite around `src/services/api.js` so schema changes at CTHRU don't silently break the site.
+
 ## Contributing
 
-This is an open-source transparency project. PRs are welcome. If you have access to additional Massachusetts public financial data, please open an issue.
+This is an open-source transparency project. PRs are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). If you have access to additional Massachusetts public financial data, [open a Data Source Request issue](.github/ISSUE_TEMPLATE/data_source_request.md).
 
 ## License
 

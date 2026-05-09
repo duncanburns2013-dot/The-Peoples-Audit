@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Massachusetts Comptroller CTHRU portal
+    url: https://www.macomptroller.org/cthru/
+    about: For questions about the underlying state spending or payroll data, start at the official source.
+  - name: USASpending.gov
+    url: https://www.usaspending.gov/
+    about: For questions about federal funds flowing to Massachusetts.
