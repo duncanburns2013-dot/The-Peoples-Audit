@@ -42,9 +42,9 @@ export function toCSV(rows, headers, rowMapper) {
   }
 
   const lines = [resolvedHeaders.map(escapeCell).join(',')];
-  for (const row of rows) {
-    lines.push(resolvedMapper(row).map(escapeCell).join(','));
-  }
+  rows.forEach((row, i) => {
+    lines.push(resolvedMapper(row, i).map(escapeCell).join(','));
+  });
   return lines.join('\r\n') + '\r\n';
 }
 

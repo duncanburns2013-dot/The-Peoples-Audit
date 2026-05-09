@@ -37,6 +37,8 @@ import {
   QUASI_PAYMENTS, FEDERAL_SPENDING_MA, FEDERAL_AWARDS_MA, QUASI_SUPPLEMENTAL_DATA,
   MA_STATE_DEBT_YOY, MA_TOP_BOND_ISSUERS, MA_DEBT_BY_TYPE, MA_COUNTY_DEBT, MA_BOND_FACTS,
 } from './services/api';
+import { useUrlState } from './utils/useUrlState.js';
+import { downloadCSV } from './utils/csv.js';
 import './index.css';
 
 // ============================================================
@@ -51,6 +53,21 @@ const formatMoney = (num) => {
 };
 
 const formatMoneyFull = (num) => `$${Number(num).toLocaleString()}`;
+
+const formatRelativeTime = (iso) => {
+  if (!iso) return null;
+  const ms = Date.now() - Date.parse(iso);
+  if (Number.isNaN(ms) || ms < 0) return null;
+  const min = Math.floor(ms / 60_000);
+  if (min < 1) return 'just now';
+  if (min < 60) return `${min}m ago`;
+  const hr = Math.floor(min / 60);
+  if (hr < 24) return `${hr}h ago`;
+  const day = Math.floor(hr / 24);
+  if (day < 30) return `${day}d ago`;
+  const mo = Math.floor(day / 30);
+  return `${mo}mo ago`;
+};
 
 const COLORS = ['#4361ee', '#e76f51', '#2a9d8f', '#e9c46a', '#264653', '#7209b7',
   '#f4845f', '#577590', '#c77dff', '#6c8eb5', '#d4a373', '#48bfe3'];
@@ -618,7 +635,31 @@ function VendorExplorer({ spendingYear }) {
             )}
           </div>
 
-          <div className="data-table-wrapper" style={{ marginTop: 24 }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 24 }}>
+            <button
+              type="button"
+              onClick={() =>
+                downloadCSV(
+                  `top-vendors-${vendorYear}${vendorSearch ? `-search-${vendorSearch}` : ''}.csv`,
+                  sortedVendors,
+                  ['Rank', 'Vendor', 'Total Payments', 'Transactions', 'Avg Payment'],
+                  (v, i) => [
+                    i + 1,
+                    v.vendor,
+                    v.total,
+                    v.paymentCount,
+                    v.paymentCount > 0 ? v.total / v.paymentCount : '',
+                  ],
+                )
+              }
+              className="btn-secondary"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.8rem', padding: '8px 14px' }}
+              disabled={!sortedVendors?.length}
+            >
+              <Download size={14} /> Download CSV
+            </button>
+          </div>
+          <div className="data-table-wrapper" style={{ marginTop: 12 }}>
             <table className="data-table">
               <thead>
                 <tr>
@@ -1082,7 +1123,24 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
 
       {data.topEarners && !payrollSearch && (
         <div style={{ marginTop: 32 }}>
-          <h3 style={{ marginBottom: 16 }}>Top 50 Highest-Paid State Employees — {payrollYear}</h3>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, gap: 12, flexWrap: 'wrap' }}>
+            <h3 style={{ margin: 0 }}>Top 50 Highest-Paid State Employees — {payrollYear}</h3>
+            <button
+              type="button"
+              onClick={() =>
+                downloadCSV(
+                  `top-earners-${payrollYear}.csv`,
+                  data.topEarners,
+                  ['Rank', 'Name', 'Department', 'Title', 'Total Compensation'],
+                  (e, i) => [i + 1, e.name, e.department, e.title, e.totalPay],
+                )
+              }
+              className="btn-secondary"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.8rem', padding: '8px 14px' }}
+            >
+              <Download size={14} /> Download CSV
+            </button>
+          </div>
           <div className="data-table-wrapper">
             <table className="data-table">
               <thead>
@@ -2296,12 +2354,33 @@ function MunicipalitiesExplorer() {
 // ============================================================
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('overview');
+  const [activeSection, setActiveSection] = useUrlState('section', 'overview');
   const [overviewSubTab, setOverviewSubTab] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [heroSearchValue, setHeroSearchValue] = useState('');
   const [loading, setLoading] = useState({});
   const [errors, setErrors] = useState({});
+  const [freshness, setFreshness] = useState(null);
+
+  // Pull the cross-snapshot freshness index built at deploy time so the
+  // header can show "data updated N ago" without fetching every JSON file.
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/_index.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((payload) => {
+        if (!payload?.snapshots?.length) return;
+        const dated = payload.snapshots.filter((s) => s.fetchedAt);
+        if (!dated.length) return;
+        const newest = dated.reduce((a, b) =>
+          Date.parse(a.fetchedAt) > Date.parse(b.fetchedAt) ? a : b,
+        );
+        const oldest = dated.reduce((a, b) =>
+          Date.parse(a.fetchedAt) < Date.parse(b.fetchedAt) ? a : b,
+        );
+        setFreshness({ newest, oldest, count: payload.snapshots.length });
+      })
+      .catch(() => {});
+  }, []);
   const [data, setData] = useState({
     spendingByDept: null,
     spendingByVendor: null,
@@ -2510,6 +2589,19 @@ export default function App() {
                   : `Displaying cached public records data from CTHRU, USASpending.gov, OCPF & official reports`
             }
           </span>
+          {freshness?.newest?.fetchedAt && (
+            <span
+              title={`Newest snapshot: ${freshness.newest.file} at ${freshness.newest.fetchedAt}\nOldest snapshot: ${freshness.oldest.file} at ${freshness.oldest.fetchedAt}`}
+              style={{
+                marginLeft: 'auto',
+                color: 'var(--text-muted)',
+                fontSize: '0.78rem',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {freshness.count} snapshots · newest {formatRelativeTime(freshness.newest.fetchedAt)}
+            </span>
+          )}
         </div>
         <div className="disclaimer">
           All data sourced from publicly available Massachusetts government records: CTHRU Open Transparency Portal (Office of the Comptroller),
