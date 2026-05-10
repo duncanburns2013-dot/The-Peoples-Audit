@@ -1,6 +1,36 @@
 {
-  "generatedAt": "2026-05-10T10:46:36.938Z",
+  "generatedAt": "2026-05-10T11:18:05.354Z",
   "snapshots": [
+    {
+      "file": "ma-roll-calls.json",
+      "fetchedAt": "2026-05-10T11:12:26.010Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "bills.combined",
+          "ok": true,
+          "count": 10762
+        },
+        {
+          "name": "bills.House",
+          "ok": true,
+          "count": 5413
+        },
+        {
+          "name": "bills.Senate",
+          "ok": true,
+          "count": 3078
+        },
+        {
+          "name": "bills.actions",
+          "ok": true,
+          "count": 1500
+        }
+      ],
+      "sizeBytes": 12243
+    },
     {
       "file": "ma-contracts.json",
       "fetchedAt": "2026-05-10T10:46:36.697Z",
@@ -14,16 +44,7 @@
           "count": 300
         }
       ],
-      "sizeBytes": 165841
-    },
-    {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-10T10:46:33.280Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
+      "sizeBytes": 170058
     },
     {
       "file": "cthru-aggregates.json",
@@ -98,7 +119,7 @@
           "count": 18
         }
       ],
-      "sizeBytes": 68816
+      "sizeBytes": 71461
     },
     {
       "file": "ma-disclosures.json",
@@ -128,7 +149,7 @@
           "count": 195
         }
       ],
-      "sizeBytes": 14415
+      "sizeBytes": 14745
     },
     {
       "file": "ma-bond-trades.json",
@@ -143,7 +164,25 @@
           "count": 0
         }
       ],
-      "sizeBytes": 1851
+      "sizeBytes": 1934
+    },
+    {
+      "file": "ma-sfi.json",
+      "fetchedAt": "2026-05-09T17:45:41.455Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 0,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 685
+    },
+    {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-09T11:11:30.976Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
     },
     {
       "file": "ma-lobbying.json",
@@ -152,7 +191,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 182662
+      "sizeBytes": 190055
     },
     {
       "file": "ma-nonprofits.json",
@@ -161,7 +200,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 11677435
+      "sizeBytes": 12162018
     }
   ]
 }

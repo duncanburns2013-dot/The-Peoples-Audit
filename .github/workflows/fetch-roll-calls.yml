@@ -1,0 +1,54 @@
+name: Refresh MA Roll-Call Tally
+
+on:
+  schedule:
+    # Twice a week: Tuesday + Friday at 10:00 UTC. The 500-bill sample is
+    # stable enough that daily refresh would be churn; legislative business
+    # is also concentrated in formal sessions, not weekends.
+    - cron: '0 10 * * 2,5'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: 'fetch-roll-calls'
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run fetcher
+        run: node scripts/fetch-roll-calls.mjs
+
+      - name: Show source health (debug)
+        run: |
+          node -e "const d = JSON.parse(require('fs').readFileSync('public/data/ma-roll-calls.json','utf8')); console.log('fetchedAt:', d.fetchedAt); console.log('billsScanned:', d.billsScanned, 'of', d.billsTotal); console.log('totals:', JSON.stringify(d.totals)); console.log('ratios:', JSON.stringify(d.ratios));"
+
+      - name: Rebuild data freshness index
+        run: node scripts/build-data-index.mjs
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "the-peoples-audit-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- public/data/ma-roll-calls.json public/data/_index.json; then
+            echo "No roll-call changes."
+            exit 0
+          fi
+          git add public/data/ma-roll-calls.json public/data/_index.json
+          git commit -m "chore(data): refresh MA roll-call tally [skip ci]"
+          git push

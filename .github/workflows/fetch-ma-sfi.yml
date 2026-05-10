@@ -1,0 +1,46 @@
+name: Refresh MA Statements of Financial Interest
+
+# No schedule until bulk-access is approved by the State Ethics Commission.
+# When ready, add: schedule: [{ cron: '0 11 1 * *' }]  # monthly, 1st @ 11 UTC
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: 'fetch-ma-sfi'
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run fetcher
+        run: node scripts/fetch-ma-sfi.mjs
+
+      - name: Rebuild data freshness index
+        run: node scripts/build-data-index.mjs
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "the-peoples-audit-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- public/data/ma-sfi.json public/data/_index.json; then
+            echo "No SFI changes."
+            exit 0
+          fi
+          git add public/data/ma-sfi.json public/data/_index.json
+          git commit -m "chore(data): refresh MA SFI [skip ci]"
+          git push

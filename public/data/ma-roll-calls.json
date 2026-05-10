@@ -1,0 +1,345 @@
+{
+  "fetchedAt": "2026-05-10T11:12:26.010Z",
+  "generalCourt": 194,
+  "billsScanned": 1500,
+  "billsTotal": 8491,
+  "sampleStrategy": "first-750-per-chamber-with-BillNumber",
+  "preservedFromCache": false,
+  "totals": {
+    "actions": 7942,
+    "rollCalls": 10,
+    "voicePasses": 1658,
+    "procedural": 6274
+  },
+  "ratios": {
+    "rollCallShare": 0.005995203836930456,
+    "voicePassShare": 0.9940047961630696
+  },
+  "recentRollCalls": [
+    {
+      "billNumber": "S14",
+      "title": "Proposed Senate Rules for the 2025-2026 Legislative Session",
+      "branch": "Senate",
+      "date": "2/13/2025",
+      "action": "Amendment #35 (Keenan) rejected -see Roll Call #18 (Yeas 5 to Nays 32)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S14",
+      "title": "Proposed Senate Rules for the 2025-2026 Legislative Session",
+      "branch": "Senate",
+      "date": "2/13/2025",
+      "action": "Amendment #36 (Keenan) rejected -see Roll Call #19 (Yeas 6 to Nays 31)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S15",
+      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
+      "branch": "Senate",
+      "date": "2/12/2025",
+      "action": "Amendment #2 (Tarr) rejected -see Roll Call #2 (Yeas 5 to Nays 33)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S15",
+      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
+      "branch": "Senate",
+      "date": "2/12/2025",
+      "action": "Amendment #9 (Tarr) rejected -see Roll Call #3 (Yeas 6 to Nays 32)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S15",
+      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
+      "branch": "Senate",
+      "date": "2/12/2025",
+      "action": "Amendment #10 (Tarr) rejected -see Roll Call #4 (Yeas 5 to Nays 33)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S15",
+      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
+      "branch": "Senate",
+      "date": "2/12/2025",
+      "action": "Amendment #13 (Tarr) rejected -see Roll Call #5 (Yeas 6 to Nays 32)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S15",
+      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
+      "branch": "Senate",
+      "date": "2/12/2025",
+      "action": "Amendment #22 (Keenan) rejected -see Roll Call #6 (Yeas 9 to Nays 29)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S15",
+      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
+      "branch": "Senate",
+      "date": "2/12/2025",
+      "action": "Amendment #26 (Keenan) adopted -see Roll Call #7 (Yeas 38 to Nays 0)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S15",
+      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
+      "branch": "Senate",
+      "date": "2/12/2025",
+      "action": "Amendment #29 (Keenan) rejected -see Roll Call #8 (Yeas 6 to Nays 32)",
+      "yeas": null,
+      "nays": null
+    },
+    {
+      "billNumber": "S16",
+      "title": "Fiscal Year 2025 Supplemental Appropriations ",
+      "branch": "Senate",
+      "date": "2/12/2025",
+      "action": "Amendment #1 (Moore) adopted -see Roll Call #9 (Yeas 38 to Nays 0)",
+      "yeas": null,
+      "nays": null
+    }
+  ],
+  "recentVoicePasses": [
+    {
+      "billNumber": "H1073",
+      "title": "An Act relative to wastewater treatment and disposal in the town of Sandwich",
+      "branch": "Senate",
+      "date": "5/7/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H1073",
+      "title": "An Act relative to wastewater treatment and disposal in the town of Sandwich",
+      "branch": "House",
+      "date": "4/9/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H1069",
+      "title": "An Act establishing memorial markers in the towns of Milton and Canton in memory of certain law enforcement officers killed in the line of duty",
+      "branch": "House",
+      "date": "3/25/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H1068",
+      "title": "An Act relative to Department of Conservation and Recreation Title IX compliance",
+      "branch": "House",
+      "date": "1/20/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H1064",
+      "title": "An Act relative to a technical change to the George L. Darey Inland Fisheries and Game Fund",
+      "branch": "House",
+      "date": "12/4/2025",
+      "action": "Read third (title changed), amended and passed to be engrossed"
+    },
+    {
+      "billNumber": "H1068",
+      "title": "An Act relative to Department of Conservation and Recreation Title IX compliance",
+      "branch": "House",
+      "date": "11/26/2025",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H1024",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "branch": "House",
+      "date": "11/10/2025",
+      "action": "Enacted"
+    },
+    {
+      "billNumber": "H1024",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "branch": "Senate",
+      "date": "11/10/2025",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "H1024",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "branch": "Senate",
+      "date": "11/6/2025",
+      "action": "Emergency preamble adopted"
+    },
+    {
+      "billNumber": "H1064",
+      "title": "An Act relative to a technical change to the George L. Darey Inland Fisheries and Game Fund",
+      "branch": "House",
+      "date": "11/6/2025",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H1024",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "branch": "House",
+      "date": "11/5/2025",
+      "action": "Emergency preamble adopted"
+    },
+    {
+      "billNumber": "H1024",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "branch": "House",
+      "date": "11/3/2025",
+      "action": "House concurred in the Senate amendment"
+    },
+    {
+      "billNumber": "H1024",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "branch": "Senate",
+      "date": "10/20/2025",
+      "action": "Read second, amended (as recommended by the committee on Senate Rules), ordered to a third reading, read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H1069",
+      "title": "An Act establishing memorial markers in the towns of Milton and Canton in memory of certain law enforcement officers killed in the line of duty",
+      "branch": "House",
+      "date": "8/11/2025",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H108",
+      "title": "An Act to protect Massachusetts pollinators",
+      "branch": "Senate",
+      "date": "8/11/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1073",
+      "title": "An Act relative to wastewater treatment and disposal in the town of Sandwich",
+      "branch": "House",
+      "date": "8/4/2025",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H1024",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "branch": "House",
+      "date": "7/31/2025",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H1058",
+      "title": "An Act relative to a cranberry water use transfer program",
+      "branch": "Senate",
+      "date": "7/31/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1059",
+      "title": "An Act relative to fisheries conservation gear grant program ",
+      "branch": "Senate",
+      "date": "7/31/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1024",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "branch": "House",
+      "date": "7/21/2025",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H108",
+      "title": "An Act to protect Massachusetts pollinators",
+      "branch": "Joint",
+      "date": "6/27/2025",
+      "action": "Referred, pursuant to an order adopted by the two branches, to the committee on Agriculture and Fisheries"
+    },
+    {
+      "billNumber": "H10",
+      "title": "An Act relative to nondisclosure agreements ",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H100",
+      "title": "An Act establishing a commission to study a statewide credentialing program for digital navigators",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1000",
+      "title": "An Act establishing a coastal waters wastewater financing commission",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1001",
+      "title": "An Act create a crumbling foundations task force with the goal of identifying a source and method of funding",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1002",
+      "title": "An Act relative to the Douglas State Forest Maintenance Trust Fund",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1003",
+      "title": "An Act relative to maintaining adequate water supplies through effective drought management",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1004",
+      "title": "An Act promoting climate safe buildings",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1005",
+      "title": "An Act investing in natural and working lands",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1006",
+      "title": "An Act relative to incentives for nature as a climate solution",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    }
+  ],
+  "sources": [
+    {
+      "name": "bills.combined",
+      "ok": true,
+      "count": 10762
+    },
+    {
+      "name": "bills.House",
+      "ok": true,
+      "count": 5413
+    },
+    {
+      "name": "bills.Senate",
+      "ok": true,
+      "count": 3078
+    },
+    {
+      "name": "bills.actions",
+      "ok": true,
+      "count": 1500
+    }
+  ],
+  "warnings": []
+}

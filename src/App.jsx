@@ -19,6 +19,8 @@ import PacDashboard from './components/PacDashboard.jsx';
 import CostOfLivingCalculator from './components/CostOfLivingCalculator.jsx';
 import LobbyingExplorer from './components/LobbyingExplorer.jsx';
 import NonprofitLookup from './components/NonprofitLookup.jsx';
+import WhatWeCantSee from './components/WhatWeCantSee.jsx';
+import SfiExplorer from './components/SfiExplorer.jsx';
 import {
   fetchSpendingByDepartment, fetchSpendingByVendor, fetchSpendingOverTime,
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime, searchPayroll,
@@ -2512,6 +2514,8 @@ export default function App() {
     { id: 'payroll', label: 'Payroll', icon: <Users size={16} />, tag: 'live' },
     { id: 'vendors', label: 'Vendors & Contracts', icon: <Building2 size={16} />, tag: 'live' },
     { id: 'campaign', label: 'Follow the Money', icon: <Fingerprint size={16} />, tag: 'new' },
+    { id: 'sfi', label: 'Legislator Finances', icon: <ShieldAlert size={16} />, tag: 'new' },
+    { id: 'shielded', label: "What We Can't See", icon: <Eye size={16} />, tag: 'critical' },
     { id: 'bonds', label: 'Bonds & Borrowing', icon: <Banknote size={16} />, tag: 'critical' },
     { id: 'municipalities', label: 'Municipalities', icon: <MapPin size={16} />, tag: 'new' },
     { id: 'lobbyists', label: 'Lobbying', icon: <Network size={16} />, tag: 'critical' },
@@ -2784,6 +2788,20 @@ export default function App() {
         {activeSection === 'campaign' && (
           <div>
             <FollowTheMoney />
+          </div>
+        )}
+
+        {/* ============ LEGISLATOR SFIs ============ */}
+        {activeSection === 'sfi' && (
+          <div>
+            <SfiExplorer />
+          </div>
+        )}
+
+        {/* ============ WHAT WE CAN'T SEE ============ */}
+        {activeSection === 'shielded' && (
+          <div>
+            <WhatWeCantSee />
           </div>
         )}
 

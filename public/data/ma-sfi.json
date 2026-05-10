@@ -1,0 +1,12 @@
+{
+  "fetchedAt": "2026-05-09T17:45:41.455Z",
+  "status": "awaiting-access",
+  "filingsYear": "2025",
+  "count": 0,
+  "accessNote": "Statements of Financial Interest are filed annually with the MA State Ethics Commission. Bulk programmatic access is request-gated and pending approval. Once granted, this script will parse approved PDFs into the structured form below. Redactions (home addresses, account numbers, dependents) will be preserved as `redacted: true` flags.",
+  "warnings": [
+    "Awaiting bulk-access approval from the MA State Ethics Commission.",
+    "When approved, the SfiExplorer tab will populate automatically on the next fetch."
+  ],
+  "filings": []
+}
