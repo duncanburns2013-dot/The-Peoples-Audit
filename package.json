@@ -8,6 +8,7 @@
     "build": "vite build",
     "prebuild": "node scripts/build-data-index.mjs",
     "build:index": "node scripts/build-data-index.mjs",
+    "og": "node scripts/generate-og-image.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
