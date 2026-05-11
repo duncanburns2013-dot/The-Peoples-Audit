@@ -1,54 +1,9 @@
 {
-  "generatedAt": "2026-05-10T11:18:05.354Z",
+  "generatedAt": "2026-05-11T12:14:31.279Z",
   "snapshots": [
     {
-      "file": "ma-roll-calls.json",
-      "fetchedAt": "2026-05-10T11:12:26.010Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "bills.combined",
-          "ok": true,
-          "count": 10762
-        },
-        {
-          "name": "bills.House",
-          "ok": true,
-          "count": 5413
-        },
-        {
-          "name": "bills.Senate",
-          "ok": true,
-          "count": 3078
-        },
-        {
-          "name": "bills.actions",
-          "ok": true,
-          "count": 1500
-        }
-      ],
-      "sizeBytes": 12243
-    },
-    {
-      "file": "ma-contracts.json",
-      "fetchedAt": "2026-05-10T10:46:36.697Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 300,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "cthru.spending.contracts.2026",
-          "ok": true,
-          "count": 300
-        }
-      ],
-      "sizeBytes": 170058
-    },
-    {
       "file": "cthru-aggregates.json",
-      "fetchedAt": "2026-05-10T10:18:57.843Z",
+      "fetchedAt": "2026-05-11T12:14:31.100Z",
       "fetchedAtSource": "fetchedAt",
       "count": null,
       "preservedFromCache": false,
@@ -119,41 +74,50 @@
           "count": 18
         }
       ],
-      "sizeBytes": 71461
+      "sizeBytes": 68816
+    },
+    {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-11T12:14:10.615Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
     },
     {
       "file": "ma-disclosures.json",
-      "fetchedAt": "2026-05-10T08:07:21.223Z",
+      "fetchedAt": "2026-05-11T09:38:57.618Z",
       "fetchedAtSource": "fetchedAt",
       "count": 30,
       "preservedFromCache": false,
       "sources": [
-        {
-          "name": "mass.gov · Debt Management",
-          "ok": true,
-          "count": 0
-        },
         {
           "name": "massbondholder.com · News",
           "ok": true,
           "count": 17
         },
         {
-          "name": "mass.gov · Office of the Treasurer",
+          "name": "massbondholder.com · Official Statements",
+          "ok": true,
+          "count": 195
+        },
+        {
+          "name": "mass.gov · Debt Management",
           "ok": true,
           "count": 0
         },
         {
-          "name": "massbondholder.com · Official Statements",
+          "name": "mass.gov · Office of the Treasurer",
           "ok": true,
-          "count": 195
+          "count": 0
         }
       ],
-      "sizeBytes": 14745
+      "sizeBytes": 14415
     },
     {
       "file": "ma-bond-trades.json",
-      "fetchedAt": "2026-05-10T07:51:52.625Z",
+      "fetchedAt": "2026-05-11T08:53:20.345Z",
       "fetchedAtSource": "fetchedAt",
       "count": 8,
       "preservedFromCache": true,
@@ -164,7 +128,52 @@
           "count": 0
         }
       ],
-      "sizeBytes": 1934
+      "sizeBytes": 1851
+    },
+    {
+      "file": "ma-roll-calls.json",
+      "fetchedAt": "2026-05-10T11:12:26.010Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "bills.combined",
+          "ok": true,
+          "count": 10762
+        },
+        {
+          "name": "bills.House",
+          "ok": true,
+          "count": 5413
+        },
+        {
+          "name": "bills.Senate",
+          "ok": true,
+          "count": 3078
+        },
+        {
+          "name": "bills.actions",
+          "ok": true,
+          "count": 1500
+        }
+      ],
+      "sizeBytes": 11898
+    },
+    {
+      "file": "ma-contracts.json",
+      "fetchedAt": "2026-05-10T10:46:36.697Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 300,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "cthru.spending.contracts.2026",
+          "ok": true,
+          "count": 300
+        }
+      ],
+      "sizeBytes": 165841
     },
     {
       "file": "ma-sfi.json",
@@ -173,16 +182,7 @@
       "count": 0,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 685
-    },
-    {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-09T11:11:30.976Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
+      "sizeBytes": 673
     },
     {
       "file": "ma-lobbying.json",
@@ -191,7 +191,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 190055
+      "sizeBytes": 182662
     },
     {
       "file": "ma-nonprofits.json",
@@ -200,7 +200,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 12162018
+      "sizeBytes": 11677435
     }
   ]
 }
