@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-15T11:24:31.258Z",
+  "fetchedAt": "2026-05-16T10:19:33.502Z",
   "years": [
     "2024",
     "2025",
@@ -13,8 +13,8 @@
   "sources": [
     {
       "name": "spending.byDepartment.2024",
-      "ok": false,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "spending.byVendor.2024",
@@ -77,11 +77,210 @@
       "count": 18
     }
   ],
-  "warnings": [
-    "spending.byDepartment.2024: This operation was aborted"
-  ],
+  "warnings": [],
   "spendingByDepartment": {
-    "2024": null,
+    "2024": [
+      {
+        "name": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+        "value": 24020373132.57
+      },
+      {
+        "name": "OFFICE OF THE STATE TREASURER (TRE)",
+        "value": 9874278466.11
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF LABOR AND WORKFORCE DEVELOPMENT (EOL)",
+        "value": 8947789528.56
+      },
+      {
+        "name": "DEPARTMENT OF REVENUE (DOR)",
+        "value": 8849358022.2
+      },
+      {
+        "name": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "value": 4200182815.03
+      },
+      {
+        "name": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
+        "value": 4020885810.19
+      },
+      {
+        "name": "TEACHERS RETIREMENT BOARD (TRB)",
+        "value": 3752672193.82
+      },
+      {
+        "name": "GROUP INSURANCE COMMISSION (GIC)",
+        "value": 3592547044.43
+      },
+      {
+        "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
+        "value": 2879019634.56
+      },
+      {
+        "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
+        "value": 2160829350.45
+      },
+      {
+        "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
+        "value": 1482474021.79
+      },
+      {
+        "name": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
+        "value": 1126042187.13
+      },
+      {
+        "name": "DEPARTMENT OF MENTAL HEALTH (DMH)",
+        "value": 1111274934.54
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
+        "value": 1096733442.42
+      },
+      {
+        "name": "LOTTERY AND GAMING COMMISSION (LOT)",
+        "value": 1004900158
+      },
+      {
+        "name": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
+        "value": 997896686.94
+      },
+      {
+        "name": "TRIAL COURT (TRC)",
+        "value": 880691181.09
+      },
+      {
+        "name": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+        "value": 856184083.72
+      },
+      {
+        "name": "EMERGENCY MANAGEMENT AGENCY (CDA)",
+        "value": 809276833.51
+      },
+      {
+        "name": "MASSACHUSETTS BAY TRANSPORTATION AUTHORITY (MBT)",
+        "value": 808667056.6
+      },
+      {
+        "name": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
+        "value": 690939384.88
+      },
+      {
+        "name": "DEPARTMENT OF CORRECTION (DOC)",
+        "value": 637807867.36
+      },
+      {
+        "name": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
+        "value": 579081081.14
+      },
+      {
+        "name": "DEPARTMENT OF STATE POLICE (POL)",
+        "value": 552242912.53
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF ECONOMIC DEVELOPMENT (EED)",
+        "value": 542189236.39
+      },
+      {
+        "name": "BRIDGEWATER STATE UNIVERSITY (BSC)",
+        "value": 395639107.6
+      },
+      {
+        "name": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
+        "value": 347621895.2
+      },
+      {
+        "name": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
+        "value": 329061229.13
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF ENVIRONMENTAL AFFAIRS (ENV)",
+        "value": 309118591.63
+      },
+      {
+        "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
+        "value": 286132479.45
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
+        "value": 278578512.44
+      },
+      {
+        "name": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
+        "value": 260114355.15
+      },
+      {
+        "name": "OFFICE OF THE COMPTROLLER (CTR)",
+        "value": 258065561.1
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
+        "value": 243137727.91
+      },
+      {
+        "name": "MASS REHABILITATION COMMISSION (MRC)",
+        "value": 204439814.23
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF EDUCATION (EDU)",
+        "value": 196203423.21
+      },
+      {
+        "name": "SALEM STATE UNIVERSITY (SSA)",
+        "value": 187981287.8
+      },
+      {
+        "name": "DEPARTMENT OF YOUTH SERVICES (DYS)",
+        "value": 175371085.95
+      },
+      {
+        "name": "FITCHBURG STATE UNIVERSITY (FSC)",
+        "value": 163342135.32
+      },
+      {
+        "name": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
+        "value": 162847139.57
+      },
+      {
+        "name": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
+        "value": 156544303.24
+      },
+      {
+        "name": "WESTFIELD STATE UNIVERSITY (WSC)",
+        "value": 148705671.23
+      },
+      {
+        "name": "FRAMINGHAM STATE UNIVERSITY (FRC)",
+        "value": 129675797.43
+      },
+      {
+        "name": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
+        "value": 128677361.12
+      },
+      {
+        "name": "SHERIFF DEPARTMENT HAMPDEN (SDH)",
+        "value": 127173521.12
+      },
+      {
+        "name": "SHERIFF DEPARTMENT SUFFOLK (SDS)",
+        "value": 116013556.95
+      },
+      {
+        "name": "WORCESTER STATE UNIVERSITY (WOR)",
+        "value": 112862370.68
+      },
+      {
+        "name": "DEPARTMENT OF HIGHER EDUCATION (RGT)",
+        "value": 107541264.86
+      },
+      {
+        "name": "MILITARY DIVISION (MIL)",
+        "value": 104520553.67
+      },
+      {
+        "name": "HUMAN RESOURCES DIVISION (HRD)",
+        "value": 103831425.98
+      }
+    ],
     "2025": [
       {
         "name": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
