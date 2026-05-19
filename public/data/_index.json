@@ -1,33 +1,9 @@
 {
-  "generatedAt": "2026-05-18T12:51:23.141Z",
+  "generatedAt": "2026-05-19T12:13:53.394Z",
   "snapshots": [
     {
-      "file": "ma-contracts.json",
-      "fetchedAt": "2026-05-18T12:51:22.892Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 300,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "cthru.spending.contracts.2026",
-          "ok": true,
-          "count": 300
-        }
-      ],
-      "sizeBytes": 165841
-    },
-    {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-18T12:51:09.589Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
-    },
-    {
       "file": "cthru-aggregates.json",
-      "fetchedAt": "2026-05-18T12:36:34.539Z",
+      "fetchedAt": "2026-05-19T12:13:53.206Z",
       "fetchedAtSource": "fetchedAt",
       "count": null,
       "preservedFromCache": false,
@@ -101,21 +77,30 @@
       "sizeBytes": 68816
     },
     {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-19T12:13:33.729Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
+    },
+    {
       "file": "ma-disclosures.json",
-      "fetchedAt": "2026-05-18T10:03:11.942Z",
+      "fetchedAt": "2026-05-19T09:41:55.839Z",
       "fetchedAtSource": "fetchedAt",
       "count": 30,
       "preservedFromCache": false,
       "sources": [
         {
-          "name": "massbondholder.com · News",
-          "ok": true,
-          "count": 17
-        },
-        {
           "name": "mass.gov · Debt Management",
           "ok": true,
           "count": 0
+        },
+        {
+          "name": "massbondholder.com · News",
+          "ok": true,
+          "count": 17
         },
         {
           "name": "massbondholder.com · Official Statements",
@@ -132,7 +117,7 @@
     },
     {
       "file": "ma-bond-trades.json",
-      "fetchedAt": "2026-05-18T09:34:50.553Z",
+      "fetchedAt": "2026-05-19T08:54:16.259Z",
       "fetchedAtSource": "fetchedAt",
       "count": 8,
       "preservedFromCache": true,
@@ -144,6 +129,21 @@
         }
       ],
       "sizeBytes": 1851
+    },
+    {
+      "file": "ma-contracts.json",
+      "fetchedAt": "2026-05-18T12:51:22.892Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 300,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "cthru.spending.contracts.2026",
+          "ok": true,
+          "count": 300
+        }
+      ],
+      "sizeBytes": 165841
     },
     {
       "file": "ma-roll-calls.json",
