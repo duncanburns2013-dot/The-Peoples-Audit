@@ -1,33 +1,9 @@
 {
-  "generatedAt": "2026-05-20T12:08:13.994Z",
+  "generatedAt": "2026-05-21T12:18:47.863Z",
   "snapshots": [
     {
-      "file": "ma-contracts.json",
-      "fetchedAt": "2026-05-20T12:08:13.741Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 300,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "cthru.spending.contracts.2026",
-          "ok": true,
-          "count": 300
-        }
-      ],
-      "sizeBytes": 165841
-    },
-    {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-20T12:08:10.217Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
-    },
-    {
       "file": "cthru-aggregates.json",
-      "fetchedAt": "2026-05-20T11:51:03.417Z",
+      "fetchedAt": "2026-05-21T12:18:47.680Z",
       "fetchedAtSource": "fetchedAt",
       "count": null,
       "preservedFromCache": false,
@@ -101,38 +77,47 @@
       "sizeBytes": 68816
     },
     {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-21T12:18:28.211Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
+    },
+    {
       "file": "ma-disclosures.json",
-      "fetchedAt": "2026-05-20T09:33:06.476Z",
+      "fetchedAt": "2026-05-21T09:40:00.089Z",
       "fetchedAtSource": "fetchedAt",
       "count": 30,
       "preservedFromCache": false,
       "sources": [
-        {
-          "name": "massbondholder.com · News",
-          "ok": true,
-          "count": 17
-        },
         {
           "name": "mass.gov · Debt Management",
           "ok": true,
           "count": 0
         },
         {
-          "name": "massbondholder.com · Official Statements",
-          "ok": true,
-          "count": 195
-        },
-        {
           "name": "mass.gov · Office of the Treasurer",
           "ok": true,
           "count": 0
+        },
+        {
+          "name": "massbondholder.com · News",
+          "ok": true,
+          "count": 17
+        },
+        {
+          "name": "massbondholder.com · Official Statements",
+          "ok": true,
+          "count": 195
         }
       ],
-      "sizeBytes": 14579
+      "sizeBytes": 14521
     },
     {
       "file": "ma-bond-trades.json",
-      "fetchedAt": "2026-05-20T08:49:33.961Z",
+      "fetchedAt": "2026-05-21T08:51:52.016Z",
       "fetchedAtSource": "fetchedAt",
       "count": 8,
       "preservedFromCache": true,
@@ -144,6 +129,21 @@
         }
       ],
       "sizeBytes": 1851
+    },
+    {
+      "file": "ma-contracts.json",
+      "fetchedAt": "2026-05-20T12:08:13.741Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 300,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "cthru.spending.contracts.2026",
+          "ok": true,
+          "count": 300
+        }
+      ],
+      "sizeBytes": 165841
     },
     {
       "file": "ma-roll-calls.json",
