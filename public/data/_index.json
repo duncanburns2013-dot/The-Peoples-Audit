@@ -1,6 +1,30 @@
 {
-  "generatedAt": "2026-05-22T11:47:38.373Z",
+  "generatedAt": "2026-05-22T12:05:11.477Z",
   "snapshots": [
+    {
+      "file": "ma-contracts.json",
+      "fetchedAt": "2026-05-22T12:05:11.233Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 300,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "cthru.spending.contracts.2026",
+          "ok": true,
+          "count": 300
+        }
+      ],
+      "sizeBytes": 165841
+    },
+    {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-22T12:05:04.001Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
+    },
     {
       "file": "cthru-aggregates.json",
       "fetchedAt": "2026-05-22T11:47:38.194Z",
@@ -77,15 +101,6 @@
       "sizeBytes": 68816
     },
     {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-22T11:47:19.764Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
-    },
-    {
       "file": "ma-disclosures.json",
       "fetchedAt": "2026-05-22T09:22:29.698Z",
       "fetchedAtSource": "fetchedAt",
@@ -129,21 +144,6 @@
         }
       ],
       "sizeBytes": 1851
-    },
-    {
-      "file": "ma-contracts.json",
-      "fetchedAt": "2026-05-21T12:31:42.888Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 300,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "cthru.spending.contracts.2026",
-          "ok": true,
-          "count": 300
-        }
-      ],
-      "sizeBytes": 165841
     },
     {
       "file": "ma-roll-calls.json",
