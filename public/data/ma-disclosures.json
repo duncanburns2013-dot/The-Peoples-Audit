@@ -1,7 +1,12 @@
 {
-  "fetchedAt": "2026-05-26T15:26:55.667Z",
+  "fetchedAt": "2026-05-26T20:08:24.804Z",
   "preservedFromCache": false,
   "sources": [
+    {
+      "name": "mass.gov · Debt Management",
+      "ok": true,
+      "count": 0
+    },
     {
       "name": "massbondholder.com · News",
       "ok": true,
@@ -11,11 +16,6 @@
       "name": "massbondholder.com · Official Statements",
       "ok": true,
       "count": 195
-    },
-    {
-      "name": "mass.gov · Debt Management",
-      "ok": true,
-      "count": 0
     },
     {
       "name": "mass.gov · Office of the Treasurer",
@@ -33,6 +33,16 @@
       "type": "Upcoming Issuance",
       "date": "2026-06-01",
       "url": "https://www.massbondholder.com/emma-notice-proposed-sale-june-2026-go-bonds-series-d-refunding-bonds-series-b-negotiated",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
+    {
+      "id": "mbh:/may-26-2026-information-statement-now-available",
+      "title": "Read more about May 26, 2026 Information Statement Now Available",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "News / Disclosure",
+      "date": "2026-05-26",
+      "url": "https://www.massbondholder.com/may-26-2026-information-statement-now-available",
       "summary": "",
       "source": "MassBondHolder"
     },
@@ -63,16 +73,6 @@
       "type": "Official Statement",
       "date": "2026-04-01",
       "url": "https://www.massbondholder.com/april-2026-go-bonds-official-statement-now-available",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh:/upcoming-competitive-bond-sale-april-2026-go-bonds-series-b-and-c-refunding-bonds",
-      "title": "Read more about Upcoming Competitive Bond Sale: April 2026 GO Bonds, Series A, B, and C & Refunding Bonds",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "Upcoming Issuance",
-      "date": "2026-04-01",
-      "url": "https://www.massbondholder.com/upcoming-competitive-bond-sale-april-2026-go-bonds-series-b-and-c-refunding-bonds",
       "summary": "",
       "source": "MassBondHolder"
     },
