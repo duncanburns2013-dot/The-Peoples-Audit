@@ -25,12 +25,16 @@ All data comes from publicly available government records:
 - **[USASpending.gov](https://www.usaspending.gov/)** — Federal spending flowing to Massachusetts
 - **[MassOpenBooks](https://massopenbooks.org/)** — Public employee salary and pension data
 - **Governor's Budget Recommendations** — Annual budget summaries
-- **MA State Ethics Commission — Statements of Financial Interest (SFI)** — **NOW LIVE.**
-  29,729 redacted SFI filings 2019–2025 covering every legislator, judge,
-  agency head, board member, and designated public employee subject to G.L.
-  c. 268B. Bulk release approved 2026. Extraction pipeline:
-  [`audit-scripts/sfi/`](audit-scripts/sfi/). Findings:
-  [`findings/FINDINGS-SFI-V0.md`](findings/FINDINGS-SFI-V0.md). Raw PDFs
+- **MA State Ethics Commission — Statements of Financial Interest (SFI).**
+  29,729 redacted SFI filings 2019–2025 — every legislator, judge, agency
+  head, board member, and designated public employee subject to G.L. c. 268B.
+  Bulk-released by the Commission in 2026. Live searchable UI in the
+  [Legislator Finances tab](?section=sfi). Sourced facts:
+  [`findings/FINDINGS-SFI-LOCKED.md`](findings/FINDINGS-SFI-LOCKED.md).
+  Press brief: [`findings/PRESS-BRIEF-SFI-TEMPUS.md`](findings/PRESS-BRIEF-SFI-TEMPUS.md).
+  Per-row verification log for the Tempus disclosure aggregation:
+  [`data/sfi/verify/tempus_verified.md`](data/sfi/verify/tempus_verified.md).
+  Extraction pipeline: [`audit-scripts/sfi/`](audit-scripts/sfi/). Raw PDFs
   attached as GitHub Releases (`sfi-2019` … `sfi-2025`).
 
 ## The Audit Story

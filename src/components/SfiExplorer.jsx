@@ -395,17 +395,20 @@ function TempusSpotlight({ tempus }) {
   const ctx = tempus.tempusContext || {};
   return (
     <div className="tempus-card">
-      <div className="tempus-tag">Headline finding · LOCKED v1</div>
+      <div className="tempus-tag">SFI Q7 disclosures · 28/28 re-verified from PDF</div>
       <h3 className="tempus-headline">
-        Eight MA public officials disclosed in their own SFIs that a spouse or household dependent
-        is paid through the <strong>MassHealth Personal Care Attendant program</strong>, with{' '}
-        <strong>Tempus Unlimited, Inc.</strong> as the sole statewide Fiscal Intermediary.
+        8 MA public officials disclosed spouse income through <strong>Tempus Unlimited, Inc.</strong>
+        {' '}on their own annual Statements of Financial Interest 2019–2025.
       </h3>
       <p className="tempus-sub">
-        28 individual disclosures across 2019–2025, every one re-verified by direct PDF re-read.
-        Tempus is the program administrator; the MassHealth member is the legal employer of record.
-        The $6.62B figure in the HHS-MA-DOGE flagged-address index is cumulative 2018–2024 PCA-
-        program pass-through — Tempus FY2024 net surplus was {usd(ctx.fy2024NetSurplus)}.
+        Word-boundary substring scan for &ldquo;Tempus&rdquo; in the Q7 (Spouse Business Employment)
+        section of every filing returned 28 hits across 8 unique filers. Every hit was independently
+        re-verified by live PDF text re-extraction. Tempus Unlimited, Inc. (EIN 04-2239746) is the
+        sole statewide MassHealth Personal Care Attendant Fiscal Intermediary; FY2024 net surplus
+        per ProPublica 990: {usd(ctx.fy2024NetSurplus)}.
+      </p>
+      <p className="tempus-disambig">
+        Not to be confused with Tempus AI (NASDAQ: TEM), the Chicago-based health-tech company.
       </p>
 
       <div className="tempus-grid">
@@ -470,9 +473,10 @@ function TempusSpotlight({ tempus }) {
       </div>
 
       <div className="tempus-foot">
-        These are the officials&rsquo; own lawful disclosures, filed under penalty of perjury with
-        the MA State Ethics Commission. No wrongdoing by any named official is alleged. Per G.L.
-        c. 268B, each was notified by the Commission&rsquo;s bulk-release process.
+        The disclosures cited are the filers&rsquo; own filings under penalty of perjury per G.L.
+        c. 268B. No wrongdoing by any named individual or by Tempus Unlimited, Inc. is alleged.
+        Per G.L. c. 268B, each filer was notified by the Commission&rsquo;s bulk-release process
+        at the time of release. The evidence speaks for itself.
       </div>
     </div>
   );
@@ -612,8 +616,20 @@ function SfiCss() {
         font-size: 1.02rem;
         line-height: 1.6;
         color: var(--text-secondary);
+        margin: 0 0 14px;
+        max-width: 880px;
+      }
+      .tempus-disambig {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--text-muted);
+        font-style: italic;
         margin: 0 0 24px;
         max-width: 880px;
+        padding: 8px 14px;
+        background: rgba(255,199,44,0.08);
+        border-left: 3px solid var(--accent-gold);
+        border-radius: 4px;
       }
       .tempus-name { font-size: 1rem; }
       .tempus-title { font-size: 0.86rem; }

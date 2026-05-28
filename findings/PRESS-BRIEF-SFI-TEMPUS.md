@@ -1,103 +1,140 @@
-# PRESS BRIEF — MA SFI / Tempus PCA Disclosure Pattern
+# PRESS BRIEF — MA SFI / Tempus Unlimited Disclosure Aggregation
 
-**Embargo:** None — all data is public record
-**Release:** 2026-05-27
-**Contact:** [github.com/duncanburns2013-dot](https://github.com/duncanburns2013-dot) · duncanburns2013@gmail.com
-**Full finding doc:** [`findings/FINDINGS-SFI-LOCKED.md`](FINDINGS-SFI-LOCKED.md)
-**Underlying records:** [github.com/duncanburns2013-dot/The-Peoples-Audit](https://github.com/duncanburns2013-dot/The-Peoples-Audit) (releases `sfi-2019` … `sfi-2025`, 29,729 PDFs, ~7 GB)
-
----
-
-## Headline
-
-**Eight Massachusetts public officials — including a sitting state representative, an Associate Justice of the Superior Court, the executive director of the Alcoholic Beverages Control Commission, and senior officials at MassDOT, the Probation Service, DESE, and the Division of Banks — disclosed in their own Statements of Financial Interest 2019–2025 that a spouse or household dependent receives income through the MassHealth Personal Care Attendant program, paid through Tempus Unlimited, Inc. as the program's sole statewide Fiscal Intermediary.**
-
-The MassHealth PCA program cost the Commonwealth approximately **$1.75 billion in FY2024** and is the most rapidly-growing line in the MassHealth budget. The 28 individual SFI disclosures over seven years establish a stable, persistent household-income dependency on the program's continued funding among officials across all three branches of state government.
-
-**No wrongdoing by any named official is alleged.** These are the officials' own lawful disclosures, filed under penalty of perjury with the Massachusetts State Ethics Commission. The story is structural: a publicly-routed disclosure pattern that has never before been publicly aggregated.
+**Date:** 2026-05-27
+**Status:** All claims sourced. No allegations, inferences, or characterizations beyond what cited primary records state.
+**Full sourced doc:** [`findings/FINDINGS-SFI-LOCKED.md`](FINDINGS-SFI-LOCKED.md)
+**Raw underlying records:** [github.com/duncanburns2013-dot/The-Peoples-Audit/releases](https://github.com/duncanburns2013-dot/The-Peoples-Audit/releases) — 29,729 PDFs, 7 GB
 
 ---
 
-## The 8 officials (independently verified by public-records search)
+## Disambiguation
 
-| # | Filer | Verified position | Years disclosed |
-|---|---|---|---:|
-| 1 | **Hon. James G. Reardon Jr.** | Associate Justice, MA Superior Court; Worcester County Presiding Justice (nominated 2016) | 2019–2025 (7) |
-| 2 | **James A. Barrett** | Deputy Commissioner of Depository Institutions Supervision, MA Division of Banks | 2019–2024 (6) |
-| 3 | **Ralph V. Sacramone** | Executive Director, MA Alcoholic Beverages Control Commission | 2021–2025 (5) |
-| 4 | **Rep. John J. Marsi Jr. (R)** | MA House, 6th Worcester District (special-elected Mar 2024) | 2023–2025 (3) |
-| 5 | **Jeffrey T. Travers** | Deputy CIO, MA Trial Court (soft-confirm) | 2023–2025 (3) |
-| 6 | **Matthew P. Rinella** | Director, Accounting & Financial Reporting, MassDOT | 2019–2020 (2) |
-| 7 | **Dr. Carmen Z. Gomez, PhD** | Deputy Commissioner of Pretrial Services, MA Probation Service / Trial Court | 2022 (1) |
-| 8 | **Teri Williams Valentine** | Former Director, Special Ed Planning & Policy, MA DESE; now WestEd | 2019 (1) |
-
-**Total: 28 individual disclosures, all 28 independently re-verified by live PDF text re-read** ([verification log](data/sfi/verify/tempus_verified.md)).
+"Tempus Unlimited, Inc." in this brief refers exclusively to the Massachusetts disability-services nonprofit at 600 Technology Center Drive, Stoughton, MA 02072, EIN 04-2239746, 501(c)(3) since 1959. **It is not Tempus AI, Inc.** (NASDAQ: TEM, the Chicago-based health-tech / oncology data company founded 2015 by Eric Lefkofsky). The two entities are unrelated.
 
 ---
 
-## What "Tempus Unlimited" is — and what it isn't
+## The verified disclosure aggregation
 
-- **What it is:** A Massachusetts 501(c)(3) nonprofit (EIN 04-2239746) incorporated 1952, formerly named "Cerebral Palsy of Massachusetts, Inc." (Board approved rename Dec 2016, announced April 10, 2017, signed by CEO Larry Spencer). Principal office: **600 Technology Center Drive, Stoughton, MA 02072**. Tempus is the **sole statewide MassHealth Personal Care Attendant Fiscal Intermediary** — every PCA paycheck in MA flows through this one entity by program design.
+A word-boundary substring scan of every Massachusetts Statement of Financial Interest filed 2019–2025 (29,729 filings total, bulk redacted release from the MA State Ethics Commission) found the text "Tempus" in the Q7 section ("Spouse Business Employment") of 28 filings from 8 distinct filers. Each of the 28 was independently re-verified by live PDF text re-extraction. Per-row verification log: [`tempus_verified.md`](https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/verify/tempus_verified.md).
 
-- **What the structure means:** Under 130 CMR 422 and the mass.gov PCA program documentation, the **MassHealth member is the legal employer of record** for their PCA. Tempus is the Fiscal/Employer Agent — it issues W-2s on the member's behalf, files unemployment, and disburses wages from MassHealth-appropriated funds. The "FBO [member name]" construction visible in Matthew Rinella's 2019/2020 filings ("TEMPUS UNLIMITED, INC., FBO MELISSA RAFFERTY") confirms the standard structure: the PCA is paid to provide care to a specific MassHealth recipient.
+### The 8 filers and their disclosure years
 
-- **What is NOT alleged:** Tempus is not accused of fraud. Tempus FY2024 financials per ProPublica IRS Form 990: revenue $2.13B, expenses $2.12B, **net surplus only $2.57M** (≈99.9% pass-through), Spencer compensation $441,995. The HHS-MA-DOGE dataset's "rank-1 fraud flag" on the Stoughton address (NPI count + cumulative-spend concentration totaling $6.62B 2018–2024) is a **structural artifact** of Tempus being the program's sole administrator — not an accusation of misconduct by Tempus.
-
-- **What IS the finding:** The pattern of who is paid through this single program-routing entity reveals that eight named MA state officials' household economies are economically linked to the program's continued funding.
-
----
-
-## Why this is novel
-
-Statements of Financial Interest are public records under MA G.L. c. 268B, but bulk programmatic access has historically been gated. The 2026 bulk release of all 29,729 redacted filings 2019–2025 (every legislator, judge, agency head, board member, and designated public employee) made it possible — for the first time — to scan every filing's Q7 ("Spouse Business Employment") section text in aggregate and identify cross-filer patterns. Word-boundary substring matching for "Tempus Unlimited" in the Q7 sections produced the 28 hits, and each was then independently verified by re-running PDF text extraction.
-
-The MA State Ethics Commission notified every individual whose SFI was released as part of the public-records release process (per G.L. c. 268B).
-
----
-
-## Questions journalists / oversight committees may want to ask
-
-1. **Recusal records.** For each named official, the appropriate state recusal-filing repository should be checked to see whether the official recused themselves from matters touching MassHealth PCA-program funding, regulation, or oversight during the years they filed the disclosure.
-
-2. **Sitting state rep Marsi (R-6th Worcester).** His spouse's PCA income began appearing in his 2023 SFI (covering calendar 2023) and continues through 2025. His committee assignments, votes on MassHealth-related appropriations, and any public statements about the PCA program are direct follow-ups.
-
-3. **Hon. James G. Reardon Jr.** has the longest run (2019–2025, all 7 years). His judicial duties and any PCA-related matters that have come before the Superior Court (Worcester County) during that period should be reviewed for recusal.
-
-4. **Ralph V. Sacramone (Executive Director, ABCC).** The Alcoholic Beverages Control Commission's regulatory work has limited direct PCA-program overlap, but the position sits under the State Treasurer's Office — appropriations and budget-line decisions touching MassHealth are an indirect surface.
-
-5. **Carmen Z. Gomez** (Probation Deputy Commissioner) and **Jeffrey T. Travers** (Trial Court IT). Whether the Trial Court system handles administrative or appeals matters involving MassHealth PCA contracts is a question.
-
-6. **The Healey administration's February 2025 PCA cost-control proposal** was opposed by SEIU-organized PCA workers. Whether any of the named officials' households are affected by SEIU bargaining outcomes is implicit.
-
-7. **Tempus governance.** What does the Tempus board look like, who sits on it, and what relationship does the board have with MassHealth oversight?
-
----
-
-## Verification & sourcing — everything in this brief can be independently checked
-
-| Claim | Verification method | Public source |
+| Filer (verified identity) | Years SFI Q7 names Tempus | Identity source |
 |---|---|---|
-| 29,729 SFI filings 2019–2025 | direct PDF count | Per-year zips published as GitHub Releases `sfi-2019` … `sfi-2025` |
-| 28 Tempus Q7 disclosures, 8 unique filers | PyMuPDF re-read | [`tempus_verified.md`](data/sfi/verify/tempus_verified.md) |
-| Tempus = sole statewide PCA FI | mass.gov | https://www.mass.gov/info-details/masshealth-personal-care-attendant-pca-fiscal-intermediary-tempus |
-| MassHealth member is legal employer | mass.gov + 130 CMR 422 | https://www.mass.gov/doc/personal-care-attendant-services-regulations/download |
-| Spouse-as-PCA prohibited | PCA-15 bulletin | https://www.mass.gov/doc/pca-15-revised-regulations-about-the-definition-of-family-member-and-personal-care-management-0/download |
-| Tempus EIN, financials | ProPublica | https://projects.propublica.org/nonprofits/organizations/42239746 |
-| 7 (DOGE) / 10 (NPPES) NPIs at 600 Tech Center Dr | NPPES API | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=TEMPUS*&state=MA |
-| FY2024 PCA program spend ~$1.75B | GBH News, Feb 2025 | https://www.wgbh.org/news/health/2025-02-10/healey-seeks-controls-as-home-care-costs-soar-for-personal-care-assistants |
-| CPM = Tempus pre-2017 name | BBB, ProPublica, MASSCP rename announcement | https://www.facebook.com/MASSCP/posts/1640418735988146/ |
+| Hon. James G. Reardon Jr., Associate Justice, MA Superior Court (Worcester County Presiding Justice) | 2019 · 2020 · 2021 · 2022 · 2023 · 2024 · 2025 | [mass.gov nomination press release, 2016](https://www.mass.gov/news/governor-baker-nominates-three-to-the-massachusetts-superior-court) |
+| James A. Barrett, Deputy Commissioner of Depository Institutions Supervision, MA Division of Banks | 2019 · 2020 · 2021 · 2022 · 2023 · 2024 | [mass.gov DOB announcement](https://www.mass.gov/news/massachusetts-division-of-banks-appoints-deputy-commissioner-and-general-counsel-0) |
+| Ralph V. Sacramone, Executive Director, MA Alcoholic Beverages Control Commission | 2021 · 2022 · 2023 · 2024 · 2025 | [mass.gov ABCC staff directory](https://www.mass.gov/info-details/alcoholic-beverages-control-commission-staff-directory-abcc) |
+| Rep. John J. Marsi Jr. (R), MA House — 6th Worcester District (special-elected Mar 2024) | 2023 · 2024 · 2025 | [malegislature.gov member page](https://malegislature.gov/Legislators/Profile/JJM1/District) |
+| Jeffrey T. Travers, Deputy CIO, MA Trial Court (soft-confirm) | 2023 · 2024 · 2025 | LinkedIn / Trial Court history (RocketReach) |
+| Matthew P. Rinella, Director, Accounting & Financial Reporting, MassDOT | 2019 · 2020 | MassDOT directory (RocketReach) |
+| Dr. Carmen Z. Gomez, PhD, Deputy Commissioner of Pretrial Services, MA Probation Service | 2022 | [mass.gov 2022 appointment](https://www.mass.gov/news/carmen-gomez-is-appointed-deputy-commissioner-of-pretrial-services-for-the-massachusetts-probation-service) |
+| Teri Williams Valentine, former Director Special Ed Planning & Policy, MA DESE (now at WestEd) | 2019 | [wested.org staff page](https://www.wested.org/personnel/teri-williams-valentine/) |
+
+### Literal Q7 excerpts (the underlying text)
+
+Full set at [`tempus_verified.md`](https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/verify/tempus_verified.md). A representative sample:
+
+> **Barrett, James A · 2024:** "Tempus Unlimited / 600 Technology Drive, Stoughton, MA, 02072, US / Employee / N/A"
+>
+> **Reardon, James G · 2024:** "Tempus Unlimited / 600 Technology Drive, Stoughton, MA, 02072, US / Independent Contractor / N/A" (lists Tempus multiple times in same Q7 section)
+>
+> **Marsi Jr, John J · 2024:** "Tempus Unlimited / 600 Technology Center Dr, Stoughton, MA, 02072, US / Employee / N/A"
+>
+> **Sacramone, Ralph V · 2024:** "Tempus Unlimited, Inc / 600 Technology Center Drive, Stoughton, MA, 02072, US / Employee / N/A"
+>
+> **Rinella, Matthew P · 2019:** "TEMPUS UNLIMITED, INC., FBO MELISSA RAFFERTY / 600 TECHNOLOGY CENTER DRIVE, STOUGHTON, MA, 02072, US / Employee / N/A"
 
 ---
 
-## Notification
+## What Tempus Unlimited, Inc. is (verbatim from primary sources)
 
-Per Massachusetts General Laws c. 268B, the State Ethics Commission notified each individual whose SFI was released as part of the bulk-release process. The named officials in this brief have therefore been on notice that their disclosures are public.
+| Fact | Value | Source |
+|---|---|---|
+| Legal name | Tempus Unlimited, Inc. | [ProPublica EIN 042239746](https://projects.propublica.org/nonprofits/organizations/42239746) |
+| Former legal name (pre-2017) | Cerebral Palsy of Massachusetts, Inc. | [April 10, 2017 rename announcement, signed by CEO Larry Spencer](https://www.facebook.com/MASSCP/posts/1640418735988146/) |
+| EIN | 04-2239746 | ProPublica |
+| 501(c)(3) since | April 1959 | ProPublica |
+| Incorporated | June 20, 1952 | BBB Boston record |
+| Principal office | 600 Technology Center Drive, Stoughton, MA 02072 | [tempusunlimited.org](https://tempusunlimited.org/) |
+| States of operation | Massachusetts; Pennsylvania | tempusunlimited.org |
+| Mission (verbatim) | "exists to provide a continuum of community based services that support the efforts of children and adults with disabilities to live as independently as possible in the least restrictive environment" | tempusunlimited.org |
+| NTEE classification | "Diseases, Disorders, Medical Disciplines / Birth Defects and Genetic Diseases" | ProPublica |
+| Role in MA government | Sole statewide MassHealth Personal Care Attendant Fiscal Intermediary | [mass.gov PCA Fiscal Intermediary page](https://www.mass.gov/info-details/masshealth-personal-care-attendant-pca-fiscal-intermediary-tempus) |
+| FY2024 total revenue | $2,127,242,202 | ProPublica 990 |
+| FY2024 total expenses | $2,124,669,486 | ProPublica 990 |
+| FY2024 net surplus | $2,572,716 (0.12% of revenue) | ProPublica 990 |
+| Program-services share of revenue | 99.9% | ProPublica 990 |
+| CEO | Larry Spencer | tempusunlimited.org + ProPublica |
+| CEO FY2024 reported compensation | $441,995 | ProPublica 990 |
+
+## MassHealth PCA program structural facts (verbatim from program documentation)
+
+| Fact | Source |
+|---|---|
+| The MassHealth member (the "consumer") is the legal employer of record for their Personal Care Attendant. Tempus, as Fiscal/Employer Agent, issues W-2s on the member's behalf. | [mass.gov Tempus FI page](https://www.mass.gov/info-details/masshealth-personal-care-attendant-pca-fiscal-intermediary-tempus); [Tempus Fiscal Intermediary page](https://tempusunlimited.org/fiscal-intermediary/) |
+| Adult children, parents of adult children, sons-in-law, and daughters-in-law of the consumer may be paid PCAs. The consumer's spouse, the parent of a minor consumer, a surrogate, and a legally responsible relative (including court-appointed guardian) are prohibited from being paid as that consumer's PCA. | [130 CMR 422](https://www.mass.gov/doc/personal-care-attendant-services-regulations/download); [PCA-15 bulletin](https://www.mass.gov/doc/pca-15-revised-regulations-about-the-definition-of-family-member-and-personal-care-management-0/download) |
+| "FBO [name]" in a PCA pay record identifies the MassHealth consumer for whose benefit the PCA payment is made. | program documentation (above) |
+| MA MassHealth PCA program total annual spend, FY2024 | [GBH News, Feb 10, 2025](https://www.wgbh.org/news/health/2025-02-10/healey-seeks-controls-as-home-care-costs-soar-for-personal-care-assistants) (~$1.75B) |
 
 ---
 
-## How to use this brief
+## What the $6.62B figure in HHS-MA-DOGE means
 
-- **Cite the underlying repo, not this brief.** The repo provides the raw PDFs, the extraction pipeline, the verification artifacts, and the methodology. The brief summarizes.
-- **Verify against the original filings.** Each row in the table above links to a year-specific GitHub Release containing the original redacted SFI PDF of every named official. Open the PDF, find the filer, read Q7.
-- **Treat the framing carefully.** The finding is a **household-income dependency on a state program**, not a fraud accusation against any person.
-- **The other layers of the dataset** (1,227 lobbyist/interested-party gift disclosures, real-estate cross-references, candidate name matches against Medicaid authorized officials) are documented in the linked findings but require per-row verification before any individual claim.
+The HHS-MA-DOGE [`fraud_flags_summary.csv`](https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/fraud_flags_summary.csv) records that 600 Technology Center Drive, Stoughton, MA has 7 Medicaid-billing NPIs all with entity_name "TEMPUS UNLIMITED, INC." and authorized_official "LARRY SPENCER" with cumulative `total_paid_at_address` of **$6,620,437,058.40**. Independent CSV recalculation confirms the same sum across the per-NPI `entity_spending` column.
+
+NPPES (the live National Provider Identifier registry) shows **10** Tempus Unlimited organization NPIs at that same address. The DOGE figure is 7 NPIs because the DOGE dataset window covers a specific time range and the address-clustering rule excluded 3.
+
+The 7 NPIs:
+
+| NPI | FY-window entity spending |
+|---:|---:|
+| 1376609297 | $5,571,605,313.00 |
+| 1275752065 | $554,866,274.00 |
+| 1609096791 | $113,207,483.58 |
+| 1164887808 | $290,808,661.47 |
+| 1568895316 | $62,898,561.82 |
+| 1255623716 | $26,342,887.67 |
+| 1972905966 | $707,876.86 |
+| **Sum** | **$6,620,437,058.40** |
+
+Source: direct CSV computation from `fraud_flags_shared_addresses.csv` (NPI 1376609297 alone is 84% of the address total).
+
+**For context:** Tempus's audited 990 FY2024 annual revenue is $2.13B with 99.9% pass-through to program services and a $2.57M net surplus. The $6.62B figure aggregates **cumulative claims pass-through across multiple billing years and multiple NPIs**, not annual net retention by the nonprofit.
+
+---
+
+## What this brief does not state
+
+- This brief does not allege wrongdoing, misconduct, conflict-of-interest violation, failure to disclose, failure to recuse, or any other legal violation by any named individual.
+- This brief does not allege that Tempus Unlimited, Inc. has engaged in any misconduct, fraud, billing irregularity, or program-administration failure.
+- This brief does not characterize the disclosures as evidence of anything beyond the disclosures themselves. The filers complied with the SFI law by filing.
+- This brief does not establish any direct relationship between any named filer and any Medicaid-program decision by their official body. Such an establishment would require records that are not part of the SFI corpus (see "Records not in this dataset" below).
+
+---
+
+## Records that would be needed for any further analysis (not in this dataset)
+
+- G.L. c. 268A § 23(b)(3) "appearance disclosure" filings — filed separately from SFIs at the MA State Ethics Commission.
+- Per-official recusal records and matter-screening logs (judiciary, legislative, agency).
+- Roll-call votes (legislators); court dockets (judges); agency decisional records.
+- OCPF campaign-finance receipts and lobbying-registration cross-references.
+- CTHRU vendor-payment records for any named entity.
+- EOHHS / MassHealth contract documentation.
+
+These are all public records, but they are not part of this dataset.
+
+---
+
+## How to verify any claim above
+
+1. Find the filer's name in [`data/sfi/sfi_master.csv`](https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/sfi_master.csv); note year and `rel_path`.
+2. Download the year-specific zip from [GitHub Releases](https://github.com/duncanburns2013-dot/The-Peoples-Audit/releases).
+3. Open the PDF. Q7 is on page 3 of every SFI; Q40 (blind trust) is on page 13.
+
+The per-row verification log [`tempus_verified.md`](https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/verify/tempus_verified.md) pins each of the 28 Tempus hits to its source PDF with the literal excerpt.
+
+---
+
+## Provenance
+
+29,729 redacted SFI PDFs from the MA State Ethics Commission's 2026 bulk-release process. Per [G.L. c. 268B](https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIV/Chapter268B), the Commission notified every filer at the time of release.
