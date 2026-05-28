@@ -248,7 +248,7 @@ async function main() {
     await sleep(800);
     spendingByVendor[fy] = await tryFetch(
       `spending.byVendor.${fy}`,
-      () => fetchSpendingByVendor(fy),
+      () => fetchSpendingByVendor(fy, 200),
     );
     await sleep(800);
   }

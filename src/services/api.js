@@ -586,7 +586,30 @@ export async function fetchFederalAwardsMA(fiscalYear = 2025) {
  * Fetch top vendors ranked by total payments.
  * If fiscalYear is provided, scopes to that year; otherwise all years.
  */
+// Map the cached {name, value} shape from cthru-aggregates.json to the
+// {vendor, total, paymentCount} shape that VendorExplorer consumes.
+function shapeCachedVendors(arr) {
+  if (!Array.isArray(arr)) return [];
+  return arr.map(v => ({
+    vendor: v.vendor || v.name || 'Unknown',
+    total: typeof v.total === 'number' ? v.total : (parseFloat(v.value) || 0),
+    paymentCount: typeof v.paymentCount === 'number' ? v.paymentCount : (parseInt(v.payment_count) || 0),
+  })).filter(v => v.total > 0);
+}
+
 export async function fetchTopVendors(fiscalYear = null, limit = 200) {
+  // Cache first — the snapshot is updated nightly and is what survives if the
+  // live Socrata call is rate-limited, slow, or unreachable from the user's
+  // browser.
+  if (fiscalYear) {
+    const snap = await loadCthruSnapshot();
+    const cached = snap?.spendingByVendor?.[String(fiscalYear)];
+    if (cached?.length) {
+      const shaped = shapeCachedVendors(cached).slice(0, limit);
+      if (shaped.length) return shaped;
+    }
+  }
+  // Fallback: live Socrata aggregation.
   try {
     const params = {
       '$select': 'vendor, SUM(amount) as total, COUNT(*) as payment_count',
@@ -604,7 +627,7 @@ export async function fetchTopVendors(fiscalYear = null, limit = 200) {
       paymentCount: parseInt(d.payment_count) || 0,
     }));
   } catch (err) {
-    console.warn('Top vendors fetch failed:', err.message);
+    console.warn('Top vendors live fetch failed; returning empty:', err.message);
     return [];
   }
 }
@@ -613,8 +636,10 @@ export async function fetchTopVendors(fiscalYear = null, limit = 200) {
  * Search vendors by name (case-insensitive partial match).
  */
 export async function searchVendors(query, fiscalYear = null, limit = 50) {
+  const escapedQuery = query.replace(/'/g, "''");
+  // Live Socrata is the right place for substring search across the full
+  // vendor table — the nightly cache is a top-N aggregate by design.
   try {
-    const escapedQuery = query.replace(/'/g, "''");
     let where = `upper(vendor) like '%${escapedQuery.toUpperCase()}%'`;
     if (fiscalYear) where += ` AND budget_fiscal_year='${fiscalYear}'`;
     const data = await socrataQuery(DATASETS.spending, {
@@ -624,20 +649,36 @@ export async function searchVendors(query, fiscalYear = null, limit = 50) {
       '$order': 'total DESC',
       '$limit': limit,
     });
-    return data.map(d => ({
-      vendor: d.vendor || 'Unknown',
-      total: parseFloat(d.total) || 0,
-      paymentCount: parseInt(d.payment_count) || 0,
-    }));
+    if (data.length) {
+      return data.map(d => ({
+        vendor: d.vendor || 'Unknown',
+        total: parseFloat(d.total) || 0,
+        paymentCount: parseInt(d.payment_count) || 0,
+      }));
+    }
   } catch (err) {
-    console.warn('Vendor search failed:', err.message);
-    return [];
+    console.warn('Vendor search live fetch failed; falling back to cached top-N filter:', err.message);
   }
+  // Fallback: filter the cached top-N by the query string. Won't find vendors
+  // outside the top N, but at least returns something usable.
+  if (fiscalYear) {
+    const snap = await loadCthruSnapshot();
+    const cached = snap?.spendingByVendor?.[String(fiscalYear)];
+    if (cached?.length) {
+      const q = query.trim().toUpperCase();
+      return shapeCachedVendors(cached)
+        .filter(v => (v.vendor || '').toUpperCase().includes(q))
+        .slice(0, limit);
+    }
+  }
+  return [];
 }
 
 /**
  * Fetch non-profit vendors by filtering for common non-profit indicators
  */
+const NONPROFIT_PATTERNS = /FOUNDATION|ASSOC|\bINC\b|COUNCIL|TRUST|SOCIETY|CHARITY|ALLIANCE|COALITION|UNIV(ERSITY)?|COLLEGE|HOSPITAL|CHURCH|CENTER\b/i;
+
 export async function fetchNonProfitVendors(fiscalYear = '2025', limit = 200) {
   try {
     const where = `budget_fiscal_year='${fiscalYear}' AND (upper(vendor) like '%FOUNDATION%' OR upper(vendor) like '%ASSOC%' OR upper(vendor) like '%INC%' OR upper(vendor) like '%COUNCIL%' OR upper(vendor) like '%TRUST%' OR upper(vendor) like '%SOCIETY%' OR upper(vendor) like '%CHARITY%' OR upper(vendor) like '%ALLIANCE%' OR upper(vendor) like '%COALITION%')`;
@@ -648,15 +689,25 @@ export async function fetchNonProfitVendors(fiscalYear = '2025', limit = 200) {
       '$order': 'total DESC',
       '$limit': limit,
     });
-    return data.map(d => ({
-      vendor: d.vendor || 'Unknown',
-      total: parseFloat(d.total) || 0,
-      paymentCount: parseInt(d.payment_count) || 0,
-    }));
+    if (data.length) {
+      return data.map(d => ({
+        vendor: d.vendor || 'Unknown',
+        total: parseFloat(d.total) || 0,
+        paymentCount: parseInt(d.payment_count) || 0,
+      }));
+    }
   } catch (err) {
-    console.warn('Non-profit vendors fetch failed:', err.message);
-    return [];
+    console.warn('Non-profit vendors live fetch failed; falling back to cached filter:', err.message);
   }
+  // Fallback: filter the cached top-N by name patterns.
+  const snap = await loadCthruSnapshot();
+  const cached = snap?.spendingByVendor?.[String(fiscalYear)];
+  if (cached?.length) {
+    return shapeCachedVendors(cached)
+      .filter(v => NONPROFIT_PATTERNS.test(v.vendor || ''))
+      .slice(0, limit);
+  }
+  return [];
 }
 
 /**
