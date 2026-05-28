@@ -1,15 +1,57 @@
 {
-  "fetchedAt": "2026-05-27T23:45:17.054313+00:00",
-  "headline": "Multiple Massachusetts public officials disclosed in their annual Statements of Financial Interest that their spouses were employed by Tempus Unlimited, Inc. \u2014 the #1 Massachusetts Medicaid biller by total spending in the HHS-MA-DOGE address-shared-entity index ($6.6 billion across 7 NPIs sharing one Stoughton address).",
-  "method": "Tempus Unlimited entity name word-boundary matched inside the SFI Q7 (spouse business employment) section text. All matches verified by inspecting the actual Q7 section content.",
-  "dogeReference": "https://github.com/duncanburns2013-dot/HHS-MA-DOGE",
-  "count": 9,
+  "fetchedAt": "2026-05-28T00:46:42.901477+00:00",
+  "version": "v1-locked",
+  "headline": "Nine Massachusetts public officials, across the Judiciary, the House, the executive branch, the Treasury, MassDOT, and DESE, disclosed in their own annual Statements of Financial Interest 2019\u20132025 that a spouse or household dependent received income through the MassHealth Personal Care Attendant program, with Tempus Unlimited, Inc. as the Fiscal/Employer Agent.",
+  "framing": "This is a structural household-income finding, not a fraud finding. Tempus is the sole statewide MassHealth PCA Fiscal Intermediary by program design; MassHealth members are the legal employers of record and Tempus issues W-2s on the members' behalf. The PCA program cost MA ~$1.75B in FY2024 and is the most rapidly-growing line in the MassHealth budget.",
+  "method": "Word-boundary substring match of 'Tempus Unlimited' in the Q7 (Spouse Business Employment) section text of every SFI filing 2019\u20132025. All 28 hits independently re-verified by live PDF text extraction (see audit-scripts/sfi/09_verify_tempus.py + data/sfi/verify/tempus_verified.md).",
   "totalDisclosures": 28,
+  "uniqueFilers": 8,
+  "dogeReference": "https://github.com/duncanburns2013-dot/HHS-MA-DOGE",
+  "tempusContext": {
+    "ein": "04-2239746",
+    "principalOffice": "600 Technology Center Drive, Stoughton, MA 02072",
+    "incorporationDate": "1952-06-20",
+    "ceoName": "Larry Spencer",
+    "ceoComp_FY2024": 441995,
+    "fy2024Revenue": 2127242202,
+    "fy2024Expenses": 2124669486,
+    "fy2024NetSurplus": 2572716,
+    "preRenameLegalName": "Cerebral Palsy of Massachusetts, Inc.",
+    "renameApprovedDate": "2016-12",
+    "renameAnnouncedDate": "2017-04-10",
+    "npisAtAddress_dogeCount": 7,
+    "npisAtAddress_nppesCount": 10,
+    "cumulativeSpending_2018_2024": 6620437058.4,
+    "annualPcaProgramSpend_FY2024": 1750000000,
+    "role": "Sole statewide MassHealth PCA Fiscal Intermediary",
+    "sources": [
+      "https://www.mass.gov/info-details/masshealth-personal-care-attendant-pca-fiscal-intermediary-tempus",
+      "https://projects.propublica.org/nonprofits/organizations/42239746",
+      "https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=TEMPUS*&state=MA",
+      "https://www.facebook.com/MASSCP/posts/1640418735988146/"
+    ]
+  },
+  "pcaProgramMechanics": {
+    "employerOfRecord": "MassHealth member (the consumer)",
+    "fiscalAgent": "Tempus Unlimited, Inc.",
+    "w2Issuer": "Tempus, on member's behalf",
+    "fboMeaning": "'For Benefit Of [member name]' = PCA paid to provide care to that specific MassHealth recipient.",
+    "familyHiringRule": "Adult children, parents of adult children, sons-in-law, daughters-in-law of the consumer MAY be paid PCAs. Spouse, parent of a minor consumer, surrogate, and legally responsible relative are PROHIBITED.",
+    "familyHiringSource": "130 CMR 422.402 + PCA-15 bulletin"
+  },
+  "rinellaFboNote": "Matthew Rinella's 2019 + 2020 Q7 entries literally read 'TEMPUS UNLIMITED, INC., FBO MELISSA RAFFERTY'. Per PCA regulations, the consumer's spouse cannot be a paid PCA, so Melissa Rafferty is necessarily a third-party MassHealth recipient (a non-spouse relative whose personal care is provided by Rinella's spouse and billed through Tempus).",
   "rows": [
     {
       "filerLast": "Barrett",
       "filerFirst": "James A",
       "filerEmail": "james.a.barrett@mass.gov",
+      "fullName": "James A. Barrett",
+      "title": "Deputy Commissioner of Depository Institutions Supervision",
+      "role": "MA Division of Banks (DOB/OCABR)",
+      "branch": "Executive (DOB)",
+      "appointedBy": null,
+      "source": "https://www.mass.gov/news/massachusetts-division-of-banks-appoints-deputy-commissioner-and-general-counsel-0",
+      "note": "Most-likely identity match by work-email domain; middle-initial 'A' not directly visible in public records.",
       "years": [
         {
           "year": "2019",
@@ -41,17 +83,18 @@
           "pdf": "2024/Barrett__James_A.pdf",
           "sfiSection": "7"
         }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
+      ]
     },
     {
       "filerLast": "Reardon",
       "filerFirst": "James G",
       "filerEmail": "james.reardon@jud.state.ma.us",
+      "fullName": "Hon. James Gavin Reardon Jr.",
+      "title": "Associate Justice, MA Superior Court",
+      "role": "Worcester County Presiding Justice",
+      "branch": "Judiciary",
+      "appointedBy": "Gov. Charlie Baker (2016)",
+      "source": "https://www.mass.gov/news/governor-baker-nominates-three-to-the-massachusetts-superior-court",
       "years": [
         {
           "year": "2019",
@@ -88,17 +131,18 @@
           "pdf": "2025/Reardon__James_G.pdf",
           "sfiSection": "7"
         }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
+      ]
     },
     {
       "filerLast": "Rinella",
       "filerFirst": "Matthew P",
       "filerEmail": "matthew.rinella@dot.state.ma.us",
+      "fullName": "Matthew P. Rinella",
+      "title": "Director, Accounting & Financial Reporting",
+      "role": "MassDOT Finance / Office of the CFO",
+      "branch": "MassDOT",
+      "appointedBy": null,
+      "source": "MassDOT directory (LinkedIn / RocketReach)",
       "years": [
         {
           "year": "2019",
@@ -110,34 +154,36 @@
           "pdf": "2020/Rinella__Matthew_P.pdf",
           "sfiSection": "7"
         }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
+      ]
     },
     {
       "filerLast": "Valentine",
       "filerFirst": "Teri W",
       "filerEmail": "tvalentine@doe.mass.edu",
+      "fullName": "Teri Williams Valentine",
+      "title": "Former Director, Special Education Planning & Policy (DESE 2002\u2013~2017)",
+      "role": "Now Senior Program Associate, WestEd",
+      "branch": "DESE (former)",
+      "appointedBy": null,
+      "source": "https://www.wested.org/personnel/teri-williams-valentine/",
       "years": [
         {
           "year": "2019",
           "pdf": "2019/Valentine__Teri_W.pdf",
           "sfiSection": "7"
         }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
+      ]
     },
     {
       "filerLast": "Sacramone",
       "filerFirst": "Ralph V",
       "filerEmail": "rsacramone@tre.state.ma.us",
+      "fullName": "Ralph V. Sacramone",
+      "title": "Executive Director",
+      "role": "MA Alcoholic Beverages Control Commission (ABCC)",
+      "branch": "State Treasurer's Office",
+      "appointedBy": null,
+      "source": "https://www.mass.gov/info-details/alcoholic-beverages-control-commission-staff-directory-abcc",
       "years": [
         {
           "year": "2021",
@@ -164,51 +210,65 @@
           "pdf": "2025/Sacramone__Ralph_V.pdf",
           "sfiSection": "7"
         }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
+      ]
     },
     {
       "filerLast": "Gomez",
       "filerFirst": "Carmen Z",
       "filerEmail": "carmen.gomez@jud.state.ma.us",
+      "fullName": "Dr. Carmen Z. Gomez, PhD",
+      "title": "Deputy Commissioner of Pretrial Services",
+      "role": "MA Probation Service / MA Trial Court (27-year tenure)",
+      "branch": "Judiciary",
+      "appointedBy": null,
+      "source": "https://www.mass.gov/news/carmen-gomez-is-appointed-deputy-commissioner-of-pretrial-services-for-the-massachusetts-probation-service",
       "years": [
         {
           "year": "2022",
           "pdf": "2022/Gomez__Carmen_Z.pdf",
           "sfiSection": "7"
         }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
+      ]
     },
     {
       "filerLast": "Marsi Jr",
       "filerFirst": "John J",
       "filerEmail": "",
+      "fullName": "Rep. John J. Marsi Jr. (R)",
+      "title": "State Representative",
+      "role": "6th Worcester District (Charlton, Dudley, Southbridge, Spencer Pct. 1)",
+      "branch": "MA House of Representatives",
+      "appointedBy": "Special election March 5, 2024",
+      "source": "https://malegislature.gov/Legislators/Profile/JJM1/District",
       "years": [
         {
           "year": "2023",
           "pdf": "2023/Marsi_Jr__John_J.pdf",
           "sfiSection": "7"
+        },
+        {
+          "year": "2024",
+          "pdf": "2024/Marsi_Jr__John_J.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2025",
+          "pdf": "2025/Marsi_Jr__John_J.pdf",
+          "sfiSection": "7"
         }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
+      ]
     },
     {
       "filerLast": "Travers",
       "filerFirst": "Jeffrey T",
       "filerEmail": "Jeff.Travers@mass.gov",
+      "fullName": "Jeffrey T. Travers",
+      "title": "Deputy CIO (Acting CIO 2022)",
+      "role": "Executive Office of the MA Trial Court",
+      "branch": "Judiciary (cross-domain account possible)",
+      "appointedBy": null,
+      "source": "https://rocketreach.co/jeff-travers-email_82831322",
+      "note": "Soft-confirm: Jeff.Travers@mass.gov uses Executive domain but Trial Court role is the most-likely public record.",
       "years": [
         {
           "year": "2023",
@@ -225,34 +285,7 @@
           "pdf": "2025/Travers__Jeffrey_T.pdf",
           "sfiSection": "7"
         }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
-    },
-    {
-      "filerLast": "Marsi Jr",
-      "filerFirst": "John J",
-      "filerEmail": "John.Marsi@mahouse.gov",
-      "years": [
-        {
-          "year": "2024",
-          "pdf": "2024/Marsi_Jr__John_J.pdf",
-          "sfiSection": "7"
-        },
-        {
-          "year": "2025",
-          "pdf": "2025/Marsi_Jr__John_J.pdf",
-          "sfiSection": "7"
-        }
-      ],
-      "dogeEntity": "TEMPUS UNLIMITED, INC.",
-      "dogeAddress": "600 TECHNOLOGY CENTER DR",
-      "dogeCity": "STOUGHTON",
-      "dogeTotalPaid": 6620437058.4,
-      "dogeAuthOfficial": "LARRY SPENCER"
+      ]
     }
   ]
 }

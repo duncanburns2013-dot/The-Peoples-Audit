@@ -1,4 +1,16 @@
-# SFI v0 Findings — Initial Public Release
+# SFI v0 Findings — SUPERSEDED
+
+> **Superseded by [`FINDINGS-SFI-LOCKED.md`](FINDINGS-SFI-LOCKED.md).** Independent verification (PDF re-read, public-records identity check, PCA program docs, NPPES, ProPublica 990) corrected three errors in this v0:
+>
+> 1. Count: **8 officials**, not nine (off-by-one error).
+> 2. Framing: spouses are PCA workers in the MassHealth PCA program, not corporate Tempus employees. Tempus is the program's Fiscal Intermediary; the MassHealth member is the legal employer of record.
+> 3. The "fraud-flagged entity" framing was misleading — the $6.62B is cumulative PCA-program pass-through 2018–2024, by structural design.
+>
+> This v0 is preserved here for transparency; do not cite it.
+
+---
+
+# SFI v0 Findings — Initial Public Release (UNVERIFIED — see above)
 
 **Date:** 2026-05-27
 **Corpus:** 29,729 Massachusetts Statements of Financial Interest, 2019–2025
