@@ -330,7 +330,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
     if (isDefault) {
       panel.innerHTML = `
         <h3>
-          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.1</span></span>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.2</span></span>
           <button class="close-x" id="ta-close">×</button>
         </h3>
         ${debugStrip}
@@ -402,7 +402,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
     } else if (isSummary) {
       panel.innerHTML = `
         <h3>
-          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.1</span></span>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.2</span></span>
           <button class="close-x" id="ta-close">×</button>
         </h3>
         ${debugStrip}
@@ -423,7 +423,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       // info instead of disappearing silently.
       panel.innerHTML = `
         <h3>
-          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.1</span></span>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.2</span></span>
           <button class="close-x" id="ta-close">×</button>
         </h3>
         ${debugStrip}
