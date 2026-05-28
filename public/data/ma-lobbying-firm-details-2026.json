@@ -1,6 +1,6 @@
 {
   "year": "2026",
-  "scrapedAt": "2026-05-28T14:40:57.028Z",
+  "scrapedAt": "2026-05-28T15:05:00.363Z",
   "source": "MA Secretary of State - Lobbyist Public Search (Summary.aspx)",
   "sourceUrl": "https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx",
   "note": "Per-firm detail extracted from MA SOS Summary.aspx pages via the in-browser scraper userscript. Mid-year scrapes of the current registration year will show $0 amounts because MA disclosure reports are filed mid-year and end-of-year; the lobbyist roster, client roster, and purpose-of-engagement text are populated as soon as the firm registers.",

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-28T15:05:54.403Z",
+  "generatedAt": "2026-05-28T15:06:22.800Z",
   "snapshots": [
     {
       "file": "ma-lobbying-firm-details-2026.json",
-      "fetchedAt": "2026-05-28T15:05:29.949Z",
+      "fetchedAt": "2026-05-28T15:06:22.498Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -12,7 +12,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2025.json",
-      "fetchedAt": "2026-05-28T15:05:29.943Z",
+      "fetchedAt": "2026-05-28T15:06:22.493Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -21,12 +21,27 @@
     },
     {
       "file": "ma-lobbying-firm-details-2024.json",
-      "fetchedAt": "2026-05-28T15:05:29.935Z",
+      "fetchedAt": "2026-05-28T15:06:12.809Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
       "sources": [],
       "sizeBytes": 933638
+    },
+    {
+      "file": "ma-bond-trades.json",
+      "fetchedAt": "2026-05-28T15:00:38.416Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 8,
+      "preservedFromCache": true,
+      "sources": [
+        {
+          "name": "EMMA TradeData (MA)",
+          "ok": true,
+          "count": 0
+        }
+      ],
+      "sizeBytes": 1934
     },
     {
       "file": "ma-contracts.json",
@@ -255,21 +270,6 @@
         }
       ],
       "sizeBytes": 14716
-    },
-    {
-      "file": "ma-bond-trades.json",
-      "fetchedAt": "2026-05-28T09:39:46.071Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 8,
-      "preservedFromCache": true,
-      "sources": [
-        {
-          "name": "EMMA TradeData (MA)",
-          "ok": true,
-          "count": 0
-        }
-      ],
-      "sizeBytes": 1934
     },
     {
       "file": "ma-sfi.json",
