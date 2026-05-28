@@ -1,0 +1,84 @@
+name: Commit & push data with retry
+description: |
+  Commits the given paths (typically a refreshed data JSON plus the
+  freshness index) and pushes to origin. Retries with rebase if the
+  push is rejected by a race with another commit landing on main —
+  this is common when a human is editing the repo while scheduled
+  refresh jobs run, and was the source of nearly every "Updates were
+  rejected because the remote contains work that you do not have
+  locally" failure across the refresh workflows.
+
+inputs:
+  paths:
+    description: |
+      Space-separated file paths to add/check (e.g.
+      "public/data/cthru-aggregates.json public/data/_index.json").
+    required: true
+  message:
+    description: Commit message (use [skip ci] to avoid retriggering Pages deploys).
+    required: true
+  regenerate-index:
+    description: |
+      If "true", re-runs `node scripts/build-data-index.mjs` after each rebase
+      so the freshness index reflects any other refresh that landed in the
+      meantime, rather than overwriting it with our stale snapshot.
+    required: false
+    default: 'true'
+  bot-name:
+    description: Git committer name.
+    required: false
+    default: the-peoples-audit-bot
+  bot-email:
+    description: Git committer email.
+    required: false
+    default: actions@users.noreply.github.com
+  max-attempts:
+    description: Max push attempts before failing.
+    required: false
+    default: '4'
+
+runs:
+  using: composite
+  steps:
+    - name: Commit & push if changed
+      shell: bash
+      env:
+        PATHS:           ${{ inputs.paths }}
+        MESSAGE:         ${{ inputs.message }}
+        REGEN_INDEX:     ${{ inputs.regenerate-index }}
+        BOT_NAME:        ${{ inputs.bot-name }}
+        BOT_EMAIL:       ${{ inputs.bot-email }}
+        MAX_ATTEMPTS:    ${{ inputs.max-attempts }}
+      run: |
+        set -e
+        git config user.name  "$BOT_NAME"
+        git config user.email "$BOT_EMAIL"
+
+        if git diff --quiet -- $PATHS; then
+          echo "No changes in: $PATHS"
+          exit 0
+        fi
+
+        git add $PATHS
+        git commit -m "$MESSAGE"
+
+        for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
+          if git push; then
+            echo "Pushed on attempt $attempt."
+            exit 0
+          fi
+          echo "Push attempt $attempt rejected; rebasing on origin/main..."
+          git fetch origin main
+          # `-X ours` keeps our refreshed data files on any conflicts.
+          git rebase -X ours origin/main
+          if [ "$REGEN_INDEX" = "true" ]; then
+            node scripts/build-data-index.mjs
+            if ! git diff --quiet -- public/data/_index.json; then
+              git add public/data/_index.json
+              git commit --amend --no-edit
+            fi
+          fi
+        done
+
+        echo "::error::Push failed after $MAX_ATTEMPTS attempts."
+        exit 1

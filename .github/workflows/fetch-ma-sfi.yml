@@ -34,13 +34,7 @@ jobs:
         run: node scripts/build-data-index.mjs
 
       - name: Commit & push if changed
-        run: |
-          git config user.name  "the-peoples-audit-bot"
-          git config user.email "actions@users.noreply.github.com"
-          if git diff --quiet -- public/data/ma-sfi.json public/data/_index.json; then
-            echo "No SFI changes."
-            exit 0
-          fi
-          git add public/data/ma-sfi.json public/data/_index.json
-          git commit -m "chore(data): refresh MA SFI [skip ci]"
-          git push
+        uses: ./.github/actions/commit-and-push-data
+        with:
+          paths: public/data/ma-sfi.json public/data/_index.json
+          message: "chore(data): refresh MA SFI [skip ci]"

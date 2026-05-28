@@ -39,13 +39,8 @@ jobs:
           echo "-------------------------------"
 
       - name: Commit & push if changed
-        run: |
-          git config user.name  "the-peoples-audit-bot"
-          git config user.email "actions@users.noreply.github.com"
-          if git diff --quiet -- public/data/ma-disclosures.json; then
-            echo "No disclosure changes."
-            exit 0
-          fi
-          git add public/data/ma-disclosures.json
-          git commit -m "chore(data): refresh MA bond disclosures [skip ci]"
-          git push
+        uses: ./.github/actions/commit-and-push-data
+        with:
+          paths: public/data/ma-disclosures.json
+          message: "chore(data): refresh MA bond disclosures [skip ci]"
+          regenerate-index: 'false'

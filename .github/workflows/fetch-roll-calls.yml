@@ -42,26 +42,7 @@ jobs:
         run: node scripts/build-data-index.mjs
 
       - name: Commit & push if changed
-        run: |
-          git config user.name  "the-peoples-audit-bot"
-          git config user.email "actions@users.noreply.github.com"
-          if git diff --quiet -- public/data/ma-roll-calls.json public/data/_index.json; then
-            echo "No roll-call changes."
-            exit 0
-          fi
-          git add public/data/ma-roll-calls.json public/data/_index.json
-          git commit -m "chore(data): refresh MA roll-call tally [skip ci]"
-          # Retry push: GitHub occasionally rejects with a transient
-          # "fatal error in commit_refs" server-side error. Rebase between
-          # attempts in case another writeback workflow landed first.
-          attempt=1
-          until git push; do
-            if [ "$attempt" -ge 3 ]; then
-              echo "::error::Push failed after $attempt attempts."
-              exit 1
-            fi
-            echo "Push attempt $attempt failed; rebasing and retrying in $((attempt*15))s..."
-            git pull --rebase origin main || true
-            sleep $((attempt * 15))
-            attempt=$((attempt + 1))
-          done
+        uses: ./.github/actions/commit-and-push-data
+        with:
+          paths: public/data/ma-roll-calls.json public/data/_index.json
+          message: "chore(data): refresh MA roll-call tally [skip ci]"
