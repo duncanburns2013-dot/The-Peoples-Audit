@@ -56,14 +56,30 @@ corpus.
 These disclosures were **verified by direct PDF read** — the Q7 text in
 each filing explicitly lists "Tempus Unlimited" with the Stoughton address.
 
-### Adjacent finding: Cerebral Palsy of Massachusetts at the same building
+### "Cerebral Palsy of Massachusetts" is Tempus's pre-2017 legal name
 
 Reardon, James G's 2024 Q7 also lists his spouse as an independent
-contractor for **Cerebral Palsy of Massachusetts** at "600 Technology
-Center Drive, Sroughton [sic], MA, 02072" — the **exact same building** as
-Tempus Unlimited. This is the address-sharing pattern HHS-MA-DOGE flags as
-a fraud signal; it merits a follow-up check of MA Secretary-of-State
-corporate filings to see whether the two entities are common-controlled.
+contractor for **"Cerebral Palsy of Massachusetts"** at the same building.
+Corporate-records research (BBB Boston, ProPublica Nonprofit Explorer,
+CauseIQ, MassDevelopment 2014 press release, the company's own history
+timeline, April 2017 rename announcement signed by CEO Larry Spencer)
+confirms this is the **same nonprofit** as Tempus Unlimited under its
+pre-2017 legacy name:
+
+- Same EIN: **04-2239746**
+- Same principal office: 600 Technology Center Drive, Stoughton, MA 02072
+- Same incorporation date: June 20, 1952
+- Same CEO across the rename: Larry Spencer (FY2024 990 compensation: $441,995)
+- Board approved name change Dec 2016, announced April 10, 2017
+- Tempus is the **sole statewide MassHealth PCA Fiscal Intermediary**;
+  FY2024 revenue ~$2.13B (ProPublica 990)
+
+So the 2024 filing lists the same employer twice — once under the
+current name and once under the pre-2017 legacy name. This isn't a
+separate affiliated entity; it's one nonprofit with a name-change
+history. It also means the SFI form's free-text employer fields carry
+legacy-name inconsistency that any text-only matching pass has to
+account for.
 
 ### What this is, and what it is not
 
