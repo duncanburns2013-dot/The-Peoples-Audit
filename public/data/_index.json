@@ -1,6 +1,90 @@
 {
-  "generatedAt": "2026-05-28T11:28:10.904Z",
+  "generatedAt": "2026-05-28T12:31:48.286Z",
   "snapshots": [
+    {
+      "file": "cthru-aggregates.json",
+      "fetchedAt": "2026-05-28T12:31:47.998Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "spending.byDepartment.2024",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byVendor.2024",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byDepartment.2025",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byVendor.2025",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byDepartment.2026",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.byVendor.2026",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "spending.overTime",
+          "ok": true,
+          "count": 17
+        },
+        {
+          "name": "payroll.byDepartment.2024",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "payroll.topEarners.2024",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "payroll.byDepartment.2025",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "payroll.topEarners.2025",
+          "ok": true,
+          "count": 50
+        },
+        {
+          "name": "payroll.overTime",
+          "ok": true,
+          "count": 18
+        },
+        {
+          "name": "quasi.byAgency",
+          "ok": true,
+          "count": 18
+        }
+      ],
+      "sizeBytes": 68816
+    },
+    {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-28T12:31:27.609Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
+    },
     {
       "file": "ma-lobbying-registrants-2016.json",
       "fetchedAt": "2026-05-28T11:24:06.631539+00:00",
@@ -8,7 +92,7 @@
       "count": 3204,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 832492
+      "sizeBytes": 832491
     },
     {
       "file": "ma-lobbying-registrants-2017.json",
@@ -17,7 +101,7 @@
       "count": 3247,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 842329
+      "sizeBytes": 842328
     },
     {
       "file": "ma-lobbying-registrants-2018.json",
@@ -26,7 +110,7 @@
       "count": 3300,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 856295
+      "sizeBytes": 856294
     },
     {
       "file": "ma-lobbying-registrants-2019.json",
@@ -35,7 +119,7 @@
       "count": 3398,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 869854
+      "sizeBytes": 869853
     },
     {
       "file": "ma-lobbying-registrants-2020.json",
@@ -44,7 +128,7 @@
       "count": 3243,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 830634
+      "sizeBytes": 830633
     },
     {
       "file": "ma-lobbying-registrants-2021.json",
@@ -53,7 +137,7 @@
       "count": 3350,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 856685
+      "sizeBytes": 856684
     },
     {
       "file": "ma-lobbying-registrants-2022.json",
@@ -62,7 +146,7 @@
       "count": 3251,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 835331
+      "sizeBytes": 835330
     },
     {
       "file": "ma-lobbying-registrants-2023.json",
@@ -71,7 +155,7 @@
       "count": 3271,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 841144
+      "sizeBytes": 841143
     },
     {
       "file": "ma-lobbying-registrants-2024.json",
@@ -80,7 +164,7 @@
       "count": 3354,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 862921
+      "sizeBytes": 862920
     },
     {
       "file": "ma-lobbying-registrants-2025.json",
@@ -89,7 +173,7 @@
       "count": 3425,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 882334
+      "sizeBytes": 882333
     },
     {
       "file": "ma-lobbying-registrants-2026.json",
@@ -98,7 +182,7 @@
       "count": 3243,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 835185
+      "sizeBytes": 835184
     },
     {
       "file": "ma-lobbying-registrants-index.json",
@@ -107,82 +191,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 2927
-    },
-    {
-      "file": "cthru-aggregates.json",
-      "fetchedAt": "2026-05-28T10:28:35.552Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": null,
-      "preservedFromCache": true,
-      "sources": [
-        {
-          "name": "spending.byDepartment.2024",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "spending.byVendor.2024",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "spending.byDepartment.2025",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "spending.byVendor.2025",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "spending.byDepartment.2026",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "spending.byVendor.2026",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "spending.overTime",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "payroll.byDepartment.2024",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "payroll.topEarners.2024",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "payroll.byDepartment.2025",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "payroll.topEarners.2025",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "payroll.overTime",
-          "ok": false,
-          "error": "fetch failed"
-        },
-        {
-          "name": "quasi.byAgency",
-          "ok": false,
-          "error": "fetch failed"
-        }
-      ],
-      "sizeBytes": 72287
+      "sizeBytes": 2820
     },
     {
       "file": "ma-disclosures.json",
@@ -212,7 +221,7 @@
           "count": 0
         }
       ],
-      "sizeBytes": 14716
+      "sizeBytes": 14386
     },
     {
       "file": "ma-bond-trades.json",
@@ -227,7 +236,7 @@
           "count": 0
         }
       ],
-      "sizeBytes": 1934
+      "sizeBytes": 1851
     },
     {
       "file": "ma-sfi.json",
@@ -236,7 +245,7 @@
       "count": 29729,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 18498363
+      "sizeBytes": 18498362
     },
     {
       "file": "ma-sfi-tempus.json",
@@ -245,7 +254,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 11095
+      "sizeBytes": 10804
     },
     {
       "file": "ma-sfi-doge-crossref.json",
@@ -254,16 +263,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 64918
-    },
-    {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-27T23:42:24.115Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
+      "sizeBytes": 63100
     },
     {
       "file": "ma-sfi-gifts.json",
@@ -272,7 +272,7 @@
       "count": 1174,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 702170
+      "sizeBytes": 684236
     },
     {
       "file": "ma-contracts.json",
@@ -287,7 +287,7 @@
           "count": 300
         }
       ],
-      "sizeBytes": 170058
+      "sizeBytes": 165841
     },
     {
       "file": "ma-roll-calls.json",
@@ -317,7 +317,7 @@
           "count": 1500
         }
       ],
-      "sizeBytes": 12243
+      "sizeBytes": 11898
     },
     {
       "file": "ma-lobbying.json",
@@ -326,7 +326,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 190055
+      "sizeBytes": 182662
     },
     {
       "file": "ma-nonprofits.json",
@@ -335,7 +335,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 12162018
+      "sizeBytes": 11677435
     }
   ]
 }
