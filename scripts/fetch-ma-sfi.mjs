@@ -2,16 +2,14 @@
 /**
  * fetch-ma-sfi.mjs
  *
- * STUB. Statements of Financial Interest (SFIs) are filed annually by every
- * Massachusetts public official with the State Ethics Commission. They are
- * legally public records, but the Commission gates programmatic access — a
- * request must be approved before bulk PDF download is allowed.
+ * The MA State Ethics Commission's bulk-access request was approved in 2026.
+ * The 29,729-filing redacted corpus (2019–2025) is now extracted by the
+ * Python pipeline in `audit-scripts/sfi/`, which writes the live snapshot
+ * to `public/data/ma-sfi.json`.
  *
- * This script exists today as scaffolding so the dashboard can ship an empty
- * SFI tab and the rest of the pipeline (workflow, freshness index, UI shell)
- * is wired before the real data arrives. When the access request is approved,
- * replace the fetch + parse logic below; the output schema below is what
- * `SfiExplorer.jsx` reads, so keep field names stable.
+ * This Node script is no longer the data fetcher; it now only acts as a
+ * guard that refuses to overwrite a live snapshot with a stub. Run the
+ * Python pipeline (see audit-scripts/sfi/README.md) to refresh the data.
  *
  * Schema (committed):
  *   {

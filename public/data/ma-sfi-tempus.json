@@ -1,0 +1,258 @@
+{
+  "fetchedAt": "2026-05-27T23:45:17.054313+00:00",
+  "headline": "Multiple Massachusetts public officials disclosed in their annual Statements of Financial Interest that their spouses were employed by Tempus Unlimited, Inc. \u2014 the #1 Massachusetts Medicaid biller by total spending in the HHS-MA-DOGE address-shared-entity index ($6.6 billion across 7 NPIs sharing one Stoughton address).",
+  "method": "Tempus Unlimited entity name word-boundary matched inside the SFI Q7 (spouse business employment) section text. All matches verified by inspecting the actual Q7 section content.",
+  "dogeReference": "https://github.com/duncanburns2013-dot/HHS-MA-DOGE",
+  "count": 9,
+  "totalDisclosures": 28,
+  "rows": [
+    {
+      "filerLast": "Barrett",
+      "filerFirst": "James A",
+      "filerEmail": "james.a.barrett@mass.gov",
+      "years": [
+        {
+          "year": "2019",
+          "pdf": "2019/Barrett__James_A.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2020",
+          "pdf": "2020/Barrett__James_A.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2021",
+          "pdf": "2021/Barrett__James_A.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2022",
+          "pdf": "2022/Barrett__James_A.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2023",
+          "pdf": "2023/Barrett__James_A.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2024",
+          "pdf": "2024/Barrett__James_A.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    },
+    {
+      "filerLast": "Reardon",
+      "filerFirst": "James G",
+      "filerEmail": "james.reardon@jud.state.ma.us",
+      "years": [
+        {
+          "year": "2019",
+          "pdf": "2019/Reardon__James_G.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2020",
+          "pdf": "2020/Reardon__James_G.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2021",
+          "pdf": "2021/Reardon__James_G.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2022",
+          "pdf": "2022/Reardon__James_G.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2023",
+          "pdf": "2023/Reardon__James_G.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2024",
+          "pdf": "2024/Reardon__James_G.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2025",
+          "pdf": "2025/Reardon__James_G.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    },
+    {
+      "filerLast": "Rinella",
+      "filerFirst": "Matthew P",
+      "filerEmail": "matthew.rinella@dot.state.ma.us",
+      "years": [
+        {
+          "year": "2019",
+          "pdf": "2019/Rinella__Matthew_P.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2020",
+          "pdf": "2020/Rinella__Matthew_P.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    },
+    {
+      "filerLast": "Valentine",
+      "filerFirst": "Teri W",
+      "filerEmail": "tvalentine@doe.mass.edu",
+      "years": [
+        {
+          "year": "2019",
+          "pdf": "2019/Valentine__Teri_W.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    },
+    {
+      "filerLast": "Sacramone",
+      "filerFirst": "Ralph V",
+      "filerEmail": "rsacramone@tre.state.ma.us",
+      "years": [
+        {
+          "year": "2021",
+          "pdf": "2021/Sacramone__Ralph_V.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2022",
+          "pdf": "2022/Sacramone__Ralph_V.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2023",
+          "pdf": "2023/Sacramone__Ralph_V.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2024",
+          "pdf": "2024/Sacramone__Ralph_V.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2025",
+          "pdf": "2025/Sacramone__Ralph_V.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    },
+    {
+      "filerLast": "Gomez",
+      "filerFirst": "Carmen Z",
+      "filerEmail": "carmen.gomez@jud.state.ma.us",
+      "years": [
+        {
+          "year": "2022",
+          "pdf": "2022/Gomez__Carmen_Z.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    },
+    {
+      "filerLast": "Marsi Jr",
+      "filerFirst": "John J",
+      "filerEmail": "",
+      "years": [
+        {
+          "year": "2023",
+          "pdf": "2023/Marsi_Jr__John_J.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    },
+    {
+      "filerLast": "Travers",
+      "filerFirst": "Jeffrey T",
+      "filerEmail": "Jeff.Travers@mass.gov",
+      "years": [
+        {
+          "year": "2023",
+          "pdf": "2023/Travers__Jeffrey_T.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2024",
+          "pdf": "2024/Travers__Jeffrey_T.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2025",
+          "pdf": "2025/Travers__Jeffrey_T.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    },
+    {
+      "filerLast": "Marsi Jr",
+      "filerFirst": "John J",
+      "filerEmail": "John.Marsi@mahouse.gov",
+      "years": [
+        {
+          "year": "2024",
+          "pdf": "2024/Marsi_Jr__John_J.pdf",
+          "sfiSection": "7"
+        },
+        {
+          "year": "2025",
+          "pdf": "2025/Marsi_Jr__John_J.pdf",
+          "sfiSection": "7"
+        }
+      ],
+      "dogeEntity": "TEMPUS UNLIMITED, INC.",
+      "dogeAddress": "600 TECHNOLOGY CENTER DR",
+      "dogeCity": "STOUGHTON",
+      "dogeTotalPaid": 6620437058.4,
+      "dogeAuthOfficial": "LARRY SPENCER"
+    }
+  ]
+}

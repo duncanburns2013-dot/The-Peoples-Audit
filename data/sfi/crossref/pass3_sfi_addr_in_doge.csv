@@ -1,0 +1,123 @@
+match_kind,sfi_year,sfi_last,sfi_first,sfi_email,sfi_path,sfi_question,sfi_address_match,doge_address,doge_city,doge_zip,doge_entity,doge_official,doge_total_at_addr,doge_n_entities_at_addr
+sfi_transfer_addr_in_doge_flagged,2019,Berman,Richard C. C,,2019\Berman__Richard_C._C.pdf,20,"527 Albany Street, 
+Boston, MA, 02118",527 ALBANY ST STE 200,BOSTON,021182511,ROBYN RISEBERG,,1021620.24,2
+sfi_transfer_addr_in_doge_flagged,2019,Berman,Richard C. C,,2019\Berman__Richard_C._C.pdf,20,"360 Huntington Ave, 
+Boston, MA, 02115",360 HUNTINGTON AVE,BOSTON,021155000,CHARLES SMYTH,,38191.31,2
+sfi_ownership_addr_in_doge_flagged,2019,Coppinger,Kevin F,kcoppinger@essexsheriffma.org,2019\Coppinger__Kevin_F.pdf,15,"500 Lynnfield Street, Lynn, 
+MA, 01904",500 LYNNFIELD ST,LYNN,019041424,BENNETT SHAMSAI,,87840.19,3
+sfi_ownership_addr_in_doge_flagged,2019,Harris,Patricia M,patricia.harris@sec.state.ma.us,2019\Harris__Patricia_M.pdf,13,"725 North Street, Pittsfield, 
+MA, 01201",725 NORTH ST,PITTSFIELD,012014109,ERIC KORENMAN,,168691902.90,28
+sfi_transfer_addr_in_doge_flagged,2019,Hightower,Bryan,,2019\Hightower__Bryan.pdf,20,"100 Cambridge St., Boston, 
+MA, 02114",100 CAMBRIDGE ST FL 14,BOSTON,021142509,JORDAN WILSON,,2076228.13,4
+sfi_transfer_addr_in_doge_flagged,2019,Kelly,Christopher W,christopher.kelly@mass.gov,2019\Kelly__Christopher_W.pdf,17,"250 Granite Street, 
+Braintree, MA, 02184",250 GRANITE ST,BRAINTREE,021842804,DAVID HERRON,,80041.66,3
+sfi_ownership_addr_in_doge_flagged,2019,O'Neil,Susanne M,Susanne.M.ONeil@mass.gov,2019\O'Neil__Susanne_M.pdf,14,"391 Broadway, Everett, MA, 
+02149",391 BROADWAY,EVERETT,021493470,"PETER E MASUCCI, MD, PC",PETER MASUCCI,393674.95,5
+sfi_transfer_addr_in_doge_flagged,2019,Polito,Karyn E,Karyn.polito@state.ma.us,2019\Polito__Karyn_E.pdf,17,"370 Main Street, Worcester, MA, 01608",370 MAIN ST STE 910,WORCESTER,016081723,AUGUSTUS SEALY,,1031532.17,2
+sfi_ownership_addr_in_doge_flagged,2019,Rockwell,David P. P,drockwell@mhp.net,2019\Rockwell__David_P._P.pdf,15,"2014 Washington Street, 
+Newton, MA, 02462",2014 WASHINGTON STREET,NEWTON,02462,EDGAR CASADO,,40197296.74,20
+sfi_transfer_addr_in_doge_flagged,2019,Sacks,Peter W,Peter.Sacks@jud.state.ma.us,2019\Sacks__Peter_W.pdf,17,"243 Charles St, Boston, MA, 
+02114",243 CHARLES ST,BOSTON,021143002,CHRISTOPHER HARTNICK,,76215549.21,38
+sfi_transfer_addr_in_doge_flagged,2020,Berman,Richard C. C,,2020\Berman__Richard_C._C.pdf,20,"527 Albany Street, 
+Boston, MA, 02118",527 ALBANY ST STE 200,BOSTON,021182511,ROBYN RISEBERG,,1021620.24,2
+sfi_ownership_addr_in_doge_flagged,2020,Harris,Patricia M,patricia.harris@sec.state.ma.us,2020\Harris__Patricia_M.pdf,13,"725 North Street, Pittsfield, 
+MA, 01201",725 NORTH ST,PITTSFIELD,012014109,ERIC KORENMAN,,168691902.90,28
+sfi_ownership_addr_in_doge_flagged,2020,O'Neil,Susanne M,Susanne.M.ONeil@mass.gov,2020\O'Neil__Susanne_M.pdf,14,"391 Broadway, Everett, MA, 
+02149",391 BROADWAY,EVERETT,021493470,"PETER E MASUCCI, MD, PC",PETER MASUCCI,393674.95,5
+sfi_ownership_addr_in_doge_flagged,2020,Rockwell,David P. P,,2020\Rockwell__David_P._P.pdf,15,"2014 Washington Street, 
+Newton, MA, 02462",2014 WASHINGTON STREET,NEWTON,02462,EDGAR CASADO,,40197296.74,20
+sfi_transfer_addr_in_doge_flagged,2020,Sacks,Peter W,Peter.Sacks@jud.state.ma.us,2020\Sacks__Peter_W.pdf,17,"243 Charles St, Boston, MA, 
+02114",243 CHARLES ST,BOSTON,021143002,CHRISTOPHER HARTNICK,,76215549.21,38
+sfi_transfer_addr_in_doge_flagged,2020,Taylor-Fontes,Toiya L,toiya.taylor@jud.state.ma.us,2020\Taylor-Fontes__Toiya_L.pdf,20,"250 Granite Street, 
+Braintree, MA, 02184",250 GRANITE ST,BRAINTREE,021842804,DAVID HERRON,,80041.66,3
+sfi_transfer_addr_in_doge_flagged,2021,Berman,Richard C. C,,2021\Berman__Richard_C._C.pdf,20,"527 Albany Street, 
+Boston, MA, 02118",527 ALBANY ST STE 200,BOSTON,021182511,ROBYN RISEBERG,,1021620.24,2
+sfi_ownership_addr_in_doge_flagged,2021,Bump,Suzanne M,suzanne.bump@massmail.state.ma.us,2021\Bump__Suzanne_M.pdf,13,"300 Congress St, 
+Quincy, MA, 
+02169",300 CONGRESS ST STE 314,QUINCY,021690907,NEXTMARGIN CORPORATION,SHOLA MUYIDE,72454758.93,2
+sfi_ownership_addr_in_doge_flagged,2021,Bump,Suzanne M,suzanne.bump@massmail.state.ma.us,2021\Bump__Suzanne_M.pdf,15,"300 Congress St, 
+Quincy, MA, 02169",300 CONGRESS ST STE 314,QUINCY,021690907,NEXTMARGIN CORPORATION,SHOLA MUYIDE,72454758.93,2
+sfi_transfer_addr_in_doge_flagged,2021,Early,Jr.  Joseph D,joseph.early@mass.gov,2021\Early__Jr.__Joseph_D.pdf,18,"119 Belmont Street, 
+Worcester, MA, 01605",119 BELMONT ST,WORCESTER,016052903,PATRICK CONNOLLY,,2598697.03,51
+sfi_ownership_addr_in_doge_flagged,2021,O'Neil,Susanne M,Susanne.M.ONeil@mass.gov,2021\O'Neil__Susanne_M.pdf,14,"391 Broadway, Everett, MA, 
+02149",391 BROADWAY,EVERETT,021493470,"PETER E MASUCCI, MD, PC",PETER MASUCCI,393674.95,5
+sfi_ownership_addr_in_doge_flagged,2021,Swift,Jeffrey G,jeffswiftchiro@comcast.net,2021\Swift__Jeffrey_G.pdf,13,"109 Fairhaven Rd, 
+Mattapoisett, MA, 
+02739",109 FAIRHAVEN RD,MATTAPOISETT,02739,JEFFREY SWIFT,,159292.82,2
+sfi_transfer_addr_in_doge_flagged,2021,Taylor-Fontes,Toiya L,toiya.taylor@jud.state.ma.us,2021\Taylor-Fontes__Toiya_L.pdf,20,"250 Granite Street, 
+Braintree, MA, 02184",250 GRANITE ST,BRAINTREE,021842804,DAVID HERRON,,80041.66,3
+sfi_ownership_addr_in_doge_flagged,2021,Wieland,Lisa,LWieland@massport.com,2021\Wieland__Lisa.pdf,15,"300 Longwood Avenue, 
+Boston, MA, 02115",300 LONGWOOD AVE,BOSTON,02115,ERIC FLEEGLER,,380509892.82,464
+sfi_transfer_addr_in_doge_flagged,2022,Alpine,William J,William.Alpine@mass.gov,2022\Alpine__William_J.pdf,19,"100 Cambridge Street, 
+Boston, MA, 02114",100 CAMBRIDGE ST FL 14,BOSTON,021142509,JORDAN WILSON,,2076228.13,4
+sfi_transfer_addr_in_doge_flagged,2022,Berman,Richard C. C,,2022\Berman__Richard_C._C.pdf,20,"527 Albany Street, 
+Boston, MA, 02118",527 ALBANY ST STE 200,BOSTON,021182511,ROBYN RISEBERG,,1021620.24,2
+sfi_ownership_addr_in_doge_flagged,2022,Bump,Suzanne M,,2022\Bump__Suzanne_M.pdf,13,"300 Congress St, 
+Quincy, MA, 
+02169",300 CONGRESS ST STE 314,QUINCY,021690907,NEXTMARGIN CORPORATION,SHOLA MUYIDE,72454758.93,2
+sfi_transfer_addr_in_doge_flagged,2022,Dishnica,Katie M,Katie.Dishnica@mass.gov,2022\Dishnica__Katie_M.pdf,19,"100 Cambridge Street, 
+Boston, MA, 02114",100 CAMBRIDGE ST FL 14,BOSTON,021142509,JORDAN WILSON,,2076228.13,4
+sfi_transfer_addr_in_doge_flagged,2022,Early,Jr.  Joseph D,joseph.early@mass.gov,2022\Early__Jr.__Joseph_D.pdf,20,"119 Belmont Street, 
+Worcester, MA, 01605",119 BELMONT ST,WORCESTER,016052903,PATRICK CONNOLLY,,2598697.03,51
+sfi_transfer_addr_in_doge_flagged,2022,Fitzgerald,Paul T,Paul.fitzgerald@detma.org,2022\Fitzgerald__Paul_T.pdf,19,"100 Cambridge Street, 
+Boston, MA, 02114",100 CAMBRIDGE ST FL 14,BOSTON,021142509,JORDAN WILSON,,2076228.13,4
+sfi_ownership_addr_in_doge_flagged,2022,Lenicheck,Jonathan,jlenicheck@mbta.com,2022\Lenicheck__Jonathan.pdf,16,"205 Burlington Road, Bedford, 
+MA, 01730",205 BURLINGTON RD,BEDFORD,017301406,EDINBURG CENTER INC,MARINA KAGAN,17720219.15,2
+sfi_ownership_addr_in_doge_flagged,2022,O'Neil,Susanne M,Susanne.M.ONeil@mass.gov,2022\O'Neil__Susanne_M.pdf,14,"391 Broadway, Everett, MA, 
+02149",391 BROADWAY,EVERETT,021493470,"PETER E MASUCCI, MD, PC",PETER MASUCCI,393674.95,5
+sfi_transfer_addr_in_doge_flagged,2022,Phinney III,Allison W,chip.phinney@jud.state.ma.us,2022\Phinney_III__Allison_W.pdf,20,"230 Congress St., 
+Boston, MA, 02110",230 CONGRESS ST,BOSTON,021102409,STEPHANIE BATTISTA,,7400.07,2
+sfi_transfer_addr_in_doge_flagged,2022,Taylor-Fontes,Toiya L,toiya.taylor@jud.state.ma.us,2022\Taylor-Fontes__Toiya_L.pdf,20,"250 Granite Street, 
+Braintree, MA, 02184",250 GRANITE ST,BRAINTREE,021842804,DAVID HERRON,,80041.66,3
+sfi_ownership_addr_in_doge_flagged,2023,Ahn,Mary,Mary.Ahn@umassmed.edu,2023\Ahn__Mary.pdf,15,"55 Lake Ave N, Worceter, MA, 
+01655",55 LAKE AVE N,WORCESTER,016550002,FRANCES LAGANA,,106325026.92,398
+sfi_transfer_addr_in_doge_flagged,2023,Berman,Richard C. C,,2023\Berman__Richard_C._C.pdf,20,"527 Albany Street, 
+Boston, MA, 02118",527 ALBANY ST STE 200,BOSTON,021182511,ROBYN RISEBERG,,1021620.24,2
+sfi_transfer_addr_in_doge_flagged,2023,Dishnica,Katie M,Katie.Dishnica@mass.gov,2023\Dishnica__Katie_M.pdf,19,"100 Cambridge Street, 
+Boston, MA, 02114",100 CAMBRIDGE ST FL 14,BOSTON,021142509,JORDAN WILSON,,2076228.13,4
+sfi_ownership_addr_in_doge_flagged,2023,O'Neil,Susanne M,Susanne.M.ONeil@mass.gov,2023\O'Neil__Susanne_M.pdf,14,"391 Broadway, Everett, MA, 
+02149",391 BROADWAY,EVERETT,021493470,"PETER E MASUCCI, MD, PC",PETER MASUCCI,393674.95,5
+sfi_ownership_addr_in_doge_flagged,2023,Pepoli,Andrew M,apepoli@ncolony.com,2023\Pepoli__Andrew_M.pdf,13,"180 Main Street, 
+Saugus, MA, 01906",180 MAIN ST,SAUGUS,019064502,CONVENIENTMD LLC,JAROD BOISSONNEAULT,236838.72,2
+sfi_transfer_addr_in_doge_flagged,2023,Phinney III,Allison W,chip.phinney@jud.state.ma.us,2023\Phinney_III__Allison_W.pdf,20,"230 Congress St., 
+Boston, MA, 02110",230 CONGRESS ST,BOSTON,021102409,STEPHANIE BATTISTA,,7400.07,2
+sfi_transfer_addr_in_doge_flagged,2023,Phinney III,Allison W,chip.phinney@jud.state.ma.us,2023\Phinney_III__Allison_W.pdf,20,"1200 Centre Street, Boston, 
+MA, 02131",1200 CENTRE ST,ROSLINDALE,021311011,HEBREW REHABILITATION CENTER,LOUIS WOOLF,1822425.62,3
+sfi_ownership_addr_in_doge_flagged,2023,Saunders,Christopher T,Chris@chrissaunderslaw.com,2023\Saunders__Christopher_T.pdf,15,"101 Page Street, New Bedford, 
+MA, 02740",101 PAGE STREET,NEW BEDFORD,02740,MICHAEL MERPORT,,177318842.41,19
+sfi_ownership_addr_in_doge_flagged,2023,Wieland,Lisa,,2023\Wieland__Lisa.pdf,15,"300 Longwood Avenue, 
+Boston, MA, 02115",300 LONGWOOD AVE,BOSTON,02115,ERIC FLEEGLER,,380509892.82,464
+sfi_transfer_addr_in_doge_flagged,2024,Berman,Richard C. C,,2024\Berman__Richard_C._C.pdf,20,"527 Albany Street, 
+Boston, MA, 02118",527 ALBANY ST STE 200,BOSTON,021182511,ROBYN RISEBERG,,1021620.24,2
+sfi_ownership_addr_in_doge_flagged,2024,Cha Leonardi,Yully,,2024\Cha_Leonardi__Yully.pdf,16,"435 Warren Street, 
+Roxbury, MA, 02119",435 WARREN ST,ROXBURY,021191833,SAMUEL RIVERS,,34973.65,3
+sfi_transfer_addr_in_doge_flagged,2024,Dishnica,Katie M,Katie.Dishnica@mass.gov,2024\Dishnica__Katie_M.pdf,19,"100 Cambridge Street, 
+Boston, MA, 02114",100 CAMBRIDGE ST FL 14,BOSTON,021142509,JORDAN WILSON,,2076228.13,4
+sfi_ownership_addr_in_doge_flagged,2024,O'Neil,Susanne M,Susanne.M.ONeil@mass.gov,2024\O'Neil__Susanne_M.pdf,14,"391 Broadway, Everett, MA, 
+02149",391 BROADWAY,EVERETT,021493470,"PETER E MASUCCI, MD, PC",PETER MASUCCI,393674.95,5
+sfi_transfer_addr_in_doge_flagged,2024,Phinney III,Allison W,chip.phinney@jud.state.ma.us,2024\Phinney_III__Allison_W.pdf,20,"230 Congress St., 
+Boston, MA, 02110",230 CONGRESS ST,BOSTON,021102409,STEPHANIE BATTISTA,,7400.07,2
+sfi_transfer_addr_in_doge_flagged,2024,Phinney III,Allison W,chip.phinney@jud.state.ma.us,2024\Phinney_III__Allison_W.pdf,20,"1200 Centre Street, Boston, 
+MA, 02131",1200 CENTRE ST,ROSLINDALE,021311011,HEBREW REHABILITATION CENTER,LOUIS WOOLF,1822425.62,3
+sfi_transfer_addr_in_doge_flagged,2024,Rosenthal,Amy,Amy.Rosenthal@mass.gov,2024\Rosenthal__Amy.pdf,17,"55 Fruit St, Boston, MA, 
+02114",55 FRUIT STREET,BOSTON,021142696,ADAM LANDSMAN,,502455073.24,111
+sfi_ownership_addr_in_doge_flagged,2024,Saunders,Christopher T,Chris@chrissaunderslaw.com,2024\Saunders__Christopher_T.pdf,15,"101 Page Street, New Bedford, 
+MA, 02740",101 PAGE STREET,NEW BEDFORD,02740,MICHAEL MERPORT,,177318842.41,19
+sfi_transfer_addr_in_doge_flagged,2024,Thomas,Lara R,lara.r.thomas@mass.gov,2024\Thomas__Lara_R.pdf,20,"250 Granite Street, 
+Braintree, MA, 02184",250 GRANITE ST,BRAINTREE,021842804,DAVID HERRON,,80041.66,3
+sfi_transfer_addr_in_doge_flagged,2025,Berman,Richard C. C,,2025\Berman__Richard_C._C.pdf,20,"527 Albany Street, 
+Boston, MA, 02118",527 ALBANY ST STE 200,BOSTON,021182511,ROBYN RISEBERG,,1021620.24,2
+sfi_transfer_addr_in_doge_flagged,2025,Dishnica,Katie M,Katie.Dishnica@mass.gov,2025\Dishnica__Katie_M.pdf,19,"100 Cambridge Street, 
+Boston, MA, 02114",100 CAMBRIDGE ST FL 14,BOSTON,021142509,JORDAN WILSON,,2076228.13,4
+sfi_ownership_addr_in_doge_flagged,2025,Joubert,Steven R,,2025\Joubert__Steven_R.pdf,15,"115 Mill Street , 
+Belmont , MA, 02478",115 MILL ST,BELMONT,024781041,WHITNEY WYKOFF,,5805518.46,7
+sfi_ownership_addr_in_doge_flagged,2025,Joubert,Steven R,,2025\Joubert__Steven_R.pdf,15,"75 Sylvan Street , 
+Danvers , MA, 01923",75 SYLVAN ST,DANVERS,019232740,"CARE DIMENSIONS, INC.",DIANE STRINGER,66126768.15,2
+sfi_transfer_addr_in_doge_flagged,2025,Kerans,Sally P,Sally.Kerans@mahouse.gov,2025\Kerans__Sally_P.pdf,19,"100 Cambridge St., Boston, MA, 
+02114",100 CAMBRIDGE ST FL 14,BOSTON,021142509,JORDAN WILSON,,2076228.13,4
+sfi_ownership_addr_in_doge_flagged,2025,O'Brien,Andrew J,andrew.obrien2@mass.gov,2025\O'Brien__Andrew_J.pdf,14,"55 fogg road, Weymouth, MA, 
+02190",55 FOGG RD,SOUTH WEYMOUTH,021902432,MARK MULLINS,,97590055.11,10
+sfi_ownership_addr_in_doge_flagged,2025,O'Neil,Susanne M,Susanne.M.ONeil@mass.gov,2025\O'Neil__Susanne_M.pdf,14,"391 Broadway, Everett, MA, 
+02149",391 BROADWAY,EVERETT,021493470,"PETER E MASUCCI, MD, PC",PETER MASUCCI,393674.95,5
+sfi_ownership_addr_in_doge_flagged,2025,Saunders,Christopher T,Chris@chrissaunderslaw.com,2025\Saunders__Christopher_T.pdf,15,"101 Page Street, New Bedford, 
+MA, 02740",101 PAGE STREET,NEW BEDFORD,02740,MICHAEL MERPORT,,177318842.41,19
