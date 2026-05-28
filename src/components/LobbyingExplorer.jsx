@@ -78,13 +78,19 @@ function FirmDetailPanel({ firm, year }) {
         {hasMoney && (
           <>
             <div style={{ background: 'var(--bg-card-hover)', borderRadius: 6, padding: '8px 12px' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Salaries Received from Clients</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Received from Clients</div>
               <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--accent-green)' }}>${(firm.totalSalariesReceived || 0).toLocaleString()}</div>
             </div>
             <div style={{ background: 'var(--bg-card-hover)', borderRadius: 6, padding: '8px 12px' }}>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Salaries Paid to Lobbyists</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Paid to Lobbyists</div>
               <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--accent-red)' }}>${(firm.totalSalariesPaid || 0).toLocaleString()}</div>
             </div>
+            {(firm.totalExpenses || 0) > 0 && (
+              <div style={{ background: 'var(--bg-card-hover)', borderRadius: 6, padding: '8px 12px' }}>
+                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Other Expenses</div>
+                <div style={{ fontSize: '0.82rem', fontWeight: 600 }}>${firm.totalExpenses.toLocaleString()}</div>
+              </div>
+            )}
           </>
         )}
       </div>

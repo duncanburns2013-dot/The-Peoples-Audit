@@ -1,6 +1,6 @@
 {
   "year": "2026",
-  "scrapedAt": "2026-05-28T12:26:01.101Z",
+  "scrapedAt": "2026-05-28T14:40:57.028Z",
   "source": "MA Secretary of State - Lobbyist Public Search (Summary.aspx)",
   "sourceUrl": "https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx",
   "note": "Per-firm detail extracted from MA SOS Summary.aspx pages via the in-browser scraper userscript. Mid-year scrapes of the current registration year will show $0 amounts because MA disclosure reports are filed mid-year and end-of-year; the lobbyist roster, client roster, and purpose-of-engagement text are populated as soon as the firm registers.",
@@ -16,7 +16,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/HM1/KdTLFGtPdFE4mKclc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/HM1/KdTLFGtPdFE4mKclc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -74,7 +75,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8hkmuQifTfIGkBtIGNKeXc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8hkmuQifTfIGkBtIGNKeXc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 8,
       "lobbyists": [
@@ -165,6 +167,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6oQKU+/+zbzUaREZySFkdg=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -189,7 +192,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7obHmQXqOegEAkXPzAE7/g=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7obHmQXqOegEAkXPzAE7/g=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 5,
       "lobbyists": [
@@ -255,7 +259,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/1uQfgBY2bZSCMfC+o2qT0=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/1uQfgBY2bZSCMfC+o2qT0=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 6,
       "lobbyists": [
@@ -336,7 +341,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8hOOcpRUAsZtwHl2rpLctA=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8hOOcpRUAsZtwHl2rpLctA=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 5,
       "clientCount": 49,
       "lobbyists": [
@@ -782,7 +788,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xztlL0KiamxjJQ8zCI3+Ntw=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xztlL0KiamxjJQ8zCI3+Ntw=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 30,
       "lobbyists": [
@@ -1062,7 +1069,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6hxSwGTClbA9zv4dSE72oU=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6hxSwGTClbA9zv4dSE72oU=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 9,
       "lobbyists": [
@@ -1160,7 +1168,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7V8VATEK1qht2G3zxlcaN4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7V8VATEK1qht2G3zxlcaN4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 7,
       "clientCount": 29,
       "lobbyists": [
@@ -1460,7 +1469,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7HxuSJThSFnrtW10PQNy+c=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7HxuSJThSFnrtW10PQNy+c=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -1510,7 +1520,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxfbAvjO/1vcAVrGemvCr9c=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxfbAvjO/1vcAVrGemvCr9c=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -1544,7 +1555,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzd4/Bxkod28ppRlbxXC4PQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzd4/Bxkod28ppRlbxXC4PQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -1586,7 +1598,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1uf7GdWG5b6D9wtzgieuJc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1uf7GdWG5b6D9wtzgieuJc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 5,
       "clientCount": 23,
       "lobbyists": [
@@ -1824,7 +1837,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x3pjDFpOLO7uray88JB+PKQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x3pjDFpOLO7uray88JB+PKQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -1858,7 +1872,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1TQ0lp6VpFxxGeI/6PfeOw=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1TQ0lp6VpFxxGeI/6PfeOw=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -1892,7 +1907,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x3pE3q4mdSQHsmRXYSNbfh8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x3pE3q4mdSQHsmRXYSNbfh8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 4,
       "clientCount": 30,
       "lobbyists": [
@@ -2179,7 +2195,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xya0Jy5v5Icdo7a+jT5SMx8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xya0Jy5v5Icdo7a+jT5SMx8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -2238,6 +2255,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1+UQCxCI2eU1ol1ffmSHNs=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -2262,7 +2280,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxOj4Y1ftLaW5GLdgubrVk0=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxOj4Y1ftLaW5GLdgubrVk0=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -2320,7 +2339,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+l7e1C/cE0ixVD2AnuncyQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+l7e1C/cE0ixVD2AnuncyQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 9,
       "lobbyists": [
@@ -2418,7 +2438,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xy1ZiibLRMzTySnS/oR0mXQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xy1ZiibLRMzTySnS/oR0mXQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -2476,7 +2497,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/hMfA9FMe9jShQT14CWrx4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/hMfA9FMe9jShQT14CWrx4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 6,
       "clientCount": 45,
       "lobbyists": [
@@ -2897,7 +2919,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xytaseMqhETTLe8vnWm/aqc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xytaseMqhETTLe8vnWm/aqc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 18,
       "lobbyists": [
@@ -3067,7 +3090,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xyfM17HtDhLJR9tDUvhLu1U=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xyfM17HtDhLJR9tDUvhLu1U=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 12,
       "lobbyists": [
@@ -3196,7 +3220,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1CfFzGADxGsUDAuBpwWF+o=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1CfFzGADxGsUDAuBpwWF+o=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -3230,7 +3255,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x55us4ItfJ337JtCAk0mcK8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x55us4ItfJ337JtCAk0mcK8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 23,
       "lobbyists": [
@@ -3454,7 +3480,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x2tth0PUx8Bd70GmNhagA7k=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x2tth0PUx8Bd70GmNhagA7k=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -3488,7 +3515,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1O0397z2T1Ip4AUaZPn4og=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1O0397z2T1Ip4AUaZPn4og=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 2,
       "lobbyists": [
@@ -3537,7 +3565,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x70w7Tqmhf3QhiAqkPTT66I=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x70w7Tqmhf3QhiAqkPTT66I=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 4,
       "clientCount": 2,
       "lobbyists": [
@@ -3600,7 +3629,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7XHmaYSGu3MVQFXpuFpvtE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7XHmaYSGu3MVQFXpuFpvtE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 10,
       "lobbyists": [
@@ -3721,6 +3751,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x5Ooh6kCmoLnut08QIJpWzA=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -3745,7 +3776,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/cyfnmQ5nMV0CyrfE7a8Nw=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/cyfnmQ5nMV0CyrfE7a8Nw=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -3795,7 +3827,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1jP8p9paILNkEZKek7w6MA=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1jP8p9paILNkEZKek7w6MA=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 8,
       "lobbyists": [
@@ -3892,7 +3925,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzJpGbOC53lnSrjw7tKJHvg=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzJpGbOC53lnSrjw7tKJHvg=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 7,
       "lobbyists": [
@@ -3981,7 +4015,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1ZWq16seu7+/7YCKVKetGI=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1ZWq16seu7+/7YCKVKetGI=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 51,
       "lobbyists": [
@@ -4415,7 +4450,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/ekfBW0fynXd/Pub5NLIoY=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/ekfBW0fynXd/Pub5NLIoY=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 5,
       "clientCount": 13,
       "lobbyists": [
@@ -4573,7 +4609,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1KfVYBbuWMAg4S1uIM75lk=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1KfVYBbuWMAg4S1uIM75lk=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -4615,7 +4652,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8QtRLufxpXqjnWlcR8JMT4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8QtRLufxpXqjnWlcR8JMT4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -4649,7 +4687,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzj60NvdLl2ozB+cUj0BGf8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzj60NvdLl2ozB+cUj0BGf8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 3,
       "lobbyists": [
@@ -4706,7 +4745,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7xzuNv/26OdcxotXIHd4tQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7xzuNv/26OdcxotXIHd4tQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -4748,7 +4788,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7I6hmr80iF8jiGNwtyMFSE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7I6hmr80iF8jiGNwtyMFSE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 9,
       "lobbyists": [
@@ -4846,7 +4887,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6iSNksXgZDnJhMv3Jjze3w=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6iSNksXgZDnJhMv3Jjze3w=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -4881,6 +4923,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xz+uTOfjlPKcGYQN/ABEt3k=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 4,
       "clientCount": 0,
       "lobbyists": [
@@ -4926,7 +4969,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxqNoeEC/5AONpcg5dj4sVo=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxqNoeEC/5AONpcg5dj4sVo=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -4960,7 +5004,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x46wQu/TMm+bdeY8kq6F8EA=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x46wQu/TMm+bdeY8kq6F8EA=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -5010,7 +5055,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xyCEDh9fbNYKYLrgArRsGeo=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xyCEDh9fbNYKYLrgArRsGeo=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 1,
       "lobbyists": [
@@ -5051,7 +5097,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x69SI7TOo+i1eGPFkY/l8YM=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x69SI7TOo+i1eGPFkY/l8YM=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 2,
       "lobbyists": [
@@ -5107,7 +5154,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x51upQ8o/6gmEc+BGt7ZS/w=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x51upQ8o/6gmEc+BGt7ZS/w=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 9,
       "lobbyists": [
@@ -5205,7 +5253,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x3wHeSg8TSFXMVgps3nHQMY=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x3wHeSg8TSFXMVgps3nHQMY=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -5255,7 +5304,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8nZmQFktjcjZ6AIuyQ+mnM=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8nZmQFktjcjZ6AIuyQ+mnM=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -5305,7 +5355,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x3/CutqFnznU1T0Y592PoyY=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x3/CutqFnznU1T0Y592PoyY=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -5339,7 +5390,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+MOwM26E7PVnwB/9tTw1mU=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+MOwM26E7PVnwB/9tTw1mU=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -5397,7 +5449,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzKYgr4QwbPpd83yBijjA6Y=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzKYgr4QwbPpd83yBijjA6Y=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 16,
       "lobbyists": [
@@ -5558,7 +5611,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/oNotITPF/2lkWzdKxoPio=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/oNotITPF/2lkWzdKxoPio=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 5,
       "lobbyists": [
@@ -5624,7 +5678,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x4XyMX4qK/7vRSQ+0J9PcaE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x4XyMX4qK/7vRSQ+0J9PcaE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 5,
       "lobbyists": [
@@ -5698,6 +5753,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7BfWnLqXhouRTASAp8l/Uw=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -5723,6 +5779,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7peY4osMlrJrjemG2CAbZk=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -5747,7 +5804,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxRSnkCa0IQzirDkVFnckKI=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxRSnkCa0IQzirDkVFnckKI=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -5789,7 +5847,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xw5+GM6eeQhduAE2qxzLJHM=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xw5+GM6eeQhduAE2qxzLJHM=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -5823,7 +5882,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+plLrB9U7Ukr4U9UnbzrRs=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+plLrB9U7Ukr4U9UnbzrRs=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 8,
       "lobbyists": [
@@ -5913,7 +5973,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xw11I+6F0/u64Nw5zdJMoNQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xw11I+6F0/u64Nw5zdJMoNQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 13,
       "lobbyists": [
@@ -6043,7 +6104,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+VVFdXFfjPZ6EKw3RETLKo=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+VVFdXFfjPZ6EKw3RETLKo=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -6077,7 +6139,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7eL/lPnZtvTN4UeMV6jYi0=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7eL/lPnZtvTN4UeMV6jYi0=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -6127,7 +6190,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxW9ywxK+gHP6+NTF1lOsLE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxW9ywxK+gHP6+NTF1lOsLE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 12,
       "clientCount": 40,
       "lobbyists": [
@@ -6550,7 +6614,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x5G0Br6hJ4JruPQqsTpGfWo=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x5G0Br6hJ4JruPQqsTpGfWo=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 11,
       "lobbyists": [
@@ -6671,7 +6736,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+hgVcAh8CqSgX8FmUHo29c=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+hgVcAh8CqSgX8FmUHo29c=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 7,
       "lobbyists": [
@@ -6753,7 +6819,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7eSrQlR3yBYSQq0WF/nAwg=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7eSrQlR3yBYSQq0WF/nAwg=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -6787,7 +6854,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6ZROjeGTmyp9tncw+x99e4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6ZROjeGTmyp9tncw+x99e4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 3,
       "lobbyists": [
@@ -6844,7 +6912,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/eBrnPGWWICaWN9lcXCIRM=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/eBrnPGWWICaWN9lcXCIRM=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 2,
       "lobbyists": [
@@ -6893,7 +6962,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x59n6niadLyQabxJopVCwhc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x59n6niadLyQabxJopVCwhc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 6,
       "clientCount": 57,
       "lobbyists": [
@@ -7410,7 +7480,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8eyE9r6Ib+rHeKoK1xfl3Y=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8eyE9r6Ib+rHeKoK1xfl3Y=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 2,
       "lobbyists": [
@@ -7466,7 +7537,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x9RmGl+r3Q1vxSYZYPA5ijM=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x9RmGl+r3Q1vxSYZYPA5ijM=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 11,
       "lobbyists": [
@@ -7580,7 +7652,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/gNsHp9LeWMtxsSSezZpAw=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/gNsHp9LeWMtxsSSezZpAw=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -7622,7 +7695,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x70kVIYYXKtRatXsdnU9v7Q=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x70kVIYYXKtRatXsdnU9v7Q=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 3,
       "lobbyists": [
@@ -7679,7 +7753,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x82+wqGJ8sFf+Bkqk4sODgQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x82+wqGJ8sFf+Bkqk4sODgQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -7713,7 +7788,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x41h8PSpuamSneiTzH1sr70=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x41h8PSpuamSneiTzH1sr70=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -7747,7 +7823,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxzuAl3QdY3087ReqN2ZchQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxzuAl3QdY3087ReqN2ZchQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -7789,7 +7866,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/7nEIebyfJmDrFmwBiUUtM=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/7nEIebyfJmDrFmwBiUUtM=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 5,
       "clientCount": 12,
       "lobbyists": [
@@ -7939,7 +8017,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x3LLCopGkcZBiggdrW/1Slo=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x3LLCopGkcZBiggdrW/1Slo=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 8,
       "lobbyists": [
@@ -8029,7 +8108,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8LcuJ3JNHqrQVM0jyNh/5w=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8LcuJ3JNHqrQVM0jyNh/5w=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 5,
       "lobbyists": [
@@ -8102,7 +8182,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxpFqFzSE8Y/ojqrE3on5Cc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxpFqFzSE8Y/ojqrE3on5Cc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -8136,7 +8217,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xy+GlW/XUlvg3tFbqa+AbcY=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xy+GlW/XUlvg3tFbqa+AbcY=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -8170,7 +8252,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+5P5pIXdv5KD/ajk02wkgo=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+5P5pIXdv5KD/ajk02wkgo=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 6,
       "lobbyists": [
@@ -8251,7 +8334,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x0a30gjB6WYJMwY+DzKtiug=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x0a30gjB6WYJMwY+DzKtiug=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 4,
       "clientCount": 10,
       "lobbyists": [
@@ -8379,6 +8463,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/TO2v88cMEwp8+23OGshik=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -8403,7 +8488,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xx11ltZiB4/Yq9/SzfALeM8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xx11ltZiB4/Yq9/SzfALeM8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -8437,7 +8523,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x02LFqlhLT03ev8rv+F5Du0=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x02LFqlhLT03ev8rv+F5Du0=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -8471,7 +8558,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxCPGssn55veCao09EEB7DI=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxCPGssn55veCao09EEB7DI=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -8513,7 +8601,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x9vK7wrUpdETkCzV4j6uMO0=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x9vK7wrUpdETkCzV4j6uMO0=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -8547,7 +8636,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xwydgnJ99l3cWMOKfypm1pE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xwydgnJ99l3cWMOKfypm1pE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -8589,7 +8679,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxXKvwguhIiqrr+vakbLQuo=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxXKvwguhIiqrr+vakbLQuo=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -8623,7 +8714,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8cZWLxVLU1TgfmM1LSF/ok=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8cZWLxVLU1TgfmM1LSF/ok=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 8,
       "clientCount": 30,
       "lobbyists": [
@@ -8938,7 +9030,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x2nB+YpNIj2fX4tlUE17BUI=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x2nB+YpNIj2fX4tlUE17BUI=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 8,
       "lobbyists": [
@@ -9042,7 +9135,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x67JqMj0mHWCvhVn2/VYUmw=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x67JqMj0mHWCvhVn2/VYUmw=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 7,
       "lobbyists": [
@@ -9138,7 +9232,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x0+xNToUPQ5XVK61px9RfbU=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x0+xNToUPQ5XVK61px9RfbU=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 5,
       "lobbyists": [
@@ -9204,7 +9299,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xx1w9Lm09lW97HrwYs+ZYjk=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xx1w9Lm09lW97HrwYs+ZYjk=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 6,
       "lobbyists": [
@@ -9278,7 +9374,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+LF3bGUW6MojdtYvJnjLv4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+LF3bGUW6MojdtYvJnjLv4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -9312,7 +9409,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7ApDAgP1IPfKVKAAnUUAjs=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7ApDAgP1IPfKVKAAnUUAjs=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 14,
       "lobbyists": [
@@ -9457,7 +9555,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x4Hmr26MseHd9wHQ1pReT4Y=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x4Hmr26MseHd9wHQ1pReT4Y=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -9491,7 +9590,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x9xbsg9y8L315sVSrmYP79w=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x9xbsg9y8L315sVSrmYP79w=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 2,
       "lobbyists": [
@@ -9540,7 +9640,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7XiK4062XT47q1MlLkVKXc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7XiK4062XT47q1MlLkVKXc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 12,
       "clientCount": 81,
       "lobbyists": [
@@ -10291,7 +10392,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6sbIxHrKEJTzIu4dOCV49I=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6sbIxHrKEJTzIu4dOCV49I=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -10325,7 +10427,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzFZlgiVVHf9wfrX42GKr3g=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzFZlgiVVHf9wfrX42GKr3g=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 4,
       "clientCount": 4,
       "lobbyists": [
@@ -10404,7 +10507,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+9aOw2ANy6oVm/ZNz1BKYE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+9aOw2ANy6oVm/ZNz1BKYE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 9,
       "lobbyists": [
@@ -10502,7 +10606,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/SWG+pwH9LAmux2hsg1RJA=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/SWG+pwH9LAmux2hsg1RJA=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -10544,7 +10649,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x77ySLVLGPHcyHjA0wSHIJY=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x77ySLVLGPHcyHjA0wSHIJY=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -10578,7 +10684,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x39IC80wOg4kE+rQMPDAX1Q=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x39IC80wOg4kE+rQMPDAX1Q=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -10612,7 +10719,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x0Iun7HV3nWZ0CUyJ/eSUB8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x0Iun7HV3nWZ0CUyJ/eSUB8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -10646,7 +10754,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6Pbi11PYRTE1E4SlNo7HaE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6Pbi11PYRTE1E4SlNo7HaE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -10680,7 +10789,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x2Ae4SypoNBQI83xA2kTxWQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x2Ae4SypoNBQI83xA2kTxWQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -10714,7 +10824,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6FzFJq8t7fI6zpLQ/pQKHs=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6FzFJq8t7fI6zpLQ/pQKHs=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 5,
       "lobbyists": [
@@ -10795,6 +10906,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6jKOwZCfKfA9nv36GHMs5c=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -10819,7 +10931,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8g3VLhbLWEvpEjZ85UY87U=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8g3VLhbLWEvpEjZ85UY87U=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 2,
       "lobbyists": [
@@ -10861,7 +10974,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7WXDiX3sBW7/HYKK9cA++w=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7WXDiX3sBW7/HYKK9cA++w=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 6,
       "clientCount": 41,
       "lobbyists": [
@@ -11250,7 +11364,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6STWIK+ngcaQJffA7sySIQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6STWIK+ngcaQJffA7sySIQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -11284,7 +11399,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6fzNzi/r/tLps4JoPWzCzk=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6fzNzi/r/tLps4JoPWzCzk=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 5,
       "lobbyists": [
@@ -11364,7 +11480,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x2bRTfjzOi2etVvbYKYF98Y=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x2bRTfjzOi2etVvbYKYF98Y=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -11398,7 +11515,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxonnQ2R69ixwdsXo7mhH2o=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxonnQ2R69ixwdsXo7mhH2o=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 7,
       "clientCount": 35,
       "lobbyists": [
@@ -11746,7 +11864,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x9Ty2RctxJvhUOM5ISfzGME=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x9Ty2RctxJvhUOM5ISfzGME=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 6,
       "lobbyists": [
@@ -11820,7 +11939,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xy7aAey+ylh/0Red2MG78/s=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xy7aAey+ylh/0Red2MG78/s=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -11854,7 +11974,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x63GUkkNVvXoNIFp9y11/hg=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x63GUkkNVvXoNIFp9y11/hg=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 12,
       "lobbyists": [
@@ -11976,7 +12097,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xwcoZfGZt/+roFvs00o+2OU=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xwcoZfGZt/+roFvs00o+2OU=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 7,
       "lobbyists": [
@@ -12058,7 +12180,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xyX5YNzOw492Dmwl30XGT3E=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xyX5YNzOw492Dmwl30XGT3E=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -12092,7 +12215,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x5MNVT7p92Ha1rguSlPmMIg=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x5MNVT7p92Ha1rguSlPmMIg=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -12150,7 +12274,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xyzciQgskGephdpRwodp0sc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xyzciQgskGephdpRwodp0sc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 5,
       "lobbyists": [
@@ -12217,6 +12342,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xwwsNzgdubAXPRswG9efVhQ=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -12241,7 +12367,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x0vZcMHoxu2XP5l92qnwmzE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x0vZcMHoxu2XP5l92qnwmzE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -12299,7 +12426,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+KVa5CFnqiSZ7JRixKMdyM=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+KVa5CFnqiSZ7JRixKMdyM=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 6,
       "lobbyists": [
@@ -12373,7 +12501,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6lkV8Hfz2jwdo0P3KBL5Cc=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6lkV8Hfz2jwdo0P3KBL5Cc=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 10,
       "lobbyists": [
@@ -12479,7 +12608,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxFNnqthdjZTq73lB3+WOJ4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxFNnqthdjZTq73lB3+WOJ4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -12514,6 +12644,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xyVY6tKeCePmtXUmNKnMKmQ=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -12538,7 +12669,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+KXZ881Dqr1/+EiTINSHIY=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+KXZ881Dqr1/+EiTINSHIY=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 29,
       "lobbyists": [
@@ -12810,7 +12942,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8NXNArGueE6YsIokrjW/q8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8NXNArGueE6YsIokrjW/q8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 8,
       "clientCount": 29,
       "lobbyists": [
@@ -13117,7 +13250,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzyV4OKIt4SyiqvdTrHcaKE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzyV4OKIt4SyiqvdTrHcaKE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 13,
       "clientCount": 129,
       "lobbyists": [
@@ -14259,7 +14393,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/yXbpjDsgNslHlWF6AK5YE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/yXbpjDsgNslHlWF6AK5YE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 4,
       "lobbyists": [
@@ -14325,6 +14460,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxzylX3ThBqXW+tdLT9slps=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -14349,7 +14485,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x5ebdAtbE6zgC5mLJJMWcr4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x5ebdAtbE6zgC5mLJJMWcr4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 13,
       "lobbyists": [
@@ -14479,7 +14616,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/jNtB9aD0DS1DOXmO1/b5M=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/jNtB9aD0DS1DOXmO1/b5M=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -14513,7 +14651,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzdjBrh9R3kd2gWDtcZRV0g=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzdjBrh9R3kd2gWDtcZRV0g=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 7,
       "lobbyists": [
@@ -14602,7 +14741,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xw0gIY83N0UzHC0/91gwj90=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xw0gIY83N0UzHC0/91gwj90=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 6,
       "clientCount": 11,
       "lobbyists": [
@@ -14751,7 +14891,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxv1Rm9gNdmpqWTPazeUhCI=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxv1Rm9gNdmpqWTPazeUhCI=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 14,
       "lobbyists": [
@@ -14889,7 +15030,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxpYwGp64pRSlOMLYg18YS4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxpYwGp64pRSlOMLYg18YS4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -14923,7 +15065,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x7aRy7Khe+V5uny5IkqOMrQ=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7aRy7Khe+V5uny5IkqOMrQ=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -14957,7 +15100,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1Kk5M7JpBT4fhpwqtKEJp8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1Kk5M7JpBT4fhpwqtKEJp8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 4,
       "clientCount": 23,
       "lobbyists": [
@@ -15188,7 +15332,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x6z2g6LRggBXs9sYGEcW7T4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x6z2g6LRggBXs9sYGEcW7T4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -15246,7 +15391,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x0k3qjQpLIk2Mpg5ixjjsJY=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x0k3qjQpLIk2Mpg5ixjjsJY=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 39,
       "lobbyists": [
@@ -15598,7 +15744,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xx7P7lfFY8GP+BAz9wrpviA=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xx7P7lfFY8GP+BAz9wrpviA=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 4,
       "lobbyists": [
@@ -15656,7 +15803,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x9tFmbVZ8S07QhpjcDdI0Kg=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x9tFmbVZ8S07QhpjcDdI0Kg=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -15690,7 +15838,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x8M6lTCsHy9NH/mNgvuyx4s=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x8M6lTCsHy9NH/mNgvuyx4s=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 8,
       "clientCount": 100,
       "lobbyists": [
@@ -16565,7 +16714,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x+kLFaAlpbiQk6LpjQPuNF4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x+kLFaAlpbiQk6LpjQPuNF4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 5,
       "lobbyists": [
@@ -16631,7 +16781,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxZQQB80RFDYkVzDWvgJ/UA=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxZQQB80RFDYkVzDWvgJ/UA=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 6,
       "clientCount": 29,
       "lobbyists": [
@@ -16924,7 +17075,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzmfFpcWQgSjD54cvtAYptw=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzmfFpcWQgSjD54cvtAYptw=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -16958,7 +17110,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x/oxLkhU1eW7bkXDS/HumCE=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/oxLkhU1eW7bkXDS/HumCE=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [
@@ -16992,7 +17145,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xyBMFT16dDXy1UmK5o3dWl8=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xyBMFT16dDXy1UmK5o3dWl8=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 3,
       "clientCount": 18,
       "lobbyists": [
@@ -17177,6 +17331,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x/0TwVODsuMkIbDYgRuLlr4=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 0,
       "lobbyists": [
@@ -17201,7 +17356,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xzkWnbnvPBinVWKnOqxJRW4=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xzkWnbnvPBinVWKnOqxJRW4=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -17251,7 +17407,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x9i90ojyS9APzeocNt8aYck=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x9i90ojyS9APzeocNt8aYck=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -17301,7 +17458,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x3i09qjV8QbHFlriZex25Fo=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x3i09qjV8QbHFlriZex25Fo=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 7,
       "clientCount": 25,
       "lobbyists": [
@@ -17570,6 +17728,7 @@
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x7Uba6Z5OfxYENJLguohI/0=",
       "totalSalariesPaid": 0.0,
       "totalSalariesReceived": null,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 0,
       "lobbyists": [
@@ -17601,7 +17760,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1xxS/lzPz4JRQdhVWH34ZO00=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1xxS/lzPz4JRQdhVWH34ZO00=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 3,
       "lobbyists": [
@@ -17651,7 +17811,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x1Dy59tudyrmkQgk8dmZ0xI=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x1Dy59tudyrmkQgk8dmZ0xI=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 2,
       "clientCount": 9,
       "lobbyists": [
@@ -17756,7 +17917,8 @@
       "sysvalue": "j980aMf4IpOwXPZWPGG1x46Ja3iYFVGbA6h1C9iScTU=",
       "url": "https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=j980aMf4IpOwXPZWPGG1x46Ja3iYFVGbA6h1C9iScTU=",
       "totalSalariesPaid": 0.0,
-      "totalSalariesReceived": null,
+      "totalSalariesReceived": 0.0,
+      "totalExpenses": null,
       "lobbyistCount": 1,
       "clientCount": 1,
       "lobbyists": [

@@ -132,21 +132,26 @@ def parse_record(rec):
         )
         n += 1
 
+    # Both Rpt blocks reuse "lblTotalExpense" as the ID — interpretation
+    # differs by context: in RptLobbyistInfo it's total paid TO lobbyists,
+    # in RptClient it's total received FROM clients.
     total_paid = money(s("ContentPlaceHolder1_RptLobbyistInfo_lblTotalExpense"))
-    total_received = money(s("ContentPlaceHolder1_RptClient_lblTotalReceived"))
+    total_received = money(s("ContentPlaceHolder1_RptClient_lblTotalExpense"))
+    total_expenses = money(s("ContentPlaceHolder1_RptExpense_lblTotalExpense"))
 
-    # --- Expenditures: small inline section. Often just a "no expense" notice.
-    # Look for any expenditure rows in spans.
+    # --- Expenditures: line items appear as
+    #     RptExpense_lblExpenseName_N (e.g. "Operating Expenses") +
+    #     RptExpense_lblAmount_N      (e.g. "$181,703.88")
     expenditures = []
     n = 0
     while True:
-        desc_key = f"ContentPlaceHolder1_RptExpense_lblDescription_{n}"
+        name_key = f"ContentPlaceHolder1_RptExpense_lblExpenseName_{n}"
         amt_key = f"ContentPlaceHolder1_RptExpense_lblAmount_{n}"
-        if desc_key not in spans and amt_key not in spans:
+        if name_key not in spans and amt_key not in spans:
             break
         expenditures.append(
             {
-                "description": spans.get(desc_key, "").strip() or None,
+                "description": spans.get(name_key, "").strip() or None,
                 "amount": money(spans.get(amt_key)),
             }
         )
@@ -176,6 +181,7 @@ def parse_record(rec):
         "url": rec.get("url"),
         "totalSalariesPaid": total_paid,
         "totalSalariesReceived": total_received,
+        "totalExpenses": total_expenses,
         "lobbyistCount": len(lobbyists),
         "clientCount": len(clients),
         "lobbyists": lobbyists,

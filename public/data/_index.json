@@ -1,14 +1,23 @@
 {
-  "generatedAt": "2026-05-28T13:39:10.879Z",
+  "generatedAt": "2026-05-28T14:44:34.265Z",
   "snapshots": [
     {
       "file": "ma-lobbying-firm-details-2026.json",
-      "fetchedAt": "2026-05-28T13:39:10.651Z",
+      "fetchedAt": "2026-05-28T14:43:23.525Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 892521
+      "sizeBytes": 897232
+    },
+    {
+      "file": "ma-lobbying-firm-details-2025.json",
+      "fetchedAt": "2026-05-28T14:43:23.519Z",
+      "fetchedAtSource": "mtime",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 983489
     },
     {
       "file": "ma-contracts.json",
