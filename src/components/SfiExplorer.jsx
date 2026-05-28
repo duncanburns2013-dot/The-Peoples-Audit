@@ -17,6 +17,7 @@ import {
 export default function SfiExplorer() {
   const [data, setData] = useState(null);
   const [tempus, setTempus] = useState(null);
+  const [crossref, setCrossref] = useState(null); // Pass 1 verified survivors
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [activeFilter, setActiveFilter] = useState('all'); // all | tempus | gifts | interested
@@ -30,10 +31,12 @@ export default function SfiExplorer() {
     Promise.all([
       fetch(`${base}data/ma-sfi.json`).then((r) => (r.ok ? r.json() : null)),
       fetch(`${base}data/ma-sfi-tempus.json`).then((r) => (r.ok ? r.json() : null)),
+      fetch(`${base}data/ma-sfi-crossref-pass1.json`).then((r) => (r.ok ? r.json() : null)),
     ])
-      .then(([d, t]) => {
+      .then(([d, t, c]) => {
         setData(d);
         setTempus(t);
+        setCrossref(c);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -109,6 +112,11 @@ export default function SfiExplorer() {
       {/* The headline pattern card */}
       {tempus && (
         <TempusSpotlight tempus={tempus} />
+      )}
+
+      {/* Pass 1 cross-ref survivors — same evidentiary standard as Tempus */}
+      {crossref && crossref.records?.length > 0 && (
+        <CrossrefPass1Card data={crossref} />
       )}
 
       {/* Awaiting-access banner only when the data is not live */}
@@ -482,6 +490,74 @@ function TempusSpotlight({ tempus }) {
   );
 }
 
+function CrossrefPass1Card({ data }) {
+  const records = data.records || [];
+  const totalSpending = records.reduce((s, r) => s + (r.npiTotalSpending || 0), 0);
+  return (
+    <div className="crossref-card">
+      <div className="crossref-tag">SFI ↔ NPI cross-reference · 25/25 PDF-verified</div>
+      <h3 className="crossref-headline">
+        {records.length} MA Department of Public Health / Mental Health senior officials
+        appear as the named authorized official on the NPI registrations of the
+        state-operated healthcare facilities they oversee.
+      </h3>
+      <div className="crossref-sub">
+        Same evidentiary standard as the Tempus disclosures above: every (filer, year) pair
+        was independently re-verified by reopening the SFI PDF and re-extracting Q2 directly
+        from the binary file. <strong>{data.verifiedFilerYears} of {data.verifiedFilerYears}</strong>{' '}
+        candidate rows survived. No wrongdoing is alleged — state hospitals are required to
+        have a state-employed authorized official on their NPI registration.
+      </div>
+
+      <div className="crossref-grid">
+        {records.map((r) => (
+          <div key={r.filerNorm} className="crossref-tile">
+            <div className="crossref-name">{r.firstName} {r.lastName}</div>
+            <div className="crossref-agency">{r.stateAgency}</div>
+            <div className="crossref-role">{r.stateRole}</div>
+            <div className="crossref-years">SFI {r.yearsRange} &middot; {r.verificationCount}</div>
+            <div className="crossref-rule" />
+            <div className="crossref-npi-label">NPI authorized-official role</div>
+            <div className="crossref-npi-org">{r.matchedNpiOrg}</div>
+            <div className="crossref-npi-cities">{r.matchedNpiCities.replace(/\|/g, ' · ')}</div>
+            <div className="crossref-npi-spending">
+              ${r.npiTotalSpending.toLocaleString()} <span className="crossref-spending-label">Medicare/Medicaid to NPI org</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="crossref-rollup">
+        <div>
+          <span className="crossref-rollup-num">{records.length}</span>
+          <span className="crossref-rollup-lbl">individuals</span>
+        </div>
+        <div>
+          <span className="crossref-rollup-num">{data.verifiedFilerYears}</span>
+          <span className="crossref-rollup-lbl">filer-year rows · PDF-verified</span>
+        </div>
+        <div>
+          <span className="crossref-rollup-num">${(totalSpending / 1e6).toFixed(1)}M</span>
+          <span className="crossref-rollup-lbl">Medicare/Medicaid to matched NPI orgs</span>
+        </div>
+      </div>
+
+      <div className="crossref-footer">
+        Sourced facts:{' '}
+        <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/findings/FINDINGS-SFI-CROSSREF-PASS1.md"
+          target="_blank" rel="noopener noreferrer">
+          findings/FINDINGS-SFI-CROSSREF-PASS1.md ↗
+        </a>
+        {' · Methodology: '}
+        <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/audit-scripts/sfi/13_verify_pass1_pdfs.py"
+          target="_blank" rel="noopener noreferrer">
+          13_verify_pass1_pdfs.py ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function SfiDetail({ filing }) {
   const fields = [
     ['Work email', filing.workEmail],
@@ -716,6 +792,152 @@ function SfiCss() {
         color: var(--text-muted);
         line-height: 1.5;
       }
+
+      /* Pass 1 cross-reference card (DPH/DMH × NPI) — blue palette so it
+         visually reads as a separate, lower-temperature finding next to the
+         red Tempus card. */
+      .crossref-card {
+        position: relative;
+        padding: 26px 30px;
+        margin: 0 0 36px;
+        border-radius: 12px;
+        background:
+          linear-gradient(155deg, rgba(20,85,143,0.06), rgba(20,85,143,0.02) 60%),
+          var(--bg-card);
+        border: 1px solid rgba(20,85,143,0.20);
+        border-left: 5px solid var(--accent-blue);
+        box-shadow: var(--shadow-card);
+      }
+      .crossref-tag {
+        display: inline-block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent-blue);
+        background: rgba(20,85,143,0.08);
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+      .crossref-headline {
+        font-size: 1.35rem;
+        line-height: 1.4;
+        margin: 0 0 12px;
+        color: var(--text-primary);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        max-width: 920px;
+      }
+      .crossref-sub {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: var(--text-secondary);
+        margin: 0 0 18px;
+        max-width: 920px;
+      }
+      .crossref-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .crossref-tile {
+        background: rgba(255,255,255,0.55);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+      }
+      .crossref-name {
+        font-weight: 700;
+        color: var(--text-primary);
+        font-size: 0.98rem;
+      }
+      .crossref-agency {
+        font-size: 0.78rem;
+        color: var(--accent-blue);
+        margin-top: 2px;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .crossref-role {
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+        margin-top: 2px;
+        line-height: 1.3;
+      }
+      .crossref-years {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        margin-top: 6px;
+      }
+      .crossref-rule {
+        margin: 10px 0;
+        border-bottom: 1px dashed rgba(20,85,143,0.18);
+      }
+      .crossref-npi-label {
+        font-size: 0.66rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+      .crossref-npi-org {
+        font-size: 0.84rem;
+        color: var(--text-primary);
+        font-weight: 600;
+        margin-top: 2px;
+      }
+      .crossref-npi-cities {
+        font-size: 0.76rem;
+        color: var(--text-secondary);
+        margin-top: 2px;
+      }
+      .crossref-npi-spending {
+        margin-top: 6px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--accent-green);
+      }
+      .crossref-spending-label {
+        display: block;
+        font-size: 0.66rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        margin-top: 1px;
+        letter-spacing: 0.02em;
+      }
+      .crossref-rollup {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+        padding: 14px 0;
+        border-top: 1px solid rgba(20,85,143,0.12);
+        border-bottom: 1px solid rgba(20,85,143,0.12);
+        margin-bottom: 12px;
+      }
+      .crossref-rollup-num {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--accent-blue);
+        line-height: 1.1;
+      }
+      .crossref-rollup-lbl {
+        display: block;
+        font-size: 0.74rem;
+        color: var(--text-muted);
+        font-weight: 500;
+        margin-top: 2px;
+      }
+      .crossref-footer {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+      .crossref-footer a { color: var(--accent-blue); }
 
       /* Filter bar */
       .sfi-filter-bar {

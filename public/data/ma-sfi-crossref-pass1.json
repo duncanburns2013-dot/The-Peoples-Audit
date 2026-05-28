@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-05-28T15:41:50.159354+00:00",
+  "source": "MA State Ethics Commission SFI bulk release \u00d7 HHS-MA-DOGE NPI authorized-official set",
+  "methodology": "Pass 1: SFI filer name == NPI authorized-official name (normalized to LAST, FIRST_INITIAL). Automated verification by Q2 state-position vs NPI healthcare-org alignment. Final PDF re-verification by reopening each cited SFI PDF and re-extracting Q2 directly from the binary file. 25 of 25 candidate (filer, year) rows passed PDF re-verification.",
+  "disclaimer": "These are publicly disclosed dual roles. No wrongdoing is alleged. MA state public-health and mental-health hospitals are required to have a state-employed authorized official on their NPI registration, and senior DPH/DMH executives appearing as those officials is the structural expectation. Total spending figures are Medicare/Medicaid spending flowing to the NPI's organization (typically the Commonwealth of Massachusetts or a state-affiliated hospital), not to the individual.",
+  "findingsDoc": "findings/FINDINGS-SFI-CROSSREF-PASS1.md",
+  "verifiedCount": 5,
+  "verifiedFilerYears": 25,
+  "records": [
+    {
+      "filerNorm": "ARCHER, DAMIAN",
+      "lastName": "Archer",
+      "firstName": "Damian",
+      "workEmail": "damian.archer@mass.gov",
+      "years": [
+        "2024",
+        "2025"
+      ],
+      "yearsRange": "2024-2025",
+      "latestYear": "2025",
+      "stateAgency": "Public Health Council Public Health Council",
+      "stateRole": "member",
+      "q2DisclosedRaw": "Public Health Council Public Health Council member $100,001 or more 04/03/2025 - 04/02/2031",
+      "matchedNpiOrg": "OUTER CAPE HEALTH SERVICES, INC.",
+      "matchedNpiCities": "HARWICH PORT | PROVINCETOWN | WELLFLEET",
+      "npiCount": 3,
+      "npiTotalSpending": 15844051.270000001,
+      "verificationCount": "2 of 2 years PDF-verified",
+      "sfiSourcePdf": "2025\\Archer__Damian.pdf"
+    },
+    {
+      "filerNorm": "DUNN, CECILIA",
+      "lastName": "Dunn",
+      "firstName": "Cecilia",
+      "workEmail": "ceci.dunn@mass.gov",
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "yearsRange": "2019-2025",
+      "latestYear": "2025",
+      "stateAgency": "Department of Public Health (DPH) Deputy",
+      "stateRole": "Director, BIDLS",
+      "q2DisclosedRaw": "Department of Public Health (DPH) Deputy Director, BIDLS $100,001 or more 11/22/2020 305 South Street, Boston, MA, 02130, US",
+      "matchedNpiOrg": "THE COMMONWEALTH OF MASSACHUSETTS",
+      "matchedNpiCities": "BOSTON",
+      "npiCount": 2,
+      "npiTotalSpending": 2791820.65,
+      "verificationCount": "7 of 7 years PDF-verified",
+      "sfiSourcePdf": "2025\\Dunn__Cecilia.pdf"
+    },
+    {
+      "filerNorm": "LIPTAK, VALENDA",
+      "lastName": "Liptak",
+      "firstName": "Valenda M",
+      "workEmail": "valenda.liptak@massmail.state.ma.us",
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "yearsRange": "2019-2025",
+      "latestYear": "2025",
+      "stateAgency": "Department of Public Health (DPH)",
+      "stateRole": "Chief Executive Officer",
+      "q2DisclosedRaw": "Department of Public Health (DPH) Chief Executive Officer $100,001 or more 09/22/2014 Department of Public Health (DPH) CEO $100,001 or more 09/22/2014 91 East Mountain Road, Westfield, MA, 01085, US Department of Public Health (DPH) CEO $100,001 or more 09/22/2014 91 East Mountain Road, Westfield, MA, 01085, US Department of Public Health (DPH) Bureau Director of the Public Health Hospitals $100,001 or more 11/21/2021 250 Washington Street, Boston, MA, 02108, US Department of Public Health (DPH) Bureau Director of the Public Health Hospitals $100,001 or more 08/15/2021 91 East Mountain Road, ",
+      "matchedNpiOrg": "THE COMMONWEALTH OF MASSACHUSETTS",
+      "matchedNpiCities": "JAMAICA PLAIN | TEWKSBURY",
+      "npiCount": 5,
+      "npiTotalSpending": 1751680.81,
+      "verificationCount": "7 of 7 years PDF-verified",
+      "sfiSourcePdf": "2025\\Liptak__Valenda_M.pdf"
+    },
+    {
+      "filerNorm": "OLSEN-VIEIRA, LYNNE",
+      "lastName": "Olsen-Vieira",
+      "firstName": "Lynne A",
+      "workEmail": "lynne.olsen-vieira@mass.gov",
+      "years": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "yearsRange": "2022-2025",
+      "latestYear": "2025",
+      "stateAgency": "Department of Mental Health (DMH)",
+      "stateRole": "Chief Operating Officer",
+      "q2DisclosedRaw": "Department of Mental Health (DMH) Chief Operating Officer $100,001 or more 09/25/2023 60 Hodges Ave, Taunton, MA, 02780, US",
+      "matchedNpiOrg": "THE COMMONWEALTH OF MASSACHUSETTS",
+      "matchedNpiCities": "FALL RIVER",
+      "npiCount": 2,
+      "npiTotalSpending": 143679.41999999998,
+      "verificationCount": "4 of 4 years PDF-verified",
+      "sfiSourcePdf": "2025\\Olsen-Vieira__Lynne_A.pdf"
+    },
+    {
+      "filerNorm": "DISTEFANO, ANTHONY",
+      "lastName": "DiStefano",
+      "firstName": "Anthony R",
+      "workEmail": "Anthony.DiStefano@mass.gov",
+      "years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "yearsRange": "2021-2025",
+      "latestYear": "2025",
+      "stateAgency": "Department of Public Health (DPH)",
+      "stateRole": "CEO",
+      "q2DisclosedRaw": "Department of Public Health (DPH) CEO $100,001 or more 03/18/2022 91 East Mountain Rd, Westfield, MA, 01085, US",
+      "matchedNpiOrg": "WESTERN MASSACHUSETTS HOSPITAL",
+      "matchedNpiCities": "WESTFIELD",
+      "npiCount": 2,
+      "npiTotalSpending": 29552.809999999998,
+      "verificationCount": "5 of 5 years PDF-verified",
+      "sfiSourcePdf": "2025\\DiStefano__Anthony_R.pdf"
+    }
+  ]
+}

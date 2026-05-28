@@ -1,6 +1,15 @@
 {
-  "generatedAt": "2026-05-28T15:06:22.800Z",
+  "generatedAt": "2026-05-28T15:45:06.377Z",
   "snapshots": [
+    {
+      "file": "ma-sfi-crossref-pass1.json",
+      "fetchedAt": "2026-05-28T15:41:50.160Z",
+      "fetchedAtSource": "mtime",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 5995
+    },
     {
       "file": "ma-lobbying-firm-details-2026.json",
       "fetchedAt": "2026-05-28T15:06:22.498Z",
