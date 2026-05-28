@@ -482,8 +482,12 @@ export default function LobbyingExplorer() {
         <strong style={{ color: 'var(--accent-green)' }}>Data Sources:</strong> Lobbying data comes from the <strong>MA Secretary of the Commonwealth</strong> — lobbyist registrations, client disclosures, and expenditure reports (updated weekly). The OCPF Cross-Ref tab queries a <em>separate</em> database (Office of Campaign and Political Finance) to find where lobbying-connected entities also make campaign contributions. <strong>MA law caps lobbyist gifts to officials at $200/year per recipient.</strong>
       </div>
 
-      {/* Data freshness + provenance banner */}
-      {lobbyData && (
+      {/* Data freshness + provenance banner. Hidden on the SOS Registry tab —
+          that tab has its own (fresh) provenance line because the registrant
+          index is a separate, more recently refreshed dataset than the
+          Top Firms / Industry snapshot. Showing the 42-day-old banner there
+          would be misleading. */}
+      {lobbyData && activeTab !== 'registry' && (
         <div style={{
           background: dataAgeDays > 21 ? 'rgba(230,126,34,0.08)' : 'rgba(50,120,78,0.06)',
           border: `1px solid ${dataAgeDays > 21 ? 'rgba(230,126,34,0.25)' : 'rgba(50,120,78,0.18)'}`,
@@ -495,14 +499,17 @@ export default function LobbyingExplorer() {
             <div style={{ flex: 1 }}>
               <div>
                 <strong style={{ color: dataAgeDays > 21 ? '#E67E22' : 'var(--accent-green)' }}>
-                  Snapshot from {formatDate(lobbyData.fetchedAt)}
+                  Top Firms / Industry snapshot from {formatDate(lobbyData.fetchedAt)}
                 </strong>
                 {dataAgeDays != null && (
                   <span> &middot; {dataAgeDays} {dataAgeDays === 1 ? 'day' : 'days'} old</span>
                 )}
                 . The MA Secretary of State Lobbyist Public Search blocks
                 automated access from cloud servers, so this snapshot is
-                refreshed manually rather than on a schedule.{' '}
+                refreshed manually rather than on a schedule. The{' '}
+                <strong style={{ color: 'var(--accent-blue)' }}>SOS Registry tab</strong>{' '}
+                ships from a separate, more recently refreshed dataset (see its own
+                provenance line).{' '}
                 <a href="https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx"
                   target="_blank" rel="noopener noreferrer"
                   style={{ color: 'var(--accent-blue)' }}>
@@ -1045,6 +1052,27 @@ export default function LobbyingExplorer() {
                     onChange={e => setRegSearch(e.target.value)}
                     style={{ paddingLeft: 38 }}
                   />
+                </div>
+
+                {/* Discoverability hint for the click-to-expand feature */}
+                <div style={{
+                  marginTop: 10,
+                  padding: '8px 12px',
+                  background: 'rgba(104,10,29,0.05)',
+                  border: '1px solid rgba(104,10,29,0.15)',
+                  borderRadius: 6,
+                  fontSize: '0.78rem',
+                  color: 'var(--text-secondary)',
+                  lineHeight: 1.5,
+                }}>
+                  <strong style={{ color: 'var(--accent-red)' }}>Tip:</strong>{' '}
+                  Click any row with the <span style={{
+                    display: 'inline-block', padding: '1px 6px',
+                    fontSize: '0.7rem', fontWeight: 600, borderRadius: 3,
+                    background: 'rgba(104,10,29,0.1)', color: 'var(--accent-red)',
+                  }}>Lobbyist Entity</span> badge to expand it inline with the
+                  firm's full lobbyist roster, client list, and per-client
+                  purpose-of-engagement text from the SOS filing.
                 </div>
 
                 {/* Results table */}
