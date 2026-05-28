@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MA SOS Lobbyist Detail Scraper
 // @namespace    https://github.com/duncanburns2013-dot/The-Peoples-Audit
-// @version      1.0
+// @version      1.1
 // @description  Scrape per-firm detail (clients, fees, lobbyists, salaries) from the MA Secretary of State Lobbyist Public Search and download as JSON. Runs in your real browser session so it bypasses the WAF that blocks server-side scrapes.
 // @author       The People's Audit
 // @match        https://www.sec.state.ma.us/LobbyistPublicSearch/*
@@ -57,6 +57,13 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   const STORAGE_KEY = 'sos_lobbyist_detail_cache_v1';
   const DELAY_MS = 2000; // polite delay between fetches
 
+  // Loud console marker so we can confirm the script actually ran.
+  console.log(
+    '%c[ta-sos] v1.1 loaded',
+    'background:#2563eb;color:#fff;padding:2px 6px;border-radius:3px',
+    location.href,
+  );
+
   /* ------------------------------------------------------------------ */
   /* state                                                              */
   /* ------------------------------------------------------------------ */
@@ -79,8 +86,16 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   /* page-type detection                                                */
   /* ------------------------------------------------------------------ */
 
-  const isDefaultPage = /Default\.aspx/i.test(location.pathname);
-  const isSummaryPage = /Summary\.aspx/i.test(location.pathname);
+  // Re-evaluated each render in case the page navigated since script start.
+  function detectPageType() {
+    const p = location.pathname;
+    const isSummary = /Summary\.aspx/i.test(p);
+    // Treat any LobbyistPublicSearch URL that ISN'T a Summary page as a
+    // potential search page — covers Default.aspx, root /, or any other
+    // SOS-served search variant.
+    const isSearchish = /\/LobbyistPublicSearch\//i.test(p) && !isSummary;
+    return { isDefault: isSearchish, isSummary };
+  }
 
   /* ------------------------------------------------------------------ */
   /* row extraction (on Default.aspx)                                   */
@@ -260,6 +275,11 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
         background: none; border: none; color: #8a93a4; font-size: 16px;
         cursor: pointer; padding: 0 4px;
       }
+      #ta-sos-scraper .debug {
+        font-size: 10px; color: #fbbf24; background: #14171f;
+        padding: 4px 6px; border-radius: 4px; margin-bottom: 6px;
+        font-family: ui-monospace, monospace; word-break: break-all;
+      }
     `;
     const style = document.createElement('style');
     style.textContent = css;
@@ -271,88 +291,129 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
     render();
   }
 
+  // Avoid render loops when the panel's own innerHTML mutation re-triggers
+  // the MutationObserver. We hash the inputs and only re-render on change.
+  let lastRenderKey = null;
+
   function render() {
     const panel = document.getElementById('ta-sos-scraper');
     if (!panel) return;
+    const { isDefault, isSummary } = detectPageType();
     const cache = getCache();
     const cachedCount = Object.keys(cache).length;
+    const allRows = isDefault ? extractRowsOnDefaultPage() : [];
+    const year = isDefault ? detectYearOnDefaultPage() : null;
+    const types = [...new Set(allRows.map((r) => r.accountType).filter(Boolean))];
+    const selectedType = GM_getValue('selected_type', 'Lobbyist Entity');
+    const filtered = allRows.filter(
+      (r) => !selectedType || selectedType === 'All' || r.accountType === selectedType,
+    );
+    const remaining = filtered.filter(
+      (r) => r.sysvalue && !cache[`${year}::${r.sysvalue}`],
+    );
 
-    if (isDefaultPage) {
-      const allRows = extractRowsOnDefaultPage();
-      const year = detectYearOnDefaultPage();
-      const types = [...new Set(allRows.map((r) => r.accountType).filter(Boolean))];
-      const selectedType = GM_getValue('selected_type', 'Lobbyist Entity');
-      const filtered = allRows.filter(
-        (r) => !selectedType || selectedType === 'All' || r.accountType === selectedType,
-      );
-      const remaining = filtered.filter(
-        (r) => r.sysvalue && !cache[`${year}::${r.sysvalue}`],
-      );
+    // Re-render guard: only update DOM if relevant state changed.
+    const key = JSON.stringify([
+      isDefault,
+      isSummary,
+      cachedCount,
+      allRows.length,
+      filtered.length,
+      remaining.length,
+      year,
+      selectedType,
+    ]);
+    if (key === lastRenderKey) return;
+    lastRenderKey = key;
 
+    // Always-visible debug strip so you can tell the script is alive even if
+    // the page-type heuristic guesses wrong.
+    const debugStrip = `
+      <div class="debug">
+        path: <code>${location.pathname}</code> ·
+        type: <code>${isDefault ? 'search' : isSummary ? 'summary' : 'other'}</code>
+      </div>
+    `;
+
+    if (isDefault) {
       panel.innerHTML = `
         <h3>
-          <span>SOS Detail Scraper</span>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.1</span></span>
           <button class="close-x" id="ta-close">×</button>
         </h3>
+        ${debugStrip}
         <div class="meta">
           Year on page: <code>${year || 'unknown'}</code> ·
-          <code>${allRows.length}</code> rows visible
+          <code>${allRows.length}</code> rows visible in grid
         </div>
-        <div class="row" style="margin-bottom:6px">
-          <label style="font-size:12px;color:#8a93a4">Type:</label>
-          <select id="ta-type">
-            <option value="All">All (${allRows.length})</option>
-            ${types
-              .map(
-                (t) =>
-                  `<option value="${t}" ${
-                    t === selectedType ? 'selected' : ''
-                  }>${t} (${allRows.filter((r) => r.accountType === t).length})</option>`,
-              )
-              .join('')}
-          </select>
-        </div>
-        <div class="progress" id="ta-progress">
-          Cached (this origin): ${cachedCount}<br>
-          Filtered this page: ${filtered.length}<br>
-          Already done: ${filtered.length - remaining.length}<br>
-          To scrape: <b style="color:#4ea1ff">${remaining.length}</b>
-        </div>
-        <div class="row" style="flex-wrap:wrap">
-          <button class="btn-primary" id="ta-scrape" ${remaining.length === 0 ? 'disabled' : ''}>
-            Scrape ${remaining.length} row${remaining.length === 1 ? '' : 's'}
-          </button>
+        ${allRows.length === 0 ? `
+          <div class="progress" style="color:#fbbf24">
+            No result rows detected yet. Run a search with "View all results"
+            and wait for the grid to render, then this panel updates automatically.
+          </div>
+        ` : `
+          <div class="row" style="margin-bottom:6px">
+            <label style="font-size:12px;color:#8a93a4">Type:</label>
+            <select id="ta-type">
+              <option value="All">All (${allRows.length})</option>
+              ${types
+                .map(
+                  (t) =>
+                    `<option value="${t}" ${
+                      t === selectedType ? 'selected' : ''
+                    }>${t} (${allRows.filter((r) => r.accountType === t).length})</option>`,
+                )
+                .join('')}
+            </select>
+          </div>
+          <div class="progress" id="ta-progress">
+            Cached (this origin): ${cachedCount}<br>
+            Filtered this page: ${filtered.length}<br>
+            Already done: ${filtered.length - remaining.length}<br>
+            To scrape: <b style="color:#4ea1ff">${remaining.length}</b>
+          </div>
+          <div class="row" style="flex-wrap:wrap">
+            <button class="btn-primary" id="ta-scrape" ${remaining.length === 0 ? 'disabled' : ''}>
+              Scrape ${remaining.length} row${remaining.length === 1 ? '' : 's'}
+            </button>
+          </div>
+        `}
+        <div class="row" style="flex-wrap:wrap;margin-top:6px">
           <button class="btn-secondary" id="ta-download" ${cachedCount === 0 ? 'disabled' : ''}>
             Download JSON (${cachedCount})
           </button>
           <button class="btn-danger" id="ta-clear">Clear cache</button>
         </div>
         <div class="meta" style="margin-top:8px;font-size:10px">
-          Stays open across page navigations within sec.state.ma.us.
+          Open DevTools console for [ta-sos] logs.
         </div>
       `;
 
       document.getElementById('ta-close').onclick = () => panel.remove();
-      document.getElementById('ta-type').onchange = (e) => {
+      const typeEl = document.getElementById('ta-type');
+      if (typeEl) typeEl.onchange = (e) => {
         GM_setValue('selected_type', e.target.value);
+        lastRenderKey = null;
         render();
       };
-      document.getElementById('ta-scrape').onclick = () =>
-        runScrape(remaining, year, () => render());
+      const scrapeEl = document.getElementById('ta-scrape');
+      if (scrapeEl) scrapeEl.onclick = () =>
+        runScrape(remaining, year, () => { lastRenderKey = null; render(); });
       document.getElementById('ta-download').onclick = downloadAll;
       document.getElementById('ta-clear').onclick = () => {
         if (confirm(`Delete ${cachedCount} cached firm records?`)) {
           clearCache();
+          lastRenderKey = null;
           render();
         }
       };
-    } else if (isSummaryPage) {
-      // On a detail page — show one-shot scrape + cache status
+    } else if (isSummary) {
       panel.innerHTML = `
         <h3>
-          <span>SOS Detail Scraper</span>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.1</span></span>
           <button class="close-x" id="ta-close">×</button>
         </h3>
+        ${debugStrip}
         <div class="meta">On a Summary.aspx page.</div>
         <div class="progress">Cached records: ${cachedCount}</div>
         <button class="btn-secondary" id="ta-back">↶ Go to Default.aspx</button>
@@ -366,7 +427,28 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
           'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx');
       document.getElementById('ta-download').onclick = downloadAll;
     } else {
-      panel.remove();
+      // Unknown LobbyistPublicSearch sub-path. Still show the panel with debug
+      // info instead of disappearing silently.
+      panel.innerHTML = `
+        <h3>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.1</span></span>
+          <button class="close-x" id="ta-close">×</button>
+        </h3>
+        ${debugStrip}
+        <div class="progress" style="color:#fbbf24">
+          This URL doesn't look like a Default or Summary page. Navigate to
+          <code>/LobbyistPublicSearch/Default.aspx</code> to use the scraper.
+        </div>
+        <button class="btn-secondary" id="ta-go">↪ Go to Default.aspx</button>
+        <button class="btn-secondary" id="ta-download" ${
+          cachedCount === 0 ? 'disabled' : ''
+        }>Download JSON (${cachedCount})</button>
+      `;
+      document.getElementById('ta-close').onclick = () => panel.remove();
+      document.getElementById('ta-go').onclick = () =>
+        (location.href =
+          'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx');
+      document.getElementById('ta-download').onclick = downloadAll;
     }
   }
 
@@ -452,10 +534,36 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   /* ------------------------------------------------------------------ */
 
   // ASP.NET WebForms re-renders the grid via postback without a full nav,
-  // so we re-render the panel whenever the results table changes.
-  buildPanel();
-  const observer = new MutationObserver(() => {
-    if (document.getElementById('ta-sos-scraper')) render();
+  // so we re-render the panel whenever the results table changes. Throttle
+  // the observer so it doesn't fire on every keystroke or our own innerHTML
+  // updates (re-renders are gated by lastRenderKey anyway, but the throttle
+  // keeps CPU low on slow machines).
+  function whenBodyReady(cb) {
+    if (document.body) return cb();
+    const iv = setInterval(() => {
+      if (document.body) {
+        clearInterval(iv);
+        cb();
+      }
+    }, 50);
+  }
+
+  whenBodyReady(() => {
+    buildPanel();
+    let pending = false;
+    const observer = new MutationObserver(() => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        pending = false;
+        if (document.getElementById('ta-sos-scraper')) render();
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    // Also re-render every 2 sec in case nothing in the DOM changed but the
+    // URL did (e.g. SPA-style history.pushState).
+    setInterval(() => {
+      if (document.getElementById('ta-sos-scraper')) render();
+    }, 2000);
   });
-  observer.observe(document.body, { childList: true, subtree: true });
 })();
