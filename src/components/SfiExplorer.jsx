@@ -792,9 +792,11 @@ function SfiCss() {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: 10px;
-        overflow: hidden;
+        overflow-x: auto;
+        overflow-y: visible;
         box-shadow: var(--shadow-card);
         margin-bottom: 24px;
+        -webkit-overflow-scrolling: touch;
       }
       .sfi-table {
         width: 100%;
@@ -802,12 +804,24 @@ function SfiCss() {
         font-size: 0.95rem;
         table-layout: fixed;
       }
-      .sfi-col-filer    { width: 23%; min-width: 220px; }
-      .sfi-col-flags    { width: 11%; min-width: 120px; }
-      .sfi-col-employer { width: 30%; min-width: 240px; }
-      .sfi-col-realestate { width: 12%; min-width: 110px; }
-      .sfi-col-creditor { width: 18%; min-width: 140px; }
-      .sfi-col-pdf      { width: 6%; min-width: 70px; text-align: right; }
+      .sfi-col-filer    { width: 24%; min-width: 220px; }
+      .sfi-col-flags    { width: 12%; min-width: 130px; }
+      .sfi-col-employer { width: 30%; min-width: 220px; }
+      .sfi-col-realestate { width: 11%; min-width: 100px; }
+      .sfi-col-creditor { width: 15%; min-width: 130px; }
+      .sfi-col-pdf      { width: 8%; min-width: 90px; text-align: right; }
+      .sfi-table thead th.sfi-col-pdf,
+      .sfi-row td.sfi-col-pdf {
+        position: sticky;
+        right: 0;
+        background: inherit;
+        box-shadow: -8px 0 12px -8px rgba(0,0,0,0.08);
+        z-index: 1;
+      }
+      .sfi-table thead th.sfi-col-pdf { background: var(--bg-card-hover); }
+      .sfi-row td.sfi-col-pdf { background: var(--bg-card); }
+      .sfi-row:hover td.sfi-col-pdf { background: var(--bg-card-hover); }
+      .sfi-row-expanded td.sfi-col-pdf { background: #f6e6ea; }
 
       .sfi-table thead th {
         text-align: left;

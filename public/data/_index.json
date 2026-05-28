@@ -1,6 +1,21 @@
 {
-  "generatedAt": "2026-05-28T02:03:40.936Z",
+  "generatedAt": "2026-05-28T02:13:11.582Z",
   "snapshots": [
+    {
+      "file": "ma-bond-trades.json",
+      "fetchedAt": "2026-05-28T01:47:07.705Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 8,
+      "preservedFromCache": true,
+      "sources": [
+        {
+          "name": "EMMA TradeData (MA)",
+          "ok": true,
+          "count": 0
+        }
+      ],
+      "sizeBytes": 1934
+    },
     {
       "file": "ma-sfi.json",
       "fetchedAt": "2026-05-28T01:04:48.495819+00:00",
@@ -75,21 +90,6 @@
         }
       ],
       "sizeBytes": 14716
-    },
-    {
-      "file": "ma-bond-trades.json",
-      "fetchedAt": "2026-05-27T19:55:29.874Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 8,
-      "preservedFromCache": true,
-      "sources": [
-        {
-          "name": "EMMA TradeData (MA)",
-          "ok": true,
-          "count": 0
-        }
-      ],
-      "sizeBytes": 1934
     },
     {
       "file": "ma-contracts.json",
