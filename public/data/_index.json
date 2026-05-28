@@ -1,6 +1,30 @@
 {
-  "generatedAt": "2026-05-28T12:31:48.286Z",
+  "generatedAt": "2026-05-28T12:49:24.784Z",
   "snapshots": [
+    {
+      "file": "ma-contracts.json",
+      "fetchedAt": "2026-05-28T12:49:24.435Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 300,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "cthru.spending.contracts.2026",
+          "ok": true,
+          "count": 300
+        }
+      ],
+      "sizeBytes": 165841
+    },
+    {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-28T12:49:11.430Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
+    },
     {
       "file": "cthru-aggregates.json",
       "fetchedAt": "2026-05-28T12:31:47.998Z",
@@ -75,15 +99,6 @@
         }
       ],
       "sizeBytes": 68816
-    },
-    {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-28T12:31:27.609Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
     },
     {
       "file": "ma-lobbying-registrants-2016.json",
@@ -273,21 +288,6 @@
       "preservedFromCache": false,
       "sources": [],
       "sizeBytes": 684236
-    },
-    {
-      "file": "ma-contracts.json",
-      "fetchedAt": "2026-05-27T13:03:40.570Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 300,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "cthru.spending.contracts.2026",
-          "ok": true,
-          "count": 300
-        }
-      ],
-      "sizeBytes": 165841
     },
     {
       "file": "ma-roll-calls.json",
