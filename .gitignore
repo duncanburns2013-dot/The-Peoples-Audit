@@ -23,3 +23,8 @@ dist[0-9]*
 *.njsproj
 *.sln
 *.sw?
+
+# Raw SOS firm-detail scrape dumps (~30 MB each, kept locally for reprocessing).
+# The parser writes flattened per-firm JSON into public/data/ which IS committed.
+.cache/
+

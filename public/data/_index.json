@@ -1,6 +1,15 @@
 {
-  "generatedAt": "2026-05-28T12:49:24.784Z",
+  "generatedAt": "2026-05-28T13:39:10.879Z",
   "snapshots": [
+    {
+      "file": "ma-lobbying-firm-details-2026.json",
+      "fetchedAt": "2026-05-28T13:39:10.651Z",
+      "fetchedAtSource": "mtime",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 892521
+    },
     {
       "file": "ma-contracts.json",
       "fetchedAt": "2026-05-28T12:49:24.435Z",
@@ -14,16 +23,7 @@
           "count": 300
         }
       ],
-      "sizeBytes": 165841
-    },
-    {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-28T12:49:11.430Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
+      "sizeBytes": 170058
     },
     {
       "file": "cthru-aggregates.json",
@@ -98,7 +98,7 @@
           "count": 18
         }
       ],
-      "sizeBytes": 68816
+      "sizeBytes": 71461
     },
     {
       "file": "ma-lobbying-registrants-2016.json",
@@ -107,7 +107,7 @@
       "count": 3204,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 832491
+      "sizeBytes": 832492
     },
     {
       "file": "ma-lobbying-registrants-2017.json",
@@ -116,7 +116,7 @@
       "count": 3247,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 842328
+      "sizeBytes": 842329
     },
     {
       "file": "ma-lobbying-registrants-2018.json",
@@ -125,7 +125,7 @@
       "count": 3300,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 856294
+      "sizeBytes": 856295
     },
     {
       "file": "ma-lobbying-registrants-2019.json",
@@ -134,7 +134,7 @@
       "count": 3398,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 869853
+      "sizeBytes": 869854
     },
     {
       "file": "ma-lobbying-registrants-2020.json",
@@ -143,7 +143,7 @@
       "count": 3243,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 830633
+      "sizeBytes": 830634
     },
     {
       "file": "ma-lobbying-registrants-2021.json",
@@ -152,7 +152,7 @@
       "count": 3350,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 856684
+      "sizeBytes": 856685
     },
     {
       "file": "ma-lobbying-registrants-2022.json",
@@ -161,7 +161,7 @@
       "count": 3251,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 835330
+      "sizeBytes": 835331
     },
     {
       "file": "ma-lobbying-registrants-2023.json",
@@ -170,7 +170,7 @@
       "count": 3271,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 841143
+      "sizeBytes": 841144
     },
     {
       "file": "ma-lobbying-registrants-2024.json",
@@ -179,7 +179,7 @@
       "count": 3354,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 862920
+      "sizeBytes": 862921
     },
     {
       "file": "ma-lobbying-registrants-2025.json",
@@ -188,7 +188,7 @@
       "count": 3425,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 882333
+      "sizeBytes": 882334
     },
     {
       "file": "ma-lobbying-registrants-2026.json",
@@ -197,7 +197,7 @@
       "count": 3243,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 835184
+      "sizeBytes": 835185
     },
     {
       "file": "ma-lobbying-registrants-index.json",
@@ -206,7 +206,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 2820
+      "sizeBytes": 2927
     },
     {
       "file": "ma-disclosures.json",
@@ -236,7 +236,7 @@
           "count": 0
         }
       ],
-      "sizeBytes": 14386
+      "sizeBytes": 14716
     },
     {
       "file": "ma-bond-trades.json",
@@ -251,7 +251,7 @@
           "count": 0
         }
       ],
-      "sizeBytes": 1851
+      "sizeBytes": 1934
     },
     {
       "file": "ma-sfi.json",
@@ -260,7 +260,7 @@
       "count": 29729,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 18498362
+      "sizeBytes": 18498363
     },
     {
       "file": "ma-sfi-tempus.json",
@@ -269,7 +269,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 10804
+      "sizeBytes": 11095
     },
     {
       "file": "ma-sfi-doge-crossref.json",
@@ -278,7 +278,16 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 63100
+      "sizeBytes": 64918
+    },
+    {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-27T23:42:24.115Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
     },
     {
       "file": "ma-sfi-gifts.json",
@@ -287,7 +296,7 @@
       "count": 1174,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 684236
+      "sizeBytes": 702170
     },
     {
       "file": "ma-roll-calls.json",
@@ -317,7 +326,7 @@
           "count": 1500
         }
       ],
-      "sizeBytes": 11898
+      "sizeBytes": 12243
     },
     {
       "file": "ma-lobbying.json",
@@ -326,7 +335,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 182662
+      "sizeBytes": 190055
     },
     {
       "file": "ma-nonprofits.json",
@@ -335,7 +344,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 11677435
+      "sizeBytes": 12162018
     }
   ]
 }

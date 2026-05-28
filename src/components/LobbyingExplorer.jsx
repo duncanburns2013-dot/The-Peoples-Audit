@@ -51,6 +51,140 @@ const formatDate = (dateStr) => {
   } catch { return dateStr; }
 };
 
+function FirmDetailPanel({ firm, year }) {
+  const hasMoney = (firm.totalSalariesReceived || 0) > 0 || (firm.totalSalariesPaid || 0) > 0;
+  return (
+    <div style={{ fontSize: '0.85rem', lineHeight: 1.55 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10, marginBottom: 14 }}>
+        {firm.address && (
+          <div style={{ background: 'var(--bg-card-hover)', borderRadius: 6, padding: '8px 12px' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Address</div>
+            <div style={{ fontSize: '0.82rem' }}>{firm.address}</div>
+          </div>
+        )}
+        {firm.registrationDate && (
+          <div style={{ background: 'var(--bg-card-hover)', borderRadius: 6, padding: '8px 12px' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Initial Registration</div>
+            <div style={{ fontSize: '0.82rem' }}>{firm.registrationDate}</div>
+          </div>
+        )}
+        <div style={{ background: 'var(--bg-card-hover)', borderRadius: 6, padding: '8px 12px' }}>
+          <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Counts</div>
+          <div style={{ fontSize: '0.82rem' }}>
+            <strong>{firm.lobbyistCount}</strong> lobbyist{firm.lobbyistCount === 1 ? '' : 's'},{' '}
+            <strong>{firm.clientCount}</strong> client{firm.clientCount === 1 ? '' : 's'}
+          </div>
+        </div>
+        {hasMoney && (
+          <>
+            <div style={{ background: 'var(--bg-card-hover)', borderRadius: 6, padding: '8px 12px' }}>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Salaries Received from Clients</div>
+              <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--accent-green)' }}>${(firm.totalSalariesReceived || 0).toLocaleString()}</div>
+            </div>
+            <div style={{ background: 'var(--bg-card-hover)', borderRadius: 6, padding: '8px 12px' }}>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Salaries Paid to Lobbyists</div>
+              <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--accent-red)' }}>${(firm.totalSalariesPaid || 0).toLocaleString()}</div>
+            </div>
+          </>
+        )}
+      </div>
+
+      {!hasMoney && (
+        <div style={{ marginBottom: 14, padding: '8px 12px', fontSize: '0.78rem', background: 'rgba(230,126,34,0.06)', border: '1px solid rgba(230,126,34,0.18)', borderRadius: 6, color: 'var(--text-secondary)' }}>
+          <strong style={{ color: '#E67E22' }}>No fee amounts reported yet for {year}.</strong>{' '}
+          MA SOS disclosure reports are filed twice a year (mid-year and end-of-year). The
+          registry shows everyone registered, but fee/expenditure data is empty until the
+          first disclosure report of the year is filed. Historical years carry the real
+          dollar amounts.
+        </div>
+      )}
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        {/* Lobbyists */}
+        <div>
+          <div style={{ fontWeight: 600, color: 'var(--accent-blue)', marginBottom: 6, fontSize: '0.85rem' }}>
+            Registered Lobbyists ({firm.lobbyistCount})
+          </div>
+          {firm.lobbyists.length === 0 ? (
+            <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>None on file.</div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {firm.lobbyists.map((l, idx) => (
+                <div key={idx} style={{ background: 'var(--bg-card-hover)', padding: '6px 10px', borderRadius: 5, fontSize: '0.8rem', display: 'flex', justifyContent: 'space-between', gap: 8 }}>
+                  <div>
+                    {l.sysvalue ? (
+                      <a href={`https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=${encodeURIComponent(l.sysvalue)}`}
+                        target="_blank" rel="noopener noreferrer"
+                        style={{ color: 'var(--accent-blue)' }}>{l.name}</a>
+                    ) : <span>{l.name}</span>}
+                    {l.employedDate && (
+                      <span style={{ marginLeft: 6, fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                        from {l.employedDate}
+                      </span>
+                    )}
+                  </div>
+                  {l.amount > 0 && (
+                    <span style={{ color: 'var(--accent-red)', fontWeight: 500, whiteSpace: 'nowrap' }}>
+                      ${l.amount.toLocaleString()}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Clients */}
+        <div>
+          <div style={{ fontWeight: 600, color: 'var(--accent-green)', marginBottom: 6, fontSize: '0.85rem' }}>
+            Clients ({firm.clientCount})
+          </div>
+          {firm.clients.length === 0 ? (
+            <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>None on file.</div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4, maxHeight: 380, overflow: 'auto' }}>
+              {firm.clients.map((c, idx) => (
+                <div key={idx} style={{ background: 'var(--bg-card-hover)', padding: '6px 10px', borderRadius: 5, fontSize: '0.8rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8 }}>
+                    <div>
+                      {c.sysvalue ? (
+                        <a href={`https://www.sec.state.ma.us/LobbyistPublicSearch/Summary.aspx?sysvalue=${encodeURIComponent(c.sysvalue)}`}
+                          target="_blank" rel="noopener noreferrer"
+                          style={{ color: 'var(--accent-green)' }}>{c.name}</a>
+                      ) : <span>{c.name}</span>}
+                      {c.employedDate && (
+                        <span style={{ marginLeft: 6, fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                          from {c.employedDate}
+                        </span>
+                      )}
+                    </div>
+                    {c.amount > 0 && (
+                      <span style={{ color: 'var(--accent-green)', fontWeight: 500, whiteSpace: 'nowrap' }}>
+                        ${c.amount.toLocaleString()}
+                      </span>
+                    )}
+                  </div>
+                  {c.purpose && (
+                    <div style={{ marginTop: 3, fontSize: '0.72rem', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.4 }}>
+                      "{c.purpose.length > 220 ? c.purpose.slice(0, 220) + '…' : c.purpose}"
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div style={{ marginTop: 10, fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+        Source: <a href={firm.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-blue)' }}>
+          SOS Summary.aspx for {firm.name} ({year}) ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
 export default function LobbyingExplorer() {
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -121,6 +255,13 @@ export default function LobbyingExplorer() {
   const [regTypeFilter, setRegTypeFilter] = useState('All'); // All | Lobbyist | Client | Lobbyist Entity
   const [regShowCount, setRegShowCount] = useState(200);
 
+  // Per-firm Summary.aspx detail (lobbyist roster + client list + purpose)
+  // produced by scripts/parse-sos-firm-details.py from Tampermonkey scrapes.
+  // Lazy-loaded per year; row expansion is one-firm-at-a-time.
+  const [firmDetailsByYear, setFirmDetailsByYear] = useState({});
+  const [firmDetailsState, setFirmDetailsState] = useState({}); // year -> 'idle'|'loading'|'loaded'|'unavailable'
+  const [expandedFirmSys, setExpandedFirmSys] = useState(null);
+
   // Load SOS lobbying data
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/ma-lobbying.json?t=${Date.now()}`)
@@ -184,6 +325,45 @@ export default function LobbyingExplorer() {
   // Reset visible-row count whenever the year, search, or type filter changes
   // so the user doesn't see stale "Showing 600 of 3,243" on a fresh query.
   useEffect(() => { setRegShowCount(200); }, [regYear, regSearch, regTypeFilter]);
+
+  // Close any expanded firm-detail row when the user switches year/filter.
+  useEffect(() => { setExpandedFirmSys(null); }, [regYear, regSearch, regTypeFilter]);
+
+  // Lazy-load firm-detail JSON for a year the first time a Lobbyist Entity
+  // row is clicked. Files (ma-lobbying-firm-details-{year}.json) may not
+  // exist for every year — only those scraped via the Tampermonkey userscript.
+  const ensureFirmDetailLoaded = useCallback((year) => {
+    if (!year) return;
+    const state = firmDetailsState[year];
+    if (state === 'loading' || state === 'loaded' || state === 'unavailable') return;
+    setFirmDetailsState(prev => ({ ...prev, [year]: 'loading' }));
+    fetch(`${import.meta.env.BASE_URL}data/ma-lobbying-firm-details-${year}.json`)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        const bySys = {};
+        for (const f of (data.firms || [])) {
+          if (f.sysvalue) bySys[f.sysvalue] = f;
+        }
+        setFirmDetailsByYear(prev => ({ ...prev, [year]: { ...data, bySys } }));
+        setFirmDetailsState(prev => ({ ...prev, [year]: 'loaded' }));
+      })
+      .catch(() => {
+        setFirmDetailsState(prev => ({ ...prev, [year]: 'unavailable' }));
+      });
+  }, [firmDetailsState]);
+
+  const toggleFirmRow = useCallback((row) => {
+    if (row.accountType !== 'Lobbyist Entity') return;
+    if (expandedFirmSys === row.sysvalue) {
+      setExpandedFirmSys(null);
+      return;
+    }
+    setExpandedFirmSys(row.sysvalue);
+    ensureFirmDetailLoaded(regYear);
+  }, [expandedFirmSys, regYear, ensureFirmDetailLoaded]);
 
   // Apply search + type filter to the loaded per-year registrants list.
   const filteredRegistrants = useMemo(() => {
@@ -913,37 +1093,96 @@ export default function LobbyingExplorer() {
                               </tr>
                             </thead>
                             <tbody>
-                              {filteredRegistrants.slice(0, regShowCount).map((r, i) => (
-                                <tr key={r.sysvalue}>
-                                  <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
-                                  <td>
-                                    <span style={{
-                                      display: 'inline-block',
-                                      padding: '2px 8px',
-                                      fontSize: '0.75rem',
-                                      fontWeight: 600,
-                                      borderRadius: 4,
-                                      background:
-                                        r.accountType === 'Lobbyist' ? 'rgba(20,85,143,0.1)' :
-                                        r.accountType === 'Client' ? 'rgba(50,120,78,0.1)' :
-                                        'rgba(104,10,29,0.1)',
-                                      color:
-                                        r.accountType === 'Lobbyist' ? 'var(--accent-blue)' :
-                                        r.accountType === 'Client' ? 'var(--accent-green)' :
-                                        'var(--accent-red)',
-                                    }}>
-                                      {r.accountType}
-                                    </span>
-                                  </td>
-                                  <td style={{ fontWeight: 500 }}>{r.name}</td>
-                                  <td>
-                                    <a href={r.summaryUrl} target="_blank" rel="noopener noreferrer"
-                                      style={{ color: 'var(--accent-blue)', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                                      View <ExternalLink size={11} />
-                                    </a>
-                                  </td>
-                                </tr>
-                              ))}
+                              {filteredRegistrants.slice(0, regShowCount).map((r, i) => {
+                                const isEntity = r.accountType === 'Lobbyist Entity';
+                                const isOpen = isEntity && expandedFirmSys === r.sysvalue;
+                                const yrData = firmDetailsByYear[regYear];
+                                const firmDetail = isOpen ? yrData?.bySys?.[r.sysvalue] : null;
+                                const yrState = firmDetailsState[regYear];
+                                return (
+                                  <React.Fragment key={r.sysvalue}>
+                                    <tr
+                                      onClick={() => toggleFirmRow(r)}
+                                      style={{
+                                        cursor: isEntity ? 'pointer' : 'default',
+                                        background: isOpen ? 'rgba(20,85,143,0.06)' : undefined,
+                                      }}
+                                    >
+                                      <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                                      <td>
+                                        <span style={{
+                                          display: 'inline-block',
+                                          padding: '2px 8px',
+                                          fontSize: '0.75rem',
+                                          fontWeight: 600,
+                                          borderRadius: 4,
+                                          background:
+                                            r.accountType === 'Lobbyist' ? 'rgba(20,85,143,0.1)' :
+                                            r.accountType === 'Client' ? 'rgba(50,120,78,0.1)' :
+                                            'rgba(104,10,29,0.1)',
+                                          color:
+                                            r.accountType === 'Lobbyist' ? 'var(--accent-blue)' :
+                                            r.accountType === 'Client' ? 'var(--accent-green)' :
+                                            'var(--accent-red)',
+                                        }}>
+                                          {r.accountType}
+                                        </span>
+                                      </td>
+                                      <td style={{ fontWeight: 500 }}>
+                                        {isEntity && (
+                                          <span style={{
+                                            display: 'inline-block', width: 14, color: 'var(--text-muted)',
+                                            fontSize: '0.8rem', transition: 'transform 0.15s',
+                                            transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+                                          }}>▶</span>
+                                        )}
+                                        {' '}{r.name}
+                                      </td>
+                                      <td>
+                                        <a href={r.summaryUrl} target="_blank" rel="noopener noreferrer"
+                                          onClick={(e) => e.stopPropagation()}
+                                          style={{ color: 'var(--accent-blue)', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                                          View <ExternalLink size={11} />
+                                        </a>
+                                      </td>
+                                    </tr>
+                                    {isOpen && (
+                                      <tr style={{ background: 'rgba(20,85,143,0.03)' }}>
+                                        <td colSpan={4} style={{ padding: '14px 18px' }}>
+                                          {yrState === 'loading' && (
+                                            <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                                              <div className="spinner" style={{ display: 'inline-block', marginRight: 8, verticalAlign: 'middle' }} />
+                                              Loading firm detail for {regYear}...
+                                            </div>
+                                          )}
+                                          {yrState === 'unavailable' && (
+                                            <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.55 }}>
+                                              <strong style={{ color: '#E67E22' }}>Detail not yet captured for {regYear}.</strong>
+                                              {' '}Per-firm Summary.aspx detail (lobbyist roster, client list,
+                                              fees, purposes) is populated as the SOS site is scraped one year
+                                              at a time via the Tampermonkey userscript at{' '}
+                                              <a href="https://github.com/duncanburns2013-dot/The-Peoples-Audit/tree/main/userscripts"
+                                                target="_blank" rel="noopener noreferrer"
+                                                style={{ color: 'var(--accent-blue)' }}>
+                                                userscripts/
+                                              </a>. Click "View" to see the firm's filing on the SOS site directly.
+                                            </div>
+                                          )}
+                                          {yrState === 'loaded' && !firmDetail && (
+                                            <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                                              This firm is in the {regYear} registry but the detail scrape didn't
+                                              include it. Re-run the userscript and let me know.
+                                            </div>
+                                          )}
+                                          {firmDetail && (
+                                            <FirmDetailPanel firm={firmDetail} year={regYear} />
+                                          )}
+                                        </td>
+                                      </tr>
+                                    )}
+                                  </React.Fragment>
+                                );
+                              })}
                             </tbody>
                           </table>
                         </div>
