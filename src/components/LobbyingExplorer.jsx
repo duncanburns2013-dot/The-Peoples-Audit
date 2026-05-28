@@ -143,6 +143,31 @@ export default function LobbyingExplorer() {
   // Derived data
   const top20 = lobbyData?.top20 || [];
   const keyIndividuals = lobbyData?.keyIndividuals || [];
+  const stats = lobbyData?.stats || {};
+
+  // Build the spending-over-time chart from real data when available,
+  // falling back to the hardcoded historical estimates for earlier years
+  // (the SOS site doesn't expose historical totals; 2015–2024 here are
+  // best-available estimates, 2025/2026 come from the live snapshot).
+  const spendingChart = useMemo(() => {
+    const arr = spendingByYear.slice(0, -2).map(r => ({ ...r, source: 'estimate' })); // 2015–2023
+    // 2024 stays as an estimate unless the snapshot includes it
+    arr.push({ year: 2024, spending: 93.2, source: 'estimate' });
+    if (stats.totalRevenue2025) {
+      arr.push({ year: 2025, spending: +(stats.totalRevenue2025 / 1e6).toFixed(1), source: 'snapshot' });
+    } else {
+      arr.push({ year: 2025, spending: 96.1, source: 'estimate' });
+    }
+    if (stats.totalRevenue2026 && stats.totalRevenue2026 > 1e6) {
+      arr.push({ year: 2026, spending: +(stats.totalRevenue2026 / 1e6).toFixed(1), source: 'snapshot' });
+    }
+    return arr;
+  }, [stats]);
+
+  const latestSnapshotYear = spendingChart.filter(r => r.source === 'snapshot').pop()?.year || 2025;
+  const latestSpendingM = spendingChart.find(r => r.year === latestSnapshotYear)?.spending || 96.1;
+  const prevYearSpendingM = spendingChart.find(r => r.year === latestSnapshotYear - 1)?.spending || 93.2;
+  const yoyGrowth = ((latestSpendingM - prevYearSpendingM) / prevYearSpendingM * 100).toFixed(1);
 
   // FIX: close detail panel on search, and search across name + focus + clients + lobbyists
   const filteredFirms = firmSearch.length >= 2
@@ -157,9 +182,16 @@ export default function LobbyingExplorer() {
       })
     : top20;
 
-  const totalSpending = spendingByYear[spendingByYear.length - 1].spending;
-  const prevSpending = spendingByYear[spendingByYear.length - 2].spending;
-  const yoyGrowth = ((totalSpending - prevSpending) / prevSpending * 100).toFixed(1);
+  // Stale-data check — if the cached snapshot is more than 21 days old,
+  // surface a warning. The MA SOS Lobbyist Public Search blocks automation
+  // (see scripts/fetch-ma-lobbying.mjs), so refreshes are manual.
+  const dataAgeDays = useMemo(() => {
+    if (!lobbyData?.fetchedAt) return null;
+    try {
+      const fa = new Date(lobbyData.fetchedAt);
+      return Math.floor((Date.now() - fa.getTime()) / (24 * 3600 * 1000));
+    } catch { return null; }
+  }, [lobbyData]);
 
   return (
     <div className="section">
@@ -169,7 +201,10 @@ export default function LobbyingExplorer() {
           <Network size={28} style={{ color: 'var(--accent-green)' }} /> Lobbying Explorer
         </h2>
         <p>Track lobbying spending, registered firms, and political influence in Massachusetts.</p>
-        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: MA Secretary of State Lobbyist Filings, OCPF &middot; Last updated April 2026</div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>
+          Data: MA Secretary of State Lobbyist Filings (snapshot), OCPF (live API)
+          {lobbyData?.fetchedAt && <> &middot; Snapshot taken {formatDate(lobbyData.fetchedAt)}</>}
+        </div>
       </div>
 
       {/* Sub-navigation tabs */}
@@ -193,12 +228,40 @@ export default function LobbyingExplorer() {
         <strong style={{ color: 'var(--accent-green)' }}>Data Sources:</strong> Lobbying data comes from the <strong>MA Secretary of the Commonwealth</strong> — lobbyist registrations, client disclosures, and expenditure reports (updated weekly). The OCPF Cross-Ref tab queries a <em>separate</em> database (Office of Campaign and Political Finance) to find where lobbying-connected entities also make campaign contributions. <strong>MA law caps lobbyist gifts to officials at $200/year per recipient.</strong>
       </div>
 
-      {/* Scraper status badge */}
-      {lobbyData && lobbyData.warnings?.length > 0 && (
-        <div style={{ background: 'rgba(230,126,34,0.08)', border: '1px solid rgba(230,126,34,0.2)', borderRadius: 8, padding: '10px 14px', marginBottom: 16, fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <AlertTriangle size={14} style={{ color: '#E67E22', flexShrink: 0 }} />
-          <span>{lobbyData.warnings[0]}</span>
-          {lobbyData.fetchedAt && <span style={{ marginLeft: 'auto', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>Last updated: {formatDate(lobbyData.fetchedAt)}</span>}
+      {/* Data freshness + provenance banner */}
+      {lobbyData && (
+        <div style={{
+          background: dataAgeDays > 21 ? 'rgba(230,126,34,0.08)' : 'rgba(50,120,78,0.06)',
+          border: `1px solid ${dataAgeDays > 21 ? 'rgba(230,126,34,0.25)' : 'rgba(50,120,78,0.18)'}`,
+          borderRadius: 8, padding: '12px 16px', marginBottom: 16,
+          fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <AlertTriangle size={16} style={{ color: dataAgeDays > 21 ? '#E67E22' : 'var(--accent-green)', flexShrink: 0, marginTop: 2 }} />
+            <div style={{ flex: 1 }}>
+              <div>
+                <strong style={{ color: dataAgeDays > 21 ? '#E67E22' : 'var(--accent-green)' }}>
+                  Snapshot from {formatDate(lobbyData.fetchedAt)}
+                </strong>
+                {dataAgeDays != null && (
+                  <span> &middot; {dataAgeDays} {dataAgeDays === 1 ? 'day' : 'days'} old</span>
+                )}
+                . The MA Secretary of State Lobbyist Public Search blocks
+                automated access from cloud servers, so this snapshot is
+                refreshed manually rather than on a schedule.{' '}
+                <a href="https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx"
+                  target="_blank" rel="noopener noreferrer"
+                  style={{ color: 'var(--accent-blue)' }}>
+                  Live SOS search ↗
+                </a>
+              </div>
+              {lobbyData.warnings?.[0] && (
+                <div style={{ marginTop: 6, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  {lobbyData.warnings[0]}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
 
@@ -209,9 +272,9 @@ export default function LobbyingExplorer() {
             <div className="kpi-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <div className="kpi-label">Registered Lobbyists</div>
-                  <div className="kpi-value">~750+</div>
-                  <div className="kpi-sub">MA Secretary of State filings</div>
+                  <div className="kpi-label">Unique Registered Lobbyists</div>
+                  <div className="kpi-value">{stats.uniqueLobbyists?.toLocaleString() || '—'}</div>
+                  <div className="kpi-sub">From snapshot ({latestSnapshotYear})</div>
                 </div>
                 <Users size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
               </div>
@@ -219,9 +282,9 @@ export default function LobbyingExplorer() {
             <div className="kpi-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <div className="kpi-label">Total Lobbying Spending (2025)</div>
-                  <div className="kpi-value">${totalSpending}M</div>
-                  <div className="kpi-sub">Official disclosure reports</div>
+                  <div className="kpi-label">Total Lobbying Revenue ({latestSnapshotYear})</div>
+                  <div className="kpi-value">{stats.totalRevenue2025 ? formatMoney(stats.totalRevenue2025) : `$${latestSpendingM}M`}</div>
+                  <div className="kpi-sub">Salaries received by lobbying firms from clients</div>
                 </div>
                 <DollarSign size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
               </div>
@@ -229,9 +292,9 @@ export default function LobbyingExplorer() {
             <div className="kpi-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <div className="kpi-label">Registered Firms</div>
-                  <div className="kpi-value">{lobbyData?.totalRecords || '25'}+</div>
-                  <div className="kpi-sub">Active in Massachusetts</div>
+                  <div className="kpi-label">Registered Firms / Entities</div>
+                  <div className="kpi-value">{stats.entities2025?.toLocaleString() || top20.length || '—'}</div>
+                  <div className="kpi-sub">Disclosure filings in {latestSnapshotYear}</div>
                 </div>
                 <Building2 size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
               </div>
@@ -239,9 +302,9 @@ export default function LobbyingExplorer() {
             <div className="kpi-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <div className="kpi-label">YoY Spending Growth</div>
-                  <div className="kpi-value" style={{ color: 'var(--accent-green)' }}>+{yoyGrowth}%</div>
-                  <div className="kpi-sub">2024 → 2025</div>
+                  <div className="kpi-label">Unique Clients Lobbying MA</div>
+                  <div className="kpi-value">{stats.uniqueClients?.toLocaleString() || '—'}</div>
+                  <div className="kpi-sub">Entities paying for representation</div>
                 </div>
                 <TrendingUp size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
               </div>
@@ -250,15 +313,24 @@ export default function LobbyingExplorer() {
 
           {/* Spending Over Time */}
           <div className="chart-card" style={{ marginBottom: 24 }}>
-            <h3>Lobbying Spending Over Time (2015–2025)</h3>
-            <div className="chart-subtitle">Annual lobbying expenditures in millions — MA Secretary of State disclosures</div>
+            <h3>Lobbying Revenue Over Time (2015–{latestSnapshotYear})</h3>
+            <div className="chart-subtitle">
+              Annual lobbying-firm revenue in millions. {spendingChart.find(r => r.source === 'snapshot') ? (
+                <span>{latestSnapshotYear} value is from the live MA SOS snapshot; earlier years are best-available historical estimates.</span>
+              ) : 'Historical estimates — live snapshot value not yet available.'}
+            </div>
             <ResponsiveContainer width="100%" height={350}>
-              <LineChart data={spendingByYear}>
+              <LineChart data={spendingChart}>
                 <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                 <XAxis dataKey="year" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} />
                 <YAxis stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}M`} />
-                <Tooltip formatter={(v) => [`$${v}M`, 'Spending']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
-                <Line type="monotone" dataKey="spending" stroke="#32784E" strokeWidth={3} dot={{ fill: '#32784E', r: 5 }} activeDot={{ r: 7 }} />
+                <Tooltip formatter={(v, _, props) => [`$${v}M${props.payload.source === 'estimate' ? ' (est.)' : ''}`, 'Spending']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+                <Line type="monotone" dataKey="spending" stroke="#32784E" strokeWidth={3}
+                  dot={(props) => {
+                    const isSnap = props.payload.source === 'snapshot';
+                    return <circle cx={props.cx} cy={props.cy} r={isSnap ? 6 : 4} fill={isSnap ? '#680A1D' : '#32784E'} stroke={isSnap ? '#fff' : 'none'} strokeWidth={isSnap ? 2 : 0} />;
+                  }}
+                  activeDot={{ r: 7 }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -448,8 +520,26 @@ export default function LobbyingExplorer() {
                       </div>
                     </div>
                   ) : firmOcpf ? (
-                    <div style={{ padding: 16, textAlign: 'center', color: 'var(--text-muted)', background: 'var(--bg-card-hover)', borderRadius: 8, fontSize: '0.85rem' }}>
-                      No OCPF campaign contribution records found for "{selectedFirm.name}".
+                    <div style={{ padding: 16, color: 'var(--text-secondary)', background: 'var(--bg-card-hover)', borderRadius: 8, fontSize: '0.85rem', lineHeight: 1.6 }}>
+                      <div style={{ fontWeight: 600, marginBottom: 6 }}>
+                        No OCPF contributions matched the literal firm name &ldquo;{selectedFirm.name}&rdquo;.
+                      </div>
+                      <div style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>
+                        OCPF&rsquo;s contributor data is keyed on individual donors&rsquo; self-reported{' '}
+                        <code style={{ background: 'var(--bg-card)', padding: '1px 5px', borderRadius: 3 }}>employer</code>{' '}
+                        field. Lobbyists at this firm often write the employer differently — e.g. as a
+                        shorter name, a parent entity, or &ldquo;Self-employed.&rdquo; To find
+                        contributions from individuals at this firm, try the{' '}
+                        <strong>OCPF Cross-Ref</strong> tab and search by a partial firm name or by an
+                        individual lobbyist&rsquo;s name from the list above.
+                      </div>
+                      <a
+                        href={`https://www.ocpf.us/Filers/Index?q=${encodeURIComponent(selectedFirm.name)}`}
+                        target="_blank" rel="noopener noreferrer"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginTop: 8, color: 'var(--accent-blue)', fontSize: '0.82rem' }}
+                      >
+                        Or search OCPF directly <ExternalLink size={11} />
+                      </a>
                     </div>
                   ) : null}
                 </div>
