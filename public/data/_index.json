@@ -1,6 +1,96 @@
 {
-  "generatedAt": "2026-05-27T13:03:40.805Z",
+  "generatedAt": "2026-05-28T02:03:40.936Z",
   "snapshots": [
+    {
+      "file": "ma-sfi.json",
+      "fetchedAt": "2026-05-28T01:04:48.495819+00:00",
+      "fetchedAtSource": "fetchedAt",
+      "count": 29729,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 18498363
+    },
+    {
+      "file": "ma-sfi-tempus.json",
+      "fetchedAt": "2026-05-28T00:46:42.901477+00:00",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 11095
+    },
+    {
+      "file": "ma-sfi-doge-crossref.json",
+      "fetchedAt": "2026-05-27T23:45:17.055996+00:00",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 64918
+    },
+    {
+      "file": "ma-municipal-debt.json",
+      "fetchedAt": "2026-05-27T23:42:24.115Z",
+      "fetchedAtSource": "mtime",
+      "count": 1755,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 444256
+    },
+    {
+      "file": "ma-sfi-gifts.json",
+      "fetchedAt": "2026-05-27T20:30:00Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 1174,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 702170
+    },
+    {
+      "file": "ma-disclosures.json",
+      "fetchedAt": "2026-05-27T20:16:39.854Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 30,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "massbondholder.com · News",
+          "ok": true,
+          "count": 17
+        },
+        {
+          "name": "massbondholder.com · Official Statements",
+          "ok": true,
+          "count": 195
+        },
+        {
+          "name": "mass.gov · Debt Management",
+          "ok": true,
+          "count": 0
+        },
+        {
+          "name": "mass.gov · Office of the Treasurer",
+          "ok": true,
+          "count": 0
+        }
+      ],
+      "sizeBytes": 14716
+    },
+    {
+      "file": "ma-bond-trades.json",
+      "fetchedAt": "2026-05-27T19:55:29.874Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 8,
+      "preservedFromCache": true,
+      "sources": [
+        {
+          "name": "EMMA TradeData (MA)",
+          "ok": true,
+          "count": 0
+        }
+      ],
+      "sizeBytes": 1934
+    },
     {
       "file": "ma-contracts.json",
       "fetchedAt": "2026-05-27T13:03:40.570Z",
@@ -14,16 +104,7 @@
           "count": 300
         }
       ],
-      "sizeBytes": 165841
-    },
-    {
-      "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-05-27T13:03:30.860Z",
-      "fetchedAtSource": "mtime",
-      "count": 1755,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 444256
+      "sizeBytes": 170058
     },
     {
       "file": "cthru-aggregates.json",
@@ -98,52 +179,7 @@
           "count": 18
         }
       ],
-      "sizeBytes": 68816
-    },
-    {
-      "file": "ma-disclosures.json",
-      "fetchedAt": "2026-05-27T09:48:48.571Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 30,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "massbondholder.com · News",
-          "ok": true,
-          "count": 17
-        },
-        {
-          "name": "massbondholder.com · Official Statements",
-          "ok": true,
-          "count": 195
-        },
-        {
-          "name": "mass.gov · Debt Management",
-          "ok": true,
-          "count": 0
-        },
-        {
-          "name": "mass.gov · Office of the Treasurer",
-          "ok": true,
-          "count": 0
-        }
-      ],
-      "sizeBytes": 14386
-    },
-    {
-      "file": "ma-bond-trades.json",
-      "fetchedAt": "2026-05-27T08:56:22.230Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 8,
-      "preservedFromCache": true,
-      "sources": [
-        {
-          "name": "EMMA TradeData (MA)",
-          "ok": true,
-          "count": 0
-        }
-      ],
-      "sizeBytes": 1851
+      "sizeBytes": 71461
     },
     {
       "file": "ma-roll-calls.json",
@@ -173,16 +209,7 @@
           "count": 1500
         }
       ],
-      "sizeBytes": 11898
-    },
-    {
-      "file": "ma-sfi.json",
-      "fetchedAt": "2026-05-09T17:45:41.455Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 0,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 673
+      "sizeBytes": 12243
     },
     {
       "file": "ma-lobbying.json",
@@ -191,7 +218,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 182662
+      "sizeBytes": 190055
     },
     {
       "file": "ma-nonprofits.json",
@@ -200,7 +227,7 @@
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 11677435
+      "sizeBytes": 12162018
     }
   ]
 }
