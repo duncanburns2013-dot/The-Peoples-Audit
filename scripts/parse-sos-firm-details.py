@@ -155,18 +155,17 @@ def parse_record(rec):
     # --- Registration date
     reg_date = s("ContentPlaceHolder1_lblRegistrationDate")
     if not reg_date:
-        # fallback: scan raw table text for "Initial registration MM-DD-YYYY"
-        for t in rec.get("tables", []):
-            for row in t.get("rows", []):
-                for cell in row:
-                    m = re.search(r"Initial registration\s+(\d{2}-\d{2}-\d{4})", cell)
-                    if m:
-                        reg_date = m.group(1)
-                        break
-                if reg_date:
-                    break
-            if reg_date:
-                break
+        # fallback: regex over the page's concatenated text content.
+        # Older userscript dumps (v1.0/v1.1) stored a `tables` field; v1.2+
+        # stores a single `text` blob. Handle both for backward compat.
+        haystack = rec.get("text") or ""
+        if not haystack:
+            for t in rec.get("tables", []) or []:
+                for row in t.get("rows", []) or []:
+                    haystack += " " + " ".join(row)
+        m = re.search(r"Initial registration\s+(\d{2}-\d{2}-\d{4})", haystack)
+        if m:
+            reg_date = m.group(1)
 
     return {
         "name": name,

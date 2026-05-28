@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MA SOS Lobbyist Detail Scraper
 // @namespace    https://github.com/duncanburns2013-dot/The-Peoples-Audit
-// @version      1.1
+// @version      1.2
 // @description  Scrape per-firm detail (clients, fees, lobbyists, salaries) from the MA Secretary of State Lobbyist Public Search and download as JSON. Runs in your real browser session so it bypasses the WAF that blocks server-side scrapes.
 // @author       The People's Audit
 // @match        https://www.sec.state.ma.us/LobbyistPublicSearch/*
@@ -59,7 +59,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
 
   // Loud console marker so we can confirm the script actually ran.
   console.log(
-    '%c[ta-sos] v1.1 loaded',
+    '%c[ta-sos] v1.2 loaded',
     'background:#2563eb;color:#fff;padding:2px 6px;border-radius:3px',
     location.href,
   );
@@ -172,27 +172,19 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       linksOut.push({ href, text, id: a.id || null });
     });
 
-    // every table → 2D string array, with optional id/caption
-    const tables = [];
-    main.querySelectorAll('table').forEach((t) => {
-      // skip layout tables that contain almost no data
-      const rows = [];
-      t.querySelectorAll('tr').forEach((tr) => {
-        const cells = [];
-        tr.querySelectorAll('th,td').forEach((c) => {
-          cells.push((c.textContent || '').replace(/\s+/g, ' ').trim());
-        });
-        if (cells.some((c) => c)) rows.push(cells);
-      });
-      if (rows.length === 0) return;
-      tables.push({
-        id: t.id || null,
-        className: t.className || null,
-        rows,
-      });
-    });
+    // v1.0/v1.1 also captured the full <table> matrix, but in practice the
+    // SOS page nests every cell inside several wrapper tables so the capture
+    // duplicated the same row up to 6 times. That blew the per-firm record
+    // to ~190 KB and crashed Chrome around the 200-firm cumulative mark.
+    // The parser only ever used spans + links anyway, and falls back to a
+    // single concatenated text blob for regex scans of free-text fields
+    // (e.g. "Initial registration 12-03-2025"). Capture exactly that.
+    const text = (main.textContent || '')
+      .replace(/[ \t ]+/g, ' ')
+      .replace(/\n\s*\n+/g, '\n')
+      .trim();
 
-    return { title, spans, links: linksOut, tables };
+    return { title, spans, links: linksOut, text };
   }
 
   /* ------------------------------------------------------------------ */
