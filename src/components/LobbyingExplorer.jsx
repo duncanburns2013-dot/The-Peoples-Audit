@@ -3,7 +3,7 @@ import {
   LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
-import { TrendingUp, Users, DollarSign, Building2, Search, Network, ExternalLink, ArrowRight, AlertTriangle } from 'lucide-react';
+import { TrendingUp, Users, DollarSign, Building2, Search, Network, ExternalLink, ArrowRight, AlertTriangle, FileText, Calendar } from 'lucide-react';
 import { searchLobbyingContributions } from '../services/api';
 
 // ============================================================
@@ -107,6 +107,20 @@ export default function LobbyingExplorer() {
   const [ocpfLoading, setOcpfLoading] = useState(false);
   const [ocpfError, setOcpfError] = useState(null);
 
+  // === SOS Registrant Index (2016-2026, hand-pulled View Source) ===
+  // The registry tab loads a small (~3KB) index eagerly, then fetches the
+  // ~830KB per-year detail file only when the user picks a year.
+  const [regIndex, setRegIndex] = useState(null);
+  const [regIndexError, setRegIndexError] = useState(null);
+  const [regYear, setRegYear] = useState(null);
+  const [regDetail, setRegDetail] = useState(null);
+  const [regDetailLoading, setRegDetailLoading] = useState(false);
+  const [regDetailError, setRegDetailError] = useState(null);
+  const [regDetailCache, setRegDetailCache] = useState({}); // year -> detail
+  const [regSearch, setRegSearch] = useState('');
+  const [regTypeFilter, setRegTypeFilter] = useState('All'); // All | Lobbyist | Client | Lobbyist Entity
+  const [regShowCount, setRegShowCount] = useState(200);
+
   // Load SOS lobbying data
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/ma-lobbying.json?t=${Date.now()}`)
@@ -123,6 +137,63 @@ export default function LobbyingExplorer() {
         setLobbyLoading(false);
       });
   }, []);
+
+  // Load registrant index eagerly (small file, drives the year picker UI).
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/ma-lobbying-registrants-index.json`)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        setRegIndex(data);
+        const years = Object.keys(data.years || {}).sort();
+        if (years.length) setRegYear(years[years.length - 1]); // default to latest
+      })
+      .catch(err => setRegIndexError(err.message));
+  }, []);
+
+  // Lazy-load the per-year detail file when the user picks a year. Cache so
+  // toggling back to a prior year doesn't re-fetch.
+  useEffect(() => {
+    if (!regYear || !regIndex?.years?.[regYear]) return;
+    if (regDetailCache[regYear]) {
+      setRegDetail(regDetailCache[regYear]);
+      setRegDetailError(null);
+      return;
+    }
+    setRegDetailLoading(true);
+    setRegDetailError(null);
+    const path = regIndex.years[regYear].detailFile; // e.g. "data/ma-lobbying-registrants-2026.json"
+    fetch(`${import.meta.env.BASE_URL}${path}`)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        setRegDetail(data);
+        setRegDetailCache(prev => ({ ...prev, [regYear]: data }));
+        setRegDetailLoading(false);
+      })
+      .catch(err => {
+        setRegDetailError(err.message);
+        setRegDetailLoading(false);
+      });
+  }, [regYear, regIndex, regDetailCache]);
+
+  // Reset visible-row count whenever the year, search, or type filter changes
+  // so the user doesn't see stale "Showing 600 of 3,243" on a fresh query.
+  useEffect(() => { setRegShowCount(200); }, [regYear, regSearch, regTypeFilter]);
+
+  // Apply search + type filter to the loaded per-year registrants list.
+  const filteredRegistrants = useMemo(() => {
+    const rows = regDetail?.registrants || [];
+    const q = regSearch.trim().toLowerCase();
+    return rows.filter(r =>
+      (regTypeFilter === 'All' || r.accountType === regTypeFilter) &&
+      (!q || r.name.toLowerCase().includes(q))
+    );
+  }, [regDetail, regSearch, regTypeFilter]);
 
   // OCPF search
   const runOcpfSearch = useCallback(() => {
@@ -214,6 +285,9 @@ export default function LobbyingExplorer() {
         </button>
         <button className={`filter-btn ${activeTab === 'firms' ? 'active' : ''}`} onClick={() => setActiveTab('firms')}>
           <Building2 size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> Top Firms
+        </button>
+        <button className={`filter-btn ${activeTab === 'registry' ? 'active' : ''}`} onClick={() => setActiveTab('registry')}>
+          <FileText size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> SOS Registry
         </button>
         <button className={`filter-btn ${activeTab === 'industry' ? 'active' : ''}`} onClick={() => setActiveTab('industry')}>
           <DollarSign size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} /> By Industry
@@ -630,6 +704,276 @@ export default function LobbyingExplorer() {
               </div>
             </div>
           )}
+        </div>
+      )}
+
+      {/* === SOS REGISTRY TAB === */}
+      {activeTab === 'registry' && (
+        <div>
+          <div className="chart-card" style={{ marginBottom: 24 }}>
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              <FileText size={20} style={{ color: 'var(--accent-blue)' }} />
+              MA Secretary of State — Lobbyist Public Search Registry
+            </h3>
+            <div className="chart-subtitle">
+              Every registered lobbyist, client, and lobbyist entity on file with the MA SOS, year by year (2016&ndash;2026).
+              Each row links to its detail page on the official SOS site.
+            </div>
+
+            {/* Provenance — MA SOS blocks cloud-server scraping, so registry data is pulled by hand */}
+            <div style={{
+              marginTop: 12, padding: '10px 14px',
+              background: 'rgba(20,85,143,0.05)',
+              border: '1px solid rgba(20,85,143,0.15)',
+              borderRadius: 8,
+              fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: 1.55,
+            }}>
+              <strong style={{ color: 'var(--accent-blue)' }}>Source:</strong>{' '}
+              <a href="https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx"
+                target="_blank" rel="noopener noreferrer"
+                style={{ color: 'var(--accent-blue)' }}>
+                sec.state.ma.us/LobbyistPublicSearch
+              </a>
+              {regIndex?.fetchedAt && <> &middot; pulled {formatDate(regIndex.fetchedAt)}</>}
+              .  The MA SOS blocks automated traffic from cloud servers, so each year was
+              dumped by hand via browser View Source and parsed offline. Each registrant
+              row links to its own <code style={{ background: 'var(--bg-card)', padding: '0 4px', borderRadius: 3 }}>Summary.aspx</code> page
+              on the SOS site for the full filing detail.
+            </div>
+
+            {/* Year selector */}
+            {regIndexError ? (
+              <div style={{ padding: 20, textAlign: 'center', color: 'var(--accent-red)' }}>
+                Failed to load registrant index: {regIndexError}
+              </div>
+            ) : !regIndex ? (
+              <div style={{ padding: 30, textAlign: 'center', color: 'var(--text-muted)' }}>
+                <div className="spinner" style={{ margin: '0 auto 10px' }} /> Loading registrant index...
+              </div>
+            ) : (
+              <>
+                {/* Year totals strip */}
+                <div style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
+                  <Calendar size={14} style={{ color: 'var(--text-muted)' }} />
+                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginRight: 4 }}>Year:</span>
+                  {Object.keys(regIndex.years).sort().map(y => {
+                    const active = y === regYear;
+                    return (
+                      <button
+                        key={y}
+                        onClick={() => setRegYear(y)}
+                        className="filter-btn"
+                        style={{
+                          padding: '6px 12px',
+                          fontSize: '0.82rem',
+                          background: active ? 'var(--accent-blue)' : 'var(--bg-card-hover)',
+                          color: active ? '#fff' : 'var(--text-secondary)',
+                          border: `1px solid ${active ? 'var(--accent-blue)' : 'var(--border)'}`,
+                          borderRadius: 6,
+                          cursor: 'pointer',
+                          fontWeight: active ? 600 : 500,
+                        }}
+                      >
+                        {y}
+                        <span style={{
+                          marginLeft: 6, fontSize: '0.7rem',
+                          color: active ? 'rgba(255,255,255,0.75)' : 'var(--text-muted)',
+                        }}>
+                          {regIndex.years[y].count.toLocaleString()}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Year KPI strip */}
+                {regYear && regIndex.years[regYear] && (
+                  <div className="kpi-row" style={{ marginTop: 18 }}>
+                    <div className="kpi-card">
+                      <div className="kpi-label">Total Registrants</div>
+                      <div className="kpi-value">{regIndex.years[regYear].count.toLocaleString()}</div>
+                      <div className="kpi-sub">Registry year {regYear}</div>
+                    </div>
+                    <div className="kpi-card">
+                      <div className="kpi-label">Lobbyists</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-blue)' }}>
+                        {(regIndex.years[regYear].byAccountType?.Lobbyist || 0).toLocaleString()}
+                      </div>
+                      <div className="kpi-sub">Individual filings</div>
+                    </div>
+                    <div className="kpi-card">
+                      <div className="kpi-label">Clients</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-green)' }}>
+                        {(regIndex.years[regYear].byAccountType?.Client || 0).toLocaleString()}
+                      </div>
+                      <div className="kpi-sub">Paying for representation</div>
+                    </div>
+                    <div className="kpi-card">
+                      <div className="kpi-label">Lobbyist Entities</div>
+                      <div className="kpi-value" style={{ color: 'var(--accent-red)' }}>
+                        {(regIndex.years[regYear].byAccountType?.['Lobbyist Entity'] || 0).toLocaleString()}
+                      </div>
+                      <div className="kpi-sub">Firms / organizations</div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Filter chips + search */}
+                <div style={{ marginTop: 18, display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+                  {['All', 'Lobbyist', 'Client', 'Lobbyist Entity'].map(t => {
+                    const active = t === regTypeFilter;
+                    const count = t === 'All'
+                      ? regDetail?.count
+                      : regDetail?.byAccountType?.[t];
+                    return (
+                      <button
+                        key={t}
+                        onClick={() => setRegTypeFilter(t)}
+                        className="filter-btn"
+                        style={{
+                          padding: '6px 12px',
+                          fontSize: '0.82rem',
+                          background: active ? 'var(--accent-green)' : 'var(--bg-card-hover)',
+                          color: active ? '#fff' : 'var(--text-secondary)',
+                          border: `1px solid ${active ? 'var(--accent-green)' : 'var(--border)'}`,
+                          borderRadius: 6,
+                          cursor: 'pointer',
+                          fontWeight: active ? 600 : 500,
+                        }}
+                      >
+                        {t}
+                        {count != null && (
+                          <span style={{
+                            marginLeft: 6, fontSize: '0.7rem',
+                            color: active ? 'rgba(255,255,255,0.75)' : 'var(--text-muted)',
+                          }}>
+                            {count.toLocaleString()}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div style={{ marginTop: 12, position: 'relative' }}>
+                  <Search size={16} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', zIndex: 1 }} />
+                  <input
+                    type="text"
+                    className="search-input"
+                    placeholder={`Search ${regYear || 'year'} registrants by name (e.g. Tempus, BCBS, Eversource)...`}
+                    value={regSearch}
+                    onChange={e => setRegSearch(e.target.value)}
+                    style={{ paddingLeft: 38 }}
+                  />
+                </div>
+
+                {/* Results table */}
+                {regDetailError ? (
+                  <div style={{ marginTop: 18, padding: 20, textAlign: 'center', color: 'var(--accent-red)' }}>
+                    Failed to load {regYear} detail: {regDetailError}
+                  </div>
+                ) : regDetailLoading ? (
+                  <div style={{ marginTop: 18, padding: 30, textAlign: 'center', color: 'var(--text-muted)' }}>
+                    <div className="spinner" style={{ margin: '0 auto 10px' }} /> Loading {regYear} registrants...
+                  </div>
+                ) : regDetail ? (
+                  <div style={{ marginTop: 18 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                      <span>
+                        Showing <strong style={{ color: 'var(--text-primary)' }}>
+                          {Math.min(regShowCount, filteredRegistrants.length).toLocaleString()}
+                        </strong> of <strong style={{ color: 'var(--text-primary)' }}>
+                          {filteredRegistrants.length.toLocaleString()}
+                        </strong> {filteredRegistrants.length === 1 ? 'match' : 'matches'} in {regYear}
+                      </span>
+                      {regSearch && (
+                        <button
+                          onClick={() => setRegSearch('')}
+                          style={{ background: 'none', border: 'none', color: 'var(--accent-blue)', fontSize: '0.78rem', cursor: 'pointer' }}
+                        >
+                          Clear search
+                        </button>
+                      )}
+                    </div>
+
+                    {filteredRegistrants.length === 0 ? (
+                      <div style={{ padding: 24, textAlign: 'center', color: 'var(--text-muted)', background: 'var(--bg-card-hover)', borderRadius: 8 }}>
+                        No registrants match{regSearch && <> &ldquo;{regSearch}&rdquo;</>} in {regYear}.
+                      </div>
+                    ) : (
+                      <>
+                        <div className="data-table-wrapper">
+                          <table className="data-table">
+                            <thead>
+                              <tr>
+                                <th style={{ width: 50 }}>#</th>
+                                <th style={{ width: 140 }}>Account Type</th>
+                                <th>Name</th>
+                                <th style={{ width: 130 }}>SOS Filing</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {filteredRegistrants.slice(0, regShowCount).map((r, i) => (
+                                <tr key={r.sysvalue}>
+                                  <td style={{ color: 'var(--text-muted)' }}>{i + 1}</td>
+                                  <td>
+                                    <span style={{
+                                      display: 'inline-block',
+                                      padding: '2px 8px',
+                                      fontSize: '0.75rem',
+                                      fontWeight: 600,
+                                      borderRadius: 4,
+                                      background:
+                                        r.accountType === 'Lobbyist' ? 'rgba(20,85,143,0.1)' :
+                                        r.accountType === 'Client' ? 'rgba(50,120,78,0.1)' :
+                                        'rgba(104,10,29,0.1)',
+                                      color:
+                                        r.accountType === 'Lobbyist' ? 'var(--accent-blue)' :
+                                        r.accountType === 'Client' ? 'var(--accent-green)' :
+                                        'var(--accent-red)',
+                                    }}>
+                                      {r.accountType}
+                                    </span>
+                                  </td>
+                                  <td style={{ fontWeight: 500 }}>{r.name}</td>
+                                  <td>
+                                    <a href={r.summaryUrl} target="_blank" rel="noopener noreferrer"
+                                      style={{ color: 'var(--accent-blue)', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                                      View <ExternalLink size={11} />
+                                    </a>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+
+                        {regShowCount < filteredRegistrants.length && (
+                          <div style={{ marginTop: 12, textAlign: 'center' }}>
+                            <button
+                              onClick={() => setRegShowCount(c => c + 500)}
+                              style={{
+                                padding: '8px 20px',
+                                background: 'var(--accent-blue)',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: 6,
+                                fontWeight: 600,
+                                cursor: 'pointer',
+                                fontSize: '0.85rem',
+                              }}
+                            >
+                              Show 500 more ({(filteredRegistrants.length - regShowCount).toLocaleString()} remaining)
+                            </button>
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                ) : null}
+              </>
+            )}
+          </div>
         </div>
       )}
 

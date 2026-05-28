@@ -1,0 +1,107 @@
+{
+  "fetchedAt": "2026-05-28T11:24:06.631539+00:00",
+  "source": "MA Secretary of State - Lobbyist Public Search (manual View Source)",
+  "sourceUrl": "https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx",
+  "note": "MA SOS blocks automated scraping from cloud servers; rosters pulled by hand via Chrome View Source. Each registrant links to its own Summary.aspx detail page on the SOS site.",
+  "years": {
+    "2016": {
+      "count": 3204,
+      "byAccountType": {
+        "Lobbyist": 1559,
+        "Client": 1448,
+        "Lobbyist Entity": 197
+      },
+      "detailFile": "data/ma-lobbying-registrants-2016.json"
+    },
+    "2017": {
+      "count": 3247,
+      "byAccountType": {
+        "Client": 1485,
+        "Lobbyist": 1569,
+        "Lobbyist Entity": 193
+      },
+      "detailFile": "data/ma-lobbying-registrants-2017.json"
+    },
+    "2018": {
+      "count": 3300,
+      "byAccountType": {
+        "Client": 1544,
+        "Lobbyist Entity": 198,
+        "Lobbyist": 1558
+      },
+      "detailFile": "data/ma-lobbying-registrants-2018.json"
+    },
+    "2019": {
+      "count": 3398,
+      "byAccountType": {
+        "Client": 1587,
+        "Lobbyist Entity": 186,
+        "Lobbyist": 1625
+      },
+      "detailFile": "data/ma-lobbying-registrants-2019.json"
+    },
+    "2020": {
+      "count": 3243,
+      "byAccountType": {
+        "Client": 1585,
+        "Lobbyist Entity": 180,
+        "Lobbyist": 1478
+      },
+      "detailFile": "data/ma-lobbying-registrants-2020.json"
+    },
+    "2021": {
+      "count": 3350,
+      "byAccountType": {
+        "Client": 1630,
+        "Lobbyist Entity": 189,
+        "Lobbyist": 1531
+      },
+      "detailFile": "data/ma-lobbying-registrants-2021.json"
+    },
+    "2022": {
+      "count": 3251,
+      "byAccountType": {
+        "Client": 1555,
+        "Lobbyist": 1520,
+        "Lobbyist Entity": 176
+      },
+      "detailFile": "data/ma-lobbying-registrants-2022.json"
+    },
+    "2023": {
+      "count": 3271,
+      "byAccountType": {
+        "Client": 1577,
+        "Lobbyist Entity": 160,
+        "Lobbyist": 1534
+      },
+      "detailFile": "data/ma-lobbying-registrants-2023.json"
+    },
+    "2024": {
+      "count": 3354,
+      "byAccountType": {
+        "Client": 1639,
+        "Lobbyist Entity": 173,
+        "Lobbyist": 1542
+      },
+      "detailFile": "data/ma-lobbying-registrants-2024.json"
+    },
+    "2025": {
+      "count": 3425,
+      "byAccountType": {
+        "Client": 1695,
+        "Lobbyist": 1555,
+        "Lobbyist Entity": 175
+      },
+      "detailFile": "data/ma-lobbying-registrants-2025.json"
+    },
+    "2026": {
+      "count": 3243,
+      "byAccountType": {
+        "Client": 1616,
+        "Lobbyist": 1465,
+        "Lobbyist Entity": 162
+      },
+      "detailFile": "data/ma-lobbying-registrants-2026.json"
+    }
+  }
+}
