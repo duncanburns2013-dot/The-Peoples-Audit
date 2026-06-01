@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-01T04:02:28.546Z",
+  "fetchedAt": "2026-06-01T11:32:52.087Z",
   "preservedFromCache": false,
   "sources": [
     {
@@ -8,14 +8,14 @@
       "count": 0
     },
     {
-      "name": "massbondholder.com · News",
-      "ok": true,
-      "count": 15
-    },
-    {
       "name": "mass.gov · Office of the Treasurer",
       "ok": true,
       "count": 0
+    },
+    {
+      "name": "massbondholder.com · News",
+      "ok": true,
+      "count": 15
     },
     {
       "name": "massbondholder.com · Official Statements",
