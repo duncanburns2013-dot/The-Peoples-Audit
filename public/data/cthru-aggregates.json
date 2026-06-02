@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-01T15:25:31.066Z",
+  "fetchedAt": "2026-06-02T12:46:15.498Z",
   "years": [
     "2024",
     "2025",
@@ -1418,13 +1418,13 @@
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
-        "totalPay": 213501777.63,
-        "employees": 3083
+        "totalPay": 213405619.8,
+        "employees": 3082
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 161949828.69,
-        "employees": 2363
+        "totalPay": 161809643.76,
+        "employees": 2362
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -1670,13 +1670,13 @@
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
-        "totalPay": 220478757.27,
-        "employees": 2601
+        "totalPay": 220376179.34,
+        "employees": 2600
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 168901414.5,
-        "employees": 2081
+        "totalPay": 168775049.94,
+        "employees": 2080
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -2484,88 +2484,88 @@
     },
     {
       "year": "2010",
-      "totalPayroll": 5594931059.33,
-      "headcount": 144944
+      "totalPayroll": 5594882627.72,
+      "headcount": 144943
     },
     {
       "year": "2011",
-      "totalPayroll": 5774337202.99,
-      "headcount": 148469
+      "totalPayroll": 5774278637.95,
+      "headcount": 148468
     },
     {
       "year": "2012",
-      "totalPayroll": 5943223168.6,
-      "headcount": 150010
+      "totalPayroll": 5943168324.7,
+      "headcount": 150009
     },
     {
       "year": "2013",
-      "totalPayroll": 6221793296.56,
-      "headcount": 152871
+      "totalPayroll": 6221734996.62,
+      "headcount": 152870
     },
     {
       "year": "2014",
-      "totalPayroll": 6504179439.15,
-      "headcount": 154222
+      "totalPayroll": 6504118698.39,
+      "headcount": 154221
     },
     {
       "year": "2015",
-      "totalPayroll": 6887747968.96,
-      "headcount": 156045
+      "totalPayroll": 6887669221.34,
+      "headcount": 156043
     },
     {
       "year": "2016",
-      "totalPayroll": 6847933601.37,
-      "headcount": 157851
+      "totalPayroll": 6847848633.88,
+      "headcount": 157848
     },
     {
       "year": "2017",
-      "totalPayroll": 7303865205.8,
-      "headcount": 158537
+      "totalPayroll": 7303740415.33,
+      "headcount": 158535
     },
     {
       "year": "2018",
-      "totalPayroll": 7727336601.71,
-      "headcount": 158073
+      "totalPayroll": 7727210723.36,
+      "headcount": 158070
     },
     {
       "year": "2019",
-      "totalPayroll": 8016409656.33,
-      "headcount": 165145
+      "totalPayroll": 8016331747.75,
+      "headcount": 165144
     },
     {
       "year": "2020",
-      "totalPayroll": 8184775615.7,
-      "headcount": 156428
+      "totalPayroll": 8184683505.61,
+      "headcount": 156427
     },
     {
       "year": "2021",
-      "totalPayroll": 8377905784.17,
-      "headcount": 153366
+      "totalPayroll": 8377806447.16,
+      "headcount": 153365
     },
     {
       "year": "2022",
-      "totalPayroll": 8940167145.07,
-      "headcount": 167577
+      "totalPayroll": 8940002460.43,
+      "headcount": 167575
     },
     {
       "year": "2023",
-      "totalPayroll": 9317891495.87,
-      "headcount": 175375
+      "totalPayroll": 9317681905.12,
+      "headcount": 175369
     },
     {
       "year": "2024",
-      "totalPayroll": 10244613883.47,
-      "headcount": 171124
+      "totalPayroll": 10244377540.71,
+      "headcount": 171122
     },
     {
       "year": "2025",
-      "totalPayroll": 10887741234.44,
-      "headcount": 165846
+      "totalPayroll": 10887512291.95,
+      "headcount": 165844
     },
     {
       "year": "2026",
-      "totalPayroll": 1703729480.42,
-      "headcount": 126287
+      "totalPayroll": 1703691255.7,
+      "headcount": 126285
     }
   ],
   "quasiByAgency": [
