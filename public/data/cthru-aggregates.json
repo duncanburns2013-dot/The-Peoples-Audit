@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-04T11:58:44.129Z",
+  "fetchedAt": "2026-06-05T12:11:08.130Z",
   "years": [
     "2024",
     "2025",
@@ -1408,8 +1408,8 @@
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 340677668.43,
-        "employees": 5323
+        "totalPay": 340625966.84,
+        "employees": 5321
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1660,8 +1660,8 @@
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 386489392.82,
-        "employees": 4691
+        "totalPay": 386430270.22,
+        "employees": 4690
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -2544,28 +2544,28 @@
     },
     {
       "year": "2022",
-      "totalPayroll": 8940002460.43,
-      "headcount": 167575
+      "totalPayroll": 8939987889.87,
+      "headcount": 167574
     },
     {
       "year": "2023",
-      "totalPayroll": 9317681905.12,
-      "headcount": 175369
+      "totalPayroll": 9317627528.31,
+      "headcount": 175368
     },
     {
       "year": "2024",
-      "totalPayroll": 10244377540.71,
-      "headcount": 171122
+      "totalPayroll": 10244325839.12,
+      "headcount": 171120
     },
     {
       "year": "2025",
-      "totalPayroll": 10887512291.95,
-      "headcount": 165844
+      "totalPayroll": 10887453169.35,
+      "headcount": 165843
     },
     {
       "year": "2026",
-      "totalPayroll": 1703691255.7,
-      "headcount": 126285
+      "totalPayroll": 1703681332.49,
+      "headcount": 126284
     }
   ],
   "quasiByAgency": [
