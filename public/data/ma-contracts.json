@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-09T12:22:23.567Z",
+  "fetchedAt": "2026-06-10T12:44:06.048Z",
   "fiscalYear": "2026",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
