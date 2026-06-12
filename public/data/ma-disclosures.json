@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-12T14:57:49.477Z",
+  "fetchedAt": "2026-06-12T20:10:30.442Z",
   "preservedFromCache": false,
   "sources": [
     {
@@ -26,6 +26,16 @@
   "warnings": [],
   "count": 30,
   "items": [
+    {
+      "id": "mbh:/june-2026-go-bonds-series-d-refunding-series-b-official-statement-now-available",
+      "title": "Read more about June 2026 GO Bonds Series D & Refunding Series B Official Statement Now Available",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Official Statement",
+      "date": "2026-06-01",
+      "url": "https://www.massbondholder.com/june-2026-go-bonds-series-d-refunding-series-b-official-statement-now-available",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
     {
       "id": "mbh:/june-2026-bond-sale-brandeis-university-issue-series-2026",
       "title": "Read more about June 2026 Bond Sale: Brandeis University Issue, Series 2026",
@@ -197,16 +207,6 @@
       "source": "MassBondHolder"
     },
     {
-      "id": "mbh:/save-date-14th-annual-massachusetts-investor-conference",
-      "title": "Read more about Save the Date: The 14th Annual Massachusetts Investor Conference",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "News / Disclosure",
-      "date": null,
-      "url": "https://www.massbondholder.com/save-date-14th-annual-massachusetts-investor-conference",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
       "id": "mbh-os:https://www.massbondholder.com/why-invest-massachusetts",
       "title": "Why Invest in Massachusetts?",
       "issuer": "Commonwealth of Massachusetts",
@@ -237,12 +237,12 @@
       "source": "MassBondHolder"
     },
     {
-      "id": "mbh-os:https://emma.msrb.org/P11964946-P11499404-P11952467.pdf",
-      "title": "$750,000,000* GO Bonds 2026, Series D, $233,790,000* GO Refunding Bonds 2026 Series B",
+      "id": "mbh-os:https://emma.msrb.org/P11967608-P11501118-P11954272.pdf",
+      "title": "June 2026, GO Bonds Series D ($750,000,000), GO Refunding Bonds Series B ($134,855,000)",
       "issuer": "Commonwealth of Massachusetts",
       "type": "Official Statement",
       "date": null,
-      "url": "https://emma.msrb.org/P11964946-P11499404-P11952467.pdf",
+      "url": "https://emma.msrb.org/P11967608-P11501118-P11954272.pdf",
       "summary": "Official Statement from MassBondHolder.com",
       "source": "MassBondHolder"
     },
