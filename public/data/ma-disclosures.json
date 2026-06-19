@@ -1,9 +1,9 @@
 {
-  "fetchedAt": "2026-06-18T20:25:35.971Z",
+  "fetchedAt": "2026-06-19T04:17:03.670Z",
   "preservedFromCache": true,
   "sources": [
     {
-      "name": "massbondholder.com · Official Statements",
+      "name": "massbondholder.com · News",
       "ok": false,
       "error": "fetch failed"
     },
@@ -18,14 +18,14 @@
       "count": 0
     },
     {
-      "name": "massbondholder.com · News",
+      "name": "massbondholder.com · Official Statements",
       "ok": false,
       "error": "fetch failed"
     }
   ],
   "warnings": [
-    "massbondholder.com · Official Statements: fetch failed",
     "massbondholder.com · News: fetch failed",
+    "massbondholder.com · Official Statements: fetch failed",
     "All live sources returned 0 items — preserving cached items."
   ],
   "count": 30,
