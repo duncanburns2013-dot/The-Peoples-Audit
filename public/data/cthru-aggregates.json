@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-22T14:44:59.927Z",
+  "fetchedAt": "2026-06-23T12:10:10.064Z",
   "years": [
     "2024",
     "2025",
@@ -1398,8 +1398,8 @@
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "totalPay": 442227047.89,
-        "employees": 7889
+        "totalPay": 442286114.28,
+        "employees": 7891
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
@@ -1408,8 +1408,8 @@
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 340625966.84,
-        "employees": 5321
+        "totalPay": 340677668.43,
+        "employees": 5323
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1418,13 +1418,13 @@
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
-        "totalPay": 213405619.8,
-        "employees": 3082
+        "totalPay": 213627787.85,
+        "employees": 3086
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 161809643.76,
-        "employees": 2362
+        "totalPay": 162122569.28,
+        "employees": 2365
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -1635,8 +1635,8 @@
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "totalPay": 486101222.63,
-        "employees": 7588
+        "totalPay": 486190714.28,
+        "employees": 7590
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
@@ -1655,13 +1655,13 @@
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "totalPay": 396978846.75,
-        "employees": 5072
+        "totalPay": 397021952.46,
+        "employees": 5073
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 386430270.22,
-        "employees": 4690
+        "totalPay": 386489392.82,
+        "employees": 4691
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1670,13 +1670,13 @@
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
-        "totalPay": 220376179.34,
-        "employees": 2600
+        "totalPay": 220608368.68,
+        "employees": 2602
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 168775049.94,
-        "employees": 2080
+        "totalPay": 169070052.01,
+        "employees": 2083
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -2484,88 +2484,88 @@
     },
     {
       "year": "2010",
-      "totalPayroll": 5594882627.72,
-      "headcount": 144943
+      "totalPayroll": 5594968416.2,
+      "headcount": 144945
     },
     {
       "year": "2011",
-      "totalPayroll": 5774278637.95,
-      "headcount": 148468
+      "totalPayroll": 5774374972.19,
+      "headcount": 148470
     },
     {
       "year": "2012",
-      "totalPayroll": 5943168324.7,
-      "headcount": 150009
+      "totalPayroll": 5943263568.54,
+      "headcount": 150011
     },
     {
       "year": "2013",
-      "totalPayroll": 6221734996.62,
-      "headcount": 152870
+      "totalPayroll": 6221859893.86,
+      "headcount": 152873
     },
     {
       "year": "2014",
-      "totalPayroll": 6504118698.39,
-      "headcount": 154221
+      "totalPayroll": 6504292536.51,
+      "headcount": 154226
     },
     {
       "year": "2015",
-      "totalPayroll": 6887669221.34,
-      "headcount": 156043
+      "totalPayroll": 6887943118.74,
+      "headcount": 156049
     },
     {
       "year": "2016",
-      "totalPayroll": 6847848633.88,
-      "headcount": 157848
+      "totalPayroll": 6848155988.08,
+      "headcount": 157857
     },
     {
       "year": "2017",
-      "totalPayroll": 7303740415.33,
-      "headcount": 158535
+      "totalPayroll": 7304047097.51,
+      "headcount": 158545
     },
     {
       "year": "2018",
-      "totalPayroll": 7727210723.36,
-      "headcount": 158070
+      "totalPayroll": 7727511764.85,
+      "headcount": 158081
     },
     {
       "year": "2019",
-      "totalPayroll": 8016331747.75,
-      "headcount": 165144
+      "totalPayroll": 8016626817.93,
+      "headcount": 165156
     },
     {
       "year": "2020",
-      "totalPayroll": 8184683505.61,
-      "headcount": 156427
+      "totalPayroll": 8185107430.23,
+      "headcount": 156438
     },
     {
       "year": "2021",
-      "totalPayroll": 8377806447.16,
-      "headcount": 153365
+      "totalPayroll": 8378260541.04,
+      "headcount": 153372
     },
     {
       "year": "2022",
-      "totalPayroll": 8939987889.87,
-      "headcount": 167574
+      "totalPayroll": 8940516759,
+      "headcount": 167584
     },
     {
       "year": "2023",
-      "totalPayroll": 9317627528.31,
-      "headcount": 175368
+      "totalPayroll": 9318273655.44,
+      "headcount": 175384
     },
     {
       "year": "2024",
-      "totalPayroll": 10244325839.12,
-      "headcount": 171120
+      "totalPayroll": 10245045085.25,
+      "headcount": 171132
     },
     {
       "year": "2025",
-      "totalPayroll": 10887453169.35,
-      "headcount": 165843
+      "totalPayroll": 10888245580.66,
+      "headcount": 165853
     },
     {
       "year": "2026",
-      "totalPayroll": 1703681332.49,
-      "headcount": 126284
+      "totalPayroll": 1703818769.58,
+      "headcount": 126293
     }
   ],
   "quasiByAgency": [
