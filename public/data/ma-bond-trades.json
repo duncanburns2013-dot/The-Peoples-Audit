@@ -1,17 +1,16 @@
 {
-  "fetchedAt": "2026-06-24T08:49:03.138Z",
-  "lastRefreshed": "2026-06-24T08:49:03.138Z",
+  "fetchedAt": "2026-06-24T14:00:29.259Z",
+  "lastRefreshed": "2026-06-24T14:00:29.259Z",
   "source": "Cached snapshot (live fetch failed)",
   "preservedFromCache": true,
   "sources": [
     {
       "name": "EMMA TradeData (MA)",
-      "ok": false,
-      "error": "HTTP 403"
+      "ok": true,
+      "count": 0
     }
   ],
   "warnings": [
-    "EMMA TradeData (MA): HTTP 403",
     "All live sources returned 0 trades — preserving cached trades."
   ],
   "count": 8,
