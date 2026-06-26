@@ -40,7 +40,7 @@ const SOCRATA_BASE = 'https://cthru.data.socrata.com/resource';
 const DATASETS = {
   spending: 'pegc-naaa',
   payroll: '9ttk-7vz6',
-  quasi: 'v9tf-ghmw',
+  quasi: 'j7hg-9qyq',  // Quasi Government Financials (live; replaced dead v9tf-ghmw)
 };
 
 // Pull the current FY plus the two prior FYs. The dashboard's default
