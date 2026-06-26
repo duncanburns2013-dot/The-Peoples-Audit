@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-25T11:42:08.520Z",
+  "fetchedAt": "2026-06-26T11:46:57.991Z",
   "years": [
     "2024",
     "2025",
@@ -74,7 +74,7 @@
     {
       "name": "quasi.byAgency",
       "ok": true,
-      "count": 18
+      "count": 21
     }
   ],
   "warnings": [],
@@ -2571,75 +2571,87 @@
   "quasiByAgency": [
     {
       "name": "Massachusetts Bay Transportation Authority",
-      "value": 15763117099.49
-    },
-    {
-      "name": "Massachusetts School Building Authority",
-      "value": 9925388579.9
-    },
-    {
-      "name": "Commonwealth Health Insurance Connector Authority",
-      "value": 6112253849.1
+      "value": 44995710444.63
     },
     {
       "name": "Massachusetts Housing Finance Agency",
-      "value": 5713539410.7
+      "value": 23256270339.28
     },
     {
-      "name": "MASSPORT",
-      "value": 4301698115.85
+      "name": "Massachusetts School Building Authority",
+      "value": 16378973804.85
+    },
+    {
+      "name": "Commonwealth Health Insurance Connector Authority",
+      "value": 14496518690.2131
+    },
+    {
+      "name": "Massachusetts Port Authority",
+      "value": 12397061519.61
     },
     {
       "name": "University of Massachusetts Building Authority",
-      "value": 2437653808.6
+      "value": 7877616863.76
     },
     {
       "name": "Massachusetts Pension Reserves Investment Management Board",
-      "value": 2152706738.56
+      "value": 5826569021.97
     },
     {
       "name": "Massachusetts Educational Financing Authority",
-      "value": 1620403451.87
-    },
-    {
-      "name": "Massachusetts State College Building Authority",
-      "value": 1421042599.03
+      "value": 4925176691.03
     },
     {
       "name": "MassDevelopment",
-      "value": 616146034.04
+      "value": 1260536226.75
     },
     {
-      "name": "Massachusetts Convention Center Authority",
-      "value": 549838128.48
+      "name": "Massachusetts State College Building Authority",
+      "value": 1246939432.81
+    },
+    {
+      "name": "Community Economic Development Assistance Corporation",
+      "value": 1091590125.44
     },
     {
       "name": "Massachusetts Housing Partnership",
-      "value": 468945140.13
+      "value": 1036675170.21
+    },
+    {
+      "name": "Massachusetts Convention Center Authority",
+      "value": 984765901.44
+    },
+    {
+      "name": "Commonwealth Corporation",
+      "value": 683198224.63
     },
     {
       "name": "Massachusetts Life Sciences Center",
-      "value": 436414264.34
-    },
-    {
-      "name": "Community Economic Development Assistance Corp",
-      "value": 430004912.83
+      "value": 662888735.69
     },
     {
       "name": "Massachusetts Clean Energy Center",
-      "value": 403289266.73
+      "value": 659939333.59
     },
     {
       "name": "Massachusetts Technology Collaborative",
-      "value": 223191953.57
+      "value": 490462994.18
+    },
+    {
+      "name": "MASSACHUSETTS CONVENTION CENTER AUTHORITY",
+      "value": 262036646.51
     },
     {
       "name": "MassVentures",
-      "value": 14580589.31
+      "value": 105827506.16
     },
     {
-      "name": "MA Growth Capital Corporation",
-      "value": 5591127.4
+      "name": "Massachusetts Growth Capital Corporation",
+      "value": 10528223.67
+    },
+    {
+      "name": "MASSLIFESCIENCE  ACH TRANS",
+      "value": 45.18
     }
   ]
 }
