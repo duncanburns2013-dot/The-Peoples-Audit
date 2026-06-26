@@ -18,10 +18,20 @@ All data comes from publicly available government records:
 
 - **[CTHRU Portal](https://www.macomptroller.org/cthru/)** — Massachusetts Office of the Comptroller's transparency platform
   - Statewide Spending (FY2010–present, updated daily)
-  - Statewide Payroll (CY2010–present, updated bi-weekly)
-  - Quasi-Government Financial Data
+  - Statewide Payroll (CY2010–present, normally updated bi-weekly — see Data Freshness note below)
+  - Quasi-Government Financial Data (live, FY2010–present)
   - Budget vs. Actual comparisons
   - Revenue data (2009–present)
+
+### Data Freshness
+
+Live data is pulled from official Socrata APIs. As of mid-2026 the MA Comptroller's
+**Statewide Spending and Payroll feeds are affected by a publishing outage** and have
+not refreshed since ~February 2026 — the dashboard surfaces this automatically via an
+in-app banner (`DataFreshnessBanner`) driven by `fetchDataFreshness()`, so visitors are
+never shown stale figures as if they were current. **Quasi-Government Financials**
+(dataset `j7hg-9qyq`) and **federal** sources are on separate pipelines and remain current.
+The previous quasi dataset (`v9tf-ghmw`) was retired by the state in 2017 and has been replaced.
 - **[USASpending.gov](https://www.usaspending.gov/)** — Federal spending flowing to Massachusetts
 - **[MassOpenBooks](https://massopenbooks.org/)** — Public employee salary and pension data
 - **Governor's Budget Recommendations** — Annual budget summaries
