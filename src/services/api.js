@@ -36,7 +36,7 @@ function loadCthruSnapshot() {
 const DATASETS = {
   spending: 'pegc-naaa',       // Comptroller of the Commonwealth Spending
   payroll: '9ttk-7vz6',        // Commonwealth of Massachusetts Payroll v3 (data through 2026)
-  quasiPayments: 'v9tf-ghmw',  // Quasi-Government Payments
+  quasiPayments: 'j7hg-9qyq',  // Quasi Government Financials (LIVE, thru FY2026). Replaces dead v9tf-ghmw (ended 2017)
 };
 
 /**
@@ -2140,4 +2140,58 @@ export async function fetchLobbyingFirmContributions(firmName, opts = {}) {
     console.warn(`Firm contributions fetch failed for ${firmName}:`, err.message);
     return { firm: firmName, totalContributions: 0, totalAmount: 0, byRecipient: [], items: [] };
   }
+}
+// ============================================================
+// DATA FRESHNESS
+// Lightweight check of how current each live CTHRU source is.
+// Spending normally updates daily and is the canonical signal for the
+// 2026 Comptroller publishing outage; payroll is annualized (no date
+// column) so we report its coverage year; quasi financials are a
+// separate pipeline and unaffected by the outage.
+// ============================================================
+export async function fetchDataFreshness() {
+  const out = { checkedAt: new Date().toISOString(), sources: {} };
+
+  // Statewide Spending — latest transaction date + load date
+  try {
+    const d = await socrataQuery(DATASETS.spending, {
+      '$select': 'max(date) as latest, max(create_date) as loaded',
+    });
+    out.sources.spending = {
+      label: 'Statewide Spending',
+      latest: d[0]?.latest || null,
+      loaded: d[0]?.loaded || null,
+    };
+  } catch {
+    out.sources.spending = { label: 'Statewide Spending', error: true };
+  }
+
+  // Statewide Payroll — annualized; report latest calendar year present
+  try {
+    const d = await socrataQuery(DATASETS.payroll, { '$select': 'max(year) as latest' });
+    out.sources.payroll = { label: 'Statewide Payroll', latestYear: d[0]?.latest || null };
+  } catch {
+    out.sources.payroll = { label: 'Statewide Payroll', error: true };
+  }
+
+  // Quasi-Government Financials — separate pipeline, latest payment date
+  try {
+    const d = await socrataQuery(DATASETS.quasiPayments, { '$select': 'max(payment_date) as latest' });
+    out.sources.quasi = { label: 'Quasi-Gov Financials', latest: d[0]?.latest || null };
+  } catch {
+    out.sources.quasi = { label: 'Quasi-Gov Financials', error: true };
+  }
+
+  // Outage heuristic: spending normally posts daily (Tue–Sat). If the newest
+  // transaction is more than ~30 days old, the Comptroller's feed has stalled.
+  const latest = out.sources.spending?.latest;
+  if (latest) {
+    const days = Math.floor((Date.now() - new Date(latest).getTime()) / 86400000);
+    out.spendingStaleDays = days;
+    out.outage = days > 30;
+  } else {
+    out.outage = false;
+  }
+
+  return out;
 }

@@ -21,6 +21,7 @@ import LobbyingExplorer from './components/LobbyingExplorer.jsx';
 import NonprofitLookup from './components/NonprofitLookup.jsx';
 import WhatWeCantSee from './components/WhatWeCantSee.jsx';
 import SfiExplorer from './components/SfiExplorer.jsx';
+import DataFreshnessBanner from './components/DataFreshnessBanner.jsx';
 import {
   fetchSpendingByDepartment, fetchSpendingByVendor, fetchSpendingOverTime,
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime, searchPayroll,
@@ -2536,6 +2537,7 @@ export default function App() {
 
   return (
     <>
+      <DataFreshnessBanner />
       {/* ============ HERO ============ */}
       <section className="hero">
         {/* Ominous official portraits — flex row, big and evenly spaced */}

@@ -17,7 +17,7 @@ const TREASURY_FISCAL_BASE = 'https://api.fiscaldata.treasury.gov/services/api/f
 const DATASETS = {
   spending: 'pegc-naaa',       // Comptroller of the Commonwealth Spending
   payroll: '9ttk-7vz6',        // Commonwealth of Massachusetts Payroll v3 (data through 2026)
-  quasiPayments: 'v9tf-ghmw',  // Quasi-Government Payments
+  quasiPayments: 'j7hg-9qyq',  // Quasi Government Financials (LIVE, thru FY2026). Replaces dead v9tf-ghmw (ended 2017)
 };
 
 /**
