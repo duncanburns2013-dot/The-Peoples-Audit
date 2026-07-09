@@ -173,7 +173,7 @@ export default function LifeInMA() {
           Official government data on energy, housing, healthcare, employment, and taxes — compared to the rest of the country.
           Every number below comes from a federal or state agency. Click any topic to expand, or visit the full dashboards for the deep dive.
         </p>
-        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: EIA, BLS, CMS, BEA, Warren Group, IRS, MA DOR &middot; Last updated April 2026</div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: EIA, BLS, CMS, BEA, Warren Group, IRS, MA DOR &middot; Each metric shows its data period</div>
       </div>
 
       {/* ── The headline: the gap ── */}

@@ -703,7 +703,7 @@ function VendorExplorer({ spendingYear }) {
 // QUASI EXPLORER — Quasi-Government Drill-Down
 // ============================================================
 
-function QuasiExplorer({ quasiPayments }) {
+function QuasiExplorer({ quasiPayments, updated }) {
   const [selectedAgency, setSelectedAgency] = useState(null);
   const [agencyDetail, setAgencyDetail] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
@@ -770,7 +770,7 @@ function QuasiExplorer({ quasiPayments }) {
           <span className="section-tag cyan">Quasi-Public Entities</span>
           <h2>The Shadow Government</h2>
           <p>Quasi-government organizations operate with public funds but often with less oversight. Click any agency to see detailed spending breakdown.</p>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU Quasi-Public Spending &middot; Supplemented with audited financials &middot; Last updated April 2026</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU Quasi-Public Spending &middot; Supplemented with audited financials &middot; Updated {updated || 'regularly'}</div>
         </div>
         <select className="year-select" value={quasiYear} onChange={e => { setQuasiYear(e.target.value); setSelectedAgency(null); setAgencyDetail(null); }}>
           {Array.from({ length: 17 }, (_, i) => 2026 - i).map(y => (
@@ -991,7 +991,7 @@ function QuasiExplorer({ quasiPayments }) {
 // PAYROLL SEARCHER — Search by name or department
 // ============================================================
 
-function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
+function PayrollSearcher({ payrollYear, setPayrollYear, data, updated }) {
   const [payrollSearch, setPayrollSearch] = useState('');
   const [searchType, setSearchType] = useState('name');
   const [searchResults, setSearchResults] = useState([]);
@@ -1019,7 +1019,7 @@ function PayrollSearcher({ payrollYear, setPayrollYear, data }) {
           <span className="section-tag gold">Compensation</span>
           <h2>Public Employee Payroll</h2>
           <p>Every salary, every department. Data from CTHRU Statewide Payroll.</p>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU Payroll &middot; Last updated April 2026</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU Payroll &middot; Updated {updated || 'regularly'}</div>
         </div>
         <select className="year-select" value={payrollYear} onChange={e => setPayrollYear(e.target.value)}>
           {Array.from({ length: 17 }, (_, i) => 2026 - i).map(y => (
@@ -1372,7 +1372,7 @@ function FollowTheMoney() {
         <span className="section-tag purple">Campaign Finance</span>
         <h2>Follow the Money</h2>
         <p>Cross-referencing OCPF campaign finance data with state spending. Who pays to play — and who profits?</p>
-        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: OCPF Campaign Finance API &middot; Last updated April 2026</div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: OCPF Campaign Finance API &middot; Queried live</div>
       </div>
 
       <div className="disclaimer">
@@ -2136,7 +2136,7 @@ function MunicipalitiesExplorer() {
           debt-per-resident, and debt service as a share of the local budget — FY2021 through FY2025.
           How much is being taken away from you?
         </p>
-        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: DLS Municipal Databank &middot; Last updated April 2026</div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: DLS Municipal Databank &middot; FY2021&ndash;FY2025</div>
       </div>
 
       <div className="disclaimer">
@@ -2365,6 +2365,16 @@ export default function App() {
   const [errors, setErrors] = useState({});
   const [freshness, setFreshness] = useState(null);
 
+  // Real fetched-at month for a snapshot file, for per-section provenance
+  // lines. Null when we only have the file's commit mtime (not a true source
+  // date) or the index hasn't loaded yet.
+  const dataMonth = (file) => {
+    const s = freshness?.byFile?.[file];
+    return s?.fetchedAt
+      ? new Date(s.fetchedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+      : null;
+  };
+
   // Pull the cross-snapshot freshness index built at deploy time so the
   // header can show "data updated N ago" without fetching every JSON file.
   useEffect(() => {
@@ -2385,7 +2395,8 @@ export default function App() {
         const oldest = explicit.reduce((a, b) =>
           Date.parse(a.fetchedAt) < Date.parse(b.fetchedAt) ? a : b,
         );
-        setFreshness({ newest, oldest, count: payload.snapshots.length });
+        const byFile = Object.fromEntries(explicit.map((s) => [s.file, s]));
+        setFreshness({ newest, oldest, count: payload.snapshots.length, byFile });
       })
       .catch(() => {});
   }, []);
@@ -2662,7 +2673,7 @@ export default function App() {
                 <span className="section-tag red">FY{budget.fiscalYear} Snapshot</span>
                 <h2>Massachusetts at a Glance</h2>
                 <p>A high-level view of state finances — budget, revenue, expenditure, and workforce.</p>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU / MassOpenBooks &middot; Last updated April 2026</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: CTHRU / MassOpenBooks &middot; Compiled FY{budget.fiscalYear} figures</div>
               </div>
 
               <div className="kpi-row">
@@ -2775,7 +2786,7 @@ export default function App() {
         {/* ============ PAYROLL ============ */}
         {activeSection === 'payroll' && (
           <div>
-            <PayrollSearcher payrollYear={payrollYear} setPayrollYear={setPayrollYear} data={data} />
+            <PayrollSearcher payrollYear={payrollYear} setPayrollYear={setPayrollYear} data={data} updated={dataMonth('cthru-aggregates.json')} />
           </div>
         )}
 
@@ -2815,7 +2826,7 @@ export default function App() {
                 <span className="section-tag blue">Debt Service</span>
                 <h2>Massachusetts Bonds & Borrowing</h2>
                 <p>State, county, and municipal debt obligations. Live federal debt context from the U.S. Treasury fiscalData API. MA-specific figures compiled from the Commonwealth's Annual Comprehensive Financial Report, the Debt Affordability Committee, MassBondHolder investor disclosures, and EMMA (MSRB) issuer filings. What is the true cost of Massachusetts' borrowing strategy?</p>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: ACFR, Treasury fiscalData, EMMA/MSRB &middot; Last updated April 2026</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: ACFR, Treasury fiscalData, EMMA/MSRB &middot; State debt compiled &middot; trades &amp; Treasury live</div>
               </div>
 
               <div className="card-grid">
@@ -3403,7 +3414,7 @@ export default function App() {
                   <span className="section-tag blue">Federal Funding</span>
                   <h2>Federal Money Flowing to Massachusetts</h2>
                   <p>Grants, contracts, and awards from the federal government to MA entities. Data from USASpending.gov.</p>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: USASpending.gov, Rockefeller Institute &middot; Last updated April 2026</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: USASpending.gov (queried live), Rockefeller Institute</div>
                 </div>
                 <select className="year-select" value={federalYear} onChange={e => setFederalYear(Number(e.target.value))}>
                   {Array.from({ length: 10 }, (_, i) => 2025 - i).map(y => (
@@ -3558,7 +3569,7 @@ export default function App() {
         {/* ============ QUASI-GOVERNMENT ============ */}
         {activeSection === 'quasi' && (
           <div>
-            <QuasiExplorer quasiPayments={data.quasiPayments} />
+            <QuasiExplorer quasiPayments={data.quasiPayments} updated={dataMonth('cthru-aggregates.json')} />
           </div>
         )}
 
