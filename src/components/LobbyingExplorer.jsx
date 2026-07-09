@@ -533,10 +533,11 @@ export default function LobbyingExplorer() {
                 )}
                 . The MA Secretary of State Lobbyist Public Search blocks
                 automated access from cloud servers, so this snapshot is
-                refreshed manually rather than on a schedule. The{' '}
+                refreshed manually. 2025 fee totals are final; 2026 shows
+                registration activity (fee-disclosure reports are not yet due).
+                The{' '}
                 <strong style={{ color: 'var(--accent-blue)' }}>SOS Registry tab</strong>{' '}
-                ships from a separate, more recently refreshed dataset (see its own
-                provenance line).{' '}
+                has the full registrant roster.{' '}
                 <a href="https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx"
                   target="_blank" rel="noopener noreferrer"
                   style={{ color: 'var(--accent-blue)' }}>

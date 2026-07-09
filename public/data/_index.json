@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-09T00:47:49.785Z",
+  "generatedAt": "2026-07-09T00:47:49.410Z",
   "snapshots": [
     {
       "file": "ma-roll-calls.json",
@@ -167,6 +167,15 @@
       "sizeBytes": 2820
     },
     {
+      "file": "ma-lobbying.json",
+      "fetchedAt": "2026-07-08T22:49:04.474Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 156132
+    },
+    {
       "file": "ma-disclosures.json",
       "fetchedAt": "2026-07-08T19:24:09.489Z",
       "fetchedAtSource": "fetchedAt",
@@ -174,22 +183,22 @@
       "preservedFromCache": false,
       "sources": [
         {
-          "name": "mass.gov · Debt Management",
+          "name": "mass.gov \u00b7 Debt Management",
           "ok": true,
           "count": 0
         },
         {
-          "name": "mass.gov · Office of the Treasurer",
+          "name": "mass.gov \u00b7 Office of the Treasurer",
           "ok": true,
           "count": 0
         },
         {
-          "name": "massbondholder.com · News",
+          "name": "massbondholder.com \u00b7 News",
           "ok": true,
           "count": 15
         },
         {
-          "name": "massbondholder.com · Official Statements",
+          "name": "massbondholder.com \u00b7 Official Statements",
           "ok": true,
           "count": 198
         }
@@ -435,15 +444,6 @@
       "preservedFromCache": false,
       "sources": [],
       "sizeBytes": 684236
-    },
-    {
-      "file": "ma-lobbying.json",
-      "fetchedAt": "2026-04-15T23:33:07.587Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 182662
     }
   ]
 }
