@@ -563,7 +563,7 @@ export default function LobbyingExplorer() {
                 <div>
                   <div className="kpi-label">Unique Registered Lobbyists</div>
                   <div className="kpi-value">{stats.uniqueLobbyists?.toLocaleString() || '—'}</div>
-                  <div className="kpi-sub">From snapshot ({latestSnapshotYear})</div>
+                  <div className="kpi-sub">Registered in {latestSnapshotYear} (SOS registry)</div>
                 </div>
                 <Users size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
               </div>
@@ -593,7 +593,7 @@ export default function LobbyingExplorer() {
                 <div>
                   <div className="kpi-label">Unique Clients Lobbying MA</div>
                   <div className="kpi-value">{stats.uniqueClients?.toLocaleString() || '—'}</div>
-                  <div className="kpi-sub">Entities paying for representation</div>
+                  <div className="kpi-sub">Registered clients, {latestSnapshotYear} (SOS registry)</div>
                 </div>
                 <TrendingUp size={28} style={{ color: 'var(--accent-green)', opacity: 0.3 }} />
               </div>

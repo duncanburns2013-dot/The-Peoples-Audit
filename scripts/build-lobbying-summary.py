@@ -10,11 +10,10 @@
 # Derives from:
 #   - ma-lobbying-firm-details-2025.json  -> top20 (2025 fees/rosters), keyIndividuals
 #   - ma-lobbying-firm-details-2026.json  -> entities2026, totalRevenue2026
-#   - ma-lobbying-registrants-index.json  -> (fetchedAt reference)
-#   - existing ma-lobbying.json           -> preserves curated `focus` (industry
-#                                            tags, name-joined) + the uniqueClients
-#                                            / uniqueLobbyists KPIs, whose original
-#                                            derivation is not reproducible here.
+#   - ma-lobbying-registrants-2025.json   -> uniqueClients / uniqueLobbyists
+#                                            (distinct 2025 registrant rows by type)
+#   - existing ma-lobbying.json           -> preserves curated `focus` industry
+#                                            tags (name-joined)
 #
 # The 2025 disclosure year is complete, so totalRevenue2025 is final (verified
 # byte-identical to the prior summary). Roster counts (clients/lobbyists per
@@ -42,6 +41,8 @@ def main():
     old = load("ma-lobbying.json")
     fd25 = load("ma-lobbying-firm-details-2025.json")
     fd26 = load("ma-lobbying-firm-details-2026.json")
+    # Authoritative "who registered" roster for the unique-counts KPIs.
+    reg25_by_type = load("ma-lobbying-registrants-2025.json").get("byAccountType", {})
 
     # Preserve curated per-firm industry tags by name-join.
     focus_by_name = {f["name"]: f.get("focus") for f in old.get("top20", []) if f.get("focus")}
@@ -100,9 +101,11 @@ def main():
         "entitiesWithData": entities_with_data,
         "totalRevenue2025": total_rev_2025,
         "totalRevenue2026": total_rev_2026,
-        # Preserved: original derivation not reproducible from firm-details.
-        "uniqueClients": old["stats"]["uniqueClients"],
-        "uniqueLobbyists": old["stats"]["uniqueLobbyists"],
+        # Unique registered clients / lobbyists = distinct 2025 SOS registrant
+        # rows (deduped by sysvalue) of each account type. Directly verifiable
+        # against ma-lobbying-registrants-2025.json byAccountType.
+        "uniqueClients": reg25_by_type.get("Client", old["stats"]["uniqueClients"]),
+        "uniqueLobbyists": reg25_by_type.get("Lobbyist", old["stats"]["uniqueLobbyists"]),
     }
 
     payload = {
