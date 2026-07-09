@@ -2,9 +2,11 @@ name: Refresh MA Roll-Call Tally
 
 on:
   schedule:
-    # Twice a week: Tuesday + Friday at 10:00 UTC. The 500-bill sample is
-    # stable enough that daily refresh would be churn; legislative business
-    # is also concentrated in formal sessions, not weekends.
+    # Twice a week: Tuesday + Friday at 10:00 UTC. The ~1500-bill sample
+    # (750/chamber) is stable enough that daily refresh would be churn;
+    # legislative business is also concentrated in formal sessions, not
+    # weekends. The fetcher is wall-clock-budgeted (see MAX_RUNTIME_MS) so it
+    # always writes a fresh partial scan within the job's timeout.
     - cron: '0 10 * * 2,5'
   workflow_dispatch: {}
 
@@ -18,7 +20,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4

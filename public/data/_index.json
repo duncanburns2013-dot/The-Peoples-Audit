@@ -1,6 +1,36 @@
 {
-  "generatedAt": "2026-07-09T00:21:57.764192+00:00",
+  "generatedAt": "2026-07-09T00:37:13.892Z",
   "snapshots": [
+    {
+      "file": "ma-roll-calls.json",
+      "fetchedAt": "2026-07-09T00:37:13.892Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [
+        {
+          "name": "bills.combined",
+          "ok": true,
+          "count": 11259
+        },
+        {
+          "name": "bills.House",
+          "ok": true,
+          "count": 5570
+        },
+        {
+          "name": "bills.Senate",
+          "ok": true,
+          "count": 3158
+        },
+        {
+          "name": "bills.actions",
+          "ok": true,
+          "count": 1500
+        }
+      ],
+      "sizeBytes": 11621
+    },
     {
       "file": "ma-lobbying-registrants-2026.json",
       "fetchedAt": "2026-07-09T00:21:57.764192+00:00",
@@ -405,36 +435,6 @@
       "preservedFromCache": false,
       "sources": [],
       "sizeBytes": 684236
-    },
-    {
-      "file": "ma-roll-calls.json",
-      "fetchedAt": "2026-05-10T11:12:26.010Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "bills.combined",
-          "ok": true,
-          "count": 10762
-        },
-        {
-          "name": "bills.House",
-          "ok": true,
-          "count": 5413
-        },
-        {
-          "name": "bills.Senate",
-          "ok": true,
-          "count": 3078
-        },
-        {
-          "name": "bills.actions",
-          "ok": true,
-          "count": 1500
-        }
-      ],
-      "sizeBytes": 11898
     },
     {
       "file": "ma-lobbying.json",

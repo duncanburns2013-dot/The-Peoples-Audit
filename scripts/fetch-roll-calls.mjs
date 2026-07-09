@@ -47,10 +47,24 @@ const BASE = 'https://malegislature.gov';
 // 194th General Court = 2025-2026 session. Bump when a new court convenes.
 const GENERAL_COURT = 194;
 // Balanced per-chamber so the sample isn't dominated by one body's docket
-// numbering. 750+750 ≈ 4 minutes total; well under the workflow's 15m cap.
+// numbering. The 1500-bill total is deliberately large: recorded roll-call
+// votes are RARE (~0.6% of decisive actions — ~10 across the whole sample),
+// so the sample must be scanned in full or the headline ratio collapses toward
+// a misleading 0%. That is why we scan wide + concurrently rather than
+// trimming the sample to fit the clock.
 const SAMPLE_LIMIT_PER_CHAMBER = 750;
 const REQUEST_DELAY_MS = 150;
 const RECENT_DISPLAY = 30;
+// malegislature.gov renders each bill page slowly (~2s), so a *sequential*
+// 1500-bill scan runs ~60 min and blew past the workflow cap — the job was
+// cancelled before writing anything, freezing the snapshot. Fix: fetch bill
+// pages with bounded concurrency (a full scan then finishes in ~7 min).
+const CONCURRENCY = Number(process.env.ROLLCALL_CONCURRENCY) || 8;
+// Wall-clock safety net. If a scan somehow can't finish in budget we do NOT
+// publish the partial (a truncated scan misses the rare roll-calls and would
+// report a false 0%) — we preserve the previous full snapshot instead. Override
+// via ROLLCALL_BUDGET_MS (a local run with no CI cap can pass a larger value).
+const MAX_RUNTIME_MS = Number(process.env.ROLLCALL_BUDGET_MS) || 15 * 60 * 1000;
 const USER_AGENT =
   'ThePeoplesAudit/1.0 (+https://github.com/duncanburns2013-dot/The-Peoples-Audit) civic-transparency-bot';
 
@@ -139,7 +153,14 @@ async function main() {
   const houseSample = housePool.slice(0, SAMPLE_LIMIT_PER_CHAMBER);
   const senateSample = senatePool.slice(0, SAMPLE_LIMIT_PER_CHAMBER);
   const all = [...housePool, ...senatePool];
-  const sample = [...houseSample, ...senateSample];
+  // Interleave the chambers so that if the wall-clock budget truncates the
+  // scan, the sample stays balanced across House and Senate rather than being
+  // all-House (which is the raw slice order).
+  const sample = [];
+  for (let i = 0; i < Math.max(houseSample.length, senateSample.length); i++) {
+    if (i < houseSample.length) sample.push(houseSample[i]);
+    if (i < senateSample.length) sample.push(senateSample[i]);
+  }
 
   const totals = { actions: 0, rollCalls: 0, voicePasses: 0, procedural: 0 };
   const recentRollCalls = [];
@@ -147,45 +168,74 @@ async function main() {
 
   let scanned = 0;
   let scrapeErrors = 0;
-  for (const bill of sample) {
-    const actions = await fetchActions(bill.BillNumber, GENERAL_COURT);
-    if (actions === null) {
-      scrapeErrors++;
-    } else {
-      scanned++;
-      for (const a of actions) {
-        totals.actions++;
-        const c = classify(a.action);
-        if (c.kind === 'roll-call') {
-          totals.rollCalls++;
-          if (recentRollCalls.length < RECENT_DISPLAY * 4) {
-            recentRollCalls.push({
-              billNumber: bill.BillNumber,
-              title: bill.Title || '',
-              branch: a.branch,
-              date: a.date,
-              action: a.action,
-              yeas: c.yeas ?? null,
-              nays: c.nays ?? null,
-            });
-          }
-        } else if (c.kind === 'voice-pass') {
-          totals.voicePasses++;
-          if (recentVoicePasses.length < RECENT_DISPLAY * 4) {
-            recentVoicePasses.push({
-              billNumber: bill.BillNumber,
-              title: bill.Title || '',
-              branch: a.branch,
-              date: a.date,
-              action: a.action,
-            });
-          }
-        } else {
-          totals.procedural++;
+  let budgetTruncated = false;
+  const startedAt = Date.now();
+
+  // Fold one bill's parsed actions into the running totals. Called from
+  // concurrent workers, but runs synchronously (no await inside) so there is
+  // no interleaving hazard on the shared accumulators.
+  const record = (bill, actions) => {
+    scanned++;
+    for (const a of actions) {
+      totals.actions++;
+      const c = classify(a.action);
+      if (c.kind === 'roll-call') {
+        totals.rollCalls++;
+        if (recentRollCalls.length < RECENT_DISPLAY * 4) {
+          recentRollCalls.push({
+            billNumber: bill.BillNumber,
+            title: bill.Title || '',
+            branch: a.branch,
+            date: a.date,
+            action: a.action,
+            yeas: c.yeas ?? null,
+            nays: c.nays ?? null,
+          });
         }
+      } else if (c.kind === 'voice-pass') {
+        totals.voicePasses++;
+        if (recentVoicePasses.length < RECENT_DISPLAY * 4) {
+          recentVoicePasses.push({
+            billNumber: bill.BillNumber,
+            title: bill.Title || '',
+            branch: a.branch,
+            date: a.date,
+            action: a.action,
+          });
+        }
+      } else {
+        totals.procedural++;
       }
     }
-    await sleep(REQUEST_DELAY_MS);
+  };
+
+  // Bounded-concurrency scan: CONCURRENCY workers pull from a shared cursor.
+  // There is no await between reading and incrementing `cursor`, so each bill
+  // is dispatched exactly once.
+  let cursor = 0;
+  const worker = async () => {
+    while (cursor < sample.length) {
+      if (Date.now() - startedAt > MAX_RUNTIME_MS) {
+        budgetTruncated = true;
+        return;
+      }
+      const bill = sample[cursor++];
+      const actions = await fetchActions(bill.BillNumber, GENERAL_COURT);
+      if (actions === null) {
+        scrapeErrors++;
+      } else {
+        record(bill, actions);
+      }
+      await sleep(REQUEST_DELAY_MS);
+    }
+  };
+  await Promise.all(Array.from({ length: CONCURRENCY }, () => worker()));
+
+  if (budgetTruncated) {
+    warnings.push(
+      `runtime budget (${Math.round(MAX_RUNTIME_MS / 1000)}s) reached — only ` +
+        `${scanned}/${sample.length} bills scanned before cutoff`,
+    );
   }
 
   if (scrapeErrors) {
@@ -208,10 +258,20 @@ async function main() {
     voicePassShare: decisive > 0 ? totals.voicePasses / decisive : 0,
   };
 
-  if (totals.actions === 0) {
+  // Preserve the previous full snapshot rather than publish a bad one when the
+  // scan is unusable:
+  //   - totals.actions === 0 → the scan failed outright
+  //   - budgetTruncated      → incomplete; the rare roll-calls may be unscanned,
+  //                            which would report a false 0% roll-call share
+  const incompleteScan = totals.actions === 0 || budgetTruncated;
+  if (incompleteScan) {
     const existing = await loadExisting();
     if (existing?.totals?.actions) {
-      warnings.push('No actions parsed — preserving previous snapshot.');
+      warnings.push(
+        totals.actions === 0
+          ? 'No actions parsed — preserving previous snapshot.'
+          : `Scan truncated at ${scanned}/${sample.length} bills — preserving previous full snapshot.`,
+      );
       const preserved = {
         ...existing,
         fetchedAt: existing.fetchedAt || new Date().toISOString(),
@@ -231,7 +291,8 @@ async function main() {
     generalCourt: GENERAL_COURT,
     billsScanned: scanned,
     billsTotal: all.length,
-    sampleStrategy: `first-${SAMPLE_LIMIT_PER_CHAMBER}-per-chamber-with-BillNumber`,
+    sampleStrategy: `first-${SAMPLE_LIMIT_PER_CHAMBER}-per-chamber-with-BillNumber-interleaved`,
+    budgetTruncated,
     preservedFromCache: false,
     totals,
     ratios,
