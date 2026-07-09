@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-28T11:24:06.631539+00:00",
+  "fetchedAt": "2026-07-09T00:21:57.764192+00:00",
   "source": "MA Secretary of State - Lobbyist Public Search (manual View Source)",
   "sourceUrl": "https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx",
   "note": "MA SOS blocks automated scraping from cloud servers; rosters pulled by hand via Chrome View Source. Each registrant links to its own Summary.aspx detail page on the SOS site.",
@@ -95,10 +95,10 @@
       "detailFile": "data/ma-lobbying-registrants-2025.json"
     },
     "2026": {
-      "count": 3243,
+      "count": 3293,
       "byAccountType": {
-        "Client": 1616,
-        "Lobbyist": 1465,
+        "Client": 1649,
+        "Lobbyist": 1482,
         "Lobbyist Entity": 162
       },
       "detailFile": "data/ma-lobbying-registrants-2026.json"

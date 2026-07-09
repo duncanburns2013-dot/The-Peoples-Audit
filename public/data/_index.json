@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-07-08T23:14:47.363463Z",
+  "generatedAt": "2026-07-09T00:21:57.764192+00:00",
   "snapshots": [
+    {
+      "file": "ma-lobbying-registrants-2026.json",
+      "fetchedAt": "2026-07-09T00:21:57.764192+00:00",
+      "fetchedAtSource": "fetchedAt",
+      "count": 3293,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 848107
+    },
+    {
+      "file": "ma-lobbying-registrants-index.json",
+      "fetchedAt": "2026-07-09T00:21:57.764192+00:00",
+      "fetchedAtSource": "fetchedAt",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 2927
+    },
     {
       "file": "ma-lobbying-firm-details-2026.json",
       "fetchedAt": "2026-07-08T23:14:47.363463Z",
@@ -351,24 +369,6 @@
       "preservedFromCache": false,
       "sources": [],
       "sizeBytes": 882333
-    },
-    {
-      "file": "ma-lobbying-registrants-2026.json",
-      "fetchedAt": "2026-05-28T11:24:06.631539+00:00",
-      "fetchedAtSource": "fetchedAt",
-      "count": 3243,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 835184
-    },
-    {
-      "file": "ma-lobbying-registrants-index.json",
-      "fetchedAt": "2026-05-28T11:24:06.631539+00:00",
-      "fetchedAtSource": "fetchedAt",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 2820
     },
     {
       "file": "ma-sfi.json",
