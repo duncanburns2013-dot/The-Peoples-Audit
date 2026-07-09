@@ -432,7 +432,7 @@ export default function LobbyingExplorer() {
   // index; per-firm client counts come from the firm-details snapshot, which we
   // lazy-load the first time the Overview tab is shown.
   useEffect(() => {
-    if (activeTab === 'overview') ensureFirmDetailLoaded('2026');
+    if (activeTab === 'overview' || activeTab === 'industry') ensureFirmDetailLoaded('2026');
   }, [activeTab, ensureFirmDetailLoaded]);
 
   const reg2026 = regIndex?.years?.['2026'] || null;
@@ -446,6 +446,38 @@ export default function LobbyingExplorer() {
       .slice(0, 12)
       .map(f => ({ name: f.name, clients: f.clientCount || 0, lobbyists: f.lobbyistCount || 0 }));
   }, [fd2026]);
+
+  // 2026 industry activity: group the fresh 2026 firms by their curated sector
+  // tag (name-joined from the 2025 summary's `focus`) and total registered
+  // clients per sector. Fees aren't due for 2026, so this is activity not $.
+  // Firms without a sector tag (mostly smaller/newer entities) are reported
+  // as an omitted count rather than a misleading "Unclassified" bar.
+  const industry2026 = useMemo(() => {
+    const focusByName = {};
+    for (const f of (lobbyData?.top20 || [])) {
+      if (f.focus) focusByName[f.name] = f.focus;
+    }
+    const firms = fd2026?.firms || [];
+    const agg = {};
+    let unclassifiedFirms = 0;
+    let unclassifiedClients = 0;
+    for (const f of firms) {
+      const sec = focusByName[f.name];
+      const clients = f.clientCount || 0;
+      if (!sec) { unclassifiedFirms += 1; unclassifiedClients += clients; continue; }
+      if (!agg[sec]) agg[sec] = { name: sec, clients: 0, firms: 0, lobbyists: 0 };
+      agg[sec].clients += clients;
+      agg[sec].firms += 1;
+      agg[sec].lobbyists += f.lobbyistCount || 0;
+    }
+    return {
+      sectors: Object.values(agg).sort((a, b) => b.clients - a.clients),
+      totalFirms: firms.length,
+      classifiedFirms: firms.length - unclassifiedFirms,
+      unclassifiedFirms,
+      unclassifiedClients,
+    };
+  }, [fd2026, lobbyData]);
 
   // FIX: close detail panel on search, and search across name + focus + clients + lobbyists
   const filteredFirms = firmSearch.length >= 2
@@ -1384,6 +1416,50 @@ export default function LobbyingExplorer() {
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
+          </div>
+
+          {/* === 2026 industry activity (fees not yet due -> clients, not $) === */}
+          <div className="chart-card" style={{ marginBottom: 24 }}>
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Calendar size={20} style={{ color: 'var(--accent-blue)' }} /> 2026 Lobbying Activity by Sector
+            </h3>
+            <div className="chart-subtitle">
+              Registered clients per sector for the 2026 session. 2026 fee
+              disclosures aren&rsquo;t due yet (spending reads $0), so this shows
+              who&rsquo;s active by sector — not dollars. Sector tags are joined
+              from firm classifications.
+            </div>
+            {fd2026State === 'loaded' && industry2026.sectors.length ? (
+              <>
+                <ResponsiveContainer width="100%" height={420}>
+                  <BarChart data={industry2026.sectors} layout="vertical" margin={{ left: 8, right: 24 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                    <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} allowDecimals={false} />
+                    <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={170} style={{ fontSize: '11px' }} />
+                    <Tooltip
+                      formatter={(v, n) => [v, n === 'clients' ? 'Registered clients' : n]}
+                      contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+                    <Bar dataKey="clients" radius={[0, 6, 6, 0]}>
+                      {industry2026.sectors.map((entry, i) => (
+                        <Cell key={i} fill={INDUSTRY_COLORS[i % INDUSTRY_COLORS.length]} />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 8 }}>
+                  {industry2026.classifiedFirms} of {industry2026.totalFirms} registered entities carry a sector tag
+                  {industry2026.unclassifiedFirms > 0 && (
+                    <> · {industry2026.unclassifiedFirms} unclassified ({industry2026.unclassifiedClients.toLocaleString()} client registrations) omitted</>
+                  )}.
+                </div>
+              </>
+            ) : fd2026State === 'unavailable' ? (
+              <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>2026 firm-detail snapshot unavailable.</div>
+            ) : (
+              <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
+                <div className="spinner" style={{ margin: '0 auto 12px' }} /> Loading 2026 sector activity…
+              </div>
+            )}
           </div>
 
           <div className="chart-card" style={{ marginBottom: 24 }}>
