@@ -426,6 +426,27 @@ export default function LobbyingExplorer() {
   const prevYearSpendingM = spendingChart.find(r => r.year === latestSnapshotYear - 1)?.spending || 93.2;
   const yoyGrowth = ((latestSpendingM - prevYearSpendingM) / prevYearSpendingM * 100).toFixed(1);
 
+  // 2026 "session so far": fresh registration activity. Fee-disclosure reports
+  // aren't due yet (2026 dollars read $0), so this is roster/activity counts —
+  // NOT spending. Registrant totals come from the already-loaded registrants
+  // index; per-firm client counts come from the firm-details snapshot, which we
+  // lazy-load the first time the Overview tab is shown.
+  useEffect(() => {
+    if (activeTab === 'overview') ensureFirmDetailLoaded('2026');
+  }, [activeTab, ensureFirmDetailLoaded]);
+
+  const reg2026 = regIndex?.years?.['2026'] || null;
+  const fd2026 = firmDetailsByYear['2026'];
+  const fd2026State = firmDetailsState['2026'];
+  const topClients2026 = useMemo(() => {
+    const firms = fd2026?.firms || [];
+    return [...firms]
+      .filter(f => (f.clientCount || 0) > 0)
+      .sort((a, b) => (b.clientCount || 0) - (a.clientCount || 0))
+      .slice(0, 12)
+      .map(f => ({ name: f.name, clients: f.clientCount || 0, lobbyists: f.lobbyistCount || 0 }));
+  }, [fd2026]);
+
   // FIX: close detail panel on search, and search across name + focus + clients + lobbyists
   const filteredFirms = firmSearch.length >= 2
     ? top20.filter(f => {
@@ -577,6 +598,80 @@ export default function LobbyingExplorer() {
               </div>
             </div>
           </div>
+
+          {/* === 2026 SESSION SO FAR (fresh registration activity) === */}
+          {reg2026 && (
+            <div style={{ marginBottom: 32 }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8, marginBottom: 4 }}>
+                <h3 style={{ display: 'flex', alignItems: 'center', gap: 8, margin: 0 }}>
+                  <Calendar size={20} style={{ color: 'var(--accent-blue)' }} /> 2026 Session So Far
+                </h3>
+                {regIndex?.fetchedAt && (
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                    Registrations as of {formatDate(regIndex.fetchedAt)}
+                  </span>
+                )}
+              </div>
+              <div className="chart-subtitle" style={{ marginBottom: 16 }}>
+                Who has registered to lobby in the 2026 session. Fee-disclosure reports
+                aren&rsquo;t due yet, so 2026 dollar totals read $0 — these are live
+                registration and activity counts, not spending.
+              </div>
+
+              <div className="kpi-row" style={{ marginBottom: 20 }}>
+                <div className="kpi-card">
+                  <div className="kpi-label">Registered Entities</div>
+                  <div className="kpi-value" style={{ color: 'var(--accent-blue)' }}>{(reg2026.byAccountType?.['Lobbyist Entity'] || 0).toLocaleString()}</div>
+                  <div className="kpi-sub">Lobbying firms registered for 2026</div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">Total Registrants</div>
+                  <div className="kpi-value" style={{ color: 'var(--accent-blue)' }}>{(reg2026.count || 0).toLocaleString()}</div>
+                  <div className="kpi-sub">All account types in the SOS registry</div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">Clients Registered</div>
+                  <div className="kpi-value" style={{ color: 'var(--accent-blue)' }}>{(reg2026.byAccountType?.['Client'] || 0).toLocaleString()}</div>
+                  <div className="kpi-sub">Entities paying for representation</div>
+                </div>
+                <div className="kpi-card">
+                  <div className="kpi-label">Individual Lobbyists</div>
+                  <div className="kpi-value" style={{ color: 'var(--accent-blue)' }}>{(reg2026.byAccountType?.['Lobbyist'] || 0).toLocaleString()}</div>
+                  <div className="kpi-sub">Registered lobbyists working for firms</div>
+                </div>
+              </div>
+
+              <div className="chart-card">
+                <h3>Most Active Firms in 2026 by Registered Clients</h3>
+                <div className="chart-subtitle">
+                  Client counts are disclosed at registration, so they reflect 2026
+                  activity even before fee reports are filed. Top 12 of{' '}
+                  {(reg2026.byAccountType?.['Lobbyist Entity'] || 0).toLocaleString()} registered entities.
+                </div>
+                {fd2026State === 'loaded' && topClients2026.length ? (
+                  <ResponsiveContainer width="100%" height={440}>
+                    <BarChart data={topClients2026} layout="vertical" margin={{ left: 8, right: 24 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                      <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} allowDecimals={false} />
+                      <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={220} style={{ fontSize: '11px' }} />
+                      <Tooltip
+                        formatter={(v, name) => [v, name === 'clients' ? 'Registered clients' : 'Lobbyists']}
+                        contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+                      <Bar dataKey="clients" fill="#2B6CB0" radius={[0, 6, 6, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                ) : fd2026State === 'unavailable' ? (
+                  <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
+                    2026 firm-detail snapshot unavailable.
+                  </div>
+                ) : (
+                  <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
+                    <div className="spinner" style={{ margin: '0 auto 12px' }} /> Loading 2026 firm activity…
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Spending Over Time */}
           <div className="chart-card" style={{ marginBottom: 24 }}>
