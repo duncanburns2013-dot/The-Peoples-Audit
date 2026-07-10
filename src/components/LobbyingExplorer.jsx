@@ -1399,25 +1399,6 @@ export default function LobbyingExplorer() {
             </div>
           </div>
 
-          <div className="chart-card" style={{ marginBottom: 24 }}>
-            <h3>Lobbying Spending by Industry Sector</h3>
-            <div className="chart-subtitle">Estimated annual expenditures in millions — MA Secretary of State disclosures (2025)</div>
-            <ResponsiveContainer width="100%" height={420}>
-              <BarChart data={industryData} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
-                <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}M`} />
-                <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={130} style={{ fontSize: '11px' }} />
-                <Tooltip formatter={(v, name) => name === 'amount' ? [`$${v}M`, 'Spending'] : [v, name]}
-                  contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
-                <Bar dataKey="amount" radius={[0, 6, 6, 0]}>
-                  {industryData.map((entry, i) => (
-                    <Cell key={i} fill={INDUSTRY_COLORS[i % INDUSTRY_COLORS.length]} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-
           {/* === 2026 industry activity (fees not yet due -> clients, not $) === */}
           <div className="chart-card" style={{ marginBottom: 24 }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -1460,6 +1441,25 @@ export default function LobbyingExplorer() {
                 <div className="spinner" style={{ margin: '0 auto 12px' }} /> Loading 2026 sector activity…
               </div>
             )}
+          </div>
+
+          <div className="chart-card" style={{ marginBottom: 24 }}>
+            <h3>Lobbying Spending by Industry Sector</h3>
+            <div className="chart-subtitle">Estimated annual expenditures in millions — MA Secretary of State disclosures (2025)</div>
+            <ResponsiveContainer width="100%" height={420}>
+              <BarChart data={industryData} layout="vertical">
+                <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
+                <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}M`} />
+                <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={130} style={{ fontSize: '11px' }} />
+                <Tooltip formatter={(v, name) => name === 'amount' ? [`$${v}M`, 'Spending'] : [v, name]}
+                  contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
+                <Bar dataKey="amount" radius={[0, 6, 6, 0]}>
+                  {industryData.map((entry, i) => (
+                    <Cell key={i} fill={INDUSTRY_COLORS[i % INDUSTRY_COLORS.length]} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
           </div>
 
           <div className="chart-card" style={{ marginBottom: 24 }}>
