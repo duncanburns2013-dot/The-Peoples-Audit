@@ -1,20 +1,20 @@
 {
-  "fetchedAt": "2026-07-09T00:47:49.410Z",
+  "fetchedAt": "2026-07-14T11:36:08.912Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8728,
+  "billsTotal": 8752,
   "sampleStrategy": "first-750-per-chamber-with-BillNumber-interleaved",
   "budgetTruncated": false,
-  "preservedFromCache": true,
+  "preservedFromCache": false,
   "totals": {
-    "actions": 8041,
+    "actions": 8062,
     "rollCalls": 11,
-    "voicePasses": 1666,
-    "procedural": 6364
+    "voicePasses": 1667,
+    "procedural": 6384
   },
   "ratios": {
-    "rollCallShare": 0.00655933214072749,
-    "voicePassShare": 0.9934406678592725
+    "rollCallShare": 0.006555423122765197,
+    "voicePassShare": 0.9934445768772348
   },
   "recentRollCalls": [
     {
@@ -203,20 +203,6 @@
       "action": "House concurred"
     },
     {
-      "billNumber": "H10",
-      "title": "An Act relative to nondisclosure agreements ",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H1000",
-      "title": "An Act establishing a coastal waters wastewater financing commission",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
       "billNumber": "S100",
       "title": "An Act to study supply and demand for cannabis cultivation",
       "branch": "House",
@@ -224,8 +210,8 @@
       "action": "House concurred"
     },
     {
-      "billNumber": "H100",
-      "title": "An Act establishing a commission to study a statewide credentialing program for digital navigators",
+      "billNumber": "H10",
+      "title": "An Act relative to nondisclosure agreements ",
       "branch": "Senate",
       "date": "2/27/2025",
       "action": "Senate concurred"
@@ -238,18 +224,18 @@
       "action": "House concurred"
     },
     {
-      "billNumber": "S1003",
-      "title": "Resolve to examine Chapter 40B",
-      "branch": "House",
+      "billNumber": "H100",
+      "title": "An Act establishing a commission to study a statewide credentialing program for digital navigators",
+      "branch": "Senate",
       "date": "2/27/2025",
-      "action": "House concurred"
+      "action": "Senate concurred"
     },
     {
-      "billNumber": "S1001",
-      "title": "An Act to increase housing production in the city of Lowell",
-      "branch": "House",
+      "billNumber": "H1000",
+      "title": "An Act establishing a coastal waters wastewater financing commission",
+      "branch": "Senate",
       "date": "2/27/2025",
-      "action": "House concurred"
+      "action": "Senate concurred"
     },
     {
       "billNumber": "H1001",
@@ -257,6 +243,13 @@
       "branch": "Senate",
       "date": "2/27/2025",
       "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S1001",
+      "title": "An Act to increase housing production in the city of Lowell",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
     },
     {
       "billNumber": "S1002",
@@ -273,43 +266,8 @@
       "action": "Senate concurred"
     },
     {
-      "billNumber": "H1004",
-      "title": "An Act promoting climate safe buildings",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S1005",
-      "title": "An Act for Chapter 40B reform and improvement",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "S1006",
-      "title": "An Act creating the Home Works Program",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H1003",
-      "title": "An Act relative to maintaining adequate water supplies through effective drought management",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
       "billNumber": "S1004",
       "title": "An Act to create affordable homes for persons with disabilities",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "S1007",
-      "title": "An Act to prevent and respond to bullying of elderly and disabled residents",
       "branch": "House",
       "date": "2/27/2025",
       "action": "House concurred"
@@ -322,38 +280,76 @@
       "action": "Senate concurred"
     },
     {
-      "billNumber": "H1006",
-      "title": "An Act relative to incentives for nature as a climate solution",
+      "billNumber": "S1003",
+      "title": "Resolve to examine Chapter 40B",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "H1004",
+      "title": "An Act promoting climate safe buildings",
       "branch": "Senate",
       "date": "2/27/2025",
       "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1003",
+      "title": "An Act relative to maintaining adequate water supplies through effective drought management",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S1005",
+      "title": "An Act for Chapter 40B reform and improvement",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "H1008",
+      "title": "An Act creating the Manuel F. Correllus State Forest Trust Fund",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1007",
+      "title": "An Act to provide for housing within the Manuel F. Correllus State Forest",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S1007",
+      "title": "An Act to prevent and respond to bullying of elderly and disabled residents",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
     }
   ],
   "sources": [
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11281
+      "count": 11295
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5573
+      "count": 5579
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3166
+      "count": 3173
     },
     {
       "name": "bills.actions",
       "ok": true,
-      "count": 145
+      "count": 1500
     }
   ],
-  "warnings": [
-    "runtime budget (900s) reached — only 145/1500 bills scanned before cutoff",
-    "8 bill detail pages failed to load",
-    "Scan truncated at 145/1500 bills — preserving previous full snapshot."
-  ]
+  "warnings": []
 }
