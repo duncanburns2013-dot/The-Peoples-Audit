@@ -5,7 +5,7 @@
   "billsTotal": 8752,
   "sampleStrategy": "first-750-per-chamber-with-BillNumber-interleaved",
   "budgetTruncated": false,
-  "preservedFromCache": false,
+  "preservedFromCache": true,
   "totals": {
     "actions": 8062,
     "rollCalls": 11,
@@ -332,24 +332,27 @@
   "sources": [
     {
       "name": "bills.combined",
-      "ok": true,
-      "count": 11295
+      "ok": false,
+      "error": "fetch failed"
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5579
+      "count": 0
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3173
+      "count": 0
     },
     {
       "name": "bills.actions",
-      "ok": true,
-      "count": 1500
+      "ok": false,
+      "count": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "bill index: fetch failed",
+    "No actions parsed — preserving previous snapshot."
+  ]
 }
