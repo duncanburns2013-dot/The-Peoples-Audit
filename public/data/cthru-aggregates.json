@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-20T11:48:22.163Z",
+  "fetchedAt": "2026-07-21T11:11:24.231Z",
   "years": [
     "2025",
     "2026",
@@ -966,505 +966,505 @@
     "2025": [
       {
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "totalPay": 1824057821.58,
-        "employees": 27014
+        "totalPay": 1824044988.25,
+        "employees": 31890
       },
       {
         "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "totalPay": 954381287.39,
-        "employees": 9005
+        "totalPay": 954490681.52,
+        "employees": 10227
       },
       {
         "department": "TRIAL COURT (TRC)",
-        "totalPay": 682380371.81,
-        "employees": 7225
+        "totalPay": 681129423.02,
+        "employees": 7744
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "totalPay": 487119952.19,
-        "employees": 7151
+        "totalPay": 486895217.23,
+        "employees": 7641
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "totalPay": 486703138.12,
-        "employees": 3554
+        "totalPay": 486351067.81,
+        "employees": 4006
       },
       {
         "department": "DEPARTMENT OF CORRECTION (DOC)",
-        "totalPay": 474494767.19,
-        "employees": 4140
+        "totalPay": 474723824.78,
+        "employees": 4350
       },
       {
         "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "totalPay": 470387651.59,
-        "employees": 4652
+        "totalPay": 470068810,
+        "employees": 5138
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "totalPay": 397386699.74,
-        "employees": 4634
+        "totalPay": 397784759.48,
+        "employees": 5116
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 386859789.32,
-        "employees": 4357
+        "totalPay": 386880269.99,
+        "employees": 4684
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "totalPay": 351840414.36,
-        "employees": 3768
+        "totalPay": 352712626.98,
+        "employees": 4050
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
-        "totalPay": 219570954.47,
-        "employees": 2132
+        "totalPay": 220884915.08,
+        "employees": 2263
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 169712097.28,
-        "employees": 1910
+        "totalPay": 169557540.7,
+        "employees": 2076
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
-        "totalPay": 144684642.85,
-        "employees": 1533
+        "totalPay": 144279747.9,
+        "employees": 1607
       },
       {
         "department": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
-        "totalPay": 133571416.95,
-        "employees": 3083
+        "totalPay": 133695536.15,
+        "employees": 3492
       },
       {
         "department": "BRIDGEWATER STATE UNIVERSITY (BSC)",
-        "totalPay": 125228210.36,
-        "employees": 3693
+        "totalPay": 125549003.71,
+        "employees": 3743
       },
       {
         "department": "SHERIFF DEPARTMENT HAMPDEN (SDH)",
-        "totalPay": 123809256.45,
-        "employees": 2011
-      },
-      {
-        "department": "SHERIFF DEPARTMENT SUFFOLK (SDS)",
-        "totalPay": 112508989.85,
-        "employees": 1013
-      },
-      {
-        "department": "Executive Office of Labor and Workforce Development (EOL)",
-        "totalPay": 111078674.25,
-        "employees": 1284
-      },
-      {
-        "department": "SALEM STATE UNIVERSITY (SSA)",
-        "totalPay": 96281326.83,
+        "totalPay": 123981589.65,
         "employees": 2391
       },
       {
+        "department": "SHERIFF DEPARTMENT SUFFOLK (SDS)",
+        "totalPay": 112539317.37,
+        "employees": 1097
+      },
+      {
+        "department": "Executive Office of Labor and Workforce Development (EOL)",
+        "totalPay": 111216441.93,
+        "employees": 1359
+      },
+      {
+        "department": "SALEM STATE UNIVERSITY (SSA)",
+        "totalPay": 96294639.73,
+        "employees": 2259
+      },
+      {
         "department": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
-        "totalPay": 93523737.06,
-        "employees": 885
+        "totalPay": 93313583.99,
+        "employees": 952
       },
       {
         "department": "MASS REHABILITATION COMMISSION (MRC)",
-        "totalPay": 81620114.99,
-        "employees": 920
+        "totalPay": 81549263.48,
+        "employees": 965
       },
       {
         "department": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "totalPay": 78049980.95,
-        "employees": 944
+        "totalPay": 78290772.36,
+        "employees": 1030
       },
       {
         "department": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
-        "totalPay": 76817625.61,
-        "employees": 873
+        "totalPay": 77021709.26,
+        "employees": 981
       },
       {
         "department": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
-        "totalPay": 75794965.87,
-        "employees": 2631
+        "totalPay": 75853166.64,
+        "employees": 2383
       },
       {
         "department": "WESTFIELD STATE UNIVERSITY (WSC)",
-        "totalPay": 69809005.82,
-        "employees": 2139
+        "totalPay": 69660399.14,
+        "employees": 1984
       },
       {
         "department": "SHERIFF DEPARTMENT MIDDLESEX (SDM)",
-        "totalPay": 68977785.86,
-        "employees": 778
+        "totalPay": 68990909.87,
+        "employees": 875
       },
       {
         "department": "SHERIFF DEPARTMENT PLYMOUTH (SDP)",
-        "totalPay": 65897115.07,
-        "employees": 792
+        "totalPay": 65962706.19,
+        "employees": 895
       },
       {
         "department": "ATTORNEY GENERAL OFFICE (AGO)",
-        "totalPay": 62415762.36,
-        "employees": 757
-      },
-      {
-        "department": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-        "totalPay": 60954616.16,
-        "employees": 524
+        "totalPay": 62639412.4,
+        "employees": 801
       },
       {
         "department": "SHERIFF DEPARTMENT ESSEX (SDE)",
-        "totalPay": 60524603.62,
-        "employees": 659
+        "totalPay": 60640140.82,
+        "employees": 702
+      },
+      {
+        "department": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
+        "totalPay": 59787657.75,
+        "employees": 549
       },
       {
         "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
-        "totalPay": 59269714.49,
-        "employees": 2310
-      },
-      {
-        "department": "FRAMINGHAM STATE UNIVERSITY (FRC)",
-        "totalPay": 59047957.95,
-        "employees": 1477
+        "totalPay": 59129134.6,
+        "employees": 2095
       },
       {
         "department": "WORCESTER STATE UNIVERSITY (WOR)",
-        "totalPay": 58968716.4,
-        "employees": 1670
+        "totalPay": 59049912.36,
+        "employees": 1764
+      },
+      {
+        "department": "FRAMINGHAM STATE UNIVERSITY (FRC)",
+        "totalPay": 59037291.55,
+        "employees": 1492
       },
       {
         "department": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-        "totalPay": 58695844.4,
-        "employees": 530
+        "totalPay": 58853590.57,
+        "employees": 565
       },
       {
         "department": "FITCHBURG STATE UNIVERSITY (FSC)",
-        "totalPay": 55845222.17,
-        "employees": 1444
+        "totalPay": 55964362.14,
+        "employees": 1407
       },
       {
         "department": "HOUSE OF REPRESENTATIVES (HOU)",
-        "totalPay": 55129843.01,
-        "employees": 725
+        "totalPay": 55593218.67,
+        "employees": 768
       },
       {
         "department": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
-        "totalPay": 54719642.14,
-        "employees": 572
+        "totalPay": 54725803.26,
+        "employees": 620
       },
       {
         "department": "SHERIFF DEPARTMENT WORCESTER (SDW)",
-        "totalPay": 53072384.28,
-        "employees": 637
+        "totalPay": 53124809.71,
+        "employees": 683
       },
       {
         "department": "BRISTOL COMMUNITY COLLEGE (BRC)",
-        "totalPay": 50578082.04,
-        "employees": 1514
+        "totalPay": 50562291.71,
+        "employees": 1510
       },
       {
         "department": "MIDDLESEX COMMUNITY COLLEGE (MCC)",
-        "totalPay": 48305792.7,
-        "employees": 1992
+        "totalPay": 48237601.45,
+        "employees": 2005
       },
       {
         "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
-        "totalPay": 46628347.45,
-        "employees": 1365
+        "totalPay": 46704360.56,
+        "employees": 1323
       },
       {
         "department": "SHERIFF DEPARTMENT BRISTOL (BSD)",
-        "totalPay": 45736423.05,
-        "employees": 578
+        "totalPay": 45704101.22,
+        "employees": 617
       },
       {
         "department": "NORTH SHORE COMMUNITY COLLEGE (NSC)",
-        "totalPay": 45044398.95,
-        "employees": 1138
+        "totalPay": 45045931.15,
+        "employees": 1186
       },
       {
         "department": "CAPITAL ASSET MANAGEMENT and MAINTENANCE DIVISION (DCP)",
-        "totalPay": 43723777.43,
-        "employees": 408
+        "totalPay": 43361631.64,
+        "employees": 423
       },
       {
         "department": "LOTTERY AND GAMING COMMISSION (LOT)",
-        "totalPay": 43282660.67,
-        "employees": 414
+        "totalPay": 43270617.27,
+        "employees": 451
       },
       {
         "department": "EXECUTIVE OFFICE OF ENVIRONMENTAL AFFAIRS (ENV)",
-        "totalPay": 42914655.59,
-        "employees": 417
+        "totalPay": 42941606.21,
+        "employees": 447
       },
       {
         "department": "HOLYOKE COMMUNITY COLLEGE (HCC)",
-        "totalPay": 41879418.26,
-        "employees": 1375
+        "totalPay": 41846390.24,
+        "employees": 1296
       },
       {
         "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
-        "totalPay": 41326489.21,
-        "employees": 1404
+        "totalPay": 41349414.14,
+        "employees": 1316
       },
       {
         "department": "MASSASOIT COMMUNITY COLLEGE (MAS)",
-        "totalPay": 41269323.22,
-        "employees": 1094
+        "totalPay": 41193749.18,
+        "employees": 1144
       },
       {
         "department": "NORTHERN ESSEX COMMUNITY COLLEGE (NEC)",
-        "totalPay": 40881370.42,
-        "employees": 1309
+        "totalPay": 40638243.4,
+        "employees": 1371
       }
     ],
     "2026": [
       {
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "totalPay": 918360509.06,
-        "employees": 23399
+        "totalPay": 1095668957.85,
+        "employees": 26292
       },
       {
         "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "totalPay": 506010532.3,
-        "employees": 8796
+        "totalPay": 588853115.04,
+        "employees": 9600
       },
       {
         "department": "TRIAL COURT (TRC)",
-        "totalPay": 343399632.92,
-        "employees": 6692
+        "totalPay": 395209107,
+        "employees": 6956
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "totalPay": 250736993.12,
-        "employees": 6473
+        "totalPay": 289915283.84,
+        "employees": 6717
       },
       {
         "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "totalPay": 250314667.31,
-        "employees": 4474
-      },
-      {
-        "department": "DEPARTMENT OF CORRECTION (DOC)",
-        "totalPay": 242317248.27,
-        "employees": 4004
+        "totalPay": 286428213.71,
+        "employees": 4764
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "totalPay": 239915543.89,
-        "employees": 3357
+        "totalPay": 281233996.16,
+        "employees": 3619
       },
       {
-        "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "totalPay": 200201419.96,
-        "employees": 4227
+        "department": "DEPARTMENT OF CORRECTION (DOC)",
+        "totalPay": 280423706.76,
+        "employees": 4065
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 199901776.64,
-        "employees": 4002
+        "totalPay": 232192401.12,
+        "employees": 4219
+      },
+      {
+        "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
+        "totalPay": 230543767.52,
+        "employees": 4504
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "totalPay": 179454664.86,
-        "employees": 3455
+        "totalPay": 207481352.47,
+        "employees": 3633
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
-        "totalPay": 111452891.17,
-        "employees": 2012
+        "totalPay": 128785009.2,
+        "employees": 2067
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 93828614.71,
-        "employees": 1938
+        "totalPay": 107994510.7,
+        "employees": 2051
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
-        "totalPay": 73585942.35,
-        "employees": 1465
-      },
-      {
-        "department": "SHERIFF DEPARTMENT HAMPDEN (SDH)",
-        "totalPay": 65666628.03,
-        "employees": 1690
+        "totalPay": 84535638.35,
+        "employees": 1512
       },
       {
         "department": "BRIDGEWATER STATE UNIVERSITY (BSC)",
-        "totalPay": 64768208.57,
-        "employees": 3027
+        "totalPay": 77913400.65,
+        "employees": 3078
       },
       {
         "department": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
-        "totalPay": 61866516.95,
-        "employees": 2688
+        "totalPay": 76442625.18,
+        "employees": 3230
+      },
+      {
+        "department": "SHERIFF DEPARTMENT HAMPDEN (SDH)",
+        "totalPay": 74964606.57,
+        "employees": 1763
       },
       {
         "department": "SHERIFF DEPARTMENT SUFFOLK (SDS)",
-        "totalPay": 59419271.72,
-        "employees": 969
+        "totalPay": 68637177.48,
+        "employees": 1027
       },
       {
         "department": "Executive Office of Labor and Workforce Development (EOL)",
-        "totalPay": 59011173.69,
-        "employees": 1377
+        "totalPay": 67970377.04,
+        "employees": 1438
       },
       {
         "department": "SALEM STATE UNIVERSITY (SSA)",
-        "totalPay": 48350868.21,
-        "employees": 1806
+        "totalPay": 58490333.52,
+        "employees": 1850
       },
       {
         "department": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
-        "totalPay": 46905323.07,
-        "employees": 814
+        "totalPay": 54068724.79,
+        "employees": 841
       },
       {
         "department": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
-        "totalPay": 43820090.06,
-        "employees": 927
-      },
-      {
-        "department": "MASS REHABILITATION COMMISSION (MRC)",
-        "totalPay": 41205286.58,
-        "employees": 861
+        "totalPay": 50733512.58,
+        "employees": 988
       },
       {
         "department": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
-        "totalPay": 41110664.6,
-        "employees": 2437
+        "totalPay": 47602818.04,
+        "employees": 2240
+      },
+      {
+        "department": "MASS REHABILITATION COMMISSION (MRC)",
+        "totalPay": 47497283.25,
+        "employees": 884
       },
       {
         "department": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "totalPay": 39990566.31,
-        "employees": 850
+        "totalPay": 46023854.34,
+        "employees": 890
       },
       {
         "department": "WESTFIELD STATE UNIVERSITY (WSC)",
-        "totalPay": 35882951.89,
-        "employees": 1783
+        "totalPay": 43019935.63,
+        "employees": 1728
       },
       {
         "department": "SHERIFF DEPARTMENT MIDDLESEX (SDM)",
-        "totalPay": 34874793.13,
-        "employees": 735
+        "totalPay": 40176933.02,
+        "employees": 825
       },
       {
         "department": "SHERIFF DEPARTMENT PLYMOUTH (SDP)",
-        "totalPay": 33627050.78,
-        "employees": 723
+        "totalPay": 39177308.84,
+        "employees": 766
       },
       {
         "department": "ATTORNEY GENERAL OFFICE (AGO)",
-        "totalPay": 32720074.4,
-        "employees": 718
+        "totalPay": 37635109.26,
+        "employees": 742
       },
       {
         "department": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-        "totalPay": 32310604.79,
-        "employees": 512
-      },
-      {
-        "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
-        "totalPay": 32213376.19,
-        "employees": 2063
-      },
-      {
-        "department": "SHERIFF DEPARTMENT ESSEX (SDE)",
-        "totalPay": 30372922.66,
-        "employees": 615
+        "totalPay": 37229891.28,
+        "employees": 524
       },
       {
         "department": "WORCESTER STATE UNIVERSITY (WOR)",
-        "totalPay": 30327675.61,
-        "employees": 1322
+        "totalPay": 36686632.48,
+        "employees": 1428
+      },
+      {
+        "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
+        "totalPay": 36494717.14,
+        "employees": 1862
       },
       {
         "department": "FRAMINGHAM STATE UNIVERSITY (FRC)",
-        "totalPay": 30031086.68,
-        "employees": 1196
+        "totalPay": 36170700.75,
+        "employees": 1271
+      },
+      {
+        "department": "SHERIFF DEPARTMENT ESSEX (SDE)",
+        "totalPay": 35057021.96,
+        "employees": 632
       },
       {
         "department": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-        "totalPay": 29621125.38,
-        "employees": 497
-      },
-      {
-        "department": "SHERIFF DEPARTMENT WORCESTER (SDW)",
-        "totalPay": 28261942.6,
-        "employees": 611
-      },
-      {
-        "department": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
-        "totalPay": 28002877.78,
-        "employees": 535
-      },
-      {
-        "department": "BRISTOL COMMUNITY COLLEGE (BRC)",
-        "totalPay": 27602575.09,
-        "employees": 1357
+        "totalPay": 34121341.85,
+        "employees": 512
       },
       {
         "department": "FITCHBURG STATE UNIVERSITY (FSC)",
-        "totalPay": 27449047.73,
-        "employees": 1189
+        "totalPay": 33375824.73,
+        "employees": 1245
+      },
+      {
+        "department": "SHERIFF DEPARTMENT WORCESTER (SDW)",
+        "totalPay": 32510676.51,
+        "employees": 638
+      },
+      {
+        "department": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
+        "totalPay": 32201066.38,
+        "employees": 561
+      },
+      {
+        "department": "BRISTOL COMMUNITY COLLEGE (BRC)",
+        "totalPay": 31609463.81,
+        "employees": 1368
       },
       {
         "department": "HOUSE OF REPRESENTATIVES (HOU)",
-        "totalPay": 26723825.88,
-        "employees": 660
+        "totalPay": 30918023.17,
+        "employees": 677
       },
       {
         "department": "MIDDLESEX COMMUNITY COLLEGE (MCC)",
-        "totalPay": 26185377.31,
-        "employees": 1580
+        "totalPay": 30074146.09,
+        "employees": 1694
       },
       {
         "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
-        "totalPay": 24056021.89,
-        "employees": 1021
-      },
-      {
-        "department": "NORTH SHORE COMMUNITY COLLEGE (NSC)",
-        "totalPay": 23552594.67,
-        "employees": 1023
+        "totalPay": 28795146.6,
+        "employees": 1083
       },
       {
         "department": "SHERIFF DEPARTMENT BRISTOL (BSD)",
-        "totalPay": 23519043.49,
-        "employees": 544
+        "totalPay": 27225031.38,
+        "employees": 558
+      },
+      {
+        "department": "NORTH SHORE COMMUNITY COLLEGE (NSC)",
+        "totalPay": 27190036.08,
+        "employees": 1058
       },
       {
         "department": "LOTTERY AND GAMING COMMISSION (LOT)",
-        "totalPay": 22684226.08,
-        "employees": 409
+        "totalPay": 26144857.51,
+        "employees": 426
       },
       {
         "department": "MASSASOIT COMMUNITY COLLEGE (MAS)",
-        "totalPay": 22261059.81,
-        "employees": 998
-      },
-      {
-        "department": "HOLYOKE COMMUNITY COLLEGE (HCC)",
-        "totalPay": 22101798.89,
-        "employees": 1253
+        "totalPay": 25588912.32,
+        "employees": 1049
       },
       {
         "department": "CAPITAL ASSET MANAGEMENT and MAINTENANCE DIVISION (DCP)",
-        "totalPay": 22000602.84,
-        "employees": 380
+        "totalPay": 25226147.33,
+        "employees": 392
+      },
+      {
+        "department": "HOLYOKE COMMUNITY COLLEGE (HCC)",
+        "totalPay": 25196044.87,
+        "employees": 1169
       },
       {
         "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
-        "totalPay": 21532490.09,
-        "employees": 1317
-      },
-      {
-        "department": "NORTHERN ESSEX COMMUNITY COLLEGE (NEC)",
-        "totalPay": 21079079.12,
-        "employees": 1194
+        "totalPay": 24749529.48,
+        "employees": 1229
       },
       {
         "department": "EXECUTIVE OFFICE OF ENVIRONMENTAL AFFAIRS (ENV)",
-        "totalPay": 21041211.53,
-        "employees": 380
+        "totalPay": 24361583.8,
+        "employees": 390
+      },
+      {
+        "department": "NORTHERN ESSEX COMMUNITY COLLEGE (NEC)",
+        "totalPay": 24307287.98,
+        "employees": 1221
       }
     ]
   },
@@ -1573,6 +1573,12 @@
         "totalPay": 599242.04
       },
       {
+        "name": "Julie Chen",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chancellor",
+        "totalPay": 594229.05
+      },
+      {
         "name": "Gregory Volturo",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept-Non TT Emerg Med",
@@ -1583,12 +1589,6 @@
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Dir Inst Applied Life Sciences",
         "totalPay": 574265.44
-      },
-      {
-        "name": "Julie Chen",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chancellor",
-        "totalPay": 549613.65
       },
       {
         "name": "Andrew McCallum",
@@ -1603,6 +1603,12 @@
         "totalPay": 533561.75
       },
       {
+        "name": "Michael Sullivan",
+        "department": "DEPARTMENT OF STATE POLICE (POL)",
+        "title": "State Police Trooper,1st Class",
+        "totalPay": 532635.92
+      },
+      {
         "name": "Donald Towsley",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Distinguished Professor",
@@ -1613,12 +1619,6 @@
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Provost/VC for Academic Aff",
         "totalPay": 515869.59
-      },
-      {
-        "name": "Michael Sullivan",
-        "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "title": "State Police Trooper,1st Class",
-        "totalPay": 512429.86
       },
       {
         "name": "Lisa Calise",
@@ -1687,12 +1687,6 @@
         "totalPay": 475596.84
       },
       {
-        "name": "James Watkins",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Associate Vice Chancellor",
-        "totalPay": 474132.65
-      },
-      {
         "name": "David McManus",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Ten Trk",
@@ -1723,12 +1717,6 @@
         "totalPay": 467958.71
       },
       {
-        "name": "Nefertiti Walker",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Sr.VP Academic&Stud Affair",
-        "totalPay": 462152.23
-      },
-      {
         "name": "Fousseni Chabi-Yo",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair Of Department U of M",
@@ -1747,28 +1735,40 @@
         "totalPay": 458420.92
       },
       {
-        "name": "Hong Yu",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor (FRRP/Director)",
-        "totalPay": 458024.9
-      },
-      {
-        "name": "Sheldon Zhang",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor (FRRP)",
-        "totalPay": 453950.27
-      },
-      {
         "name": "Albertha Walhout",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450591
       },
       {
+        "name": "Zhiping Weng",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 450590.96
+      },
+      {
         "name": "Beth McCormick",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
+      },
+      {
+        "name": "Paul Burns",
+        "department": "DEPARTMENT OF STATE POLICE (POL)",
+        "title": "State Police Trooper,1st Class",
+        "totalPay": 450445.83
+      },
+      {
+        "name": "Abdallah Georges Assaf",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Professor U of M",
+        "totalPay": 447486.32
+      },
+      {
+        "name": "Michael Murphy",
+        "department": "DEPARTMENT OF STATE POLICE (POL)",
+        "title": "State Police Trooper,1st Class",
+        "totalPay": 446036.61
       }
     ],
     "2026": [
@@ -1776,133 +1776,283 @@
         "name": "Francisco Martin",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Head Basketball Coach",
-        "totalPay": 977061.52
+        "totalPay": 1589447.6
       },
       {
         "name": "Joseph Harasymiak",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Head Football Coach",
-        "totalPay": 743139.76
-      },
-      {
-        "name": "Michael Collins",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chancellor & SVP Hlth Sciences",
-        "totalPay": 532500.01
-      },
-      {
-        "name": "Ryan Bamford",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Athletic Director",
-        "totalPay": 526097.81
+        "totalPay": 834702
       },
       {
         "name": "Terence Flotte",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Exec Dep Chanc Provost & Dean",
-        "totalPay": 460508.33
-      },
-      {
-        "name": "Martin Meehan",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "President, University of Mass",
-        "totalPay": 392851.99
-      },
-      {
-        "name": "Gregory Volturo",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept-Non TT Emerg Med",
-        "totalPay": 359616.66
-      },
-      {
-        "name": "Gregory Carvel",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Athletic Coach",
-        "totalPay": 354163.92
-      },
-      {
-        "name": "Partha Chakrabarti",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Exec VC Innovation & Bus Devel",
-        "totalPay": 349989.38
+        "totalPay": 807660.77
       },
       {
         "name": "Lisa Colombo",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Exec VC, ForHealth Consulting",
-        "totalPay": 325769.18
+        "totalPay": 596373.02
       },
       {
-        "name": "Michelle Burgos",
-        "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "title": "SNAP Case Worker",
-        "totalPay": 325745.03
-      },
-      {
-        "name": "Kenneth Rock",
+        "name": "Ryan Bamford",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 324749.88
+        "title": "Athletic Director",
+        "totalPay": 583497.77
+      },
+      {
+        "name": "Michael Collins",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chancellor & SVP Hlth Sciences",
+        "totalPay": 573461.55
+      },
+      {
+        "name": "Martin Meehan",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "President, University of Mass",
+        "totalPay": 454766.14
+      },
+      {
+        "name": "Gregory Carvel",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Athletic Coach",
+        "totalPay": 408796
+      },
+      {
+        "name": "Gregory Volturo",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept-Non TT Emerg Med",
+        "totalPay": 392812.04
+      },
+      {
+        "name": "Partha Chakrabarti",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Exec VC Innovation & Bus Devel",
+        "totalPay": 382296.09
       },
       {
         "name": "Donald Brown",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Head Football Coach",
-        "totalPay": 323774.34
+        "totalPay": 377736.73
+      },
+      {
+        "name": "Kenneth Rock",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 374172.12
       },
       {
         "name": "Javier Reyes",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chancellor",
-        "totalPay": 318262.55
-      },
-      {
-        "name": "Katherine Fitzgerald",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor Tenured/Tenure Track",
-        "totalPay": 317718.44
+        "totalPay": 367911.52
       },
       {
         "name": "Anne Massey",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Dean, School of Management",
-        "totalPay": 310050.11
+        "totalPay": 357912.16
       },
       {
         "name": "Marcelo Suarez-Orozco",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chancellor",
-        "totalPay": 307750.05
+        "totalPay": 355096.21
+      },
+      {
+        "name": "David Flanagan",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dep EVC, Facilities Management",
+        "totalPay": 350989.8
+      },
+      {
+        "name": "Katherine Fitzgerald",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Professor Tenured/Tenure Track",
+        "totalPay": 346469.37
       },
       {
         "name": "Peter Reinhart",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Dir Inst Applied Life Sciences",
-        "totalPay": 297127.25
+        "totalPay": 342994.41
       },
       {
         "name": "Julie Chen",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chancellor",
-        "totalPay": 290000.1
+        "totalPay": 335329.34
+      },
+      {
+        "name": "Michelle Burgos",
+        "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
+        "title": "SNAP Case Worker",
+        "totalPay": 331734.17
+      },
+      {
+        "name": "Lee Leiber",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dep EVC, CIO",
+        "totalPay": 330192.4
+      },
+      {
+        "name": "James Healy",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dep EVC of Management",
+        "totalPay": 326174.1
       },
       {
         "name": "Mark Fuller",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chancellor",
-        "totalPay": 272500.02
+        "totalPay": 314423.1
+      },
+      {
+        "name": "Marcy Culverwell",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Sr Assoc VC, Admin & Finance",
+        "totalPay": 311307.67
       },
       {
         "name": "Fouad Abd-El-Khalick",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Provost/VC for Academic Aff",
-        "totalPay": 266913.08
+        "totalPay": 308116.1
+      },
+      {
+        "name": "Lisa Calise",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Senior Vice President",
+        "totalPay": 305371.78
       },
       {
         "name": "Stephen O'Toole",
         "department": "Massachusetts Bay Transportation Authority (MBT)",
         "title": "Wireperson",
-        "totalPay": 266585.26
+        "totalPay": 304206.13
+      },
+      {
+        "name": "Donald Towsley",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Distinguished Professor",
+        "totalPay": 303379.21
+      },
+      {
+        "name": "Patrick Gallagher",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dep EVC Chief HR Officer",
+        "totalPay": 303000
+      },
+      {
+        "name": "Thomas Connolly",
+        "department": "Massachusetts Bay Transportation Authority (MBT)",
+        "title": "Wireperson",
+        "totalPay": 297825.2
+      },
+      {
+        "name": "Abdallah Georges Assaf",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Professor U of M",
+        "totalPay": 294358.7
+      },
+      {
+        "name": "Roger Davis",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 284525.4
+      },
+      {
+        "name": "Sheldon Zhang",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Professor (FRRP)",
+        "totalPay": 280798.73
+      },
+      {
+        "name": "Sanjay Raman",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dean, Engineering",
+        "totalPay": 280105.36
+      },
+      {
+        "name": "Celia Schiffer",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 279988.2
+      },
+      {
+        "name": "Jeroan Allison",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 279577.47
+      },
+      {
+        "name": "Craig Mello",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Professor Tenured/Tenure Track",
+        "totalPay": 279115.5
+      },
+      {
+        "name": "Mary Ahn",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Vice Provost Faculty Affairs",
+        "totalPay": 277713.6
+      },
+      {
+        "name": "Mindy Hull",
+        "department": "CHIEF MEDICAL EXAMINER (CME)",
+        "title": "Chief Medical Examiner",
+        "totalPay": 276585.85
+      },
+      {
+        "name": "Nefertiti Walker",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Sr.VP Academic&Stud Affair",
+        "totalPay": 276031.95
+      },
+      {
+        "name": "Richard Gregory",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 274976.1
+      },
+      {
+        "name": "David Lowy",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "General Counsel",
+        "totalPay": 274803.8
+      },
+      {
+        "name": "Maxwell Mayer",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Asst Professor",
+        "totalPay": 274069.2
+      },
+      {
+        "name": "Mark Johnson",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Ten Trk",
+        "totalPay": 272725.61
+      },
+      {
+        "name": "Dana Atkinson",
+        "department": "DEPARTMENT OF STATE POLICE (POL)",
+        "title": "Lieutenant",
+        "totalPay": 271933.62
+      },
+      {
+        "name": "Phillip Eng",
+        "department": "Massachusetts Bay Transportation Authority (MBT)",
+        "title": "General Manager",
+        "totalPay": 269949.07
+      },
+      {
+        "name": "Tesfay Meressi",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Assoc Prov Grad Studies",
+        "totalPay": 266670.06
       },
       {
         "name": "Long Nguyen",
@@ -1911,259 +2061,109 @@
         "totalPay": 264597.01
       },
       {
-        "name": "Lisa Calise",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Senior Vice President",
-        "totalPay": 264535.73
-      },
-      {
-        "name": "Fousseni Chabi-Yo",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Assoc Dean, School of Mgmt",
-        "totalPay": 261166.6
-      },
-      {
-        "name": "Allen Barker",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor U of M",
-        "totalPay": 257757.04
-      },
-      {
-        "name": "Thomas Connolly",
-        "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "title": "Wireperson",
-        "totalPay": 257428.67
-      },
-      {
-        "name": "Roger Davis",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 246588.68
-      },
-      {
-        "name": "Paul Burns",
-        "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "title": "State Police Sergeant",
-        "totalPay": 245369.96
-      },
-      {
-        "name": "Celia Schiffer",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 242656.44
-      },
-      {
-        "name": "Sanjay Raman",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Dean, Engineering",
-        "totalPay": 242648.08
-      },
-      {
-        "name": "Jeroan Allison",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 242300.47
-      },
-      {
-        "name": "Craig Mello",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor Tenured/Tenure Track",
-        "totalPay": 241900.1
-      },
-      {
-        "name": "Mary Ahn",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Vice Provost Faculty Affairs",
-        "totalPay": 240685.12
-      },
-      {
-        "name": "Mindy Hull",
-        "department": "CHIEF MEDICAL EXAMINER (CME)",
-        "title": "Chief Medical Examiner",
-        "totalPay": 239707.73
-      },
-      {
-        "name": "Nefertiti Walker",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Sr.VP Academic&Stud Affair",
-        "totalPay": 239119.39
-      },
-      {
-        "name": "Donald Towsley",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Distinguished Professor",
-        "totalPay": 238561.48
-      },
-      {
-        "name": "Richard Gregory",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 238312.62
-      },
-      {
-        "name": "Abdallah Georges Assaf",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor U of M",
-        "totalPay": 236929.53
-      },
-      {
-        "name": "Mark Johnson",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Ten Trk",
-        "totalPay": 236702.85
-      },
-      {
-        "name": "David Lowy",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "General Counsel",
-        "totalPay": 236496.1
-      },
-      {
-        "name": "Maxwell Mayer",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Asst Professor",
-        "totalPay": 236371.64
-      },
-      {
-        "name": "John Gerber",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor U of M",
-        "totalPay": 235937.67
-      },
-      {
-        "name": "Phillip Eng",
-        "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "title": "General Manager",
-        "totalPay": 232702.45
-      },
-      {
-        "name": "Dana Atkinson",
-        "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "title": "Lieutenant",
-        "totalPay": 232475.91
-      },
-      {
-        "name": "Mark Cyr",
-        "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "title": "Deputy Superintendent",
-        "totalPay": 232034.75
-      },
-      {
-        "name": "David McManus",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Ten Trk",
-        "totalPay": 229035.51
-      },
-      {
         "name": "Albertha Walhout",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 228510.9
-      },
-      {
-        "name": "Zhiping Weng",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 228510.88
+        "totalPay": 263666.42
       },
       {
         "name": "Beth McCormick",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 228510.88
+        "totalPay": 263666.41
       }
     ]
   },
   "payrollOverTime": [
     {
       "year": "2009",
-      "totalPayroll": 698524427.69,
-      "headcount": 22499
+      "totalPayroll": 700773000.28,
+      "headcount": 30553
     },
     {
       "year": "2010",
-      "totalPayroll": 5598024272.49,
-      "headcount": 137541
+      "totalPayroll": 5598232610.82,
+      "headcount": 145156
     },
     {
       "year": "2011",
-      "totalPayroll": 5778694032.12,
-      "headcount": 138574
+      "totalPayroll": 5779500943.89,
+      "headcount": 169148
     },
     {
       "year": "2012",
-      "totalPayroll": 5949438206.51,
-      "headcount": 139293
+      "totalPayroll": 5948201569.22,
+      "headcount": 151781
     },
     {
       "year": "2013",
-      "totalPayroll": 6229636032.08,
-      "headcount": 142441
+      "totalPayroll": 6228214840.73,
+      "headcount": 153987
     },
     {
       "year": "2014",
-      "totalPayroll": 6513123488.49,
-      "headcount": 143273
+      "totalPayroll": 6511737097.95,
+      "headcount": 156762
     },
     {
       "year": "2015",
-      "totalPayroll": 6897923955.2,
-      "headcount": 144642
+      "totalPayroll": 6896347006.27,
+      "headcount": 157546
     },
     {
       "year": "2016",
-      "totalPayroll": 6858208383.37,
-      "headcount": 144104
+      "totalPayroll": 6857481765.07,
+      "headcount": 158091
     },
     {
       "year": "2017",
-      "totalPayroll": 7314151311.73,
-      "headcount": 147741
+      "totalPayroll": 7312730192.36,
+      "headcount": 159634
     },
     {
       "year": "2018",
-      "totalPayroll": 7738302748.27,
-      "headcount": 147305
+      "totalPayroll": 7736985714.83,
+      "headcount": 158695
     },
     {
       "year": "2019",
-      "totalPayroll": 8027903834.07,
-      "headcount": 151272
+      "totalPayroll": 8026016567.1,
+      "headcount": 166013
     },
     {
       "year": "2020",
-      "totalPayroll": 8196671605.06,
-      "headcount": 144385
+      "totalPayroll": 8196179901.11,
+      "headcount": 157042
     },
     {
       "year": "2021",
-      "totalPayroll": 8389865238.86,
-      "headcount": 142071
+      "totalPayroll": 8388548773.39,
+      "headcount": 153650
     },
     {
       "year": "2022",
-      "totalPayroll": 8953454637.21,
-      "headcount": 150359
+      "totalPayroll": 9003626828.41,
+      "headcount": 168733
     },
     {
       "year": "2023",
-      "totalPayroll": 9330126494.4,
-      "headcount": 146893
+      "totalPayroll": 9329589552.01,
+      "headcount": 166882
     },
     {
       "year": "2024",
-      "totalPayroll": 10242257030.57,
-      "headcount": 170881
+      "totalPayroll": 10242143361.41,
+      "headcount": 170879
     },
     {
       "year": "2025",
-      "totalPayroll": 10887237342.61,
-      "headcount": 150667
+      "totalPayroll": 10887062994.86,
+      "headcount": 162477
     },
     {
       "year": "2026",
-      "totalPayroll": 5592223953.6,
-      "headcount": 136415
+      "totalPayroll": 6516728742.38,
+      "headcount": 144005
     }
   ],
   "quasiByAgency": [
