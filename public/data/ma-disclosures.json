@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-07-26T02:43:42.566Z",
-  "preservedFromCache": true,
+  "fetchedAt": "2026-07-26T08:24:35.614Z",
+  "preservedFromCache": false,
   "sources": [
     {
-      "name": "massbondholder.com · News",
-      "ok": false,
-      "error": "fetch failed"
+      "name": "mass.gov · Debt Management",
+      "ok": true,
+      "count": 0
     },
     {
       "name": "mass.gov · Office of the Treasurer",
@@ -13,21 +13,17 @@
       "count": 0
     },
     {
-      "name": "mass.gov · Debt Management",
+      "name": "massbondholder.com · News",
       "ok": true,
-      "count": 0
+      "count": 15
     },
     {
       "name": "massbondholder.com · Official Statements",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 195
     }
   ],
-  "warnings": [
-    "massbondholder.com · News: fetch failed",
-    "massbondholder.com · Official Statements: fetch failed",
-    "All live sources returned 0 items — preserving cached items."
-  ],
+  "warnings": [],
   "count": 30,
   "items": [
     {
