@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-24T11:04:54.615Z",
+  "fetchedAt": "2026-07-26T10:46:12.172Z",
   "years": [
     "2025",
     "2026",
@@ -9,90 +9,75 @@
     "2025",
     "2026"
   ],
-  "preservedFromCache": true,
+  "preservedFromCache": false,
   "sources": [
     {
       "name": "spending.byDepartment.2025",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "spending.byVendor.2025",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "spending.byDepartment.2026",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "spending.byVendor.2026",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "spending.byDepartment.2027",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 0
     },
     {
       "name": "spending.byVendor.2027",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 0
     },
     {
       "name": "spending.overTime",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 17
     },
     {
       "name": "payroll.byDepartment.2025",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "payroll.topEarners.2025",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "payroll.byDepartment.2026",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "payroll.topEarners.2026",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 50
     },
     {
       "name": "payroll.overTime",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 18
     },
     {
       "name": "quasi.byAgency",
-      "ok": false,
-      "error": "fetch failed"
+      "ok": true,
+      "count": 21
     }
   ],
-  "warnings": [
-    "spending.byDepartment.2025: fetch failed",
-    "spending.byVendor.2025: fetch failed",
-    "spending.byDepartment.2026: fetch failed",
-    "spending.byVendor.2026: fetch failed",
-    "spending.byDepartment.2027: fetch failed",
-    "spending.byVendor.2027: fetch failed",
-    "spending.overTime: fetch failed",
-    "payroll.byDepartment.2025: fetch failed",
-    "payroll.topEarners.2025: fetch failed",
-    "payroll.byDepartment.2026: fetch failed",
-    "payroll.topEarners.2026: fetch failed",
-    "payroll.overTime: fetch failed",
-    "quasi.byAgency: fetch failed",
-    "All Socrata queries failed — preserving previous snapshot."
-  ],
+  "warnings": [],
   "spendingByDepartment": {
     "2025": [
       {
