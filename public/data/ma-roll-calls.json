@@ -5,7 +5,7 @@
   "billsTotal": 8797,
   "sampleStrategy": "first-750-per-chamber-with-BillNumber-interleaved",
   "budgetTruncated": false,
-  "preservedFromCache": false,
+  "preservedFromCache": true,
   "totals": {
     "actions": 8083,
     "rollCalls": 11,
@@ -333,23 +333,26 @@
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11364
+      "count": 11406
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5600
+      "count": 5605
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3197
+      "count": 3225
     },
     {
       "name": "bills.actions",
       "ok": true,
-      "count": 1500
+      "count": 1479
     }
   ],
-  "warnings": []
+  "warnings": [
+    "runtime budget (900s) reached — only 1479/1500 bills scanned before cutoff",
+    "Scan truncated at 1479/1500 bills — preserving previous full snapshot."
+  ]
 }
