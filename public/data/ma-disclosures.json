@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-28T18:31:54.373Z",
+  "fetchedAt": "2026-07-29T00:34:27.681Z",
   "preservedFromCache": false,
   "sources": [
     {
@@ -14,8 +14,8 @@
     },
     {
       "name": "mass.gov · Office of the Treasurer",
-      "ok": false,
-      "error": "HTTP 403"
+      "ok": true,
+      "count": 0
     },
     {
       "name": "massbondholder.com · Official Statements",
@@ -23,9 +23,7 @@
       "count": 195
     }
   ],
-  "warnings": [
-    "mass.gov · Office of the Treasurer: HTTP 403"
-  ],
+  "warnings": [],
   "count": 30,
   "items": [
     {
