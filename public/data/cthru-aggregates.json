@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-29T09:56:35.231Z",
+  "fetchedAt": "2026-07-30T09:53:21.325Z",
   "years": [
     "2025",
     "2026",
@@ -977,7 +977,7 @@
       {
         "department": "TRIAL COURT (TRC)",
         "totalPay": 681129423.02,
-        "employees": 7744
+        "employees": 7745
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
@@ -1007,7 +1007,7 @@
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
         "totalPay": 386880269.99,
-        "employees": 4684
+        "employees": 4685
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1037,7 +1037,7 @@
       {
         "department": "BRIDGEWATER STATE UNIVERSITY (BSC)",
         "totalPay": 125549003.71,
-        "employees": 3743
+        "employees": 3742
       },
       {
         "department": "SHERIFF DEPARTMENT HAMPDEN (SDH)",
@@ -1077,7 +1077,7 @@
       {
         "department": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
         "totalPay": 77021709.26,
-        "employees": 981
+        "employees": 980
       },
       {
         "department": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
@@ -1254,12 +1254,12 @@
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
         "totalPay": 232192401.12,
-        "employees": 4219
+        "employees": 4220
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
         "totalPay": 230543767.52,
-        "employees": 4504
+        "employees": 4503
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1303,7 +1303,7 @@
       },
       {
         "department": "Executive Office of Labor and Workforce Development (EOL)",
-        "totalPay": 67970377.04,
+        "totalPay": 67970375.17,
         "employees": 1438
       },
       {
@@ -1323,7 +1323,7 @@
       },
       {
         "department": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
-        "totalPay": 47602818.04,
+        "totalPay": 47603268.04,
         "employees": 2240
       },
       {
@@ -1458,7 +1458,7 @@
       },
       {
         "department": "EXECUTIVE OFFICE OF ENVIRONMENTAL AFFAIRS (ENV)",
-        "totalPay": 24361583.8,
+        "totalPay": 24374484.64,
         "employees": 390
       },
       {
@@ -2162,7 +2162,7 @@
     },
     {
       "year": "2026",
-      "totalPayroll": 6516728742.38,
+      "totalPayroll": 6516760383.4,
       "headcount": 144005
     }
   ],
