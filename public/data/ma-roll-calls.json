@@ -1,16 +1,16 @@
 {
-  "fetchedAt": "2026-07-24T11:54:18.437Z",
+  "fetchedAt": "2026-07-31T11:07:52.776Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8797,
+  "billsTotal": 8862,
   "sampleStrategy": "first-750-per-chamber-with-BillNumber-interleaved",
   "budgetTruncated": false,
-  "preservedFromCache": true,
+  "preservedFromCache": false,
   "totals": {
-    "actions": 8083,
+    "actions": 8085,
     "rollCalls": 11,
     "voicePasses": 1667,
-    "procedural": 6405
+    "procedural": 6407
   },
   "ratios": {
     "rollCallShare": 0.006555423122765197,
@@ -217,6 +217,13 @@
       "action": "Senate concurred"
     },
     {
+      "billNumber": "S1000",
+      "title": "An Act relative to creating a statutory housing restriction and providing remedies related to statutory housing",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
       "billNumber": "S100",
       "title": "An Act to study supply and demand for cannabis cultivation",
       "branch": "House",
@@ -231,71 +238,8 @@
       "action": "Senate concurred"
     },
     {
-      "billNumber": "S1000",
-      "title": "An Act relative to creating a statutory housing restriction and providing remedies related to statutory housing",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
       "billNumber": "S1001",
       "title": "An Act to increase housing production in the city of Lowell",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "S1002",
-      "title": "An Act relative to accessory dwelling units on smaller lots",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H1003",
-      "title": "An Act relative to maintaining adequate water supplies through effective drought management",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H1002",
-      "title": "An Act relative to the Douglas State Forest Maintenance Trust Fund",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S1003",
-      "title": "Resolve to examine Chapter 40B",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H1004",
-      "title": "An Act promoting climate safe buildings",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H1005",
-      "title": "An Act investing in natural and working lands",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S1004",
-      "title": "An Act to create affordable homes for persons with disabilities",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "S1005",
-      "title": "An Act for Chapter 40B reform and improvement",
       "branch": "House",
       "date": "2/27/2025",
       "action": "House concurred"
@@ -308,6 +252,48 @@
       "action": "Senate concurred"
     },
     {
+      "billNumber": "S1002",
+      "title": "An Act relative to accessory dwelling units on smaller lots",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "H1002",
+      "title": "An Act relative to the Douglas State Forest Maintenance Trust Fund",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1004",
+      "title": "An Act promoting climate safe buildings",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S1003",
+      "title": "Resolve to examine Chapter 40B",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "H1003",
+      "title": "An Act relative to maintaining adequate water supplies through effective drought management",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S1004",
+      "title": "An Act to create affordable homes for persons with disabilities",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
       "billNumber": "S1006",
       "title": "An Act creating the Home Works Program",
       "branch": "House",
@@ -315,11 +301,25 @@
       "action": "House concurred"
     },
     {
+      "billNumber": "H1005",
+      "title": "An Act investing in natural and working lands",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
       "billNumber": "H1006",
       "title": "An Act relative to incentives for nature as a climate solution",
       "branch": "Senate",
       "date": "2/27/2025",
       "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S1005",
+      "title": "An Act for Chapter 40B reform and improvement",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
     },
     {
       "billNumber": "S1007",
@@ -333,26 +333,23 @@
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11406
+      "count": 11446
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5605
+      "count": 5627
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3225
+      "count": 3235
     },
     {
       "name": "bills.actions",
       "ok": true,
-      "count": 1479
+      "count": 1500
     }
   ],
-  "warnings": [
-    "runtime budget (900s) reached — only 1479/1500 bills scanned before cutoff",
-    "Scan truncated at 1479/1500 bills — preserving previous full snapshot."
-  ]
+  "warnings": []
 }
