@@ -43,14 +43,42 @@ const DATASETS = {
   quasi: 'j7hg-9qyq',  // Quasi Government Financials (live; replaced dead v9tf-ghmw)
 };
 
-// Pull the current FY plus the two prior FYs. The dashboard's default
-// views always land on the most recent year and rarely scroll back further.
+// MA fiscal year runs July 1 → June 30; FY26 = Jul 1 2025 → Jun 30 2026.
 const CURRENT_FY = (() => {
-  // MA fiscal year runs July 1 → June 30; FY26 = Jul 1 2025 → Jun 30 2026.
   const now = new Date();
   return now.getUTCMonth() >= 6 ? now.getUTCFullYear() + 1 : now.getUTCFullYear();
 })();
-const YEARS = [String(CURRENT_FY - 2), String(CURRENT_FY - 1), String(CURRENT_FY)];
+
+// How many recent years to cache per dataset.
+const YEAR_DEPTH = 3;
+
+// Calendar-derived years, used only as a fallback when year discovery fails.
+// Do NOT cache off these directly: the calendar rolls to a new fiscal year on
+// July 1, but the Comptroller does not publish that year's spending for months.
+// Asking for it returns an empty result that still looks like a successful
+// query, which is how FY2027 came to occupy a cache slot holding zero rows
+// while FY2024 — a year the UI actually offers — went uncached.
+const FALLBACK_YEARS = Array.from({ length: YEAR_DEPTH }, (_, i) =>
+  String(CURRENT_FY - (YEAR_DEPTH - 1 - i)),
+);
+
+/**
+ * Pick the newest `depth` years that actually carry data.
+ *
+ * `rows` is an overTime series ([{year, total}] or [{year, totalPayroll}]) —
+ * the authoritative list of what the dataset holds. Years with a zero or
+ * missing total are dropped: a fiscal year that has technically begun but has
+ * no payments posted yet is not a year worth caching.
+ */
+function pickPopulatedYears(rows, valueKey, depth = YEAR_DEPTH) {
+  if (!Array.isArray(rows) || rows.length === 0) return null;
+  const populated = rows
+    .filter((r) => r && r.year != null && Number(r[valueKey]) > 0)
+    .map((r) => String(r.year))
+    .sort((a, b) => Number(a) - Number(b));
+  if (populated.length === 0) return null;
+  return populated.slice(-depth);
+}
 
 const USER_AGENT =
   'ThePeoplesAudit/1.0 (+https://github.com/duncanburns2013-dot/The-Peoples-Audit) civic-transparency-bot';
@@ -227,6 +255,15 @@ async function main() {
     try {
       const v = await fn();
       const count = Array.isArray(v) ? v.length : Object.keys(v || {}).length;
+      // An empty result is not a success. Socrata answers 200 with `[]` for a
+      // fiscal year that has no rows yet, and recording that as ok:true is what
+      // let a stale contracts snapshot and an empty year slot sit unnoticed
+      // behind a "13/13 sources OK" health line.
+      if (count === 0) {
+        warnings.push(`${name}: query succeeded but returned 0 rows`);
+        sources.push({ name, ok: false, empty: true, count: 0 });
+        return v;
+      }
       sources.push({ name, ok: true, count });
       return v;
     } catch (err) {
@@ -237,7 +274,28 @@ async function main() {
     }
   };
 
-  // Spending — three years × three queries.
+  // Discover what the datasets actually hold BEFORE caching per-year slices.
+  // The overTime queries enumerate every year present with its total, so they
+  // are the cheapest reliable answer to "which years are worth fetching".
+  const spendingOverTime = await tryFetch('spending.overTime', fetchSpendingOverTime);
+  await sleep(800);
+  const payrollOverTime = await tryFetch('payroll.overTime', fetchPayrollOverTime);
+  await sleep(800);
+
+  const YEARS = pickPopulatedYears(spendingOverTime, 'total') || FALLBACK_YEARS;
+  const PAYROLL_YEARS =
+    pickPopulatedYears(payrollOverTime, 'totalPayroll') || FALLBACK_YEARS.slice(-2);
+
+  if (!pickPopulatedYears(spendingOverTime, 'total')) {
+    warnings.push('spending: year discovery failed, falling back to calendar-derived years');
+  }
+  if (!pickPopulatedYears(payrollOverTime, 'totalPayroll')) {
+    warnings.push('payroll: year discovery failed, falling back to calendar-derived years');
+  }
+  console.log(`[cthru-aggregates] caching spending FY ${YEARS.join(', ')}`);
+  console.log(`[cthru-aggregates] caching payroll ${PAYROLL_YEARS.join(', ')}`);
+
+  // Spending — per-year department and vendor rollups.
   const spendingByDepartment = {};
   const spendingByVendor = {};
   for (const fy of YEARS) {
@@ -252,11 +310,8 @@ async function main() {
     );
     await sleep(800);
   }
-  const spendingOverTime = await tryFetch('spending.overTime', fetchSpendingOverTime);
-  await sleep(800);
 
   // Payroll — payroll year is calendar year, not FY.
-  const PAYROLL_YEARS = [String(CURRENT_FY - 2), String(CURRENT_FY - 1)];
   const payrollByDepartment = {};
   const topEarners = {};
   for (const year of PAYROLL_YEARS) {
@@ -271,8 +326,6 @@ async function main() {
     );
     await sleep(800);
   }
-  const payrollOverTime = await tryFetch('payroll.overTime', fetchPayrollOverTime);
-  await sleep(800);
 
   // Quasi-government.
   const quasiByAgency = await tryFetch('quasi.byAgency', fetchQuasiByAgency);
@@ -316,10 +369,18 @@ async function main() {
   await writeFile(OUTPUT_PATH, JSON.stringify(payload, null, 2) + '\n', 'utf8');
 
   const okCount = sources.filter((s) => s.ok).length;
-  console.log(`[cthru-aggregates] wrote snapshot (${okCount}/${sources.length} sources OK)`);
+  const emptyCount = sources.filter((s) => s.empty).length;
+  console.log(
+    `[cthru-aggregates] wrote snapshot (${okCount}/${sources.length} sources OK` +
+      (emptyCount ? `, ${emptyCount} returned 0 rows` : '') +
+      ')',
+  );
   if (warnings.length) {
     console.log('[cthru-aggregates] warnings:');
     for (const w of warnings) console.log('  - ' + w);
+    if (process.env.GITHUB_ACTIONS) {
+      console.log(`::warning::CTHRU refresh finished with ${warnings.length} warning(s): ${warnings[0]}`);
+    }
   }
 }
 
@@ -328,7 +389,7 @@ main().catch((err) => {
   // Stub a minimal valid file so the freshness index never breaks.
   const stub = {
     fetchedAt: new Date().toISOString(),
-    years: YEARS,
+    years: FALLBACK_YEARS,
     preservedFromCache: false,
     sources: [],
     warnings: [`fatal: ${err?.message || String(err)}`],
