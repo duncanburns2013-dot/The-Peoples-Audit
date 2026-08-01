@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-31T09:57:23.292Z",
+  "fetchedAt": "2026-08-01T09:42:43.556Z",
   "years": [
     "2025",
     "2026",
@@ -1224,7 +1224,7 @@
       {
         "department": "Massachusetts Bay Transportation Authority (MBT)",
         "totalPay": 628580067.66,
-        "employees": 9692
+        "employees": 9689
       },
       {
         "department": "TRIAL COURT (TRC)",
@@ -1238,7 +1238,7 @@
       },
       {
         "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "totalPay": 304955079.35,
+        "totalPay": 304951947.79,
         "employees": 4833
       },
       {
@@ -1319,7 +1319,7 @@
       {
         "department": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
         "totalPay": 54171552.16,
-        "employees": 992
+        "employees": 991
       },
       {
         "department": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
@@ -1413,7 +1413,7 @@
       },
       {
         "department": "MIDDLESEX COMMUNITY COLLEGE (MCC)",
-        "totalPay": 32148568.71,
+        "totalPay": 32146389.33,
         "employees": 1723
       },
       {
@@ -1741,13 +1741,13 @@
         "totalPay": 450591
       },
       {
-        "name": "Zhiping Weng",
+        "name": "Beth McCormick",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
       },
       {
-        "name": "Beth McCormick",
+        "name": "Zhiping Weng",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
@@ -2162,8 +2162,8 @@
     },
     {
       "year": "2026",
-      "totalPayroll": 6887409379.3,
-      "headcount": 145300
+      "totalPayroll": 6887403311.58,
+      "headcount": 145296
     }
   ],
   "quasiByAgency": [
@@ -2189,7 +2189,7 @@
     },
     {
       "name": "University of Massachusetts Building Authority",
-      "value": 7877616863.76
+      "value": 8097162125.85
     },
     {
       "name": "Massachusetts Pension Reserves Investment Management Board",
@@ -2205,7 +2205,7 @@
     },
     {
       "name": "Massachusetts State College Building Authority",
-      "value": 1246939432.81
+      "value": 1249591037.44
     },
     {
       "name": "Community Economic Development Assistance Corporation",
