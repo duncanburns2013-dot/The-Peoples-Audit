@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-01T09:42:43.556Z",
+  "fetchedAt": "2026-08-02T09:43:08.865Z",
   "years": [
     "2025",
     "2026",
@@ -1001,8 +1001,8 @@
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "totalPay": 397784759.48,
-        "employees": 5116
+        "totalPay": 397710203.76,
+        "employees": 5114
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
@@ -1258,8 +1258,8 @@
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "totalPay": 245841586.37,
-        "employees": 4527
+        "totalPay": 245796651.76,
+        "employees": 4526
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1268,8 +1268,8 @@
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
-        "totalPay": 137508280.73,
-        "employees": 2178
+        "totalPay": 137505217.48,
+        "employees": 2177
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
@@ -1428,7 +1428,7 @@
       },
       {
         "department": "NORTH SHORE COMMUNITY COLLEGE (NSC)",
-        "totalPay": 28969296.27,
+        "totalPay": 28968553.31,
         "employees": 1064
       },
       {
@@ -2152,18 +2152,18 @@
     },
     {
       "year": "2024",
-      "totalPayroll": 10242159568.16,
-      "headcount": 170880
+      "totalPayroll": 10242096825.95,
+      "headcount": 170879
     },
     {
       "year": "2025",
-      "totalPayroll": 10887062994.86,
-      "headcount": 162474
+      "totalPayroll": 10886988439.14,
+      "headcount": 162472
     },
     {
       "year": "2026",
-      "totalPayroll": 6887403311.58,
-      "headcount": 145296
+      "totalPayroll": 6887354570.76,
+      "headcount": 145294
     }
   ],
   "quasiByAgency": [
