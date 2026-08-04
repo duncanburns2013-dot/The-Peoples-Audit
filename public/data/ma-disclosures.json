@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-08-04T12:41:12.539Z",
+  "fetchedAt": "2026-08-04T18:34:07.336Z",
   "preservedFromCache": false,
   "sources": [
     {
-      "name": "massbondholder.com · Official Statements",
-      "ok": true,
-      "count": 195
+      "name": "mass.gov · Office of the Treasurer",
+      "ok": false,
+      "error": "HTTP 403"
     },
     {
       "name": "massbondholder.com · News",
@@ -13,9 +13,9 @@
       "count": 15
     },
     {
-      "name": "mass.gov · Office of the Treasurer",
+      "name": "massbondholder.com · Official Statements",
       "ok": true,
-      "count": 0
+      "count": 195
     },
     {
       "name": "mass.gov · Debt Management",
@@ -23,7 +23,9 @@
       "count": 0
     }
   ],
-  "warnings": [],
+  "warnings": [
+    "mass.gov · Office of the Treasurer: HTTP 403"
+  ],
   "count": 30,
   "items": [
     {
