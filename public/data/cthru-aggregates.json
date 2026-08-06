@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-05T09:56:03.499Z",
+  "fetchedAt": "2026-08-06T09:57:08.062Z",
   "years": [
     "2025",
     "2026",
@@ -1303,7 +1303,7 @@
       },
       {
         "department": "Executive Office of Labor and Workforce Development (EOL)",
-        "totalPay": 72627256.35,
+        "totalPay": 72627258.22,
         "employees": 1439
       },
       {
@@ -2162,7 +2162,7 @@
     },
     {
       "year": "2026",
-      "totalPayroll": 6965190173.37,
+      "totalPayroll": 6965190175.24,
       "headcount": 145615
     }
   ],
