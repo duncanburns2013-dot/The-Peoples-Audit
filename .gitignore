@@ -28,3 +28,7 @@ dist[0-9]*
 # The parser writes flattened per-firm JSON into public/data/ which IS committed.
 .cache/
 
+
+# Python bytecode from the audit-scripts
+__pycache__/
+*.pyc

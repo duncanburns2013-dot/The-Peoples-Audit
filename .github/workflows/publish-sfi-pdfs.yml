@@ -1,0 +1,61 @@
+name: Publish SFI per-filing PDFs
+
+# Backfills the individual SFI PDFs as release assets so the dashboard's
+# per-filing `sourcePdfUrl` links resolve. See
+# audit-scripts/sfi/15_publish_release_pdfs.py for the full why.
+#
+# A release-asset upload costs ~2 REST requests, so all 29,729 filings need
+# ~59,500 requests — far more than any single hour's primary rate limit
+# (5,000/hr for a PAT, 1,000/hr for GITHUB_TOKEN). The script is budget-aware,
+# resumable and idempotent, so this runs hourly and simply picks up where the
+# previous run stopped. Once every year is complete each run is a cheap no-op.
+#
+# Supply a PAT as the SFI_UPLOAD_TOKEN secret (contents: write) for the 5x
+# faster 5,000/hr budget; without it this falls back to GITHUB_TOKEN.
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      report_only:
+        description: 'Show per-year progress without uploading'
+        type: boolean
+        default: false
+
+# Never let two backfill runs upload the same asset concurrently.
+concurrency:
+  group: publish-sfi-pdfs
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Free disk for the bulk zips
+        run: |
+          df -h / | tail -1
+
+      - name: Publish missing per-filing PDFs
+        env:
+          # Prefer the PAT (5,000 req/hr); fall back to the built-in token.
+          GH_TOKEN: ${{ secrets.SFI_UPLOAD_TOKEN || github.token }}
+          SFI_REPO: ${{ github.repository }}
+          SFI_WORKDIR: ${{ runner.temp }}/sfi-publish
+        run: |
+          python audit-scripts/sfi/15_publish_release_pdfs.py \
+            ${{ inputs.report_only && '--report' || '' }} \
+            >> "$GITHUB_STEP_SUMMARY" 2>&1 || {
+              tail -40 "$GITHUB_STEP_SUMMARY"; exit 1;
+            }
+          tail -40 "$GITHUB_STEP_SUMMARY"

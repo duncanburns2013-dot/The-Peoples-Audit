@@ -171,6 +171,11 @@ def main() -> int:
                 "investments": sum(1 for q in INVESTMENT_QS if section_has_content(sections, {q})),
                 "debts": sum(1 for q in DEBT_QS if section_has_content(sections, {q})),
                 "gifts": sum(1 for q in GIFT_QS if section_has_content(sections, {q})),
+                # Points at a PER-FILE release asset, not the sfi-<YYYY>.zip bulk
+                # archive. Those per-file assets only exist because
+                # 15_publish_release_pdfs.py uploads them; without that backfill
+                # every one of these URLs 404s. Keep the two in sync — a change to
+                # the filename scheme here must be mirrored there.
                 "sourcePdfUrl": (
                     "https://github.com/duncanburns2013-dot/The-Peoples-Audit"
                     f"/releases/download/sfi-{rec['year']}/"
