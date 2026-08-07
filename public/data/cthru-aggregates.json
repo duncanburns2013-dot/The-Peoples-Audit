@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-06T09:57:08.062Z",
+  "fetchedAt": "2026-08-07T09:25:21.933Z",
   "years": [
     "2025",
     "2026",
@@ -1428,7 +1428,7 @@
       },
       {
         "department": "NORTH SHORE COMMUNITY COLLEGE (NSC)",
-        "totalPay": 28968553.31,
+        "totalPay": 28969296.27,
         "employees": 1064
       },
       {
@@ -2162,7 +2162,7 @@
     },
     {
       "year": "2026",
-      "totalPayroll": 6965190175.24,
+      "totalPayroll": 6965190918.2,
       "headcount": 145615
     }
   ],
