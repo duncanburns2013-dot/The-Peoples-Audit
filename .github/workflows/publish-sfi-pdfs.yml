@@ -53,9 +53,20 @@ jobs:
           SFI_REPO: ${{ github.repository }}
           SFI_WORKDIR: ${{ runner.temp }}/sfi-publish
         run: |
-          python audit-scripts/sfi/15_publish_release_pdfs.py \
+          set -o pipefail
+          # The default shell is `bash -e`; without this a failing run would
+          # abort before the step summary is written, hiding the reason.
+          set +e
+          python -u audit-scripts/sfi/15_publish_release_pdfs.py \
             ${{ inputs.report_only && '--report' || '' }} \
-            >> "$GITHUB_STEP_SUMMARY" 2>&1 || {
-              tail -40 "$GITHUB_STEP_SUMMARY"; exit 1;
-            }
-          tail -40 "$GITHUB_STEP_SUMMARY"
+            2>&1 | tee run.log
+          status=$?
+          {
+            echo '### SFI per-filing PDF backfill'
+            echo '```'
+            # Progress lines are noisy over a long run; keep the survey table
+            # and the closing tally, which is what actually needs reading.
+            grep -vE '^  [0-9,]+/[0-9,]+ uploaded$' run.log | tail -30
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit $status
