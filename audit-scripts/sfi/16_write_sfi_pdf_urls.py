@@ -53,9 +53,14 @@ def api_json(url: str):
         return json.load(r)
 
 
-def published_urls() -> dict[str, str]:
-    """asset name -> browser_download_url, across every shard of every year."""
-    urls: dict[str, str] = {}
+def published_urls() -> dict[tuple[str, str], str]:
+    """(year, asset name) -> browser_download_url, across every shard of every year.
+
+    Keyed by year as well as name: the same person files in multiple years, so
+    `Aalto__Joanna_B.pdf` exists once per year. Keying on the name alone hands
+    the 2019 PDF to that filer's 2020-2025 rows too.
+    """
+    urls: dict[tuple[str, str], str] = {}
     for year in YEARS:
         shard = 0
         while True:
@@ -74,7 +79,7 @@ def published_urls() -> dict[str, str]:
                 )
                 for a in batch:
                     if a["name"].lower().endswith(".pdf"):
-                        urls[a["name"]] = a["browser_download_url"]
+                        urls[(year, a["name"])] = a["browser_download_url"]
                 if len(batch) < 100:
                     break
                 page += 1
@@ -95,8 +100,11 @@ def main() -> int:
 
     linked = missing = changed = 0
     for f in filings:
-        base = Path(f["relPath"].replace("\\", "/")).name
-        url = urls.get(safe_asset_name(base))
+        rel = f["relPath"].replace("\\", "/")
+        base = Path(rel).name
+        # relPath is "<YYYY>/<slug>.pdf"; fall back to the filing's own year.
+        year = rel.split("/")[0] if "/" in rel else str(f.get("filingYear", ""))
+        url = urls.get((year, safe_asset_name(base)))
         before = f.get("sourcePdfUrl")
         if url:
             f["sourcePdfUrl"] = url
