@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-07T09:25:21.933Z",
+  "fetchedAt": "2026-08-08T09:16:59.074Z",
   "years": [
     "2025",
     "2026",
@@ -1197,7 +1197,7 @@
       {
         "department": "HOLYOKE COMMUNITY COLLEGE (HCC)",
         "totalPay": 41846390.24,
-        "employees": 1296
+        "employees": 1295
       },
       {
         "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
@@ -1449,7 +1449,7 @@
       {
         "department": "HOLYOKE COMMUNITY COLLEGE (HCC)",
         "totalPay": 26661706.71,
-        "employees": 1174
+        "employees": 1173
       },
       {
         "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
@@ -2158,12 +2158,12 @@
     {
       "year": "2025",
       "totalPayroll": 10886988439.14,
-      "headcount": 162472
+      "headcount": 162471
     },
     {
       "year": "2026",
       "totalPayroll": 6965190918.2,
-      "headcount": 145615
+      "headcount": 145614
     }
   ],
   "quasiByAgency": [
@@ -2205,7 +2205,7 @@
     },
     {
       "name": "Massachusetts State College Building Authority",
-      "value": 1249591037.44
+      "value": 1254101017.6
     },
     {
       "name": "Community Economic Development Assistance Corporation",
