@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-10T21:54:45.446Z",
+  "generatedAt": "2026-08-10T23:46:56.107Z",
   "snapshots": [
     {
       "file": "ma-sfi-crossref-pass1.json",
-      "fetchedAt": "2026-08-10T21:28:33.081Z",
+      "fetchedAt": "2026-08-10T23:26:57.727Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -12,7 +12,7 @@
     },
     {
       "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-08-10T21:28:33.058Z",
+      "fetchedAt": "2026-08-10T23:26:57.704Z",
       "fetchedAtSource": "mtime",
       "count": 1755,
       "preservedFromCache": false,
@@ -21,7 +21,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2025.json",
-      "fetchedAt": "2026-08-10T21:28:33.037Z",
+      "fetchedAt": "2026-08-10T23:26:57.683Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -30,7 +30,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2026.json",
-      "fetchedAt": "2026-08-10T21:28:33.037Z",
+      "fetchedAt": "2026-08-10T23:26:57.683Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -39,7 +39,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2023.json",
-      "fetchedAt": "2026-08-10T21:28:33.036Z",
+      "fetchedAt": "2026-08-10T23:26:57.682Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -48,7 +48,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2024.json",
-      "fetchedAt": "2026-08-10T21:28:33.036Z",
+      "fetchedAt": "2026-08-10T23:26:57.682Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -57,7 +57,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2022.json",
-      "fetchedAt": "2026-08-10T21:28:33.035Z",
+      "fetchedAt": "2026-08-10T23:26:57.681Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -65,17 +65,8 @@
       "sizeBytes": 896276
     },
     {
-      "file": "ma-lobbying-firm-details-2021.json",
-      "fetchedAt": "2026-08-10T21:28:33.027Z",
-      "fetchedAtSource": "mtime",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 893181
-    },
-    {
       "file": "ma-lobbying-firm-details-2020.json",
-      "fetchedAt": "2026-08-10T21:28:33.026Z",
+      "fetchedAt": "2026-08-10T23:26:57.673Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -83,8 +74,17 @@
       "sizeBytes": 809159
     },
     {
+      "file": "ma-lobbying-firm-details-2021.json",
+      "fetchedAt": "2026-08-10T23:26:57.673Z",
+      "fetchedAtSource": "mtime",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 893181
+    },
+    {
       "file": "ma-lobbying-firm-details-2018.json",
-      "fetchedAt": "2026-08-10T21:28:33.023Z",
+      "fetchedAt": "2026-08-10T23:26:57.669Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -93,7 +93,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2019.json",
-      "fetchedAt": "2026-08-10T21:28:33.023Z",
+      "fetchedAt": "2026-08-10T23:26:57.669Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -102,7 +102,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2016.json",
-      "fetchedAt": "2026-08-10T21:28:33.022Z",
+      "fetchedAt": "2026-08-10T23:26:57.668Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -111,7 +111,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2017.json",
-      "fetchedAt": "2026-08-10T21:28:33.022Z",
+      "fetchedAt": "2026-08-10T23:26:57.668Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -416,7 +416,7 @@
       "count": 29729,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 16859346
+      "sizeBytes": 17138788
     },
     {
       "file": "ma-sfi-tempus.json",
