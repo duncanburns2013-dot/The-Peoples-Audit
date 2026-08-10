@@ -57,6 +57,32 @@ const CURRENT_FY = (() => {
   return now.getUTCMonth() >= 6 ? now.getUTCFullYear() + 1 : now.getUTCFullYear();
 })();
 
+/**
+ * Ask the dataset which fiscal year most recently has payments posted.
+ *
+ * The calendar rolls into a new MA fiscal year on July 1, but the Comptroller
+ * does not publish that year's spending for months. Querying CURRENT_FY alone
+ * meant that every July this fetcher started returning zero rows, fell into the
+ * preserve-cache path, and then republished a frozen snapshot every day — with
+ * its original fetchedAt — so the workflow looked healthy while the contracts
+ * page served months-old data.
+ *
+ * Returns a year string, or null if discovery itself fails.
+ */
+async function discoverLatestPopulatedFY() {
+  const rows = await socrataQuery({
+    $select: 'budget_fiscal_year, SUM(amount) as total',
+    $group: 'budget_fiscal_year',
+    $order: 'budget_fiscal_year DESC',
+    $limit: 30,
+  });
+  const populated = (rows || [])
+    .filter((r) => r.budget_fiscal_year && Number(r.total) > 0)
+    .map((r) => String(r.budget_fiscal_year))
+    .sort((a, b) => Number(b) - Number(a));
+  return populated[0] || null;
+}
+
 const USER_AGENT =
   'ThePeoplesAudit/1.0 (+https://github.com/duncanburns2013-dot/The-Peoples-Audit) civic-transparency-bot';
 
@@ -116,14 +142,43 @@ async function fetchTopContracts(fy) {
 }
 
 async function main() {
-  const fy = String(CURRENT_FY);
   const sources = [];
   const warnings = [];
+
+  // Target the newest fiscal year that actually has payments, not whichever
+  // year the calendar says we are in.
+  let fy = String(CURRENT_FY);
+  try {
+    const discovered = await discoverLatestPopulatedFY();
+    if (discovered) {
+      if (discovered !== fy) {
+        warnings.push(
+          `FY${fy} has no payments posted yet; using FY${discovered} (latest populated).`,
+        );
+      }
+      fy = discovered;
+      sources.push({ name: 'cthru.spending.fyDiscovery', ok: true, latestPopulatedFY: fy });
+    } else {
+      warnings.push('FY discovery returned no populated years; falling back to calendar FY.');
+      sources.push({ name: 'cthru.spending.fyDiscovery', ok: false, error: 'no populated years' });
+    }
+  } catch (err) {
+    const msg = err?.message || String(err);
+    warnings.push(`cthru.spending.fyDiscovery: ${msg}`);
+    sources.push({ name: 'cthru.spending.fyDiscovery', ok: false, error: msg });
+  }
 
   let raw = null;
   try {
     raw = await fetchTopContracts(fy);
-    sources.push({ name: `cthru.spending.contracts.${fy}`, ok: true, count: raw.length });
+    // Zero rows is a failure to report, not a success — see the preserve-cache
+    // path below, which is the only correct response to it.
+    sources.push({
+      name: `cthru.spending.contracts.${fy}`,
+      ok: raw.length > 0,
+      count: raw.length,
+      ...(raw.length === 0 ? { empty: true } : {}),
+    });
   } catch (err) {
     const msg = err?.message || String(err);
     warnings.push(`cthru.spending.contracts.${fy}: ${msg}`);
@@ -134,16 +189,31 @@ async function main() {
     const existing = await loadExisting();
     if (existing?.items?.length) {
       warnings.push('Live query returned no rows — preserving previous snapshot.');
+      const staleSince = existing.fetchedAt || new Date().toISOString();
+      const ageDays = Math.floor(
+        (Date.now() - new Date(staleSince).getTime()) / 86_400_000,
+      );
       const preserved = {
         ...existing,
-        fetchedAt: existing.fetchedAt || new Date().toISOString(),
+        fetchedAt: staleSince,
         preservedFromCache: true,
+        // Make the freeze legible. Without these the file kept a June date while
+        // the workflow committed a "refresh" every morning, so nothing in the
+        // repo or the run history showed the data had stopped moving.
+        staleSince,
+        staleForDays: ageDays,
+        lastAttemptedAt: new Date().toISOString(),
         sources,
         warnings,
       };
       await mkdir(dirname(OUTPUT_PATH), { recursive: true });
       await writeFile(OUTPUT_PATH, JSON.stringify(preserved, null, 2) + '\n', 'utf8');
-      console.log('[ma-contracts] preserved previous snapshot');
+      console.log(`[ma-contracts] preserved previous snapshot (stale ${ageDays}d)`);
+      if (process.env.GITHUB_ACTIONS) {
+        console.log(
+          `::warning::ma-contracts.json is serving a cached snapshot from ${staleSince} (${ageDays} days old) — FY${fy} returned no rows.`,
+        );
+      }
       return;
     }
   }
