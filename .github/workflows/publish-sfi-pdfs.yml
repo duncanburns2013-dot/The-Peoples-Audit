@@ -1,0 +1,107 @@
+name: Publish SFI per-filing PDFs
+
+# Backfills the individual SFI PDFs as release assets and points the site's
+# per-filing links at them. See audit-scripts/sfi/15_publish_release_pdfs.py
+# for the full why.
+#
+# Two GitHub limits shape this: a release holds at most 1000 assets (so each
+# year's PDFs are spread over ~5 releases), and an upload costs ~2 REST
+# requests, so all 29,729 filings need ~59,500 - far more than any single
+# hour's primary limit. The uploader is budget-aware, resumable and
+# idempotent, so this runs hourly and picks up where the last run stopped.
+# Once every year is complete each run is a cheap no-op.
+#
+# Supply a PAT as the SFI_UPLOAD_TOKEN secret (contents: write) for the 5x
+# larger 5,000/hr budget; without it this falls back to GITHUB_TOKEN.
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      report_only:
+        description: 'Show per-year progress without uploading'
+        type: boolean
+        default: false
+
+# Never let two backfill runs upload the same asset concurrently.
+concurrency:
+  group: publish-sfi-pdfs
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Publish missing per-filing PDFs
+        env:
+          # Prefer the PAT (5,000 req/hr); fall back to the built-in token.
+          GH_TOKEN: ${{ secrets.SFI_UPLOAD_TOKEN || github.token }}
+          SFI_REPO: ${{ github.repository }}
+          SFI_WORKDIR: ${{ runner.temp }}/sfi-publish
+        run: |
+          set -o pipefail
+          # The default shell is `bash -e`; without this a failing run would
+          # abort before the step summary is written, hiding the reason.
+          set +e
+          python -u audit-scripts/sfi/15_publish_release_pdfs.py \
+            ${{ inputs.report_only && '--report' || '' }} \
+            2>&1 | tee publish.log
+          status=$?
+          {
+            echo '### SFI per-filing PDF backfill'
+            echo '```'
+            # Per-250 progress lines would bury the survey table over a long run.
+            grep -vE '^  [0-9,]+/[0-9,]+ uploaded$' publish.log | tail -30
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit $status
+
+      # Which shard a PDF landed in depends on upload order, so the site's
+      # sourcePdfUrl values are rewritten from what is actually published.
+      # Skipped on a report-only run, which uploads nothing.
+      - name: Point the site's PDF links at what is published
+        if: ${{ !inputs.report_only }}
+        env:
+          GH_TOKEN: ${{ secrets.SFI_UPLOAD_TOKEN || github.token }}
+          SFI_REPO: ${{ github.repository }}
+        run: |
+          python -u audit-scripts/sfi/16_write_sfi_pdf_urls.py 2>&1 | tee urls.log
+          {
+            echo '```'
+            tail -6 urls.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Rebuild data freshness index
+        if: ${{ !inputs.report_only }}
+        run: node scripts/build-data-index.mjs
+
+      # [skip ci] so the hourly data commits don't each trigger a Pages
+      # deploy; deploy.yml's nightly schedule publishes the accumulated links.
+      - name: Commit & push if changed
+        if: ${{ !inputs.report_only }}
+        uses: ./.github/actions/commit-and-push-data
+        with:
+          paths: public/data/ma-sfi.json public/data/_index.json
+          message: "chore(data): point SFI filings at published PDFs [skip ci]"

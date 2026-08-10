@@ -171,11 +171,18 @@ def main() -> int:
                 "investments": sum(1 for q in INVESTMENT_QS if section_has_content(sections, {q})),
                 "debts": sum(1 for q in DEBT_QS if section_has_content(sections, {q})),
                 "gifts": sum(1 for q in GIFT_QS if section_has_content(sections, {q})),
-                "sourcePdfUrl": (
-                    "https://github.com/duncanburns2013-dot/The-Peoples-Audit"
-                    f"/releases/download/sfi-{rec['year']}/"
-                    + Path(rec["rel_path"]).name.replace(" ", "%20").replace("\\", "/")
-                ),
+                # NO sourcePdfUrl here on purpose. It used to be built by string
+                # concatenation against sfi-<YYYY>, which produced 29,729 dead
+                # links: GitHub caps a release at 1000 assets, so each year's
+                # PDFs are spread over several releases and a filing's shard
+                # depends on upload order. It also silently renames filenames
+                # with special characters. Neither is knowable from the filing.
+                #
+                # 16_write_sfi_pdf_urls.py asks the releases where each PDF
+                # actually is and writes sourcePdfUrl back. Run it after
+                # 15_publish_release_pdfs.py. Filings with no published asset
+                # keep no sourcePdfUrl, and SfiExplorer then renders no button
+                # rather than a broken one.
                 "relPath": rec["rel_path"].replace("\\", "/"),
             })
 
