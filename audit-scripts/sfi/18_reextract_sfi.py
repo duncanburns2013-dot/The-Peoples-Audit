@@ -43,6 +43,7 @@ TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or ""
 ROOT = Path(__file__).resolve().parents[2]
 SITE_JSON = ROOT / "public" / "data" / "ma-sfi.json"
 ENTITIES_CSV = ROOT / "data" / "sfi" / "sfi_entities.csv"
+GIFTS_JSON = ROOT / "public" / "data" / "ma-sfi-gifts.json"
 WORK = Path(os.environ.get("SFI_WORKDIR", ".work/zips"))
 
 YEARS = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"]
@@ -63,8 +64,24 @@ ENTITY_QUESTIONS = {
     "29": "primary_residence_mortgage",
     "30": "other_property_mortgage",
     "32": "own_nonmortgage_debt",
+    "36": "own_lobbyist_reimbursements",
+    "36.a": "own_interested_party_reimbursements",
+    "37": "spouse_lobbyist_reimbursements",
+    "37.a": "spouse_interested_party_reimbursements",
     "38": "own_gifts_honoraria",
     "39": "spouse_gifts_honoraria",
+}
+
+# The highest-signal sections: a public official telling the Ethics Commission
+# that a lobbyist, or someone with a direct interest in a matter before their
+# body, gave them or their spouse something worth more than $100.
+GIFT_QS = {
+    "36": ("own", "lobbyist_reimbursement"),
+    "36.a": ("own", "interested_party_reimbursement"),
+    "37": ("spouse", "lobbyist_reimbursement"),
+    "37.a": ("spouse", "interested_party_reimbursement"),
+    "38": ("own", "gift_honorarium"),
+    "39": ("spouse", "gift_honorarium"),
 }
 
 # "123 Main Street, Salem, MA, 01970, US" -> Salem
@@ -134,6 +151,21 @@ def extract_one(blob: bytes) -> dict | None:
             P.first_entity(s.get("29", "")) or P.first_entity(s.get("30", ""))
         ),
         "entities": {q: P.entities(s.get(q, ""), limit=12) for q in ENTITY_QUESTIONS},
+        # A gift section counts only when the filer actually disclosed
+        # something. The old pipeline reported gifts for filers whose PDFs say
+        # "Filer reported none", because the broken splitter handed it a
+        # section sliced from elsewhere in the document.
+        "gifts": [
+            {
+                "section": q,
+                "subject": subject,
+                "kind": kind,
+                "source": P.first_entity(s.get(q, "")),
+                "body": P.answer_text(s.get(q, ""))[:400],
+            }
+            for q, (subject, kind) in GIFT_QS.items()
+            if s.get(q) and not P.is_none(s[q]) and P.answer_lines(s.get(q, ""))
+        ],
     }
 
 
@@ -159,6 +191,7 @@ def main() -> int:
         writer.writerow(["year", "slug", "question", "slug_name", "index", "value"])
 
     stats = {"parsed": 0, "failed": 0, "updated": 0, "no_sections": 0}
+    gift_rows: list[dict] = []
     for year in args.years:
         zpath = download_zip(year)
         print(f"== {year}: {zpath.stat().st_size/1e9:.2f} GB ==", flush=True)
@@ -189,6 +222,26 @@ def main() -> int:
                 ):
                     f[k] = rec[k]
                 stats["updated"] += 1
+                if rec["gifts"]:
+                    last, _, first = f["legislatorName"].partition(",")
+                    gift_rows.append(
+                        {
+                            "year": year,
+                            "lastName": last.strip(),
+                            "firstName": first.strip(),
+                            "workEmail": f.get("workEmail", ""),
+                            "pdfPath": rel,
+                            "sections": rec["gifts"],
+                        }
+                    )
+                f["hasLobbyistGifts"] = any(
+                    g["kind"].endswith("reimbursement") or g["kind"] == "gift_honorarium"
+                    for g in rec["gifts"]
+                )
+                f["hasInterestedPartyGifts"] = any(
+                    g["kind"] == "interested_party_reimbursement" for g in rec["gifts"]
+                )
+                f["gifts"] = len(rec["gifts"])
                 slug = Path(rel).stem
                 for q, vals in rec["entities"].items():
                     for j, v in enumerate(vals):
@@ -201,9 +254,45 @@ def main() -> int:
 
     csv_fh.close()
     data["entityExtractionVersion"] = "sfi_parse-v1"
+    data["lobbyistGiftFilingsCount"] = len(gift_rows)
     SITE_JSON.write_text(
         json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
     )
+
+    # Only rewrite the gifts file on a full run. A partial run would silently
+    # delete every filing it did not look at.
+    full_run = set(args.years) == set(YEARS) and not args.legislators_only and not args.limit
+    if full_run:
+        prior = 0
+        if GIFTS_JSON.exists():
+            try:
+                prior = len(json.loads(GIFTS_JSON.read_text(encoding="utf-8"))["rows"])
+            except Exception:
+                pass
+        GIFTS_JSON.write_text(
+            json.dumps(
+                {
+                    "fetchedAt": data.get("fetchedAt", ""),
+                    "count": len(gift_rows),
+                    "totalSectionRows": sum(len(r["sections"]) for r in gift_rows),
+                    "note": (
+                        "Rebuilt with sfi_parse. The previous extraction reported "
+                        "gifts for filers whose PDFs state 'Filer reported none', "
+                        "because sections were sliced from the wrong part of the "
+                        "document."
+                    ),
+                    "rows": gift_rows,
+                },
+                ensure_ascii=False,
+                separators=(",", ":"),
+            ),
+            encoding="utf-8",
+        )
+        print(f"\ngifts: {prior:,} rows before -> {len(gift_rows):,} after")
+        print(f"wrote {GIFTS_JSON}")
+    else:
+        print(f"\ngifts: {len(gift_rows):,} rows found (partial run — file not rewritten)")
+
     print(f"\n{stats}")
     print(f"wrote {ENTITIES_CSV}")
     print(f"wrote {SITE_JSON}")
