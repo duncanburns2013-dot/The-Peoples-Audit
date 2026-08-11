@@ -94,5 +94,14 @@ jobs:
       - name: Commit & push if changed
         uses: ./.github/actions/commit-and-push-data
         with:
-          paths: public/data/ma-sfi.json public/data/_index.json data/sfi/sfi_entities.csv
+          # Every file 18_reextract_sfi.py writes must be listed. A file left
+          # modified-but-unstaged makes the action's rebase-on-conflict retry
+          # fail with "cannot rebase: You have unstaged changes" — which is
+          # exactly how a 55-minute run was lost when the hourly SFI workflow
+          # pushed first and the retry could not proceed.
+          paths: >-
+            public/data/ma-sfi.json
+            public/data/ma-sfi-gifts.json
+            public/data/_index.json
+            data/sfi/sfi_entities.csv
           message: "fix(data): re-extract SFI entity names with sfi_parse [skip ci]"
