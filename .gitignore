@@ -32,3 +32,4 @@ dist[0-9]*
 # Python bytecode from the audit-scripts
 __pycache__/
 *.pyc
+.work/
