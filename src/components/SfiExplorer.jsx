@@ -369,6 +369,19 @@ export default function SfiExplorer() {
             GitHub Releases
           </a>{' '}
           (sfi-2019 … sfi-2025).
+          {data?.scannedImageOnlyFilings > 0 && (
+            <>
+              {' '}
+              <strong>
+                {data.scannedImageOnlyFilings.toLocaleString()} of{' '}
+                {data.count.toLocaleString()} filings (
+                {((data.scannedImageOnlyFilings / data.count) * 100).toFixed(1)}%) were
+                filed as scanned images with no text layer.
+              </strong>{' '}
+              Those cannot be searched or cross-referenced, and their rows below are blank
+              because the document is unreadable — not because the filer disclosed nothing.
+            </>
+          )}
         </div>
       </div>
     </div>
