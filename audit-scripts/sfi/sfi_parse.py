@@ -53,6 +53,26 @@ import re
 # Every column name that appears in an SFI table header, longest first so that
 # `Amount of Income` is consumed before a bare `Income` can match inside it.
 COLUMN_PHRASES = [
+    # Q36-Q39, the gift / reimbursement tables. These were missing at first,
+    # so no header was found and the sections read as empty — turning the old
+    # false positives into false negatives. A real $516 reimbursement from
+    # WestEd sat unreported until these were added.
+    "Name of Legislative Agent or Executive Agent",
+    "Address of Legislative or Executive Agent",
+    "Name of Source of Reimbursement",
+    "Address of Source of Reimbursement",
+    "Person or entity for whom Donor was acting, if any",
+    "Person or entity for whom Donor",
+    "Amount of Reimbursement",
+    "Name of Donor",
+    "Address of Donor",
+    "Value of Gift",
+    "Amount of Gift",
+    "Description of Gift",
+    "Fair Market Value",
+    "Date of Gift",
+    "Nature of Gift",
+    "was acting, if any",
     "Public Agency Consultant /",
     "Public Agency Consultant",
     "Principal Place of Business or",
@@ -159,9 +179,22 @@ _ADDR_LINE_RE = re.compile(
 )
 
 
+# Sometimes the space between name and address is lost entirely, giving
+# "SEED Corporation80 Dean Street". Cut at the letter/number seam when what
+# follows is unmistakably a street address.
+_GLUED_ADDR_RE = re.compile(
+    r"(?<=[a-z])(?=\d+\s+[A-Z][A-Za-z]*\s*"
+    r"(Street|St\b|Avenue|Ave\b|Road|Rd\b|Drive|Dr\b|Lane|Ln\b|Way\b"
+    r"|Boulevard|Blvd\b|Place|Pl\b|Plaza|Square|Sq\b))"
+)
+
+
 def strip_address_tail(s: str) -> str:
     """Drop an address that shares a line with the entity name."""
     m = _ADDR_START_RE.search(s)
+    if m and m.start() >= 3:
+        return s[: m.start()].rstrip(" ,")
+    m = _GLUED_ADDR_RE.search(s)
     if m and m.start() >= 3:
         return s[: m.start()].rstrip(" ,")
     return s
@@ -253,6 +286,19 @@ def _is_noise(line: str) -> bool:
     # the giveaway; entity names do not look like this.
     if re.search(r"\b\d{5}\b", s) and re.search(r"\b([A-Z]{2}|US)\b", s):
         return True
+    # A line that *starts* an address is never an entity name. The extracted
+    # column order does not always match the visual one — in the gift tables
+    # the donor's address can precede the donor — so without this the address
+    # is returned as the donor. "3M Company" and "21st Century Fox" are safe:
+    # the pattern needs digits, whitespace, then a capital.
+    if _ADDR_LINE_RE.match(s):
+        return True
+    # Address continuations left when the street line above was dropped:
+    # "Suite 4R, Boston, MA,", "Floor, Hartford, CT,".
+    if re.match(r"^(Suite|Ste\.?|Floor|Fl\.?|Apt\.?|Unit|Bldg|Building|#)\b", s, re.I):
+        return True
+    if re.search(r",\s*[A-Z]{2},?\s*$", s):
+        return True
     if NONE_RE.search(s):
         return True
     if s.lower().startswith(("note:", "original", "amended")):
@@ -300,6 +346,28 @@ def _answer_items(section: str) -> list[tuple[int, str]]:
 def answer_lines(section: str) -> list[str]:
     """The filer's answer content for one question, in document order."""
     return [s for _, s in _answer_items(section)]
+
+
+def answer_text(section: str) -> str:
+    """Everything after the last header row, whitespace-collapsed.
+
+    Unlike answer_lines this keeps amounts and addresses. Gift and
+    reimbursement records are meaningless without the amount — "WestEd" alone
+    loses the $516 — so the disclosure body uses this, while the donor name
+    comes from first_entity.
+    """
+    if not section or is_none(section):
+        return ""
+    lines = section.splitlines()
+    last_header = -1
+    for i, line in enumerate(lines):
+        if is_header_line(line):
+            last_header = i
+    if last_header < 0:
+        return ""
+    body = " ".join(lines[last_header + 1 :])
+    body = _PAGE_RE.sub(" ", body)
+    return re.sub(r"\s+", " ", body).strip(" .þ")
 
 
 def first_entity(section: str) -> str:
