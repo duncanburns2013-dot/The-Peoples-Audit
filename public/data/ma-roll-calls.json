@@ -1,20 +1,20 @@
 {
-  "fetchedAt": "2026-08-07T10:31:53.613Z",
+  "fetchedAt": "2026-08-11T10:34:53.815Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8885,
+  "billsTotal": 8902,
   "sampleStrategy": "first-750-per-chamber-with-BillNumber-interleaved",
   "budgetTruncated": false,
   "preservedFromCache": false,
   "totals": {
-    "actions": 8091,
+    "actions": 8099,
     "rollCalls": 11,
-    "voicePasses": 1669,
-    "procedural": 6411
+    "voicePasses": 1670,
+    "procedural": 6418
   },
   "ratios": {
-    "rollCallShare": 0.006547619047619048,
-    "voicePassShare": 0.993452380952381
+    "rollCallShare": 0.006543723973825104,
+    "voicePassShare": 0.9934562760261749
   },
   "recentRollCalls": [
     {
@@ -203,6 +203,13 @@
       "action": "House concurred"
     },
     {
+      "billNumber": "H10",
+      "title": "An Act relative to nondisclosure agreements ",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
       "billNumber": "H1000",
       "title": "An Act establishing a coastal waters wastewater financing commission",
       "branch": "Senate",
@@ -217,36 +224,8 @@
       "action": "House concurred"
     },
     {
-      "billNumber": "S100",
-      "title": "An Act to study supply and demand for cannabis cultivation",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
       "billNumber": "H100",
       "title": "An Act establishing a commission to study a statewide credentialing program for digital navigators",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H10",
-      "title": "An Act relative to nondisclosure agreements ",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H1002",
-      "title": "An Act relative to the Douglas State Forest Maintenance Trust Fund",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H1003",
-      "title": "An Act relative to maintaining adequate water supplies through effective drought management",
       "branch": "Senate",
       "date": "2/27/2025",
       "action": "Senate concurred"
@@ -266,6 +245,55 @@
       "action": "House concurred"
     },
     {
+      "billNumber": "S100",
+      "title": "An Act to study supply and demand for cannabis cultivation",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "H1002",
+      "title": "An Act relative to the Douglas State Forest Maintenance Trust Fund",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S1002",
+      "title": "An Act relative to accessory dwelling units on smaller lots",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "H1004",
+      "title": "An Act promoting climate safe buildings",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H1005",
+      "title": "An Act investing in natural and working lands",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S1004",
+      "title": "An Act to create affordable homes for persons with disabilities",
+      "branch": "House",
+      "date": "2/27/2025",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "H1003",
+      "title": "An Act relative to maintaining adequate water supplies through effective drought management",
+      "branch": "Senate",
+      "date": "2/27/2025",
+      "action": "Senate concurred"
+    },
+    {
       "billNumber": "S1003",
       "title": "Resolve to examine Chapter 40B",
       "branch": "House",
@@ -280,29 +308,8 @@
       "action": "House concurred"
     },
     {
-      "billNumber": "S1002",
-      "title": "An Act relative to accessory dwelling units on smaller lots",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H1005",
-      "title": "An Act investing in natural and working lands",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H1004",
-      "title": "An Act promoting climate safe buildings",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S1004",
-      "title": "An Act to create affordable homes for persons with disabilities",
+      "billNumber": "S1006",
+      "title": "An Act creating the Home Works Program",
       "branch": "House",
       "date": "2/27/2025",
       "action": "House concurred"
@@ -315,35 +322,28 @@
       "action": "Senate concurred"
     },
     {
-      "billNumber": "S1007",
-      "title": "An Act to prevent and respond to bullying of elderly and disabled residents",
-      "branch": "House",
+      "billNumber": "H1009",
+      "title": "An Act to overcome coastal and environmental acidification and nutrient pollution",
+      "branch": "Senate",
       "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "S1006",
-      "title": "An Act creating the Home Works Program",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
+      "action": "Senate concurred"
     }
   ],
   "sources": [
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11486
+      "count": 11523
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5642
+      "count": 5650
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3243
+      "count": 3252
     },
     {
       "name": "bills.actions",
