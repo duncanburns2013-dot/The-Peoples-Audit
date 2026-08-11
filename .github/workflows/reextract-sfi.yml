@@ -1,0 +1,98 @@
+name: Re-extract SFI entities
+
+# Rebuilds the entity fields in public/data/ma-sfi.json from the published bulk
+# zips using audit-scripts/sfi/sfi_parse.py.
+#
+# Why: the previous extraction reported column headers as entity names. 95.2%
+# of non-empty ownTopEmployer values were the literal string "Income", and most
+# of the rest were street-address fragments. See
+# docs/superpowers/specs/2026-08-11-sfi-entity-extraction-design.md
+#
+# Manual only. This is a corpus rebuild (~7.7 GB downloaded, 29,729 PDFs
+# parsed), not a routine refresh — the routine data workflows are unaffected.
+
+on:
+  workflow_dispatch:
+    inputs:
+      years:
+        description: 'Years to re-extract (space separated), or blank for all'
+        type: string
+        default: ''
+      legislators_only:
+        description: 'Only House/Senate filers (fast; leaves other filings stale)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: reextract-sfi
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  reextract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pypdf
+        run: pip install --quiet pypdf
+
+      - name: Report free disk
+        run: df -h / | tail -1
+
+      - name: Re-extract entities from the bulk zips
+        env:
+          GH_TOKEN: ${{ secrets.SFI_UPLOAD_TOKEN || github.token }}
+          SFI_REPO: ${{ github.repository }}
+          SFI_WORKDIR: ${{ runner.temp }}/sfi-zips
+        run: |
+          set -o pipefail
+          python -u audit-scripts/sfi/18_reextract_sfi.py \
+            ${{ inputs.years && format('--years {0}', inputs.years) || '' }} \
+            ${{ inputs.legislators_only && '--legislators-only' || '' }} \
+            2>&1 | tee reextract.log
+          {
+            echo '### SFI re-extraction'
+            echo '```'
+            grep -vE '^  [0-9,]+ parsed$' reextract.log | tail -25
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Must run BEFORE the commit. A parser regression that silently emptied
+      # every field would otherwise be published.
+      - name: Check corpus invariants
+        run: |
+          set -o pipefail
+          python -u audit-scripts/sfi/17_check_sfi_extraction.py --csv 2>&1 | tee check.log
+          {
+            echo '### Invariant check'
+            echo '```'
+            cat check.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Rebuild data freshness index
+        run: node scripts/build-data-index.mjs
+
+      - name: Commit & push if changed
+        uses: ./.github/actions/commit-and-push-data
+        with:
+          paths: public/data/ma-sfi.json public/data/_index.json data/sfi/sfi_entities.csv
+          message: "fix(data): re-extract SFI entity names with sfi_parse [skip ci]"
