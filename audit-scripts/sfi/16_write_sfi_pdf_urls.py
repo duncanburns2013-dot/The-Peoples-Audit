@@ -41,7 +41,16 @@ _UNSAFE = re.compile(r"[^A-Za-z0-9._-]")
 
 
 def safe_asset_name(basename: str) -> str:
-    return _UNSAFE.sub(".", basename)
+    # Keep identical to 15_publish_release_pdfs.py. Runs of periods are
+    # collapsed and trimmed from the stem because GitHub strips leading and
+    # trailing periods, which otherwise stores the asset under a name we did
+    # not predict and leaves the filing's link unresolved.
+    stem, dot, ext = basename.rpartition(".")
+    if not dot:
+        stem, ext = basename, ""
+    stem = _UNSAFE.sub(".", stem)
+    stem = re.sub(r"\.+", ".", stem).strip(".")
+    return f"{stem}.{ext}" if ext else stem
 
 
 def api_json(url: str):

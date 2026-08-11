@@ -79,8 +79,22 @@ _UNSAFE = re.compile(r"[^A-Za-z0-9._-]")
 
 
 def safe_asset_name(basename: str) -> str:
-    """The name GitHub will store verbatim. Must match 16_write_sfi_pdf_urls.py."""
-    return _UNSAFE.sub(".", basename)
+    """The name GitHub will store verbatim. Must match 16_write_sfi_pdf_urls.py.
+
+    Substituting unsafe characters is not enough on its own. A name like
+    `Sandblom__Elizabeth_(Liz).pdf` becomes `Sandblom__Elizabeth_.Liz..pdf`,
+    whose stem ends in a period — and GitHub strips leading and trailing
+    periods, storing `Sandblom__Elizabeth_.Liz.pdf`. The upload succeeds under
+    a name we did not predict, so the filing's link never resolves. Collapse
+    runs of periods and trim them from the stem so the name we ask for is the
+    name we get back.
+    """
+    stem, dot, ext = basename.rpartition(".")
+    if not dot:  # no extension; treat the whole thing as the stem
+        stem, ext = basename, ""
+    stem = _UNSAFE.sub(".", stem)
+    stem = re.sub(r"\.+", ".", stem).strip(".")
+    return f"{stem}.{ext}" if ext else stem
 
 
 def _req(url: str, *, method: str = "GET", data: bytes | None = None,
