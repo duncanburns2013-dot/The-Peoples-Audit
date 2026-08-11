@@ -1,9 +1,24 @@
 {
-  "generatedAt": "2026-08-11T17:39:59.029Z",
+  "generatedAt": "2026-08-11T18:16:43.831Z",
   "snapshots": [
     {
+      "file": "ma-bond-trades.json",
+      "fetchedAt": "2026-08-11T18:14:58.883Z",
+      "fetchedAtSource": "fetchedAt",
+      "count": 8,
+      "preservedFromCache": true,
+      "sources": [
+        {
+          "name": "EMMA TradeData (MA)",
+          "ok": true,
+          "count": 0
+        }
+      ],
+      "sizeBytes": 1851
+    },
+    {
       "file": "ma-sfi-crossref-pass1.json",
-      "fetchedAt": "2026-08-11T17:36:02.410Z",
+      "fetchedAt": "2026-08-11T18:12:47.534Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -12,7 +27,7 @@
     },
     {
       "file": "ma-municipal-debt.json",
-      "fetchedAt": "2026-08-11T17:36:02.386Z",
+      "fetchedAt": "2026-08-11T18:12:47.512Z",
       "fetchedAtSource": "mtime",
       "count": 1755,
       "preservedFromCache": false,
@@ -20,26 +35,8 @@
       "sizeBytes": 444256
     },
     {
-      "file": "ma-lobbying-firm-details-2026.json",
-      "fetchedAt": "2026-08-11T17:36:02.364Z",
-      "fetchedAtSource": "mtime",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 895554
-    },
-    {
-      "file": "ma-lobbying-firm-details-2024.json",
-      "fetchedAt": "2026-08-11T17:36:02.363Z",
-      "fetchedAtSource": "mtime",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 913894
-    },
-    {
       "file": "ma-lobbying-firm-details-2025.json",
-      "fetchedAt": "2026-08-11T17:36:02.363Z",
+      "fetchedAt": "2026-08-11T18:12:47.491Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -47,17 +44,17 @@
       "sizeBytes": 963210
     },
     {
-      "file": "ma-lobbying-firm-details-2022.json",
-      "fetchedAt": "2026-08-11T17:36:02.362Z",
+      "file": "ma-lobbying-firm-details-2026.json",
+      "fetchedAt": "2026-08-11T18:12:47.491Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 896276
+      "sizeBytes": 895554
     },
     {
       "file": "ma-lobbying-firm-details-2023.json",
-      "fetchedAt": "2026-08-11T17:36:02.362Z",
+      "fetchedAt": "2026-08-11T18:12:47.490Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -65,17 +62,26 @@
       "sizeBytes": 858176
     },
     {
-      "file": "ma-lobbying-firm-details-2021.json",
-      "fetchedAt": "2026-08-11T17:36:02.353Z",
+      "file": "ma-lobbying-firm-details-2024.json",
+      "fetchedAt": "2026-08-11T18:12:47.490Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 893181
+      "sizeBytes": 913894
+    },
+    {
+      "file": "ma-lobbying-firm-details-2022.json",
+      "fetchedAt": "2026-08-11T18:12:47.489Z",
+      "fetchedAtSource": "mtime",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 896276
     },
     {
       "file": "ma-lobbying-firm-details-2020.json",
-      "fetchedAt": "2026-08-11T17:36:02.352Z",
+      "fetchedAt": "2026-08-11T18:12:47.481Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -83,8 +89,26 @@
       "sizeBytes": 809159
     },
     {
+      "file": "ma-lobbying-firm-details-2021.json",
+      "fetchedAt": "2026-08-11T18:12:47.481Z",
+      "fetchedAtSource": "mtime",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 893181
+    },
+    {
+      "file": "ma-lobbying-firm-details-2017.json",
+      "fetchedAt": "2026-08-11T18:12:47.477Z",
+      "fetchedAtSource": "mtime",
+      "count": null,
+      "preservedFromCache": false,
+      "sources": [],
+      "sizeBytes": 899181
+    },
+    {
       "file": "ma-lobbying-firm-details-2018.json",
-      "fetchedAt": "2026-08-11T17:36:02.348Z",
+      "fetchedAt": "2026-08-11T18:12:47.477Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -93,7 +117,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2019.json",
-      "fetchedAt": "2026-08-11T17:36:02.348Z",
+      "fetchedAt": "2026-08-11T18:12:47.477Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -102,7 +126,7 @@
     },
     {
       "file": "ma-lobbying-firm-details-2016.json",
-      "fetchedAt": "2026-08-11T17:36:02.347Z",
+      "fetchedAt": "2026-08-11T18:12:47.476Z",
       "fetchedAtSource": "mtime",
       "count": null,
       "preservedFromCache": false,
@@ -110,13 +134,39 @@
       "sizeBytes": 892269
     },
     {
-      "file": "ma-lobbying-firm-details-2017.json",
-      "fetchedAt": "2026-08-11T17:36:02.347Z",
-      "fetchedAtSource": "mtime",
+      "file": "ma-roll-calls.json",
+      "fetchedAt": "2026-08-11T17:55:08.452Z",
+      "fetchedAtSource": "fetchedAt",
       "count": null,
       "preservedFromCache": false,
-      "sources": [],
-      "sizeBytes": 899181
+      "sources": [
+        {
+          "name": "bills.combined",
+          "ok": true,
+          "count": 11524
+        },
+        {
+          "name": "bills.House",
+          "ok": true,
+          "count": 5650
+        },
+        {
+          "name": "bills.Senate",
+          "ok": true,
+          "count": 3253
+        },
+        {
+          "name": "rollcalls.enumerated",
+          "ok": true,
+          "count": 508
+        },
+        {
+          "name": "bills.actions",
+          "ok": true,
+          "count": 1500
+        }
+      ],
+      "sizeBytes": 19668
     },
     {
       "file": "ma-disclosures.json",
@@ -147,51 +197,6 @@
         }
       ],
       "sizeBytes": 14400
-    },
-    {
-      "file": "ma-bond-trades.json",
-      "fetchedAt": "2026-08-11T12:12:59.164Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": 8,
-      "preservedFromCache": true,
-      "sources": [
-        {
-          "name": "EMMA TradeData (MA)",
-          "ok": true,
-          "count": 0
-        }
-      ],
-      "sizeBytes": 1851
-    },
-    {
-      "file": "ma-roll-calls.json",
-      "fetchedAt": "2026-08-11T10:34:53.815Z",
-      "fetchedAtSource": "fetchedAt",
-      "count": null,
-      "preservedFromCache": false,
-      "sources": [
-        {
-          "name": "bills.combined",
-          "ok": true,
-          "count": 11523
-        },
-        {
-          "name": "bills.House",
-          "ok": true,
-          "count": 5650
-        },
-        {
-          "name": "bills.Senate",
-          "ok": true,
-          "count": 3252
-        },
-        {
-          "name": "bills.actions",
-          "ok": true,
-          "count": 1500
-        }
-      ],
-      "sizeBytes": 11630
     },
     {
       "file": "ma-contracts.json",
@@ -431,7 +436,7 @@
       "count": 29729,
       "preservedFromCache": false,
       "sources": [],
-      "sizeBytes": 18565352
+      "sizeBytes": 18566279
     },
     {
       "file": "ma-sfi-tempus.json",
