@@ -129,17 +129,27 @@ def download_zip(year: str) -> Path:
     return dest
 
 
-def extract_one(blob: bytes) -> dict | None:
-    """Parse one filing's PDF bytes into its entity fields."""
+def extract_one(blob: bytes) -> dict:
+    """Parse one filing's PDF bytes into its entity fields.
+
+    Returns {"unreadable": reason} rather than None when nothing can be read,
+    so the caller can record *why*. A filing that is a scanned image is not the
+    same as a filer who disclosed nothing, and until this was recorded the two
+    were indistinguishable on the site — a blank row implying a nil return when
+    the truth was "this document cannot be read".
+    """
     try:
         import pypdf
 
         reader = pypdf.PdfReader(io.BytesIO(blob))
         text = "\n".join(p.extract_text() or "" for p in reader.pages)
-    except Exception:
-        return None
+    except Exception as e:
+        return {"unreadable": "parse_error", "detail": f"{type(e).__name__}: {e}"[:120]}
     if not text.strip():
-        return None
+        # No text layer at all: the pages are page images. Confirmed on
+        # Abboud__Margaret_M.pdf — 42 pages, an /Image XObject of 1280x1664,
+        # no /Font resource, zero extractable characters. Only OCR would help.
+        return {"unreadable": "no_text_layer"}
     s = P.split_sections(text)
     return {
         "sections_found": len(s),
@@ -190,7 +200,8 @@ def main() -> int:
     if new_csv:
         writer.writerow(["year", "slug", "question", "slug_name", "index", "value"])
 
-    stats = {"parsed": 0, "failed": 0, "updated": 0, "no_sections": 0}
+    stats = {"parsed": 0, "failed": 0, "updated": 0, "no_sections": 0,
+             "scanned_image_only": 0}
     gift_rows: list[dict] = []
     for year in args.years:
         zpath = download_zip(year)
@@ -206,13 +217,21 @@ def main() -> int:
                 if args.limit and stats["parsed"] >= args.limit:
                     break
                 rec = extract_one(zf.read(member))
-                if rec is None:
+                f = by_rel[rel]
+                if rec.get("unreadable"):
                     stats["failed"] += 1
+                    if rec["unreadable"] == "no_text_layer":
+                        stats["scanned_image_only"] += 1
+                    # Record it on the filing so a blank row can be told apart
+                    # from a nil return.
+                    f["machineReadable"] = False
+                    f["unreadableReason"] = rec["unreadable"]
                     continue
+                f["machineReadable"] = True
+                f.pop("unreadableReason", None)
                 stats["parsed"] += 1
                 if rec["sections_found"] < 30:
                     stats["no_sections"] += 1
-                f = by_rel[rel]
                 for k in (
                     "ownTopEmployer",
                     "spouseTopEmployer",
@@ -254,6 +273,8 @@ def main() -> int:
 
     csv_fh.close()
     data["entityExtractionVersion"] = "sfi_parse-v1"
+    data["scannedImageOnlyFilings"] = stats["scanned_image_only"]
+    data["unreadableFilings"] = stats["failed"]
     data["lobbyistGiftFilingsCount"] = len(gift_rows)
     SITE_JSON.write_text(
         json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"

@@ -141,6 +141,14 @@ _OWNERCODE_RE = re.compile(r"^\s*(F|T|S/C)(\s*[,/]\s*(F|T|S/C))*\s*$")
 # "Salem, MA, 01970, US" — an address tail, not an entity name.
 _ADDRESS_RE = re.compile(r",\s*[A-Z]{2},\s*\d{5}(-\d{4})?,\s*US\s*$")
 _NUMERIC_RE = re.compile(r"^[\s\d.,%$/-]*$")
+_BARE_TITLE_RE = re.compile(
+    r"^(Manager|Employee|Employer|Partner|Owner|Attorney|Lawyer|Consultant"
+    r"|Independent\s+Contractor|Self-?employed|Member|President|Vice\s+President"
+    r"|Director|Officer|Trustee|Physician|Teacher|Professor|Principal|Agent"
+    r"|Sole\s+Proprietor|Realtor|Broker|Nurse|Engineer|Analyst)"
+    r"[\s,]*(\$[\d,]+(\s*(to|-)\s*\$?[\d,]+)?(\s*or\s+more)?)?\s*\.?$",
+    re.I,
+)
 # Mortgage term / rate cells extract as runs like "20285.630 yr", "3.7530 yr".
 _MEASURE_RE = re.compile(r"^[\d.,\s]+(yr|yrs|years|%)\.?$", re.I)
 
@@ -298,6 +306,12 @@ def _is_noise(line: str) -> bool:
     if re.match(r"^(Suite|Ste\.?|Floor|Fl\.?|Apt\.?|Unit|Bldg|Building|#)\b", s, re.I):
         return True
     if re.search(r",\s*[A-Z]{2},?\s*$", s):
+        return True
+    # A bare job title, optionally carrying its income band: "Manager",
+    # "Manager $100,001 or more". That is the Position column, not the
+    # employer. Deliberately anchored to the whole value so a real company
+    # like "Director's Cut LLC" or "Manager Solutions Inc" is untouched.
+    if _BARE_TITLE_RE.match(s):
         return True
     if NONE_RE.search(s):
         return True
