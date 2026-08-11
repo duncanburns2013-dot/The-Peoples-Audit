@@ -53,6 +53,8 @@ const GENERAL_COURT = 194;
 // a misleading 0%. That is why we scan wide + concurrently rather than
 // trimming the sample to fit the clock.
 const SAMPLE_LIMIT_PER_CHAMBER = 750;
+// Fixed so the sample — and therefore the published estimate — is reproducible.
+const SAMPLE_SEED = Number(process.env.ROLLCALL_SEED) || 194;
 const REQUEST_DELAY_MS = 150;
 const RECENT_DISPLAY = 30;
 // malegislature.gov renders each bill page slowly (~2s), so a *sequential*
@@ -69,6 +71,84 @@ const USER_AGENT =
   'ThePeoplesAudit/1.0 (+https://github.com/duncanburns2013-dot/The-Peoples-Audit) civic-transparency-bot';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// Deterministic PRNG so the "random" sample is reproducible across runs — a
+// fresh sample every night would make the estimate jitter for no reason.
+function mulberry32(seed) {
+  return function () {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function sampleRandom(pool, n, rnd) {
+  const a = pool.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a.slice(0, n);
+}
+
+// Existence check for a roll-call PDF.
+//
+// malegislature.gov answers HEAD with 405, so this has to be a GET. We ask for
+// a single byte and discard whatever body comes back, which keeps enumerating
+// ~500 roll calls from pulling ~23 MB of PDFs we don't want.
+async function headOk(url) {
+  try {
+    const r = await fetch(url, {
+      headers: { 'User-Agent': USER_AGENT, Range: 'bytes=0-0' },
+    });
+    r.body?.cancel?.();
+    return r.ok; // 200 (range ignored) or 206 (range honoured)
+  } catch {
+    return false;
+  }
+}
+
+// The authoritative count of recorded votes.
+//
+// Counting roll-calls by scraping bill action tables badly undercounts them:
+// roll-calls cluster on the few bills that reach a floor vote, while a sample
+// drawn from the bill index is dominated by bills that died in committee. The
+// Clerk publishes every recorded vote at a predictable URL, so enumerate those
+// directly and get an exact number instead of an estimate.
+async function enumerateRollCalls(chamber) {
+  const url = (n) => `${BASE}/RollCall/${GENERAL_COURT}/${chamber}RollCall${n}.pdf`;
+  if (!(await headOk(url(1)))) return { chamber, count: 0, highest: 0 };
+
+  // Double to bracket the end, then binary-search the last one that exists.
+  let lo = 1;
+  let hi = 2;
+  while (hi <= 4096 && (await headOk(url(hi)))) {
+    lo = hi;
+    hi *= 2;
+  }
+  while (hi - lo > 1) {
+    const mid = ((lo + hi) / 2) | 0;
+    if (await headOk(url(mid))) lo = mid;
+    else hi = mid;
+  }
+  const highest = lo;
+
+  // Numbering is dense in practice, but verify every number rather than
+  // assuming count === highest.
+  let count = 0;
+  let cursor = 1;
+  const worker = async () => {
+    while (cursor <= highest) {
+      const n = cursor++;
+      if (await headOk(url(n))) count++;
+      await sleep(REQUEST_DELAY_MS);
+    }
+  };
+  await Promise.all(Array.from({ length: CONCURRENCY }, () => worker()));
+  return { chamber, count, highest };
+}
 
 async function loadExisting() {
   try {
@@ -150,8 +230,36 @@ async function main() {
   sources.push({ name: 'bills.House', ok: true, count: housePool.length });
   sources.push({ name: 'bills.Senate', ok: true, count: senatePool.length });
 
-  const houseSample = housePool.slice(0, SAMPLE_LIMIT_PER_CHAMBER);
-  const senateSample = senatePool.slice(0, SAMPLE_LIMIT_PER_CHAMBER);
+  // Exact recorded-vote count, independent of the bill sample.
+  let recordedVotes = null;
+  try {
+    const [house, senate] = await Promise.all([
+      enumerateRollCalls('House'),
+      enumerateRollCalls('Senate'),
+    ]);
+    recordedVotes = {
+      house: house.count,
+      senate: senate.count,
+      total: house.count + senate.count,
+      highestNumber: { house: house.highest, senate: senate.highest },
+      method: `enumerated ${BASE}/RollCall/${GENERAL_COURT}/{House,Senate}RollCall{N}.pdf`,
+      exact: true,
+    };
+    sources.push({ name: 'rollcalls.enumerated', ok: true, count: recordedVotes.total });
+  } catch (err) {
+    const msg = err?.message || String(err);
+    warnings.push(`roll-call enumeration: ${msg}`);
+    sources.push({ name: 'rollcalls.enumerated', ok: false, error: msg });
+  }
+
+  // A seeded RANDOM sample, not the first N. The bill index is ordered by
+  // docket number, so `slice(0, N)` returns the lowest-numbered bills — which
+  // are overwhelmingly bills filed at the start of the session that die in
+  // committee and never see a decisive action. That biases every rate computed
+  // from the sample. Seeded so the estimate is reproducible run to run.
+  const rnd = mulberry32(SAMPLE_SEED);
+  const houseSample = sampleRandom(housePool, SAMPLE_LIMIT_PER_CHAMBER, rnd);
+  const senateSample = sampleRandom(senatePool, SAMPLE_LIMIT_PER_CHAMBER, rnd);
   const all = [...housePool, ...senatePool];
   // Interleave the chambers so that if the wall-clock budget truncates the
   // scan, the sample stays balanced across House and Senate rather than being
@@ -252,11 +360,44 @@ async function main() {
   recentRollCalls.sort((a, b) => dateKey(b.date) - dateKey(a.date));
   recentVoicePasses.sort((a, b) => dateKey(b.date) - dateKey(a.date));
 
-  const decisive = totals.rollCalls + totals.voicePasses;
-  const ratios = {
-    rollCallShare: decisive > 0 ? totals.rollCalls / decisive : 0,
-    voicePassShare: decisive > 0 ? totals.voicePasses / decisive : 0,
+  // Rates within the sample. Kept for transparency, but NOT the headline: the
+  // sample's roll-call count is an undercount by construction (see
+  // enumerateRollCalls), so a share derived from it overstates opacity.
+  const sampleDecisive = totals.rollCalls + totals.voicePasses;
+  const sampleRatios = {
+    rollCallShare: sampleDecisive > 0 ? totals.rollCalls / sampleDecisive : 0,
+    voicePassShare: sampleDecisive > 0 ? totals.voicePasses / sampleDecisive : 0,
   };
+
+  // Session-wide figures: an EXACT recorded-vote count from enumeration, and
+  // voice passages scaled from the random sample to the full bill population.
+  // Both halves now describe the same population, which the previous
+  // sample-only ratio did not.
+  const scaleFactor = scanned > 0 ? all.length / scanned : 0;
+  const voicePassesEstimated = Math.round(totals.voicePasses * scaleFactor);
+  const exactRollCalls = recordedVotes?.total ?? null;
+  const sessionDecisive =
+    exactRollCalls === null ? 0 : exactRollCalls + voicePassesEstimated;
+  const sessionEstimate = {
+    recordedVotesExact: exactRollCalls,
+    voicePassesEstimated,
+    decisiveActionsEstimated: sessionDecisive || null,
+    scaleFactor: Number(scaleFactor.toFixed(3)),
+    basis:
+      'recorded votes enumerated exactly; voice passages extrapolated from a ' +
+      `seeded random ${scanned}-bill sample of ${all.length}`,
+  };
+
+  // Headline ratio is session-wide when enumeration succeeded; otherwise fall
+  // back to the sample rate rather than publishing nothing.
+  const ratios =
+    sessionDecisive > 0
+      ? {
+          rollCallShare: exactRollCalls / sessionDecisive,
+          voicePassShare: voicePassesEstimated / sessionDecisive,
+          basis: 'session-wide',
+        }
+      : { ...sampleRatios, basis: 'sample-only' };
 
   // Preserve the previous full snapshot rather than publish a bad one when the
   // scan is unusable:
@@ -291,10 +432,13 @@ async function main() {
     generalCourt: GENERAL_COURT,
     billsScanned: scanned,
     billsTotal: all.length,
-    sampleStrategy: `first-${SAMPLE_LIMIT_PER_CHAMBER}-per-chamber-with-BillNumber-interleaved`,
+    sampleStrategy: `seeded-random-${SAMPLE_LIMIT_PER_CHAMBER}-per-chamber (seed ${SAMPLE_SEED})`,
     budgetTruncated,
     preservedFromCache: false,
+    recordedVotes,
     totals,
+    sampleRatios,
+    sessionEstimate,
     ratios,
     recentRollCalls: recentRollCalls.slice(0, RECENT_DISPLAY),
     recentVoicePasses: recentVoicePasses.slice(0, RECENT_DISPLAY),

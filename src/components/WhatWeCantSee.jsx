@@ -146,15 +146,33 @@ export default function WhatWeCantSee() {
             <AlertTriangle size={20} /> The Voice-Vote Problem &mdash; live count from this session
           </h3>
           <p style={{ marginTop: 12, fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
-            From a <strong>{rollCallStats.billsScanned.toLocaleString()}-bill sample</strong> of the {rollCallStats.generalCourt}
-            <sup>th</sup> General Court (2025&ndash;2026), we counted{' '}
-            <strong>{rollCallStats.totals.voicePasses.toLocaleString()}</strong> decisive bill actions
-            (passages, engrossments, enactments) and{' '}
-            <strong>{rollCallStats.totals.rollCalls.toLocaleString()}</strong> roll-call votes where individual
-            legislators&rsquo; positions were recorded.
-            {rollCallStats.totals.rollCalls === 0
-              ? ' Of those decisive actions, none had recorded individual positions.'
-              : ` That works out to ${(rollCallStats.ratios.voicePassShare * 100).toFixed(1)}% voice vote, ${(rollCallStats.ratios.rollCallShare * 100).toFixed(1)}% roll-call.`}
+            {rollCallStats.recordedVotes?.exact ? (
+              <>
+                Across the {rollCallStats.generalCourt}
+                <sup>th</sup> General Court (2025&ndash;2026) the Clerks published{' '}
+                <strong>{rollCallStats.recordedVotes.total.toLocaleString()}</strong> recorded votes
+                &mdash; {rollCallStats.recordedVotes.house.toLocaleString()} House,{' '}
+                {rollCallStats.recordedVotes.senate.toLocaleString()} Senate. Over the same session we
+                estimate <strong>
+                  ~{rollCallStats.sessionEstimate.voicePassesEstimated.toLocaleString()}
+                </strong>{' '}
+                decisive bill actions (passages, engrossments, enactments) that carried with no
+                individual position recorded &mdash; extrapolated from a seeded random{' '}
+                {rollCallStats.billsScanned.toLocaleString()}-bill sample of{' '}
+                {rollCallStats.billsTotal.toLocaleString()}. That is roughly{' '}
+                {(rollCallStats.ratios.voicePassShare * 100).toFixed(0)}% voice vote,{' '}
+                {(rollCallStats.ratios.rollCallShare * 100).toFixed(0)}% roll-call.
+              </>
+            ) : (
+              <>
+                From a <strong>{rollCallStats.billsScanned.toLocaleString()}-bill sample</strong> of the{' '}
+                {rollCallStats.generalCourt}
+                <sup>th</sup> General Court (2025&ndash;2026), we counted{' '}
+                <strong>{rollCallStats.totals.voicePasses.toLocaleString()}</strong> decisive bill actions
+                and <strong>{rollCallStats.totals.rollCalls.toLocaleString()}</strong> roll-call votes
+                within that sample. Session-wide figures are unavailable this run.
+              </>
+            )}
           </p>
           <div className="kpi-row" style={{ marginTop: 16 }}>
             <div className="card">
@@ -163,27 +181,40 @@ export default function WhatWeCantSee() {
               <div className="card-change">of {rollCallStats.billsTotal.toLocaleString()} in session</div>
             </div>
             <div className="card">
-              <div className="card-title">Roll-call votes</div>
+              <div className="card-title">Recorded votes</div>
               <div className="card-value" style={{ color: 'var(--accent-green)' }}>
-                {rollCallStats.totals.rollCalls.toLocaleString()}
+                {(rollCallStats.recordedVotes?.total ?? rollCallStats.totals.rollCalls).toLocaleString()}
               </div>
-              <div className="card-change">individual positions on record</div>
+              <div className="card-change">
+                {rollCallStats.recordedVotes?.exact
+                  ? 'exact — every roll call this session'
+                  : 'within the sample only'}
+              </div>
             </div>
             <div className="card">
               <div className="card-title">Voice-vote passages</div>
               <div className="card-value" style={{ color: 'var(--accent-red)' }}>
-                {rollCallStats.totals.voicePasses.toLocaleString()}
+                {rollCallStats.sessionEstimate?.voicePassesEstimated
+                  ? `~${rollCallStats.sessionEstimate.voicePassesEstimated.toLocaleString()}`
+                  : rollCallStats.totals.voicePasses.toLocaleString()}
               </div>
               <div className="card-change" style={{ color: 'var(--accent-red)' }}>
-                no recorded position
+                {rollCallStats.sessionEstimate?.voicePassesEstimated
+                  ? 'estimated — no recorded position'
+                  : 'no recorded position'}
               </div>
             </div>
           </div>
           <div style={{ marginTop: 14, fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-            Method: scraped from <code>malegislature.gov/Bills/{rollCallStats.generalCourt}/&lt;BillNumber&gt;</code>.
-            Sample is <code>{rollCallStats.sampleStrategy}</code>. Refreshed twice weekly. The sample is
-            biased toward bills with low BillNumbers, so this likely understates the small fraction of
-            high-profile bills that do receive a roll-call vote.
+            Method: recorded votes are counted <strong>exactly</strong>, by enumerating{' '}
+            <code>malegislature.gov/RollCall/{rollCallStats.generalCourt}/&lt;Chamber&gt;RollCall&lt;N&gt;.pdf</code>{' '}
+            &mdash; not inferred from a sample. Voice passages are extrapolated from bill action tables at{' '}
+            <code>malegislature.gov/Bills/{rollCallStats.generalCourt}/&lt;BillNumber&gt;</code> using a{' '}
+            <code>{rollCallStats.sampleStrategy}</code>. Refreshed twice weekly.
+            <br />
+            Earlier versions of this figure counted roll calls from the bill sample alone, which drew
+            the lowest-numbered bills &mdash; mostly bills that die in committee. That undercounted
+            recorded votes roughly forty-fold and overstated the voice-vote share. Corrected 2026-08-11.
           </div>
         </div>
       )}

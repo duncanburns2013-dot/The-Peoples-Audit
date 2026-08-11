@@ -1,339 +1,533 @@
 {
-  "fetchedAt": "2026-08-11T10:34:53.815Z",
+  "fetchedAt": "2026-08-11T17:55:08.452Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8902,
-  "sampleStrategy": "first-750-per-chamber-with-BillNumber-interleaved",
+  "billsTotal": 8903,
+  "sampleStrategy": "seeded-random-750-per-chamber (seed 194)",
   "budgetTruncated": false,
   "preservedFromCache": false,
+  "recordedVotes": {
+    "house": 270,
+    "senate": 238,
+    "total": 508,
+    "highestNumber": {
+      "house": 270,
+      "senate": 238
+    },
+    "method": "enumerated https://malegislature.gov/RollCall/194/{House,Senate}RollCall{N}.pdf",
+    "exact": true
+  },
   "totals": {
-    "actions": 8099,
-    "rollCalls": 11,
-    "voicePasses": 1670,
-    "procedural": 6418
+    "actions": 8442,
+    "rollCalls": 85,
+    "voicePasses": 1875,
+    "procedural": 6482
+  },
+  "sampleRatios": {
+    "rollCallShare": 0.04336734693877551,
+    "voicePassShare": 0.9566326530612245
+  },
+  "sessionEstimate": {
+    "recordedVotesExact": 508,
+    "voicePassesEstimated": 11129,
+    "decisiveActionsEstimated": 11637,
+    "scaleFactor": 5.935,
+    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8903"
   },
   "ratios": {
-    "rollCallShare": 0.006543723973825104,
-    "voicePassShare": 0.9934562760261749
+    "rollCallShare": 0.043653862679384724,
+    "voicePassShare": 0.9563461373206152,
+    "basis": "session-wide"
   },
   "recentRollCalls": [
     {
-      "billNumber": "S1646",
-      "title": "An Act relative to violation of regulation regarding hot work processes",
+      "billNumber": "S3237",
+      "title": "An Act authorizing the town of Bourne to convey a right-of-way and easement",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 151 YEAS to 0 NAYS ( See YEA and NAY No. 270 )",
+      "yeas": 151,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3237",
+      "title": "An Act authorizing the town of Bourne to convey a right-of-way and easement",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #238 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5627",
+      "title": "An Act to improve Massachusetts home care",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Committee of conference report accepted - 157 YEAS to 0 NAYS ( See YEA and NAY No. 259 )",
+      "yeas": 157,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5627",
+      "title": "An Act to improve Massachusetts home care",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Committee of conference report accepted, in concurrence -see Roll Call #228 (Yeas 40 to Nays 0)",
+      "yeas": 40,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5627",
+      "title": "An Act to improve Massachusetts home care",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 157 YEAS to 0 NAYS ( See YEA and NAY No. 260 )",
+      "yeas": 157,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3235",
+      "title": "An Act relative to the Pilgrim Memorial Park in Plymouth",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 266 )",
+      "yeas": 152,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3235",
+      "title": "An Act relative to the Pilgrim Memorial Park in Plymouth",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #234 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3230",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to acquire interests in certain portions of land owned by the town of Andover which were acquired by the town for Article XCVII purposes",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 269 )",
+      "yeas": 152,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3230",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to acquire interests in certain portions of land owned by the town of Andover which were acquired by the town for Article XCVII purposes",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #237 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5624",
+      "title": "An Act establishing a Medal of Fidelity license plate",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Passed to be engrossed - 157 YEAS to 0 NAYS ( See YEA and NAY No. 255 )",
+      "yeas": 157,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5463",
+      "title": "An Act relative to a conservation restriction in the town of Middleton",
+      "branch": "House",
+      "date": "7/30/2026",
+      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 246 )",
+      "yeas": 158,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5463",
+      "title": "An Act relative to a conservation restriction in the town of Middleton",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Enacted -see Roll Call #223 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3052",
+      "title": "An Act authorizing the town of Dighton to use a portion of conservation land for public way purposes.",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Enacted -see Roll Call #218 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H4992",
+      "title": "An Act authorizing the Barnstable county and the town of Bourne to convey certain parcels of land and certain interests in land in the town of Bourne",
+      "branch": "House",
+      "date": "7/30/2026",
+      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 248 )",
+      "yeas": 158,
+      "nays": 0
+    },
+    {
+      "billNumber": "H4992",
+      "title": "An Act authorizing the Barnstable county and the town of Bourne to convey certain parcels of land and certain interests in land in the town of Bourne",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Enacted -see Roll Call #222 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5616",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to take easements over certain land located in the city of Woburn and the town of Burlington held in trust by the city of Boston for the Mary P. C. Cummings Testamentary Trust for highway purposes\r\n",
+      "branch": "House",
+      "date": "7/30/2026",
+      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 250 )",
+      "yeas": 158,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5616",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to take easements over certain land located in the city of Woburn and the town of Burlington held in trust by the city of Boston for the Mary P. C. Cummings Testamentary Trust for highway purposes\r\n",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Enacted -see Roll Call #227 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3160",
+      "title": "An Act relative to the dissolution of the Holmes Park Water District",
+      "branch": "House",
+      "date": "7/30/2026",
+      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 242 )",
+      "yeas": 158,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3160",
+      "title": "An Act relative to the dissolution of the Holmes Park Water District",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Enacted -see Roll Call #219 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3052",
+      "title": "An Act authorizing the town of Dighton to use a portion of conservation land for public way purposes.",
+      "branch": "House",
+      "date": "7/29/2026",
+      "action": "Enacted - 157 YEAS to 0 NAYS ( See YEA and NAY No. 237 )",
+      "yeas": 157,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2735",
+      "title": "An Act dissolving the North Carver water district",
+      "branch": "House",
+      "date": "7/22/2026",
+      "action": "Enacted - 153 YEAS to 0 NAYS ( See YEA and NAY No. 234 )",
+      "yeas": 153,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2735",
+      "title": "An Act dissolving the North Carver water district",
+      "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Enacted -see Roll Call #208 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3028",
+      "title": "An Act promoting pet equity, treatment and safety",
+      "branch": "House",
+      "date": "7/15/2026",
+      "action": "Passed to be engrossed - 151 YEAS to 1 NAYS ( See YEA and NAY No. 233 )",
+      "yeas": 151,
+      "nays": 1
+    },
+    {
+      "billNumber": "H5491",
+      "title": "An Act implementing the recommendations of the Walsh-Kennedy Commission Report",
       "branch": "House",
       "date": "6/10/2026",
-      "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 213 )",
+      "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 212 )",
       "yeas": 156,
       "nays": 0
     },
     {
-      "billNumber": "S14",
-      "title": "Proposed Senate Rules for the 2025-2026 Legislative Session",
-      "branch": "Senate",
-      "date": "2/13/2025",
-      "action": "Amendment #35 (Keenan) rejected -see Roll Call #18 (Yeas 5 to Nays 32)",
-      "yeas": 5,
-      "nays": 32
+      "billNumber": "H5493",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
+      "branch": "House",
+      "date": "6/10/2026",
+      "action": "Amendment 12 rejected - 28 YEAS to 128 NAYS ( See YEA and NAY No. 214 )",
+      "yeas": 28,
+      "nays": 128
     },
     {
-      "billNumber": "S14",
-      "title": "Proposed Senate Rules for the 2025-2026 Legislative Session",
-      "branch": "Senate",
-      "date": "2/13/2025",
-      "action": "Amendment #36 (Keenan) rejected -see Roll Call #19 (Yeas 6 to Nays 31)",
-      "yeas": 6,
-      "nays": 31
-    },
-    {
-      "billNumber": "S15",
-      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
-      "branch": "Senate",
-      "date": "2/12/2025",
-      "action": "Amendment #2 (Tarr) rejected -see Roll Call #2 (Yeas 5 to Nays 33)",
-      "yeas": 5,
-      "nays": 33
-    },
-    {
-      "billNumber": "S15",
-      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
-      "branch": "Senate",
-      "date": "2/12/2025",
-      "action": "Amendment #9 (Tarr) rejected -see Roll Call #3 (Yeas 6 to Nays 32)",
-      "yeas": 6,
-      "nays": 32
-    },
-    {
-      "billNumber": "S15",
-      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
-      "branch": "Senate",
-      "date": "2/12/2025",
-      "action": "Amendment #10 (Tarr) rejected -see Roll Call #4 (Yeas 5 to Nays 33)",
-      "yeas": 5,
-      "nays": 33
-    },
-    {
-      "billNumber": "S15",
-      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
-      "branch": "Senate",
-      "date": "2/12/2025",
-      "action": "Amendment #13 (Tarr) rejected -see Roll Call #5 (Yeas 6 to Nays 32)",
-      "yeas": 6,
-      "nays": 32
-    },
-    {
-      "billNumber": "S15",
-      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
-      "branch": "Senate",
-      "date": "2/12/2025",
-      "action": "Amendment #22 (Keenan) rejected -see Roll Call #6 (Yeas 9 to Nays 29)",
-      "yeas": 9,
-      "nays": 29
-    },
-    {
-      "billNumber": "S15",
-      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
-      "branch": "Senate",
-      "date": "2/12/2025",
-      "action": "Amendment #26 (Keenan) adopted -see Roll Call #7 (Yeas 38 to Nays 0)",
-      "yeas": 38,
+      "billNumber": "H5493",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
+      "branch": "House",
+      "date": "6/10/2026",
+      "action": "Consolidated amendment A adopted - 156 YEAS to 0 NAYS ( See YEA and NAY No. 215 )",
+      "yeas": 156,
       "nays": 0
     },
     {
-      "billNumber": "S15",
-      "title": "Proposed Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session.",
-      "branch": "Senate",
-      "date": "2/12/2025",
-      "action": "Amendment #29 (Keenan) rejected -see Roll Call #8 (Yeas 6 to Nays 32)",
-      "yeas": 6,
-      "nays": 32
+      "billNumber": "S2963",
+      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
+      "branch": "House",
+      "date": "6/4/2026",
+      "action": "Enacted - 149 YEAS to 0 NAYS ( See YEA and NAY No. 202 )",
+      "yeas": 149,
+      "nays": 0
     },
     {
-      "billNumber": "S16",
-      "title": "Fiscal Year 2025 Supplemental Appropriations ",
+      "billNumber": "S2963",
+      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
       "branch": "Senate",
-      "date": "2/12/2025",
-      "action": "Amendment #1 (Moore) adopted -see Roll Call #9 (Yeas 38 to Nays 0)",
-      "yeas": 38,
+      "date": "6/4/2026",
+      "action": "Enacted -see Roll Call #189 (Yeas 39 to Nays 0)",
+      "yeas": 39,
       "nays": 0
+    },
+    {
+      "billNumber": "H5471",
+      "title": "An Act authorizing municipalities to opt-in to a temporary pilot to extend the hours of liquor licenses and to allow for public consumption in designated districts in summer 2026",
+      "branch": "House",
+      "date": "6/4/2026",
+      "action": "Amended by substitution of bill with the same title, see H5478 - 150 YEAS to 0 NAYS ( See YEA and NAY No. 206 )",
+      "yeas": 150,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3104",
+      "title": "RESOLUTIONS RESPONDING TO THE SUPREME JUDICIAL COURT’S ORDER OF MAY 7, 2026, AND ENHANCING GOVERNMENT TRANSPARENCY",
+      "branch": "Senate",
+      "date": "5/28/2026",
+      "action": "Adopted -see Roll Call #186 (Yeas 33 to Nays 6)",
+      "yeas": 33,
+      "nays": 6
     }
   ],
   "recentVoicePasses": [
     {
-      "billNumber": "H1024",
-      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "billNumber": "H4506",
+      "title": "An Act authorizing the town of Conway to continue the employment of fire department member Howard Boyden",
       "branch": "House",
-      "date": "11/10/2025",
-      "action": "Enacted"
-    },
-    {
-      "billNumber": "H1024",
-      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
-      "branch": "Senate",
-      "date": "11/10/2025",
-      "action": "Enacted and laid before the Governor"
-    },
-    {
-      "billNumber": "H1024",
-      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
-      "branch": "Senate",
-      "date": "11/6/2025",
-      "action": "Emergency preamble adopted"
-    },
-    {
-      "billNumber": "H1024",
-      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
-      "branch": "House",
-      "date": "11/5/2025",
-      "action": "Emergency preamble adopted"
-    },
-    {
-      "billNumber": "H1024",
-      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
-      "branch": "House",
-      "date": "11/3/2025",
+      "date": "7/31/2026",
       "action": "House concurred in the Senate amendment"
     },
     {
-      "billNumber": "H1024",
-      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
-      "branch": "Senate",
-      "date": "10/20/2025",
-      "action": "Read second, amended (as recommended by the committee on Senate Rules), ordered to a third reading, read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "H1024",
-      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "billNumber": "H4506",
+      "title": "An Act authorizing the town of Conway to continue the employment of fire department member Howard Boyden",
       "branch": "House",
-      "date": "7/31/2025",
-      "action": "Read third and passed to be engrossed"
+      "date": "7/31/2026",
+      "action": "Enacted"
     },
     {
-      "billNumber": "S1034",
-      "title": "An Act relative to archaic laws",
+      "billNumber": "H4506",
+      "title": "An Act authorizing the town of Conway to continue the employment of fire department member Howard Boyden",
       "branch": "Senate",
-      "date": "7/24/2025",
-      "action": "Amendment #1 (DiDomenico) adopted"
+      "date": "7/31/2026",
+      "action": "Enacted and laid before the Governor"
     },
     {
-      "billNumber": "S1034",
-      "title": "An Act relative to archaic laws",
-      "branch": "Senate",
-      "date": "7/24/2025",
-      "action": "Amendment #2 (Lovely) adopted"
-    },
-    {
-      "billNumber": "S1034",
-      "title": "An Act relative to archaic laws",
-      "branch": "Senate",
-      "date": "7/24/2025",
+      "billNumber": "H5615",
+      "title": "An Act validating a conveyance of land and authorizing the recording of a confirmatory deed in the city of Marlborough",
+      "branch": "House",
+      "date": "7/29/2026",
       "action": "Ordered to a third reading"
     },
     {
-      "billNumber": "H1024",
-      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Sharon",
+      "billNumber": "H5615",
+      "title": "An Act validating a conveyance of land and authorizing the recording of a confirmatory deed in the city of Marlborough",
       "branch": "House",
-      "date": "7/21/2025",
+      "date": "7/29/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H5463",
+      "title": "An Act relative to a conservation restriction in the town of Middleton",
+      "branch": "Senate",
+      "date": "7/29/2026",
+      "action": "Read third (title changed) and passed to be engrossed"
+    },
+    {
+      "billNumber": "H5463",
+      "title": "An Act relative to a conservation restriction in the town of Middleton",
+      "branch": "Senate",
+      "date": "7/16/2026",
+      "action": "Read, rules suspended, read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H4506",
+      "title": "An Act authorizing the town of Conway to continue the employment of fire department member Howard Boyden",
+      "branch": "Senate",
+      "date": "7/16/2026",
+      "action": "Read third, amended and passed to be engrossed"
+    },
+    {
+      "billNumber": "H5463",
+      "title": "An Act relative to a conservation restriction in the town of Middleton",
+      "branch": "House",
+      "date": "7/13/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "S3123",
+      "title": "Financial Services -- Extension Order",
+      "branch": "Senate",
+      "date": "7/9/2026",
+      "action": "Committee recommended ought to be adopted"
+    },
+    {
+      "billNumber": "S3123",
+      "title": "Financial Services -- Extension Order",
+      "branch": "Senate",
+      "date": "7/9/2026",
+      "action": "Adopted"
+    },
+    {
+      "billNumber": "H5463",
+      "title": "An Act relative to a conservation restriction in the town of Middleton",
+      "branch": "House",
+      "date": "7/2/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "S10",
-      "title": "Proposal for a legislative amendment to the Constitution to define the succession plan for a vacancy in the office of Lieutenant Governor\r\n",
+      "billNumber": "H5533",
+      "title": "An Act authorizing the town of Boxborough to prohibit the use or sale of second-generation anti-coagulant rodenticides",
+      "branch": "Senate",
+      "date": "6/29/2026",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H5189",
+      "title": "An Act authorizing Bradford G. Merkel to take the state police examination notwithstanding the maximum age requirement",
       "branch": "House",
-      "date": "3/3/2025",
-      "action": "House concurred"
+      "date": "6/25/2026",
+      "action": "Read third and passed to be engrossed"
     },
     {
-      "billNumber": "H10",
-      "title": "An Act relative to nondisclosure agreements ",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H1000",
-      "title": "An Act establishing a coastal waters wastewater financing commission",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S1000",
-      "title": "An Act relative to creating a statutory housing restriction and providing remedies related to statutory housing",
+      "billNumber": "H4312",
+      "title": "An Act relative to charter changes for the town of Longmeadow",
       "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
+      "date": "6/15/2026",
+      "action": "Enacted"
     },
     {
-      "billNumber": "H100",
-      "title": "An Act establishing a commission to study a statewide credentialing program for digital navigators",
+      "billNumber": "H4312",
+      "title": "An Act relative to charter changes for the town of Longmeadow",
       "branch": "Senate",
-      "date": "2/27/2025",
+      "date": "6/15/2026",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "H4312",
+      "title": "An Act relative to charter changes for the town of Longmeadow",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Read third (title changed) and passed to be engrossed"
+    },
+    {
+      "billNumber": "H5463",
+      "title": "An Act relative to a conservation restriction in the town of Middleton",
+      "branch": "Senate",
+      "date": "6/4/2026",
       "action": "Senate concurred"
     },
     {
-      "billNumber": "H1001",
-      "title": "An Act create a crumbling foundations task force with the goal of identifying a source and method of funding",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S1001",
-      "title": "An Act to increase housing production in the city of Lowell",
+      "billNumber": "S2963",
+      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
       "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
+      "date": "6/3/2026",
+      "action": "Read third and passed to be engrossed"
     },
     {
-      "billNumber": "S100",
-      "title": "An Act to study supply and demand for cannabis cultivation",
+      "billNumber": "H5189",
+      "title": "An Act authorizing Bradford G. Merkel to take the state police examination notwithstanding the maximum age requirement",
       "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
+      "date": "5/28/2026",
+      "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H1002",
-      "title": "An Act relative to the Douglas State Forest Maintenance Trust Fund",
+      "billNumber": "S1859",
+      "title": "An Act relative to the amendment of M.G.L. c.32, section 4(2)(b) and 4(2)(c), solely as they relate to the calculation of Walter L. Guertin's pension",
       "branch": "Senate",
-      "date": "2/27/2025",
+      "date": "4/30/2026",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "S1859",
+      "title": "An Act relative to the amendment of M.G.L. c.32, section 4(2)(b) and 4(2)(c), solely as they relate to the calculation of Walter L. Guertin's pension",
+      "branch": "House",
+      "date": "4/28/2026",
+      "action": "Enacted"
+    },
+    {
+      "billNumber": "S1859",
+      "title": "An Act relative to the amendment of M.G.L. c.32, section 4(2)(b) and 4(2)(c), solely as they relate to the calculation of Walter L. Guertin's pension",
+      "branch": "Senate",
+      "date": "4/27/2026",
+      "action": "Senate concurred in the House amendment"
+    },
+    {
+      "billNumber": "S2963",
+      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
+      "branch": "House",
+      "date": "4/16/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H4506",
+      "title": "An Act authorizing the town of Conway to continue the employment of fire department member Howard Boyden",
+      "branch": "Senate",
+      "date": "4/9/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "S1859",
+      "title": "An Act relative to the amendment of M.G.L. c.32, section 4(2)(b) and 4(2)(c), solely as they relate to the calculation of Walter L. Guertin's pension",
+      "branch": "House",
+      "date": "4/2/2026",
+      "action": "Read third, amended by substitution of a new text ( H5331 ) and passed to be engrossed"
+    },
+    {
+      "billNumber": "H5315",
+      "title": "An Act relative to the Veterans Memorial Rink located in the city of Waltham",
+      "branch": "Senate",
+      "date": "3/26/2026",
       "action": "Senate concurred"
     },
     {
-      "billNumber": "S1002",
-      "title": "An Act relative to accessory dwelling units on smaller lots",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H1004",
-      "title": "An Act promoting climate safe buildings",
+      "billNumber": "S2720",
+      "title": "An Act banning the retail sale of dogs, cats, and rabbits in pet shops",
       "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
+      "date": "3/19/2026",
+      "action": "New draft substituted, see S3014"
     },
     {
-      "billNumber": "H1005",
-      "title": "An Act investing in natural and working lands",
+      "billNumber": "S2963",
+      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
       "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
+      "date": "3/19/2026",
+      "action": "Read second, ordered to a third reading, read third (title changed) and passed to be engrossed"
     },
     {
-      "billNumber": "S1004",
-      "title": "An Act to create affordable homes for persons with disabilities",
+      "billNumber": "H4506",
+      "title": "An Act authorizing the town of Conway to continue the employment of fire department member Howard Boyden",
       "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H1003",
-      "title": "An Act relative to maintaining adequate water supplies through effective drought management",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S1003",
-      "title": "Resolve to examine Chapter 40B",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "S1005",
-      "title": "An Act for Chapter 40B reform and improvement",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "S1006",
-      "title": "An Act creating the Home Works Program",
-      "branch": "House",
-      "date": "2/27/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H1007",
-      "title": "An Act to provide for housing within the Manuel F. Correllus State Forest",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H1009",
-      "title": "An Act to overcome coastal and environmental acidification and nutrient pollution",
-      "branch": "Senate",
-      "date": "2/27/2025",
-      "action": "Senate concurred"
+      "date": "3/19/2026",
+      "action": "Read third and passed to be engrossed"
     }
   ],
   "sources": [
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11523
+      "count": 11524
     },
     {
       "name": "bills.House",
@@ -343,7 +537,12 @@
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3252
+      "count": 3253
+    },
+    {
+      "name": "rollcalls.enumerated",
+      "ok": true,
+      "count": 508
     },
     {
       "name": "bills.actions",
