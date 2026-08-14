@@ -15,8 +15,13 @@ name: Publish SFI per-filing PDFs
 # larger 5,000/hr budget; without it this falls back to GITHUB_TOKEN.
 
 on:
-  schedule:
-    - cron: '17 * * * *'
+  # Backfill complete: all 29,729 per-filing PDFs are published (29,729/29,729,
+  # nothing missing). The hourly schedule is retired — every run was a no-op that
+  # still committed a timestamp-churned _index.json and raced the other refresh
+  # jobs to push, which is what was failing the run. Re-enable this cron only if a
+  # new batch of SFI filings is added; until then, run on demand via workflow_dispatch.
+  #   schedule:
+  #     - cron: '17 * * * *'
   workflow_dispatch:
     inputs:
       report_only:
