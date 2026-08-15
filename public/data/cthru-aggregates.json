@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-14T09:26:37.517Z",
+  "fetchedAt": "2026-08-15T09:09:12.787Z",
   "years": [
     "2024",
     "2025",
@@ -1742,7 +1742,7 @@
       {
         "department": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
         "totalPay": 77021709.26,
-        "employees": 981
+        "employees": 982
       },
       {
         "department": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
@@ -1893,12 +1893,12 @@
       },
       {
         "department": "TRIAL COURT (TRC)",
-        "totalPay": 450261069.89,
+        "totalPay": 450254404.94,
         "employees": 7090
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "totalPay": 330680280.05,
+        "totalPay": 330677789.13,
         "employees": 6800
       },
       {
@@ -1908,17 +1908,17 @@
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "totalPay": 323533969.11,
+        "totalPay": 323504741.38,
         "employees": 3656
       },
       {
         "department": "DEPARTMENT OF CORRECTION (DOC)",
-        "totalPay": 317656427.83,
+        "totalPay": 317649759.76,
         "employees": 4094
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 269021365.21,
+        "totalPay": 268948831.72,
         "employees": 4336
       },
       {
@@ -1984,7 +1984,7 @@
       {
         "department": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
         "totalPay": 57661576.21,
-        "employees": 1006
+        "employees": 1007
       },
       {
         "department": "MASS REHABILITATION COMMISSION (MRC)",
@@ -2008,7 +2008,7 @@
       },
       {
         "department": "SHERIFF DEPARTMENT MIDDLESEX (SDM)",
-        "totalPay": 45390064.36,
+        "totalPay": 45385485.01,
         "employees": 833
       },
       {
@@ -2033,7 +2033,7 @@
       },
       {
         "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
-        "totalPay": 40793799.79,
+        "totalPay": 40781064.49,
         "employees": 1891
       },
       {
@@ -2103,7 +2103,7 @@
       },
       {
         "department": "MASSASOIT COMMUNITY COLLEGE (MAS)",
-        "totalPay": 28825082.66,
+        "totalPay": 28822406.67,
         "employees": 1061
       },
       {
@@ -3125,18 +3125,18 @@
     {
       "year": "2025",
       "totalPayroll": 10886988439.14,
-      "headcount": 162472
+      "headcount": 162473
     },
     {
       "year": "2026",
-      "totalPayroll": 7345420383.25,
-      "headcount": 146794
+      "totalPayroll": 7345275120.43,
+      "headcount": 146795
     }
   ],
   "quasiByAgency": [
     {
       "name": "Massachusetts Bay Transportation Authority",
-      "value": 44995710444.63
+      "value": 45772513084.33
     },
     {
       "name": "Massachusetts Housing Finance Agency",
