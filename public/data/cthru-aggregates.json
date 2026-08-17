@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-16T09:09:27.777Z",
+  "fetchedAt": "2026-08-17T09:18:34.222Z",
   "years": [
     "2024",
     "2025",
@@ -1677,7 +1677,7 @@
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
         "totalPay": 352712626.98,
-        "employees": 4050
+        "employees": 4051
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
@@ -1929,7 +1929,7 @@
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
         "totalPay": 239825464.74,
-        "employees": 3726
+        "employees": 3727
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
@@ -1939,7 +1939,7 @@
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
         "totalPay": 122607691.16,
-        "employees": 2082
+        "employees": 2083
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -3125,12 +3125,12 @@
     {
       "year": "2025",
       "totalPayroll": 10886988439.14,
-      "headcount": 162473
+      "headcount": 162474
     },
     {
       "year": "2026",
       "totalPayroll": 7345275120.43,
-      "headcount": 146795
+      "headcount": 146797
     }
   ],
   "quasiByAgency": [
