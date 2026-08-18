@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-08-14T10:41:03.357Z",
+  "fetchedAt": "2026-08-18T10:21:44.242Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8911,
+  "billsTotal": 8918,
   "sampleStrategy": "seeded-random-750-per-chamber (seed 194)",
   "budgetTruncated": false,
   "preservedFromCache": false,
   "recordedVotes": {
-    "house": 262,
-    "senate": 233,
-    "total": 495,
+    "house": 266,
+    "senate": 235,
+    "total": 501,
     "highestNumber": {
       "house": 270,
       "senate": 238
@@ -18,98 +18,116 @@
     "exact": true
   },
   "totals": {
-    "actions": 7976,
-    "rollCalls": 38,
-    "voicePasses": 1750,
-    "procedural": 6188
+    "actions": 8349,
+    "rollCalls": 52,
+    "voicePasses": 1899,
+    "procedural": 6398
   },
   "sampleRatios": {
-    "rollCallShare": 0.021252796420581657,
-    "voicePassShare": 0.9787472035794184
+    "rollCallShare": 0.02665299846232701,
+    "voicePassShare": 0.973347001537673
   },
   "sessionEstimate": {
-    "recordedVotesExact": 495,
-    "voicePassesEstimated": 10396,
-    "decisiveActionsEstimated": 10891,
-    "scaleFactor": 5.941,
-    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8911"
+    "recordedVotesExact": 501,
+    "voicePassesEstimated": 11290,
+    "decisiveActionsEstimated": 11791,
+    "scaleFactor": 5.945,
+    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8918"
   },
   "ratios": {
-    "rollCallShare": 0.04545037186667891,
-    "voicePassShare": 0.9545496281333211,
+    "rollCallShare": 0.04249003477228395,
+    "voicePassShare": 0.957509965227716,
     "basis": "session-wide"
   },
   "recentRollCalls": [
     {
-      "billNumber": "H5640",
-      "title": "An Act authorizing the town of Hingham to grant to the commonwealth of Massachusetts certain parcels of land in the town of Hingham for highway purposes",
-      "branch": "House",
-      "date": "7/31/2026",
-      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 264 )",
-      "yeas": 152,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5640",
-      "title": "An Act authorizing the town of Hingham to grant to the commonwealth of Massachusetts certain parcels of land in the town of Hingham for highway purposes",
-      "branch": "Senate",
-      "date": "7/31/2026",
-      "action": "Enacted -see Roll Call #232 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5616",
-      "title": "An Act authorizing the Massachusetts Department of Transportation to take easements over certain land located in the city of Woburn and the town of Burlington held in trust by the city of Boston for the Mary P. C. Cummings Testamentary Trust for highway purposes\r\n",
+      "billNumber": "H5492",
+      "title": "An Act authorizing the town of Billerica to transfer control of certain land in the town of Billerica for the Yankee Doodle Bike Path",
       "branch": "House",
       "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 250 )",
+      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 247 )",
       "yeas": 158,
       "nays": 0
     },
     {
-      "billNumber": "H5616",
-      "title": "An Act authorizing the Massachusetts Department of Transportation to take easements over certain land located in the city of Woburn and the town of Burlington held in trust by the city of Boston for the Mary P. C. Cummings Testamentary Trust for highway purposes\r\n",
+      "billNumber": "H5492",
+      "title": "An Act authorizing the town of Billerica to transfer control of certain land in the town of Billerica for the Yankee Doodle Bike Path",
       "branch": "Senate",
       "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #227 (Yeas 39 to Nays 0)",
+      "action": "Enacted -see Roll Call #225 (Yeas 39 to Nays 0)",
       "yeas": 39,
       "nays": 0
     },
     {
-      "billNumber": "S3028",
-      "title": "An Act promoting pet equity, treatment and safety",
+      "billNumber": "H5388",
+      "title": "An Act authorizing the transfer of a certain parcel of land in the town of Marion from the Open Space Acquisition Commission to the Select Board",
       "branch": "House",
-      "date": "7/15/2026",
-      "action": "Passed to be engrossed - 151 YEAS to 1 NAYS ( See YEA and NAY No. 233 )",
-      "yeas": 151,
-      "nays": 1
+      "date": "7/22/2026",
+      "action": "Enacted - 154 YEAS to 0 NAYS ( See YEA and NAY No. 235 )",
+      "yeas": 154,
+      "nays": 0
     },
     {
-      "billNumber": "S3162",
-      "title": "An Act to improve outdoor lighting, conserve energy, and increase dark-sky visibility",
+      "billNumber": "H5388",
+      "title": "An Act authorizing the transfer of a certain parcel of land in the town of Marion from the Open Space Acquisition Commission to the Select Board",
       "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Enacted -see Roll Call #209 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2916",
+      "title": "An Act improving campaign finance reporting for statewide ballot questions ",
+      "branch": "House",
       "date": "7/1/2026",
-      "action": "Passed to be engrossed -see Roll Call #198 (Yeas 39 to Nays 0)",
-      "yeas": 39,
+      "action": "Passed to be engrossed -149 YEAS to 0 NAYS ( See YEA and NAY No. 222 )",
+      "yeas": 149,
       "nays": 0
     },
     {
-      "billNumber": "H4843",
-      "title": "An Act providing for the exchange of certain park land in the town of Lexington",
+      "billNumber": "H5491",
+      "title": "An Act implementing the recommendations of the Walsh-Kennedy Commission Report",
+      "branch": "House",
+      "date": "6/10/2026",
+      "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 212 )",
+      "yeas": 156,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2963",
+      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
       "branch": "House",
       "date": "6/4/2026",
-      "action": "Enacted - 151 YEAS to 0 NAYS ( See YEA and NAY No. 203 )",
-      "yeas": 151,
+      "action": "Enacted - 149 YEAS to 0 NAYS ( See YEA and NAY No. 202 )",
+      "yeas": 149,
       "nays": 0
     },
     {
-      "billNumber": "H4843",
-      "title": "An Act providing for the exchange of certain park land in the town of Lexington",
+      "billNumber": "S2963",
+      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
       "branch": "Senate",
       "date": "6/4/2026",
-      "action": "Enacted -see Roll Call #190 (Yeas 39 to Nays 0)",
+      "action": "Enacted -see Roll Call #189 (Yeas 39 to Nays 0)",
       "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2619",
+      "title": "An Act establishing the Massachusetts data privacy act",
+      "branch": "House",
+      "date": "6/4/2026",
+      "action": "Consolidated amendment A adopted - 146 YEAS to 0 NAYS ( See YEA and NAY No. 207 )",
+      "yeas": 146,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2619",
+      "title": "An Act establishing the Massachusetts data privacy act",
+      "branch": "House",
+      "date": "6/4/2026",
+      "action": "Passed to be engrossed - 146 YEAS to 0 NAYS ( See YEA and NAY No. 208 )",
+      "yeas": 146,
       "nays": 0
     },
     {
@@ -122,427 +140,409 @@
       "nays": 6
     },
     {
-      "billNumber": "H5280",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
-      "branch": "Senate",
-      "date": "4/9/2026",
-      "action": "Passed to be engrossed -see Roll Call #148 (Yeas 35 to Nays 4)",
-      "yeas": 35,
-      "nays": 4
+      "billNumber": "H5441",
+      "title": "An Act relative to newborn screenings for congenital cytomegalovirus",
+      "branch": "House",
+      "date": "5/20/2026",
+      "action": "Amendment 3 rejected - 1 YEAS to 154 NAYS ( See YEA and NAY No. 193 )",
+      "yeas": 1,
+      "nays": 154
     },
     {
-      "billNumber": "S2145",
-      "title": "An Act designating October 15 as Pregnancy and Infant Loss Awareness Day",
+      "billNumber": "H5441",
+      "title": "An Act relative to newborn screenings for congenital cytomegalovirus",
+      "branch": "House",
+      "date": "5/20/2026",
+      "action": "Passed to be engrossed - 155 YEAS to 1 NAYS ( See YEA and NAY No. 194 )",
+      "yeas": 155,
+      "nays": 1
+    },
+    {
+      "billNumber": "S3083",
+      "title": "Order relative to requesting the opinions of the Honorable Justices of the Supreme Judicial Court on important questions of law relative to promoting rule of law, oversight, trust and equal constitutional treatment",
       "branch": "Senate",
-      "date": "3/19/2026",
-      "action": "Passed to be engrossed -see Roll Call #141 (Yeas 38 to Nays 0)",
+      "date": "5/7/2026",
+      "action": "Motion (Tarr) to suspend the rules does not prevail -- see Roll Call #153 (Yeas 5 to Nays 35)",
+      "yeas": 5,
+      "nays": 35
+    },
+    {
+      "billNumber": "S3050",
+      "title": "An Act to build resilience for Massachusetts communities",
+      "branch": "Senate",
+      "date": "4/15/2026",
+      "action": "Amendment #1 (Moore) adopted -see Roll Call #149 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3050",
+      "title": "An Act to build resilience for Massachusetts communities",
+      "branch": "Senate",
+      "date": "4/15/2026",
+      "action": "Amendment #2 (Lovely) adopted -see Roll Call #150 (Yeas 38 to Nays 0)",
       "yeas": 38,
       "nays": 0
     },
     {
-      "billNumber": "S3028",
-      "title": "An Act promoting pet equity, treatment and safety",
-      "branch": "Senate",
-      "date": "3/19/2026",
-      "action": "Passed to be engrossed -see Roll Call #142 (Yeas 38 to Nays 0)",
-      "yeas": 38,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5280",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
       "branch": "House",
-      "date": "3/18/2026",
-      "action": "Passed to be engrossed - 150 YEAS to 3 NAYS ( See YEA and NAY No. 145 )",
-      "yeas": 150,
-      "nays": 3
-    },
-    {
-      "billNumber": "H5264",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
-      "branch": "House",
-      "date": "3/18/2026",
-      "action": "Consolidated amendment A adopted - 151 YEAS to 2 NAYS ( See YEA and NAY No. 142 )",
-      "yeas": 151,
-      "nays": 2
-    },
-    {
-      "billNumber": "H5264",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
-      "branch": "House",
-      "date": "3/18/2026",
-      "action": "Amendment 43 rejected - 25 YEAS to 128 NAYS ( See YEA and NAY No. 143 )",
-      "yeas": 25,
+      "date": "2/26/2026",
+      "action": "Amendment 24 rejected - 26 YEAS to 128 NAYS ( See YEA and NAY No. 126 )",
+      "yeas": 26,
       "nays": 128
     },
     {
-      "billNumber": "H5264",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
       "branch": "House",
-      "date": "3/18/2026",
-      "action": "Consolidated amendment B adopted - 149 YEAS to 4 NAYS ( See YEA and NAY No. 144 )",
-      "yeas": 149,
-      "nays": 4
-    },
-    {
-      "billNumber": "S2978",
-      "title": "An Act updating the unit pricing exemption threshold",
-      "branch": "Senate",
       "date": "2/26/2026",
-      "action": "Passed to be engrossed -- see Roll Call #137 (Yeas 37 to Nays 0)",
-      "yeas": 37,
-      "nays": 0
+      "action": "Amendment 13 rejected - 26 YEAS to 128 NAYS ( See YEA and NAY No. 127 )",
+      "yeas": 26,
+      "nays": 128
     },
     {
-      "billNumber": "S2946",
-      "title": "An Act relative to modernizing the pathway to becoming a certified public accountant",
-      "branch": "Senate",
-      "date": "2/12/2026",
-      "action": "Passed to be engrossed -see Roll Call #133 (Yeas 37 to Nays 0)",
-      "yeas": 37,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2959",
-      "title": "An Act regarding fair housing practices in the Commonwealth",
-      "branch": "Senate",
-      "date": "2/12/2026",
-      "action": "Passed to be engrossed -see Roll Call #136 (Yeas 38 to Nays 0)",
-      "yeas": 38,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5032",
-      "title": "An Act relative to preparing apprentices in the commonwealth",
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
       "branch": "House",
-      "date": "1/28/2026",
-      "action": "Passed to be engrossed - 154 YEAS to 1 NAYS ( See YEA and NAY No. 118 )",
-      "yeas": 154,
-      "nays": 1
+      "date": "2/26/2026",
+      "action": "Amendment 105 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 128 )",
+      "yeas": 25,
+      "nays": 130
     },
     {
-      "billNumber": "S2917",
-      "title": "An Act to prevent property tax bill shocks",
-      "branch": "Senate",
-      "date": "1/15/2026",
-      "action": "Passed to be engrossed -see Roll Call #118 (Yeas 37 to Nay 1)",
-      "yeas": 37,
-      "nays": 1
-    },
-    {
-      "billNumber": "S2710",
-      "title": "An Act addressing challenges facing public libraries and digital resource collections",
-      "branch": "Senate",
-      "date": "11/13/2025",
-      "action": "Passed to be engrossed -see Roll Call # 97 (Yeas 37 to Nays 0)",
-      "yeas": 37,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2708",
-      "title": "An Act clarifying the duties of the adjutant general",
-      "branch": "Senate",
-      "date": "11/6/2025",
-      "action": "Passed to be engrossed -see Roll Call #96 (Yeas 38 to Nays 0)",
-      "yeas": 38,
-      "nays": 0
-    },
-    {
-      "billNumber": "H4615",
-      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
-      "branch": "Senate",
-      "date": "10/23/2025",
-      "action": "Passed to be engrossed -- see Roll Call #93 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H4615",
-      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
       "branch": "House",
-      "date": "10/15/2025",
-      "action": "Passed to be engrossed - 141 YEAS to 14 NAYS ( See YEA and NAY No. 92 )",
-      "yeas": 141,
-      "nays": 14
+      "date": "2/26/2026",
+      "action": "Consolidated amendment A adopted - 128 YEAS to 27 NAYS ( See YEA and NAY No. 129 )",
+      "yeas": 128,
+      "nays": 27
     },
     {
-      "billNumber": "S2558",
-      "title": "An Act facilitating better interactions between police officers and persons with autism spectrum disorder",
-      "branch": "Senate",
-      "date": "7/24/2025",
-      "action": "Amendment #1 (Moore) adopted -see Roll Call #63 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2558",
-      "title": "An Act facilitating better interactions between police officers and persons with autism spectrum disorder",
-      "branch": "Senate",
-      "date": "7/24/2025",
-      "action": "Amendment #2 (Tarr) rejected -see Roll Call #64 (Yeas 5 to Nays 34)",
-      "yeas": 5,
-      "nays": 34
-    },
-    {
-      "billNumber": "S2545",
-      "title": "Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session",
-      "branch": "Senate",
-      "date": "6/26/2025",
-      "action": "Committee of conference report accepted -see Roll Call #54 (Yeas 40 to Nays 0)",
-      "yeas": 40,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2545",
-      "title": "Joint Rules for the Senate and House of Representatives for the 2025-2026 Legislative Session",
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
       "branch": "House",
-      "date": "6/26/2025",
-      "action": "Committee of conference report accepted, in concurrence - 147 YEAS to 2 NAYS ( See YEA and NAY No. 58 )",
-      "yeas": 147,
-      "nays": 2
+      "date": "2/26/2026",
+      "action": "Amendment 8 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 130 )",
+      "yeas": 25,
+      "nays": 130
     },
     {
-      "billNumber": "S2529",
-      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
-      "branch": "Senate",
-      "date": "6/18/2025",
-      "action": "Amendment #25 (Tarr) rejected -see Roll Call #50 (Yeas 5 to Nays 34)",
-      "yeas": 5,
-      "nays": 34
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Amendment 21 rejected - 26 YEAS to 128 NAYS ( See YEA and NAY No. 131 )",
+      "yeas": 26,
+      "nays": 128
+    },
+    {
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Amendment 38 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 132 )",
+      "yeas": 25,
+      "nays": 130
+    },
+    {
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Consolidated amendment B adopted - 139 YEAS to 16 NAYS ( See YEA and NAY No. 133 )",
+      "yeas": 139,
+      "nays": 16
+    },
+    {
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Amendment 113 rejected - 17 YEAS to 138 NAYS ( See YEA and NAY No. 134 )",
+      "yeas": 17,
+      "nays": 138
+    },
+    {
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Amendment 7 rejected - 25 YEAS to 129 NAYS ( See YEA and NAY No. 135 )",
+      "yeas": 25,
+      "nays": 129
+    },
+    {
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Amendment 78 rejected - 26 YEAS to 130 NAYS ( See YEA and NAY No. 136 )",
+      "yeas": 26,
+      "nays": 130
+    },
+    {
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Amendment 46 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 137 )",
+      "yeas": 25,
+      "nays": 130
+    },
+    {
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Amendment 101 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 138 )",
+      "yeas": 25,
+      "nays": 130
+    },
+    {
+      "billNumber": "H5151",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "House",
+      "date": "2/26/2026",
+      "action": "Amendment 109 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 139 )",
+      "yeas": 25,
+      "nays": 130
     }
   ],
   "recentVoicePasses": [
     {
-      "billNumber": "S2922",
-      "title": "An Act authorizing the Division of Capital Asset Management and Maintenance to grant easements to NSTAR electric company d/b/a Eversource Energy in return for NSTAR releasing or modifying easements for the benefit of the Commonwealth",
+      "billNumber": "H5656",
+      "title": "An Act relative to a liquor license in the town of Avon ",
+      "branch": "Senate",
+      "date": "8/17/2026",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "The following amendments were considered as one and adopted:22, 27, 42, 47, 58, 59, 61, 62, 77, 102, 103, 104, 105, 106, 107, 108, 115, 125, 126, 128, 129, 130, 131, 132, 133, 158, 184, 186, 187, 190, 191, 195, 199, 200, 207, 211, 212, 214, 217, 218, 220, 225, 227, 229, 230, 231, 233, 243, 246, 247, 248, 249, 250, 251, 252, 253, 254, 272, 282, 285, 287, 291, 294, 295, 298, 301, 303, 311, 313, 314, 315, 316, 317, 319, 320, 321, 328, 329, 330, 331, 332, 333, 334, 335, 336, 340, 362, 379, 389, 392, 398, 413, 414, 415, 416, 424, 430, 436, 439, 446, 448, 450, 452, 454, 455, 456, 461, 466, 468, 472, 473, 474, 475, 477, 478, 479, 480, 481, 482, 485, 487, 488, 494, 500, 502, 504, 508, 510, 515, 518, 523, 524, 530, 545, 581, 588, 589, 590, 591, 593, 594"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #511 (Friedman) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #43 (Miranda) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #46 (Miranda) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #213 (Driscoll) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #281 ( Gómez) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #297 (Miranda) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #305 (Miranda) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #341 (Dooner) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #356 (O'Connor) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #460 (Cronin) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #491 (Edwards) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #372 (Cyr) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/23/2026",
+      "action": "Amendment #499 (Brady) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Amendment #55 (Keenan) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Amendment #196 (Oliveira) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Amendment #366 (Lovely) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Amendment #554 (Collins) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Amendment #374 (Cronin) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
+      "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Amendment #56 (Miranda) adopted"
+    },
+    {
+      "billNumber": "S3178",
+      "title": "An Act relative to economic development in the commonwealth",
       "branch": "Senate",
       "date": "7/16/2026",
-      "action": "New draft substituted, see S3180"
+      "action": "Order relative to subject matter adopted"
     },
     {
-      "billNumber": "H5534",
-      "title": "An Act making certain appropriations for fiscal year 2027 before final action on the General Appropriation Bill",
+      "billNumber": "H4805",
+      "title": "An Act amending the town charter of the town of Plainville",
       "branch": "House",
       "date": "6/29/2026",
-      "action": "Read second, ordered to a third reading, rules suspended, read third and passed to be engrossed"
+      "action": "House concurred in the Senate amendment"
     },
     {
-      "billNumber": "H5534",
-      "title": "An Act making certain appropriations for fiscal year 2027 before final action on the General Appropriation Bill",
-      "branch": "Senate",
-      "date": "6/29/2026",
-      "action": "Read, rules suspended, read second, ordered to a third reading, read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "H5534",
-      "title": "An Act making certain appropriations for fiscal year 2027 before final action on the General Appropriation Bill",
+      "billNumber": "H4805",
+      "title": "An Act amending the town charter of the town of Plainville",
       "branch": "House",
       "date": "6/29/2026",
       "action": "Enacted"
     },
     {
-      "billNumber": "H5534",
-      "title": "An Act making certain appropriations for fiscal year 2027 before final action on the General Appropriation Bill",
+      "billNumber": "H4805",
+      "title": "An Act amending the town charter of the town of Plainville",
       "branch": "Senate",
       "date": "6/29/2026",
       "action": "Enacted and laid before the Governor"
     },
     {
-      "billNumber": "S2145",
-      "title": "An Act designating October 15 as Pregnancy and Infant Loss Awareness Day",
+      "billNumber": "H4805",
+      "title": "An Act amending the town charter of the town of Plainville",
+      "branch": "Senate",
+      "date": "5/26/2026",
+      "action": "Read third, amended (Rausch) and passed to be engrossed"
+    },
+    {
+      "billNumber": "H3509",
+      "title": "An Act relative to automatic re-enrollment in the Low Income Home Energy Assistance Program (LIHEAP)",
       "branch": "House",
-      "date": "4/21/2026",
+      "date": "4/16/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "S2552",
-      "title": "An Act authorizing the town of Berkley to recall elected officials\r\n",
+      "billNumber": "S2964",
+      "title": " Health Care Financing -- Extension Order",
       "branch": "Senate",
-      "date": "4/6/2026",
-      "action": "New draft substituted (Dooner), see S3018"
-    },
-    {
-      "billNumber": "S3032",
-      "title": "The Judiciary -- Extension Order",
-      "branch": "Senate",
-      "date": "3/30/2026",
+      "date": "3/19/2026",
       "action": "Committee recommended ought to be adopted"
     },
     {
-      "billNumber": "S3032",
-      "title": "The Judiciary -- Extension Order",
+      "billNumber": "S2964",
+      "title": " Health Care Financing -- Extension Order",
       "branch": "Senate",
-      "date": "3/30/2026",
-      "action": "Adopted"
-    },
-    {
-      "billNumber": "H5270",
-      "title": "Order relative to extending until Monday, June 15, 2026 the time within which the committee on Health Care Financing is authorized to report on current House documents",
-      "branch": "House",
-      "date": "3/19/2026",
-      "action": "Committee reported ought to be adopted"
-    },
-    {
-      "billNumber": "H5270",
-      "title": "Order relative to extending until Monday, June 15, 2026 the time within which the committee on Health Care Financing is authorized to report on current House documents",
-      "branch": "House",
       "date": "3/19/2026",
       "action": "Adopted"
     },
     {
-      "billNumber": "S2145",
-      "title": "An Act designating October 15 as Pregnancy and Infant Loss Awareness Day",
+      "billNumber": "H4805",
+      "title": "An Act amending the town charter of the town of Plainville",
       "branch": "Senate",
-      "date": "3/16/2026",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "H5220",
-      "title": "Order relative to extending until Wednesday, March 18, 2026 the time within which the committee on Revenue is authorized to report on current House documents",
-      "branch": "House",
-      "date": "3/9/2026",
-      "action": "Committee reported ought to be adopted"
-    },
-    {
-      "billNumber": "H5220",
-      "title": "Order relative to extending until Wednesday, March 18, 2026 the time within which the committee on Revenue is authorized to report on current House documents",
-      "branch": "House",
-      "date": "3/9/2026",
-      "action": "Adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #3 (Moore) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #6 (Crighton) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #7 (Cronin) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #11 (Finegold) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #13 (Driscoll) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #14 (Creem) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #15 (Creem) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #18 (Fernandes) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #21 (Gómez) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #22 (Cyr) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #24 (Kennedy) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #25 (Kennedy) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #26 (Cyr) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #27 (Finegold) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #31 (Lovely) adopted"
-    },
-    {
-      "billNumber": "S2962",
-      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
-      "branch": "Senate",
-      "date": "2/26/2026",
-      "action": "Amendment #36 (Miranda) adopted"
+      "date": "1/27/2026",
+      "action": "Read, rules suspended, read second and ordered to a third reading"
     }
   ],
   "sources": [
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11545
+      "count": 11563
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5651
+      "count": 5656
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3260
+      "count": 3262
     },
     {
       "name": "rollcalls.enumerated",
       "ok": true,
-      "count": 495
+      "count": 501
     },
     {
       "name": "bills.actions",
