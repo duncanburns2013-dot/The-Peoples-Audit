@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-08-18T10:21:44.242Z",
+  "fetchedAt": "2026-08-21T10:24:36.390Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8918,
+  "billsTotal": 8923,
   "sampleStrategy": "seeded-random-750-per-chamber (seed 194)",
   "budgetTruncated": false,
   "preservedFromCache": false,
   "recordedVotes": {
-    "house": 266,
-    "senate": 235,
-    "total": 501,
+    "house": 262,
+    "senate": 232,
+    "total": 494,
     "highestNumber": {
       "house": 270,
       "senate": 238
@@ -18,72 +18,117 @@
     "exact": true
   },
   "totals": {
-    "actions": 8349,
-    "rollCalls": 52,
-    "voicePasses": 1899,
-    "procedural": 6398
+    "actions": 8562,
+    "rollCalls": 56,
+    "voicePasses": 1960,
+    "procedural": 6546
   },
   "sampleRatios": {
-    "rollCallShare": 0.02665299846232701,
-    "voicePassShare": 0.973347001537673
+    "rollCallShare": 0.027777777777777776,
+    "voicePassShare": 0.9722222222222222
   },
   "sessionEstimate": {
-    "recordedVotesExact": 501,
-    "voicePassesEstimated": 11290,
-    "decisiveActionsEstimated": 11791,
-    "scaleFactor": 5.945,
-    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8918"
+    "recordedVotesExact": 494,
+    "voicePassesEstimated": 11659,
+    "decisiveActionsEstimated": 12153,
+    "scaleFactor": 5.949,
+    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8923"
   },
   "ratios": {
-    "rollCallShare": 0.04249003477228395,
-    "voicePassShare": 0.957509965227716,
+    "rollCallShare": 0.04064839957212211,
+    "voicePassShare": 0.9593516004278779,
     "basis": "session-wide"
   },
   "recentRollCalls": [
     {
-      "billNumber": "H5492",
-      "title": "An Act authorizing the town of Billerica to transfer control of certain land in the town of Billerica for the Yankee Doodle Bike Path",
+      "billNumber": "S2968",
+      "title": "An Act authorizing the Commonwealth of Massachusetts, acting by and through its Division of Capital Asset Management and Maintenance, to grant permanent easements over certain land in the town of Milton for highway purposes",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 268 )",
+      "yeas": 152,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2968",
+      "title": "An Act authorizing the Commonwealth of Massachusetts, acting by and through its Division of Capital Asset Management and Maintenance, to grant permanent easements over certain land in the town of Milton for highway purposes",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #236 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3188",
+      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 265 )",
+      "yeas": 152,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3188",
+      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #233 (Yeas 38 to Nays 1)",
+      "yeas": 38,
+      "nays": 1
+    },
+    {
+      "billNumber": "H5614",
+      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
       "branch": "House",
       "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 247 )",
+      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 244 )",
       "yeas": 158,
       "nays": 0
     },
     {
-      "billNumber": "H5492",
-      "title": "An Act authorizing the town of Billerica to transfer control of certain land in the town of Billerica for the Yankee Doodle Bike Path",
+      "billNumber": "H5614",
+      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
       "branch": "Senate",
       "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #225 (Yeas 39 to Nays 0)",
+      "action": "Enacted -see Roll Call #226 (Yeas 39 to Nays 0)",
       "yeas": 39,
       "nays": 0
     },
     {
-      "billNumber": "H5388",
-      "title": "An Act authorizing the transfer of a certain parcel of land in the town of Marion from the Open Space Acquisition Commission to the Select Board",
-      "branch": "House",
-      "date": "7/22/2026",
-      "action": "Enacted - 154 YEAS to 0 NAYS ( See YEA and NAY No. 235 )",
-      "yeas": 154,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5388",
-      "title": "An Act authorizing the transfer of a certain parcel of land in the town of Marion from the Open Space Acquisition Commission to the Select Board",
+      "billNumber": "H5561",
+      "title": "An Act authorizing the commissioner of capital asset management and maintenance to transfer certain parcels of land in the town of Norton",
       "branch": "Senate",
-      "date": "7/22/2026",
-      "action": "Enacted -see Roll Call #209 (Yeas 39 to Nays 0)",
+      "date": "7/30/2026",
+      "action": "Enacted -see Roll Call #221 (Yeas 39 to Nays 0)",
       "yeas": 39,
       "nays": 0
     },
     {
-      "billNumber": "S2916",
-      "title": "An Act improving campaign finance reporting for statewide ballot questions ",
+      "billNumber": "H5561",
+      "title": "An Act authorizing the commissioner of capital asset management and maintenance to transfer certain parcels of land in the town of Norton",
       "branch": "House",
-      "date": "7/1/2026",
-      "action": "Passed to be engrossed -149 YEAS to 0 NAYS ( See YEA and NAY No. 222 )",
-      "yeas": 149,
+      "date": "7/29/2026",
+      "action": "Enacted - 156 YEAS to 0 NAYS ( See YEA and NAY No. 241 )",
+      "yeas": 156,
       "nays": 0
+    },
+    {
+      "billNumber": "S3028",
+      "title": "An Act promoting pet equity, treatment and safety",
+      "branch": "House",
+      "date": "7/15/2026",
+      "action": "Passed to be engrossed - 151 YEAS to 1 NAYS ( See YEA and NAY No. 233 )",
+      "yeas": 151,
+      "nays": 1
+    },
+    {
+      "billNumber": "H5175",
+      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "branch": "Senate",
+      "date": "7/1/2026",
+      "action": "Passed to be engrossed -- see Roll Call #205 (Yeas 32 to Nays 8)",
+      "yeas": 32,
+      "nays": 8
     },
     {
       "billNumber": "H5491",
@@ -95,454 +140,409 @@
       "nays": 0
     },
     {
-      "billNumber": "S2963",
-      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
+      "billNumber": "H5471",
+      "title": "An Act authorizing municipalities to opt-in to a temporary pilot to extend the hours of liquor licenses and to allow for public consumption in designated districts in summer 2026",
       "branch": "House",
       "date": "6/4/2026",
-      "action": "Enacted - 149 YEAS to 0 NAYS ( See YEA and NAY No. 202 )",
-      "yeas": 149,
+      "action": "Amended by substitution of bill with the same title, see H5478 - 150 YEAS to 0 NAYS ( See YEA and NAY No. 206 )",
+      "yeas": 150,
       "nays": 0
     },
     {
-      "billNumber": "S2963",
-      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
+      "billNumber": "S2565",
+      "title": "An Act facilitating better interactions between police officers and persons with autism spectrum disorder",
+      "branch": "House",
+      "date": "5/20/2026",
+      "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 197 )",
+      "yeas": 156,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5350",
+      "title": "An Act modernizing the commonwealth’s cannabis laws",
       "branch": "Senate",
-      "date": "6/4/2026",
-      "action": "Enacted -see Roll Call #189 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2619",
-      "title": "An Act establishing the Massachusetts data privacy act",
-      "branch": "House",
-      "date": "6/4/2026",
-      "action": "Consolidated amendment A adopted - 146 YEAS to 0 NAYS ( See YEA and NAY No. 207 )",
-      "yeas": 146,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2619",
-      "title": "An Act establishing the Massachusetts data privacy act",
-      "branch": "House",
-      "date": "6/4/2026",
-      "action": "Passed to be engrossed - 146 YEAS to 0 NAYS ( See YEA and NAY No. 208 )",
-      "yeas": 146,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3104",
-      "title": "RESOLUTIONS RESPONDING TO THE SUPREME JUDICIAL COURT’S ORDER OF MAY 7, 2026, AND ENHANCING GOVERNMENT TRANSPARENCY",
-      "branch": "Senate",
-      "date": "5/28/2026",
-      "action": "Adopted -see Roll Call #186 (Yeas 33 to Nays 6)",
+      "date": "4/9/2026",
+      "action": "Enacted -see Roll Call #146 (Yeas 33 to Nays 6)",
       "yeas": 33,
       "nays": 6
     },
     {
-      "billNumber": "H5441",
-      "title": "An Act relative to newborn screenings for congenital cytomegalovirus",
-      "branch": "House",
-      "date": "5/20/2026",
-      "action": "Amendment 3 rejected - 1 YEAS to 154 NAYS ( See YEA and NAY No. 193 )",
-      "yeas": 1,
-      "nays": 154
-    },
-    {
-      "billNumber": "H5441",
-      "title": "An Act relative to newborn screenings for congenital cytomegalovirus",
-      "branch": "House",
-      "date": "5/20/2026",
-      "action": "Passed to be engrossed - 155 YEAS to 1 NAYS ( See YEA and NAY No. 194 )",
-      "yeas": 155,
-      "nays": 1
-    },
-    {
-      "billNumber": "S3083",
-      "title": "Order relative to requesting the opinions of the Honorable Justices of the Supreme Judicial Court on important questions of law relative to promoting rule of law, oversight, trust and equal constitutional treatment",
+      "billNumber": "S3041",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
       "branch": "Senate",
-      "date": "5/7/2026",
-      "action": "Motion (Tarr) to suspend the rules does not prevail -- see Roll Call #153 (Yeas 5 to Nays 35)",
-      "yeas": 5,
-      "nays": 35
-    },
-    {
-      "billNumber": "S3050",
-      "title": "An Act to build resilience for Massachusetts communities",
-      "branch": "Senate",
-      "date": "4/15/2026",
-      "action": "Amendment #1 (Moore) adopted -see Roll Call #149 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3050",
-      "title": "An Act to build resilience for Massachusetts communities",
-      "branch": "Senate",
-      "date": "4/15/2026",
-      "action": "Amendment #2 (Lovely) adopted -see Roll Call #150 (Yeas 38 to Nays 0)",
+      "date": "4/9/2026",
+      "action": "The following amendments were considered as one and adopted:2, 4, 6, 7, 8, 9, 10, 11, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 53, 54, 55, 57, 59, 60, 61, 63, 64, 65, 66, 67, 70, 71, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 89, 90, 91, 93, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 111, 112, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 126, 128, 129, 131, 132, 133, 137, 138, 139, 140, 141, 142, 143, 145, 146, 148, 149, 151, 153, 154, 158, 159, 160, 161, 162, 163, 165, 167, 168, 169, 170, 171, 172, 173, 174, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 192, 193, 194, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 218, 219, 220, 222, 225, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 247, 248, 249, 250, 257, 259, 260, 263, 265, 266, 267, 268, 270, 273, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 290, 291, 292, 294, 297, 298, 299, 300, 301, 302, 303, 305, 306, 307, 308, 309, 310, 311, 312, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 326, 327, 328, 329, 330, 333, 335, 336, 337, 339, 346, 354, 356, 358, 359, 360, 361, 362, 366, 368, 369, 377, 388, 389, 390, 391, 393, 394, 395, 396, 397, 399, 400, 401, 402, 405, 409, 412 -see Roll Call #147 (Yeas 38 to Nays 0)",
       "yeas": 38,
       "nays": 0
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "billNumber": "H5350",
+      "title": "An Act modernizing the commonwealth’s cannabis laws",
       "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 24 rejected - 26 YEAS to 128 NAYS ( See YEA and NAY No. 126 )",
-      "yeas": 26,
-      "nays": 128
+      "date": "4/8/2026",
+      "action": "Committee of conference report accepted - 155 YEAS to 0 NAYS ( See YEA and NAY No. 151 )",
+      "yeas": 155,
+      "nays": 0
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 13 rejected - 26 YEAS to 128 NAYS ( See YEA and NAY No. 127 )",
-      "yeas": 26,
-      "nays": 128
+      "billNumber": "S3029",
+      "title": "An Act fostering agricultural resilience in Massachusetts",
+      "branch": "Senate",
+      "date": "4/1/2026",
+      "action": "Amendment #5 (Tarr) adopted -see Roll Call #143 (Yeas 38 to Nays 0)",
+      "yeas": 38,
+      "nays": 0
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 105 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 128 )",
-      "yeas": 25,
-      "nays": 130
+      "billNumber": "S3028",
+      "title": "An Act promoting pet equity, treatment and safety",
+      "branch": "Senate",
+      "date": "3/19/2026",
+      "action": "Passed to be engrossed -see Roll Call #142 (Yeas 38 to Nays 0)",
+      "yeas": 38,
+      "nays": 0
     },
     {
-      "billNumber": "H5151",
+      "billNumber": "H5175",
       "title": "An Act relative to energy affordability, clean power and economic competitiveness",
       "branch": "House",
       "date": "2/26/2026",
-      "action": "Consolidated amendment A adopted - 128 YEAS to 27 NAYS ( See YEA and NAY No. 129 )",
+      "action": "Passed to be engrossed - 128 YEAS to 27 NAYS ( See YEA and NAY No. 141 )",
       "yeas": 128,
       "nays": 27
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "billNumber": "S2946",
+      "title": "An Act relative to modernizing the pathway to becoming a certified public accountant",
+      "branch": "Senate",
+      "date": "2/12/2026",
+      "action": "Passed to be engrossed -see Roll Call #133 (Yeas 37 to Nays 0)",
+      "yeas": 37,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2947",
+      "title": "An Act regarding fair housing practices in the Commonwealth",
+      "branch": "Senate",
+      "date": "2/12/2026",
+      "action": "Amendment #1 (Tarr) rejected -see Roll Call #135 (Yeas 6 to Nays 30)",
+      "yeas": 6,
+      "nays": 30
+    },
+    {
+      "billNumber": "H5093",
+      "title": "An Act to protect against election misinformation",
       "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 8 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 130 )",
+      "date": "2/11/2026",
+      "action": "Amendment 1 rejected - 25 YEAS to 132 NAYS ( See YEA and NAY No. 123 )",
       "yeas": 25,
-      "nays": 130
+      "nays": 132
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "billNumber": "H5093",
+      "title": "An Act to protect against election misinformation",
       "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 21 rejected - 26 YEAS to 128 NAYS ( See YEA and NAY No. 131 )",
-      "yeas": 26,
-      "nays": 128
+      "date": "2/11/2026",
+      "action": "Amendment 3 rejected - 12 YEAS to 145 NAYS ( See YEA and NAY No. 124 )",
+      "yeas": 12,
+      "nays": 145
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "billNumber": "H5093",
+      "title": "An Act to protect against election misinformation",
       "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 38 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 132 )",
-      "yeas": 25,
-      "nays": 130
+      "date": "2/11/2026",
+      "action": "Passed to be engrossed - 154 YEAS to 3 NAYS ( See YEA and NAY No. 125 )",
+      "yeas": 154,
+      "nays": 3
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Consolidated amendment B adopted - 139 YEAS to 16 NAYS ( See YEA and NAY No. 133 )",
-      "yeas": 139,
-      "nays": 16
+      "billNumber": "S2132",
+      "title": "An Act designating January 30 of each year as Fred Korematsu Day of Civil Liberties and the Constitution in Massachusetts",
+      "branch": "Senate",
+      "date": "1/29/2026",
+      "action": "Passed to be engrossed -see Roll Call #129 (Yeas 37 to Nays 0)",
+      "yeas": 37,
+      "nays": 0
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 113 rejected - 17 YEAS to 138 NAYS ( See YEA and NAY No. 134 )",
-      "yeas": 17,
-      "nays": 138
+      "billNumber": "S2899",
+      "title": "An Act to prevent property tax bill shocks",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Amendment #6 (Rush) rejected -see Roll Call #117 (Yeas 5 to Nays 33)",
+      "yeas": 5,
+      "nays": 33
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 7 rejected - 25 YEAS to 129 NAYS ( See YEA and NAY No. 135 )",
-      "yeas": 25,
-      "nays": 129
+      "billNumber": "S2915",
+      "title": "An Act relative to municipal tax relief ",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Passed to be engrossed -see Roll Call #122 (Yeas 37 to Nays 1)",
+      "yeas": 37,
+      "nays": 1
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 78 rejected - 26 YEAS to 130 NAYS ( See YEA and NAY No. 136 )",
-      "yeas": 26,
-      "nays": 130
+      "billNumber": "S2900",
+      "title": "An Act relative to municipal tax relief ",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Amendment #6 (Collins) adopted -see Roll Call #120 (Yeas 36 to Nays 1)",
+      "yeas": 36,
+      "nays": 1
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 46 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 137 )",
-      "yeas": 25,
-      "nays": 130
+      "billNumber": "S2900",
+      "title": "An Act relative to municipal tax relief ",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Amendment #9 (Collins) adopted -see Roll Call #121 (Yeas 36 to Nays 1)",
+      "yeas": 36,
+      "nays": 1
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 101 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 138 )",
-      "yeas": 25,
-      "nays": 130
-    },
-    {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
-      "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 109 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 139 )",
-      "yeas": 25,
-      "nays": 130
+      "billNumber": "S2898",
+      "title": "An Act improving campaign finance reporting by state ballot question committees ",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Amendment #6 (Tarr) rejected -see Roll Call #125 (Yeas 6 to Nays 31)",
+      "yeas": 6,
+      "nays": 31
     }
   ],
   "recentVoicePasses": [
     {
-      "billNumber": "H5656",
-      "title": "An Act relative to a liquor license in the town of Avon ",
+      "billNumber": "H4185",
+      "title": "An Act relative to the nomination process for candidates for town meeting in Milford",
       "branch": "Senate",
-      "date": "8/17/2026",
+      "date": "8/10/2026",
+      "action": "Passed to be engrossed"
+    },
+    {
+      "billNumber": "H5483",
+      "title": "An Act allowing the town of Williamstown to ban second generation anticoagulant rodenticides (SGARs)",
+      "branch": "Senate",
+      "date": "6/11/2026",
       "action": "Senate concurred"
     },
     {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "The following amendments were considered as one and adopted:22, 27, 42, 47, 58, 59, 61, 62, 77, 102, 103, 104, 105, 106, 107, 108, 115, 125, 126, 128, 129, 130, 131, 132, 133, 158, 184, 186, 187, 190, 191, 195, 199, 200, 207, 211, 212, 214, 217, 218, 220, 225, 227, 229, 230, 231, 233, 243, 246, 247, 248, 249, 250, 251, 252, 253, 254, 272, 282, 285, 287, 291, 294, 295, 298, 301, 303, 311, 313, 314, 315, 316, 317, 319, 320, 321, 328, 329, 330, 331, 332, 333, 334, 335, 336, 340, 362, 379, 389, 392, 398, 413, 414, 415, 416, 424, 430, 436, 439, 446, 448, 450, 452, 454, 455, 456, 461, 466, 468, 472, 473, 474, 475, 477, 478, 479, 480, 481, 482, 485, 487, 488, 494, 500, 502, 504, 508, 510, 515, 518, 523, 524, 530, 545, 581, 588, 589, 590, 591, 593, 594"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #511 (Friedman) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #43 (Miranda) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #46 (Miranda) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #213 (Driscoll) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #281 ( Gómez) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #297 (Miranda) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #305 (Miranda) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #341 (Dooner) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #356 (O'Connor) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #460 (Cronin) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #491 (Edwards) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #372 (Cyr) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/23/2026",
-      "action": "Amendment #499 (Brady) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/22/2026",
-      "action": "Amendment #55 (Keenan) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/22/2026",
-      "action": "Amendment #196 (Oliveira) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/22/2026",
-      "action": "Amendment #366 (Lovely) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/22/2026",
-      "action": "Amendment #554 (Collins) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/22/2026",
-      "action": "Amendment #374 (Cronin) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/22/2026",
-      "action": "Amendment #56 (Miranda) adopted"
-    },
-    {
-      "billNumber": "S3178",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Order relative to subject matter adopted"
-    },
-    {
-      "billNumber": "H4805",
-      "title": "An Act amending the town charter of the town of Plainville",
+      "billNumber": "H4399",
+      "title": "An Act further amending the charter of the town of Middleton",
       "branch": "House",
-      "date": "6/29/2026",
-      "action": "House concurred in the Senate amendment"
-    },
-    {
-      "billNumber": "H4805",
-      "title": "An Act amending the town charter of the town of Plainville",
-      "branch": "House",
-      "date": "6/29/2026",
+      "date": "4/30/2026",
       "action": "Enacted"
     },
     {
-      "billNumber": "H4805",
-      "title": "An Act amending the town charter of the town of Plainville",
+      "billNumber": "H4399",
+      "title": "An Act further amending the charter of the town of Middleton",
       "branch": "Senate",
-      "date": "6/29/2026",
+      "date": "4/30/2026",
       "action": "Enacted and laid before the Governor"
     },
     {
-      "billNumber": "H4805",
-      "title": "An Act amending the town charter of the town of Plainville",
-      "branch": "Senate",
-      "date": "5/26/2026",
-      "action": "Read third, amended (Rausch) and passed to be engrossed"
-    },
-    {
-      "billNumber": "H3509",
-      "title": "An Act relative to automatic re-enrollment in the Low Income Home Energy Assistance Program (LIHEAP)",
+      "billNumber": "H4399",
+      "title": "An Act further amending the charter of the town of Middleton",
       "branch": "House",
-      "date": "4/16/2026",
-      "action": "Read second and ordered to a third reading"
+      "date": "4/29/2026",
+      "action": "House concurred in the Senate amendment"
     },
     {
-      "billNumber": "S2964",
-      "title": " Health Care Financing -- Extension Order",
+      "billNumber": "H4399",
+      "title": "An Act further amending the charter of the town of Middleton",
       "branch": "Senate",
+      "date": "4/13/2026",
+      "action": "Passed to be engrossed"
+    },
+    {
+      "billNumber": "H5265",
+      "title": "Order relative to extending until Friday, July 31, 2026, the time within which the committee on Transportation is authorized to report on current House documents",
+      "branch": "House",
       "date": "3/19/2026",
-      "action": "Committee recommended ought to be adopted"
+      "action": "Committee reported ought to be adopted"
     },
     {
-      "billNumber": "S2964",
-      "title": " Health Care Financing -- Extension Order",
-      "branch": "Senate",
+      "billNumber": "H5265",
+      "title": "Order relative to extending until Friday, July 31, 2026, the time within which the committee on Transportation is authorized to report on current House documents",
+      "branch": "House",
       "date": "3/19/2026",
       "action": "Adopted"
     },
     {
-      "billNumber": "H4805",
-      "title": "An Act amending the town charter of the town of Plainville",
+      "billNumber": "H4185",
+      "title": "An Act relative to the nomination process for candidates for town meeting in Milford",
       "branch": "Senate",
-      "date": "1/27/2026",
+      "date": "3/19/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H5172",
+      "title": "Order relative to extending until Wednesday, March 18, 2026 the time within which the committee on Community Development and Small Businesses is authorized to report on a current House document",
+      "branch": "House",
+      "date": "3/5/2026",
+      "action": "Committee reported ought to be adopted"
+    },
+    {
+      "billNumber": "H5172",
+      "title": "Order relative to extending until Wednesday, March 18, 2026 the time within which the committee on Community Development and Small Businesses is authorized to report on a current House document",
+      "branch": "House",
+      "date": "3/5/2026",
+      "action": "Adopted"
+    },
+    {
+      "billNumber": "S1454",
+      "title": "An Act relative to PEG access and cable related funds",
+      "branch": "Senate",
+      "date": "2/12/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H4185",
+      "title": "An Act relative to the nomination process for candidates for town meeting in Milford",
+      "branch": "House",
+      "date": "2/12/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "S2716",
+      "title": "An Act amending the charter of the town of Rockland",
+      "branch": "Senate",
+      "date": "2/12/2026",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "S2716",
+      "title": "An Act amending the charter of the town of Rockland",
+      "branch": "House",
+      "date": "2/11/2026",
+      "action": "Enacted"
+    },
+    {
+      "billNumber": "S2716",
+      "title": "An Act amending the charter of the town of Rockland",
+      "branch": "House",
+      "date": "2/9/2026",
+      "action": "House concurred in the Senate further amendment"
+    },
+    {
+      "billNumber": "H4399",
+      "title": "An Act further amending the charter of the town of Middleton",
+      "branch": "Senate",
+      "date": "1/29/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H4185",
+      "title": "An Act relative to the nomination process for candidates for town meeting in Milford",
+      "branch": "House",
+      "date": "1/29/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "S2716",
+      "title": "An Act amending the charter of the town of Rockland",
+      "branch": "Senate",
+      "date": "1/29/2026",
+      "action": "Senate concurred in the House amendment with a further amendment, see S2932"
+    },
+    {
+      "billNumber": "H2341",
+      "title": "An Act relative to the charter of the town of Acushnet",
+      "branch": "House",
+      "date": "1/5/2026",
+      "action": "Enacted"
+    },
+    {
+      "billNumber": "H2341",
+      "title": "An Act relative to the charter of the town of Acushnet",
+      "branch": "Senate",
+      "date": "1/5/2026",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "H2341",
+      "title": "An Act relative to the charter of the town of Acushnet",
+      "branch": "Senate",
+      "date": "12/31/2025",
+      "action": "Read third (title changed) and passed to be engrossed"
+    },
+    {
+      "billNumber": "S2716",
+      "title": "An Act amending the charter of the town of Rockland",
+      "branch": "House",
+      "date": "12/18/2025",
+      "action": "Read third, amended by substitution of a new text ( H4866 ) and passed to be engrossed"
+    },
+    {
+      "billNumber": "H4399",
+      "title": "An Act further amending the charter of the town of Middleton",
+      "branch": "House",
+      "date": "12/8/2025",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "S2716",
+      "title": "An Act amending the charter of the town of Rockland",
+      "branch": "House",
+      "date": "11/20/2025",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "S2738",
+      "title": "An Act addressing rising insurance costs for manufactured home residents",
+      "branch": "House",
+      "date": "11/19/2025",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "S2716",
+      "title": "An Act amending the charter of the town of Rockland",
+      "branch": "Senate",
+      "date": "11/19/2025",
+      "action": "Read second, amended, ordered to a third reading, read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H4399",
+      "title": "An Act further amending the charter of the town of Middleton",
+      "branch": "House",
+      "date": "9/22/2025",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H2341",
+      "title": "An Act relative to the charter of the town of Acushnet",
+      "branch": "Senate",
+      "date": "9/22/2025",
       "action": "Read, rules suspended, read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H2341",
+      "title": "An Act relative to the charter of the town of Acushnet",
+      "branch": "House",
+      "date": "9/18/2025",
+      "action": "Read third and passed to be engrossed"
     }
   ],
   "sources": [
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11563
+      "count": 11570
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5656
+      "count": 5660
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3262
+      "count": 3263
     },
     {
       "name": "rollcalls.enumerated",
       "ok": true,
-      "count": 501
+      "count": 494
     },
     {
       "name": "bills.actions",
