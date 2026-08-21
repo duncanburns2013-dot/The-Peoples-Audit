@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-20T09:13:56.075Z",
+  "fetchedAt": "2026-08-21T09:15:55.591Z",
   "years": [
     "2024",
     "2025",
@@ -1404,8 +1404,8 @@
       },
       {
         "department": "DEPARTMENT OF CORRECTION (DOC)",
-        "totalPay": 449004985.17,
-        "employees": 4583
+        "totalPay": 448929717.44,
+        "employees": 4582
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
@@ -1656,8 +1656,8 @@
       },
       {
         "department": "DEPARTMENT OF CORRECTION (DOC)",
-        "totalPay": 474723824.78,
-        "employees": 4350
+        "totalPay": 474643890.41,
+        "employees": 4349
       },
       {
         "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
@@ -1782,7 +1782,7 @@
       {
         "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
         "totalPay": 59129134.6,
-        "employees": 2095
+        "employees": 2096
       },
       {
         "department": "WORCESTER STATE UNIVERSITY (WOR)",
@@ -1908,18 +1908,18 @@
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "totalPay": 323504741.38,
+        "totalPay": 323503151.38,
         "employees": 3656
       },
       {
         "department": "DEPARTMENT OF CORRECTION (DOC)",
-        "totalPay": 317649759.76,
-        "employees": 4094
+        "totalPay": 317595717.18,
+        "employees": 4093
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
         "totalPay": 268948831.72,
-        "employees": 4336
+        "employees": 4335
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
@@ -3049,88 +3049,88 @@
     },
     {
       "year": "2010",
-      "totalPayroll": 5598232610.82,
-      "headcount": 145156
+      "totalPayroll": 5598216285.23,
+      "headcount": 145155
     },
     {
       "year": "2011",
-      "totalPayroll": 5779500943.89,
-      "headcount": 169148
+      "totalPayroll": 5779466405.43,
+      "headcount": 169147
     },
     {
       "year": "2012",
-      "totalPayroll": 5948201569.22,
-      "headcount": 151781
+      "totalPayroll": 5948164323.71,
+      "headcount": 151780
     },
     {
       "year": "2013",
-      "totalPayroll": 6228214840.73,
-      "headcount": 153987
+      "totalPayroll": 6228174795.92,
+      "headcount": 153986
     },
     {
       "year": "2014",
-      "totalPayroll": 6511737097.95,
-      "headcount": 156762
+      "totalPayroll": 6511694905.34,
+      "headcount": 156761
     },
     {
       "year": "2015",
-      "totalPayroll": 6896347006.27,
-      "headcount": 157546
+      "totalPayroll": 6896300090.76,
+      "headcount": 157545
     },
     {
       "year": "2016",
-      "totalPayroll": 6857481765.07,
-      "headcount": 158091
+      "totalPayroll": 6857432918.75,
+      "headcount": 158090
     },
     {
       "year": "2017",
-      "totalPayroll": 7312730192.36,
-      "headcount": 159634
+      "totalPayroll": 7312679306.23,
+      "headcount": 159633
     },
     {
       "year": "2018",
-      "totalPayroll": 7736977102.29,
-      "headcount": 158693
+      "totalPayroll": 7736922699.61,
+      "headcount": 158692
     },
     {
       "year": "2019",
-      "totalPayroll": 8025995185.1,
-      "headcount": 166011
+      "totalPayroll": 8025938677.3,
+      "headcount": 166010
     },
     {
       "year": "2020",
-      "totalPayroll": 8196153808.91,
-      "headcount": 157039
+      "totalPayroll": 8196094622.41,
+      "headcount": 157038
     },
     {
       "year": "2021",
-      "totalPayroll": 8388542823.6,
-      "headcount": 153647
+      "totalPayroll": 8388478880.05,
+      "headcount": 153645
     },
     {
       "year": "2022",
-      "totalPayroll": 9003608901.95,
-      "headcount": 168730
+      "totalPayroll": 9003541569.39,
+      "headcount": 168729
     },
     {
       "year": "2023",
-      "totalPayroll": 9329589552.01,
-      "headcount": 166882
+      "totalPayroll": 9329519981.45,
+      "headcount": 166881
     },
     {
       "year": "2024",
-      "totalPayroll": 10242096825.95,
-      "headcount": 170879
+      "totalPayroll": 10242021558.22,
+      "headcount": 170878
     },
     {
       "year": "2025",
-      "totalPayroll": 10886988439.14,
+      "totalPayroll": 10886908504.77,
       "headcount": 162474
     },
     {
       "year": "2026",
-      "totalPayroll": 7421540184.5,
-      "headcount": 147100
+      "totalPayroll": 7421484551.92,
+      "headcount": 147098
     }
   ],
   "quasiByAgency": [
