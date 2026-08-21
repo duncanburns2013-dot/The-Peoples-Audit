@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import {
   Fingerprint, FileText, Hourglass, ExternalLink, Search,
-  Flame, Gift, Eye, AlertCircle, ChevronDown,
+  Flame, Gift, Eye, AlertCircle, ChevronDown, AlertTriangle,
 } from 'lucide-react';
 
 /**
@@ -352,13 +352,28 @@ export default function SfiExplorer() {
         </>
       )}
 
+      {/* Source-system status. The Commission's live search is offline, so this is a snapshot. */}
+      <div className="sfi-status" role="note">
+        <AlertTriangle size={14} />
+        <div>
+          <strong>The Commission&rsquo;s live SFI search is offline.</strong> Its Public Inspection
+          Module reports that it is &ldquo;currently unavailable because it is down for
+          maintenance&rdquo;, and the separate SFI e-filing system was retired on 29&nbsp;June&nbsp;2026
+          pending a replacement. What is below is the last complete bulk release, not a live view;
+          it will not gain new filings until the Commission brings a system back. Checked
+          21&nbsp;August&nbsp;2026.
+        </div>
+      </div>
+
       {/* Provenance footnote */}
       <div className="sfi-provenance">
         <Fingerprint size={14} />
         <div>
-          Source: redacted bulk release from the MA State Ethics Commission. Per G.L. c. 268B, the
-          Commission notified every individual whose SFI was released as part of the public-records
-          process. Home addresses, personal phone numbers, and personal email addresses are
+          Source: redacted bulk release from the MA State Ethics Commission. Per G.L. c. 268B
+          &sect;&nbsp;3(d) &mdash; which requires a requester to give their name and affiliation, and
+          requires the Commission to &ldquo;forward a copy of said request to the person whose
+          statement has been examined&rdquo; &mdash; the Commission notified every individual whose
+          SFI was released as part of this public-records process. Home addresses, personal phone numbers, and personal email addresses are
           redacted at the source; all substantive financial-interest disclosures are preserved.
           Raw PDFs:{' '}
           <a

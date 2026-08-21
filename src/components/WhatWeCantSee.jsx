@@ -75,6 +75,17 @@ const SHIELDED_CATEGORIES = [
     severity: 'medium',
     seeAlso: 'Use the Payroll tab to search by surname.',
   },
+  {
+    name: 'Who Is Reading the Disclosures',
+    massachusetts:
+      'Statements of Financial Interests are public — but looking at one identifies you to its subject. G.L. c. 268B § 3(d) requires a requester to provide identification “including his affiliation, if any”, and requires that the Commission “forward a copy of said request to the person whose statement has been examined”. The official learns who checked their filing and who that person works for.',
+    elsewhere: [
+      'US House and Senate: member financial disclosures are searchable directly online — no request, no identification, no intermediary.',
+      'The record stays public either way. What differs is whether reading it is itself a disclosable act.',
+    ],
+    severity: 'chilled',
+    seeAlso: 'The SFI tab renders the bulk release, which carries no per-reader notification.',
+  },
 ];
 
 const RANKINGS = [
@@ -107,6 +118,8 @@ const RANKINGS = [
 const severityColors = {
   high: { bg: 'rgba(104, 10, 29, 0.08)', border: 'var(--accent-red)', label: 'COMPLETELY SHIELDED' },
   medium: { bg: 'rgba(255, 199, 44, 0.08)', border: 'var(--accent-gold)', label: 'PARTIALLY DISCLOSED' },
+  // disclosed in full, but reading it is reported to the subject
+  chilled: { bg: 'var(--accent-blue-glow)', border: 'var(--accent-blue)', label: 'PUBLIC — BUT THEY ARE TOLD YOU LOOKED' },
 };
 
 export default function WhatWeCantSee() {

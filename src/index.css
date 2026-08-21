@@ -1140,3 +1140,15 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* SFI source-system status - the Commission's live search is offline, so the
+   dashboard is a snapshot rather than a window. Gold, matching 'partially
+   disclosed' in What We Can't See. */
+.sfi-status{
+  display:flex; gap:10px; align-items:flex-start;
+  margin:0 0 14px; padding:12px 15px; border-radius:10px;
+  background:var(--accent-gold-glow); border:1px solid rgba(255,199,44,.38);
+  font-size:13px; line-height:1.6;
+}
+.sfi-status > svg{flex:none; margin-top:3px; color:var(--accent-gold)}
+.sfi-status strong{color:var(--accent-gold)}
