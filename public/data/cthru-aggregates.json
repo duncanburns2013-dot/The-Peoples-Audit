@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-21T09:15:55.591Z",
+  "fetchedAt": "2026-08-22T09:09:38.091Z",
   "years": [
     "2024",
     "2025",
@@ -1419,8 +1419,8 @@
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 340604503.55,
-        "employees": 5317
+        "totalPay": 340488166.86,
+        "employees": 5316
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1671,8 +1671,8 @@
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 386880269.99,
-        "employees": 4685
+        "totalPay": 386753243.97,
+        "employees": 4684
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1918,8 +1918,8 @@
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 268948831.72,
-        "employees": 4335
+        "totalPay": 268852845.51,
+        "employees": 4334
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
@@ -2033,8 +2033,8 @@
       },
       {
         "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
-        "totalPay": 40781064.49,
-        "employees": 1891
+        "totalPay": 40773284.27,
+        "employees": 1890
       },
       {
         "department": "FRAMINGHAM STATE UNIVERSITY (FRC)",
@@ -2054,7 +2054,7 @@
       {
         "department": "FITCHBURG STATE UNIVERSITY (FSC)",
         "totalPay": 37939782.93,
-        "employees": 1292
+        "employees": 1293
       },
       {
         "department": "SHERIFF DEPARTMENT WORCESTER (SDW)",
@@ -3089,48 +3089,48 @@
     },
     {
       "year": "2018",
-      "totalPayroll": 7736922699.61,
-      "headcount": 158692
+      "totalPayroll": 7736911325.2,
+      "headcount": 158691
     },
     {
       "year": "2019",
-      "totalPayroll": 8025938677.3,
-      "headcount": 166010
+      "totalPayroll": 8025854818.76,
+      "headcount": 166009
     },
     {
       "year": "2020",
-      "totalPayroll": 8196094622.41,
-      "headcount": 157038
+      "totalPayroll": 8196014462.18,
+      "headcount": 157037
     },
     {
       "year": "2021",
-      "totalPayroll": 8388478880.05,
-      "headcount": 153645
+      "totalPayroll": 8388385985.89,
+      "headcount": 153644
     },
     {
       "year": "2022",
-      "totalPayroll": 9003541569.39,
-      "headcount": 168729
+      "totalPayroll": 9003463392.65,
+      "headcount": 168727
     },
     {
       "year": "2023",
-      "totalPayroll": 9329519981.45,
-      "headcount": 166881
+      "totalPayroll": 9329418830.51,
+      "headcount": 166879
     },
     {
       "year": "2024",
-      "totalPayroll": 10242021558.22,
-      "headcount": 170878
+      "totalPayroll": 10241905221.53,
+      "headcount": 170877
     },
     {
       "year": "2025",
-      "totalPayroll": 10886908504.77,
-      "headcount": 162474
+      "totalPayroll": 10886781478.75,
+      "headcount": 162473
     },
     {
       "year": "2026",
-      "totalPayroll": 7421484551.92,
-      "headcount": 147098
+      "totalPayroll": 7421380785.49,
+      "headcount": 147097
     }
   ],
   "quasiByAgency": [
