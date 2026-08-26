@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-25T09:15:45.828Z",
+  "fetchedAt": "2026-08-26T09:18:20.238Z",
   "years": [
     "2024",
     "2025",
@@ -1672,7 +1672,7 @@
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
         "totalPay": 386753243.97,
-        "employees": 4684
+        "employees": 4683
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1832,7 +1832,7 @@
       {
         "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
         "totalPay": 46704360.56,
-        "employees": 1323
+        "employees": 1321
       },
       {
         "department": "SHERIFF DEPARTMENT BRISTOL (BSD)",
@@ -1919,7 +1919,7 @@
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
         "totalPay": 268852845.51,
-        "employees": 4334
+        "employees": 4332
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
@@ -3125,12 +3125,12 @@
     {
       "year": "2025",
       "totalPayroll": 10886781478.75,
-      "headcount": 162473
+      "headcount": 162470
     },
     {
       "year": "2026",
       "totalPayroll": 7421380785.49,
-      "headcount": 147097
+      "headcount": 147095
     }
   ],
   "quasiByAgency": [
