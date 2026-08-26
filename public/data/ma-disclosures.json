@@ -1,16 +1,16 @@
 {
-  "fetchedAt": "2026-08-26T00:15:01.294Z",
+  "fetchedAt": "2026-08-26T06:12:23.942Z",
   "preservedFromCache": false,
   "sources": [
-    {
-      "name": "massbondholder.com · News",
-      "ok": true,
-      "count": 15
-    },
     {
       "name": "massbondholder.com · Official Statements",
       "ok": true,
       "count": 70
+    },
+    {
+      "name": "massbondholder.com · News",
+      "ok": true,
+      "count": 15
     },
     {
       "name": "mass.gov · Debt Management",
