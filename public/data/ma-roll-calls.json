@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-08-25T10:24:29.508Z",
+  "fetchedAt": "2026-08-28T14:16:08.529Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8926,
+  "billsTotal": 8929,
   "sampleStrategy": "seeded-random-750-per-chamber (seed 194)",
   "budgetTruncated": false,
   "preservedFromCache": false,
   "recordedVotes": {
-    "house": 264,
-    "senate": 230,
-    "total": 494,
+    "house": 268,
+    "senate": 235,
+    "total": 503,
     "highestNumber": {
       "house": 270,
       "senate": 238
@@ -18,61 +18,43 @@
     "exact": true
   },
   "totals": {
-    "actions": 8368,
-    "rollCalls": 64,
-    "voicePasses": 1856,
-    "procedural": 6448
+    "actions": 8347,
+    "rollCalls": 62,
+    "voicePasses": 1877,
+    "procedural": 6408
   },
   "sampleRatios": {
-    "rollCallShare": 0.03333333333333333,
-    "voicePassShare": 0.9666666666666667
+    "rollCallShare": 0.03197524497163486,
+    "voicePassShare": 0.9680247550283652
   },
   "sessionEstimate": {
-    "recordedVotesExact": 494,
-    "voicePassesEstimated": 11044,
-    "decisiveActionsEstimated": 11538,
-    "scaleFactor": 5.951,
-    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8926"
+    "recordedVotesExact": 503,
+    "voicePassesEstimated": 11173,
+    "decisiveActionsEstimated": 11676,
+    "scaleFactor": 5.953,
+    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8929"
   },
   "ratios": {
-    "rollCallShare": 0.04281504593517074,
-    "voicePassShare": 0.9571849540648293,
+    "rollCallShare": 0.043079821856800274,
+    "voicePassShare": 0.9569201781431997,
     "basis": "session-wide"
   },
   "recentRollCalls": [
     {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
+      "billNumber": "S3237",
+      "title": "An Act authorizing the town of Bourne to convey a right-of-way and easement",
       "branch": "House",
       "date": "7/31/2026",
-      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 265 )",
-      "yeas": 152,
+      "action": "Enacted - 151 YEAS to 0 NAYS ( See YEA and NAY No. 270 )",
+      "yeas": 151,
       "nays": 0
     },
     {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
+      "billNumber": "S3237",
+      "title": "An Act authorizing the town of Bourne to convey a right-of-way and easement",
       "branch": "Senate",
       "date": "7/31/2026",
-      "action": "Enacted -see Roll Call #233 (Yeas 38 to Nays 1)",
-      "yeas": 38,
-      "nays": 1
-    },
-    {
-      "billNumber": "S2968",
-      "title": "An Act authorizing the Commonwealth of Massachusetts, acting by and through its Division of Capital Asset Management and Maintenance, to grant permanent easements over certain land in the town of Milton for highway purposes",
-      "branch": "House",
-      "date": "7/31/2026",
-      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 268 )",
-      "yeas": 152,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2968",
-      "title": "An Act authorizing the Commonwealth of Massachusetts, acting by and through its Division of Capital Asset Management and Maintenance, to grant permanent easements over certain land in the town of Milton for highway purposes",
-      "branch": "Senate",
-      "date": "7/31/2026",
-      "action": "Enacted -see Roll Call #236 (Yeas 39 to Nays 0)",
+      "action": "Enacted -see Roll Call #238 (Yeas 39 to Nays 0)",
       "yeas": 39,
       "nays": 0
     },
@@ -104,21 +86,12 @@
       "nays": 0
     },
     {
-      "billNumber": "S3236",
-      "title": "An Act authorizing the Massachusetts Department of Fish and Game to convey easements over certain parcels of land",
+      "billNumber": "S2653",
+      "title": "An Act updating the Move Over Law",
       "branch": "House",
       "date": "7/31/2026",
-      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 267 )",
-      "yeas": 152,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3236",
-      "title": "An Act authorizing the Massachusetts Department of Fish and Game to convey easements over certain parcels of land",
-      "branch": "Senate",
-      "date": "7/31/2026",
-      "action": "Enacted -see Roll Call #235 (Yeas 39 to Nays 0)",
-      "yeas": 39,
+      "action": "Passed to be engrossed - 157 YEAS to 0 NAYS ( See YEA and NAY No. 258 )",
+      "yeas": 157,
       "nays": 0
     },
     {
@@ -140,13 +113,22 @@
       "nays": 0
     },
     {
-      "billNumber": "S3175",
-      "title": "An Act protecting children from addictive social media feeds",
+      "billNumber": "S3200",
+      "title": "An Act promoting transparency and public access in state government",
       "branch": "Senate",
-      "date": "7/9/2026",
-      "action": "Passed to be engrossed -see Roll Call #206 (Yeas 38 to Nays 2)",
-      "yeas": 38,
-      "nays": 2
+      "date": "7/30/2026",
+      "action": "Amendment #17 (Rausch) adopted -see Roll Call #215 (Yeas 40 to Nays 0)",
+      "yeas": 40,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3200",
+      "title": "An Act promoting transparency and public access in state government",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Amendment #18 (Tarr) rejected -see Roll Call #216 (Yeas 6 to Nays 33)",
+      "yeas": 6,
+      "nays": 33
     },
     {
       "billNumber": "H5576",
@@ -158,13 +140,22 @@
       "nays": 2
     },
     {
-      "billNumber": "S2916",
-      "title": "An Act improving campaign finance reporting for statewide ballot questions ",
-      "branch": "House",
+      "billNumber": "S3162",
+      "title": "An Act to improve outdoor lighting, conserve energy, and increase dark-sky visibility",
+      "branch": "Senate",
       "date": "7/1/2026",
-      "action": "Passed to be engrossed -149 YEAS to 0 NAYS ( See YEA and NAY No. 222 )",
-      "yeas": 149,
+      "action": "Passed to be engrossed -see Roll Call #198 (Yeas 39 to Nays 0)",
+      "yeas": 39,
       "nays": 0
+    },
+    {
+      "billNumber": "S3104",
+      "title": "RESOLUTIONS RESPONDING TO THE SUPREME JUDICIAL COURT’S ORDER OF MAY 7, 2026, AND ENHANCING GOVERNMENT TRANSPARENCY",
+      "branch": "Senate",
+      "date": "5/28/2026",
+      "action": "Adopted -see Roll Call #186 (Yeas 33 to Nays 6)",
+      "yeas": 33,
+      "nays": 6
     },
     {
       "billNumber": "H5317",
@@ -185,40 +176,13 @@
       "nays": 0
     },
     {
-      "billNumber": "S2903",
-      "title": "An Act honoring Blue Star Families",
-      "branch": "House",
-      "date": "5/20/2026",
-      "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 198 )",
-      "yeas": 156,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3050",
-      "title": "An Act to build resilience for Massachusetts communities",
+      "billNumber": "S3083",
+      "title": "Order relative to requesting the opinions of the Honorable Justices of the Supreme Judicial Court on important questions of law relative to promoting rule of law, oversight, trust and equal constitutional treatment",
       "branch": "Senate",
-      "date": "4/15/2026",
-      "action": "Amendment #1 (Moore) adopted -see Roll Call #149 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3050",
-      "title": "An Act to build resilience for Massachusetts communities",
-      "branch": "Senate",
-      "date": "4/15/2026",
-      "action": "Amendment #2 (Lovely) adopted -see Roll Call #150 (Yeas 38 to Nays 0)",
-      "yeas": 38,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "Amendment #5 (Tarr) adopted -see Roll Call #143 (Yeas 38 to Nays 0)",
-      "yeas": 38,
-      "nays": 0
+      "date": "5/7/2026",
+      "action": "Motion (Tarr) to suspend the rules does not prevail -- see Roll Call #153 (Yeas 5 to Nays 35)",
+      "yeas": 5,
+      "nays": 35
     },
     {
       "billNumber": "H4769",
@@ -230,39 +194,48 @@
       "nays": 0
     },
     {
-      "billNumber": "S2947",
-      "title": "An Act regarding fair housing practices in the Commonwealth",
+      "billNumber": "S2946",
+      "title": "An Act relative to modernizing the pathway to becoming a certified public accountant",
       "branch": "Senate",
       "date": "2/12/2026",
-      "action": "Amendment #1 (Tarr) rejected -see Roll Call #135 (Yeas 6 to Nays 30)",
-      "yeas": 6,
-      "nays": 30
-    },
-    {
-      "billNumber": "S2924",
-      "title": "An Act relative to teacher preparation and student literacy",
-      "branch": "Senate",
-      "date": "1/29/2026",
-      "action": "Amendment #47 (Tarr) adopted -see Roll Call #130 (Yeas 37 to Nays 0)",
+      "action": "Passed to be engrossed -see Roll Call #133 (Yeas 37 to Nays 0)",
       "yeas": 37,
       "nays": 0
     },
     {
-      "billNumber": "S2916",
-      "title": "An Act improving campaign finance reporting for statewide ballot questions ",
+      "billNumber": "S2945",
+      "title": "An Act modernizing protections for consumers in automobile transactions",
       "branch": "Senate",
-      "date": "1/15/2026",
-      "action": "Passed to be engrossed -see Roll Call #127 (Yeas 38 to Nays 0)",
+      "date": "2/12/2026",
+      "action": "Passed to be engrossed -see Roll Call #134 (Yeas 38 to Nays 0)",
       "yeas": 38,
       "nays": 0
     },
     {
-      "billNumber": "S2903",
-      "title": "An Act honoring Blue Star Families",
+      "billNumber": "S2899",
+      "title": "An Act to prevent property tax bill shocks",
       "branch": "Senate",
       "date": "1/15/2026",
-      "action": "Passed to be engrossed -- see Roll Call #128 (Yeas 38 to Nays 0)",
-      "yeas": 38,
+      "action": "Amendment #6 (Rush) rejected -see Roll Call #117 (Yeas 5 to Nays 33)",
+      "yeas": 5,
+      "nays": 33
+    },
+    {
+      "billNumber": "S2917",
+      "title": "An Act to prevent property tax bill shocks",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Passed to be engrossed -see Roll Call #118 (Yeas 37 to Nay 1)",
+      "yeas": 37,
+      "nays": 1
+    },
+    {
+      "billNumber": "S2902",
+      "title": "An Act authorizing the establishment of a mean tested senior citizen property tax exemption",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Passed to be engrossed -see Roll Call #124 (Yeas 37 to Nays 0)",
+      "yeas": 37,
       "nays": 0
     },
     {
@@ -284,24 +257,6 @@
       "nays": 0
     },
     {
-      "billNumber": "S2576",
-      "title": "An Act authorizing the commonwealth to dispose of certain parcels of land in the town of Upton acquired for conservation and recreation purposes",
-      "branch": "House",
-      "date": "11/19/2025",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 112 )",
-      "yeas": 158,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2576",
-      "title": "An Act authorizing the commonwealth to dispose of certain parcels of land in the town of Upton acquired for conservation and recreation purposes",
-      "branch": "Senate",
-      "date": "11/19/2025",
-      "action": "Enacted -see Roll Call #108 (Yeas 37 to Nays 0)",
-      "yeas": 37,
-      "nays": 0
-    },
-    {
       "billNumber": "H4767",
       "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
       "branch": "House",
@@ -309,71 +264,158 @@
       "action": "Passed to be engrossed - 158 YEAS to 0 NAYS ( See YEA and NAY No. 114 )",
       "yeas": 158,
       "nays": 0
+    },
+    {
+      "billNumber": "H4769",
+      "title": "An Act to build resilient infrastructure to generate higher-ed transformation",
+      "branch": "House",
+      "date": "11/18/2025",
+      "action": "Passed to be engrossed - 148 YEAS to 5 NAYS ( See YEA and NAY No. 109 )",
+      "yeas": 148,
+      "nays": 5
+    },
+    {
+      "billNumber": "H4761",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "House",
+      "date": "11/18/2025",
+      "action": "Committee of conference report accepted - 145 YEAS to 8 NAYS ( See YEA and NAY No. 110 )",
+      "yeas": 145,
+      "nays": 8
+    },
+    {
+      "billNumber": "S2675",
+      "title": "An Act clarifying the duties of the adjutant general",
+      "branch": "Senate",
+      "date": "11/6/2025",
+      "action": "Amendment #4 (Moore) adopted -see Roll Call #95 (Yeas 38 to Nays 0)",
+      "yeas": 38,
+      "nays": 0
+    },
+    {
+      "billNumber": "H4672",
+      "title": "An Act relative to teacher preparation and student literacy.",
+      "branch": "House",
+      "date": "10/29/2025",
+      "action": "Amendment 6 rejected - 23 YEAS to 131 NAYS ( See YEA and NAY No. 99 )",
+      "yeas": 23,
+      "nays": 131
+    },
+    {
+      "billNumber": "H4672",
+      "title": "An Act relative to teacher preparation and student literacy.",
+      "branch": "House",
+      "date": "10/29/2025",
+      "action": "Amendment 9 adopted, as changed - 140 YEAS to 15 NAYS ( See YEA and NAY No. 100 )",
+      "yeas": 140,
+      "nays": 15
     }
   ],
   "recentVoicePasses": [
     {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
+      "billNumber": "S3267",
+      "title": "An Act authorizing the Massachusetts Water Resources Authority to provide sewer services to a certain parcel of land in the town of Foxborough",
       "branch": "House",
-      "date": "7/31/2026",
-      "action": "Ordered to a third reading"
-    },
-    {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
-      "branch": "House",
-      "date": "7/31/2026",
-      "action": "Read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
-      "branch": "Senate",
-      "date": "7/31/2026",
-      "action": "Senate concurred in the House amendment"
-    },
-    {
-      "billNumber": "H5614",
-      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Read, rules suspended, read second, ordered to a third reading, read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Read, rules suspended, read second, ordered to a third reading, read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "H5614",
-      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
-      "branch": "House",
-      "date": "7/29/2026",
-      "action": "Ordered to a third reading"
-    },
-    {
-      "billNumber": "H5614",
-      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
-      "branch": "House",
-      "date": "7/29/2026",
-      "action": "Read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
-      "branch": "House",
-      "date": "7/20/2026",
+      "date": "8/27/2026",
       "action": "House concurred"
     },
     {
-      "billNumber": "S2505",
-      "title": "An Act relative to the dissolution of the Holmes Park Water District",
+      "billNumber": "H5614",
+      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
       "branch": "Senate",
-      "date": "7/2/2026",
-      "action": "New draft substituted (Durant), see S3160"
+      "date": "7/30/2026",
+      "action": "Read, rules suspended, read second, ordered to a third reading, read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H5614",
+      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
+      "branch": "House",
+      "date": "7/29/2026",
+      "action": "Ordered to a third reading"
+    },
+    {
+      "billNumber": "H5614",
+      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
+      "branch": "House",
+      "date": "7/29/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "S545",
+      "title": "An Act relative to Admiral David G. Farragut Park",
+      "branch": "Senate",
+      "date": "7/16/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "S2994",
+      "title": "MCRC 2026 Annual Report",
+      "branch": "House",
+      "date": "7/15/2026",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "S28",
+      "title": "48th Report of the Massachusetts Capital Resource Company",
+      "branch": "House",
+      "date": "7/1/2026",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "S2789",
+      "title": "An Act providing for recall elections in the town of Rutland",
+      "branch": "House",
+      "date": "5/4/2026",
+      "action": "Enacted"
+    },
+    {
+      "billNumber": "S2789",
+      "title": "An Act providing for recall elections in the town of Rutland",
+      "branch": "Senate",
+      "date": "5/4/2026",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "S2789",
+      "title": "An Act providing for recall elections in the town of Rutland",
+      "branch": "House",
+      "date": "4/30/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H4225",
+      "title": "An Act authorizing the town of Marblehead to establish a means-tested senior citizen property tax exemption",
+      "branch": "House",
+      "date": "4/23/2026",
+      "action": "Enacted"
+    },
+    {
+      "billNumber": "H4225",
+      "title": "An Act authorizing the town of Marblehead to establish a means-tested senior citizen property tax exemption",
+      "branch": "Senate",
+      "date": "4/23/2026",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "H4225",
+      "title": "An Act authorizing the town of Marblehead to establish a means-tested senior citizen property tax exemption",
+      "branch": "Senate",
+      "date": "4/21/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H4225",
+      "title": "An Act authorizing the town of Marblehead to establish a means-tested senior citizen property tax exemption",
+      "branch": "Senate",
+      "date": "4/15/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "S2789",
+      "title": "An Act providing for recall elections in the town of Rutland",
+      "branch": "House",
+      "date": "4/9/2026",
+      "action": "Read second and ordered to a third reading"
     },
     {
       "billNumber": "H4524",
@@ -390,62 +432,6 @@
       "action": "Enacted and laid before the Governor"
     },
     {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "Amendment #3 (Creem) adopted"
-    },
-    {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "Amendment #4 (Keenan) adopted"
-    },
-    {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "Amendment #29 (Montigny) adopted"
-    },
-    {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "Amendment #31 (Lovely) adopted"
-    },
-    {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "Amendment #40 (Cyr) adopted"
-    },
-    {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "Amendment #20 (Mark) adopted"
-    },
-    {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "Amendment #34 (Fattman) adopted"
-    },
-    {
-      "billNumber": "S2801",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "4/1/2026",
-      "action": "New draft substituted, see S3029"
-    },
-    {
       "billNumber": "H4524",
       "title": "An Act changing the name of the board of selectmen in the town of Williamsburg to select board",
       "branch": "Senate",
@@ -453,11 +439,11 @@
       "action": "Read third and passed to be engrossed"
     },
     {
-      "billNumber": "S3029",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
-      "branch": "Senate",
-      "date": "3/23/2026",
-      "action": "Order relative to subject matter adopted"
+      "billNumber": "H4225",
+      "title": "An Act authorizing the town of Marblehead to establish a means-tested senior citizen property tax exemption",
+      "branch": "House",
+      "date": "3/30/2026",
+      "action": "Read third and passed to be engrossed"
     },
     {
       "billNumber": "H5297",
@@ -467,11 +453,32 @@
       "action": "Senate concurred"
     },
     {
-      "billNumber": "S2801",
-      "title": "An Act fostering agricultural resilience in Massachusetts",
+      "billNumber": "S2789",
+      "title": "An Act providing for recall elections in the town of Rutland",
       "branch": "Senate",
-      "date": "3/23/2026",
-      "action": "Order relative to subject matter adopted"
+      "date": "3/19/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "S2994",
+      "title": "MCRC 2026 Annual Report",
+      "branch": "House",
+      "date": "3/9/2026",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "S2946",
+      "title": "An Act relative to modernizing the pathway to becoming a certified public accountant",
+      "branch": "Senate",
+      "date": "2/12/2026",
+      "action": "Substituted as a new draft for S209"
+    },
+    {
+      "billNumber": "S2946",
+      "title": "An Act relative to modernizing the pathway to becoming a certified public accountant",
+      "branch": "Senate",
+      "date": "2/12/2026",
+      "action": "Ordered to a third reading"
     },
     {
       "billNumber": "H4225",
@@ -481,6 +488,13 @@
       "action": "Read second and ordered to a third reading"
     },
     {
+      "billNumber": "S2946",
+      "title": "An Act relative to modernizing the pathway to becoming a certified public accountant",
+      "branch": "Senate",
+      "date": "2/5/2026",
+      "action": "Order relative to subject matter adopted."
+    },
+    {
       "billNumber": "H4524",
       "title": "An Act changing the name of the board of selectmen in the town of Williamsburg to select board",
       "branch": "Senate",
@@ -488,38 +502,24 @@
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H4796",
-      "title": "An Act relative to organ transplant vehicles ",
+      "billNumber": "S2789",
+      "title": "An Act providing for recall elections in the town of Rutland",
       "branch": "Senate",
-      "date": "11/26/2025",
-      "action": "Senate concurred"
+      "date": "1/15/2026",
+      "action": "Read, rules suspended, read second and ordered to a third reading"
     },
     {
-      "billNumber": "S2719",
-      "title": "Amending the charter of the town of Ipswich to eliminate the residency requirement for town manager. ",
-      "branch": "Senate",
-      "date": "11/13/2025",
-      "action": "Substituted as a new text for H4243"
-    },
-    {
-      "billNumber": "H4524",
-      "title": "An Act changing the name of the board of selectmen in the town of Williamsburg to select board",
+      "billNumber": "S2905",
+      "title": "An Act providing for mobile driver’s licenses in the commonwealth",
       "branch": "House",
-      "date": "11/10/2025",
-      "action": "Read third and passed to be engrossed"
+      "date": "1/12/2026",
+      "action": "House concurred"
     },
     {
-      "billNumber": "H3358",
-      "title": "An Act establishing building trades recovery week",
+      "billNumber": "S2789",
+      "title": "An Act providing for recall elections in the town of Rutland",
       "branch": "House",
-      "date": "11/3/2025",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "S2680",
-      "title": "An Act to improve public health and safety standards in communities around aging nuclear power plants and high-level nuclear waste dump sites",
-      "branch": "House",
-      "date": "10/30/2025",
+      "date": "12/8/2025",
       "action": "House concurred"
     }
   ],
@@ -527,7 +527,7 @@
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11581
+      "count": 11625
     },
     {
       "name": "bills.House",
@@ -537,12 +537,12 @@
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3263
+      "count": 3266
     },
     {
       "name": "rollcalls.enumerated",
       "ok": true,
-      "count": 494
+      "count": 503
     },
     {
       "name": "bills.actions",
