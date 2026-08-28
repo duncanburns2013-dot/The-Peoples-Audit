@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-27T12:33:40.390Z",
+  "fetchedAt": "2026-08-28T12:55:12.557Z",
   "years": [
     "2024",
     "2025",
@@ -1898,12 +1898,12 @@
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "totalPay": 350375985.7,
+        "totalPay": 350350902.16,
         "employees": 6831
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "totalPay": 343418857.49,
+        "totalPay": 343448085.22,
         "employees": 3666
       },
       {
@@ -1913,12 +1913,12 @@
       },
       {
         "department": "DEPARTMENT OF CORRECTION (DOC)",
-        "totalPay": 336040878.66,
+        "totalPay": 336044608.71,
         "employees": 4125
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "totalPay": 284907173.24,
+        "totalPay": 284939352.21,
         "employees": 4369
       },
       {
@@ -1968,7 +1968,7 @@
       },
       {
         "department": "Executive Office of Labor and Workforce Development (EOL)",
-        "totalPay": 81884378.46,
+        "totalPay": 81880782.93,
         "employees": 1475
       },
       {
@@ -1999,7 +1999,7 @@
       {
         "department": "DEPARTMENT OF YOUTH SERVICES (DYS)",
         "totalPay": 55256751.01,
-        "employees": 915
+        "employees": 914
       },
       {
         "department": "WESTFIELD STATE UNIVERSITY (WSC)",
@@ -2058,7 +2058,7 @@
       },
       {
         "department": "SHERIFF DEPARTMENT WORCESTER (SDW)",
-        "totalPay": 39153693.65,
+        "totalPay": 39151588.15,
         "employees": 647
       },
       {
@@ -3129,14 +3129,14 @@
     },
     {
       "year": "2026",
-      "totalPayroll": 7783833893.54,
-      "headcount": 147962
+      "totalPayroll": 7783870225.08,
+      "headcount": 147961
     }
   ],
   "quasiByAgency": [
     {
       "name": "Massachusetts Bay Transportation Authority",
-      "value": 45772513084.33
+      "value": 46158809168.19
     },
     {
       "name": "Massachusetts Housing Finance Agency",
