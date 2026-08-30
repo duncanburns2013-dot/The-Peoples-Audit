@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-29T09:14:14.719Z",
+  "fetchedAt": "2026-08-30T09:14:46.775Z",
   "years": [
     "2024",
     "2025",
@@ -1702,7 +1702,7 @@
       {
         "department": "BRIDGEWATER STATE UNIVERSITY (BSC)",
         "totalPay": 125549003.71,
-        "employees": 3742
+        "employees": 3743
       },
       {
         "department": "SHERIFF DEPARTMENT HAMPDEN (SDH)",
@@ -1908,7 +1908,7 @@
       },
       {
         "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "totalPay": 342454291.63,
+        "totalPay": 342454031.47,
         "employees": 4913
       },
       {
@@ -3125,11 +3125,11 @@
     {
       "year": "2025",
       "totalPayroll": 10886781478.75,
-      "headcount": 162470
+      "headcount": 162471
     },
     {
       "year": "2026",
-      "totalPayroll": 7783870225.08,
+      "totalPayroll": 7783869964.92,
       "headcount": 147961
     }
   ],
