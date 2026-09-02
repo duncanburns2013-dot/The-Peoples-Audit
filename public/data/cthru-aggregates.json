@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-01T09:18:41.441Z",
+  "fetchedAt": "2026-09-02T09:18:31.609Z",
   "years": [
     "2024",
     "2025",
@@ -1702,7 +1702,7 @@
       {
         "department": "BRIDGEWATER STATE UNIVERSITY (BSC)",
         "totalPay": 125549003.71,
-        "employees": 3743
+        "employees": 3744
       },
       {
         "department": "SHERIFF DEPARTMENT HAMPDEN (SDH)",
@@ -1816,7 +1816,7 @@
       },
       {
         "department": "SHERIFF DEPARTMENT WORCESTER (SDW)",
-        "totalPay": 53124809.71,
+        "totalPay": 53129417.05,
         "employees": 683
       },
       {
@@ -3124,8 +3124,8 @@
     },
     {
       "year": "2025",
-      "totalPayroll": 10886781478.75,
-      "headcount": 162471
+      "totalPayroll": 10886786086.09,
+      "headcount": 162472
     },
     {
       "year": "2026",
