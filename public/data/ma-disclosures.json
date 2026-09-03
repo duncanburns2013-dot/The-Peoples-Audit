@@ -1,14 +1,14 @@
 {
-  "fetchedAt": "2026-09-02T18:15:05.119Z",
+  "fetchedAt": "2026-09-03T00:33:22.350Z",
   "preservedFromCache": false,
   "sources": [
     {
-      "name": "mass.gov · Office of the Treasurer",
-      "ok": false,
-      "error": "HTTP 403"
+      "name": "mass.gov · Debt Management",
+      "ok": true,
+      "count": 0
     },
     {
-      "name": "mass.gov · Debt Management",
+      "name": "mass.gov · Office of the Treasurer",
       "ok": true,
       "count": 0
     },
@@ -23,9 +23,7 @@
       "count": 71
     }
   ],
-  "warnings": [
-    "mass.gov · Office of the Treasurer: HTTP 403"
-  ],
+  "warnings": [],
   "count": 30,
   "items": [
     {
