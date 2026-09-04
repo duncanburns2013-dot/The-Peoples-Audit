@@ -1,7 +1,12 @@
 {
-  "fetchedAt": "2026-09-03T18:14:57.452Z",
+  "fetchedAt": "2026-09-04T00:30:06.786Z",
   "preservedFromCache": false,
   "sources": [
+    {
+      "name": "mass.gov · Debt Management",
+      "ok": true,
+      "count": 0
+    },
     {
       "name": "massbondholder.com · News",
       "ok": true,
@@ -14,11 +19,6 @@
     },
     {
       "name": "mass.gov · Office of the Treasurer",
-      "ok": true,
-      "count": 0
-    },
-    {
-      "name": "mass.gov · Debt Management",
       "ok": true,
       "count": 0
     }
@@ -87,16 +87,6 @@
       "source": "MassBondHolder"
     },
     {
-      "id": "mbh:/june-2026-go-bonds-series-d-refunding-series-b-official-statement-now-available",
-      "title": "Read more about June 2026 GO Bonds Series D & Refunding Series B Official Statement Now Available",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "Official Statement",
-      "date": "2026-06-01",
-      "url": "https://www.massbondholder.com/june-2026-go-bonds-series-d-refunding-series-b-official-statement-now-available",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
       "id": "mbh-os:https://www.massbondholder.com/sites/default/files/2019-11/2000-series-b-remarketing-supplement.pdf",
       "title": "Remarketing Supplement Dated April 13, 2018 to Official Statement Dated November 28, 2000 for the 2000 Series B VRDB",
       "issuer": "Commonwealth of Massachusetts",
@@ -153,6 +143,16 @@
       "type": "News / Disclosure",
       "date": null,
       "url": "https://www.massbondholder.com/approved-finance-team-members",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
+    {
+      "id": "mbh:/august-revenue-collections-total-3148-billion",
+      "title": "Read more about August Revenue Collections Total $3.148 Billion",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Revenue Update",
+      "date": null,
+      "url": "https://www.massbondholder.com/august-revenue-collections-total-3148-billion",
       "summary": "",
       "source": "MassBondHolder"
     },
