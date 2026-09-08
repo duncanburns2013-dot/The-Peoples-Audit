@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-04T10:31:07.227Z",
+  "fetchedAt": "2026-09-08T10:27:06.112Z",
   "generalCourt": 194,
   "billsScanned": 1500,
   "billsTotal": 8932,
@@ -7,9 +7,9 @@
   "budgetTruncated": false,
   "preservedFromCache": false,
   "recordedVotes": {
-    "house": 263,
-    "senate": 229,
-    "total": 492,
+    "house": 265,
+    "senate": 230,
+    "total": 495,
     "highestNumber": {
       "house": 270,
       "senate": 238
@@ -18,25 +18,25 @@
     "exact": true
   },
   "totals": {
-    "actions": 8282,
+    "actions": 8279,
     "rollCalls": 56,
     "voicePasses": 1785,
-    "procedural": 6441
+    "procedural": 6438
   },
   "sampleRatios": {
     "rollCallShare": 0.030418250950570342,
     "voicePassShare": 0.9695817490494296
   },
   "sessionEstimate": {
-    "recordedVotesExact": 492,
+    "recordedVotesExact": 495,
     "voicePassesEstimated": 10629,
-    "decisiveActionsEstimated": 11121,
+    "decisiveActionsEstimated": 11124,
     "scaleFactor": 5.955,
     "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8932"
   },
   "ratios": {
-    "rollCallShare": 0.04424062584299973,
-    "voicePassShare": 0.9557593741570003,
+    "rollCallShare": 0.04449838187702265,
+    "voicePassShare": 0.9555016181229773,
     "basis": "session-wide"
   },
   "recentRollCalls": [
@@ -542,7 +542,7 @@
     {
       "name": "rollcalls.enumerated",
       "ok": true,
-      "count": 492
+      "count": 495
     },
     {
       "name": "bills.actions",
