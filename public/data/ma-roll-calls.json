@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-09-11T10:31:11.562Z",
+  "fetchedAt": "2026-09-15T10:32:30.586Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8936,
+  "billsTotal": 8941,
   "sampleStrategy": "seeded-random-750-per-chamber (seed 194)",
   "budgetTruncated": false,
   "preservedFromCache": false,
   "recordedVotes": {
-    "house": 263,
-    "senate": 226,
-    "total": 489,
+    "house": 262,
+    "senate": 229,
+    "total": 491,
     "highestNumber": {
       "house": 270,
       "senate": 238
@@ -18,28 +18,37 @@
     "exact": true
   },
   "totals": {
-    "actions": 8374,
-    "rollCalls": 56,
-    "voicePasses": 1910,
-    "procedural": 6408
+    "actions": 8390,
+    "rollCalls": 64,
+    "voicePasses": 1853,
+    "procedural": 6473
   },
   "sampleRatios": {
-    "rollCallShare": 0.028484231943031537,
-    "voicePassShare": 0.9715157680569685
+    "rollCallShare": 0.03338549817423057,
+    "voicePassShare": 0.9666145018257695
   },
   "sessionEstimate": {
-    "recordedVotesExact": 489,
-    "voicePassesEstimated": 11379,
-    "decisiveActionsEstimated": 11868,
-    "scaleFactor": 5.957,
-    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8936"
+    "recordedVotesExact": 491,
+    "voicePassesEstimated": 11045,
+    "decisiveActionsEstimated": 11536,
+    "scaleFactor": 5.961,
+    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8941"
   },
   "ratios": {
-    "rollCallShare": 0.04120323559150657,
-    "voicePassShare": 0.9587967644084934,
+    "rollCallShare": 0.0425624133148405,
+    "voicePassShare": 0.9574375866851595,
     "basis": "session-wide"
   },
   "recentRollCalls": [
+    {
+      "billNumber": "H5595",
+      "title": "An Act prioritizing patient access to care",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 121 YEAS to 35 NAYS ( See YEA and NAY No. 262 )",
+      "yeas": 121,
+      "nays": 35
+    },
     {
       "billNumber": "S3230",
       "title": "An Act authorizing the Massachusetts Department of Transportation to acquire interests in certain portions of land owned by the town of Andover which were acquired by the town for Article XCVII purposes",
@@ -59,211 +68,121 @@
       "nays": 0
     },
     {
-      "billNumber": "H5640",
-      "title": "An Act authorizing the town of Hingham to grant to the commonwealth of Massachusetts certain parcels of land in the town of Hingham for highway purposes",
+      "billNumber": "S3235",
+      "title": "An Act relative to the Pilgrim Memorial Park in Plymouth",
       "branch": "House",
       "date": "7/31/2026",
-      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 264 )",
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 266 )",
       "yeas": 152,
       "nays": 0
     },
     {
-      "billNumber": "H5640",
-      "title": "An Act authorizing the town of Hingham to grant to the commonwealth of Massachusetts certain parcels of land in the town of Hingham for highway purposes",
+      "billNumber": "S3235",
+      "title": "An Act relative to the Pilgrim Memorial Park in Plymouth",
       "branch": "Senate",
       "date": "7/31/2026",
-      "action": "Enacted -see Roll Call #232 (Yeas 39 to Nays 0)",
+      "action": "Enacted -see Roll Call #234 (Yeas 39 to Nays 0)",
       "yeas": 39,
       "nays": 0
     },
     {
-      "billNumber": "S2968",
-      "title": "An Act authorizing the Commonwealth of Massachusetts, acting by and through its Division of Capital Asset Management and Maintenance, to grant permanent easements over certain land in the town of Milton for highway purposes",
-      "branch": "House",
-      "date": "7/31/2026",
-      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 268 )",
-      "yeas": 152,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2968",
-      "title": "An Act authorizing the Commonwealth of Massachusetts, acting by and through its Division of Capital Asset Management and Maintenance, to grant permanent easements over certain land in the town of Milton for highway purposes",
-      "branch": "Senate",
-      "date": "7/31/2026",
-      "action": "Enacted -see Roll Call #236 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5467",
-      "title": "An Act authorizing the transfer of certain parcels of land in the town of Weston from the Weston conservation commission to the select board",
+      "billNumber": "S3141",
+      "title": "An Act relative to primary care for you",
       "branch": "House",
       "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 245 )",
+      "action": "Consolidated amendment A adopted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 252 )",
       "yeas": 158,
       "nays": 0
     },
     {
-      "billNumber": "H5467",
-      "title": "An Act authorizing the transfer of certain parcels of land in the town of Weston from the Weston conservation commission to the select board",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #224 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3160",
-      "title": "An Act relative to the dissolution of the Holmes Park Water District",
+      "billNumber": "S3141",
+      "title": "An Act relative to primary care for you",
       "branch": "House",
       "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 242 )",
+      "action": "Passed to be engrossed - 158 YEAS to 0 NAYS ( See YEA and NAY No. 253 )",
       "yeas": 158,
       "nays": 0
     },
     {
-      "billNumber": "S3160",
-      "title": "An Act relative to the dissolution of the Holmes Park Water District",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #219 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5463",
-      "title": "An Act relative to a conservation restriction in the town of Middleton",
+      "billNumber": "H5620",
+      "title": "An Act promoting rule of law, oversight, trust and equal constitutional treatment",
       "branch": "House",
       "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 246 )",
-      "yeas": 158,
-      "nays": 0
+      "action": "Committee of conference report accepted - 137 YEAS to 21 NAYS ( See YEA and NAY No. 243 )",
+      "yeas": 137,
+      "nays": 21
     },
     {
-      "billNumber": "H5463",
-      "title": "An Act relative to a conservation restriction in the town of Middleton",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #223 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5614",
-      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
+      "billNumber": "H5620",
+      "title": "An Act promoting rule of law, oversight, trust and equal constitutional treatment",
       "branch": "House",
       "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 244 )",
-      "yeas": 158,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5614",
-      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #226 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5561",
-      "title": "An Act authorizing the commissioner of capital asset management and maintenance to transfer certain parcels of land in the town of Norton",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #221 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3052",
-      "title": "An Act authorizing the town of Dighton to use a portion of conservation land for public way purposes.",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #218 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5561",
-      "title": "An Act authorizing the commissioner of capital asset management and maintenance to transfer certain parcels of land in the town of Norton",
-      "branch": "House",
-      "date": "7/29/2026",
-      "action": "Enacted - 156 YEAS to 0 NAYS ( See YEA and NAY No. 241 )",
-      "yeas": 156,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3052",
-      "title": "An Act authorizing the town of Dighton to use a portion of conservation land for public way purposes.",
-      "branch": "House",
-      "date": "7/29/2026",
-      "action": "Enacted - 157 YEAS to 0 NAYS ( See YEA and NAY No. 237 )",
-      "yeas": 157,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3028",
-      "title": "An Act promoting pet equity, treatment and safety",
-      "branch": "House",
-      "date": "7/15/2026",
-      "action": "Passed to be engrossed - 151 YEAS to 1 NAYS ( See YEA and NAY No. 233 )",
-      "yeas": 151,
-      "nays": 1
-    },
-    {
-      "billNumber": "H5562",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "House",
-      "date": "7/8/2026",
-      "action": "Consolidated amendment A adopted - 145 YEAS to 6 NAYS ( See YEA and NAY No. 226 )",
-      "yeas": 145,
-      "nays": 6
-    },
-    {
-      "billNumber": "H5562",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "House",
-      "date": "7/8/2026",
-      "action": "Consolidated amendment B adopted - 151 YEAS to 0 NAYS ( See YEA and NAY No. 227 )",
-      "yeas": 151,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5562",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "House",
-      "date": "7/8/2026",
-      "action": "Consolidated amendment C adopted - 151 YEAS to 0 NAYS ( See YEA and NAY No. 228 )",
-      "yeas": 151,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5562",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "House",
-      "date": "7/8/2026",
-      "action": "Consolidated amendment D adopted - 150 YEAS to 0 NAYS ( See YEA and NAY No. 229 )",
-      "yeas": 150,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5562",
-      "title": "An Act relative to economic development in the commonwealth",
-      "branch": "House",
-      "date": "7/8/2026",
-      "action": "Consolidated amendment E adopted - 149 YEAS to 0 NAYS ( See YEA and NAY No. 230 )",
+      "action": "Quorum Roll Call - 149 YEAS to 0 NAYS ( See YEA and NAY No. 249 )",
       "yeas": 149,
       "nays": 0
     },
     {
-      "billNumber": "S3106",
-      "title": "An Act relative to toxic-free medical devices\r\n",
+      "billNumber": "H5620",
+      "title": "An Act promoting rule of law, oversight, trust and equal constitutional treatment",
       "branch": "House",
-      "date": "7/1/2026",
-      "action": "Passed to be engrossed -139 YEAS to 0 NAYS ( See YEA and NAY No. 221 )",
-      "yeas": 139,
+      "date": "7/30/2026",
+      "action": "Enacted - 137 YEAS to 21 NAYS ( See YEA and NAY No. 251 )",
+      "yeas": 137,
+      "nays": 21
+    },
+    {
+      "billNumber": "H4992",
+      "title": "An Act authorizing the Barnstable county and the town of Bourne to convey certain parcels of land and certain interests in land in the town of Bourne",
+      "branch": "House",
+      "date": "7/30/2026",
+      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 248 )",
+      "yeas": 158,
       "nays": 0
+    },
+    {
+      "billNumber": "H4992",
+      "title": "An Act authorizing the Barnstable county and the town of Bourne to convey certain parcels of land and certain interests in land in the town of Bourne",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Enacted -see Roll Call #222 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5595",
+      "title": "An Act prioritizing patient access to care",
+      "branch": "House",
+      "date": "7/22/2026",
+      "action": "Passed to be engrossed - 119 YEAS to 33 NAYS ( See YEA and NAY No. 236 )",
+      "yeas": 119,
+      "nays": 33
+    },
+    {
+      "billNumber": "H2250",
+      "title": "An Act dissolving the Whately Water District",
+      "branch": "Senate",
+      "date": "7/16/2026",
+      "action": "Enacted -see Roll Call #207 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H2250",
+      "title": "An Act dissolving the Whately Water District",
+      "branch": "House",
+      "date": "7/15/2026",
+      "action": "Enacted - 153 YEAS to 0 NAYS ( See YEA and NAY No. 232 )",
+      "yeas": 153,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3175",
+      "title": "An Act protecting children from addictive social media feeds",
+      "branch": "Senate",
+      "date": "7/9/2026",
+      "action": "Passed to be engrossed -see Roll Call #206 (Yeas 38 to Nays 2)",
+      "yeas": 38,
+      "nays": 2
     },
     {
       "billNumber": "S3162",
@@ -275,251 +194,332 @@
       "nays": 0
     },
     {
-      "billNumber": "H5493",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
-      "branch": "House",
-      "date": "6/10/2026",
-      "action": "Amendment 12 rejected - 28 YEAS to 128 NAYS ( See YEA and NAY No. 214 )",
-      "yeas": 28,
-      "nays": 128
+      "billNumber": "S3141",
+      "title": "An Act relative to primary care for you",
+      "branch": "Senate",
+      "date": "6/18/2026",
+      "action": "Passed to be engrossed -see Roll Call #197 (Yeas 35 to Nays 4)",
+      "yeas": 35,
+      "nays": 4
     },
     {
-      "billNumber": "H5493",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
+      "billNumber": "H5491",
+      "title": "An Act implementing the recommendations of the Walsh-Kennedy Commission Report",
       "branch": "House",
       "date": "6/10/2026",
-      "action": "Consolidated amendment A adopted - 156 YEAS to 0 NAYS ( See YEA and NAY No. 215 )",
+      "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 212 )",
       "yeas": 156,
       "nays": 0
     },
     {
-      "billNumber": "S2619",
-      "title": "An Act establishing the Massachusetts data privacy act",
-      "branch": "House",
+      "billNumber": "H4361",
+      "title": "An Act relative to benefits for teachers",
+      "branch": "Senate",
       "date": "6/4/2026",
-      "action": "Consolidated amendment A adopted - 146 YEAS to 0 NAYS ( See YEA and NAY No. 207 )",
-      "yeas": 146,
+      "action": "Passed to be engrossed -see Roll Call #187 (Yeas 39 to Nays 0)",
+      "yeas": 39,
       "nays": 0
     },
     {
-      "billNumber": "S2619",
-      "title": "An Act establishing the Massachusetts data privacy act",
+      "billNumber": "H5443",
+      "title": "An Act relative to increasing access to epinephrine",
       "branch": "House",
-      "date": "6/4/2026",
-      "action": "Passed to be engrossed - 146 YEAS to 0 NAYS ( See YEA and NAY No. 208 )",
-      "yeas": 146,
+      "date": "5/20/2026",
+      "action": "Passed to be engrossed - 154 YEAS to 0 NAYS ( See YEA and NAY No. 192 )",
+      "yeas": 154,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5441",
+      "title": "An Act relative to newborn screenings for congenital cytomegalovirus",
+      "branch": "House",
+      "date": "5/20/2026",
+      "action": "Amendment 3 rejected - 1 YEAS to 154 NAYS ( See YEA and NAY No. 193 )",
+      "yeas": 1,
+      "nays": 154
+    },
+    {
+      "billNumber": "H5441",
+      "title": "An Act relative to newborn screenings for congenital cytomegalovirus",
+      "branch": "House",
+      "date": "5/20/2026",
+      "action": "Passed to be engrossed - 155 YEAS to 1 NAYS ( See YEA and NAY No. 194 )",
+      "yeas": 155,
+      "nays": 1
+    },
+    {
+      "billNumber": "H5444",
+      "title": "An Act relative to civil rights and technology",
+      "branch": "House",
+      "date": "5/20/2026",
+      "action": "Passed to be engrossed - 155 YEAS to 1 NAYS ( See YEA and NAY No. 195 )",
+      "yeas": 155,
+      "nays": 1
+    },
+    {
+      "billNumber": "S2903",
+      "title": "An Act honoring Blue Star Families",
+      "branch": "House",
+      "date": "5/20/2026",
+      "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 198 )",
+      "yeas": 156,
+      "nays": 0
+    },
+    {
+      "billNumber": "S4",
+      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
+      "branch": "Senate",
+      "date": "5/19/2026",
+      "action": "Amendment #423 (Velis) adopted -see Roll Call #159 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S4",
+      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
+      "branch": "Senate",
+      "date": "5/19/2026",
+      "action": "Amendment #179 (Rausch) adopted -see Roll Call #160 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S4",
+      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
+      "branch": "Senate",
+      "date": "5/19/2026",
+      "action": "Amendment #426 (Velis) adopted -see Roll Call #161 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S4",
+      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
+      "branch": "Senate",
+      "date": "5/19/2026",
+      "action": "Amendment #530 (Kennedy) adopted -see Roll Call #162 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S4",
+      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
+      "branch": "Senate",
+      "date": "5/19/2026",
+      "action": "Amendment #511 (Creem) adopted -see Roll Call #163 (Yeas 39 to Nays 0)",
+      "yeas": 39,
       "nays": 0
     }
   ],
   "recentVoicePasses": [
     {
-      "billNumber": "H5547",
-      "title": "An Act extending the timeframe for the issuance of licenses granted pursuant to Chapter 46 of the Acts of 2020 in the city of Easthampton",
+      "billNumber": "S3266",
+      "title": "An Act authorizing the town of Foxborough to grant three additional licenses for the sale of all alcoholic beverages to be drunk on the premises",
       "branch": "House",
-      "date": "8/20/2026",
-      "action": "Read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "H5547",
-      "title": "An Act extending the timeframe for the issuance of licenses granted pursuant to Chapter 46 of the Acts of 2020 in the city of Easthampton",
-      "branch": "House",
-      "date": "8/4/2026",
+      "date": "9/8/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H3641",
-      "title": "An Act relative to educational requirements for class 2 motor vehicle licenses",
-      "branch": "House",
-      "date": "7/31/2026",
-      "action": "New draft substituted, see H5623"
-    },
-    {
-      "billNumber": "S1649",
-      "title": "Resolutions to embrace the Treaty on the Prohibition of Nuclear Weapons and move the US back from the brink of nuclear war",
+      "billNumber": "S3266",
+      "title": "An Act authorizing the town of Foxborough to grant three additional licenses for the sale of all alcoholic beverages to be drunk on the premises",
       "branch": "Senate",
-      "date": "7/31/2026",
-      "action": "New draft substituted, see S3247"
+      "date": "8/27/2026",
+      "action": "Passed to be engrossed"
     },
     {
-      "billNumber": "H5343",
-      "title": "An Act authorizing the town of South Hadley to grant additional licenses for the sale of all alcoholic beverages",
-      "branch": "Senate",
-      "date": "7/1/2026",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "S2120",
-      "title": "An Act relative to removing the term hearing impaired from the general laws",
-      "branch": "Senate",
-      "date": "6/23/2026",
-      "action": "New draft substituted (Creem), see S3142"
-    },
-    {
-      "billNumber": "H5343",
-      "title": "An Act authorizing the town of South Hadley to grant additional licenses for the sale of all alcoholic beverages",
+      "billNumber": "S3261",
+      "title": "An Act authorizing the city of Greenfield to grant an additional liquor license for the sale of all alcoholic beverages to be drunk on the premises",
       "branch": "House",
-      "date": "6/8/2026",
-      "action": "Read third and passed to be engrossed"
+      "date": "8/17/2026",
+      "action": "House concurred"
     },
     {
-      "billNumber": "H5333",
-      "title": "An Act pertaining to Holyoke's residency requirement",
+      "billNumber": "H5617",
+      "title": "A communication from the Public Employee Retirement Administration Commission (see Section 50 of Chapter 7 of the General Laws) submitting amendments to the rules and regulations governing Massachusetts public employee retirement",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S3169",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to take easements over certain land located in the city of Woburn and the town of Burlington held in trust by the city of Boston for the Mary P. C. Cummings Testamentary Trust",
+      "branch": "Senate",
+      "date": "7/29/2026",
+      "action": "New draft substituted (Friedman), see S3229"
+    },
+    {
+      "billNumber": "S3169",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to take easements over certain land located in the city of Woburn and the town of Burlington held in trust by the city of Boston for the Mary P. C. Cummings Testamentary Trust",
+      "branch": "Senate",
+      "date": "7/22/2026",
+      "action": "Read, rules suspended, read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "S3169",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to take easements over certain land located in the city of Woburn and the town of Burlington held in trust by the city of Boston for the Mary P. C. Cummings Testamentary Trust",
       "branch": "House",
-      "date": "5/21/2026",
-      "action": "Read second and ordered to a third reading"
+      "date": "7/8/2026",
+      "action": "House concurred"
     },
     {
-      "billNumber": "H5343",
-      "title": "An Act authorizing the town of South Hadley to grant additional licenses for the sale of all alcoholic beverages",
+      "billNumber": "H4848",
+      "title": "An Act authorizing the town of Colrain to continue the employment of fire department deputy chief Kevin Worden Sr",
       "branch": "House",
       "date": "4/30/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "S2877",
-      "title": "An Act authorizing the town of Grafton to prohibit or restrict the application of second-generation anticoagulant rodenticides",
-      "branch": "Senate",
-      "date": "4/15/2026",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "S324",
-      "title": "An Act promoting racially integrated schools",
-      "branch": "Senate",
-      "date": "4/15/2026",
-      "action": "Amendment (changing reporting date to Friday July 31, 2026) adopted, pending concurrence"
-    },
-    {
-      "billNumber": "H5333",
-      "title": "An Act pertaining to Holyoke's residency requirement",
-      "branch": "Senate",
-      "date": "4/6/2026",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S2120",
-      "title": "An Act relative to removing the term hearing impaired from the general laws",
-      "branch": "Senate",
+      "billNumber": "S2913",
+      "title": "An Act extending the time for the town of Boxford to grant 2 additional licenses for the sale of alcoholic beverages to be drunk on the premises",
+      "branch": "House",
       "date": "3/30/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "S2781",
-      "title": "Transportation - Extension Order ",
+      "billNumber": "S2913",
+      "title": "An Act extending the time for the town of Boxford to grant 2 additional licenses for the sale of alcoholic beverages to be drunk on the premises",
       "branch": "Senate",
-      "date": "2/19/2026",
-      "action": "Committee recommended ought to be adopted"
+      "date": "3/19/2026",
+      "action": "Read second, ordered to a third reading, read third and passed to be engrossed"
     },
     {
-      "billNumber": "S2781",
-      "title": "Transportation - Extension Order ",
+      "billNumber": "S2913",
+      "title": "An Act extending the time for the town of Boxford to grant 2 additional licenses for the sale of alcoholic beverages to be drunk on the premises",
+      "branch": "House",
+      "date": "1/20/2026",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "S2617",
+      "title": "An Act granting the city of Worcester the authority to require the adoption of institutional master plans",
       "branch": "Senate",
-      "date": "2/19/2026",
+      "date": "1/15/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H4920",
+      "title": "Order relative to extending until Wednesday, March 18, 2026 the time within which the committee on Public Safety and Homeland Security is authorized to report on a current House document",
+      "branch": "House",
+      "date": "1/12/2026",
+      "action": "Committee reported ought to be adopted"
+    },
+    {
+      "billNumber": "H4920",
+      "title": "Order relative to extending until Wednesday, March 18, 2026 the time within which the committee on Public Safety and Homeland Security is authorized to report on a current House document",
+      "branch": "House",
+      "date": "1/12/2026",
       "action": "Adopted"
     },
     {
-      "billNumber": "H3026",
-      "title": "An Act allowing the town of Williamstown to expand financial eligibility for senior property tax exemption",
+      "billNumber": "H4848",
+      "title": "An Act authorizing the town of Colrain to continue the employment of fire department deputy chief Kevin Worden Sr",
       "branch": "Senate",
-      "date": "2/12/2026",
-      "action": "Enacted and laid before the Governor"
-    },
-    {
-      "billNumber": "H3026",
-      "title": "An Act allowing the town of Williamstown to expand financial eligibility for senior property tax exemption",
-      "branch": "House",
-      "date": "2/11/2026",
-      "action": "Enacted"
-    },
-    {
-      "billNumber": "H3026",
-      "title": "An Act allowing the town of Williamstown to expand financial eligibility for senior property tax exemption",
-      "branch": "Senate",
-      "date": "2/9/2026",
-      "action": "Read third (title changed) and passed to be engrossed"
-    },
-    {
-      "billNumber": "S2782",
-      "title": "Consumer Protection and Professional Licensure - Extension Order ",
-      "branch": "Senate",
-      "date": "1/8/2026",
-      "action": "Committee recommended ought to be adopted"
-    },
-    {
-      "billNumber": "S2782",
-      "title": "Consumer Protection and Professional Licensure - Extension Order ",
-      "branch": "Senate",
-      "date": "1/8/2026",
-      "action": "Adopted"
-    },
-    {
-      "billNumber": "S2877",
-      "title": "An Act authorizing the town of Grafton to prohibit or restrict the application of second-generation anticoagulant rodenticides",
-      "branch": "House",
       "date": "12/18/2025",
-      "action": "House concurred"
+      "action": "Senate concurred"
     },
     {
-      "billNumber": "S2624",
-      "title": "Communication from the Massachusetts Gaming Commission (pursuant to Section 9B Of Chapter 128A of the General Laws and Section 222 of Chapter 6 of the General Laws) submitting proposed regulations for 205 CMR 3.00: Harness Horse Racing, 205 CMR 3.11: General Rules, and 205 CMR 3.14: Licenses, Registrations and Fees for Participants in Racing",
+      "billNumber": "H4664",
+      "title": "An Act relative to notice of activation of the Massachusetts National Guard within the Commonwealth",
       "branch": "House",
-      "date": "12/8/2025",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "S552",
-      "title": "An Act authorizing the city of Newton to prohibit the application of second generation anti-coagulant rodenticides within its borders ",
-      "branch": "Senate",
-      "date": "11/19/2025",
+      "date": "11/26/2025",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H3026",
-      "title": "An Act allowing the town of Williamstown to expand financial eligibility for senior property tax exemption",
-      "branch": "Senate",
-      "date": "11/13/2025",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "H3026",
-      "title": "An Act allowing the town of Williamstown to expand financial eligibility for senior property tax exemption",
-      "branch": "House",
-      "date": "10/30/2025",
-      "action": "Read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "H4056",
-      "title": "An Act relative to the Lanesborough Select Board",
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
       "branch": "Senate",
       "date": "10/23/2025",
-      "action": "Enacted and laid before the Governor"
+      "action": "Amendment #8 (Brady) adopted"
     },
     {
-      "billNumber": "H4056",
-      "title": "An Act relative to the Lanesborough Select Board",
-      "branch": "House",
-      "date": "10/22/2025",
-      "action": "Enacted"
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "10/23/2025",
+      "action": "Amendment #9 (Brady) adopted"
     },
     {
-      "billNumber": "H4056",
-      "title": "An Act relative to the Lanesborough Select Board",
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "10/23/2025",
+      "action": "Amendment #11 (Keenan) adopted"
+    },
+    {
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "10/23/2025",
+      "action": "Amendment #14 (Finegold) adopted"
+    },
+    {
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "10/23/2025",
+      "action": "Amendment #20 (Eldridge) adopted"
+    },
+    {
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "10/23/2025",
+      "action": "Amendment #22 (Eldridge) adopted"
+    },
+    {
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "10/23/2025",
+      "action": "Amendment #51 (Oliveira) adopted"
+    },
+    {
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "10/23/2025",
+      "action": "Amendment #52 (Barrett) adopted"
+    },
+    {
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "10/23/2025",
+      "action": "Amendment #55 (Miranda) adopted"
+    },
+    {
+      "billNumber": "S2655",
+      "title": "An Act making appropriations for the fiscal year 2025 to provide for supplementing certain existing appropriations and for certain other activities and projects",
       "branch": "Senate",
       "date": "10/20/2025",
-      "action": "Read third (title changed) and passed to be engrossed"
+      "action": "Order relative to subject matter adopted"
     },
     {
-      "billNumber": "H4056",
-      "title": "An Act relative to the Lanesborough Select Board",
+      "billNumber": "S2641",
+      "title": "An Act relative to menstrual product ingredient disclosure",
       "branch": "Senate",
       "date": "10/16/2025",
-      "action": "Read second and ordered to a third reading"
+      "action": "Substituted as a new draft for S1483"
     },
     {
-      "billNumber": "S2624",
-      "title": "Communication from the Massachusetts Gaming Commission (pursuant to Section 9B Of Chapter 128A of the General Laws and Section 222 of Chapter 6 of the General Laws) submitting proposed regulations for 205 CMR 3.00: Harness Horse Racing, 205 CMR 3.11: General Rules, and 205 CMR 3.14: Licenses, Registrations and Fees for Participants in Racing",
+      "billNumber": "S2641",
+      "title": "An Act relative to menstrual product ingredient disclosure",
+      "branch": "Senate",
+      "date": "10/16/2025",
+      "action": "Ordered to a third reading"
+    },
+    {
+      "billNumber": "S2641",
+      "title": "An Act relative to menstrual product ingredient disclosure",
+      "branch": "Senate",
+      "date": "10/9/2025",
+      "action": "Order relative to subject matter adopted"
+    },
+    {
+      "billNumber": "S2638",
+      "title": "An Act relative to retirement pension notarizations",
       "branch": "House",
-      "date": "10/2/2025",
+      "date": "10/8/2025",
       "action": "House concurred"
     }
   ],
@@ -527,22 +527,22 @@
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11719
+      "count": 11768
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5667
+      "count": 5671
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3269
+      "count": 3270
     },
     {
       "name": "rollcalls.enumerated",
       "ok": true,
-      "count": 489
+      "count": 491
     },
     {
       "name": "bills.actions",
