@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-14T18:13:04.549Z",
+  "fetchedAt": "2026-09-15T00:33:06.097Z",
   "preservedFromCache": false,
   "sources": [
     {
@@ -13,12 +13,12 @@
       "count": 71
     },
     {
-      "name": "mass.gov · Debt Management",
+      "name": "mass.gov · Office of the Treasurer",
       "ok": true,
       "count": 0
     },
     {
-      "name": "mass.gov · Office of the Treasurer",
+      "name": "mass.gov · Debt Management",
       "ok": true,
       "count": 0
     }
@@ -26,6 +26,16 @@
   "warnings": [],
   "count": 30,
   "items": [
+    {
+      "id": "mbh:/september-2026-go-bonds-series-e-f-g-h-refunding-c-official-statement-now-available",
+      "title": "Read more about September 2026 GO Bonds Series E, F, G, H & Refunding C Official Statement Now Available",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Official Statement",
+      "date": "2026-09-01",
+      "url": "https://www.massbondholder.com/september-2026-go-bonds-series-e-f-g-h-refunding-c-official-statement-now-available",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
     {
       "id": "mbh:/september-2026-bond-sale-commonwealth-go-bonds-series-e-f-g-h-refunding-c",
       "title": "Read more about September 2026 Bond Sale: Commonwealth GO Bonds Series E, F, G, H & Refunding C",
@@ -73,16 +83,6 @@
       "type": "News / Disclosure",
       "date": "2026-07-01",
       "url": "https://www.massbondholder.com/july-2026-socioeconomic-indicators-report-now-available",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh:/july-2026-bond-sale-worcester-polytechnic-institute-issue-series-2026",
-      "title": "Read more about July 2026 Bond Sale: Worcester Polytechnic Institute Issue, Series 2026",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "News / Disclosure",
-      "date": "2026-07-01",
-      "url": "https://www.massbondholder.com/july-2026-bond-sale-worcester-polytechnic-institute-issue-series-2026",
       "summary": "",
       "source": "MassBondHolder"
     },
@@ -217,12 +217,12 @@
       "source": "MassBondHolder"
     },
     {
-      "id": "mbh-os:https://emma.msrb.org/P22086639-P21584934-P22046430.pdf",
-      "title": "September 2026, GO Bonds Series E, F & G ($680,000,000*), Series H (Federally Taxable) ($70,000,000*), GO Refunding Bonds Series C ($128,365,000*)",
+      "id": "mbh-os:https://emma.msrb.org/P22090508-P21587449-P22049220.pdf",
+      "title": "September 2026, GO Bonds Series E, F & G ($680,000,000), Series H (Federally Taxable) ($70,000,000), GO Refunding Bonds Series C ($129,090,000)",
       "issuer": "Commonwealth of Massachusetts",
       "type": "Official Statement",
       "date": null,
-      "url": "https://emma.msrb.org/P22086639-P21584934-P22046430.pdf",
+      "url": "https://emma.msrb.org/P22090508-P21587449-P22049220.pdf",
       "summary": "Official Statement from MassBondHolder.com",
       "source": "MassBondHolder"
     },
