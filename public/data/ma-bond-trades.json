@@ -1,17 +1,16 @@
 {
-  "fetchedAt": "2026-09-14T18:02:04.608Z",
-  "lastRefreshed": "2026-09-14T18:02:04.608Z",
+  "fetchedAt": "2026-09-15T00:03:37.359Z",
+  "lastRefreshed": "2026-09-15T00:03:37.359Z",
   "source": "Cached snapshot (live fetch failed)",
   "preservedFromCache": true,
   "sources": [
     {
       "name": "EMMA TradeData (MA)",
-      "ok": false,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 0
     }
   ],
   "warnings": [
-    "EMMA TradeData (MA): This operation was aborted",
     "All live sources returned 0 trades — preserving cached trades."
   ],
   "count": 8,
