@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-16T09:17:04.141Z",
+  "fetchedAt": "2026-09-17T09:17:50.108Z",
   "years": [
     "2025",
     "2026",
@@ -327,15 +327,15 @@
       },
       {
         "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "value": 3319660532.05
+        "value": 3319725569.58
       },
       {
         "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "value": 1443408616.33
+        "value": 1445457626.61
       },
       {
         "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-        "value": 1303387839.79
+        "value": 1303680248
       },
       {
         "name": "DEPARTMENT OF MENTAL HEALTH (DMH)",
@@ -367,11 +367,11 @@
       },
       {
         "name": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
-        "value": 684377811.86
+        "value": 684386036.86
       },
       {
         "name": "TRIAL COURT (TRC)",
-        "value": 660520716.2
+        "value": 660548128.62
       },
       {
         "name": "MASSACHUSETTS BAY TRANSPORTATION AUTHORITY (MBT)",
@@ -383,7 +383,7 @@
       },
       {
         "name": "DEPARTMENT OF CORRECTION (DOC)",
-        "value": 482462787.33
+        "value": 482462991.75
       },
       {
         "name": "EXECUTIVE OFFICE OF ECONOMIC DEVELOPMENT (EED)",
@@ -391,7 +391,7 @@
       },
       {
         "name": "DEPARTMENT OF STATE POLICE (POL)",
-        "value": 406771473.15
+        "value": 406772069.39
       },
       {
         "name": "BRIDGEWATER STATE UNIVERSITY (BSC)",
@@ -403,11 +403,11 @@
       },
       {
         "name": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
-        "value": 341247244.53
+        "value": 341262533.86
       },
       {
         "name": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-        "value": 294692334.37
+        "value": 294694114.42
       },
       {
         "name": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
@@ -427,7 +427,7 @@
       },
       {
         "name": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
-        "value": 176401786.5
+        "value": 176403477.5
       },
       {
         "name": "MASS REHABILITATION COMMISSION (MRC)",
@@ -435,7 +435,7 @@
       },
       {
         "name": "EXECUTIVE OFFICE OF ENVIRONMENTAL AFFAIRS (ENV)",
-        "value": 169824779.9
+        "value": 170120315.5
       },
       {
         "name": "SALEM STATE UNIVERSITY (SSA)",
@@ -443,7 +443,7 @@
       },
       {
         "name": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "value": 155732068.53
+        "value": 155732702.53
       },
       {
         "name": "WESTFIELD STATE UNIVERSITY (WSC)",
@@ -475,7 +475,7 @@
       },
       {
         "name": "SHERIFF DEPARTMENT HAMPDEN (SDH)",
-        "value": 94507179.04
+        "value": 94529218.73
       },
       {
         "name": "NORTH SHORE COMMUNITY COLLEGE (NSC)",
@@ -497,35 +497,35 @@
     "2027": [
       {
         "name": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-        "value": 5907836142.37
+        "value": 5908015829.64
       },
       {
         "name": "OFFICE OF THE STATE TREASURER (TRE)",
-        "value": 2134015478.96
+        "value": 2134418224.37
       },
       {
         "name": "EXECUTIVE OFFICE OF LABOR AND WORKFORCE DEVELOPMENT (EOL)",
-        "value": 1755019381.53
+        "value": 1755211261.47
       },
       {
         "name": "DEPARTMENT OF REVENUE (DOR)",
-        "value": 1571061154.63
+        "value": 1571157193.77
       },
       {
         "name": "TEACHERS RETIREMENT BOARD (TRB)",
-        "value": 790519415.68
+        "value": 790519885.33
       },
       {
         "name": "GROUP INSURANCE COMMISSION (GIC)",
-        "value": 634217067.47
+        "value": 664800384.69
       },
       {
         "name": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "value": 421227029.03
+        "value": 445406708.42
       },
       {
         "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "value": 412411210.47
+        "value": 412481984.33
       },
       {
         "name": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
@@ -533,27 +533,27 @@
       },
       {
         "name": "LOTTERY AND GAMING COMMISSION (LOT)",
-        "value": 168269266.21
+        "value": 168274087.78
       },
       {
         "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-        "value": 136068880.18
+        "value": 136114200.53
       },
       {
         "name": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
-        "value": 132297242.68
+        "value": 132639916.85
       },
       {
         "name": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
-        "value": 112625246.04
+        "value": 112625778.81
       },
       {
         "name": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "value": 108204464.12
+        "value": 108340959.81
       },
       {
         "name": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "value": 83182660.61
+        "value": 89687306.73
       },
       {
         "name": "OFFICE OF THE COMPTROLLER (CTR)",
@@ -561,19 +561,19 @@
       },
       {
         "name": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-        "value": 77288958.64
+        "value": 77423420.72
       },
       {
         "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "value": 75548634.81
+        "value": 76419562.21
       },
       {
         "name": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
-        "value": 46631902.55
+        "value": 48170064.77
       },
       {
         "name": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
-        "value": 39895032.27
+        "value": 39895125.33
       },
       {
         "name": "EMERGENCY MANAGEMENT AGENCY (CDA)",
@@ -581,15 +581,15 @@
       },
       {
         "name": "TRIAL COURT (TRC)",
-        "value": 26603889.51
+        "value": 27220447.39
       },
       {
         "name": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
-        "value": 19596541.53
+        "value": 21848873.84
       },
       {
         "name": "DEPARTMENT OF CORRECTION (DOC)",
-        "value": 17799617.74
+        "value": 17890867.21
       },
       {
         "name": "SUPREME JUDICIAL COURT (SJC)",
@@ -597,7 +597,7 @@
       },
       {
         "name": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
-        "value": 13679600.65
+        "value": 13691737.83
       },
       {
         "name": "BOARD OF LIBRARY COMMISSIONERS (BLC)",
@@ -609,35 +609,39 @@
       },
       {
         "name": "DEPARTMENT OF STATE POLICE (POL)",
-        "value": 10753295.78
-      },
-      {
-        "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
-        "value": 10292644.95
+        "value": 10961608.17
       },
       {
         "name": "SECRETARY OF STATE (SEC)",
-        "value": 9699053.76
+        "value": 10334706.14
+      },
+      {
+        "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
+        "value": 10293671.7
       },
       {
         "name": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
-        "value": 9171673.88
+        "value": 9178753.07
+      },
+      {
+        "name": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
+        "value": 7830814.72
+      },
+      {
+        "name": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
+        "value": 7609311.42
       },
       {
         "name": "MASS REHABILITATION COMMISSION (MRC)",
-        "value": 7493365.45
+        "value": 7503999.3
       },
       {
         "name": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "value": 7176381.84
+        "value": 7202251.93
       },
       {
         "name": "BRISTOL COMMUNITY COLLEGE (BRC)",
         "value": 6680089.75
-      },
-      {
-        "name": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "value": 6433370.5
       },
       {
         "name": "MASSACHUSETTS MARITIME ACADEMY (MMA)",
@@ -645,15 +649,11 @@
       },
       {
         "name": "OFFICE OF THE COMPTROLLER (OSC)",
-        "value": 5905339.58
-      },
-      {
-        "name": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
-        "value": 5800482.73
+        "value": 5907851.44
       },
       {
         "name": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-        "value": 5536750.01
+        "value": 5537086.2
       },
       {
         "name": "WORCESTER STATE UNIVERSITY (WOR)",
@@ -661,11 +661,15 @@
       },
       {
         "name": "MASSACHUSETTS GAMING COMMISSION (MGC)",
-        "value": 4906259.9
+        "value": 4924602.29
       },
       {
         "name": "SPRINGFIELD TECH COMM COLLEGE (STC)",
         "value": 4633631.5
+      },
+      {
+        "name": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
+        "value": 4210055.23
       },
       {
         "name": "SALEM STATE UNIVERSITY (SSA)",
@@ -685,15 +689,11 @@
       },
       {
         "name": "MILITARY DIVISION (MIL)",
-        "value": 3504543.32
+        "value": 3548718.24
       },
       {
         "name": "WESTFIELD STATE UNIVERSITY (WSC)",
         "value": 3438618.87
-      },
-      {
-        "name": "DEPARTMENT OF HIGHER EDUCATION (RGT)",
-        "value": 2797863.21
       }
     ]
   },
@@ -1007,7 +1007,7 @@
       },
       {
         "name": "CITY OF SPRINGFIELD",
-        "value": 597720329.33
+        "value": 597770329.33
       },
       {
         "name": "CAREMARKPCS HEALTH, L.L.C.",
@@ -1091,7 +1091,7 @@
       },
       {
         "name": "UNIVERSITY OF MASS",
-        "value": 301580315.15
+        "value": 301872723.36
       },
       {
         "name": "DOC - SUMMARY PAYROLL",
@@ -1157,7 +1157,7 @@
       },
       {
         "name": "WELLPOINT LIFE & HEALTH INS CO",
-        "value": 210916369.33
+        "value": 225800508.6
       },
       {
         "name": "BOND REDEMPTION (INTEREST)",
@@ -1205,7 +1205,7 @@
       },
       {
         "name": "CITY OF SPRINGFIELD",
-        "value": 103051533.16
+        "value": 103057097.16
       },
       {
         "name": "SPRUCE TECHNOLOGY INC",
@@ -1213,7 +1213,7 @@
       },
       {
         "name": "CITY OF WORCESTER",
-        "value": 85741423.4
+        "value": 85741433.4
       },
       {
         "name": "SENIOR WHOLE HEALTH",
@@ -1225,7 +1225,7 @@
       },
       {
         "name": "MONTACHUSETT REGIONAL",
-        "value": 68357438.57
+        "value": 68608439.75
       },
       {
         "name": "CITY OF LOWELL",
@@ -1237,19 +1237,23 @@
       },
       {
         "name": "CITY OF LYNN",
-        "value": 61604516.95
+        "value": 61604536.95
       },
       {
         "name": "COMMUNITY CARE COOPERATIVE, INC.",
         "value": 57540564.82
       },
       {
+        "name": "SILVERSCRIPT INSURANCE COMPANY",
+        "value": 57347022.94
+      },
+      {
         "name": "UMASS MEMORIAL MEDICAL CENTER INC",
-        "value": 55750509.51
+        "value": 55750529.51
       },
       {
         "name": "CITY OF BROCKTON",
-        "value": 55597184.15
+        "value": 55596980.85
       },
       {
         "name": "PAYMENT TO REFUND BOND ESCROW AGENT",
@@ -1265,11 +1269,7 @@
       },
       {
         "name": "CITY OF FALL RIVER",
-        "value": 44218925.48
-      },
-      {
-        "name": "SILVERSCRIPT INSURANCE COMPANY",
-        "value": 41667611.47
+        "value": 44219079.77
       },
       {
         "name": "VINFEN CORPORATION",
@@ -1281,11 +1281,11 @@
       },
       {
         "name": "CITY OF BOSTON",
-        "value": 38575302.87
+        "value": 38575322.87
       },
       {
         "name": "PIONEER VALLEY TRANSIT",
-        "value": 34922546
+        "value": 35787291
       },
       {
         "name": "MASS GENERAL BRIGHAM HEALTH INSURANCE CO",
@@ -1372,11 +1372,11 @@
     },
     {
       "year": "2026",
-      "total": 100739585670.57
+      "total": 100742384616.55
     },
     {
       "year": "2027",
-      "total": 15422287910.28
+      "total": 15498135805.6
     }
   ],
   "payrollByDepartment": {
@@ -2023,7 +2023,7 @@
       {
         "department": "ATTORNEY GENERAL OFFICE (AGO)",
         "totalPay": 47652948.94,
-        "employees": 759
+        "employees": 760
       },
       {
         "department": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
@@ -2063,7 +2063,7 @@
       {
         "department": "SHERIFF DEPARTMENT WORCESTER (SDW)",
         "totalPay": 41322627.75,
-        "employees": 650
+        "employees": 651
       },
       {
         "department": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
@@ -3134,7 +3134,7 @@
     {
       "year": "2026",
       "totalPayroll": 8292652319.92,
-      "headcount": 151058
+      "headcount": 151060
     }
   ],
   "quasiByAgency": [
