@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-18T09:16:45.464Z",
+  "fetchedAt": "2026-09-19T09:14:54.500Z",
   "years": [
     "2025",
     "2026",
@@ -521,7 +521,7 @@
       },
       {
         "name": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "value": 451924232.23
+        "value": 451922528.23
       },
       {
         "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
@@ -573,7 +573,7 @@
       },
       {
         "name": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
-        "value": 39959279.88
+        "value": 39948517.21
       },
       {
         "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
@@ -1376,7 +1376,7 @@
     },
     {
       "year": "2027",
-      "total": 15623564407.07
+      "total": 15623551940.4
     }
   ],
   "payrollByDepartment": {
@@ -3144,7 +3144,7 @@
     },
     {
       "name": "Massachusetts Housing Finance Agency",
-      "value": 23846601247.53
+      "value": 24010185936.2
     },
     {
       "name": "Massachusetts School Building Authority",
@@ -3156,7 +3156,7 @@
     },
     {
       "name": "Massachusetts Port Authority",
-      "value": 12611761756.71
+      "value": 12783766786.59
     },
     {
       "name": "University of Massachusetts Building Authority",
