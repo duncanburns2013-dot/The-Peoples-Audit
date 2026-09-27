@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MA SOS Lobbyist Detail Scraper
 // @namespace    https://github.com/duncanburns2013-dot/The-Peoples-Audit
-// @version      1.2
+// @version      1.5
 // @description  Scrape per-firm detail (clients, fees, lobbyists, salaries) from the MA Secretary of State Lobbyist Public Search and download as JSON. Runs in your real browser session so it bypasses the WAF that blocks server-side scrapes.
 // @author       The People's Audit
 // @match        https://www.sec.state.ma.us/LobbyistPublicSearch/*
@@ -59,7 +59,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
 
   // Loud console marker so we can confirm the script actually ran.
   console.log(
-    '%c[ta-sos] v1.2 loaded',
+    '%c[ta-sos] v1.5 loaded',
     'background:#2563eb;color:#fff;padding:2px 6px;border-radius:3px',
     location.href,
   );
@@ -68,18 +68,65 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   /* state                                                              */
   /* ------------------------------------------------------------------ */
 
-  function getCache() {
+  // WHY THIS IS NOT ONE BLOB ANY MORE
+  // v1.2 and earlier kept every scraped record in a single GM value. Every
+  // GM_getValue/GM_setValue ships that whole value between the page and the
+  // extension over Chrome's runtime messaging, which is hard-capped at 64 MiB.
+  // render() calls getCache() first thing and fires every 2 seconds, so once the
+  // blob crossed the cap the page filled with
+  //     Unchecked runtime.lastError: Message exceeded maximum allowed size of 64MiB
+  // and the panel silently stopped drawing. Editing the script could not fix it,
+  // because the fault was in the stored data, not the code.
+  //
+  // 1,989 Lobbyist Entity records is ~29 MB and survived. One year of Clients
+  // (1,649) or All (3,293) on top of that does not.
+  //
+  // Now: each record is its own GM value, so no message is ever bigger than one
+  // firm (~15 KB), and a lightweight index holds just the keys. The index is what
+  // render() reads, so the hot path moves ~50 bytes per entry instead of 29 MB.
+  const INDEX_KEY = 'sos_lobbyist_index_v2';
+  const REC_PREFIX = 'sos_rec_v2::';
+
+  function getIndex() {
     try {
-      return JSON.parse(GM_getValue(STORAGE_KEY, '{}')) || {};
+      const a = JSON.parse(GM_getValue(INDEX_KEY, '[]'));
+      return Array.isArray(a) ? a : [];
     } catch (e) {
-      return {};
+      return [];
     }
   }
-  function setCache(obj) {
-    GM_setValue(STORAGE_KEY, JSON.stringify(obj));
+  function setIndex(keys) {
+    GM_setValue(INDEX_KEY, JSON.stringify(keys));
   }
+
+  // render() only ever needs to know WHICH keys are cached, never their contents.
+  function getCache() {
+    const out = {};
+    for (const k of getIndex()) out[k] = true;
+    return out;
+  }
+
+  function putRecord(key, detail) {
+    GM_setValue(REC_PREFIX + key, JSON.stringify(detail));
+    const keys = getIndex();
+    if (!keys.includes(key)) {
+      keys.push(key);
+      setIndex(keys);
+    }
+  }
+
+  function getRecord(key) {
+    try {
+      return JSON.parse(GM_getValue(REC_PREFIX + key, 'null'));
+    } catch (e) {
+      return null;
+    }
+  }
+
   function clearCache() {
-    GM_deleteValue(STORAGE_KEY);
+    for (const k of getIndex()) GM_deleteValue(REC_PREFIX + k);
+    GM_deleteValue(INDEX_KEY);
+    GM_deleteValue(STORAGE_KEY);   // the pre-v1.5 blob, if one is still stranded
   }
 
   /* ------------------------------------------------------------------ */
@@ -125,6 +172,35 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
         sysvalue: sysMatch ? decodeURIComponent(sysMatch[1]) : null,
       });
     });
+    // Fallback: everything above is addressed by ASP.NET auto-generated control
+    // ids (hplDisplayName_N, lblUserType_N), which the SOS can rename at will.
+    // That would not throw -- the panel would just report 0 rows and look broken.
+    // The Summary.aspx link cannot change without breaking the site's own
+    // navigation, so use it when the ids find nothing.
+    if (rows.length === 0) {
+      const seen = new Set();
+      document.querySelectorAll('a[href*="Summary.aspx"]').forEach((a) => {
+        const href = a.getAttribute('href') || '';
+        const sysMatch = href.match(/sysvalue=([^&]+)/);
+        if (!sysMatch) return;
+        const sysvalue = decodeURIComponent(sysMatch[1]);
+        if (seen.has(sysvalue)) return;
+        seen.add(sysvalue);
+        const tr = a.closest('tr');
+        const cells = tr ? tr.querySelectorAll('td') : [];
+        rows.push({
+          accountType: cells.length ? (cells[0].textContent || '').trim() : '',
+          name: (a.textContent || '').trim(),
+          href: href.startsWith('http') ? href : new URL(href, location.href).toString(),
+          sysvalue,
+        });
+      });
+      if (rows.length) {
+        console.warn('[ta-sos] control ids did not match - used the Summary.aspx',
+                     'fallback,', rows.length, 'rows.');
+      }
+    }
+
     return rows;
   }
 
@@ -452,6 +528,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   async function runScrape(rows, year, onProgress) {
     if (scraping) return;
     scraping = true;
+    try {
     const cache = getCache();
     let ok = 0,
       fail = 0;
@@ -468,8 +545,8 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       }
       try {
         const detail = await fetchAndParse(r, year);
-        cache[key] = detail;
-        setCache(cache);
+        putRecord(key, detail);
+        cache[key] = true;
         ok++;
       } catch (e) {
         console.warn('[ta-sos] fail', r.name, e);
@@ -477,9 +554,14 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       }
       await sleep(DELAY_MS);
     }
-    scraping = false;
     alert(`Done. ${ok} ok, ${fail} failed. Click Download JSON to save.`);
     onProgress && onProgress();
+    } finally {
+      // Released even if the loop throws. As a plain assignment at the end it
+      // stayed true forever on any error, and every later click of "Scrape"
+      // was then a silent no-op.
+      scraping = false;
+    }
   }
 
   function sleep(ms) {
@@ -491,8 +573,14 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   /* ------------------------------------------------------------------ */
 
   function downloadAll() {
-    const cache = getCache();
-    const records = Object.values(cache);
+    // Read back one record per message, for the same reason they are stored that
+    // way. Assembling the array here is fine -- it lives in page memory and never
+    // crosses the extension boundary.
+    const records = [];
+    for (const k of getIndex()) {
+      const r = getRecord(k);
+      if (r) records.push(r);
+    }
     if (records.length === 0) {
       alert('Nothing cached yet.');
       return;
@@ -502,7 +590,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       source: 'MA Secretary of State Lobbyist Public Search - Summary.aspx pages',
       sourceUrl:
         'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx',
-      capturedBy: 'sos-lobbyist-detail-scraper.user.js v1.0',
+      capturedBy: 'sos-lobbyist-detail-scraper.user.js v1.5',
       count: records.length,
       records,
     };

@@ -64,6 +64,48 @@ The script runs entirely client-side. Nothing leaves your browser until you
 click Download. Records are kept in Tampermonkey's per-origin storage
 (`GM_setValue`), not browser cookies or external services.
 
+### If the panel never appears
+
+Open the page console (F12). The script logs a blue `[ta-sos] vX loaded` badge
+before it does anything else, so:
+
+- **Badge present, no panel** — the panel div is there but empty, or it is behind
+  the Tampermonkey popup, which sits in exactly the same corner. Close the popup.
+- **No badge at all** — the script is not executing. Tampermonkey will still list
+  it as enabled and matching the page, because that is computed from the metadata
+  block; it tells you nothing about whether the body ran.
+
+The failure that cost a full afternoon on 2026-09-27 was the second kind, and the
+console said so the whole time:
+
+```
+Unchecked runtime.lastError: Message exceeded maximum allowed size of 64MiB.
+```
+
+Tampermonkey preloads a script's **entire value store** into the page on every
+injection — that is what makes `GM_getValue` synchronous. Up to v1.2 this script
+kept every scraped record in one GM value, so once that blob passed Chrome's
+64 MiB messaging cap, injection itself failed and not one line of the script ran.
+Editing the script could not fix it: the fault was in the stored data.
+
+What tipped it over was setting the Account Type filter to **All** (3,293 rows for
+2026) on top of eleven years of Lobbyist Entity records — roughly 29 MB already
+held, plus ~49 MB more.
+
+**To recover:** Dashboard → Settings → set **Config mode: Advanced** (the Storage
+tab is hidden otherwise) → open the script → **Storage** → replace the contents
+with `{"selected_type": "Lobbyist Entity"}` → Save. Deleting the script also works,
+since storage dies with it.
+
+v1.5 stores one GM value per record plus a small key index, so no message is ever
+larger than a single firm (~15 KB) no matter how much is cached. Verified against
+a stub enforcing the real 64 MiB cap: 5,000 records / 73 MB held, largest message
+0.1 MB, zero messages over the cap.
+
+Still, download between passes rather than letting runs stack up — the cache is
+working state, not an archive. The committed `public/data/ma-lobbying-*.json`
+files are the archive.
+
 ### Tuning
 
 - **Delay** (default 2000ms): edit `DELAY_MS` at the top of the script. Don't
