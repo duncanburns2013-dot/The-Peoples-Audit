@@ -17,6 +17,13 @@ const spendingByYear = [
   { year: 2024, spending: 93.2 }, { year: 2025, spending: 96.1 },
 ];
 
+// EDITORIAL ONLY. This array backs the "Industry Deep Dive" prose (topIssues,
+// topOrgs) and nothing else. Its `amount` and `value` fields were never
+// measurements: every amount is exactly its round percentage of a chosen $96M
+// total, and the percentages sum to exactly 100. They were charted under the
+// caption "MA Secretary of State disclosures (2025)", which attributed invented
+// figures to a named government source. All dollar figures on this tab now come
+// from data/ma-lobbying-industries-2026.json joined to the client filings.
 const industryData = [
   { name: 'Healthcare', value: 25, amount: 24.0, lobbyists: 145, topIssues: 'MassHealth rates, drug pricing, hospital licensing, telehealth regulation', topOrgs: 'Mass General Brigham, BCBS MA, Mass Medical Society, Mass Hospital Assoc.' },
   { name: 'Energy/Utilities', value: 15, amount: 14.4, lobbyists: 88, topIssues: 'Rate cases, clean energy mandates, grid modernization, offshore wind', topOrgs: 'Eversource, National Grid, Avangrid, Cape Wind' },
@@ -452,6 +459,61 @@ export default function LobbyingExplorer() {
   // clients per sector. Fees aren't due for 2026, so this is activity not $.
   // Firms without a sector tag (mostly smaller/newer entities) are reported
   // as an omitted count rather than a misleading "Unclassified" bar.
+  // The SOS assigns every client an industry at registration, through its
+  // Industry Type register. Joined on sysvalue it covers 1,733 of 1,733 clients
+  // for 2026 -- no inference, no gaps. It replaces a name-joined firm tag that
+  // reached 117 of 169 entities, and that joined on NAME, which the SOS
+  // renormalises between years ("Smith, Costello & Crawford" -> "Smith Costello
+  // & Crawford"). sysvalue is the stable key.
+  const [sosInd, setSosInd] = useState(null);
+  const [sosIndState, setSosIndState] = useState('idle');
+  useEffect(() => {
+    if (sosIndState !== 'idle') return;
+    setSosIndState('loading');
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}data/ma-lobbying-industries-2026.json`).then(r => r.json()),
+      fetch(`${import.meta.env.BASE_URL}data/ma-lobbying-client-details-2026.json`).then(r => r.json()),
+    ])
+      .then(([ind, cli]) => {
+        const bySys = {};
+        for (const g of (ind.industries || [])) {
+          for (const c of (g.clients || [])) bySys[c.sysvalue] = g.industry;
+        }
+        const agg = {};
+        let matched = 0;
+        for (const x of (cli.records || [])) {
+          const label = bySys[x.sysvalue];
+          if (!label) continue;
+          matched += 1;
+          const spend = (x.totalEntityAmount || 0) + (x.totalSalariesPaid || 0) + (x.totalExpenses || 0);
+          if (!agg[label]) agg[label] = { name: label, spend: 0, clients: 0 };
+          agg[label].spend += spend;
+          agg[label].clients += 1;
+        }
+        const total = Object.values(agg).reduce((a, b) => a + b.spend, 0);
+        const HEALTH = ['Healthcare', 'Pharmaceutical Industry',
+                        'Insurance: Medical, Dental, Mental Health',
+                        'Hospitals: Healthcare Systems, Medical Orgs'];
+        setSosInd({
+          scrapedAt: ind.scrapedAt,
+          total,
+          matched,
+          clientTotal: (cli.records || []).length,
+          labelCount: Object.keys(agg).length,
+          health: {
+            spend: HEALTH.reduce((a, k) => a + (agg[k]?.spend || 0), 0),
+            clients: HEALTH.reduce((a, k) => a + (agg[k]?.clients || 0), 0),
+          },
+          sectors: Object.values(agg)
+            .map(d => ({ ...d, amount: +(d.spend / 1e6).toFixed(2),
+                         value: +(d.spend / total * 100).toFixed(1) }))
+            .sort((a, b) => b.spend - a.spend),
+        });
+        setSosIndState('loaded');
+      })
+      .catch(() => setSosIndState('unavailable'));
+  }, [sosIndState]);
+
   const industry2026 = useMemo(() => {
     const focusByName = {};
     for (const f of (lobbyData?.top20 || [])) {
@@ -1383,19 +1445,27 @@ export default function LobbyingExplorer() {
         <div>
           <div className="kpi-row" style={{ marginBottom: 24 }}>
             <div className="kpi-card">
-              <div className="kpi-label">Total Industry Lobbying</div>
-              <div className="kpi-value">${industryData.reduce((s, d) => s + d.amount, 0).toFixed(0)}M</div>
-              <div className="kpi-sub">Across {industryData.length} sectors (2025 est.)</div>
+              <div className="kpi-label">Total Client Spending</div>
+              <div className="kpi-value">{sosInd ? `$${(sosInd.total / 1e6).toFixed(1)}M` : '—'}</div>
+              <div className="kpi-sub">
+                {sosInd ? `Across ${sosInd.labelCount} sectors · 2026 first-half filings` : 'Loading…'}
+              </div>
             </div>
             <div className="kpi-card">
               <div className="kpi-label">Top Sector</div>
               <div className="kpi-value" style={{ fontSize: '1.3rem' }}>Healthcare</div>
-              <div className="kpi-sub">${industryData[0].amount}M — {industryData[0].value}% of total</div>
+              <div className="kpi-sub">
+                {sosInd
+                  ? `$${(sosInd.health.spend / 1e6).toFixed(1)}M — ${(sosInd.health.spend / sosInd.total * 100).toFixed(1)}% across 4 SOS labels`
+                  : 'Loading…'}
+              </div>
             </div>
             <div className="kpi-card">
-              <div className="kpi-label">Active Lobbyists</div>
-              <div className="kpi-value">{industryData.reduce((s, d) => s + d.lobbyists, 0)}+</div>
-              <div className="kpi-sub">Registered across all sectors</div>
+              <div className="kpi-label">Clients Filing</div>
+              <div className="kpi-value">{sosInd ? sosInd.clientTotal.toLocaleString() : '—'}</div>
+              <div className="kpi-sub">
+                {sosInd ? `${sosInd.matched.toLocaleString()} matched to a sector (100%)` : 'Loading…'}
+              </div>
             </div>
           </div>
 
@@ -1405,15 +1475,15 @@ export default function LobbyingExplorer() {
               <Calendar size={20} style={{ color: 'var(--accent-blue)' }} /> 2026 Lobbying Activity by Sector
             </h3>
             <div className="chart-subtitle">
-              Registered clients per sector for the 2026 session. 2026 fee
-              totals are partial until the year-end disclosure, so this shows
-              who&rsquo;s active by sector — not dollars. Sector tags are joined
-              from firm classifications.
+              Registered clients per sector for the 2026 session. The sector is
+              the one each client chose at registration, from the Secretary of
+              State&rsquo;s Industry Type register — not a tag we inferred. Joined
+              on the SOS&rsquo;s own key, it covers every client that filed.
             </div>
-            {fd2026State === 'loaded' && industry2026.sectors.length ? (
+            {sosIndState === 'loaded' && sosInd ? (
               <>
                 <ResponsiveContainer width="100%" height={420}>
-                  <BarChart data={industry2026.sectors} layout="vertical" margin={{ left: 8, right: 24 }}>
+                  <BarChart data={sosInd.sectors.slice(0, 14)} layout="vertical" margin={{ left: 8, right: 24 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                     <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} allowDecimals={false} />
                     <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={170} style={{ fontSize: '11px' }} />
@@ -1421,21 +1491,20 @@ export default function LobbyingExplorer() {
                       formatter={(v, n) => [v, n === 'clients' ? 'Registered clients' : n]}
                       contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
                     <Bar dataKey="clients" radius={[0, 6, 6, 0]}>
-                      {industry2026.sectors.map((entry, i) => (
+                      {sosInd.sectors.slice(0, 14).map((entry, i) => (
                         <Cell key={i} fill={INDUSTRY_COLORS[i % INDUSTRY_COLORS.length]} />
                       ))}
                     </Bar>
                   </BarChart>
                 </ResponsiveContainer>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 8 }}>
-                  {industry2026.classifiedFirms} of {industry2026.totalFirms} registered entities carry a sector tag
-                  {industry2026.unclassifiedFirms > 0 && (
-                    <> · {industry2026.unclassifiedFirms} unclassified ({industry2026.unclassifiedClients.toLocaleString()} client registrations) omitted</>
-                  )}.
+                  {sosInd.matched.toLocaleString()} of {sosInd.clientTotal.toLocaleString()} clients
+                  carry an SOS industry label — nothing omitted, nothing inferred.
+                  Top {Math.min(14, sosInd.sectors.length)} of {sosInd.labelCount} sectors shown.
                 </div>
               </>
-            ) : fd2026State === 'unavailable' ? (
-              <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>2026 firm-detail snapshot unavailable.</div>
+            ) : sosIndState === 'unavailable' ? (
+              <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>2026 industry snapshot unavailable.</div>
             ) : (
               <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)' }}>
                 <div className="spinner" style={{ margin: '0 auto 12px' }} /> Loading 2026 sector activity…
@@ -1445,16 +1514,21 @@ export default function LobbyingExplorer() {
 
           <div className="chart-card" style={{ marginBottom: 24 }}>
             <h3>Lobbying Spending by Industry Sector</h3>
-            <div className="chart-subtitle">Estimated annual expenditures in millions — MA Secretary of State disclosures (2025)</div>
+            <div className="chart-subtitle">
+              What clients reported paying — fees to lobbying firms, salaries to
+              their own in-house lobbyists, and expenses. Secretary of the
+              Commonwealth, registration year 2026 as filed at the July 15
+              deadline, so roughly the first half of the year.
+            </div>
             <ResponsiveContainer width="100%" height={420}>
-              <BarChart data={industryData} layout="vertical">
+              <BarChart data={(sosInd?.sectors || []).slice(0, 14)} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke={GRID_COLOR} />
                 <XAxis type="number" stroke={AXIS_COLOR} style={{ fontSize: '12px' }} tickFormatter={v => `$${v}M`} />
                 <YAxis dataKey="name" type="category" stroke={AXIS_COLOR} width={130} style={{ fontSize: '11px' }} />
                 <Tooltip formatter={(v, name) => name === 'amount' ? [`$${v}M`, 'Spending'] : [v, name]}
                   contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 13 }} />
                 <Bar dataKey="amount" radius={[0, 6, 6, 0]}>
-                  {industryData.map((entry, i) => (
+                  {(sosInd?.sectors || []).slice(0, 14).map((entry, i) => (
                     <Cell key={i} fill={INDUSTRY_COLORS[i % INDUSTRY_COLORS.length]} />
                   ))}
                 </Bar>
@@ -1464,7 +1538,11 @@ export default function LobbyingExplorer() {
 
           <div className="chart-card" style={{ marginBottom: 24 }}>
             <h3>Industry Deep Dive — What They Lobby For</h3>
-            <div className="chart-subtitle">Key legislative issues and top organizations by sector</div>
+            <div className="chart-subtitle">
+              Key legislative issues and notable organizations by sector. This
+              section is editorial context, not filing data — the dollar figures
+              above come from the Secretary of the Commonwealth.
+            </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 16 }}>
               {industryData.map((sector, idx) => (
                 <div key={idx} style={{ background: 'var(--bg-card-hover)', border: '1px solid var(--border)', borderRadius: 10, padding: '16px 18px' }}>
