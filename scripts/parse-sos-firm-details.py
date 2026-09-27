@@ -15,7 +15,10 @@
 #     disclosureReports: [ ... ] | "No Disclosure Report has been concluded for ..."
 #   }
 #
-# Output: public/data/ma-lobbying-firm-details-{year}.json
+# Output: public/data/ma-lobbying-firm-details-{year}.json      (Lobbyist Entity pages)
+#         public/data/ma-lobbying-lobbyist-details-{year}.json  (Lobbyist pages)
+#         public/data/ma-lobbying-client-details-{year}.json    (Client pages)
+# Lobbyist and Client records add entities[] / entityCount / totalEntityAmount.
 #
 # Usage:
 #   python scripts/parse-sos-firm-details.py [path/to/scrape.json] [path/to/scrape2.json] ...
@@ -89,15 +92,21 @@ def parse_record(rec):
             f"ContentPlaceHolder1_RptLobbyistInfo_RptLobbyistEmploymentInfo_{n}"
             f"_lblTerminationDate_0"
         )
-        lobbyists.append(
-            {
-                "name": (link or {}).get("text") or None,
-                "sysvalue": find_sysvalue((link or {}).get("href")),
-                "amount": money(spans[amt_key]),
-                "employedDate": spans.get(emp_key, "").strip() or None,
-                "terminatedDate": spans.get(term_key, "").strip() or None,
-            }
+        entry = {
+            "name": (link or {}).get("text") or None,
+            "sysvalue": find_sysvalue((link or {}).get("href")),
+            "amount": money(spans[amt_key]),
+            "employedDate": spans.get(emp_key, "").strip() or None,
+            "terminatedDate": spans.get(term_key, "").strip() or None,
+        }
+        # Client pages carry a purpose line per lobbyist; firm pages don't.
+        purpose_key = (
+            f"ContentPlaceHolder1_RptLobbyistInfo_RptLobbyistEmploymentInfo_{n}"
+            f"_lblPurposeOfEmp_0"
         )
+        if purpose_key in spans:
+            entry["purpose"] = spans[purpose_key].strip() or None
+        lobbyists.append(entry)
         n += 1
 
     # --- Clients: same pattern with RptClient_*
@@ -172,7 +181,7 @@ def parse_record(rec):
         if m:
             reg_date = m.group(1)
 
-    return {
+    out = {
         "name": name,
         "year": year,
         "type": reg_type,
@@ -190,6 +199,42 @@ def parse_record(rec):
         "registrationDate": reg_date,
         "scrapedAt": rec.get("scrapedAt"),
     }
+
+    # --- Lobbyist Entities (only on Lobbyist and Client pages): the firms a
+    # lobbyist works through, or the firms a client hired. The total is
+    # "salaries received" on a Lobbyist page, "salaries paid" on a Client page.
+    if reg_type != "Lobbyist Entity":
+        entities = []
+        n = 0
+        while True:
+            amt_key = f"ContentPlaceHolder1_RptEntity_lblEAmount_{n}"
+            if amt_key not in spans:
+                break
+            link = by_id.get(f"ContentPlaceHolder1_RptEntity_hlnkEntityInformation_{n}")
+            info = f"ContentPlaceHolder1_RptEntity_RptEntityEmploymentInfo_{n}"
+            entities.append(
+                {
+                    "name": (link or {}).get("text") or None,
+                    "sysvalue": find_sysvalue((link or {}).get("href")),
+                    "amount": money(spans[amt_key]),
+                    "employedDate": spans.get(f"{info}_lblEmploymentDate_0", "").strip() or None,
+                    "terminatedDate": spans.get(f"{info}_lblTerminationDate_0", "").strip() or None,
+                }
+            )
+            n += 1
+        out["totalEntityAmount"] = money(s("ContentPlaceHolder1_RptEntity_lblTotalExpense"))
+        out["entityCount"] = len(entities)
+        out["entities"] = entities
+    return out
+
+
+# One output file per registration type. Firm-details keeps its original name
+# because LobbyingExplorer reads it.
+OUT_PREFIX = {
+    "Lobbyist Entity": "ma-lobbying-firm-details",
+    "Lobbyist": "ma-lobbying-lobbyist-details",
+    "Client": "ma-lobbying-client-details",
+}
 
 
 def process_dump(dump_path):
@@ -213,31 +258,36 @@ def main():
             sys.exit(1)
 
     # Merge across multiple dump files (so the user can run several scrapes).
+    # Keyed by (output prefix, year); each group tracks its own scrape times.
     combined = {}
-    scraped_ats = []
+    scraped_ats = {}
     for d in dumps:
         print(f"reading {d.name}")
         by_year, scraped_at = process_dump(d)
-        if scraped_at:
-            scraped_ats.append(scraped_at)
         for year, recs in by_year.items():
-            bucket = combined.setdefault(year, {})
             for r in recs:
+                group = (OUT_PREFIX.get(r["type"], "ma-lobbying-firm-details"), year)
+                if scraped_at:
+                    scraped_ats.setdefault(group, []).append(scraped_at)
                 key = r["sysvalue"] or r["name"]
                 if key:
-                    bucket[key] = r
+                    combined.setdefault(group, {})[key] = r
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    for year in sorted(combined):
+    for group in sorted(combined):
+        prefix, year = group
+        if prefix != "ma-lobbying-firm-details":
+            write_registrant_details(prefix, year, combined[group], scraped_ats.get(group))
+            continue
         firms = sorted(
-            combined[year].values(),
+            combined[group].values(),
             key=lambda f: (-(f.get("totalSalariesReceived") or 0), (f.get("name") or "").lower()),
         )
         total_received = sum(f.get("totalSalariesReceived") or 0 for f in firms)
         total_paid = sum(f.get("totalSalariesPaid") or 0 for f in firms)
         payload = {
             "year": year,
-            "scrapedAt": max(scraped_ats) if scraped_ats else datetime.now(timezone.utc).isoformat(),
+            "scrapedAt": max(scraped_ats[group]) if scraped_ats.get(group) else datetime.now(timezone.utc).isoformat(),
             "source": "MA Secretary of State - Lobbyist Public Search (Summary.aspx)",
             "sourceUrl": "https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx",
             "note": (
@@ -260,6 +310,41 @@ def main():
             f"  -> {out_path.name:42} {len(firms):>4} firms  "
             f"{size:>9,} bytes  $received={total_received:,.0f}"
         )
+
+
+def write_registrant_details(prefix, year, records_by_key, scraped_ats):
+    """Lobbyist or Client pages -> one file per type and year."""
+    def dollars(r):
+        return sum(r.get(k) or 0 for k in ("totalSalariesReceived", "totalSalariesPaid", "totalEntityAmount"))
+
+    records = sorted(records_by_key.values(), key=lambda r: (-dollars(r), (r.get("name") or "").lower()))
+    kind = "lobbyist" if prefix.endswith("lobbyist-details") else "client"
+    payload = {
+        "year": year,
+        "type": "Lobbyist" if kind == "lobbyist" else "Client",
+        "scrapedAt": max(scraped_ats) if scraped_ats else datetime.now(timezone.utc).isoformat(),
+        "source": "MA Secretary of State - Lobbyist Public Search (Summary.aspx)",
+        "sourceUrl": "https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx",
+        "note": (
+            f"Per-{kind} detail extracted from MA SOS Summary.aspx pages via the "
+            "in-browser scraper userscript. Lobbyist pages list clients and the "
+            "lobbyist entities the lobbyist works through (amounts received); "
+            "Client pages list the lobbyists and lobbyist entities the client "
+            "engaged (amounts paid). Amounts stay $0 until disclosure reports "
+            "are filed."
+        ),
+        "recordCount": len(records),
+        "totalSalariesReceived": sum(r.get("totalSalariesReceived") or 0 for r in records),
+        "totalSalariesPaid": sum(r.get("totalSalariesPaid") or 0 for r in records),
+        "totalEntityAmount": sum(r.get("totalEntityAmount") or 0 for r in records),
+        "records": records,
+    }
+    out_path = OUT_DIR / f"{prefix}-{year}.json"
+    out_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    print(
+        f"  -> {out_path.name:42} {len(records):>4} {kind}s  "
+        f"{out_path.stat().st_size:>9,} bytes"
+    )
 
 
 if __name__ == "__main__":

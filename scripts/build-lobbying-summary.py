@@ -115,10 +115,10 @@ def main():
         "source": old["source"],
         "sourceUrl": old.get("sourceUrl", "https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx"),
         "note": (
-            "2025 is a complete disclosure year (fee totals are final). 2026 shows "
-            "registration activity only — fee-disclosure reports are not yet due, so "
-            "2026 revenue reads $0. Regenerated from the MA SOS firm-detail snapshots "
-            "by scripts/build-lobbying-summary.py."
+            "2025 is a complete disclosure year (fee totals are final). 2026 is "
+            "partial: amounts reflect only the disclosure reports filed so far this "
+            "year, and the year-end report is still to come. Regenerated from the MA "
+            "SOS firm-detail snapshots by scripts/build-lobbying-summary.py."
         ),
         "registrationYears": ["2025", "2026"],
         "totalRecords": stats["entities2025"] + stats["entities2026"],
@@ -126,8 +126,8 @@ def main():
         "top20": top20,
         "keyIndividuals": key_individuals,
         "warnings": [
-            "2026 expenditure data shows $0 for most entities — disclosure reports "
-            "are not yet due. 2025 data is complete.",
+            "2026 amounts are partial (year-end disclosure reports not yet filed). "
+            "2025 data is complete.",
         ],
     }
 

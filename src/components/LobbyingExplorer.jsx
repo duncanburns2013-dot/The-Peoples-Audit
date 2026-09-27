@@ -565,8 +565,8 @@ export default function LobbyingExplorer() {
                 )}
                 . The MA Secretary of State Lobbyist Public Search blocks
                 automated access from cloud servers, so this snapshot is
-                refreshed manually. 2025 fee totals are final; 2026 shows
-                registration activity (fee-disclosure reports are not yet due).
+                refreshed manually. 2025 fee totals are final; 2026 amounts
+                are partial (the year-end disclosure report is not yet filed).
                 The{' '}
                 <strong style={{ color: 'var(--accent-blue)' }}>SOS Registry tab</strong>{' '}
                 has the full registrant roster.{' '}
@@ -1406,7 +1406,7 @@ export default function LobbyingExplorer() {
             </h3>
             <div className="chart-subtitle">
               Registered clients per sector for the 2026 session. 2026 fee
-              disclosures aren&rsquo;t due yet (spending reads $0), so this shows
+              totals are partial until the year-end disclosure, so this shows
               who&rsquo;s active by sector — not dollars. Sector tags are joined
               from firm classifications.
             </div>

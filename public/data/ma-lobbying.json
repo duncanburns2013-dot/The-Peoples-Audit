@@ -1,19 +1,19 @@
 {
- "fetchedAt": "2026-07-08T22:49:04.474Z",
+ "fetchedAt": "2026-09-27T16:14:47.401Z",
  "source": "Massachusetts Secretary of State - Lobbyist Public Search",
  "sourceUrl": "https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx",
- "note": "2025 is a complete disclosure year (fee totals are final). 2026 shows registration activity only \u2014 fee-disclosure reports are not yet due, so 2026 revenue reads $0. Regenerated from the MA SOS firm-detail snapshots by scripts/build-lobbying-summary.py.",
+ "note": "2025 is a complete disclosure year (fee totals are final). 2026 is partial: amounts reflect only the disclosure reports filed so far this year, and the year-end report is still to come. Regenerated from the MA SOS firm-detail snapshots by scripts/build-lobbying-summary.py.",
  "registrationYears": [
   "2025",
   "2026"
  ],
- "totalRecords": 337,
+ "totalRecords": 344,
  "stats": {
   "entities2025": 175,
-  "entities2026": 162,
+  "entities2026": 169,
   "entitiesWithData": 157,
   "totalRevenue2025": 88409949,
-  "totalRevenue2026": 0,
+  "totalRevenue2026": 45864365,
   "uniqueClients": 1695,
   "uniqueLobbyists": 1555
  },
@@ -7118,6 +7118,6 @@
   }
  ],
  "warnings": [
-  "2026 expenditure data shows $0 for most entities \u2014 disclosure reports are not yet due. 2025 data is complete."
+  "2026 amounts are partial (year-end disclosure reports not yet filed). 2025 data is complete."
  ]
 }
