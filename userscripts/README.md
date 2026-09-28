@@ -58,6 +58,52 @@ The extraction is intentionally over-broad — every `<span>`, every link, every
 table — so the offline parser can decide which fields matter without re-running
 the scrape if the schema turns out to be different than expected.
 
+### Bill activity (v1.6)
+
+The same panel has a second button, **Scrape bill activity**, for the lines each
+registrant files under "Activities, Bill Numbers and Titles" on its disclosure
+reports.
+
+1. On a Default.aspx results grid, set the Type filter to **Lobbyist Entity** and
+   click **Scrape bill activity**, then switch to **Lobbyist** and click it again
+   (1,697 registrants for 2026 across the two).
+2. For each registrant it fetches `Summary.aspx` live, follows every
+   `CompleteDisclosure.aspx` link whose period falls in the selected year, and
+   parses the activity tables. Three workers, 200 ms between fetches, three
+   retries per page. A registrant that fails is not cached, so re-running picks up
+   only the failures.
+3. Click **Download activities**. That saves `sos-lobbyist-activities-TIMESTAMP.json`.
+   Move it to `.cache/sos-firm-scrapes/` and run
+   `python scripts/parse-sos-activities.py`. That writes
+   `public/data/ma-lobbying-activities-<year>.json`.
+
+Reports come in two formats and both are parsed: `grdvActivitiesNew2020_N` tables
+on lobbying-firm reports and `grdvActivitiesNew_N` on in-house lobbyist reports.
+Reading only the first format silently drops every in-house lobbyist. The parser
+prints registrants that have reports but no rows, grouped by type. A large count
+there is the sign of that failure.
+
+Things to know about the fields:
+
+- **client**: the text after "Client:". On firm reports it runs into
+  "Total amount paid by client…: $X". That suffix is stripped, and the dollar
+  figure goes into `clientTotalPaid`.
+- **amount** is the per-activity figure as filed. It is $0 on nearly every row
+  because filers say they cannot report compensation at activity level. It is
+  not money spent per bill.
+- **isTotal** marks the report's own total lines (empty chamber, "Total amount"
+  in the position column). They are kept but not counted as activities.
+- **bill** is `H`/`S` + optional `D` (docket) + number (`H5151`, `SD1234`) for
+  House/Senate Bill/Docket rows, and the agency name for Executive rows.
+  `billNumber` keeps the raw cell.
+
+The output file is about 200k rows for a year. To keep it small it uses
+header-plus-rows tables (`reports`, `blocks`, `rows`) joined by index, and `rows`
+refers to titles by index into `titles`.
+
+The activity cache is separate from the Summary cache. **Clear cache** and
+**Clear activities** each empty only their own.
+
 ### Privacy
 
 The script runs entirely client-side. Nothing leaves your browser until you
