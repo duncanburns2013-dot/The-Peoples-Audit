@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         MA SOS Lobbyist Detail Scraper
 // @namespace    https://github.com/duncanburns2013-dot/The-Peoples-Audit
-// @version      1.5
-// @description  Scrape per-firm detail (clients, fees, lobbyists, salaries) from the MA Secretary of State Lobbyist Public Search and download as JSON. Runs in your real browser session so it bypasses the WAF that blocks server-side scrapes.
+// @version      1.6
+// @description  Scrape per-firm detail (clients, fees, lobbyists, salaries) and disclosure-report bill activity from the MA Secretary of State Lobbyist Public Search and download as JSON. Runs in your real browser session so it bypasses the WAF that blocks server-side scrapes.
 // @author       The People's Audit
 // @match        https://www.sec.state.ma.us/LobbyistPublicSearch/*
 // @match        https://sec.state.ma.us/LobbyistPublicSearch/*
@@ -46,6 +46,26 @@ RESUME / SKIP
 Already-scraped sysvalues are skipped automatically. To re-scrape, click
 "Clear cache" (it dumps everything stored for the current origin).
 
+BILL ACTIVITY (v1.6)
+--------------------
+"Scrape bill activity" walks the same filtered grid rows, fetches each
+registrant's Summary.aspx live, follows every CompleteDisclosure.aspx link for
+the selected year, and parses the "Activities, Bill Numbers and Titles" tables.
+Two table formats exist and both are read:
+  grdvActivitiesNew2020_N   lobbying-firm (Lobbyist Entity) reports
+  grdvActivitiesNew_N       in-house lobbyist reports
+A pass that read only the 2020 format missed all 1,273 in-house registrants.
+Each table sits under a "Client: NAME" label; on firm reports that label runs
+into "Total amount paid by client...: $X", which is split off into
+clientTotalPaid. Rows with an empty chamber and "Total amount" in the position
+cell are report totals and are flagged isTotal, not counted as activities.
+Per-row Amount is $0 on nearly every row (firms say they cannot report
+compensation at activity level); it is not dollars per bill.
+Run it with Type = Lobbyist Entity, then Type = Lobbyist (1,697 registrants for
+2026). Then "Download activities" and run
+  python scripts/parse-sos-activities.py <download>
+which writes public/data/ma-lobbying-activities-<year>.json.
+
 PRIVACY
 -------
 Runs entirely in your browser. No data leaves the page until YOU click Download.
@@ -54,12 +74,13 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
 (function () {
   'use strict';
 
+  const VERSION = '1.6';
   const STORAGE_KEY = 'sos_lobbyist_detail_cache_v1';
   const DELAY_MS = 2000; // polite delay between fetches
 
   // Loud console marker so we can confirm the script actually ran.
   console.log(
-    '%c[ta-sos] v1.5 loaded',
+    '%c[ta-sos] v' + VERSION + ' loaded',
     'background:#2563eb;color:#fff;padding:2px 6px;border-radius:3px',
     location.href,
   );
@@ -287,6 +308,224 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   }
 
   /* ------------------------------------------------------------------ */
+  /* bill activity: CompleteDisclosure.aspx reports                     */
+  /* ------------------------------------------------------------------ */
+
+  // Own cache, same one-value-per-record layout as the Summary cache above, so
+  // "Clear cache" on one never touches the other. One record per registrant.
+  const ACT_INDEX_KEY = 'sos_activity_index_v1';
+  const ACT_REC_PREFIX = 'sos_act_rec_v1::';
+  // Settings of the 2026 live crawl that read all 1,697 registrants cleanly.
+  const ACT_WORKERS = 3;
+  const ACT_DELAY_MS = 200;
+  // Rows are stored as arrays (~200k of them for 2026), in this column order.
+  const ACT_ROW_COLUMNS = [
+    'chamber', 'billNumber', 'bill', 'title', 'position', 'amount',
+    'directBusinessAssociation', 'isTotal',
+  ];
+  // grdvActivitiesNew2020_N = lobbying-firm reports, grdvActivitiesNew_N =
+  // in-house lobbyist reports. Anchored so sibling grids never match.
+  const ACT_TABLE_ID = /grdvActivitiesNew(2020)?_\d+$/;
+
+  function getActIndex() {
+    try {
+      const a = JSON.parse(GM_getValue(ACT_INDEX_KEY, '[]'));
+      return Array.isArray(a) ? a : [];
+    } catch (e) {
+      return [];
+    }
+  }
+  function putActRecord(key, rec) {
+    GM_setValue(ACT_REC_PREFIX + key, JSON.stringify(rec));
+    const keys = getActIndex();
+    if (!keys.includes(key)) {
+      keys.push(key);
+      GM_setValue(ACT_INDEX_KEY, JSON.stringify(keys));
+    }
+  }
+  function getActRecord(key) {
+    try {
+      return JSON.parse(GM_getValue(ACT_REC_PREFIX + key, 'null'));
+    } catch (e) {
+      return null;
+    }
+  }
+  function clearActCache() {
+    for (const k of getActIndex()) GM_deleteValue(ACT_REC_PREFIX + k);
+    GM_deleteValue(ACT_INDEX_KEY);
+  }
+
+  // Summary links can be absolute www.sec.state.ma.us URLs while the page runs
+  // on sec.state.ma.us (both are @match'd). Pin them to the page's origin so
+  // every fetch stays same-origin and carries the session cookies.
+  function sameOrigin(href) {
+    const u = new URL(href, location.href);
+    if (/(^|\.)sec\.state\.ma\.us$/i.test(u.hostname)) {
+      u.protocol = location.protocol;
+      u.host = location.host;
+    }
+    return u.toString();
+  }
+
+  async function fetchText(url) {
+    let lastErr = null;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const res = await fetch(url, {
+          credentials: 'include',
+          headers: { Accept: 'text/html' },
+        });
+        if (res.ok) return await res.text();
+        lastErr = new Error('HTTP ' + res.status);
+      } catch (e) {
+        lastErr = e;
+      }
+      await sleep(1500 * (attempt + 1));
+    }
+    throw lastErr;
+  }
+
+  function cleanText(el) {
+    return (el.textContent || '').replace(/\s+/g, ' ').trim();
+  }
+
+  // '$1,234.56' -> 1234.56, '' -> null. Same rule as money() in the parsers.
+  function money(text) {
+    const m = /(-?)\$?\s*([\d,]+(?:\.\d+)?)/.exec(text || '');
+    if (!m) return null;
+    const v = parseFloat(m[2].replace(/,/g, ''));
+    if (!Number.isFinite(v)) return null;
+    return m[1] ? -v : v;
+  }
+
+  // "1/1/2026-6/30/2026" out of "View disclosure reporting details filed for
+  // the period 1/1/2026-6/30/2026Charles carr" (the name is glued on).
+  function reportPeriod(text) {
+    const m = /period\s+(\d{1,2}\/\d{1,2}\/\d{4})\s*-\s*(\d{1,2}\/\d{1,2}\/\d{4})/i
+      .exec(text || '');
+    return m ? `${m[1]}-${m[2]}` : null;
+  }
+
+  function disclosureLinks(links, year) {
+    const out = [];
+    const seen = new Set();
+    for (const l of links) {
+      if (!/CompleteDisclosure\.aspx/i.test(l.href || '')) continue;
+      if (seen.has(l.href)) continue;
+      seen.add(l.href);
+      const period = reportPeriod(l.text);
+      if (year && period && !period.includes(String(year))) continue;
+      out.push({ url: l.href, period });
+    }
+    return out;
+  }
+
+  // Walk back through previous siblings and up through ancestors until an
+  // element's text starts with the label. The length cap stops at the label
+  // itself rather than a container that happens to begin with it.
+  function labelAbove(el, prefix, maxLen) {
+    let e = el;
+    for (let i = 0; i < 14 && e; i++) {
+      e = e.previousElementSibling || e.parentElement;
+      if (!e) break;
+      const tx = cleanText(e);
+      if (tx.startsWith(prefix) && tx.length < maxLen) {
+        return tx.slice(prefix.length).trim();
+      }
+    }
+    return '';
+  }
+
+  // Firm reports: "Client: NAME Total amount paid by client; lobbyist is unable
+  // to report compensation at activity level: $2,240.72". Read the dollar
+  // figure before stripping the suffix, or it is lost.
+  function splitClientLabel(raw) {
+    const name = raw.replace(/\s*Total amount.*$/i, '').trim();
+    const m = /Total amount.*?(-?\$\s*[\d,]+(?:\.\d+)?)/i.exec(raw);
+    return { name, totalPaid: m ? money(m[1]) : null };
+  }
+
+  // House/Senate Bill/Docket -> H5151, S2986, HD4321, SD1234. Executive rows
+  // name an agency, not a bill, so the key is the agency text. Anything else,
+  // or a cell holding more than one number, keeps its raw text.
+  function billKey(chamber, billNumber) {
+    const raw = (billNumber || '').trim();
+    const m = /^(House|Senate)\s+(Bill|Docket)$/i.exec(chamber || '');
+    if (m) {
+      const nums = raw.match(/\d+/g) || [];
+      if (nums.length === 1) {
+        return m[1][0].toUpperCase() + (/docket/i.test(m[2]) ? 'D' : '') +
+          String(parseInt(nums[0], 10));
+      }
+    }
+    return raw || null;
+  }
+
+  function parseDisclosureHtml(htmlString, registrantName) {
+    const doc = new DOMParser().parseFromString(htmlString, 'text/html');
+    const blocks = [];
+    doc.querySelectorAll('table[id*="grdvActivitiesNew"]').forEach((t) => {
+      if (!ACT_TABLE_ID.test(t.id)) return;
+      const client = splitClientLabel(labelAbove(t, 'Client:', 400));
+      const rows = [];
+      for (const r of t.rows) {
+        const cells = [...r.cells];
+        if (cells.length && cells.every((c) => c.tagName === 'TH')) continue;
+        const c = cells.map(cleanText);
+        if (c.length < 5) continue; // "No activities..." placeholder row
+        if (/^House\s*\/\s*Senate$/i.test(c[0])) continue; // header row
+        const [chamber, billNumber, title, position, amountText, dba = ''] = c;
+        const isTotal = !chamber && /^Total amount/i.test(position);
+        rows.push([
+          chamber,
+          billNumber,
+          isTotal ? null : billKey(chamber, billNumber),
+          title,
+          position,
+          money(amountText),
+          dba,
+          isTotal ? 1 : 0,
+        ]);
+      }
+      blocks.push({
+        table: t.id.replace(/^.*_(grdvActivitiesNew(?:2020)?_\d+)$/, '$1'),
+        format: /grdvActivitiesNew2020_/.test(t.id) ? 'firm' : 'in-house',
+        client: client.name,
+        clientTotalPaid: client.totalPaid,
+        lobbyist: labelAbove(t, 'Lobbyist:', 300) || registrantName,
+        rows,
+      });
+    });
+    return blocks;
+  }
+
+  // Summary.aspx is always fetched live: a cached Summary record from before
+  // the filing deadline has no disclosure links and would read as "no reports".
+  async function fetchActivity(row, year) {
+    const summaryUrl = sameOrigin(row.href);
+    const summary = parseSummaryHtml(await fetchText(summaryUrl), summaryUrl);
+    const reports = [];
+    for (const d of disclosureLinks(summary.links, year)) {
+      await sleep(ACT_DELAY_MS);
+      const html = await fetchText(sameOrigin(d.url));
+      reports.push({
+        url: d.url,
+        period: d.period,
+        blocks: parseDisclosureHtml(html, row.name),
+      });
+    }
+    return {
+      sysvalue: row.sysvalue,
+      year,
+      accountType: row.accountType,
+      name: row.name,
+      url: row.href,
+      scrapedAt: new Date().toISOString(),
+      reports,
+    };
+  }
+
+  /* ------------------------------------------------------------------ */
   /* UI panel                                                           */
   /* ------------------------------------------------------------------ */
 
@@ -379,6 +618,10 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
     const remaining = filtered.filter(
       (r) => r.sysvalue && !cache[`${year}::${r.sysvalue}`],
     );
+    const actKeys = new Set(getActIndex());
+    const actRemaining = filtered.filter(
+      (r) => r.sysvalue && !actKeys.has(`${year}::${r.sysvalue}`),
+    );
 
     // Re-render guard: only update DOM if relevant state changed.
     const key = JSON.stringify([
@@ -390,6 +633,8 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       remaining.length,
       year,
       selectedType,
+      actKeys.size,
+      actRemaining.length,
     ]);
     if (key === lastRenderKey) return;
     lastRenderKey = key;
@@ -406,7 +651,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
     if (isDefault) {
       panel.innerHTML = `
         <h3>
-          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.2</span></span>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v${VERSION}</span></span>
           <button class="close-x" id="ta-close">×</button>
         </h3>
         ${debugStrip}
@@ -445,12 +690,27 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
               Scrape ${remaining.length} row${remaining.length === 1 ? '' : 's'}
             </button>
           </div>
+          <div class="progress" id="ta-act-progress">${actStatus || `
+            Bill activity cached: ${actKeys.size}<br>
+            To scrape (this filter): <b style="color:#4ea1ff">${actRemaining.length}</b>
+          `}</div>
+          <div class="row" style="flex-wrap:wrap">
+            <button class="btn-primary" id="ta-act-scrape" ${actRemaining.length === 0 ? 'disabled' : ''}>
+              Scrape bill activity (${actRemaining.length})
+            </button>
+          </div>
         `}
         <div class="row" style="flex-wrap:wrap;margin-top:6px">
           <button class="btn-secondary" id="ta-download" ${cachedCount === 0 ? 'disabled' : ''}>
             Download JSON (${cachedCount})
           </button>
           <button class="btn-danger" id="ta-clear">Clear cache</button>
+        </div>
+        <div class="row" style="flex-wrap:wrap">
+          <button class="btn-secondary" id="ta-act-download" ${actKeys.size === 0 ? 'disabled' : ''}>
+            Download activities (${actKeys.size})
+          </button>
+          <button class="btn-danger" id="ta-act-clear" ${actKeys.size === 0 ? 'disabled' : ''}>Clear activities</button>
         </div>
         <div class="meta" style="margin-top:8px;font-size:10px">
           Open DevTools console for [ta-sos] logs.
@@ -467,7 +727,11 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       const scrapeEl = document.getElementById('ta-scrape');
       if (scrapeEl) scrapeEl.onclick = () =>
         runScrape(remaining, year, () => { lastRenderKey = null; render(); });
+      const actScrapeEl = document.getElementById('ta-act-scrape');
+      if (actScrapeEl) actScrapeEl.onclick = () =>
+        runActivityScrape(actRemaining, year, () => { lastRenderKey = null; render(); });
       document.getElementById('ta-download').onclick = downloadAll;
+      document.getElementById('ta-act-download').onclick = downloadActivities;
       document.getElementById('ta-clear').onclick = () => {
         if (confirm(`Delete ${cachedCount} cached firm records?`)) {
           clearCache();
@@ -475,10 +739,17 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
           render();
         }
       };
+      document.getElementById('ta-act-clear').onclick = () => {
+        if (confirm(`Delete ${actKeys.size} cached bill-activity records?`)) {
+          clearActCache();
+          lastRenderKey = null;
+          render();
+        }
+      };
     } else if (isSummary) {
       panel.innerHTML = `
         <h3>
-          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.2</span></span>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v${VERSION}</span></span>
           <button class="close-x" id="ta-close">×</button>
         </h3>
         ${debugStrip}
@@ -488,18 +759,22 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
         <button class="btn-secondary" id="ta-download" ${
           cachedCount === 0 ? 'disabled' : ''
         }>Download JSON</button>
+        <button class="btn-secondary" id="ta-act-download" ${
+          actKeys.size === 0 ? 'disabled' : ''
+        }>Download activities (${actKeys.size})</button>
       `;
       document.getElementById('ta-close').onclick = () => panel.remove();
       document.getElementById('ta-back').onclick = () =>
         (location.href =
           'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx');
       document.getElementById('ta-download').onclick = downloadAll;
+      document.getElementById('ta-act-download').onclick = downloadActivities;
     } else {
       // Unknown LobbyistPublicSearch sub-path. Still show the panel with debug
       // info instead of disappearing silently.
       panel.innerHTML = `
         <h3>
-          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v1.2</span></span>
+          <span>SOS Detail Scraper <span style="font-size:10px;color:#8a93a4;font-weight:400">v${VERSION}</span></span>
           <button class="close-x" id="ta-close">×</button>
         </h3>
         ${debugStrip}
@@ -511,12 +786,16 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
         <button class="btn-secondary" id="ta-download" ${
           cachedCount === 0 ? 'disabled' : ''
         }>Download JSON (${cachedCount})</button>
+        <button class="btn-secondary" id="ta-act-download" ${
+          actKeys.size === 0 ? 'disabled' : ''
+        }>Download activities (${actKeys.size})</button>
       `;
       document.getElementById('ta-close').onclick = () => panel.remove();
       document.getElementById('ta-go').onclick = () =>
         (location.href =
           'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx');
       document.getElementById('ta-download').onclick = downloadAll;
+      document.getElementById('ta-act-download').onclick = downloadActivities;
     }
   }
 
@@ -526,7 +805,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
 
   let scraping = false;
   async function runScrape(rows, year, onProgress) {
-    if (scraping) return;
+    if (scraping || actRunning) return;
     scraping = true;
     try {
     const cache = getCache();
@@ -564,6 +843,62 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
     }
   }
 
+  // Bill activity: a small worker pool, each worker pausing ACT_DELAY_MS
+  // between fetches. A registrant whose fetch fails is not stored, so the next
+  // run picks it up again.
+  let actRunning = false;
+  let actStatus = '';
+  async function runActivityScrape(rows, year, onDone) {
+    if (actRunning || scraping) return;
+    actRunning = true;
+    let next = 0,
+      ok = 0,
+      fail = 0,
+      reports = 0,
+      activityRows = 0;
+    const show = (name) => {
+      actStatus = `
+        <b>Bill activity ${Math.min(next, rows.length)} / ${rows.length}</b><br>
+        ${String(name || '').slice(0, 50)}<br>
+        ok=${ok} fail=${fail} reports=${reports} rows=${activityRows}
+      `;
+      const el = document.getElementById('ta-act-progress');
+      if (el) el.innerHTML = actStatus;
+    };
+    async function worker() {
+      while (next < rows.length) {
+        const r = rows[next++];
+        show(r.name);
+        try {
+          const rec = await fetchActivity(r, year);
+          putActRecord(`${year}::${r.sysvalue}`, rec);
+          ok++;
+          reports += rec.reports.length;
+          for (const rep of rec.reports) {
+            for (const b of rep.blocks) activityRows += b.rows.length;
+          }
+        } catch (e) {
+          console.warn('[ta-sos] activity fail', r.name, e);
+          fail++;
+        }
+        show(r.name);
+        await sleep(ACT_DELAY_MS);
+      }
+    }
+    try {
+      const n = Math.min(ACT_WORKERS, rows.length);
+      await Promise.all(Array.from({ length: n }, () => worker()));
+      alert(
+        `Bill activity done. ${ok} ok, ${fail} failed, ${reports} reports, ` +
+        `${activityRows} rows. Click "Download activities" to save.`,
+      );
+    } finally {
+      actRunning = false;
+      actStatus = '';
+      onDone && onDone();
+    }
+  }
+
   function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
   }
@@ -590,13 +925,41 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       source: 'MA Secretary of State Lobbyist Public Search - Summary.aspx pages',
       sourceUrl:
         'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx',
-      capturedBy: 'sos-lobbyist-detail-scraper.user.js v1.5',
+      capturedBy: 'sos-lobbyist-detail-scraper.user.js v' + VERSION,
       count: records.length,
       records,
     };
-    const blob = new Blob([JSON.stringify(payload, null, 2)], {
-      type: 'application/json',
-    });
+    saveJson(JSON.stringify(payload, null, 2), 'sos-lobbyist-detail');
+  }
+
+  // Raw per-registrant activity dump for scripts/parse-sos-activities.py.
+  // Written without indentation: ~200k rows for a full year.
+  function downloadActivities() {
+    const records = [];
+    for (const k of getActIndex()) {
+      const r = getActRecord(k);
+      if (r) records.push(r);
+    }
+    if (records.length === 0) {
+      alert('No bill activity cached yet.');
+      return;
+    }
+    const payload = {
+      scrapedAt: new Date().toISOString(),
+      source:
+        'MA Secretary of State Lobbyist Public Search - CompleteDisclosure.aspx pages',
+      sourceUrl:
+        'https://www.sec.state.ma.us/LobbyistPublicSearch/Default.aspx',
+      capturedBy: 'sos-lobbyist-detail-scraper.user.js v' + VERSION,
+      count: records.length,
+      rowColumns: ACT_ROW_COLUMNS,
+      records,
+    };
+    saveJson(JSON.stringify(payload), 'sos-lobbyist-activities');
+  }
+
+  function saveJson(text, prefix) {
+    const blob = new Blob([text], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     const stamp = new Date()
@@ -604,7 +967,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       .replace(/[:.]/g, '-')
       .slice(0, 19);
     a.href = url;
-    a.download = `sos-lobbyist-detail-${stamp}.json`;
+    a.download = `${prefix}-${stamp}.json`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
