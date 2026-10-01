@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-30T09:44:33.552Z",
+  "fetchedAt": "2026-10-01T09:44:32.821Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -183,8 +183,8 @@
       "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
       "totalAmount": 215681052.05,
       "paymentCount": 5,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-25"
+      "firstDate": "2026-09-28",
+      "lastDate": "2026-09-28"
     },
     {
       "encumbranceId": "(CT) 07072300000000000017",
@@ -393,8 +393,8 @@
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 125370193.9,
       "paymentCount": 2,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-25"
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -533,8 +533,8 @@
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 112036850.02,
       "paymentCount": 2,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-25"
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -883,8 +883,8 @@
       "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
       "totalAmount": 57286607.38,
       "paymentCount": 3,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-25"
+      "firstDate": "2026-09-28",
+      "lastDate": "2026-09-28"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1289,8 +1289,22 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 25000000,
       "paymentCount": 1,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-25"
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
+    },
+    {
+      "encumbranceId": "(EAV) 07012700000000000001",
+      "encumbranceType": "EAV",
+      "encumbranceBody": "07012700000000000001",
+      "vendor": "MASS STATE LOTTERY COMMISSION",
+      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) LOTTERY REVENUE AND PRIZES",
+      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
+      "totalAmount": 23801916.87,
+      "paymentCount": 44,
+      "firstDate": null,
+      "lastDate": null
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1751,8 +1765,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 16072257.02,
       "paymentCount": 1,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-25"
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1836,7 +1850,7 @@
       "totalAmount": 14623005.72,
       "paymentCount": 30,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-09-28"
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "(CT) INTF00X02025C0128114",
@@ -2343,20 +2357,6 @@
       "lastDate": "2026-09-14"
     },
     {
-      "encumbranceId": "(EAV) 07012700000000000001",
-      "encumbranceType": "EAV",
-      "encumbranceBody": "07012700000000000001",
-      "vendor": "MASS STATE LOTTERY COMMISSION",
-      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) LOTTERY REVENUE AND PRIZES",
-      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
-      "totalAmount": 9540423.63,
-      "paymentCount": 22,
-      "firstDate": null,
-      "lastDate": null
-    },
-    {
       "encumbranceId": "(CT) INTF00X02026P0134475",
       "encumbranceType": "CT",
       "encumbranceBody": "INTF00X02026P0134475",
@@ -2831,6 +2831,20 @@
       "paymentCount": 1,
       "firstDate": "2026-09-18",
       "lastDate": "2026-09-18"
+    },
+    {
+      "encumbranceId": "(EAV) 07012700000000000001",
+      "encumbranceType": "EAV",
+      "encumbranceBody": "07012700000000000001",
+      "vendor": "MASS STATE LOTTERY COMMISSION",
+      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) I LOTTERY - STATE LOTTERY AND GAMING FUND",
+      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
+      "totalAmount": 7587871.55,
+      "paymentCount": 18,
+      "firstDate": null,
+      "lastDate": null
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3515,8 +3529,8 @@
       "objectClass": "(NN) INFRASTRUCTURE:",
       "totalAmount": 5778816.08,
       "paymentCount": 1,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-25"
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "(CT) INTF00X02026P0134469",
@@ -3809,8 +3823,8 @@
       "objectClass": "(NN) INFRASTRUCTURE:",
       "totalAmount": 5175100.54,
       "paymentCount": 2,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-28"
+      "firstDate": "2026-09-28",
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
@@ -4203,20 +4217,6 @@
       "paymentCount": 756,
       "firstDate": "2026-09-21",
       "lastDate": "2026-09-28"
-    },
-    {
-      "encumbranceId": "(CT) INTF2452R139DDS3153D",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF2452R139DDS3153D",
-      "vendor": "BROCKTON AREA MULTI-SERVS INC",
-      "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(59202000) RESIDENTIAL AND DAY COMPONENT",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 4590078.11,
-      "paymentCount": 7,
-      "firstDate": "2026-07-14",
-      "lastDate": "2026-09-17"
     }
   ]
 }
