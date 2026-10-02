@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-01T09:44:32.821Z",
+  "fetchedAt": "2026-10-02T09:42:56.461Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -733,6 +733,20 @@
       "lastDate": "2026-09-14"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "CHILDRENS HOSPITALCORPORATION",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 70768218.46,
+      "paymentCount": 3,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
+    },
+    {
       "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27MEDICAREPARTAB0001",
@@ -943,6 +957,20 @@
       "lastDate": "2026-09-03"
     },
     {
+      "encumbranceId": "(CT) 07032300000000000004",
+      "encumbranceType": "CT",
+      "encumbranceBody": "07032300000000000004",
+      "vendor": "WELLPOINT LIFE & HEALTH INS CO",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 44688175.1,
+      "paymentCount": 3,
+      "firstDate": "2026-09-23",
+      "lastDate": "2026-09-29"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -1016,6 +1044,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "MASS BAY TRANSPORTATION AUTH",
+      "department": "OFFICE OF THE COMPTROLLER (CTR)",
+      "cabinetSecretariat": "CTR/FAD ACCOUNTING ENTITIES",
+      "appropriation": "(UNASSIGNED) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 38762500,
+      "paymentCount": 1,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "UMS - SUMMARY TRUST PAYMENT",
       "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
@@ -1067,6 +1109,20 @@
       "paymentCount": 2,
       "firstDate": "2026-09-22",
       "lastDate": "2026-09-22"
+    },
+    {
+      "encumbranceId": "(CT) 07072300000000000017",
+      "encumbranceType": "CT",
+      "encumbranceBody": "07072300000000000017",
+      "vendor": "HARVARD PILGRIM HEALTH CARE",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 35122490.01,
+      "paymentCount": 3,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "(CT) 2027INSIGHTPUBLI4282",
@@ -1419,20 +1475,6 @@
       "lastDate": "2026-09-14"
     },
     {
-      "encumbranceId": "(CT) 07032300000000000004",
-      "encumbranceType": "CT",
-      "encumbranceBody": "07032300000000000004",
-      "vendor": "WELLPOINT LIFE & HEALTH INS CO",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 20023241.48,
-      "paymentCount": 1,
-      "firstDate": "2026-09-23",
-      "lastDate": "2026-09-23"
-    },
-    {
       "encumbranceId": "(CT) INTF00X02025C0127763",
       "encumbranceType": "CT",
       "encumbranceBody": "INTF00X02025C0127763",
@@ -1531,20 +1573,6 @@
       "lastDate": "2026-07-23"
     },
     {
-      "encumbranceId": "(CT) 07072300000000000017",
-      "encumbranceType": "CT",
-      "encumbranceBody": "07072300000000000017",
-      "vendor": "HARVARD PILGRIM HEALTH CARE",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 18302481.96,
-      "paymentCount": 1,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-09-24"
-    },
-    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -1641,6 +1669,20 @@
       "paymentCount": 3,
       "firstDate": "2026-08-11",
       "lastDate": "2026-08-11"
+    },
+    {
+      "encumbranceId": "(GAE) FY2027MBTALOCALAID00",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "FY2027MBTALOCALAID00",
+      "vendor": "MASS BAY TRANSPORTATION AUTHORITY",
+      "department": "OFFICE OF THE STATE TREASURER (TRE)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 16905081,
+      "paymentCount": 1,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3057,6 +3099,20 @@
       "lastDate": "2026-08-31"
     },
     {
+      "encumbranceId": "(CT) 06302300000000003494",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003494",
+      "vendor": "HNE ADVISORY SERVICES, INC.",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 6940283.64,
+      "paymentCount": 4,
+      "firstDate": "2026-09-18",
+      "lastDate": "2026-09-29"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -3379,6 +3435,20 @@
       "lastDate": "2026-09-30"
     },
     {
+      "encumbranceId": "(CT) 06302300000000003507",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003507",
+      "vendor": "MASS GENERAL BRIGHAM HEALTH INSURANCE CO",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 6331790.66,
+      "paymentCount": 3,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-09-29"
+    },
+    {
       "encumbranceId": "(CT) 2026ENEPP1CAPE000113",
       "encumbranceType": "CT",
       "encumbranceBody": "2026ENEPP1CAPE000113",
@@ -3657,6 +3727,20 @@
       "paymentCount": 8,
       "firstDate": "2026-07-14",
       "lastDate": "2026-09-15"
+    },
+    {
+      "encumbranceId": "(GAE) 27FFPAUG202700000002",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "27FFPAUG202700000002",
+      "vendor": "UNIVERSITY OF MASS",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(UNASSIGNED) ADMINISTRATIVE FFP REVENUE",
+      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
+      "totalAmount": 5437916,
+      "paymentCount": 1,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-09-29"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -4133,90 +4217,6 @@
       "paymentCount": 27,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT019",
-      "vendor": "CITY OF LYNN",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12332350) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 4757294,
-      "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(CT) SCDMH63300196446MB3A",
-      "encumbranceType": "CT",
-      "encumbranceBody": "SCDMH63300196446MB3A",
-      "vendor": "VINFEN CORPORATION",
-      "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(50460000) ADULT MENTAL HEALTH AND SUPPORT SERVICES",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 4730382.42,
-      "paymentCount": 6,
-      "firstDate": "2026-07-14",
-      "lastDate": "2026-09-15"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT003",
-      "vendor": "COMMUNITY DAY CHARTER PUB SCH-PROSPECT",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12019008) CHARTER SCHOOL PAYMENTS",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 4658650,
-      "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT003",
-      "vendor": "BOSTON RENAISSANCE CHARTER",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12019008) CHARTER SCHOOL PAYMENTS",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 4650270,
-      "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(CT) GP26030570431001969A",
-      "encumbranceType": "CT",
-      "encumbranceBody": "GP26030570431001969A",
-      "vendor": "CITY OF HOLYOKE",
-      "department": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(70431001) TITLE I GRANTS TO LOCAL EDUC AGENCIES",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 4633538.44,
-      "paymentCount": 1,
-      "firstDate": "2026-09-10",
-      "lastDate": "2026-09-10"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "CVS PHARMACY INC.",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 4625492.98,
-      "paymentCount": 756,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-09-28"
     }
   ]
 }
