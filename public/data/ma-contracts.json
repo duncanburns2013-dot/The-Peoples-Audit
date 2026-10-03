@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-02T09:42:56.461Z",
+  "fetchedAt": "2026-10-03T09:40:09.743Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -744,7 +744,7 @@
       "totalAmount": 70768218.46,
       "paymentCount": 3,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-09-29"
+      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
@@ -968,7 +968,7 @@
       "totalAmount": 44688175.1,
       "paymentCount": 3,
       "firstDate": "2026-09-23",
-      "lastDate": "2026-09-29"
+      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1051,8 +1051,8 @@
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 38762500,
       "paymentCount": 1,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-09-29"
+      "firstDate": "2026-10-01",
+      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1122,7 +1122,7 @@
       "totalAmount": 35122490.01,
       "paymentCount": 3,
       "firstDate": "2026-09-24",
-      "lastDate": "2026-09-29"
+      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "(CT) 2027INSIGHTPUBLI4282",
@@ -1681,8 +1681,8 @@
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 16905081,
       "paymentCount": 1,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-09-29"
+      "firstDate": "2026-10-01",
+      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2229,6 +2229,20 @@
       "paymentCount": 4,
       "firstDate": "2026-08-11",
       "lastDate": "2026-09-08"
+    },
+    {
+      "encumbranceId": "(CT) CHOICESSFY2700000000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "CHOICESSFY2700000000",
+      "vendor": "SPRINGWELL INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 10853802.27,
+      "paymentCount": 4,
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-09-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3015,6 +3029,20 @@
       "lastDate": "2026-08-20"
     },
     {
+      "encumbranceId": "(CT) CHOICESSFY2700000000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "CHOICESSFY2700000000",
+      "vendor": "MYSTIC VALLEY ELDER SERVICES INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 7209748.16,
+      "paymentCount": 3,
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-09-30"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -3110,7 +3138,7 @@
       "totalAmount": 6940283.64,
       "paymentCount": 4,
       "firstDate": "2026-09-18",
-      "lastDate": "2026-09-29"
+      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3446,7 +3474,7 @@
       "totalAmount": 6331790.66,
       "paymentCount": 3,
       "firstDate": "2026-09-24",
-      "lastDate": "2026-09-29"
+      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "(CT) 2026ENEPP1CAPE000113",
@@ -3739,8 +3767,8 @@
       "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
       "totalAmount": 5437916,
       "paymentCount": 1,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-09-29"
+      "firstDate": "2026-10-01",
+      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -4189,34 +4217,6 @@
       "paymentCount": 1,
       "firstDate": "2026-08-07",
       "lastDate": "2026-08-07"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "CAREMARK INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(40000700) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 4856344.85,
-      "paymentCount": 10,
-      "firstDate": "2026-07-13",
-      "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "TUFTS MEDICAL CENTER INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(40000700) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 4843264.96,
-      "paymentCount": 27,
-      "firstDate": "2026-07-13",
-      "lastDate": "2026-09-14"
     }
   ]
 }
