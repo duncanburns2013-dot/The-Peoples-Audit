@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-03T09:15:56.340Z",
+  "fetchedAt": "2026-10-04T10:58:26.584Z",
   "years": [
     "2025",
     "2026",
@@ -497,7 +497,7 @@
     "2027": [
       {
         "name": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-        "value": 6827745535.68
+        "value": 6827739149.33
       },
       {
         "name": "OFFICE OF THE STATE TREASURER (TRE)",
@@ -1376,7 +1376,7 @@
     },
     {
       "year": "2027",
-      "total": 20446521483.35
+      "total": 20446515097
     }
   ],
   "payrollByDepartment": {
@@ -1933,7 +1933,7 @@
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
         "totalPay": 282952598.43,
-        "employees": 3812
+        "employees": 3813
       },
       {
         "department": "EXECUTIVE OFFICE OF HEALTH and HUMAN SERVICES (EHS)",
@@ -2712,13 +2712,13 @@
         "totalPay": 450591
       },
       {
-        "name": "Beth McCormick",
+        "name": "Zhiping Weng",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
       },
       {
-        "name": "Zhiping Weng",
+        "name": "Beth McCormick",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
@@ -3134,7 +3134,7 @@
     {
       "year": "2026",
       "totalPayroll": 8739348606.12,
-      "headcount": 153346
+      "headcount": 153347
     }
   ],
   "quasiByAgency": [
