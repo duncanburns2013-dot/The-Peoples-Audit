@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-06T09:44:03.866Z",
+  "fetchedAt": "2026-10-07T09:45:09.389Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -722,6 +722,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "CHILDRENS HOSPITALCORPORATION",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 73881227.11,
+      "paymentCount": 5,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-02"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "TEMPUS UNLIMITED INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -731,20 +745,6 @@
       "paymentCount": 63,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "CHILDRENS HOSPITALCORPORATION",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 70768218.46,
-      "paymentCount": 3,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
@@ -1167,6 +1167,20 @@
       "lastDate": "2026-09-17"
     },
     {
+      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "27LOCALAIDPAYMENT001",
+      "vendor": "CITY OF SPRINGFIELD",
+      "department": "DEPARTMENT OF REVENUE (DOR)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 33840036,
+      "paymentCount": 2,
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-10-05"
+    },
+    {
       "encumbranceId": "(GAE) FY2027MBTALOCALAID00",
       "encumbranceType": "GAE",
       "encumbranceBody": "FY2027MBTALOCALAID00",
@@ -1179,20 +1193,6 @@
       "paymentCount": 2,
       "firstDate": "2026-08-03",
       "lastDate": "2026-09-01"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT001",
-      "vendor": "CITY OF SPRINGFIELD",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 33667120,
-      "paymentCount": 1,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-09-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1391,6 +1391,20 @@
       "lastDate": "2026-09-14"
     },
     {
+      "encumbranceId": "(CT) 06302300000000003500",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003500",
+      "vendor": "SILVERSCRIPT INSURANCE COMPANY",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 22455020.09,
+      "paymentCount": 7,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-05"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -1450,6 +1464,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "TEMPUS UNLIMITED INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MASSHEALTH SENIOR CARE",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 20639273.56,
+      "paymentCount": 17,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-05"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "UMS - SUMMARY TRUST PAYMENT",
       "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
@@ -1501,6 +1529,20 @@
       "paymentCount": 1,
       "firstDate": "2026-09-17",
       "lastDate": "2026-09-17"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "TEMPUS UNLIMITED INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MANAGED CARE PLAN",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 19565433.42,
+      "paymentCount": 17,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1727,6 +1769,20 @@
       "lastDate": "2026-09-03"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOSTON MEDICAL CENTER CORP",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 16576405.12,
+      "paymentCount": 2,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-02"
+    },
+    {
       "encumbranceId": "(CT) CTFEMA4496MAGBI02130",
       "encumbranceType": "CT",
       "encumbranceBody": "CTFEMA4496MAGBI02130",
@@ -1797,18 +1853,18 @@
       "lastDate": "2026-09-14"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOSTON MEDICAL CENTER CORP",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 16072257.02,
-      "paymentCount": 1,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-09-29"
+      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "27LOCALAIDPAYMENT001",
+      "vendor": "CITY OF NEW BEDFORD",
+      "department": "DEPARTMENT OF REVENUE (DOR)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 16060479,
+      "paymentCount": 6,
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1823,6 +1879,20 @@
       "paymentCount": 12,
       "firstDate": "2026-08-11",
       "lastDate": "2026-09-17"
+    },
+    {
+      "encumbranceId": "(CT) 27MEFAPGREATERBOSTON",
+      "encumbranceType": "CT",
+      "encumbranceBody": "27MEFAPGREATERBOSTON",
+      "vendor": "THE GREATER BOSTON FOOD BANK",
+      "department": "DEPARTMENT OF AGRICULTURAL RESOURCES (AGR)",
+      "cabinetSecretariat": "ENVIRONMENTAL AFFAIRS",
+      "appropriation": "(UNASSIGNED) FOR THE PURPOSE OF SUPPLEMENTAL FOODS",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 15990120.88,
+      "paymentCount": 2,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1873,6 +1943,20 @@
       "vendor": "BOSTON MEDICAL CENTER CORP",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 14904060.44,
+      "paymentCount": 47,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-05"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOSTON MEDICAL CENTER CORP",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
       "appropriation": "(UNASSIGNED) SAFETY NET PROVIDER TRUST FUND",
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 14863700,
@@ -1884,15 +1968,29 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOSTON MEDICAL CENTER CORP",
+      "vendor": "LAWRENCE GENERAL HOSPITAL INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 14845624.45,
+      "paymentCount": 2,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-02"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "TEMPUS UNLIMITED INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
       "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
       "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 14623005.72,
-      "paymentCount": 30,
+      "totalAmount": 14465108.78,
+      "paymentCount": 637,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-09-29"
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(CT) INTF00X02025C0128114",
@@ -1907,6 +2005,20 @@
       "paymentCount": 3,
       "firstDate": "2026-08-21",
       "lastDate": "2026-09-16"
+    },
+    {
+      "encumbranceId": "(GAE) FY27HEALTHCONNECTOR1",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "FY27HEALTHCONNECTOR1",
+      "vendor": "COMMONWEALTH HEALTH INS CONN AUTHORITY",
+      "department": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) COMMONWEALTH CARE TRUST FUND",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 14364234.97,
+      "paymentCount": 1,
+      "firstDate": "2026-10-05",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1937,18 +2049,18 @@
       "lastDate": "2026-09-03"
     },
     {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT001",
-      "vendor": "CITY OF NEW BEDFORD",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 13928832,
-      "paymentCount": 1,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-09-30"
+      "encumbranceId": "(PC) INTF5120W40385048271",
+      "encumbranceType": "PC",
+      "encumbranceBody": "INTF5120W40385048271",
+      "vendor": "MERCK SHARP & DOHME CORP.",
+      "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) VACCINE PURCHASE TRUST FUND",
+      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
+      "totalAmount": 13875132.6,
+      "paymentCount": 4,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(CT) FY24SRF240052FUNDSDI",
@@ -1965,20 +2077,6 @@
       "lastDate": "2026-09-25"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "TEMPUS UNLIMITED INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MASSHEALTH SENIOR CARE",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 13808390.5,
-      "paymentCount": 11,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-09-28"
-    },
-    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -1991,6 +2089,20 @@
       "paymentCount": 2,
       "firstDate": "2026-07-31",
       "lastDate": "2026-08-31"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "SOUTHCOAST HOSPITALS GROUP INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 13341424.17,
+      "paymentCount": 3,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-02"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2019,20 +2131,6 @@
       "paymentCount": 3,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-08"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "TEMPUS UNLIMITED INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MANAGED CARE PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 13066720.46,
-      "paymentCount": 12,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-09-28"
     },
     {
       "encumbranceId": "(GAE) FY26MBTASALESTAXJUNE",
@@ -2147,20 +2245,6 @@
       "lastDate": "2026-09-14"
     },
     {
-      "encumbranceId": "(CT) 27MEFAPGREATERBOSTON",
-      "encumbranceType": "CT",
-      "encumbranceBody": "27MEFAPGREATERBOSTON",
-      "vendor": "THE GREATER BOSTON FOOD BANK",
-      "department": "DEPARTMENT OF AGRICULTURAL RESOURCES (AGR)",
-      "cabinetSecretariat": "ENVIRONMENTAL AFFAIRS",
-      "appropriation": "(UNASSIGNED) FOR THE PURPOSE OF SUPPLEMENTAL FOODS",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 11830215.66,
-      "paymentCount": 1,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-09-24"
-    },
-    {
       "encumbranceId": "(GAE) 06292600000000000963",
       "encumbranceType": "GAE",
       "encumbranceBody": "06292600000000000963",
@@ -2241,8 +2325,8 @@
       "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
       "totalAmount": 10853802.27,
       "paymentCount": 4,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-09-30"
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-02"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2383,20 +2467,6 @@
       "paymentCount": 2,
       "firstDate": "2026-09-17",
       "lastDate": "2026-09-17"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "TEMPUS UNLIMITED INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 9828645.45,
-      "paymentCount": 631,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-09-28"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2637,6 +2707,20 @@
       "lastDate": "2026-08-31"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BAYSTATE MEDICAL CENTER",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 8760806.23,
+      "paymentCount": 3,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-02"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -2780,6 +2864,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "MONTACHUSETT REGIONAL",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 8231157.88,
+      "paymentCount": 2,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-05"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "BROCKTON HOSPITAL      INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -2803,6 +2901,20 @@
       "paymentCount": 1,
       "firstDate": "2026-09-30",
       "lastDate": "2026-09-30"
+    },
+    {
+      "encumbranceId": "(PC) INTF5120W40385048273",
+      "encumbranceType": "PC",
+      "encumbranceBody": "INTF5120W40385048273",
+      "vendor": "PFIZER INC",
+      "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) VACCINE PURCHASE TRUST FUND",
+      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
+      "totalAmount": 8157870,
+      "paymentCount": 1,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-02"
     },
     {
       "encumbranceId": "(CT) INTF00X02026P0134471",
@@ -2931,6 +3043,20 @@
       "lastDate": "2026-09-14"
     },
     {
+      "encumbranceId": "(CT) SCOCD540025680010000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "SCOCD540025680010000",
+      "vendor": "COMMUNITY ECONOMIC DEVELOPMENT",
+      "department": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES",
+      "appropriation": "(UNASSIGNED) HIF",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 7499959.76,
+      "paymentCount": 6,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-02"
+    },
+    {
       "encumbranceId": "(CT) INTF00X02025C0127763",
       "encumbranceType": "CT",
       "encumbranceBody": "INTF00X02025C0127763",
@@ -3039,8 +3165,8 @@
       "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
       "totalAmount": 7209748.16,
       "paymentCount": 3,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-09-30"
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-02"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3127,6 +3253,20 @@
       "lastDate": "2026-08-31"
     },
     {
+      "encumbranceId": "(CT) INTF00X02022C0116673",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTF00X02022C0116673",
+      "vendor": "BHD-O&G-AETNA I-495 I-90 JV",
+      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
+      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
+      "appropriation": "(UNASSIGNED) FEDERAL AID",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 6952286.48,
+      "paymentCount": 8,
+      "firstDate": "2026-10-05",
+      "lastDate": "2026-10-05"
+    },
+    {
       "encumbranceId": "(CT) 06302300000000003494",
       "encumbranceType": "CT",
       "encumbranceBody": "06302300000000003494",
@@ -3209,6 +3349,34 @@
       "paymentCount": 1,
       "firstDate": "2026-09-30",
       "lastDate": "2026-09-30"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "CVS PHARMACY INC.",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 6859831.71,
+      "paymentCount": 1137,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-05"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "MONTACHUSETT REGIONAL",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MANAGED CARE PLAN",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 6833796.71,
+      "paymentCount": 2,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3307,6 +3475,20 @@
       "paymentCount": 93,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "(CT) 2026FWCGPMASSPOLICEX",
+      "encumbranceType": "CT",
+      "encumbranceBody": "2026FWCGPMASSPOLICEX",
+      "vendor": "BOSTON SOCCER 2026 CORP",
+      "department": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY",
+      "appropriation": "(UNASSIGNED) FFY2026 FIFA WORLD CUP GRANT PROGRAM (FWCGP) MULTIPLE EVENTS",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 6593877.86,
+      "paymentCount": 2,
+      "firstDate": "2026-10-05",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3517,6 +3699,20 @@
       "paymentCount": 90,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "(CT) CHOICESSFY2700000000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "CHOICESSFY2700000000",
+      "vendor": "CENTRAL BOSTON ELDER SERVICES INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 6141503.98,
+      "paymentCount": 4,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-02"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
@@ -3771,6 +3967,20 @@
       "lastDate": "2026-10-01"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "HENRY HEYWOOD MEM HOSP",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 5402680.81,
+      "paymentCount": 3,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-02"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -3797,20 +4007,6 @@
       "paymentCount": 2,
       "firstDate": "2026-07-31",
       "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "MONTACHUSETT REGIONAL",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MANAGED CARE PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 5352171.11,
-      "paymentCount": 1,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-09-21"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
@@ -3867,6 +4063,20 @@
       "paymentCount": 10,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "(CT) INTFCONDPH1803ZZ0005",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTFCONDPH1803ZZ0005",
+      "vendor": "GILBANE BUILDING COMPANY",
+      "department": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) AO2022CH219HEALTH&HUMAN SERVICES FACILITIES",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 5247091.69,
+      "paymentCount": 1,
+      "firstDate": "2026-10-05",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(CT) 06302600000000002452",
@@ -3967,6 +4177,20 @@
       "lastDate": "2026-08-31"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMASS MEMORIAL MEDICAL CENTER INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 5151552.29,
+      "paymentCount": 2,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-02"
+    },
+    {
       "encumbranceId": "(GAE) 27FFPJUL202700000001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27FFPJUL202700000001",
@@ -3993,230 +4217,6 @@
       "paymentCount": 1,
       "firstDate": "2026-07-28",
       "lastDate": "2026-07-28"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
-      "totalAmount": 5057778.84,
-      "paymentCount": 10,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-09-17"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT019",
-      "vendor": "CITY OF FALL RIVER",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12332350) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 5051980,
-      "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT001",
-      "vendor": "TOWN OF SOUTHBRIDGE",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(70610008) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 5038898,
-      "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(CT) INTF00000000927SSEBP",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00000000927SSEBP",
-      "vendor": "YOUTH VILLAGES",
-      "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(48000040) FAMILY SUPPORT AND STABILIZATION",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 5037331.2,
-      "paymentCount": 23,
-      "firstDate": "2026-08-14",
-      "lastDate": "2026-09-17"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT001",
-      "vendor": "SOUTHEASTERN VOCATIONAL REGIONAL",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(70610008) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 5033436,
-      "paymentCount": 4,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-09-03"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "MONTACHUSETT REGIONAL",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 5004950.38,
-      "paymentCount": 1,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-09-21"
-    },
-    {
-      "encumbranceId": "(CT) SCOCD53002668031CMBD",
-      "encumbranceType": "CT",
-      "encumbranceBody": "SCOCD53002668031CMBD",
-      "vendor": "MASSACHUSETTS HOUSING FINANCE AGENCY",
-      "department": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES",
-      "appropriation": "(UNASSIGNED) COMM BUILDER",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 5000000,
-      "paymentCount": 1,
-      "firstDate": "2026-09-28",
-      "lastDate": "2026-09-28"
-    },
-    {
-      "encumbranceId": "(PC) INTF8039F04MED560108",
-      "encumbranceType": "PC",
-      "encumbranceBody": "INTF8039F04MED560108",
-      "vendor": "CARDINAL HEALTH 110 LLC",
-      "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) STATE OFFICE FOR PHARMACY SERVICES ISF",
-      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
-      "totalAmount": 4968382.99,
-      "paymentCount": 3,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-28"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT001",
-      "vendor": "CITY OF REVERE",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 4959704,
-      "paymentCount": 1,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-09-30"
-    },
-    {
-      "encumbranceId": "(CT) INTF2462R259DDS3153D",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF2462R259DDS3153D",
-      "vendor": "VINFEN CORPORATION",
-      "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(59202000) RESIDENTIAL AND DAY COMPONENT",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 4958990.17,
-      "paymentCount": 6,
-      "firstDate": "2026-07-24",
-      "lastDate": "2026-09-15"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT001",
-      "vendor": "CITY OF ATTLEBORO",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 4945697,
-      "paymentCount": 1,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-09-30"
-    },
-    {
-      "encumbranceId": "(CT) INTF2424R362DDS3153D",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF2424R362DDS3153D",
-      "vendor": "SEVEN HILLS COMM SVS INC",
-      "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(59202000) RESIDENTIAL AND DAY COMPONENT",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 4932086.35,
-      "paymentCount": 7,
-      "firstDate": "2026-07-17",
-      "lastDate": "2026-09-15"
-    },
-    {
-      "encumbranceId": "(CT) 2027ORIJNU12DOC10158",
-      "encumbranceType": "CT",
-      "encumbranceBody": "2027ORIJNU12DOC10158",
-      "vendor": "ORIJIN, PBC",
-      "department": "DEPARTMENT OF CORRECTION (DOC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY",
-      "appropriation": "(89000001) ADMINISTRATION AND OPERATION OF THE",
-      "objectClass": "(UU) IT NON-PAYROLL EXPENSES",
-      "totalAmount": 4917045.78,
-      "paymentCount": 1,
-      "firstDate": "2026-08-12",
-      "lastDate": "2026-08-12"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "GREATER ATTLEBORO TAUNTON REGIONAL",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(40000500) MANAGED CARE PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 4885446.84,
-      "paymentCount": 8,
-      "firstDate": "2026-07-13",
-      "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT019",
-      "vendor": "CITY OF NEW BEDFORD",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12332350) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 4884152,
-      "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(CT) 2027INSIGHTPUBLI4666",
-      "encumbranceType": "CT",
-      "encumbranceBody": "2027INSIGHTPUBLI4666",
-      "vendor": "INSIGHT PUBLIC SECTOR INC",
-      "department": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY",
-      "appropriation": "(17900200) FOR THE COSTS OF COMPUTER RESOURCES",
-      "objectClass": "(UU) IT NON-PAYROLL EXPENSES",
-      "totalAmount": 4867761.83,
-      "paymentCount": 1,
-      "firstDate": "2026-08-07",
-      "lastDate": "2026-08-07"
     }
   ]
 }
