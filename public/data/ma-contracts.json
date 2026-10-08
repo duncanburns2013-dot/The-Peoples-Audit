@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-07T09:45:09.389Z",
+  "fetchedAt": "2026-10-08T09:45:41.711Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -730,7 +730,7 @@
       "totalAmount": 73881227.11,
       "paymentCount": 5,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-02"
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1097,6 +1097,20 @@
       "lastDate": "2026-09-17"
     },
     {
+      "encumbranceId": "(EAV) 07012700000000000001",
+      "encumbranceType": "EAV",
+      "encumbranceBody": "07012700000000000001",
+      "vendor": "MASS STATE LOTTERY COMMISSION",
+      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) LOTTERY REVENUE AND PRIZES",
+      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
+      "totalAmount": 35213857.83,
+      "paymentCount": 66,
+      "firstDate": null,
+      "lastDate": null
+    },
+    {
       "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27MEDICAREPARTAB0001",
@@ -1349,20 +1363,6 @@
       "lastDate": "2026-09-29"
     },
     {
-      "encumbranceId": "(EAV) 07012700000000000001",
-      "encumbranceType": "EAV",
-      "encumbranceBody": "07012700000000000001",
-      "vendor": "MASS STATE LOTTERY COMMISSION",
-      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) LOTTERY REVENUE AND PRIZES",
-      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
-      "totalAmount": 23801916.87,
-      "paymentCount": 44,
-      "firstDate": null,
-      "lastDate": null
-    },
-    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -1402,7 +1402,7 @@
       "totalAmount": 22455020.09,
       "paymentCount": 7,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-05"
+      "lastDate": "2026-10-06"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1780,7 +1780,7 @@
       "totalAmount": 16576405.12,
       "paymentCount": 2,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-02"
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(CT) CTFEMA4496MAGBI02130",
@@ -1975,8 +1975,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 14845624.45,
       "paymentCount": 2,
-      "firstDate": "2026-10-02",
-      "lastDate": "2026-10-02"
+      "firstDate": "2026-10-05",
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2059,8 +2059,8 @@
       "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
       "totalAmount": 13875132.6,
       "paymentCount": 4,
-      "firstDate": "2026-10-02",
-      "lastDate": "2026-10-05"
+      "firstDate": "2026-10-05",
+      "lastDate": "2026-10-06"
     },
     {
       "encumbranceId": "(CT) FY24SRF240052FUNDSDI",
@@ -2102,7 +2102,7 @@
       "totalAmount": 13341424.17,
       "paymentCount": 3,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-02"
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2131,6 +2131,20 @@
       "paymentCount": 3,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-08"
+    },
+    {
+      "encumbranceId": "(EAV) 07012700000000000001",
+      "encumbranceType": "EAV",
+      "encumbranceBody": "07012700000000000001",
+      "vendor": "MASS STATE LOTTERY COMMISSION",
+      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) I LOTTERY - STATE LOTTERY AND GAMING FUND",
+      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
+      "totalAmount": 12926628.6,
+      "paymentCount": 27,
+      "firstDate": null,
+      "lastDate": null
     },
     {
       "encumbranceId": "(GAE) FY26MBTASALESTAXJUNE",
@@ -2718,7 +2732,7 @@
       "totalAmount": 8760806.23,
       "paymentCount": 3,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-02"
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3001,20 +3015,6 @@
       "lastDate": "2026-09-18"
     },
     {
-      "encumbranceId": "(EAV) 07012700000000000001",
-      "encumbranceType": "EAV",
-      "encumbranceBody": "07012700000000000001",
-      "vendor": "MASS STATE LOTTERY COMMISSION",
-      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) I LOTTERY - STATE LOTTERY AND GAMING FUND",
-      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
-      "totalAmount": 7587871.55,
-      "paymentCount": 18,
-      "firstDate": null,
-      "lastDate": null
-    },
-    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -3053,8 +3053,8 @@
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 7499959.76,
       "paymentCount": 6,
-      "firstDate": "2026-10-02",
-      "lastDate": "2026-10-02"
+      "firstDate": "2026-10-06",
+      "lastDate": "2026-10-06"
     },
     {
       "encumbranceId": "(CT) INTF00X02025C0127763",
@@ -3712,7 +3712,7 @@
       "totalAmount": 6141503.98,
       "paymentCount": 4,
       "firstDate": "2026-10-02",
-      "lastDate": "2026-10-02"
+      "lastDate": "2026-10-06"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
@@ -3978,7 +3978,7 @@
       "totalAmount": 5402680.81,
       "paymentCount": 3,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-02"
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -4188,7 +4188,7 @@
       "totalAmount": 5151552.29,
       "paymentCount": 2,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-02"
+      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(GAE) 27FFPJUL202700000001",
