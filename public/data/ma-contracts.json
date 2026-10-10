@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-09T09:45:50.154Z",
+  "fetchedAt": "2026-10-10T09:42:08.419Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -792,6 +792,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "SUMMARY UMASS PAYROLL",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(UNASSIGNED) OPERATION OF THE STATE UNIVERSITY",
+      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
+      "totalAmount": 65850340,
+      "paymentCount": 56,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-10-07"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "TUFTS HEALTH PUBLIC PLANS INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -828,7 +842,7 @@
       "totalAmount": 63317739.83,
       "paymentCount": 4,
       "firstDate": "2026-09-23",
-      "lastDate": "2026-10-06"
+      "lastDate": "2026-10-08"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -898,7 +912,7 @@
       "totalAmount": 57592256.5,
       "paymentCount": 4,
       "firstDate": "2026-09-24",
-      "lastDate": "2026-10-06"
+      "lastDate": "2026-10-08"
     },
     {
       "encumbranceId": "(CT) 06302300000000003500",
@@ -1039,6 +1053,34 @@
       "paymentCount": 8,
       "firstDate": "2026-07-31",
       "lastDate": "2026-09-03"
+    },
+    {
+      "encumbranceId": "(CT) FY24SRF240052FUNDSDI",
+      "encumbranceType": "CT",
+      "encumbranceBody": "FY24SRF240052FUNDSDI",
+      "vendor": "SPRUCE TECHNOLOGY INC",
+      "department": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(UNASSIGNED) EEC COVID-19 WORKFORCE AND SUPPORT RESERVE",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 40207117.72,
+      "paymentCount": 2,
+      "firstDate": "2026-09-25",
+      "lastDate": "2026-10-07"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMASS MEMORIAL MEDICAL CENTER INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 40151552.29,
+      "paymentCount": 3,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-07"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1207,20 +1249,6 @@
       "paymentCount": 2,
       "firstDate": "2026-08-03",
       "lastDate": "2026-09-01"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "SUMMARY UMASS PAYROLL",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(UNASSIGNED) OPERATION OF THE STATE UNIVERSITY",
-      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
-      "totalAmount": 32953758.3,
-      "paymentCount": 27,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-09-24"
     },
     {
       "encumbranceId": "(CT) INTF00X02027P0134462",
@@ -2063,20 +2091,6 @@
       "lastDate": "2026-10-06"
     },
     {
-      "encumbranceId": "(CT) FY24SRF240052FUNDSDI",
-      "encumbranceType": "CT",
-      "encumbranceBody": "FY24SRF240052FUNDSDI",
-      "vendor": "SPRUCE TECHNOLOGY INC",
-      "department": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(UNASSIGNED) EEC COVID-19 WORKFORCE AND SUPPORT RESERVE",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 13868318.25,
-      "paymentCount": 1,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-09-25"
-    },
-    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -2550,7 +2564,7 @@
       "totalAmount": 9368860.87,
       "paymentCount": 4,
       "firstDate": "2026-09-24",
-      "lastDate": "2026-10-06"
+      "lastDate": "2026-10-08"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2607,6 +2621,20 @@
       "paymentCount": 53,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "(CT) 06302300000000003494",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003494",
+      "vendor": "HNE ADVISORY SERVICES, INC.",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 9263650.91,
+      "paymentCount": 5,
+      "firstDate": "2026-09-18",
+      "lastDate": "2026-10-07"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3279,20 +3307,6 @@
       "paymentCount": 8,
       "firstDate": "2026-10-05",
       "lastDate": "2026-10-05"
-    },
-    {
-      "encumbranceId": "(CT) 06302300000000003494",
-      "encumbranceType": "CT",
-      "encumbranceBody": "06302300000000003494",
-      "vendor": "HNE ADVISORY SERVICES, INC.",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 6940283.64,
-      "paymentCount": 4,
-      "firstDate": "2026-09-18",
-      "lastDate": "2026-10-01"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4189,20 +4203,6 @@
       "paymentCount": 2,
       "firstDate": "2026-07-31",
       "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMASS MEMORIAL MEDICAL CENTER INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 5151552.29,
-      "paymentCount": 2,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(GAE) 27FFPJUL202700000001",
