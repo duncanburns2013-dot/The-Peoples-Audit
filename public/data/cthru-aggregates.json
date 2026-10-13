@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-12T09:32:04.629Z",
+  "fetchedAt": "2026-10-13T09:21:53.653Z",
   "years": [
     "2025",
     "2026",
@@ -1887,8 +1887,8 @@
     "2026": [
       {
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "totalPay": 1472648266.32,
-        "employees": 28574
+        "totalPay": 1545403019.9,
+        "employees": 28832
       },
       {
         "department": "Massachusetts Bay Transportation Authority (MBT)",
@@ -2712,13 +2712,13 @@
         "totalPay": 450591
       },
       {
-        "name": "Zhiping Weng",
+        "name": "Beth McCormick",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
       },
       {
-        "name": "Beth McCormick",
+        "name": "Zhiping Weng",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
@@ -2747,49 +2747,67 @@
         "name": "Francisco Martin",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Head Basketball Coach",
-        "totalPay": 2004159.9
+        "totalPay": 2054602.36
       },
       {
         "name": "Joseph Harasymiak",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Head Football Coach",
-        "totalPay": 1140896.7
+        "totalPay": 1187135.64
       },
       {
         "name": "Terence Flotte",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Exec Dep Chanc Provost & Dean",
-        "totalPay": 984779.36
+        "totalPay": 1020203.08
       },
       {
         "name": "Martin Meehan",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "President, University of Mass",
-        "totalPay": 811379.45
+        "totalPay": 843247.03
       },
       {
         "name": "Ryan Bamford",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Athletic Director",
-        "totalPay": 729422.77
+        "totalPay": 758607.77
       },
       {
         "name": "Lisa Colombo",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Exec VC, ForHealth Consulting",
-        "totalPay": 724257.62
+        "totalPay": 749834.54
       },
       {
         "name": "Marcelo Suarez-Orozco",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chancellor",
-        "totalPay": 623133.56
+        "totalPay": 647364.34
       },
       {
         "name": "Javier Reyes",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chancellor",
-        "totalPay": 605297.5
+        "totalPay": 630636.1
+      },
+      {
+        "name": "Julie Chen",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chancellor",
+        "totalPay": 590529.34
+      },
+      {
+        "name": "Mark Fuller",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chancellor",
+        "totalPay": 580988.37
+      },
+      {
+        "name": "Gregory Carvel",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Athletic Coach",
+        "totalPay": 579742.24
       },
       {
         "name": "Michael Collins",
@@ -2798,46 +2816,46 @@
         "totalPay": 573461.55
       },
       {
-        "name": "Julie Chen",
+        "name": "Donald Brown",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chancellor",
-        "totalPay": 567329.34
-      },
-      {
-        "name": "Mark Fuller",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chancellor",
-        "totalPay": 557795.55
-      },
-      {
-        "name": "Gregory Carvel",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Athletic Coach",
-        "totalPay": 551251.2
+        "title": "Head Football Coach",
+        "totalPay": 539623.9
       },
       {
         "name": "Kenneth Rock",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 497727.72
-      },
-      {
-        "name": "Donald Brown",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Head Football Coach",
-        "totalPay": 485661.51
+        "totalPay": 522438.84
       },
       {
         "name": "Anne Massey",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Dean, School of Management",
-        "totalPay": 480080.06
+        "totalPay": 504513.64
       },
       {
         "name": "Peter Reinhart",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Dir Inst Applied Life Sciences",
-        "totalPay": 460461.4
+        "totalPay": 483954.8
+      },
+      {
+        "name": "Donald Towsley",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Distinguished Professor",
+        "totalPay": 458655.8
+      },
+      {
+        "name": "David Flanagan",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dep EVC, Facilities Management",
+        "totalPay": 455244.12
+      },
+      {
+        "name": "Hong Yu",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Professor (FRRP/Director)",
+        "totalPay": 453386.03
       },
       {
         "name": "Stephen O'Toole",
@@ -2846,22 +2864,22 @@
         "totalPay": 444313.05
       },
       {
-        "name": "Donald Towsley",
+        "name": "Fouad Abd-El-Khalick",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Distinguished Professor",
-        "totalPay": 442620.48
+        "title": "Provost/VC for Academic Aff",
+        "totalPay": 434790.74
       },
       {
-        "name": "David Flanagan",
+        "name": "Lisa Calise",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Dep EVC, Facilities Management",
-        "totalPay": 437868.4
+        "title": "Senior Vice President",
+        "totalPay": 430636.33
       },
       {
-        "name": "Hong Yu",
+        "name": "Lee Leiber",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor (FRRP/Director)",
-        "totalPay": 437328.97
+        "title": "Dep EVC, CIO",
+        "totalPay": 428269.36
       },
       {
         "name": "Thomas Connolly",
@@ -2870,28 +2888,52 @@
         "totalPay": 419861.91
       },
       {
-        "name": "Fouad Abd-El-Khalick",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Provost/VC for Academic Aff",
-        "totalPay": 413678.3
-      },
-      {
         "name": "Phillip Eng",
         "department": "Massachusetts Bay Transportation Authority (MBT)",
         "title": "General Manager",
         "totalPay": 412359.37
       },
       {
-        "name": "Lee Leiber",
+        "name": "Marcy Culverwell",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Dep EVC, CIO",
-        "totalPay": 411923.2
+        "title": "Sr Assoc VC, Admin & Finance",
+        "totalPay": 407769.2
       },
       {
-        "name": "Lisa Calise",
+        "name": "Abdallah Georges Assaf",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Senior Vice President",
-        "totalPay": 409758.91
+        "title": "Professor U of M",
+        "totalPay": 398803.84
+      },
+      {
+        "name": "Roger Davis",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 398335.56
+      },
+      {
+        "name": "Adam Wise",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "VC-University Advancement",
+        "totalPay": 397472.87
+      },
+      {
+        "name": "Sanjay Raman",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dean, Engineering",
+        "totalPay": 394837.02
+      },
+      {
+        "name": "Murugappan Muthukumar",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Wilmer D. Barrett Professor",
+        "totalPay": 394736.9
+      },
+      {
+        "name": "Patrick Gallagher",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dep EVC Chief HR Officer",
+        "totalPay": 393000
       },
       {
         "name": "Gregory Volturo",
@@ -2900,10 +2942,28 @@
         "totalPay": 392812.04
       },
       {
-        "name": "Marcy Culverwell",
+        "name": "David Lowy",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Sr Assoc VC, Admin & Finance",
-        "totalPay": 391692.28
+        "title": "General Counsel",
+        "totalPay": 392312.67
+      },
+      {
+        "name": "Celia Schiffer",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 391983.48
+      },
+      {
+        "name": "Jeroan Allison",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 391408.46
+      },
+      {
+        "name": "Craig Mello",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Professor Tenured/Tenure Track",
+        "totalPay": 390761.7
       },
       {
         "name": "Mindy Hull",
@@ -2912,10 +2972,28 @@
         "totalPay": 389432.86
       },
       {
+        "name": "Nefertiti Walker",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Sr.VP Academic&Stud Affair",
+        "totalPay": 389261.19
+      },
+      {
         "name": "Dana Atkinson",
         "department": "DEPARTMENT OF STATE POLICE (POL)",
         "title": "Lieutenant",
         "totalPay": 389011.6
+      },
+      {
+        "name": "Mary Ahn",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Vice Provost Faculty Affairs",
+        "totalPay": 388799.04
+      },
+      {
+        "name": "Normand Bazin",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Head Coach - Men's Ice Hockey",
+        "totalPay": 386538.57
       },
       {
         "name": "Michael Sullivan",
@@ -2924,10 +3002,16 @@
         "totalPay": 386183.15
       },
       {
-        "name": "Abdallah Georges Assaf",
+        "name": "Richard Gregory",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor U of M",
-        "totalPay": 382297.62
+        "title": "Chair of Dept Tenured/Tn Track",
+        "totalPay": 384966.54
+      },
+      {
+        "name": "Sankaran Thayumanavan",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Distinguished Professor",
+        "totalPay": 382458.66
       },
       {
         "name": "Partha Chakrabarti",
@@ -2948,100 +3032,16 @@
         "totalPay": 381882.36
       },
       {
-        "name": "Roger Davis",
+        "name": "Mark Johnson",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 379367.2
-      },
-      {
-        "name": "Patrick Gallagher",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Dep EVC Chief HR Officer",
-        "totalPay": 378000
-      },
-      {
-        "name": "Sanjay Raman",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Dean, Engineering",
-        "totalPay": 375715.07
-      },
-      {
-        "name": "Celia Schiffer",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 373317.6
-      },
-      {
-        "name": "Jeroan Allison",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 372769.96
-      },
-      {
-        "name": "David Lowy",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "General Counsel",
-        "totalPay": 372727.87
-      },
-      {
-        "name": "Craig Mello",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Professor Tenured/Tenure Track",
-        "totalPay": 372154
+        "title": "Chair of Dept Tenured/Ten Trk",
+        "totalPay": 380793.89
       },
       {
         "name": "David DeLos Santos",
         "department": "DEPARTMENT OF YOUTH SERVICES (DYS)",
         "title": "Juvenile Just Yth Dev Spec II",
         "totalPay": 371978.37
-      },
-      {
-        "name": "Nefertiti Walker",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Sr.VP Academic&Stud Affair",
-        "totalPay": 370389.65
-      },
-      {
-        "name": "Mary Ahn",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Vice Provost Faculty Affairs",
-        "totalPay": 370284.8
-      },
-      {
-        "name": "Sankaran Thayumanavan",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Distinguished Professor",
-        "totalPay": 368159.4
-      },
-      {
-        "name": "Richard Gregory",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Tn Track",
-        "totalPay": 366634.8
-      },
-      {
-        "name": "Normand Bazin",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Head Coach - Men's Ice Hockey",
-        "totalPay": 365769.33
-      },
-      {
-        "name": "Paul Burns",
-        "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "title": "State Police Sergeant",
-        "totalPay": 364812.32
-      },
-      {
-        "name": "John Strazzullo",
-        "department": "DEPARTMENT OF STATE POLICE (POL)",
-        "title": "First Lieutenant",
-        "totalPay": 363205.74
-      },
-      {
-        "name": "Mark Johnson",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Chair of Dept Tenured/Ten Trk",
-        "totalPay": 362782.51
       }
     ]
   },
@@ -3133,8 +3133,8 @@
     },
     {
       "year": "2026",
-      "totalPayroll": 9110323761.31,
-      "headcount": 154508
+      "totalPayroll": 9183078514.89,
+      "headcount": 154766
     }
   ],
   "quasiByAgency": [
