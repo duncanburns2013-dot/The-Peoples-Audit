@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-13T09:46:51.666Z",
+  "fetchedAt": "2026-10-14T09:42:49.688Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -155,8 +155,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 290119392.07,
       "paymentCount": 16,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -397,6 +397,20 @@
       "lastDate": "2026-07-30"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOSTON MEDICAL CENTER HEALTH P",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MEDICAL ASSISTANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 125733402.44,
+      "paymentCount": 3,
+      "firstDate": "2026-09-23",
+      "lastDate": "2026-10-09"
+    },
+    {
       "encumbranceId": "(GAE) FY2027MBTASALESTAX00",
       "encumbranceType": "GAE",
       "encumbranceBody": "FY2027MBTASALESTAX00",
@@ -610,6 +624,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "TUFTS HEALTH PUBLIC PLANS INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MEDICAL ASSISTANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 98926597.56,
+      "paymentCount": 4,
+      "firstDate": "2026-09-23",
+      "lastDate": "2026-10-09"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "BOND REDEMPTION (INTEREST)",
       "department": "OFFICE OF THE STATE TREASURER (TRE)",
       "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
@@ -647,20 +675,6 @@
       "paymentCount": 5,
       "firstDate": "2026-07-14",
       "lastDate": "2026-09-11"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOSTON MEDICAL CENTER HEALTH P",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MEDICAL ASSISTANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 89553402.44,
-      "paymentCount": 2,
-      "firstDate": "2026-09-23",
-      "lastDate": "2026-09-23"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -813,8 +827,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 67309761.34,
       "paymentCount": 1,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -829,20 +843,6 @@
       "paymentCount": 56,
       "firstDate": "2026-09-24",
       "lastDate": "2026-10-08"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "TUFTS HEALTH PUBLIC PLANS INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MEDICAL ASSISTANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 65446597.56,
-      "paymentCount": 3,
-      "firstDate": "2026-09-23",
-      "lastDate": "2026-09-23"
     },
     {
       "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
@@ -985,6 +985,20 @@
       "lastDate": null
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "COMMONWEALTH CARE ALLIANCE",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 55251082.21,
+      "paymentCount": 4,
+      "firstDate": "2026-10-09",
+      "lastDate": "2026-10-13"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -997,20 +1011,6 @@
       "paymentCount": 11,
       "firstDate": "2026-07-31",
       "lastDate": "2026-09-03"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "COMMONWEALTH CARE ALLIANCE",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 53833806.64,
-      "paymentCount": 1,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
     },
     {
       "encumbranceId": "(GAE) FY2027ROOMSCONSOLIDA",
@@ -1037,8 +1037,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 50591176.25,
       "paymentCount": 13,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1163,8 +1163,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 39275002.8,
       "paymentCount": 1,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1191,8 +1191,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 38449400.57,
       "paymentCount": 1,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(CT) 06302300000000003500",
@@ -1206,7 +1206,7 @@
       "totalAmount": 38210859.81,
       "paymentCount": 9,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1233,8 +1233,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 37472741.69,
       "paymentCount": 4,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1247,8 +1247,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 36599462.1,
       "paymentCount": 1,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1261,8 +1261,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 35622571.29,
       "paymentCount": 5,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1443,8 +1443,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 31025896.76,
       "paymentCount": 2,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(CT) 2026ENEPP1NGRD000113",
@@ -1486,7 +1486,7 @@
       "totalAmount": 27552015.49,
       "paymentCount": 23,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(CT) 06302300000000003494",
@@ -1513,8 +1513,8 @@
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 26900000,
       "paymentCount": 1,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1555,8 +1555,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 26357349.04,
       "paymentCount": 1,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1569,8 +1569,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 25901235.65,
       "paymentCount": 2,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1584,7 +1584,7 @@
       "totalAmount": 25890015.65,
       "paymentCount": 24,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1611,8 +1611,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 25369996.26,
       "paymentCount": 1,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1667,8 +1667,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 22144538.66,
       "paymentCount": 2,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1681,8 +1681,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 21802416.68,
       "paymentCount": 5,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1751,8 +1751,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 20740253.71,
       "paymentCount": 5,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1821,8 +1821,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 19264480.43,
       "paymentCount": 2,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1850,7 +1850,21 @@
       "totalAmount": 19238260.12,
       "paymentCount": 643,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "CAMBRIDGE PUBLIC HEALTH",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MEDICAL ASSISTANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 19125000,
+      "paymentCount": 1,
+      "firstDate": "2026-10-09",
+      "lastDate": "2026-10-09"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2122,6 +2136,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "MASSACHUSETTS BEH HLTH PRT",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MEDICAL ASSISTANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 16200000,
+      "paymentCount": 1,
+      "firstDate": "2026-10-09",
+      "lastDate": "2026-10-09"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "UNITED HEALTHCARE INS CO",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -2214,7 +2242,7 @@
       "totalAmount": 15446729.92,
       "paymentCount": 64,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2340,7 +2368,7 @@
       "totalAmount": 14150805.85,
       "paymentCount": 2,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(PC) INTF5120W40385048271",
@@ -2355,6 +2383,20 @@
       "paymentCount": 4,
       "firstDate": "2026-10-05",
       "lastDate": "2026-10-06"
+    },
+    {
+      "encumbranceId": "(CT) CHOICESSFY2700000000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "CHOICESSFY2700000000",
+      "vendor": "MYSTIC VALLEY ELDER SERVICES INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 13799721.29,
+      "paymentCount": 4,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-09"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2424,7 +2466,7 @@
       "totalAmount": 13045380.4,
       "paymentCount": 3,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(EAV) 07012700000000000001",
@@ -2479,8 +2521,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 12663949.35,
       "paymentCount": 3,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(GAE) FY2027LOCOPTIONMEALS",
@@ -2508,7 +2550,7 @@
       "totalAmount": 12271965.97,
       "paymentCount": 3,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2956,7 +2998,7 @@
       "totalAmount": 9137362.67,
       "paymentCount": 1518,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3041,6 +3083,20 @@
       "paymentCount": 20,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "(CT) 24MH309OPTUMGOVERNKA",
+      "encumbranceType": "CT",
+      "encumbranceBody": "24MH309OPTUMGOVERNKA",
+      "vendor": "OPTUM GOVERNMENT SOLUTIONS, INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
+      "objectClass": "(HH) CONSULTANT SVCS (TO DEPTS)",
+      "totalAmount": 8880354.69,
+      "paymentCount": 3,
+      "firstDate": "2026-09-22",
+      "lastDate": "2026-10-09"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
@@ -3179,8 +3235,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 8313437.53,
       "paymentCount": 2,
-      "firstDate": "2026-10-08",
-      "lastDate": "2026-10-08"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3503,20 +3559,6 @@
       "paymentCount": 3,
       "firstDate": "2026-07-24",
       "lastDate": "2026-08-20"
-    },
-    {
-      "encumbranceId": "(CT) CHOICESSFY2700000000",
-      "encumbranceType": "CT",
-      "encumbranceBody": "CHOICESSFY2700000000",
-      "vendor": "MYSTIC VALLEY ELDER SERVICES INC",
-      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 7209748.16,
-      "paymentCount": 3,
-      "firstDate": "2026-10-02",
-      "lastDate": "2026-10-02"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3992,7 +4034,7 @@
       "totalAmount": 6256288.7,
       "paymentCount": 16,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(CT) 2026ENEPP1CAPE000113",
@@ -4149,6 +4191,20 @@
       "lastDate": "2026-08-31"
     },
     {
+      "encumbranceId": "(CT) INTFCONMMA2203ZZ0003",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTFCONMMA2203ZZ0003",
+      "vendor": "BOND BUILDING CONSTRUCTION, INC.",
+      "department": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) ENERGY AND RESILIENCY 2018",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 5870356.45,
+      "paymentCount": 2,
+      "firstDate": "2026-09-23",
+      "lastDate": "2026-10-09"
+    },
+    {
       "encumbranceId": "(CT) INTF00X02025C0126251",
       "encumbranceType": "CT",
       "encumbranceBody": "INTF00X02025C0126251",
@@ -4161,62 +4217,6 @@
       "paymentCount": 1,
       "firstDate": "2026-09-29",
       "lastDate": "2026-09-29"
-    },
-    {
-      "encumbranceId": "(CT) INTF00X02026P0134469",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00X02026P0134469",
-      "vendor": "CAPE COD REGIONAL",
-      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
-      "appropriation": "(66102406) ETF - REGIONAL TRANSIT FUNDING AND GRANTS",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 5649449,
-      "paymentCount": 1,
-      "firstDate": "2026-07-28",
-      "lastDate": "2026-07-28"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMASS MEMORIAL MEDICAL CENTER INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MANAGED CARE PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 5613069.35,
-      "paymentCount": 31,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-10-08"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT019",
-      "vendor": "CITY OF BOSTON",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 5607780,
-      "paymentCount": 1,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-09-30"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "NORTH SHORE MEDICAL CENTER INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(40000700) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 5555722.5,
-      "paymentCount": 33,
-      "firstDate": "2026-07-13",
-      "lastDate": "2026-09-14"
     }
   ]
 }
