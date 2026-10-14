@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-13T09:21:53.653Z",
+  "fetchedAt": "2026-10-14T09:17:18.061Z",
   "years": [
     "2025",
     "2026",
@@ -497,147 +497,147 @@
     "2027": [
       {
         "name": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-        "value": 8153817144.35
+        "value": 8270098288.56
       },
       {
         "name": "OFFICE OF THE STATE TREASURER (TRE)",
-        "value": 2875840192.15
+        "value": 2875899777.3
       },
       {
         "name": "DEPARTMENT OF REVENUE (DOR)",
-        "value": 2491990930.87
+        "value": 2492162952.46
       },
       {
         "name": "EXECUTIVE OFFICE OF LABOR AND WORKFORCE DEVELOPMENT (EOL)",
-        "value": 2247232613.64
+        "value": 2248514268.8
       },
       {
         "name": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "value": 1164058213.79
+        "value": 1174212981.45
       },
       {
         "name": "TEACHERS RETIREMENT BOARD (TRB)",
-        "value": 1106205476.07
+        "value": 1106207362.53
       },
       {
         "name": "GROUP INSURANCE COMMISSION (GIC)",
-        "value": 868608319.6
+        "value": 868684509.73
       },
       {
         "name": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "value": 840148509.29
+        "value": 840951752.43
       },
       {
         "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "value": 630299017.59
+        "value": 647777903.41
       },
       {
         "name": "LOTTERY AND GAMING COMMISSION (LOT)",
-        "value": 251354905.77
+        "value": 251501592.03
       },
       {
         "name": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
-        "value": 206509634.81
+        "value": 209010751.09
       },
       {
         "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "value": 193006008.73
+        "value": 199163247.3
       },
       {
         "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-        "value": 181637292.27
+        "value": 187081103.38
       },
       {
         "name": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "value": 172960207.28
+        "value": 175369346.5
       },
       {
         "name": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "value": 151033646.72
-      },
-      {
-        "name": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
-        "value": 133209449.42
-      },
-      {
-        "name": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
-        "value": 127978380.79
-      },
-      {
-        "name": "OFFICE OF THE COMPTROLLER (CTR)",
-        "value": 122905515.79
-      },
-      {
-        "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
-        "value": 105467431.1
-      },
-      {
-        "name": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-        "value": 90780520.17
-      },
-      {
-        "name": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
-        "value": 64199188.98
+        "value": 152001395.39
       },
       {
         "name": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-        "value": 61781153.71
+        "value": 141159574.92
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
+        "value": 133764081.34
+      },
+      {
+        "name": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
+        "value": 128913382.09
+      },
+      {
+        "name": "OFFICE OF THE COMPTROLLER (CTR)",
+        "value": 123709273.85
+      },
+      {
+        "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
+        "value": 105593852.94
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
+        "value": 91306823.04
+      },
+      {
+        "name": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
+        "value": 64240711.84
       },
       {
         "name": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
-        "value": 54025695.84
+        "value": 59108270.95
       },
       {
         "name": "TRIAL COURT (TRC)",
-        "value": 45088151.15
+        "value": 46266385.72
       },
       {
         "name": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
-        "value": 38161326.45
+        "value": 39368221.2
       },
       {
         "name": "DEPARTMENT OF CORRECTION (DOC)",
-        "value": 29192082.57
+        "value": 29770664.47
       },
       {
         "name": "EMERGENCY MANAGEMENT AGENCY (CDA)",
-        "value": 29033541.59
+        "value": 29084589.98
       },
       {
         "name": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
-        "value": 21067565.28
+        "value": 21725027.97
+      },
+      {
+        "name": "EXECUTIVE OFFICE OF ECONOMIC DEVELOPMENT (EED)",
+        "value": 21420284.64
       },
       {
         "name": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
         "value": 20947958.79
       },
       {
-        "name": "EXECUTIVE OFFICE OF ECONOMIC DEVELOPMENT (EED)",
-        "value": 20867176.73
+        "name": "MASS REHABILITATION COMMISSION (MRC)",
+        "value": 18109048.7
       },
       {
         "name": "DEPARTMENT OF AGRICULTURAL RESOURCES (AGR)",
-        "value": 17671332.94
-      },
-      {
-        "name": "MASS REHABILITATION COMMISSION (MRC)",
-        "value": 17307119.83
+        "value": 17737777.27
       },
       {
         "name": "DEPARTMENT OF STATE POLICE (POL)",
-        "value": 16726661.18
+        "value": 17411092.98
       },
       {
         "name": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
-        "value": 16238691.9
+        "value": 16581253.09
       },
       {
         "name": "SECRETARY OF STATE (SEC)",
-        "value": 16183749.57
+        "value": 16203800.93
       },
       {
         "name": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "value": 15569145.64
+        "value": 15533495.83
       },
       {
         "name": "WESTFIELD STATE UNIVERSITY (WSC)",
@@ -645,23 +645,27 @@
       },
       {
         "name": "SUPREME JUDICIAL COURT (SJC)",
-        "value": 14804430.55
-      },
-      {
-        "name": "BOARD OF LIBRARY COMMISSIONERS (BLC)",
-        "value": 14349630.52
+        "value": 14813885.78
       },
       {
         "name": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "value": 14339744.24
+        "value": 14583053.76
+      },
+      {
+        "name": "BOARD OF LIBRARY COMMISSIONERS (BLC)",
+        "value": 14386012.24
       },
       {
         "name": "BRIDGEWATER STATE UNIVERSITY (BSC)",
-        "value": 13602408.64
+        "value": 13608897.38
+      },
+      {
+        "name": "MASSACHUSETTS MARITIME ACADEMY (MMA)",
+        "value": 11155724.98
       },
       {
         "name": "MASSACHUSETTS GAMING COMMISSION (MGC)",
-        "value": 9040334.37
+        "value": 9888493.28
       },
       {
         "name": "BRISTOL COMMUNITY COLLEGE (BRC)",
@@ -673,7 +677,7 @@
       },
       {
         "name": "OFFICE FOR REFUGEES AND IMMIGRANTS (ORI)",
-        "value": 7224821.18
+        "value": 7322119.42
       },
       {
         "name": "SALEM STATE UNIVERSITY (SSA)",
@@ -681,19 +685,15 @@
       },
       {
         "name": "HUMAN RESOURCES DIVISION (HRD)",
-        "value": 7176057.99
+        "value": 7198524.83
       },
       {
         "name": "SPRINGFIELD TECH COMM COLLEGE (STC)",
-        "value": 6468287.24
-      },
-      {
-        "name": "MASSACHUSETTS MARITIME ACADEMY (MMA)",
-        "value": 6427619.7
+        "value": 6626156.24
       },
       {
         "name": "OFFICE OF THE COMPTROLLER (OSC)",
-        "value": 5964796.92
+        "value": 6259177.68
       }
     ]
   },
@@ -1109,7 +1109,7 @@
       },
       {
         "name": "BOSTON MEDICAL CENTER HEALTH P",
-        "value": 1732899652.01
+        "value": 1769079652.01
       },
       {
         "name": "RETIREMENT ALLOWANCE-TEACHERS",
@@ -1132,6 +1132,10 @@
         "value": 547329791.23
       },
       {
+        "name": "TUFTS HEALTH PUBLIC PLANS INC",
+        "value": 479867203.51
+      },
+      {
         "name": "MEDICAID",
         "value": 467565811.88
       },
@@ -1148,12 +1152,8 @@
         "value": 450002700.19
       },
       {
-        "name": "TUFTS HEALTH PUBLIC PLANS INC",
-        "value": 446387203.51
-      },
-      {
         "name": "COMMONWEALTH CARE ALLIANCE",
-        "value": 382724151.51
+        "value": 384141427.08
       },
       {
         "name": "MASSACHUSETTS SCHOOL BUILDING AUTHORITY",
@@ -1177,7 +1177,7 @@
       },
       {
         "name": "MASSACHUSETTS BEH HLTH PRT",
-        "value": 240619976.47
+        "value": 256819976.47
       },
       {
         "name": "SUMMARY UMASS PAYROLL",
@@ -1201,19 +1201,19 @@
       },
       {
         "name": "CITY OF SPRINGFIELD",
-        "value": 145825067.99
+        "value": 145844083.11
       },
       {
         "name": "SPRUCE TECHNOLOGY INC",
-        "value": 131857927.65
+        "value": 132229424.57
       },
       {
         "name": "CITY OF WORCESTER",
-        "value": 128458812.44
+        "value": 128578643.85
       },
       {
         "name": "CITY OF BOSTON",
-        "value": 127439621.7
+        "value": 127541989.44
       },
       {
         "name": "COMMONWEALTH HEALTH INS CONN AUTHORITY",
@@ -1225,7 +1225,7 @@
       },
       {
         "name": "UMASS MEMORIAL MEDICAL CENTER INC",
-        "value": 115019452.86
+        "value": 115069791.55
       },
       {
         "name": "CAREMARKPCS HEALTH, L.L.C.",
@@ -1233,7 +1233,7 @@
       },
       {
         "name": "MONTACHUSETT REGIONAL",
-        "value": 108776068.73
+        "value": 108907582.46
       },
       {
         "name": "SENIOR WHOLE HEALTH",
@@ -1249,35 +1249,35 @@
       },
       {
         "name": "CITY OF LYNN",
-        "value": 88254551.35
+        "value": 88368748.21
       },
       {
         "name": "BOSTON MEDICAL CENTER CORP",
-        "value": 86890802.9
+        "value": 86891367.9
       },
       {
         "name": "CITY OF LAWRENCE",
-        "value": 84979202.3
+        "value": 85003053.72
       },
       {
         "name": "CITY OF BROCKTON",
-        "value": 80159133.33
+        "value": 80515570.52
       },
       {
         "name": "CITY OF NEW BEDFORD",
-        "value": 74759439.15
+        "value": 75603324.14
       },
       {
         "name": "CITY OF LOWELL",
-        "value": 68491356.3
+        "value": 68591599.91
       },
       {
         "name": "CITY OF FALL RIVER",
-        "value": 66533127.08
+        "value": 66615898.11
       },
       {
         "name": "VINFEN CORPORATION",
-        "value": 59463891.08
+        "value": 59964242.64
       },
       {
         "name": "COMMUNITY CARE COOPERATIVE, INC.",
@@ -1293,7 +1293,7 @@
       },
       {
         "name": "SOUTHCOAST HOSPITALS GROUP INC",
-        "value": 54623225.92
+        "value": 54623305.92
       },
       {
         "name": "BAYSTATE MEDICAL CENTER",
@@ -1301,7 +1301,7 @@
       },
       {
         "name": "INSIGHT PUBLIC SECTOR INC",
-        "value": 44895395.43
+        "value": 44975323.32
       }
     ]
   },
@@ -1372,11 +1372,11 @@
     },
     {
       "year": "2026",
-      "total": 100893037875.41
+      "total": 100891068770.86
     },
     {
       "year": "2027",
-      "total": 22853794096.04
+      "total": 23122186581.8
     }
   ],
   "payrollByDepartment": {
@@ -1418,8 +1418,8 @@
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "totalPay": 379022602.19,
-        "employees": 5855
+        "totalPay": 378953006.88,
+        "employees": 5853
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
@@ -1646,12 +1646,12 @@
       {
         "department": "TRIAL COURT (TRC)",
         "totalPay": 681129423.02,
-        "employees": 7745
+        "employees": 7744
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "totalPay": 486895217.23,
-        "employees": 7641
+        "totalPay": 486884710.58,
+        "employees": 7640
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
@@ -1670,8 +1670,8 @@
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "totalPay": 397710203.76,
-        "employees": 5114
+        "totalPay": 397646217.17,
+        "employees": 5113
       },
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
@@ -1902,8 +1902,8 @@
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "totalPay": 409003649.42,
-        "employees": 6946
+        "totalPay": 408987171.97,
+        "employees": 6945
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
@@ -1927,8 +1927,8 @@
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "totalPay": 321866642.02,
-        "employees": 4573
+        "totalPay": 321836558.9,
+        "employees": 4571
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -1942,8 +1942,8 @@
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 152317256.88,
-        "employees": 2096
+        "totalPay": 152292688.08,
+        "employees": 2095
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -2712,13 +2712,13 @@
         "totalPay": 450591
       },
       {
-        "name": "Beth McCormick",
+        "name": "Zhiping Weng",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
       },
       {
-        "name": "Zhiping Weng",
+        "name": "Beth McCormick",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Chair of Dept Tenured/Tn Track",
         "totalPay": 450590.96
@@ -3113,28 +3113,28 @@
     },
     {
       "year": "2022",
-      "totalPayroll": 9003410915.34,
-      "headcount": 168725
+      "totalPayroll": 9003406660.24,
+      "headcount": 168724
     },
     {
       "year": "2023",
-      "totalPayroll": 9329292423.73,
-      "headcount": 166876
+      "totalPayroll": 9329233388.5,
+      "headcount": 166875
     },
     {
       "year": "2024",
-      "totalPayroll": 10241655794.82,
-      "headcount": 170877
+      "totalPayroll": 10241586199.51,
+      "headcount": 170875
     },
     {
       "year": "2025",
-      "totalPayroll": 10886395543.92,
-      "headcount": 162469
+      "totalPayroll": 10886321050.68,
+      "headcount": 162466
     },
     {
       "year": "2026",
-      "totalPayroll": 9183078514.89,
-      "headcount": 154766
+      "totalPayroll": 9183007385.52,
+      "headcount": 154762
     }
   ],
   "quasiByAgency": [
