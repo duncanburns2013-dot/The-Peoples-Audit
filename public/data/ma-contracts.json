@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-15T09:42:47.948Z",
+  "fetchedAt": "2026-10-16T09:41:44.872Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -408,7 +408,7 @@
       "totalAmount": 125733402.44,
       "paymentCount": 3,
       "firstDate": "2026-09-23",
-      "lastDate": "2026-10-09"
+      "lastDate": "2026-10-14"
     },
     {
       "encumbranceId": "(GAE) FY2027MBTASALESTAX00",
@@ -632,7 +632,7 @@
       "totalAmount": 98926597.56,
       "paymentCount": 4,
       "firstDate": "2026-09-23",
-      "lastDate": "2026-10-09"
+      "lastDate": "2026-10-14"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -675,6 +675,20 @@
       "paymentCount": 5,
       "firstDate": "2026-07-14",
       "lastDate": "2026-09-11"
+    },
+    {
+      "encumbranceId": "(CT) 07032300000000000004",
+      "encumbranceType": "CT",
+      "encumbranceBody": "07032300000000000004",
+      "vendor": "WELLPOINT LIFE & HEALTH INS CO",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 90304802.16,
+      "paymentCount": 5,
+      "firstDate": "2026-09-23",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -859,20 +873,6 @@
       "lastDate": "2026-09-22"
     },
     {
-      "encumbranceId": "(CT) 07032300000000000004",
-      "encumbranceType": "CT",
-      "encumbranceBody": "07032300000000000004",
-      "vendor": "WELLPOINT LIFE & HEALTH INS CO",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 63317739.83,
-      "paymentCount": 4,
-      "firstDate": "2026-09-23",
-      "lastDate": "2026-10-08"
-    },
-    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -995,8 +995,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 55251082.21,
       "paymentCount": 4,
-      "firstDate": "2026-10-09",
-      "lastDate": "2026-10-13"
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-14"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1053,6 +1053,20 @@
       "paymentCount": 9,
       "firstDate": "2026-07-31",
       "lastDate": "2026-09-03"
+    },
+    {
+      "encumbranceId": "(EAV) 07012700000000000001",
+      "encumbranceType": "EAV",
+      "encumbranceBody": "07012700000000000001",
+      "vendor": "MASS STATE LOTTERY COMMISSION",
+      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) LOTTERY REVENUE AND PRIZES",
+      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
+      "totalAmount": 46355736.18,
+      "paymentCount": 88,
+      "firstDate": null,
+      "lastDate": null
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1291,20 +1305,6 @@
       "paymentCount": 16,
       "firstDate": "2026-07-03",
       "lastDate": "2026-09-17"
-    },
-    {
-      "encumbranceId": "(EAV) 07012700000000000001",
-      "encumbranceType": "EAV",
-      "encumbranceBody": "07012700000000000001",
-      "vendor": "MASS STATE LOTTERY COMMISSION",
-      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) LOTTERY REVENUE AND PRIZES",
-      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
-      "totalAmount": 35213857.83,
-      "paymentCount": 66,
-      "firstDate": null,
-      "lastDate": null
     },
     {
       "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
@@ -1863,8 +1863,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 19125000,
       "paymentCount": 1,
-      "firstDate": "2026-10-09",
-      "lastDate": "2026-10-09"
+      "firstDate": "2026-10-14",
+      "lastDate": "2026-10-14"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2007,6 +2007,20 @@
       "lastDate": "2026-09-30"
     },
     {
+      "encumbranceId": "(EAV) 07012700000000000001",
+      "encumbranceType": "EAV",
+      "encumbranceBody": "07012700000000000001",
+      "vendor": "MASS STATE LOTTERY COMMISSION",
+      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) I LOTTERY - STATE LOTTERY AND GAMING FUND",
+      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
+      "totalAmount": 17001283.11,
+      "paymentCount": 36,
+      "firstDate": null,
+      "lastDate": null
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -2143,8 +2157,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 16200000,
       "paymentCount": 1,
-      "firstDate": "2026-10-09",
-      "lastDate": "2026-10-09"
+      "firstDate": "2026-10-14",
+      "lastDate": "2026-10-14"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2396,7 +2410,7 @@
       "totalAmount": 13799721.29,
       "paymentCount": 4,
       "firstDate": "2026-10-02",
-      "lastDate": "2026-10-09"
+      "lastDate": "2026-10-14"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2469,18 +2483,18 @@
       "lastDate": "2026-10-13"
     },
     {
-      "encumbranceId": "(EAV) 07012700000000000001",
-      "encumbranceType": "EAV",
-      "encumbranceBody": "07012700000000000001",
-      "vendor": "MASS STATE LOTTERY COMMISSION",
-      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) I LOTTERY - STATE LOTTERY AND GAMING FUND",
-      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
-      "totalAmount": 12926628.6,
-      "paymentCount": 27,
-      "firstDate": null,
-      "lastDate": null
+      "encumbranceId": "(CT) 06302300000000003507",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003507",
+      "vendor": "MASS GENERAL BRIGHAM HEALTH INSURANCE CO",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 12886732.11,
+      "paymentCount": 5,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-10-13"
     },
     {
       "encumbranceId": "(GAE) FY26MBTASALESTAXJUNE",
@@ -2903,20 +2917,6 @@
       "lastDate": "2026-09-14"
     },
     {
-      "encumbranceId": "(CT) 06302300000000003507",
-      "encumbranceType": "CT",
-      "encumbranceBody": "06302300000000003507",
-      "vendor": "MASS GENERAL BRIGHAM HEALTH INSURANCE CO",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 9368860.87,
-      "paymentCount": 4,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-10-08"
-    },
-    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -3096,7 +3096,7 @@
       "totalAmount": 8880354.69,
       "paymentCount": 3,
       "firstDate": "2026-09-22",
-      "lastDate": "2026-10-09"
+      "lastDate": "2026-10-14"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
@@ -4202,7 +4202,7 @@
       "totalAmount": 5870356.45,
       "paymentCount": 2,
       "firstDate": "2026-09-23",
-      "lastDate": "2026-10-09"
+      "lastDate": "2026-10-14"
     },
     {
       "encumbranceId": "(CT) INTF00X02025C0126251",
