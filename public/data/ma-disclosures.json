@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-15T18:14:29.786Z",
+  "fetchedAt": "2026-10-16T00:29:06.668Z",
   "preservedFromCache": false,
   "sources": [
     {
@@ -26,6 +26,26 @@
   "warnings": [],
   "count": 30,
   "items": [
+    {
+      "id": "mbh:/october-15-2026-information-statement-now-available",
+      "title": "Read more about October 15, 2026 Information Statement is Now Available",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "News / Disclosure",
+      "date": "2026-10-15",
+      "url": "https://www.massbondholder.com/october-15-2026-information-statement-now-available",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
+    {
+      "id": "mbh:/october-2026-socioeconomic-indicators-report-now-available",
+      "title": "Read more about October 2026 Socioeconomic Indicators Report is Now Available",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "News / Disclosure",
+      "date": "2026-10-01",
+      "url": "https://www.massbondholder.com/october-2026-socioeconomic-indicators-report-now-available",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
     {
       "id": "mbh:/october-2026-bond-sales-dedicated-transportation-revenue-bonds-and-grant-anticipation-notes",
       "title": "Read more about October 2026 Bond Sales: Dedicated Transportation Revenue Bonds and Grant Anticipation Notes",
@@ -73,26 +93,6 @@
       "type": "Investor Communication",
       "date": "2026-08-14",
       "url": "https://www.massbondholder.com/investor-call-scheduled-friday-august-14-2026",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh:/august-5-2026-information-statement-now-available",
-      "title": "Read more about August 5, 2026 Information Statement is Now Available",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "News / Disclosure",
-      "date": "2026-08-05",
-      "url": "https://www.massbondholder.com/august-5-2026-information-statement-now-available",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh:/july-2026-socioeconomic-indicators-report-now-available",
-      "title": "Read more about July 2026 Socioeconomic Indicators Report is Now Available",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "News / Disclosure",
-      "date": "2026-07-01",
-      "url": "https://www.massbondholder.com/july-2026-socioeconomic-indicators-report-now-available",
       "summary": "",
       "source": "MassBondHolder"
     },
