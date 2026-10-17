@@ -1,0 +1,1433 @@
+{
+  "fetchedAt": "2026-10-17T00:00:00Z",
+  "source": "Official Statements (Massachusetts via massbondholder.com; AAA states via their own sites) and FRED Treasury yields",
+  "count": 36,
+  "method": "Spread = Massachusetts GO reoffering yield minus a AAA-rated state GO yield, same maturity year, sold within 7 days. \"Rough\" matches (different coupon or call terms) are shown but left out of the summary. Treasury yields are taxable and shown for context only.",
+  "summarySince": "2023-01-01",
+  "ratingsLatest": {
+    "date": "2026-09-09",
+    "moodys": "Aa1",
+    "sp": "AA+",
+    "fitch": "AA+"
+  },
+  "summary": [
+    {
+      "tenor": "10y",
+      "matches": 13,
+      "medianBps": 5,
+      "within10Bps": 11
+    },
+    {
+      "tenor": "20y",
+      "matches": 5,
+      "medianBps": 4,
+      "within10Bps": 3
+    }
+  ],
+  "sourceCsv": "ma-go-sales-source.csv",
+  "sales": [
+    {
+      "date": "2026-09-09",
+      "series": "2026 Series E",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2036,
+          "coupon": 5,
+          "yield": 3.6,
+          "source": "https://emma.msrb.org/P22090508-P21587449-P22049220.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "MD",
+              "issuer": "State of Maryland",
+              "saleDate": "2026-09-02",
+              "coupon": 5,
+              "yield": 3.58,
+              "spreadBps": 2,
+              "match": "like-for-like",
+              "matchNote": "usable: 7 days apart; maturity date differs (MA 2036-08-01, MD 2036-09-01)",
+              "source": "https://treasurer.state.md.us/wp-content/uploads/2026/09/2026_StateofMaryland_Bonds_OS-FINAL.pdf"
+            },
+            {
+              "state": "MN",
+              "issuer": "State of Minnesota (Commissioner of Management and Budget)",
+              "saleDate": "2026-09-09",
+              "coupon": 5,
+              "yield": 3.67,
+              "spreadBps": -7,
+              "match": "like-for-like",
+              "matchNote": "clean",
+              "source": "https://mn.gov/mmb-stat/debt-management/bonding/official-statements/2026/Official%20Statement%202026.pdf"
+            }
+          ],
+          "treasury": 4.83
+        },
+        "20y": {
+          "maturity": 2046,
+          "coupon": 5,
+          "yield": 4.59,
+          "source": "https://emma.msrb.org/P22090508-P21587449-P22049220.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "MN",
+              "issuer": "State of Minnesota (Commissioner of Management and Budget)",
+              "saleDate": "2026-09-09",
+              "coupon": 5,
+              "yield": 4.51,
+              "spreadBps": 8,
+              "match": "like-for-like",
+              "matchNote": "clean",
+              "source": "https://mn.gov/mmb-stat/debt-management/bonding/official-statements/2026/Official%20Statement%202026.pdf"
+            }
+          ],
+          "treasury": 5.28
+        }
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "series": "Refunding 2026 Series B",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2036,
+          "coupon": 5,
+          "yield": 3.11,
+          "source": "https://emma.msrb.org/P11967608-P11501118-P11954272.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "MD",
+              "issuer": "State of Maryland",
+              "saleDate": "2026-06-03",
+              "coupon": 5,
+              "yield": 3.03,
+              "spreadBps": 8,
+              "match": "like-for-like",
+              "matchNote": "usable: 7 days apart; maturity date differs (MA 2036-07-01, MD 2036-06-01)",
+              "source": "https://treasurer.state.md.us/wp-content/uploads/2026/06/2026_StateofMaryland_OS.pdf"
+            }
+          ],
+          "treasury": 4.55
+        },
+        "20y": {
+          "maturity": 2046,
+          "coupon": 5,
+          "yield": 4.04,
+          "source": "https://emma.msrb.org/P11967608-P11501118-P11954272.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 5.04
+        }
+      }
+    },
+    {
+      "date": "2026-04-22",
+      "series": "2026 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2036,
+          "coupon": 5,
+          "yield": 2.98,
+          "source": "https://emma.msrb.org/P22010510.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "DE",
+              "issuer": "State of Delaware",
+              "saleDate": "2026-04-28",
+              "coupon": 5,
+              "yield": 2.96,
+              "spreadBps": 2,
+              "match": "like-for-like",
+              "matchNote": "usable: 6 days apart; maturity date differs (MA 2036-02-01, DE 2036-05-01)",
+              "source": "https://financefiles.delaware.gov/Bond/2026_StateofDelaware_OS.pdf"
+            }
+          ],
+          "treasury": 4.3
+        },
+        "20y": {
+          "maturity": 2046,
+          "coupon": 5,
+          "yield": 3.97,
+          "source": "https://emma.msrb.org/P22010510.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "DE",
+              "issuer": "State of Delaware",
+              "saleDate": "2026-04-28",
+              "coupon": 4,
+              "yield": 4.148,
+              "spreadBps": -18,
+              "match": "rough",
+              "matchNote": "weak: coupon differs (MA 5.00% vs DE 4%); call treatment differs (one priced to call, one to maturity); 6 days apart; maturity date differs (MA 2046-02-01, DE 2046-05-01)",
+              "source": "https://financefiles.delaware.gov/Bond/2026_StateofDelaware_OS.pdf"
+            }
+          ],
+          "treasury": 4.87
+        }
+      }
+    },
+    {
+      "date": "2025-12-03",
+      "series": "2025 Series G",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2035,
+          "coupon": 5,
+          "yield": 2.89,
+          "source": "https://emma.msrb.org/P21994920-P11449414-P21974839.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "OH",
+              "issuer": "State of Ohio (Ohio Public Facilities Commission)",
+              "saleDate": "2025-12-09",
+              "coupon": 5,
+              "yield": 2.84,
+              "spreadBps": 5,
+              "match": "like-for-like",
+              "matchNote": "usable: 6 days apart; maturity date differs (MA 2035-12-01, OH 2035-09-15)",
+              "source": "https://bondlink-cdn.com/5810/2025_StateofOhio_SeriesB_OS.eCiyA8Hmk.pdf"
+            }
+          ],
+          "treasury": 4.06
+        },
+        "20y": {
+          "maturity": 2045,
+          "coupon": 5,
+          "yield": 4.06,
+          "source": "https://emma.msrb.org/P21994920-P11449414-P21974839.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.68
+        }
+      }
+    },
+    {
+      "date": "2025-08-05",
+      "series": "2025 Series E",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2035,
+          "coupon": 5,
+          "yield": 3.27,
+          "source": "https://emma.msrb.org/P21942098.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "FL",
+              "issuer": "State of Florida, Full Faith and Credit, Department of Transportation (Division of Bond Finance)",
+              "saleDate": "2025-08-07",
+              "coupon": 5,
+              "yield": 3.31,
+              "spreadBps": -4,
+              "match": "like-for-like",
+              "matchNote": "clean; maturity date differs (MA 2035-08-01, FL 2035-07-01)",
+              "source": "https://emma.msrb.org/P11876151-P21493539-P21945466.pdf"
+            },
+            {
+              "state": "TX",
+              "issuer": "State of Texas (Texas Water Development Board)",
+              "saleDate": "2025-08-05",
+              "coupon": 5,
+              "yield": 3.48,
+              "spreadBps": -21,
+              "match": "rough",
+              "matchNote": "weak: call treatment differs (one priced to call, one to maturity)",
+              "source": "https://bondlink-cdn.com/1100/TXWaterDev02a-FIN.gUNXfRcBI.pdf"
+            }
+          ],
+          "treasury": 4.22
+        },
+        "20y": {
+          "maturity": 2045,
+          "coupon": 5,
+          "yield": 4.55,
+          "source": "https://emma.msrb.org/P21942098.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "FL",
+              "issuer": "State of Florida, Full Faith and Credit, Department of Transportation (Division of Bond Finance)",
+              "saleDate": "2025-08-07",
+              "coupon": 5,
+              "yield": 4.51,
+              "spreadBps": 4,
+              "match": "like-for-like",
+              "matchNote": "clean; maturity date differs (MA 2045-08-01, FL 2045-07-01)",
+              "source": "https://emma.msrb.org/P11876151-P21493539-P21945466.pdf"
+            },
+            {
+              "state": "TX",
+              "issuer": "State of Texas (Texas Water Development Board)",
+              "saleDate": "2025-08-05",
+              "coupon": 5,
+              "yield": 4.66,
+              "spreadBps": -11,
+              "match": "like-for-like",
+              "matchNote": "clean",
+              "source": "https://bondlink-cdn.com/1100/TXWaterDev02a-FIN.gUNXfRcBI.pdf"
+            }
+          ],
+          "treasury": 4.77
+        }
+      }
+    },
+    {
+      "date": "2025-06-10",
+      "series": "2025 Series B",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2035,
+          "coupon": 5,
+          "yield": 3.34,
+          "source": "https://emma.msrb.org/P11872113.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "VA",
+              "issuer": "Commonwealth of Virginia",
+              "saleDate": "2025-06-05",
+              "coupon": 5,
+              "yield": 3.26,
+              "spreadBps": 8,
+              "match": "like-for-like",
+              "matchNote": "usable: 5 days apart",
+              "source": "https://bondlink-cdn.com/35/Commonwealth-of-Virginia-GOB-Series-2025AB-Final-Official-Statement.x36qF8ol7.pdf"
+            },
+            {
+              "state": "MD",
+              "issuer": "State of Maryland",
+              "saleDate": "2025-06-11",
+              "coupon": 5,
+              "yield": 3.44,
+              "spreadBps": -10,
+              "match": "like-for-like",
+              "matchNote": "clean",
+              "source": "https://treasurer.state.md.us/wp-content/uploads/2025/06/2025_StateofMaryland_OS.pdf"
+            }
+          ],
+          "treasury": 4.47
+        },
+        "20y": {
+          "maturity": 2045,
+          "coupon": 5,
+          "yield": 4.57,
+          "source": "https://emma.msrb.org/P11872113.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.96
+        }
+      }
+    },
+    {
+      "date": "2025-04-23",
+      "series": "Refunding 2025 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2035,
+          "coupon": 5,
+          "yield": 3.71,
+          "source": "https://emma.msrb.org/P11845505-P11413670-P11856466.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "DE",
+              "issuer": "State of Delaware",
+              "saleDate": "2025-04-29",
+              "coupon": 5,
+              "yield": 3.36,
+              "spreadBps": 35,
+              "match": "like-for-like",
+              "matchNote": "usable: 6 days apart; maturity date differs (MA 2035-07-01, DE 2035-05-01)",
+              "source": "https://financefiles.delaware.gov/Bond/Official_Statement_Final_Series_2025.pdf"
+            }
+          ],
+          "treasury": 4.4
+        },
+        "20y": {
+          "maturity": 2045,
+          "coupon": 5,
+          "yield": 4.53,
+          "source": "https://emma.msrb.org/P11845505-P11413670-P11856466.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "DE",
+              "issuer": "State of Delaware",
+              "saleDate": "2025-04-29",
+              "coupon": 5,
+              "yield": 4.23,
+              "spreadBps": 30,
+              "match": "like-for-like",
+              "matchNote": "usable: 6 days apart; maturity date differs (MA 2045-04-01, DE 2045-05-01)",
+              "source": "https://financefiles.delaware.gov/Bond/Official_Statement_Final_Series_2025.pdf"
+            }
+          ],
+          "treasury": 4.86
+        }
+      }
+    },
+    {
+      "date": "2024-12-12",
+      "series": "2024 Series G",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2034,
+          "coupon": 5,
+          "yield": 2.81,
+          "source": "https://emma.msrb.org/P11813834-P11390194-P11830104.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.32
+        },
+        "20y": {
+          "maturity": 2044,
+          "coupon": 5,
+          "yield": 3.52,
+          "source": "https://emma.msrb.org/P11813834-P11390194-P11830104.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.62
+        }
+      }
+    },
+    {
+      "date": "2024-09-05",
+      "series": "2024 Series C",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2034,
+          "coupon": 5,
+          "yield": 2.77,
+          "source": "https://emma.msrb.org/P21842690-P21411973-P21854597.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 3.73
+        },
+        "20y": {
+          "maturity": 2044,
+          "coupon": 5,
+          "yield": 3.49,
+          "source": "https://emma.msrb.org/P21842690-P21411973-P21854597.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.11
+        }
+      }
+    },
+    {
+      "date": "2024-06-05",
+      "series": "2024 Series B",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2034,
+          "coupon": 5,
+          "yield": 3.06,
+          "source": "https://emma.msrb.org/P21820997-P21396325-P21837535.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "MD",
+              "issuer": "State of Maryland",
+              "saleDate": "2024-06-05",
+              "coupon": 5,
+              "yield": 2.97,
+              "spreadBps": 9,
+              "match": "like-for-like",
+              "matchNote": "clean; maturity date differs (MA 2034-05-01, MD 2034-06-01)",
+              "source": "https://treasurer.state.md.us/wp-content/uploads/2024/06/OFFICIAL-STATEMENT-FOR-GENERAL-OBLIGATION-BONDS_-STATE-AND-LOCAL-FACILITIES-LOAN-of-2024_-FIRST-SERIES.pdf"
+            }
+          ],
+          "treasury": 4.29
+        },
+        "20y": {
+          "maturity": 2044,
+          "coupon": 5,
+          "yield": 3.7,
+          "source": "https://emma.msrb.org/P21820997-P21396325-P21837535.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.52
+        }
+      }
+    },
+    {
+      "date": "2024-02-07",
+      "series": "Refunding 2024 Series B",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2034,
+          "coupon": 5,
+          "yield": 2.63,
+          "source": "https://emma.msrb.org/P21777264-P21360507-P21797752.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.09
+        },
+        "20y": {
+          "maturity": 2044,
+          "coupon": 5,
+          "yield": 3.54,
+          "source": "https://emma.msrb.org/P21777264-P21360507-P21797752.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.41
+        }
+      }
+    },
+    {
+      "date": "2024-01-11",
+      "series": "2024 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2034,
+          "coupon": 5,
+          "yield": 2.5,
+          "source": "https://emma.msrb.org/P11722402-P11323879-P11757301.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "FL",
+              "issuer": "State of Florida, Full Faith and Credit, State Board of Education (Division of Bond Finance)",
+              "saleDate": "2024-01-10",
+              "coupon": 5,
+              "yield": 2.44,
+              "spreadBps": 6,
+              "match": "like-for-like",
+              "matchNote": "clean; maturity date differs (MA 2034-01-01, FL 2034-06-01)",
+              "source": "https://emma.msrb.org/P11725300-P11326086-P11759714.pdf"
+            }
+          ],
+          "treasury": 3.98
+        },
+        "20y": {
+          "maturity": 2044,
+          "coupon": 5,
+          "yield": 3.48,
+          "source": "https://emma.msrb.org/P11722402-P11323879-P11757301.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.32
+        }
+      }
+    },
+    {
+      "date": "2023-10-17",
+      "series": "2023 Series B",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2033,
+          "coupon": 5,
+          "yield": 3.53,
+          "source": "https://emma.msrb.org/P21737499-P21334472-P21768542.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.83
+        },
+        "20y": {
+          "maturity": 2043,
+          "coupon": 5,
+          "yield": 4.48,
+          "source": "https://emma.msrb.org/P21737499-P21334472-P21768542.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 5.14
+        }
+      }
+    },
+    {
+      "date": "2023-06-28",
+      "series": "2023 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2033,
+          "coupon": 5,
+          "yield": 2.76,
+          "source": "https://www.massbondholder.com/sites/default/files/2023-07/macommonwealth02a-fin.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "GA",
+              "issuer": "State of Georgia (Georgia State Financing and Investment Commission)",
+              "saleDate": "2023-06-27",
+              "coupon": 5,
+              "yield": 2.51,
+              "spreadBps": 25,
+              "match": "like-for-like",
+              "matchNote": "clean; maturity date differs (MA 2033-05-01, GA 2033-07-01)",
+              "source": "https://gsfic.georgia.gov/document/document/2023abc-official-statement/download"
+            },
+            {
+              "state": "TX",
+              "issuer": "State of Texas (Texas Water Development Board)",
+              "saleDate": "2023-06-21",
+              "coupon": 5,
+              "yield": 2.81,
+              "spreadBps": -5,
+              "match": "like-for-like",
+              "matchNote": "usable: 7 days apart; maturity date differs (MA 2033-05-01, TX 2033-08-01)",
+              "source": "https://bondlink-cdn.com/1100/Official-Statement---General-Obligation-Water-Financial-Assistance-and-Refunding-Bonds--Series-2023ABCD.s5MVTkiCM.pdf"
+            }
+          ],
+          "treasury": 3.71
+        },
+        "20y": {
+          "maturity": 2043,
+          "coupon": 5,
+          "yield": 3.56,
+          "source": "https://www.massbondholder.com/sites/default/files/2023-07/macommonwealth02a-fin.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "GA",
+              "issuer": "State of Georgia (Georgia State Financing and Investment Commission)",
+              "saleDate": "2023-06-27",
+              "coupon": 4,
+              "yield": 3.79,
+              "spreadBps": -23,
+              "match": "rough",
+              "matchNote": "weak: coupon differs (MA 5.00% vs GA 4%); maturity date differs (MA 2043-05-01, GA 2043-07-01)",
+              "source": "https://gsfic.georgia.gov/document/document/2023abc-official-statement/download"
+            },
+            {
+              "state": "TX",
+              "issuer": "State of Texas (Texas Water Development Board)",
+              "saleDate": "2023-06-21",
+              "coupon": 5,
+              "yield": 3.56,
+              "spreadBps": 0,
+              "match": "like-for-like",
+              "matchNote": "usable: 7 days apart; maturity date differs (MA 2043-05-01, TX 2043-08-01)",
+              "source": "https://bondlink-cdn.com/1100/Official-Statement---General-Obligation-Water-Financial-Assistance-and-Refunding-Bonds--Series-2023ABCD.s5MVTkiCM.pdf"
+            }
+          ],
+          "treasury": 4
+        }
+      }
+    },
+    {
+      "date": "2022-11-29",
+      "series": "2022 Series D",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2032,
+          "coupon": 5,
+          "yield": 2.72,
+          "source": "https://emma.msrb.org/P11633673-P11258426-P11683766.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 3.75
+        },
+        "20y": {
+          "maturity": 2042,
+          "coupon": 5,
+          "yield": 3.59,
+          "source": "https://emma.msrb.org/P11633673-P11258426-P11683766.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 4.02
+        }
+      }
+    },
+    {
+      "date": "2022-10-19",
+      "series": "2022 Series C",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2032,
+          "coupon": 5,
+          "yield": 3.35,
+          "source": "https://www.massbondholder.com/sites/default/files/2023-07/macommonwealth06a-fin.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "VA",
+              "issuer": "Commonwealth of Virginia",
+              "saleDate": "2022-10-26",
+              "coupon": 5,
+              "yield": 3.45,
+              "spreadBps": -10,
+              "match": "like-for-like",
+              "matchNote": "usable: 7 days apart; maturity date differs (MA 2032-10-01, VA 2032-06-01)",
+              "source": "https://bondlink-cdn.com/35/GOB-Series-2022A-Final-Official-Statement.QBjnGaLJR.pdf"
+            }
+          ],
+          "treasury": 4.14
+        },
+        "20y": {
+          "maturity": 2042,
+          "coupon": 5,
+          "yield": 4.02,
+          "source": "https://www.massbondholder.com/sites/default/files/2023-07/macommonwealth06a-fin.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "VA",
+              "issuer": "Commonwealth of Virginia",
+              "saleDate": "2022-10-26",
+              "coupon": 4.375,
+              "yield": 4.4,
+              "spreadBps": -38,
+              "match": "rough",
+              "matchNote": "weak: coupon differs (MA 5.00% vs VA 4.375%); call treatment differs (one priced to call, one to maturity); 7 days apart; maturity date differs (MA 2042-10-01, VA 2042-06-01)",
+              "source": "https://bondlink-cdn.com/35/GOB-Series-2022A-Final-Official-Statement.QBjnGaLJR.pdf"
+            }
+          ],
+          "treasury": 4.38
+        }
+      }
+    },
+    {
+      "date": "2022-02-01",
+      "series": "2022 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2032,
+          "coupon": 5,
+          "yield": 1.61,
+          "source": "https://www.massbondholder.com/sites/default/files/2022-05/p21545058-p21194111-p21613034.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.81
+        },
+        "20y": {
+          "maturity": 2042,
+          "coupon": 4,
+          "yield": 2.14,
+          "source": "https://www.massbondholder.com/sites/default/files/2022-05/p21545058-p21194111-p21613034.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.19
+        }
+      }
+    },
+    {
+      "date": "2021-09-21",
+      "series": "2021 Series C",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2031,
+          "coupon": 5,
+          "yield": 1.05,
+          "source": "https://www.massbondholder.com/sites/default/files/2021-09/macommonwealth05a-fin.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "TX",
+              "issuer": "State of Texas (Texas Water Development Board)",
+              "saleDate": "2021-09-15",
+              "coupon": 5,
+              "yield": 1.09,
+              "spreadBps": -4,
+              "match": "like-for-like",
+              "matchNote": "usable: 6 days apart; maturity date differs (MA 2031-09-01, TX 2031-08-01)",
+              "source": "https://bondlink-cdn.com/1100/GO-Series-2021ABC-Final-Official-Statement.oTXdSWU7u.pdf"
+            }
+          ],
+          "treasury": 1.33
+        },
+        "20y": {
+          "maturity": 2041,
+          "coupon": 2,
+          "yield": 2.19,
+          "source": "https://www.massbondholder.com/sites/default/files/2021-09/macommonwealth05a-fin.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "TX",
+              "issuer": "State of Texas (Texas Water Development Board)",
+              "saleDate": "2021-09-15",
+              "coupon": 3,
+              "yield": 1.77,
+              "spreadBps": 42,
+              "match": "rough",
+              "matchNote": "weak: coupon differs (MA 2.00% vs TX 3%); call treatment differs (one priced to call, one to maturity); 6 days apart; maturity date differs (MA 2041-09-01, TX 2041-08-01)",
+              "source": "https://bondlink-cdn.com/1100/GO-Series-2021ABC-Final-Official-Statement.oTXdSWU7u.pdf"
+            }
+          ],
+          "treasury": 1.81
+        }
+      }
+    },
+    {
+      "date": "2021-05-04",
+      "series": "2021 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "20y": {
+          "maturity": 2041,
+          "coupon": 2,
+          "yield": 2.05,
+          "source": "https://www.massbondholder.com/sites/default/files/2021-05/macommonwealth02a-fin-1-0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.16
+        }
+      }
+    },
+    {
+      "date": "2020-11-18",
+      "series": "2020 Series E",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2030,
+          "coupon": 5,
+          "yield": 0.88,
+          "source": "https://www.massbondholder.com/sites/default/files/2026-07/official-statement.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 0.88
+        },
+        "20y": {
+          "maturity": 2040,
+          "coupon": 4,
+          "yield": 1.65,
+          "source": "https://www.massbondholder.com/sites/default/files/2026-07/official-statement.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.42
+        }
+      }
+    },
+    {
+      "date": "2020-06-25",
+      "series": "2020 Series D",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2030,
+          "coupon": 5,
+          "yield": 1.1,
+          "source": "https://www.massbondholder.com/sites/default/files/2020-07/comm-of-ma-2020-series-d-series-b-and-c-refunding_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 0.68
+        },
+        "20y": {
+          "maturity": 2040,
+          "coupon": 5,
+          "yield": 1.68,
+          "source": "https://www.massbondholder.com/sites/default/files/2020-07/comm-of-ma-2020-series-d-series-b-and-c-refunding_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.2
+        }
+      }
+    },
+    {
+      "date": "2020-02-19",
+      "series": "2020 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2029,
+          "coupon": 5,
+          "yield": 1.13,
+          "source": "https://www.massbondholder.com/sites/default/files/2020-07/official-statement_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.56
+        },
+        "20y": {
+          "maturity": 2039,
+          "coupon": 2.5,
+          "yield": 2.25,
+          "source": "https://www.massbondholder.com/sites/default/files/2020-07/official-statement_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.86
+        }
+      }
+    },
+    {
+      "date": "2019-09-05",
+      "series": "2019 Series G",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2029,
+          "coupon": 5,
+          "yield": 1.38,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/commonwealth-of-ma-2019-series-g.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.57
+        },
+        "20y": {
+          "maturity": 2039,
+          "coupon": 3,
+          "yield": 2.45,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/commonwealth-of-ma-2019-series-g.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.86
+        }
+      }
+    },
+    {
+      "date": "2019-05-07",
+      "series": "2019 Series F",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2029,
+          "coupon": 5,
+          "yield": 1.83,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2019-series-c-d-e-and-f.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.45
+        },
+        "20y": {
+          "maturity": 2039,
+          "coupon": 5,
+          "yield": 2.51,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2019-series-c-d-e-and-f.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.68
+        }
+      }
+    },
+    {
+      "date": "2019-01-08",
+      "series": "2019 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "20y": {
+          "maturity": 2039,
+          "coupon": 5,
+          "yield": 3.11,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2019-series-a-b-and-a-refunding.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.88
+        }
+      }
+    },
+    {
+      "date": "2018-08-29",
+      "series": "2018 Series E",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2028,
+          "coupon": 5,
+          "yield": 2.59,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/macommonwealth08a-fin.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.89
+        },
+        "20y": {
+          "maturity": 2038,
+          "coupon": 5,
+          "yield": 3.15,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/macommonwealth08a-fin.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.96
+        }
+      }
+    },
+    {
+      "date": "2018-01-09",
+      "series": "2018 Series B",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2028,
+          "coupon": 5,
+          "yield": 2.15,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2018-series-a-and-series-b-as-supplemented.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "TX",
+              "issuer": "State of Texas (Texas Water Development Board)",
+              "saleDate": "2018-01-10",
+              "coupon": 5,
+              "yield": 2.21,
+              "spreadBps": -6,
+              "match": "rough",
+              "matchNote": "weak: call treatment differs (one priced to call, one to maturity); maturity date differs (MA 2028-01-01, TX 2028-08-01)",
+              "source": "https://bondlink-cdn.com/1100/GO_WFA_Ref_Bonds_Series_2018A.4f7JkUVC.pdf"
+            }
+          ],
+          "treasury": 2.55
+        },
+        "20y": {
+          "maturity": 2038,
+          "coupon": 5,
+          "yield": 2.72,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2018-series-a-and-series-b-as-supplemented.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.72
+        }
+      }
+    },
+    {
+      "date": "2017-10-18",
+      "series": "Refunding 2017 Series E",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2027,
+          "coupon": 5,
+          "yield": 2.03,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/official-statement-2017-e-f-e-ref.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.34
+        },
+        "20y": {
+          "maturity": 2037,
+          "coupon": 5,
+          "yield": 2.64,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/official-statement-2017-e-f-e-ref.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.62
+        }
+      }
+    },
+    {
+      "date": "2017-06-20",
+      "series": "Refunding 2017 Series D",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2027,
+          "coupon": 5,
+          "yield": 2.02,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/official-statement.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "UT",
+              "issuer": "State of Utah",
+              "saleDate": "2017-06-27",
+              "coupon": 5,
+              "yield": 1.85,
+              "spreadBps": 17,
+              "match": "rough",
+              "matchNote": "weak: call treatment differs (one priced to call, one to maturity); 7 days apart",
+              "source": "http://web.archive.org/web/20180126230318id_/https://treasurer.utah.gov/wp-content/uploads/sites/10/2017/08/OfficialStatementStateofUtah142.07MGO2017.pdf"
+            }
+          ],
+          "treasury": 2.16
+        },
+        "20y": {
+          "maturity": 2037,
+          "coupon": 4,
+          "yield": 3.28,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/official-statement.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.49
+        }
+      }
+    },
+    {
+      "date": "2017-04-07",
+      "series": "2017 Series B (Green)",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2027,
+          "coupon": 5,
+          "yield": 2.4,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/final-2017-a-b-and-rfdg-c-os.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.38
+        },
+        "20y": {
+          "maturity": 2037,
+          "coupon": 5,
+          "yield": 3.11,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/final-2017-a-b-and-rfdg-c-os.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.74
+        }
+      }
+    },
+    {
+      "date": "2016-11-30",
+      "series": "2016 Series H",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2026,
+          "coupon": 5,
+          "yield": 2.79,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2016-series-h-i-and-j-os_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.37
+        },
+        "20y": {
+          "maturity": 2036,
+          "coupon": 5,
+          "yield": 3.42,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2016-series-h-i-and-j-os_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.73
+        }
+      }
+    },
+    {
+      "date": "2016-08-25",
+      "series": "Refunding 2016 Series C",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2026,
+          "coupon": 5,
+          "yield": 1.49,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2016gandrfdgc-os_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.58
+        },
+        "20y": {
+          "maturity": 2036,
+          "coupon": 4,
+          "yield": 2.57,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/2016gandrfdgc-os_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 1.91
+        }
+      }
+    },
+    {
+      "date": "2016-06-09",
+      "series": "2016 Series D",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2026,
+          "coupon": 5,
+          "yield": 1.63,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/massachusetts-commonwealth-of-ma-go-bonds-consolidated-loan-of-2016-srs-dande-os_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "FL",
+              "issuer": "State of Florida, Full Faith and Credit, State Board of Education (Division of Bond Finance)",
+              "saleDate": "2016-06-14",
+              "coupon": 4,
+              "yield": 1.61,
+              "spreadBps": 2,
+              "match": "rough",
+              "matchNote": "weak: coupon differs (MA 5.00% vs FL 4%); 5 days apart; maturity date differs (MA 2026-04-01, FL 2026-06-01)",
+              "source": "https://bondfinance.sbafla.com/media/bvabrmy1/pecorefdg2016c_fos.pdf"
+            },
+            {
+              "state": "MD",
+              "issuer": "State of Maryland",
+              "saleDate": "2016-06-08",
+              "coupon": 5,
+              "yield": 1.56,
+              "spreadBps": 7,
+              "match": "rough",
+              "matchNote": "weak: call treatment differs (one priced to call, one to maturity); maturity date differs (MA 2026-04-01, MD 2026-06-01)",
+              "source": "https://treasurer.state.md.us/wp-content/uploads/2024/03/2016_1st_maryland_os.pdf"
+            }
+          ],
+          "treasury": 1.68
+        },
+        "20y": {
+          "maturity": 2035,
+          "coupon": 4,
+          "yield": 2.43,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/massachusetts-commonwealth-of-ma-go-bonds-consolidated-loan-of-2016-srs-dande-os_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "FL",
+              "issuer": "State of Florida, Full Faith and Credit, State Board of Education (Division of Bond Finance)",
+              "saleDate": "2016-06-14",
+              "coupon": 4,
+              "yield": 2.39,
+              "spreadBps": 4,
+              "match": "like-for-like",
+              "matchNote": "usable: 5 days apart; maturity date differs (MA 2035-04-01, FL 2035-06-01)",
+              "source": "https://bondfinance.sbafla.com/media/bvabrmy1/pecorefdg2016c_fos.pdf"
+            }
+          ],
+          "treasury": 2.05
+        }
+      }
+    },
+    {
+      "date": "2016-03-03",
+      "series": "2016 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2026,
+          "coupon": 5,
+          "yield": 2.08,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/macommonwealth01a-os_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "DE",
+              "issuer": "State of Delaware",
+              "saleDate": "2016-03-01",
+              "coupon": 5,
+              "yield": 1.77,
+              "spreadBps": 31,
+              "match": "like-for-like",
+              "matchNote": "clean",
+              "source": "https://financefiles.delaware.gov/docs/16_bond.pdf"
+            }
+          ],
+          "treasury": 1.83
+        },
+        "20y": {
+          "maturity": 2036,
+          "coupon": 5,
+          "yield": 2.69,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/macommonwealth01a-os_0.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [
+            {
+              "state": "DE",
+              "issuer": "State of Delaware",
+              "saleDate": "2016-03-01",
+              "coupon": 3,
+              "yield": 3.17,
+              "spreadBps": -48,
+              "match": "rough",
+              "matchNote": "weak: coupon differs (MA 5.00% vs DE 3%); call treatment differs (one priced to call, one to maturity)",
+              "source": "https://financefiles.delaware.gov/docs/16_bond.pdf"
+            }
+          ],
+          "treasury": 2.23
+        }
+      }
+    },
+    {
+      "date": "2015-06-24",
+      "series": "Refunding 2015 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2025,
+          "coupon": 5,
+          "yield": 2.55,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/ea966954.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.38
+        },
+        "20y": {
+          "maturity": 2035,
+          "coupon": 5,
+          "yield": 3.33,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/ea966954.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.87
+        }
+      }
+    },
+    {
+      "date": "2015-04-30",
+      "series": "2015 Series A",
+      "ratings": {
+        "moodys": "Aa1",
+        "sp": "AA+",
+        "fitch": "AA+"
+      },
+      "tenors": {
+        "10y": {
+          "maturity": 2025,
+          "coupon": 4,
+          "yield": 2.37,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/ea956398.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.05
+        },
+        "20y": {
+          "maturity": 2035,
+          "coupon": 4,
+          "yield": 3.53,
+          "source": "https://www.massbondholder.com/sites/default/files/2019-11/ea956398.pdf",
+          "retrieved": "2026-10-17",
+          "comparators": [],
+          "treasury": 2.49
+        }
+      }
+    }
+  ]
+}

@@ -22,12 +22,13 @@ import NonprofitLookup from './components/NonprofitLookup.jsx';
 import WhatWeCantSee from './components/WhatWeCantSee.jsx';
 import SfiExplorer from './components/SfiExplorer.jsx';
 import DataFreshnessBanner from './components/DataFreshnessBanner.jsx';
+import GoSalesPanel from './components/GoSalesPanel.jsx';
 import {
   fetchSpendingByDepartment, fetchSpendingByVendor, fetchSpendingOverTime,
   fetchPayrollByDepartment, fetchTopEarners, fetchPayrollOverTime, searchPayroll,
   fetchQuasiPayments, fetchQuasiAgencyDetail, fetchQuasiAgencyByYear, fetchQuasiAgencyCategories, fetchQuasiAgencyPayments,
   fetchFederalSpendingMA, fetchFederalAwardsMA,
-  fetchTreasuryDebtContext, fetchMADebtServiceFederal, fetchEmmaRecentTrades,
+  fetchTreasuryDebtContext, fetchMADebtServiceFederal,
   fetchTopVendors, searchVendors, fetchNonProfitVendors, fetchVendorByYear,
   fetchVendorByDepartment, fetchVendorByCategory, fetchVendorPayments,
   fetchDepartmentVendors, fetchDepartmentCategories, fetchDepartmentAppropriations,
@@ -2412,13 +2413,10 @@ export default function App() {
     federalAwards: null,
     treasuryDebt: null,
     debtServiceFederal: null,
-    emmaTrades: null,
   });
   const [spendingYear, setSpendingYear] = useState('2026');
   const [payrollYear, setPayrollYear] = useState('2026');
   const [federalYear, setFederalYear] = useState(2026);
-  const [emmaRefreshing, setEmmaRefreshing] = useState(false);
-  const [emmaLastFetched, setEmmaLastFetched] = useState(null);
   // Bonds tab: debt history chart range toggle ("10yr" = last 10 fiscal years,
   // "all" = every row in MA_STATE_DEBT_YOY).
   const [debtRange, setDebtRange] = useState('all');
@@ -2447,7 +2445,6 @@ export default function App() {
       { key: 'federalAwards', fn: () => fetchFederalAwardsMA(federalYear) },
       { key: 'treasuryDebt', fn: () => fetchTreasuryDebtContext() },
       { key: 'debtServiceFederal', fn: () => fetchMADebtServiceFederal(federalYear) },
-      { key: 'emmaTrades', fn: () => fetchEmmaRecentTrades() },
     ];
 
     const fallbacks = {
@@ -2462,7 +2459,6 @@ export default function App() {
       federalAwards: FEDERAL_AWARDS_MA,
       treasuryDebt: null,
       debtServiceFederal: null,
-      emmaTrades: null,
     };
 
     const results = await Promise.allSettled(fetchers.map(f => f.fn()));
@@ -2474,17 +2470,7 @@ export default function App() {
       const key = fetchers[i].key;
       const val = result.status === 'fulfilled' ? result.value : null;
 
-      // Special handling for emmaTrades: it now returns an object with { trades, lastRefreshed, source, count }
-      if (key === 'emmaTrades') {
-        if (val && val.trades && Array.isArray(val.trades) && val.trades.length > 0) {
-          newData[key] = val;
-          if (val.lastRefreshed) setEmmaLastFetched(new Date(val.lastRefreshed));
-          liveCount++;
-        } else {
-          newData[key] = fallbacks[key] || null;
-          if (!val) newErrors[key] = true;
-        }
-      } else if (val && Array.isArray(val) && val.length > 0) {
+      if (val && Array.isArray(val) && val.length > 0) {
         newData[key] = val;
         liveCount++;
       } else {
@@ -2500,20 +2486,6 @@ export default function App() {
   }, [spendingYear, payrollYear, federalYear]);
 
   useEffect(() => { fetchAllData(); }, [fetchAllData]);
-
-  const refreshEmmaTrades = useCallback(async () => {
-    setEmmaRefreshing(true);
-    try {
-      const result = await fetchEmmaRecentTrades();
-      if (result && result.trades && Array.isArray(result.trades) && result.trades.length > 0) {
-        setData(prev => ({ ...prev, emmaTrades: result }));
-        if (result.lastRefreshed) setEmmaLastFetched(new Date(result.lastRefreshed));
-      }
-    } catch (err) {
-      console.error('EMMA refresh failed:', err);
-    }
-    setEmmaRefreshing(false);
-  }, []);
 
   const dataSourceCount = Object.values(data).filter(Boolean).length;
   const errorCount = Object.values(errors).filter(Boolean).length;
@@ -2826,7 +2798,7 @@ export default function App() {
                 <span className="section-tag blue">Debt Service</span>
                 <h2>Massachusetts Bonds & Borrowing</h2>
                 <p>State, county, and municipal debt obligations. Live federal debt context from the U.S. Treasury fiscalData API. MA-specific figures compiled from the Commonwealth's Annual Comprehensive Financial Report, the Debt Affordability Committee, MassBondHolder investor disclosures, and EMMA (MSRB) issuer filings. What is the true cost of Massachusetts' borrowing strategy?</p>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: ACFR, Treasury fiscalData, EMMA/MSRB &middot; State debt compiled &middot; trades &amp; Treasury live</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4 }}>Data: ACFR, Treasury fiscalData, EMMA/MSRB, Official Statements &middot; State debt compiled &middot; Treasury live</div>
               </div>
 
               <div className="card-grid">
@@ -3233,108 +3205,7 @@ export default function App() {
                 </div>
               </div>
 
-              {(
-                <div className="chart-card" style={{ marginTop: 24, borderLeft: '4px solid #680A1D' }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
-                    <h3 style={{ margin: 0 }}>
-                      <span style={{
-                        display: 'inline-block', width: 10, height: 10, borderRadius: '50%',
-                        background: data.emmaTrades ? '#ef4444' : '#9ca3af',
-                        marginRight: 8, animation: data.emmaTrades ? 'pulse 1.6s infinite' : 'none'
-                      }} />
-                      Recent Notable MA Bond Trades
-                    </h3>
-                    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                      <a
-                        href="https://www.massbondholder.com/"
-                        target="_blank" rel="noopener"
-                        style={{
-                          padding: '6px 14px', fontSize: '0.78rem', fontWeight: 600,
-                          border: 'none',
-                          background: '#14558F',
-                          color: '#fff', borderRadius: 4,
-                          textDecoration: 'none',
-                          cursor: 'pointer'
-                        }}
-                      >
-                        MassBondHolder.com ↗
-                      </a>
-                      <button
-                        onClick={refreshEmmaTrades}
-                        disabled={emmaRefreshing}
-                        style={{
-                          padding: '6px 12px', fontSize: '0.78rem', fontWeight: 600,
-                          border: '1px solid #680A1D',
-                          background: emmaRefreshing ? '#f4f5f8' : '#fff',
-                          color: '#680A1D', borderRadius: 4,
-                          cursor: emmaRefreshing ? 'default' : 'pointer'
-                        }}
-                        title="Re-fetch latest MA bond trades"
-                      >
-                        {emmaRefreshing ? 'Refreshing…' : '↻ Refresh'}
-                      </button>
-                    </div>
-                  </div>
-                  <div className="chart-subtitle" style={{ marginTop: 6 }}>
-                    Snapshot from EMMA (secondary market) — automated nightly. Click any CUSIP to copy, then paste into{' '}
-                    <a href="https://www.massbondholder.com/" target="_blank" rel="noopener" style={{ color: '#14558F' }}>MassBondHolder</a>{' '}
-                    or <a href="https://emma.msrb.org" target="_blank" rel="noopener" style={{ color: '#14558F' }}>EMMA</a> search.
-                  </div>
-                  {data.emmaTrades && data.emmaTrades.lastRefreshed && (
-                    <div style={{
-                      marginTop: 8, padding: '6px 12px', background: '#f4f5f8', borderRadius: 4,
-                      fontSize: '0.82rem', color: 'var(--text-muted)'
-                    }}>
-                      <strong style={{ color: '#222' }}>Last refreshed:</strong>{' '}
-                      {new Date(data.emmaTrades.lastRefreshed).toLocaleString('en-US', {
-                        month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
-                      })}
-                      {' · '}{data.emmaTrades.source}
-                    </div>
-                  )}
-                  {data.emmaTrades && data.emmaTrades.trades && data.emmaTrades.trades.length > 0 ? (
-                  <div style={{ overflowX: 'auto', marginTop: 12 }}>
-                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
-                      <thead>
-                        <tr style={{ borderBottom: '2px solid #680A1D', textAlign: 'left' }}>
-                          <th style={{ padding: '10px 8px', color: '#680A1D' }}>Issuer</th>
-                          <th style={{ padding: '10px 8px', color: '#680A1D' }}>CUSIP</th>
-                          <th style={{ padding: '10px 8px', color: '#680A1D', textAlign: 'right' }}>Par</th>
-                          <th style={{ padding: '10px 8px', color: '#680A1D', textAlign: 'right' }}>Price</th>
-                          <th style={{ padding: '10px 8px', color: '#680A1D', textAlign: 'right' }}>Yield</th>
-                          <th style={{ padding: '10px 8px', color: '#680A1D' }}>Trade Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {data.emmaTrades.trades.map((t, i) => (
-                          <tr key={i} style={{ borderBottom: '1px solid #e4e6ed' }}>
-                            <td style={{ padding: '10px 8px', fontWeight: 500 }}>{t.issuer}</td>
-                            <td style={{ padding: '10px 8px', fontFamily: 'monospace' }}>
-                              <span
-                                title="Click to copy CUSIP"
-                                style={{ color: '#14558F', cursor: 'pointer', borderBottom: '1px dashed #14558F' }}
-                                onClick={() => { navigator.clipboard.writeText(t.cusip); const el = document.getElementById(`cusip-${i}`); if (el) { el.textContent = '✓ copied'; setTimeout(() => { el.textContent = t.cusip; }, 1200); } }}
-                              >
-                                <span id={`cusip-${i}`}>{t.cusip}</span>
-                              </span>
-                            </td>
-                            <td style={{ padding: '10px 8px', textAlign: 'right' }}>{formatMoney(t.par)}</td>
-                            <td style={{ padding: '10px 8px', textAlign: 'right' }}>{t.price.toFixed(2)}</td>
-                            <td style={{ padding: '10px 8px', textAlign: 'right', color: t.yield > 4.2 ? '#680A1D' : '#32784E' }}>{t.yield.toFixed(2)}%</td>
-                            <td style={{ padding: '10px 8px', color: 'var(--text-muted)' }}>{t.date}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                  ) : (
-                    <div style={{ marginTop: 16, padding: '20px 16px', background: '#f4f5f8', borderRadius: 8, textAlign: 'center', color: 'var(--text-muted)' }}>
-                      <p style={{ margin: '0 0 8px', fontWeight: 600, color: '#680A1D' }}>No bond trades loaded</p>
-                      <p style={{ margin: 0, fontSize: '0.85rem' }}>Click "↻ Refresh now" above to fetch the latest MA bond trades from EMMA / MSRB.</p>
-                    </div>
-                  )}
-                </div>
-              )}
+              <GoSalesPanel />
 
               {/* ========== Treasury Federal Debt Context ========== */}
               <div className="chart-card" style={{ marginTop: 24 }}>
