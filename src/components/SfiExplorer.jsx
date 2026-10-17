@@ -357,11 +357,12 @@ export default function SfiExplorer() {
         <AlertTriangle size={14} />
         <div>
           <strong>The Commission&rsquo;s live SFI search is offline.</strong> Its Public Inspection
-          Module reports that it is &ldquo;currently unavailable because it is down for
-          maintenance&rdquo;, and the separate SFI e-filing system was retired on 29&nbsp;June&nbsp;2026
-          pending a replacement. What is below is the last complete bulk release, not a live view;
-          it will not gain new filings until the Commission brings a system back. Checked
-          21&nbsp;August&nbsp;2026.
+          Module page says the module &ldquo;is no longer available for use&rdquo; and that a new SFI
+          system was &ldquo;expected to be available in August 2026&rdquo;; as of 17&nbsp;October&nbsp;2026
+          it has not opened, and copies must be requested from Commission staff. The separate SFI
+          e-filing system was retired on 29&nbsp;June&nbsp;2026 (checked 21&nbsp;August&nbsp;2026). What
+          is below is the last complete bulk release, not a live view; it will not gain new filings
+          until the Commission brings a system back.
         </div>
       </div>
 
