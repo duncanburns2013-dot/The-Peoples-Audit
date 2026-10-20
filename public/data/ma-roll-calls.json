@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-10-16T10:25:54.187Z",
+  "fetchedAt": "2026-10-20T10:24:42.427Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 8981,
+  "billsTotal": 8982,
   "sampleStrategy": "seeded-random-750-per-chamber (seed 194)",
   "budgetTruncated": false,
   "preservedFromCache": false,
   "recordedVotes": {
-    "house": 267,
-    "senate": 236,
-    "total": 503,
+    "house": 262,
+    "senate": 230,
+    "total": 492,
     "highestNumber": {
       "house": 270,
       "senate": 238
@@ -18,90 +18,126 @@
     "exact": true
   },
   "totals": {
-    "actions": 8465,
-    "rollCalls": 75,
-    "voicePasses": 1884,
-    "procedural": 6506
+    "actions": 8451,
+    "rollCalls": 66,
+    "voicePasses": 1834,
+    "procedural": 6551
   },
   "sampleRatios": {
-    "rollCallShare": 0.03828483920367534,
-    "voicePassShare": 0.9617151607963247
+    "rollCallShare": 0.034736842105263156,
+    "voicePassShare": 0.9652631578947368
   },
   "sessionEstimate": {
-    "recordedVotesExact": 503,
-    "voicePassesEstimated": 11280,
-    "decisiveActionsEstimated": 11783,
-    "scaleFactor": 5.987,
-    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8981"
+    "recordedVotesExact": 492,
+    "voicePassesEstimated": 10982,
+    "decisiveActionsEstimated": 11474,
+    "scaleFactor": 5.988,
+    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 8982"
   },
   "ratios": {
-    "rollCallShare": 0.042688619197148434,
-    "voicePassShare": 0.9573113808028516,
+    "rollCallShare": 0.04287955377374934,
+    "voicePassShare": 0.9571204462262507,
     "basis": "session-wide"
   },
   "recentRollCalls": [
     {
-      "billNumber": "H5624",
-      "title": "An Act establishing a Medal of Fidelity license plate",
+      "billNumber": "S2968",
+      "title": "An Act authorizing the Commonwealth of Massachusetts, acting by and through its Division of Capital Asset Management and Maintenance, to grant permanent easements over certain land in the town of Milton for highway purposes",
       "branch": "House",
       "date": "7/31/2026",
-      "action": "Passed to be engrossed - 157 YEAS to 0 NAYS ( See YEA and NAY No. 255 )",
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 268 )",
+      "yeas": 152,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2968",
+      "title": "An Act authorizing the Commonwealth of Massachusetts, acting by and through its Division of Capital Asset Management and Maintenance, to grant permanent easements over certain land in the town of Milton for highway purposes",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #236 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5639",
+      "title": "An Act authorizing the town of Nantucket conservation commission to convey a certain parcel of land situated in the town for purposes of conveyance to the town of Nantucket under the care, custody, management and control of the select board and the town of Nantucket to convey certain land in the town of Nantucket held for open space, passive recreation or conservation purposes to the Nantucket Islands Land Bank for the purposes pursuant to its enabling legislation for open space, conservation and passive recreation purposes",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 151 YEAS to 0 NAYS ( See YEA and NAY No. 263 )",
+      "yeas": 151,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5639",
+      "title": "An Act authorizing the town of Nantucket conservation commission to convey a certain parcel of land situated in the town for purposes of conveyance to the town of Nantucket under the care, custody, management and control of the select board and the town of Nantucket to convey certain land in the town of Nantucket held for open space, passive recreation or conservation purposes to the Nantucket Islands Land Bank for the purposes pursuant to its enabling legislation for open space, conservation and passive recreation purposes",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #231 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5640",
+      "title": "An Act authorizing the town of Hingham to grant to the commonwealth of Massachusetts certain parcels of land in the town of Hingham for highway purposes",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 264 )",
+      "yeas": 152,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5640",
+      "title": "An Act authorizing the town of Hingham to grant to the commonwealth of Massachusetts certain parcels of land in the town of Hingham for highway purposes",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #232 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3052",
+      "title": "An Act authorizing the town of Dighton to use a portion of conservation land for public way purposes.",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Enacted -see Roll Call #218 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3052",
+      "title": "An Act authorizing the town of Dighton to use a portion of conservation land for public way purposes.",
+      "branch": "House",
+      "date": "7/29/2026",
+      "action": "Enacted - 157 YEAS to 0 NAYS ( See YEA and NAY No. 237 )",
       "yeas": 157,
       "nays": 0
     },
     {
-      "billNumber": "H5614",
-      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
-      "branch": "House",
-      "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 244 )",
-      "yeas": 158,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5614",
-      "title": "An Act authorizing the release or exclusion of certain land from conservation restrictions in the town of Deerfield\r\n",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #226 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5467",
-      "title": "An Act authorizing the transfer of certain parcels of land in the town of Weston from the Weston conservation commission to the select board",
-      "branch": "House",
-      "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 245 )",
-      "yeas": 158,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5467",
-      "title": "An Act authorizing the transfer of certain parcels of land in the town of Weston from the Weston conservation commission to the select board",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #224 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2735",
-      "title": "An Act dissolving the North Carver water district",
+      "billNumber": "H5388",
+      "title": "An Act authorizing the transfer of a certain parcel of land in the town of Marion from the Open Space Acquisition Commission to the Select Board",
       "branch": "House",
       "date": "7/22/2026",
-      "action": "Enacted - 153 YEAS to 0 NAYS ( See YEA and NAY No. 234 )",
-      "yeas": 153,
+      "action": "Enacted - 154 YEAS to 0 NAYS ( See YEA and NAY No. 235 )",
+      "yeas": 154,
       "nays": 0
     },
     {
-      "billNumber": "S2735",
-      "title": "An Act dissolving the North Carver water district",
+      "billNumber": "H5388",
+      "title": "An Act authorizing the transfer of a certain parcel of land in the town of Marion from the Open Space Acquisition Commission to the Select Board",
       "branch": "Senate",
       "date": "7/22/2026",
-      "action": "Enacted -see Roll Call #208 (Yeas 39 to Nays 0)",
+      "action": "Enacted -see Roll Call #209 (Yeas 39 to Nays 0)",
       "yeas": 39,
       "nays": 0
+    },
+    {
+      "billNumber": "S3175",
+      "title": "An Act protecting children from addictive social media feeds",
+      "branch": "Senate",
+      "date": "7/9/2026",
+      "action": "Passed to be engrossed -see Roll Call #206 (Yeas 38 to Nays 2)",
+      "yeas": 38,
+      "nays": 2
     },
     {
       "billNumber": "H5569",
@@ -110,6 +146,33 @@
       "date": "7/8/2026",
       "action": "Passed to be engrossed - 150 YEAS to 0 NAYS ( See YEA and NAY No. 225 )",
       "yeas": 150,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3106",
+      "title": "An Act relative to toxic-free medical devices\r\n",
+      "branch": "House",
+      "date": "7/1/2026",
+      "action": "Passed to be engrossed -139 YEAS to 0 NAYS ( See YEA and NAY No. 221 )",
+      "yeas": 139,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2916",
+      "title": "An Act improving campaign finance reporting for statewide ballot questions ",
+      "branch": "House",
+      "date": "7/1/2026",
+      "action": "Passed to be engrossed -149 YEAS to 0 NAYS ( See YEA and NAY No. 222 )",
+      "yeas": 149,
+      "nays": 0
+    },
+    {
+      "billNumber": "H4646",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Passed to be engrossed -- see Roll Call #192 (Yeas 39 to Nays 0)",
+      "yeas": 39,
       "nays": 0
     },
     {
@@ -122,166 +185,31 @@
       "nays": 2
     },
     {
-      "billNumber": "S2963",
-      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
+      "billNumber": "H5471",
+      "title": "An Act authorizing municipalities to opt-in to a temporary pilot to extend the hours of liquor licenses and to allow for public consumption in designated districts in summer 2026",
       "branch": "House",
       "date": "6/4/2026",
-      "action": "Enacted - 149 YEAS to 0 NAYS ( See YEA and NAY No. 202 )",
-      "yeas": 149,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2963",
-      "title": "An Act authorizing the town of Milton to use certain land acquired for conservation purposes for school purposes",
-      "branch": "Senate",
-      "date": "6/4/2026",
-      "action": "Enacted -see Roll Call #189 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5470",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
-      "branch": "Senate",
-      "date": "6/4/2026",
-      "action": "Committee of conference report accepted, in concurrence -see Roll Call #188 (Yeas 37 to Nays 3)",
-      "yeas": 37,
-      "nays": 3
-    },
-    {
-      "billNumber": "H5470",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
-      "branch": "House",
-      "date": "6/4/2026",
-      "action": "Enacted - 151 YEAS to 0 NAYS ( See YEA and NAY No. 205 )",
-      "yeas": 151,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2563",
-      "title": "An Act amending certain laws relative to individuals with disabilities",
-      "branch": "House",
-      "date": "6/4/2026",
-      "action": "House concurred in the Senate further amendment with a still further amendment, see H5474 - 150 YEAS to 0 NAYS ( See YEA and NAY No. 204 )",
+      "action": "Amended by substitution of bill with the same title, see H5478 - 150 YEAS to 0 NAYS ( See YEA and NAY No. 206 )",
       "yeas": 150,
       "nays": 0
     },
     {
-      "billNumber": "H5470",
-      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
-      "branch": "House",
-      "date": "6/3/2026",
-      "action": "Committee of conference report accepted - 153 YEAS to 0 NAYS ( See YEA and NAY No. 199 )",
-      "yeas": 153,
-      "nays": 0
+      "billNumber": "S3083",
+      "title": "Order relative to requesting the opinions of the Honorable Justices of the Supreme Judicial Court on important questions of law relative to promoting rule of law, oversight, trust and equal constitutional treatment",
+      "branch": "Senate",
+      "date": "5/7/2026",
+      "action": "Motion (Tarr) to suspend the rules does not prevail -- see Roll Call #153 (Yeas 5 to Nays 35)",
+      "yeas": 5,
+      "nays": 35
     },
     {
-      "billNumber": "H5441",
-      "title": "An Act relative to newborn screenings for congenital cytomegalovirus",
-      "branch": "House",
-      "date": "5/20/2026",
-      "action": "Amendment 3 rejected - 1 YEAS to 154 NAYS ( See YEA and NAY No. 193 )",
-      "yeas": 1,
-      "nays": 154
-    },
-    {
-      "billNumber": "H5441",
-      "title": "An Act relative to newborn screenings for congenital cytomegalovirus",
-      "branch": "House",
-      "date": "5/20/2026",
-      "action": "Passed to be engrossed - 155 YEAS to 1 NAYS ( See YEA and NAY No. 194 )",
-      "yeas": 155,
-      "nays": 1
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1588 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 158 )",
-      "yeas": 25,
-      "nays": 130
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1590 rejected - 25 YEAS to 131 NAYS ( See YEA and NAY No. 159 )",
-      "yeas": 25,
-      "nays": 131
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1593 rejected - 25 YEAS to 131 NAYS ( See YEA and NAY No. 160 )",
-      "yeas": 25,
-      "nays": 131
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1231 rejected - 25 YEAS to 131 NAYS ( See YEA and NAY No. 161 )",
-      "yeas": 25,
-      "nays": 131
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1232 rejected - 25 YEAS to 131 NAYS ( See YEA and NAY No. 162 )",
-      "yeas": 25,
-      "nays": 131
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1236 rejected - 25 YEAS to 130 NAYS ( See YEA and NAY No. 163 )",
-      "yeas": 25,
-      "nays": 130
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1237 rejected - 25 YEAS to 131 NAYS ( See YEA and NAY No. 164 )",
-      "yeas": 25,
-      "nays": 131
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1334 rejected - 30 YEAS to 123 NAYS ( See YEA and NAY No. 165 )",
-      "yeas": 30,
-      "nays": 123
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Amendment 1317 rejected - 27 YEAS to 128 NAYS ( See YEA and NAY No. 166 )",
-      "yeas": 27,
-      "nays": 128
-    },
-    {
-      "billNumber": "H5500",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/27/2026",
-      "action": "Consolidated amendment A (Education and Local Aid, Social Services and Veteran Services and Soldiers' Homes) adopted - 132 YEAS to 23 NAYS ( See YEA and NAY No. 167 )",
-      "yeas": 132,
-      "nays": 23
+      "billNumber": "H5316",
+      "title": "An Act promoting rule of law, oversight, trust and equal constitutional treatment",
+      "branch": "Senate",
+      "date": "5/7/2026",
+      "action": "Passed to be engrossed -see Roll Call #158 (Yeas 37 to Nays 3)",
+      "yeas": 37,
+      "nays": 3
     },
     {
       "billNumber": "S3041",
@@ -293,199 +221,110 @@
       "nays": 0
     },
     {
-      "billNumber": "S3029",
+      "billNumber": "S3040",
       "title": "An Act fostering agricultural resilience in Massachusetts",
       "branch": "Senate",
       "date": "4/1/2026",
-      "action": "Amendment #5 (Tarr) adopted -see Roll Call #143 (Yeas 38 to Nays 0)",
+      "action": "Passed to be engrossed -see Roll Call #145 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5316",
+      "title": "An Act promoting rule of law, oversight, trust and equal constitutional treatment",
+      "branch": "House",
+      "date": "3/25/2026",
+      "action": "Passed to be engrossed - 134 YEAS to 21 NAYS ( See YEA and NAY No. 150 )",
+      "yeas": 134,
+      "nays": 21
+    },
+    {
+      "billNumber": "S2945",
+      "title": "An Act modernizing protections for consumers in automobile transactions",
+      "branch": "Senate",
+      "date": "2/12/2026",
+      "action": "Passed to be engrossed -see Roll Call #134 (Yeas 38 to Nays 0)",
       "yeas": 38,
       "nays": 0
     },
     {
-      "billNumber": "H5151",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "billNumber": "S2947",
+      "title": "An Act regarding fair housing practices in the Commonwealth",
+      "branch": "Senate",
+      "date": "2/12/2026",
+      "action": "Amendment #1 (Tarr) rejected -see Roll Call #135 (Yeas 6 to Nays 30)",
+      "yeas": 6,
+      "nays": 30
+    },
+    {
+      "billNumber": "S2924",
+      "title": "An Act relative to teacher preparation and student literacy",
+      "branch": "Senate",
+      "date": "1/29/2026",
+      "action": "Amendment #47 (Tarr) adopted -see Roll Call #130 (Yeas 37 to Nays 0)",
+      "yeas": 37,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5032",
+      "title": "An Act relative to preparing apprentices in the commonwealth",
       "branch": "House",
-      "date": "2/26/2026",
-      "action": "Amendment 24 rejected - 26 YEAS to 128 NAYS ( See YEA and NAY No. 126 )",
-      "yeas": 26,
-      "nays": 128
+      "date": "1/28/2026",
+      "action": "Passed to be engrossed - 154 YEAS to 1 NAYS ( See YEA and NAY No. 118 )",
+      "yeas": 154,
+      "nays": 1
+    },
+    {
+      "billNumber": "S1948",
+      "title": "An Act relative to veteran property tax work-off",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Passed to be engrossed -see Roll Call #119 (Yeas 38 to Nays 0)",
+      "yeas": 38,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2899",
+      "title": "An Act to prevent property tax bill shocks",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Amendment #6 (Rush) rejected -see Roll Call #117 (Yeas 5 to Nays 33)",
+      "yeas": 5,
+      "nays": 33
+    },
+    {
+      "billNumber": "S2902",
+      "title": "An Act authorizing the establishment of a mean tested senior citizen property tax exemption",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Passed to be engrossed -see Roll Call #124 (Yeas 37 to Nays 0)",
+      "yeas": 37,
+      "nays": 0
+    },
+    {
+      "billNumber": "S2915",
+      "title": "An Act relative to municipal tax relief ",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Passed to be engrossed -see Roll Call #122 (Yeas 37 to Nays 1)",
+      "yeas": 37,
+      "nays": 1
     }
   ],
   "recentVoicePasses": [
     {
-      "billNumber": "S3280",
-      "title": "An Act authorizing the town of Heath to continue the employment of the fire chief ",
-      "branch": "House",
-      "date": "10/15/2026",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H5514",
-      "title": "An Act directing the city of Boston Police Department to waive the maximum age requirement for police officers for Jorge Enriquez",
-      "branch": "Senate",
-      "date": "10/13/2026",
-      "action": "Read, rules suspended, read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "H4580",
-      "title": "An Act relative to the select board of the town of Berlin",
+      "billNumber": "H5597",
+      "title": "An Act providing for the appointment of retired police officers as special police officers in the town of Acushnet",
       "branch": "House",
       "date": "10/13/2026",
-      "action": "Enacted"
-    },
-    {
-      "billNumber": "H4580",
-      "title": "An Act relative to the select board of the town of Berlin",
-      "branch": "Senate",
-      "date": "10/13/2026",
-      "action": "Enacted and laid before the Governor"
-    },
-    {
-      "billNumber": "H5514",
-      "title": "An Act directing the city of Boston Police Department to waive the maximum age requirement for police officers for Jorge Enriquez",
-      "branch": "House",
-      "date": "10/8/2026",
-      "action": "Read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "H4580",
-      "title": "An Act relative to the select board of the town of Berlin",
-      "branch": "Senate",
-      "date": "10/8/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H4580",
-      "title": "An Act relative to the select board of the town of Berlin",
+      "billNumber": "H5597",
+      "title": "An Act providing for the appointment of retired police officers as special police officers in the town of Acushnet",
       "branch": "Senate",
-      "date": "10/8/2026",
-      "action": "Passed to be engrossed"
-    },
-    {
-      "billNumber": "H4580",
-      "title": "An Act relative to the select board of the town of Berlin",
-      "branch": "House",
-      "date": "9/21/2026",
-      "action": "Read third (title changed) and passed to be engrossed"
-    },
-    {
-      "billNumber": "H5514",
-      "title": "An Act directing the city of Boston Police Department to waive the maximum age requirement for police officers for Jorge Enriquez",
-      "branch": "House",
-      "date": "9/17/2026",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "H5288",
-      "title": "An Act authorizing the City of Westfield to establish an age limit for original appointment to the position of firefighter",
-      "branch": "House",
-      "date": "8/24/2026",
-      "action": "Enacted"
-    },
-    {
-      "billNumber": "H5288",
-      "title": "An Act authorizing the City of Westfield to establish an age limit for original appointment to the position of firefighter",
-      "branch": "Senate",
-      "date": "8/24/2026",
-      "action": "Enacted and laid before the Governor"
-    },
-    {
-      "billNumber": "H5288",
-      "title": "An Act authorizing the City of Westfield to establish an age limit for original appointment to the position of firefighter",
-      "branch": "Senate",
-      "date": "8/20/2026",
-      "action": "Read third (title changed) and passed to be engrossed"
-    },
-    {
-      "billNumber": "S3250",
-      "title": "An Act providing for recall elections for the Freetown-Lakeville regional school district",
-      "branch": "House",
-      "date": "8/17/2026",
-      "action": "House concurred"
-    },
-    {
-      "billNumber": "H2101",
-      "title": "An Act to enforce laws protecting worksite safety",
-      "branch": "Senate",
-      "date": "7/16/2026",
+      "date": "7/23/2026",
       "action": "Senate concurred"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #1 (Keenan) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #2 (Keenan) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #3 (Keenan) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #4 (Keenan) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #7 (Friedman) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #8 (Friedman) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #14 (Montigny) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #6 (Kennedy) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #5 (Kennedy) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Amendment #15 (Rodrigues) adopted"
-    },
-    {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
-      "branch": "Senate",
-      "date": "7/16/2026",
-      "action": "Substituted, as amended, for H4767"
     },
     {
       "billNumber": "S3137",
@@ -495,44 +334,205 @@
       "action": "Read, rules suspended, read second and ordered to a third reading"
     },
     {
-      "billNumber": "S3171",
-      "title": "An Act requiring health care employers to develop and implement programs to prevent workplace violence",
+      "billNumber": "S2120",
+      "title": "An Act relative to removing the term hearing impaired from the general laws",
       "branch": "Senate",
-      "date": "7/9/2026",
-      "action": "Order relative to subject matter adopted"
+      "date": "6/23/2026",
+      "action": "New draft substituted (Creem), see S3142"
     },
     {
-      "billNumber": "S3142",
-      "title": "An Act removing the term hearing impaired from the General Laws",
+      "billNumber": "S3137",
+      "title": "An Act providing for improved public access and climate resiliency on the Mystic River and increasing the utilization of the designated port area ",
       "branch": "House",
-      "date": "6/29/2026",
+      "date": "6/18/2026",
+      "action": "House concurred"
+    },
+    {
+      "billNumber": "H5289",
+      "title": "An Act authorizing the appointment of retired police officers as special police officers in the town of Norwood",
+      "branch": "Senate",
+      "date": "6/18/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "S3142",
-      "title": "An Act removing the term hearing impaired from the General Laws",
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
       "branch": "Senate",
-      "date": "6/23/2026",
-      "action": "Passed to be engrossed"
+      "date": "6/11/2026",
+      "action": "Amendment #13 (Cyr) adopted"
     },
     {
-      "billNumber": "H5514",
-      "title": "An Act directing the city of Boston Police Department to waive the maximum age requirement for police officers for Jorge Enriquez",
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
       "branch": "Senate",
-      "date": "6/18/2026",
-      "action": "Senate concurred"
+      "date": "6/11/2026",
+      "action": "Amendment #1 (Feeney) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #2 (Payano) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #31 (Lovely) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #12 (Keenan) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #24 (Keenan) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #28 (Moore) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #49 (Rausch) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #52 (Rausch) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #4 (Fattman) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/11/2026",
+      "action": "Amendment #6 (Tarr) adopted"
+    },
+    {
+      "billNumber": "S3111",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "6/4/2026",
+      "action": "Order relative to subject matter adopted"
+    },
+    {
+      "billNumber": "H5289",
+      "title": "An Act authorizing the appointment of retired police officers as special police officers in the town of Norwood",
+      "branch": "House",
+      "date": "5/28/2026",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H4607",
+      "title": "An Act relative to increasing access to epinephrine",
+      "branch": "House",
+      "date": "5/20/2026",
+      "action": "New draft substituted, see H5443"
+    },
+    {
+      "billNumber": "H5289",
+      "title": "An Act authorizing the appointment of retired police officers as special police officers in the town of Norwood",
+      "branch": "House",
+      "date": "4/9/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H4290",
+      "title": "An Act establishing a housing trust fund in the town of Chatham",
+      "branch": "House",
+      "date": "3/30/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "S2120",
+      "title": "An Act relative to removing the term hearing impaired from the general laws",
+      "branch": "Senate",
+      "date": "3/30/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H2259",
+      "title": "An Act authorizing the Cotuit Fire District to raise and appropriate money for the Historical Society of Santuit and Cotuit",
+      "branch": "House",
+      "date": "3/16/2026",
+      "action": "Enacted"
+    },
+    {
+      "billNumber": "H2259",
+      "title": "An Act authorizing the Cotuit Fire District to raise and appropriate money for the Historical Society of Santuit and Cotuit",
+      "branch": "Senate",
+      "date": "3/16/2026",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "H2259",
+      "title": "An Act authorizing the Cotuit Fire District to raise and appropriate money for the Historical Society of Santuit and Cotuit",
+      "branch": "Senate",
+      "date": "3/12/2026",
+      "action": "Read second, ordered to a third reading, read third (title changed) and passed to be engrossed"
+    },
+    {
+      "billNumber": "H3271",
+      "title": "An Act relative to preserving information content of historic resources with community preservation funds ",
+      "branch": "House",
+      "date": "3/9/2026",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "S2767",
+      "title": "Economic Development and Emerging Technologies - Extension Order ",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Committee recommended ought to be adopted"
+    },
+    {
+      "billNumber": "S2767",
+      "title": "Economic Development and Emerging Technologies - Extension Order ",
+      "branch": "Senate",
+      "date": "1/15/2026",
+      "action": "Adopted"
+    },
+    {
+      "billNumber": "H4521",
+      "title": "An Act establishing a sick leave bank for Kathleen Rodrigue",
+      "branch": "Senate",
+      "date": "10/30/2025",
+      "action": "Emergency preamble adopted"
     }
   ],
   "sources": [
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 11958
+      "count": 11971
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5695
+      "count": 5696
     },
     {
       "name": "bills.Senate",
@@ -542,7 +542,7 @@
     {
       "name": "rollcalls.enumerated",
       "ok": true,
-      "count": 503
+      "count": 492
     },
     {
       "name": "bills.actions",
