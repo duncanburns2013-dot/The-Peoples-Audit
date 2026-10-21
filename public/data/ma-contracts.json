@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-20T09:42:43.453Z",
+  "fetchedAt": "2026-10-21T09:43:18.730Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -195,10 +195,10 @@
       "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
       "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
       "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 235368368.13,
-      "paymentCount": 15,
+      "totalAmount": 235658186.36,
+      "paymentCount": 16,
       "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "(CT) 07032300000000000004",
@@ -232,12 +232,40 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOND REDEMPTION (PRINCIPAL)",
+      "department": "OFFICE OF THE STATE TREASURER (TRE)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) BOND REDEMPTIONS-PAYMENTS BONDS MATURED",
+      "objectClass": "(SS) DEBT PAYMENT",
+      "totalAmount": 211821342.23,
+      "paymentCount": 4,
+      "firstDate": null,
+      "lastDate": null
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "BOND REDEMPTION (INTEREST)",
       "department": "OFFICE OF THE STATE TREASURER (TRE)",
       "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
       "appropriation": "(06606600) BOND REDEMPTIONS-PAYMENTS BONDS MATURED",
       "objectClass": "(SS) DEBT PAYMENT",
       "totalAmount": 203085045.19,
+      "paymentCount": 2,
+      "firstDate": null,
+      "lastDate": null
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOND REDEMPTION (INTEREST)",
+      "department": "OFFICE OF THE STATE TREASURER (TRE)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) BOND REDEMPTIONS-PAYMENTS BONDS MATURED",
+      "objectClass": "(SS) DEBT PAYMENT",
+      "totalAmount": 199985162.51,
       "paymentCount": 2,
       "firstDate": null,
       "lastDate": null
@@ -274,6 +302,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
+      "totalAmount": 172051057.68,
+      "paymentCount": 154,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "COMMONWEALTH CARE ALLIANCE",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -297,20 +339,6 @@
       "paymentCount": 115,
       "firstDate": "2026-07-16",
       "lastDate": "2026-09-10"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
-      "totalAmount": 151164379.9,
-      "paymentCount": 146,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
     },
     {
       "encumbranceId": "(EAV) 07012700000000000001",
@@ -610,20 +638,6 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOND REDEMPTION (PRINCIPAL)",
-      "department": "OFFICE OF THE STATE TREASURER (TRE)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) BOND REDEMPTIONS-PAYMENTS BONDS MATURED",
-      "objectClass": "(SS) DEBT PAYMENT",
-      "totalAmount": 102551342.23,
-      "paymentCount": 2,
-      "firstDate": null,
-      "lastDate": null
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
       "vendor": "TUFTS HEALTH PUBLIC PLANS INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -633,20 +647,6 @@
       "paymentCount": 4,
       "firstDate": "2026-09-23",
       "lastDate": "2026-10-14"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOND REDEMPTION (INTEREST)",
-      "department": "OFFICE OF THE STATE TREASURER (TRE)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) BOND REDEMPTIONS-PAYMENTS BONDS MATURED",
-      "objectClass": "(SS) DEBT PAYMENT",
-      "totalAmount": 95478431.26,
-      "paymentCount": 1,
-      "firstDate": null,
-      "lastDate": null
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -717,6 +717,20 @@
       "paymentCount": 3,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 77897108.28,
+      "paymentCount": 17,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -901,20 +915,6 @@
       "lastDate": "2026-08-31"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(NN) INFRASTRUCTURE:",
-      "totalAmount": 61261731.79,
-      "paymentCount": 16,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
-    },
-    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -993,10 +993,10 @@
       "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
       "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
       "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 57095567.11,
-      "paymentCount": 14,
+      "totalAmount": 57097190.87,
+      "paymentCount": 15,
       "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1055,6 +1055,20 @@
       "lastDate": "2026-10-16"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 53683095.87,
+      "paymentCount": 51,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
       "encumbranceId": "(GAE) FY2027ROOMSCONSOLIDA",
       "encumbranceType": "GAE",
       "encumbranceBody": "FY2027ROOMSCONSOLIDA",
@@ -1095,20 +1109,6 @@
       "paymentCount": 9,
       "firstDate": "2026-07-31",
       "lastDate": "2026-09-03"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 47230585.2,
-      "paymentCount": 47,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
     },
     {
       "encumbranceId": "(EAV) 07012700000000000001",
@@ -1212,6 +1212,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(UU) IT NON-PAYROLL EXPENSES",
+      "totalAmount": 40140631.77,
+      "paymentCount": 18,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "TUFTS HEALTH PUBLIC PLANS INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -1221,6 +1235,20 @@
       "paymentCount": 8,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
+      "totalAmount": 39346202.06,
+      "paymentCount": 18,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1282,20 +1310,6 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(UU) IT NON-PAYROLL EXPENSES",
-      "totalAmount": 37461956.09,
-      "paymentCount": 17,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
       "vendor": "TUFTS ASSOCIATED HEALTH MAINT ORG INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -1314,11 +1328,11 @@
       "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
       "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
-      "totalAmount": 35984187.55,
-      "paymentCount": 17,
+      "objectClass": "(HH) CONSULTANT SVCS (TO DEPTS)",
+      "totalAmount": 36235980.68,
+      "paymentCount": 18,
       "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1347,6 +1361,20 @@
       "paymentCount": 1,
       "firstDate": "2026-08-11",
       "lastDate": "2026-08-11"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(CC) SPECIAL EMPLOYEES",
+      "totalAmount": 35465352.46,
+      "paymentCount": 74,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "(CT) 06302300000000003507",
@@ -1402,7 +1430,7 @@
       "totalAmount": 34366559.44,
       "paymentCount": 28,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1450,20 +1478,6 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(CC) SPECIAL EMPLOYEES",
-      "totalAmount": 33221984.98,
-      "paymentCount": 71,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
       "vendor": "TEMPUS UNLIMITED INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -1472,7 +1486,7 @@
       "totalAmount": 32881740.23,
       "paymentCount": 29,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "(CT) INTF00X02027P0134462",
@@ -1501,6 +1515,20 @@
       "paymentCount": 6,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-08"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(GG) ENERGY COSTS AND SPACE RENTAL",
+      "totalAmount": 32191561.5,
+      "paymentCount": 17,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1565,12 +1593,12 @@
       "vendor": "UMS - SUMMARY TRUST PAYMENT",
       "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(HH) CONSULTANT SVCS (TO DEPTS)",
-      "totalAmount": 30201224.19,
-      "paymentCount": 17,
+      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
+      "totalAmount": 30220963.35,
+      "paymentCount": 58,
       "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "(CT) 06302300000000003494",
@@ -1618,20 +1646,6 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(GG) ENERGY COSTS AND SPACE RENTAL",
-      "totalAmount": 26578098.78,
-      "paymentCount": 16,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
       "vendor": "SENIOR WHOLE HEALTH",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -1641,20 +1655,6 @@
       "paymentCount": 1,
       "firstDate": "2026-10-13",
       "lastDate": "2026-10-13"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
-      "totalAmount": 26032505.44,
-      "paymentCount": 54,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1710,7 +1710,7 @@
       "totalAmount": 24019898.24,
       "paymentCount": 649,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1721,10 +1721,24 @@
       "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
       "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
       "objectClass": "(EE) ADMINISTRATIVE EXPENSES",
-      "totalAmount": 22874750.87,
-      "paymentCount": 17,
+      "totalAmount": 24019281.74,
+      "paymentCount": 18,
       "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-16"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(HH) CONSULTANT SVCS (TO DEPTS)",
+      "totalAmount": 23422762.51,
+      "paymentCount": 15,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1809,20 +1823,6 @@
       "paymentCount": 125,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(HH) CONSULTANT SVCS (TO DEPTS)",
-      "totalAmount": 20037978,
-      "paymentCount": 14,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
     },
     {
       "encumbranceId": "(CT) INTF00X02025C0127763",
@@ -1949,6 +1949,20 @@
       "paymentCount": 1,
       "firstDate": "2026-07-23",
       "lastDate": "2026-07-23"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
+      "totalAmount": 18197772.6,
+      "paymentCount": 14,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2242,7 +2256,7 @@
       "totalAmount": 15880113.1,
       "paymentCount": 77,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2270,7 +2284,7 @@
       "totalAmount": 15700641.93,
       "paymentCount": 4,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2329,6 +2343,20 @@
       "lastDate": "2026-10-05"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(CC) SPECIAL EMPLOYEES",
+      "totalAmount": 14695818.72,
+      "paymentCount": 57,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
       "encumbranceId": "(CT) INTF00X02025C0128114",
       "encumbranceType": "CT",
       "encumbranceBody": "INTF00X02025C0128114",
@@ -2382,7 +2410,7 @@
       "totalAmount": 14196446.89,
       "paymentCount": 4,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2458,20 +2486,6 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(CC) SPECIAL EMPLOYEES",
-      "totalAmount": 13642442.89,
-      "paymentCount": 55,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
       "vendor": "SOUTHCOAST HOSPITALS GROUP INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -2509,20 +2523,6 @@
       "paymentCount": 3,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-08"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
-      "totalAmount": 12989211.27,
-      "paymentCount": 13,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
     },
     {
       "encumbranceId": "(CT) 06302300000000003507",
@@ -2682,6 +2682,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(JJ) OPERATIONAL SERVICES",
+      "totalAmount": 11531096.47,
+      "paymentCount": 18,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "CVS PHARMACY INC.",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -2690,7 +2704,7 @@
       "totalAmount": 11460387.52,
       "paymentCount": 1899,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2766,6 +2780,34 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006669) HOSPITAL STATUTORY ACTIVITY",
+      "objectClass": "(CC) SPECIAL EMPLOYEES",
+      "totalAmount": 10647493.74,
+      "paymentCount": 3,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 10583255.51,
+      "paymentCount": 42,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "NEIGHBORHEALTH CORPORATION",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -2775,20 +2817,6 @@
       "paymentCount": 23,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(JJ) OPERATIONAL SERVICES",
-      "totalAmount": 10547903.38,
-      "paymentCount": 17,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
@@ -3228,20 +3256,6 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 8593841.41,
-      "paymentCount": 38,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
       "vendor": "SERENITY CARE",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -3393,6 +3407,20 @@
       "lastDate": "2026-07-28"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(KK) EQUIPMENT PURCHASE",
+      "totalAmount": 8091482.33,
+      "paymentCount": 17,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
       "encumbranceId": "(CT) 2026FWCGPBOSTONSUPPM",
       "encumbranceType": "CT",
       "encumbranceBody": "2026FWCGPBOSTONSUPPM",
@@ -3441,12 +3469,12 @@
       "vendor": "UMS - SUMMARY TRUST PAYMENT",
       "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(KK) EQUIPMENT PURCHASE",
-      "totalAmount": 7715079.22,
-      "paymentCount": 16,
+      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
+      "totalAmount": 7677318.69,
+      "paymentCount": 15,
       "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT008",
@@ -3533,6 +3561,20 @@
       "lastDate": "2026-09-15"
     },
     {
+      "encumbranceId": "(CT) INTF00X02023C0120259",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTF00X02023C0120259",
+      "vendor": "SPS-WALSH JV",
+      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
+      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
+      "appropriation": "(UNASSIGNED) MHS CAPITAL REINVESTMENT ACCOUNT",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 7428213.88,
+      "paymentCount": 3,
+      "firstDate": "2026-09-28",
+      "lastDate": "2026-10-16"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -3589,6 +3631,20 @@
       "lastDate": "2026-09-30"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMS - SUMMARY TRUST PAYMENT",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
+      "objectClass": "(LL) EQUIPMENT LEASE-MAINTAIN/REPAR",
+      "totalAmount": 7305449.35,
+      "paymentCount": 18,
+      "firstDate": "2026-08-11",
+      "lastDate": "2026-10-16"
+    },
+    {
       "encumbranceId": "(CT) INTF00X02023C0120259",
       "encumbranceType": "CT",
       "encumbranceBody": "INTF00X02023C0120259",
@@ -3614,21 +3670,21 @@
       "totalAmount": 7229649.99,
       "paymentCount": 20,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006199) OTHER NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(LL) EQUIPMENT LEASE-MAINTAIN/REPAR",
-      "totalAmount": 7148548.76,
-      "paymentCount": 17,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
+      "encumbranceId": "(CT) 06302300000000003496",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003496",
+      "vendor": "CAREMARKPCS HEALTH, L.L.C.",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 7210600.91,
+      "paymentCount": 6,
+      "firstDate": "2026-10-06",
+      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3757,20 +3813,6 @@
       "lastDate": "2026-08-04"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006669) HOSPITAL STATUTORY ACTIVITY",
-      "objectClass": "(CC) SPECIAL EMPLOYEES",
-      "totalAmount": 6895521.04,
-      "paymentCount": 2,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-09-17"
-    },
-    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -3838,7 +3880,7 @@
       "totalAmount": 6673962.45,
       "paymentCount": 39,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4093,6 +4135,20 @@
       "lastDate": "2026-09-30"
     },
     {
+      "encumbranceId": "(CT) INTF00X02024C0121394",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTF00X02024C0121394",
+      "vendor": "THE MIDDLESEX CORPORATION",
+      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
+      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
+      "appropriation": "(UNASSIGNED) FEDERAL AID",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 6236464.97,
+      "paymentCount": 4,
+      "firstDate": "2026-09-18",
+      "lastDate": "2026-10-16"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -4104,7 +4160,7 @@
       "totalAmount": 6211746.74,
       "paymentCount": 1869,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4118,7 +4174,7 @@
       "totalAmount": 6205345.14,
       "paymentCount": 4,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-15"
+      "lastDate": "2026-10-19"
     },
     {
       "encumbranceId": "(CT) 2026ENEPP1CAPE000113",
@@ -4161,62 +4217,6 @@
       "paymentCount": 90,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "(CT) CHOICESSFY2700000000",
-      "encumbranceType": "CT",
-      "encumbranceBody": "CHOICESSFY2700000000",
-      "vendor": "CENTRAL BOSTON ELDER SERVICES INC",
-      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 6141503.98,
-      "paymentCount": 4,
-      "firstDate": "2026-10-02",
-      "lastDate": "2026-10-06"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMS - SUMMARY TRUST PAYMENT",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(74006299) FEDERAL NON-APPROPRIATED FUNDS - UMASS SYSTEMS",
-      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
-      "totalAmount": 6138784.69,
-      "paymentCount": 14,
-      "firstDate": "2026-08-11",
-      "lastDate": "2026-10-15"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT003",
-      "vendor": "MATCH CHARTER PUBLIC SCHOOL",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12019008) CHARTER SCHOOL PAYMENTS",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 6122150,
-      "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27LOCALAIDPAYMENT003",
-      "vendor": "KIPP ACADEMY LYNN CHARTER",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12019008) CHARTER SCHOOL PAYMENTS",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 6043374,
-      "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
     }
   ]
 }
