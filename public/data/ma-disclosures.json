@@ -1,17 +1,7 @@
 {
-  "fetchedAt": "2026-10-23T12:16:09.219Z",
+  "fetchedAt": "2026-10-23T18:13:48.776Z",
   "preservedFromCache": false,
   "sources": [
-    {
-      "name": "mass.gov · Debt Management",
-      "ok": true,
-      "count": 0
-    },
-    {
-      "name": "mass.gov · Office of the Treasurer",
-      "ok": true,
-      "count": 0
-    },
     {
       "name": "massbondholder.com · News",
       "ok": true,
@@ -21,6 +11,16 @@
       "name": "massbondholder.com · Official Statements",
       "ok": true,
       "count": 73
+    },
+    {
+      "name": "mass.gov · Debt Management",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "mass.gov · Office of the Treasurer",
+      "ok": true,
+      "count": 0
     }
   ],
   "warnings": [],
@@ -33,6 +33,16 @@
       "type": "News / Disclosure",
       "date": "2026-10-15",
       "url": "https://www.massbondholder.com/october-15-2026-information-statement-now-available",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
+    {
+      "id": "mbh:/october-2026-gans-series-official-statement-now-available",
+      "title": "Read more about October 2026 GANs Series A Official Statement Now Available",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Official Statement",
+      "date": "2026-10-01",
+      "url": "https://www.massbondholder.com/october-2026-gans-series-official-statement-now-available",
       "summary": "",
       "source": "MassBondHolder"
     },
@@ -173,16 +183,6 @@
       "type": "Revenue Update",
       "date": null,
       "url": "https://www.massbondholder.com/august-revenue-collections-total-3148-billion",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh:/july-revenue-collections-total-3093-billion",
-      "title": "Read more about July Revenue Collections Total $3.093 Billion",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "Revenue Update",
-      "date": null,
-      "url": "https://www.massbondholder.com/july-revenue-collections-total-3093-billion",
       "summary": "",
       "source": "MassBondHolder"
     },
