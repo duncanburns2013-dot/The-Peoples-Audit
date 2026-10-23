@@ -1,9 +1,14 @@
 {
-  "fetchedAt": "2026-10-23T06:20:04.932Z",
+  "fetchedAt": "2026-10-23T12:16:09.219Z",
   "preservedFromCache": false,
   "sources": [
     {
       "name": "mass.gov · Debt Management",
+      "ok": true,
+      "count": 0
+    },
+    {
+      "name": "mass.gov · Office of the Treasurer",
       "ok": true,
       "count": 0
     },
@@ -16,11 +21,6 @@
       "name": "massbondholder.com · Official Statements",
       "ok": true,
       "count": 73
-    },
-    {
-      "name": "mass.gov · Office of the Treasurer",
-      "ok": true,
-      "count": 0
     }
   ],
   "warnings": [],
@@ -217,12 +217,12 @@
       "source": "MassBondHolder"
     },
     {
-      "id": "mbh-os:https://emma.msrb.org/P11985011-P11513241-P11967733.pdf",
-      "title": "October 2026, GANs Series A ($100,000,000*)",
+      "id": "mbh-os:https://emma.msrb.org/P11988555-P11515580-P11970245.pdf",
+      "title": "October 2026, GANs Series A ($100,000,000)",
       "issuer": "Commonwealth of Massachusetts",
       "type": "Official Statement",
       "date": null,
-      "url": "https://emma.msrb.org/P11985011-P11513241-P11967733.pdf",
+      "url": "https://emma.msrb.org/P11988555-P11515580-P11970245.pdf",
       "summary": "Official Statement from MassBondHolder.com",
       "source": "MassBondHolder"
     },
