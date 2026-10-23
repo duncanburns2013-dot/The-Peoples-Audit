@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-22T09:43:31.704Z",
+  "fetchedAt": "2026-10-23T09:43:09.940Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -618,7 +618,7 @@
       "totalAmount": 107735504.73,
       "paymentCount": 6,
       "firstDate": "2026-09-23",
-      "lastDate": "2026-10-19"
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(GAE) 27MEDICAREPARTD00001",
@@ -661,6 +661,20 @@
       "paymentCount": 4,
       "firstDate": "2026-09-23",
       "lastDate": "2026-10-14"
+    },
+    {
+      "encumbranceId": "(CT) 07072300000000000017",
+      "encumbranceType": "CT",
+      "encumbranceBody": "07072300000000000017",
+      "vendor": "HARVARD PILGRIM HEALTH CARE",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 94586971.98,
+      "paymentCount": 6,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-10-20"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -759,20 +773,6 @@
       "paymentCount": 17,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-08"
-    },
-    {
-      "encumbranceId": "(CT) 07072300000000000017",
-      "encumbranceType": "CT",
-      "encumbranceBody": "07072300000000000017",
-      "vendor": "HARVARD PILGRIM HEALTH CARE",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 75953338.64,
-      "paymentCount": 5,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -925,8 +925,8 @@
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 60000000,
       "paymentCount": 1,
-      "firstDate": "2026-10-19",
-      "lastDate": "2026-10-19"
+      "firstDate": "2026-10-21",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1863,8 +1863,8 @@
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 20000000,
       "paymentCount": 1,
-      "firstDate": "2026-10-19",
-      "lastDate": "2026-10-19"
+      "firstDate": "2026-10-21",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(CT) INTF00X02025C0127763",
@@ -2074,7 +2074,7 @@
       "totalAmount": 17063091.89,
       "paymentCount": 6,
       "firstDate": "2026-09-24",
-      "lastDate": "2026-10-19"
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2525,6 +2525,20 @@
       "lastDate": "2026-08-31"
     },
     {
+      "encumbranceId": "(CT) 06302300000000003494",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003494",
+      "vendor": "HNE ADVISORY SERVICES, INC.",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 13725204.61,
+      "paymentCount": 7,
+      "firstDate": "2026-09-18",
+      "lastDate": "2026-10-20"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -2637,6 +2651,20 @@
       "lastDate": "2026-08-31"
     },
     {
+      "encumbranceId": "(PC) INTF8039F04MED560108",
+      "encumbranceType": "PC",
+      "encumbranceBody": "INTF8039F04MED560108",
+      "vendor": "CARDINAL HEALTH 110 LLC",
+      "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) STATE OFFICE FOR PHARMACY SERVICES ISF",
+      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
+      "totalAmount": 12055078.45,
+      "paymentCount": 6,
+      "firstDate": "2026-09-25",
+      "lastDate": "2026-10-20"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -2691,20 +2719,6 @@
       "paymentCount": 1,
       "firstDate": "2026-08-24",
       "lastDate": "2026-08-24"
-    },
-    {
-      "encumbranceId": "(CT) 06302300000000003494",
-      "encumbranceType": "CT",
-      "encumbranceBody": "06302300000000003494",
-      "vendor": "HNE ADVISORY SERVICES, INC.",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 11574028.94,
-      "paymentCount": 6,
-      "firstDate": "2026-09-18",
-      "lastDate": "2026-10-16"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2819,6 +2833,20 @@
       "lastDate": "2026-10-16"
     },
     {
+      "encumbranceId": "(CT) INTF00X02022C0116673",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTF00X02022C0116673",
+      "vendor": "BHD-O&G-AETNA I-495 I-90 JV",
+      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
+      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
+      "appropriation": "(UNASSIGNED) FEDERAL AID",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 10616840.35,
+      "paymentCount": 11,
+      "firstDate": "2026-10-05",
+      "lastDate": "2026-10-20"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -2875,20 +2903,6 @@
       "lastDate": "2026-09-14"
     },
     {
-      "encumbranceId": "(PC) INTF8039F04MED560108",
-      "encumbranceType": "PC",
-      "encumbranceBody": "INTF8039F04MED560108",
-      "vendor": "CARDINAL HEALTH 110 LLC",
-      "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) STATE OFFICE FOR PHARMACY SERVICES ISF",
-      "objectClass": "(FF) FACILITY OPERATIONAL EXPENSES",
-      "totalAmount": 10288959.66,
-      "paymentCount": 5,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-10-16"
-    },
-    {
       "encumbranceId": "(GAE) NT2027LOCOPTJETFUELS",
       "encumbranceType": "GAE",
       "encumbranceBody": "NT2027LOCOPTJETFUELS",
@@ -2927,8 +2941,8 @@
       "objectClass": "(NN) INFRASTRUCTURE:",
       "totalAmount": 10064164.46,
       "paymentCount": 1,
-      "firstDate": "2026-10-19",
-      "lastDate": "2026-10-19"
+      "firstDate": "2026-10-21",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(CT) MASCECEMISIONSREDUCE",
@@ -3797,20 +3811,6 @@
       "paymentCount": 2,
       "firstDate": "2026-07-31",
       "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(CT) INTF00X02022C0116673",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00X02022C0116673",
-      "vendor": "BHD-O&G-AETNA I-495 I-90 JV",
-      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
-      "appropriation": "(UNASSIGNED) FEDERAL AID",
-      "objectClass": "(NN) INFRASTRUCTURE:",
-      "totalAmount": 6952286.48,
-      "paymentCount": 8,
-      "firstDate": "2026-10-05",
-      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "UNASSIGNED",
