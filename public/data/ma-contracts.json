@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-23T09:43:09.940Z",
+  "fetchedAt": "2026-10-24T09:39:29.182Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -148,6 +148,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOSTON MEDICAL CENTER HEALTH P",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MANAGED CARE PLAN",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 297474300.65,
+      "paymentCount": 17,
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-21"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "MASS GENERAL BRIGHAM HEALTH PLAN INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -162,15 +176,15 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOSTON MEDICAL CENTER HEALTH P",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MANAGED CARE PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 290119392.07,
-      "paymentCount": 16,
-      "firstDate": "2026-10-13",
-      "lastDate": "2026-10-13"
+      "vendor": "BOND REDEMPTION (PRINCIPAL)",
+      "department": "OFFICE OF THE STATE TREASURER (TRE)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) BOND REDEMPTIONS-PAYMENTS BONDS MATURED",
+      "objectClass": "(SS) DEBT PAYMENT",
+      "totalAmount": 253111542.23,
+      "paymentCount": 5,
+      "firstDate": null,
+      "lastDate": null
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -227,20 +241,6 @@
       "paymentCount": 16,
       "firstDate": "2026-07-03",
       "lastDate": "2026-09-17"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOND REDEMPTION (PRINCIPAL)",
-      "department": "OFFICE OF THE STATE TREASURER (TRE)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) BOND REDEMPTIONS-PAYMENTS BONDS MATURED",
-      "objectClass": "(SS) DEBT PAYMENT",
-      "totalAmount": 211821342.23,
-      "paymentCount": 4,
-      "firstDate": null,
-      "lastDate": null
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -389,6 +389,20 @@
       "vendor": "MEDICAID",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MASSHEALTH SENIOR CARE",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 131585750.85,
+      "paymentCount": 4,
+      "firstDate": "2026-09-22",
+      "lastDate": "2026-10-21"
+    },
+    {
+      "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "27MEDICAREPARTAB0001",
+      "vendor": "MEDICAID",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
       "appropriation": "(40000601) MASSHEALTH SENIOR CARE",
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 130324430.59,
@@ -507,6 +521,20 @@
       "paymentCount": 2,
       "firstDate": null,
       "lastDate": null
+    },
+    {
+      "encumbranceId": "(GAE) 27MEDICAREPARTD00001",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "27MEDICAREPARTD00001",
+      "vendor": "MEDICAID",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MEDICARE PART D CLAWBACK",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 118987463.43,
+      "paymentCount": 2,
+      "firstDate": "2026-09-22",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -663,6 +691,20 @@
       "lastDate": "2026-10-14"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "SUMMARY UMASS PAYROLL",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(UNASSIGNED) OPERATION OF THE STATE UNIVERSITY",
+      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
+      "totalAmount": 98275838.06,
+      "paymentCount": 84,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-10-21"
+    },
+    {
       "encumbranceId": "(CT) 07072300000000000017",
       "encumbranceType": "CT",
       "encumbranceBody": "07072300000000000017",
@@ -674,7 +716,7 @@
       "totalAmount": 94586971.98,
       "paymentCount": 6,
       "firstDate": "2026-09-24",
-      "lastDate": "2026-10-20"
+      "lastDate": "2026-10-22"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -705,6 +747,20 @@
       "lastDate": "2026-09-11"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "CHILDRENS HOSPITALCORPORATION",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 83823690.04,
+      "paymentCount": 7,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-21"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -731,6 +787,20 @@
       "paymentCount": 3,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOSTON MEDICAL CENTER HEALTH P",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) ACA EXPANSION POPULATIONS",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 78688218.31,
+      "paymentCount": 16,
+      "firstDate": "2026-10-13",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -792,20 +862,6 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "CHILDRENS HOSPITALCORPORATION",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 73881227.11,
-      "paymentCount": 5,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-05"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
       "vendor": "TEMPUS UNLIMITED INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -815,6 +871,20 @@
       "paymentCount": 63,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "27MEDICAREPARTAB0001",
+      "vendor": "MEDICAID",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 70853865.85,
+      "paymentCount": 4,
+      "firstDate": "2026-09-22",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
@@ -873,34 +943,6 @@
       "lastDate": "2026-10-13"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "SUMMARY UMASS PAYROLL",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(UNASSIGNED) OPERATION OF THE STATE UNIVERSITY",
-      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
-      "totalAmount": 65850340,
-      "paymentCount": 56,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-10-08"
-    },
-    {
-      "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27MEDICAREPARTAB0001",
-      "vendor": "MEDICAID",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MASSHEALTH SENIOR CARE",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 65351794.1,
-      "paymentCount": 2,
-      "firstDate": "2026-09-22",
-      "lastDate": "2026-09-22"
-    },
-    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -941,20 +983,6 @@
       "paymentCount": 16,
       "firstDate": "2026-07-31",
       "lastDate": "2026-09-03"
-    },
-    {
-      "encumbranceId": "(GAE) 27MEDICAREPARTD00001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27MEDICAREPARTD00001",
-      "vendor": "MEDICAID",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MEDICARE PART D CLAWBACK",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 59516568.68,
-      "paymentCount": 1,
-      "firstDate": "2026-09-22",
-      "lastDate": "2026-09-22"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1083,6 +1111,20 @@
       "lastDate": "2026-10-16"
     },
     {
+      "encumbranceId": "(CT) FY24SRF240052FUNDSDI",
+      "encumbranceType": "CT",
+      "encumbranceBody": "FY24SRF240052FUNDSDI",
+      "vendor": "SPRUCE TECHNOLOGY INC",
+      "department": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(UNASSIGNED) EEC COVID-19 WORKFORCE AND SUPPORT RESERVE",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 53760807.01,
+      "paymentCount": 3,
+      "firstDate": "2026-09-25",
+      "lastDate": "2026-10-21"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -1111,20 +1153,6 @@
       "lastDate": "2026-09-30"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOSTON MEDICAL CENTER HEALTH P",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) ACA EXPANSION POPULATIONS",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 50591176.25,
-      "paymentCount": 13,
-      "firstDate": "2026-10-13",
-      "lastDate": "2026-10-13"
-    },
-    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -1137,6 +1165,20 @@
       "paymentCount": 9,
       "firstDate": "2026-07-31",
       "lastDate": "2026-09-03"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "UMASS MEMORIAL MEDICAL CENTER INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 48467925.6,
+      "paymentCount": 5,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1195,32 +1237,18 @@
       "lastDate": "2026-09-03"
     },
     {
-      "encumbranceId": "(CT) FY24SRF240052FUNDSDI",
-      "encumbranceType": "CT",
-      "encumbranceBody": "FY24SRF240052FUNDSDI",
-      "vendor": "SPRUCE TECHNOLOGY INC",
-      "department": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(UNASSIGNED) EEC COVID-19 WORKFORCE AND SUPPORT RESERVE",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 40207117.72,
-      "paymentCount": 2,
-      "firstDate": "2026-09-25",
-      "lastDate": "2026-10-09"
-    },
-    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
-      "vendor": "UMASS MEMORIAL MEDICAL CENTER INC",
+      "vendor": "LAWRENCE GENERAL HOSPITAL INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
       "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 40151552.29,
-      "paymentCount": 3,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-09"
+      "totalAmount": 40518415.82,
+      "paymentCount": 15,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1403,20 +1431,6 @@
       "paymentCount": 16,
       "firstDate": "2026-07-03",
       "lastDate": "2026-09-17"
-    },
-    {
-      "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "27MEDICAREPARTAB0001",
-      "vendor": "MEDICAID",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 35189427.6,
-      "paymentCount": 2,
-      "firstDate": "2026-09-22",
-      "lastDate": "2026-09-22"
     },
     {
       "encumbranceId": "(CT) 2027INSIGHTPUBLI4282",
@@ -1685,6 +1699,20 @@
       "lastDate": "2026-10-13"
     },
     {
+      "encumbranceId": "(CT) 06302300000000003496",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003496",
+      "vendor": "CAREMARKPCS HEALTH, L.L.C.",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 25574406.55,
+      "paymentCount": 7,
+      "firstDate": "2026-10-06",
+      "lastDate": "2026-10-21"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -1693,10 +1721,10 @@
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
       "appropriation": "(UNASSIGNED) ACA EXPANSION POPULATIONS",
       "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 25369996.26,
-      "paymentCount": 1,
+      "totalAmount": 25454957.54,
+      "paymentCount": 2,
       "firstDate": "2026-10-13",
-      "lastDate": "2026-10-13"
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1753,6 +1781,20 @@
       "paymentCount": 15,
       "firstDate": "2026-08-11",
       "lastDate": "2026-10-16"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOSTON MEDICAL CENTER CORP",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 22847951.46,
+      "paymentCount": 4,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1893,6 +1935,20 @@
       "paymentCount": 1,
       "firstDate": "2026-09-17",
       "lastDate": "2026-09-17"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOSTON MEDICAL CENTER HEALTH P",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 19487908.8,
+      "paymentCount": 9,
+      "firstDate": "2026-10-21",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2161,20 +2217,6 @@
       "lastDate": "2026-09-03"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "BOSTON MEDICAL CENTER CORP",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 16576405.12,
-      "paymentCount": 2,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-05"
-    },
-    {
       "encumbranceId": "(CT) CTFEMA4496MAGBI02130",
       "encumbranceType": "CT",
       "encumbranceBody": "CTFEMA4496MAGBI02130",
@@ -2215,6 +2257,20 @@
       "paymentCount": 10,
       "firstDate": "2026-07-31",
       "lastDate": "2026-09-03"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "LAWRENCE GENERAL HOSPITAL INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 16235388.04,
+      "paymentCount": 4,
+      "firstDate": "2026-10-05",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2329,6 +2385,20 @@
       "lastDate": "2026-10-19"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "SOUTHCOAST HOSPITALS GROUP INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 15520958.36,
+      "paymentCount": 5,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-21"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -2369,20 +2439,6 @@
       "paymentCount": 1,
       "firstDate": "2026-09-18",
       "lastDate": "2026-09-18"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "LAWRENCE GENERAL HOSPITAL INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 14845624.45,
-      "paymentCount": 2,
-      "firstDate": "2026-10-05",
-      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2536,21 +2592,7 @@
       "totalAmount": 13725204.61,
       "paymentCount": 7,
       "firstDate": "2026-09-18",
-      "lastDate": "2026-10-20"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "SOUTHCOAST HOSPITALS GROUP INC",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 13341424.17,
-      "paymentCount": 3,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-05"
+      "lastDate": "2026-10-22"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2662,7 +2704,7 @@
       "totalAmount": 12055078.45,
       "paymentCount": 6,
       "firstDate": "2026-09-25",
-      "lastDate": "2026-10-20"
+      "lastDate": "2026-10-22"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2791,6 +2833,34 @@
       "lastDate": "2026-09-14"
     },
     {
+      "encumbranceId": "(CT) CHOICESSFY2700000000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "CHOICESSFY2700000000",
+      "vendor": "SPRINGWELL INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 11165725.95,
+      "paymentCount": 5,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-21"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "MASS GENERAL BRIGHAM HEALTH PLAN INC",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 11150672.07,
+      "paymentCount": 1,
+      "firstDate": "2026-10-21",
+      "lastDate": "2026-10-21"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -2803,20 +2873,6 @@
       "paymentCount": 4,
       "firstDate": "2026-08-11",
       "lastDate": "2026-09-08"
-    },
-    {
-      "encumbranceId": "(CT) CHOICESSFY2700000000",
-      "encumbranceType": "CT",
-      "encumbranceBody": "CHOICESSFY2700000000",
-      "vendor": "SPRINGWELL INC",
-      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 10853802.27,
-      "paymentCount": 4,
-      "firstDate": "2026-10-02",
-      "lastDate": "2026-10-02"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2844,7 +2900,7 @@
       "totalAmount": 10616840.35,
       "paymentCount": 11,
       "firstDate": "2026-10-05",
-      "lastDate": "2026-10-20"
+      "lastDate": "2026-10-22"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2999,6 +3055,20 @@
       "paymentCount": 2,
       "firstDate": "2026-09-17",
       "lastDate": "2026-09-17"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BAYSTATE MEDICAL CENTER",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 9821631.69,
+      "paymentCount": 5,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3251,20 +3321,6 @@
       "paymentCount": 2,
       "firstDate": "2026-07-31",
       "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "BAYSTATE MEDICAL CENTER",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) HOSPITAL INVESTMENT AND PERFORMANCE TRUST FUND",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 8760806.23,
-      "paymentCount": 3,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-05"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3729,18 +3785,18 @@
       "lastDate": "2026-10-19"
     },
     {
-      "encumbranceId": "(CT) 06302300000000003496",
+      "encumbranceId": "(CT) ASAP2026OLDCOLONY000",
       "encumbranceType": "CT",
-      "encumbranceBody": "06302300000000003496",
-      "vendor": "CAREMARKPCS HEALTH, L.L.C.",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 7210600.91,
-      "paymentCount": 6,
-      "firstDate": "2026-10-06",
-      "lastDate": "2026-10-20"
+      "encumbranceBody": "ASAP2026OLDCOLONY000",
+      "vendor": "OLD COLONY ELDER SERVICES INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOME CARE SERVICES FOR THE ELDERLY",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 7197477.3,
+      "paymentCount": 7,
+      "firstDate": "2026-10-14",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -4107,6 +4163,20 @@
       "lastDate": "2026-08-31"
     },
     {
+      "encumbranceId": "(CT) CHOICESSFY2700000000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "CHOICESSFY2700000000",
+      "vendor": "CENTRAL BOSTON ELDER SERVICES INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 6440376.46,
+      "paymentCount": 5,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-10-21"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -4147,76 +4217,6 @@
       "paymentCount": 2,
       "firstDate": "2026-07-31",
       "lastDate": "2026-08-31"
-    },
-    {
-      "encumbranceId": "(CT) INTF00X02024C0124913",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00X02024C0124913",
-      "vendor": "SPS NEW ENGLAND INC",
-      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
-      "appropriation": "(61212114) FEDERAL AID",
-      "objectClass": "(NN) INFRASTRUCTURE:",
-      "totalAmount": 6354554.33,
-      "paymentCount": 5,
-      "firstDate": "2026-07-28",
-      "lastDate": "2026-09-16"
-    },
-    {
-      "encumbranceId": "(GAE) FY2027ROOMSCONSOLIDA",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "FY2027ROOMSCONSOLIDA",
-      "vendor": "CITY OF CAMBRIDGE",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) PAYMENTS TO CITIES AND TOWNS - LOCAL",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 6346571.6,
-      "paymentCount": 1,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-09-30"
-    },
-    {
-      "encumbranceId": "(CT) INTF00X02024C0121394",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00X02024C0121394",
-      "vendor": "THE MIDDLESEX CORPORATION",
-      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
-      "appropriation": "(UNASSIGNED) FEDERAL AID",
-      "objectClass": "(NN) INFRASTRUCTURE:",
-      "totalAmount": 6236464.97,
-      "paymentCount": 4,
-      "firstDate": "2026-09-18",
-      "lastDate": "2026-10-20"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "CVS PHARMACY INC.",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) ACA EXPANSION POPULATIONS",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 6211746.74,
-      "paymentCount": 1869,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-10-19"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "MONTACHUSETT REGIONAL",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) MASSHEALTH SENIOR CARE",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 6205345.14,
-      "paymentCount": 4,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-10-19"
     }
   ]
 }
