@@ -1,24 +1,24 @@
 {
-  "fetchedAt": "2026-10-26T18:18:22.246Z",
+  "fetchedAt": "2026-10-27T00:30:16.045Z",
   "preservedFromCache": false,
   "sources": [
-    {
-      "name": "massbondholder.com · News",
-      "ok": true,
-      "count": 15
-    },
     {
       "name": "massbondholder.com · Official Statements",
       "ok": true,
       "count": 73
     },
     {
-      "name": "mass.gov · Office of the Treasurer",
+      "name": "massbondholder.com · News",
+      "ok": true,
+      "count": 15
+    },
+    {
+      "name": "mass.gov · Debt Management",
       "ok": true,
       "count": 0
     },
     {
-      "name": "mass.gov · Debt Management",
+      "name": "mass.gov · Office of the Treasurer",
       "ok": true,
       "count": 0
     }
@@ -33,6 +33,16 @@
       "type": "News / Disclosure",
       "date": "2026-10-15",
       "url": "https://www.massbondholder.com/october-15-2026-information-statement-now-available",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
+    {
+      "id": "mbh:/october-2026-dtr-bonds-series-official-statement-now-available",
+      "title": "Read more about October 2026 DTR Bonds Series A Official Statement Now Available",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Official Statement",
+      "date": "2026-10-01",
+      "url": "https://www.massbondholder.com/october-2026-dtr-bonds-series-official-statement-now-available",
       "summary": "",
       "source": "MassBondHolder"
     },
@@ -93,16 +103,6 @@
       "type": "Upcoming Issuance",
       "date": "2026-09-01",
       "url": "https://www.massbondholder.com/notice-proposed-bond-sale-september-2026-go-bonds-series-efg-h-refunding",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh:/investor-call-scheduled-friday-august-14-2026",
-      "title": "Read more about Investor Call Scheduled for Friday, August 14, 2026",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "Investor Communication",
-      "date": "2026-08-14",
-      "url": "https://www.massbondholder.com/investor-call-scheduled-friday-august-14-2026",
       "summary": "",
       "source": "MassBondHolder"
     },
@@ -217,22 +217,22 @@
       "source": "MassBondHolder"
     },
     {
+      "id": "mbh-os:https://emma.msrb.org/P11988851-P11515775-P11970452.pdf",
+      "title": "October 2026, DTR Bonds Series A ($577,030,000)",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Official Statement",
+      "date": null,
+      "url": "https://emma.msrb.org/P11988851-P11515775-P11970452.pdf",
+      "summary": "Official Statement from MassBondHolder.com",
+      "source": "MassBondHolder"
+    },
+    {
       "id": "mbh-os:https://emma.msrb.org/P11988555-P11515580-P11970245.pdf",
       "title": "October 2026, GANs Series A ($100,000,000)",
       "issuer": "Commonwealth of Massachusetts",
       "type": "Official Statement",
       "date": null,
       "url": "https://emma.msrb.org/P11988555-P11515580-P11970245.pdf",
-      "summary": "Official Statement from MassBondHolder.com",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh-os:https://emma.msrb.org/P11985020-P11513248-P11967752.pdf",
-      "title": "October 2026, DTR Bonds Series A ($583,890,000*)",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "Official Statement",
-      "date": null,
-      "url": "https://emma.msrb.org/P11985020-P11513248-P11967752.pdf",
       "summary": "Official Statement from MassBondHolder.com",
       "source": "MassBondHolder"
     },
