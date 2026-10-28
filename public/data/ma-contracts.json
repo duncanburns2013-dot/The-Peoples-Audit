@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-27T09:45:00.557Z",
+  "fetchedAt": "2026-10-28T09:35:31.757Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -87,6 +87,20 @@
       "paymentCount": 3,
       "firstDate": "2026-08-06",
       "lastDate": "2026-10-06"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "RETIREMENT ALLOWANCE-TEACHERS",
+      "department": "TEACHERS RETIREMENT BOARD (TRB)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) TEACHER RETIREMENT BD COMM PENSION",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 494306116.16,
+      "paymentCount": 6,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-10-23"
     },
     {
       "encumbranceId": "(CT) INTF00X02027S0136193",
@@ -185,20 +199,6 @@
       "paymentCount": 5,
       "firstDate": null,
       "lastDate": null
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "RETIREMENT ALLOWANCE-TEACHERS",
-      "department": "TEACHERS RETIREMENT BOARD (TRB)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) TEACHER RETIREMENT BD COMM PENSION",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 247130084.24,
-      "paymentCount": 3,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-09-24"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -353,6 +353,20 @@
       "paymentCount": 290,
       "firstDate": null,
       "lastDate": null
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "RETIREMENT ALLOWANCE-TEACHERS",
+      "department": "TEACHERS RETIREMENT BOARD (TRB)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) TEACHERS ANNUITIES FUND-RECEIPTS",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 137116530.4,
+      "paymentCount": 2,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-10-23"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -758,7 +772,7 @@
       "totalAmount": 86091908.5,
       "paymentCount": 8,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -913,20 +927,6 @@
       "paymentCount": 58,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "RETIREMENT ALLOWANCE-TEACHERS",
-      "department": "TEACHERS RETIREMENT BOARD (TRB)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) TEACHERS ANNUITIES FUND-RECEIPTS",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 68392607.76,
-      "paymentCount": 1,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-09-24"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1150,7 +1150,7 @@
       "totalAmount": 52747249.75,
       "paymentCount": 6,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(GAE) FY2027ROOMSCONSOLIDA",
@@ -1248,7 +1248,7 @@
       "totalAmount": 41807365.86,
       "paymentCount": 35,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1262,7 +1262,7 @@
       "totalAmount": 40662743.29,
       "paymentCount": 17,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1304,7 +1304,7 @@
       "totalAmount": 39629570.56,
       "paymentCount": 35,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1346,7 +1346,7 @@
       "totalAmount": 38920208.48,
       "paymentCount": 5,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1654,7 +1654,7 @@
       "totalAmount": 29108275.18,
       "paymentCount": 655,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(CT) 06302300000000003494",
@@ -1853,6 +1853,20 @@
       "lastDate": "2026-09-14"
     },
     {
+      "encumbranceId": "(CT) INTF00X02025C0127763",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTF00X02025C0127763",
+      "vendor": "DWW SPS JV",
+      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
+      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
+      "appropriation": "(UNASSIGNED) HIGHWAY/FEDERAL AID",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 21618389.51,
+      "paymentCount": 3,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-10-23"
+    },
+    {
       "encumbranceId": "(EAV) 07012700000000000001",
       "encumbranceType": "EAV",
       "encumbranceBody": "07012700000000000001",
@@ -2018,7 +2032,7 @@
       "totalAmount": 18565722.93,
       "paymentCount": 6,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2074,7 +2088,7 @@
       "totalAmount": 18240663.76,
       "paymentCount": 5,
       "firstDate": "2026-10-05",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2130,7 +2144,7 @@
       "totalAmount": 17476349.2,
       "paymentCount": 5,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2158,7 +2172,7 @@
       "totalAmount": 17233369.13,
       "paymentCount": 5,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2298,7 +2312,7 @@
       "totalAmount": 16500455.8,
       "paymentCount": 94,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(CT) INTF00X02027P0134463",
@@ -2525,20 +2539,6 @@
       "lastDate": "2026-09-03"
     },
     {
-      "encumbranceId": "(CT) INTF00X02025C0127763",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00X02025C0127763",
-      "vendor": "DWW SPS JV",
-      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
-      "appropriation": "(UNASSIGNED) HIGHWAY/FEDERAL AID",
-      "objectClass": "(NN) INFRASTRUCTURE:",
-      "totalAmount": 14150805.85,
-      "paymentCount": 2,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-10-13"
-    },
-    {
       "encumbranceId": "(PC) INTF5120W40385048271",
       "encumbranceType": "PC",
       "encumbranceBody": "INTF5120W40385048271",
@@ -2578,7 +2578,7 @@
       "totalAmount": 13789385.63,
       "paymentCount": 6,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2620,7 +2620,7 @@
       "totalAmount": 13669404.36,
       "paymentCount": 2272,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2717,8 +2717,8 @@
       "objectClass": "(RR) BENEFIT PROGRAMS",
       "totalAmount": 12300000,
       "paymentCount": 1,
-      "firstDate": "2026-10-22",
-      "lastDate": "2026-10-22"
+      "firstDate": "2026-10-26",
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3110,7 +3110,7 @@
       "totalAmount": 9681778.73,
       "paymentCount": 47,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3236,7 +3236,7 @@
       "totalAmount": 9307030.35,
       "paymentCount": 4,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3250,7 +3250,7 @@
       "totalAmount": 9178324.21,
       "paymentCount": 24,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3628,7 +3628,7 @@
       "totalAmount": 8036492.72,
       "paymentCount": 5,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
@@ -3768,7 +3768,7 @@
       "totalAmount": 7449833.68,
       "paymentCount": 2235,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(CT) INTF00X02023C0120259",
@@ -3894,7 +3894,7 @@
       "totalAmount": 7195185.64,
       "paymentCount": 6,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3908,7 +3908,21 @@
       "totalAmount": 7149376.65,
       "paymentCount": 5,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "BOSTON MEDICAL CENTER",
+      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HEALTH SAFETY NET PAYMENTS - HOSPITAL",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 7108292,
+      "paymentCount": 4,
+      "firstDate": "2026-10-06",
+      "lastDate": "2026-10-23"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3992,7 +4006,7 @@
       "totalAmount": 6985955.37,
       "paymentCount": 4,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4020,7 +4034,7 @@
       "totalAmount": 6924067.22,
       "paymentCount": 77,
       "firstDate": "2026-09-21",
-      "lastDate": "2026-10-22"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -4174,7 +4188,7 @@
       "totalAmount": 6619206.5,
       "paymentCount": 6,
       "firstDate": "2026-09-29",
-      "lastDate": "2026-10-23"
+      "lastDate": "2026-10-26"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4191,32 +4205,18 @@
       "lastDate": "2026-10-06"
     },
     {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "CAMBRIDGE PUBLIC HEALTH",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(40000700) INDEMNITY / THIRD PARTY LIABILITY PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 6606672.68,
-      "paymentCount": 93,
-      "firstDate": "2026-07-13",
-      "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "(CT) 2026FWCGPMASSPOLICEX",
+      "encumbranceId": "(CT) INTF2410R125DDS3751D",
       "encumbranceType": "CT",
-      "encumbranceBody": "2026FWCGPMASSPOLICEX",
-      "vendor": "BOSTON SOCCER 2026 CORP",
-      "department": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY",
-      "appropriation": "(UNASSIGNED) FFY2026 FIFA WORLD CUP GRANT PROGRAM (FWCGP) MULTIPLE EVENTS",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 6593877.86,
-      "paymentCount": 2,
-      "firstDate": "2026-10-05",
-      "lastDate": "2026-10-05"
+      "encumbranceBody": "INTF2410R125DDS3751D",
+      "vendor": "SERVICENET INC",
+      "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) MASSHEALTH ACQUIRED BRAIN INJURY AND MOV",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 6610765.99,
+      "paymentCount": 5,
+      "firstDate": "2026-09-18",
+      "lastDate": "2026-10-23"
     }
   ]
 }
