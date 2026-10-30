@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-29T09:12:50.238Z",
+  "fetchedAt": "2026-10-30T09:12:38.216Z",
   "years": [
     "2025",
     "2026",
@@ -331,7 +331,7 @@
       },
       {
         "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "value": 1446490367.46
+        "value": 1446525217.46
       },
       {
         "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
@@ -497,23 +497,23 @@
     "2027": [
       {
         "name": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-        "value": 9114329829.34
+        "value": 9119901012.2
       },
       {
         "name": "OFFICE OF THE STATE TREASURER (TRE)",
-        "value": 3620200482.93
+        "value": 3850365961.52
       },
       {
         "name": "DEPARTMENT OF REVENUE (DOR)",
-        "value": 3236323628.49
+        "value": 3236347013.48
       },
       {
         "name": "EXECUTIVE OFFICE OF LABOR AND WORKFORCE DEVELOPMENT (EOL)",
-        "value": 2259137143.1
+        "value": 2260055990.7
       },
       {
         "name": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "value": 1451406435.48
+        "value": 1465336542.67
       },
       {
         "name": "TEACHERS RETIREMENT BOARD (TRB)",
@@ -525,11 +525,11 @@
       },
       {
         "name": "GROUP INSURANCE COMMISSION (GIC)",
-        "value": 1002936827.78
+        "value": 1076934528.95
       },
       {
         "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "value": 809171302.41
+        "value": 853354053.08
       },
       {
         "name": "LOTTERY AND GAMING COMMISSION (LOT)",
@@ -537,79 +537,79 @@
       },
       {
         "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "value": 245284409.54
+        "value": 247909593.55
       },
       {
         "name": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
-        "value": 243003126
-      },
-      {
-        "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-        "value": 215326384.18
+        "value": 244211679.39
       },
       {
         "name": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "value": 211587825.54
+        "value": 223013728.5
       },
       {
-        "name": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-        "value": 183597274.8
+        "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
+        "value": 217690969.89
       },
       {
         "name": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "value": 181756709.68
+        "value": 186559045.48
+      },
+      {
+        "name": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+        "value": 183597451.05
       },
       {
         "name": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
-        "value": 161622330.95
+        "value": 164186698.85
       },
       {
         "name": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
-        "value": 130272129.7
+        "value": 130274519.88
       },
       {
         "name": "OFFICE OF THE COMPTROLLER (CTR)",
-        "value": 125106927.17
+        "value": 127645880.71
       },
       {
         "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
-        "value": 110771492.5
+        "value": 111361324.12
       },
       {
         "name": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-        "value": 96707400.8
+        "value": 97061705.27
       },
       {
         "name": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
-        "value": 74305776.09
+        "value": 74306241.69
       },
       {
         "name": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
-        "value": 73625041.3
+        "value": 74268779.17
       },
       {
         "name": "TRIAL COURT (TRC)",
-        "value": 53800623.6
+        "value": 54113628.78
       },
       {
         "name": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
-        "value": 47511955.72
+        "value": 47788404.81
       },
       {
         "name": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
         "value": 37894822.78
       },
       {
+        "name": "EXECUTIVE OFFICE OF ECONOMIC DEVELOPMENT (EED)",
+        "value": 36357745.58
+      },
+      {
         "name": "DEPARTMENT OF CORRECTION (DOC)",
-        "value": 34416829.03
+        "value": 34471536.46
       },
       {
         "name": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
-        "value": 33917530.69
-      },
-      {
-        "name": "EXECUTIVE OFFICE OF ECONOMIC DEVELOPMENT (EED)",
-        "value": 33112320.7
+        "value": 34441107.21
       },
       {
         "name": "EMERGENCY MANAGEMENT AGENCY (CDA)",
@@ -621,15 +621,15 @@
       },
       {
         "name": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "value": 24082368.67
+        "value": 24128031.75
       },
       {
         "name": "MASS REHABILITATION COMMISSION (MRC)",
-        "value": 23616180.59
+        "value": 24079470.23
       },
       {
         "name": "DEPARTMENT OF STATE POLICE (POL)",
-        "value": 21097012.74
+        "value": 21267524.7
       },
       {
         "name": "BRIDGEWATER STATE UNIVERSITY (BSC)",
@@ -637,19 +637,19 @@
       },
       {
         "name": "DEPARTMENT OF AGRICULTURAL RESOURCES (AGR)",
-        "value": 18652154.45
-      },
-      {
-        "name": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "value": 18204844.52
-      },
-      {
-        "name": "SECRETARY OF STATE (SEC)",
-        "value": 17988908.65
+        "value": 18874910.1
       },
       {
         "name": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
-        "value": 17661041.77
+        "value": 18464305
+      },
+      {
+        "name": "DEPARTMENT OF YOUTH SERVICES (DYS)",
+        "value": 18266356.72
+      },
+      {
+        "name": "SECRETARY OF STATE (SEC)",
+        "value": 17989516.01
       },
       {
         "name": "BOARD OF LIBRARY COMMISSIONERS (BLC)",
@@ -661,11 +661,15 @@
       },
       {
         "name": "SUPREME JUDICIAL COURT (SJC)",
-        "value": 14832680.79
+        "value": 14832905.79
       },
       {
         "name": "SALEM STATE UNIVERSITY (SSA)",
         "value": 13778110.39
+      },
+      {
+        "name": "WORCESTER STATE UNIVERSITY (WOR)",
+        "value": 11300332.01
       },
       {
         "name": "MASSACHUSETTS MARITIME ACADEMY (MMA)",
@@ -676,20 +680,16 @@
         "value": 11089818.94
       },
       {
-        "name": "WORCESTER STATE UNIVERSITY (WOR)",
-        "value": 10740003.01
-      },
-      {
         "name": "BRISTOL COMMUNITY COLLEGE (BRC)",
-        "value": 10696069.79
+        "value": 10696819.79
       },
       {
         "name": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
-        "value": 10225287.27
+        "value": 10228010.27
       },
       {
         "name": "OFFICE FOR REFUGEES AND IMMIGRANTS (ORI)",
-        "value": 8837218.05
+        "value": 9627166.64
       },
       {
         "name": "NORTH SHORE COMMUNITY COLLEGE (NSC)",
@@ -1132,24 +1132,28 @@
         "value": 628935101.63
       },
       {
+        "name": "MASS BAY TRANSPORTATION AUTHORITY",
+        "value": 571297813.9
+      },
+      {
         "name": "MASS GENERAL BRIGHAM HEALTH PLAN INC",
         "value": 558565424.58
       },
       {
         "name": "MBTA",
-        "value": 554588224.35
+        "value": 554660084.35
       },
       {
         "name": "TUFTS HEALTH PUBLIC PLANS INC",
         "value": 483585337.08
       },
       {
-        "name": "FALLON COMMUNITY HEALTH PLAN",
-        "value": 461628936.93
+        "name": "MASSACHUSETTS SCHOOL BUILDING AUTHORITY",
+        "value": 467248790.71
       },
       {
-        "name": "MASS BAY TRANSPORTATION AUTHORITY",
-        "value": 450002700.19
+        "name": "FALLON COMMUNITY HEALTH PLAN",
+        "value": 461628936.93
       },
       {
         "name": "BOND REDEMPTION (INTEREST)",
@@ -1160,20 +1164,16 @@
         "value": 384141427.08
       },
       {
-        "name": "MASSACHUSETTS SCHOOL BUILDING AUTHORITY",
-        "value": 359287045.16
-      },
-      {
         "name": "WELLPOINT LIFE & HEALTH INS CO",
-        "value": 333695135.32
-      },
-      {
-        "name": "TEMPUS UNLIMITED INC",
-        "value": 316637779.9
+        "value": 349600170.5
       },
       {
         "name": "HARVARD PILGRIM HEALTH CARE",
-        "value": 306799665.06
+        "value": 324098574.95
+      },
+      {
+        "name": "TEMPUS UNLIMITED INC",
+        "value": 316646465.1
       },
       {
         "name": "MASSACHUSETTS BEH HLTH PRT",
@@ -1193,7 +1193,7 @@
       },
       {
         "name": "CITY OF SPRINGFIELD",
-        "value": 193682387.62
+        "value": 193724617.64
       },
       {
         "name": "UNITED HEALTHCARE INS CO",
@@ -1201,7 +1201,11 @@
       },
       {
         "name": "CITY OF WORCESTER",
-        "value": 166360469.07
+        "value": 166441259.28
+      },
+      {
+        "name": "CAREMARKPCS HEALTH, L.L.C.",
+        "value": 157223824.24
       },
       {
         "name": "TUFTS ASSOCIATED HEALTH MAINT ORG INC",
@@ -1217,11 +1221,11 @@
       },
       {
         "name": "UMASS MEMORIAL MEDICAL CENTER INC",
-        "value": 139804821.61
+        "value": 139815071.25
       },
       {
-        "name": "CAREMARKPCS HEALTH, L.L.C.",
-        "value": 139058349.39
+        "name": "SILVERSCRIPT INSURANCE COMPANY",
+        "value": 130354404.9
       },
       {
         "name": "MONTACHUSETT REGIONAL",
@@ -1245,15 +1249,11 @@
       },
       {
         "name": "BOSTON MEDICAL CENTER CORP",
-        "value": 114357481.41
-      },
-      {
-        "name": "SILVERSCRIPT INSURANCE COMPANY",
-        "value": 111841289.37
+        "value": 114358286.41
       },
       {
         "name": "CITY OF LAWRENCE",
-        "value": 111665824.23
+        "value": 111678424.23
       },
       {
         "name": "SENIOR WHOLE HEALTH",
@@ -1261,19 +1261,19 @@
       },
       {
         "name": "CITY OF BROCKTON",
-        "value": 104507452.92
+        "value": 104507462.92
       },
       {
         "name": "CITY OF NEW BEDFORD",
-        "value": 95903486.54
+        "value": 95904438.98
       },
       {
         "name": "CITY OF LOWELL",
-        "value": 91558387.42
+        "value": 91619428.84
       },
       {
         "name": "CITY OF FALL RIVER",
-        "value": 88161808.65
+        "value": 88246888.65
       },
       {
         "name": "LAWRENCE GENERAL HOSPITAL INC",
@@ -1281,7 +1281,7 @@
       },
       {
         "name": "VINFEN CORPORATION",
-        "value": 73858731.6
+        "value": 79797266.97
       },
       {
         "name": "COMMUNITY CARE COOPERATIVE, INC.",
@@ -1372,11 +1372,11 @@
     },
     {
       "year": "2026",
-      "total": 100892679653.61
+      "total": 100892714503.61
     },
     {
       "year": "2027",
-      "total": 27266300221.03
+      "total": 27674390819.22
     }
   ],
   "payrollByDepartment": {
@@ -1923,7 +1923,7 @@
       {
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
         "totalPay": 349618851.95,
-        "employees": 4531
+        "employees": 4530
       },
       {
         "department": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
@@ -1988,7 +1988,7 @@
       {
         "department": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
         "totalPay": 75933059.89,
-        "employees": 1196
+        "employees": 1195
       },
       {
         "department": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
@@ -2140,99 +2140,9 @@
   "topEarners": {
     "2024": [
       {
-        "name": "Garrett Ng",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Software Engineer-BIB Lab",
-        "totalPay": 0
-      },
-      {
-        "name": "Wesley Ortiz",
-        "department": "SHERIFF DEPARTMENT MIDDLESEX (SDM)",
-        "title": "Correction Officer/Recruit",
-        "totalPay": 0
-      },
-      {
-        "name": "Klarinna Hadley",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Dietary Worker I",
-        "totalPay": 0
-      },
-      {
-        "name": "Brandon Munson",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Departmental Assistant",
-        "totalPay": 0
-      },
-      {
-        "name": "Benjamin Karr",
-        "department": "DEPARTMENT OF CORRECTION (DOC)",
-        "title": "Correction Officer I",
-        "totalPay": 0
-      },
-      {
-        "name": "Lillian Pexton",
-        "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
-        "title": "Summer Intensive TA",
-        "totalPay": 0
-      },
-      {
-        "name": "Tyler King",
-        "department": "WESTFIELD STATE UNIVERSITY (WSC)",
-        "title": "Student Employee",
-        "totalPay": 0
-      },
-      {
-        "name": "Dekyi Tsering",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Departmental Assistant",
-        "totalPay": 0
-      },
-      {
-        "name": "James Gevry",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Receiving/Delivery Coordinator",
-        "totalPay": 0
-      },
-      {
-        "name": "John Rochford",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Program Director",
-        "totalPay": 0
-      },
-      {
-        "name": "Geraldo Flores",
-        "department": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "title": "Youth Services Grp Worker III",
-        "totalPay": 0
-      },
-      {
         "name": "Hem Darjee",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Departmental Assistant",
-        "totalPay": 0
-      },
-      {
-        "name": "Abderrahman Elouadaa",
-        "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "title": "Motorperson,P-T RTL Yard",
-        "totalPay": 0
-      },
-      {
-        "name": "Thoa Ha",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Departmental Assistant",
-        "totalPay": 0
-      },
-      {
-        "name": "Sophia Landrau",
-        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
-        "title": "SI Leader Title 3",
-        "totalPay": 0
-      },
-      {
-        "name": "Jared Gilpatrick",
-        "department": "MASSASOIT COMMUNITY COLLEGE (MAS)",
-        "title": "Academic Tasks IDEAS Grant",
         "totalPay": 0
       },
       {
@@ -2248,21 +2158,111 @@
         "totalPay": 0
       },
       {
-        "name": "Reginald Hobbs",
-        "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "title": "Motorperson,Streetcar",
-        "totalPay": 0
-      },
-      {
         "name": "Jane Gauthier",
         "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
         "title": "Mang't, Bus Pro & Admin Servic",
         "totalPay": 0
       },
       {
+        "name": "Garrett Ng",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Software Engineer-BIB Lab",
+        "totalPay": 0
+      },
+      {
+        "name": "Reginald Hobbs",
+        "department": "Massachusetts Bay Transportation Authority (MBT)",
+        "title": "Motorperson,Streetcar",
+        "totalPay": 0
+      },
+      {
+        "name": "Sophia Landrau",
+        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
+        "title": "SI Leader Title 3",
+        "totalPay": 0
+      },
+      {
+        "name": "John Rochford",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Program Director",
+        "totalPay": 0
+      },
+      {
+        "name": "Lillian Pexton",
+        "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
+        "title": "Summer Intensive TA",
+        "totalPay": 0
+      },
+      {
+        "name": "James Gevry",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Receiving/Delivery Coordinator",
+        "totalPay": 0
+      },
+      {
+        "name": "Abderrahman Elouadaa",
+        "department": "Massachusetts Bay Transportation Authority (MBT)",
+        "title": "Motorperson,P-T RTL Yard",
+        "totalPay": 0
+      },
+      {
+        "name": "Brandon Munson",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Departmental Assistant",
+        "totalPay": 0
+      },
+      {
         "name": "Abdesselam Bendahan",
         "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
         "title": "Security Specialist I",
+        "totalPay": 0
+      },
+      {
+        "name": "Geraldo Flores",
+        "department": "DEPARTMENT OF YOUTH SERVICES (DYS)",
+        "title": "Youth Services Grp Worker III",
+        "totalPay": 0
+      },
+      {
+        "name": "Wesley Ortiz",
+        "department": "SHERIFF DEPARTMENT MIDDLESEX (SDM)",
+        "title": "Correction Officer/Recruit",
+        "totalPay": 0
+      },
+      {
+        "name": "Klarinna Hadley",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Dietary Worker I",
+        "totalPay": 0
+      },
+      {
+        "name": "Benjamin Karr",
+        "department": "DEPARTMENT OF CORRECTION (DOC)",
+        "title": "Correction Officer I",
+        "totalPay": 0
+      },
+      {
+        "name": "Thoa Ha",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Departmental Assistant",
+        "totalPay": 0
+      },
+      {
+        "name": "Jared Gilpatrick",
+        "department": "MASSASOIT COMMUNITY COLLEGE (MAS)",
+        "title": "Academic Tasks IDEAS Grant",
+        "totalPay": 0
+      },
+      {
+        "name": "Dekyi Tsering",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Departmental Assistant",
+        "totalPay": 0
+      },
+      {
+        "name": "Tyler King",
+        "department": "WESTFIELD STATE UNIVERSITY (WSC)",
+        "title": "Student Employee",
         "totalPay": 0
       },
       {
@@ -3134,7 +3134,7 @@
     {
       "year": "2026",
       "totalPayroll": 9630505150.67,
-      "headcount": 155726
+      "headcount": 155724
     }
   ],
   "quasiByAgency": [
