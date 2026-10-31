@@ -1,7 +1,12 @@
 {
-  "fetchedAt": "2026-10-30T18:08:18.400Z",
+  "fetchedAt": "2026-10-31T00:18:57.964Z",
   "preservedFromCache": false,
   "sources": [
+    {
+      "name": "massbondholder.com · Official Statements",
+      "ok": true,
+      "count": 74
+    },
     {
       "name": "massbondholder.com · News",
       "ok": true,
@@ -16,16 +21,21 @@
       "name": "mass.gov · Office of the Treasurer",
       "ok": true,
       "count": 0
-    },
-    {
-      "name": "massbondholder.com · Official Statements",
-      "ok": true,
-      "count": 73
     }
   ],
   "warnings": [],
   "count": 30,
   "items": [
+    {
+      "id": "mbh:/november-2026-bond-sale-go-and-go-refunding-bonds",
+      "title": "Read more about November 2026 Bond Sale: GO and GO Refunding Bonds",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "News / Disclosure",
+      "date": "2026-11-01",
+      "url": "https://www.massbondholder.com/november-2026-bond-sale-go-and-go-refunding-bonds",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
     {
       "id": "mbh:/november-2026-bond-sale-babson-college-issue-series-2026",
       "title": "Read more about November 2026 Bond Sale: Babson College Issue, Series 2026",
@@ -93,16 +103,6 @@
       "type": "Official Statement",
       "date": "2026-09-01",
       "url": "https://www.massbondholder.com/september-2026-go-bonds-series-e-f-g-h-refunding-c-official-statement-now-available",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh:/september-2026-bond-sale-commonwealth-go-bonds-series-e-f-g-h-refunding-c",
-      "title": "Read more about September 2026 Bond Sale: Commonwealth GO Bonds Series E, F, G, H & Refunding C",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "News / Disclosure",
-      "date": "2026-09-01",
-      "url": "https://www.massbondholder.com/september-2026-bond-sale-commonwealth-go-bonds-series-e-f-g-h-refunding-c",
       "summary": "",
       "source": "MassBondHolder"
     },
@@ -217,6 +217,16 @@
       "source": "MassBondHolder"
     },
     {
+      "id": "mbh-os:https://emma.msrb.org/P22098460-P21592648-P22054860.pdf",
+      "title": "October 2026, GO Bonds Series I ($650,000,000*), GO Refunding Bonds Series D ($112,825,000*)",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Official Statement",
+      "date": null,
+      "url": "https://emma.msrb.org/P22098460-P21592648-P22054860.pdf",
+      "summary": "Official Statement from MassBondHolder.com",
+      "source": "MassBondHolder"
+    },
+    {
       "id": "mbh-os:https://emma.msrb.org/P22090508-P21587449-P22049220.pdf",
       "title": "September 2026, GO Bonds Series E, F & G ($680,000,000), Series H (Federally Taxable) ($70,000,000), GO Refunding Bonds Series C ($129,090,000)",
       "issuer": "Commonwealth of Massachusetts",
@@ -313,16 +323,6 @@
       "type": "Official Statement",
       "date": null,
       "url": "https://emma.msrb.org/P21820997-P21396325-P21837535.pdf",
-      "summary": "Official Statement from MassBondHolder.com",
-      "source": "MassBondHolder"
-    },
-    {
-      "id": "mbh-os:https://emma.msrb.org/P21777264-P21360507-P21797752.pdf",
-      "title": "February 2024, GO Refunding Bonds Series B ($658,605,000)",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "Official Statement",
-      "date": null,
-      "url": "https://emma.msrb.org/P21777264-P21360507-P21797752.pdf",
       "summary": "Official Statement from MassBondHolder.com",
       "source": "MassBondHolder"
     }
