@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-01T09:09:54.258Z",
+  "fetchedAt": "2026-11-02T19:17:52.097Z",
   "years": [
     "2025",
     "2026",
@@ -1438,8 +1438,8 @@
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 161559413.65,
-        "employees": 2357
+        "totalPay": 161454779.06,
+        "employees": 2356
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -1690,8 +1690,8 @@
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 169257146.96,
-        "employees": 2072
+        "totalPay": 169139574.29,
+        "employees": 2071
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -1942,8 +1942,8 @@
       },
       {
         "department": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "totalPay": 159840715.48,
-        "employees": 2098
+        "totalPay": 159731974.9,
+        "employees": 2097
       },
       {
         "department": "DEPARTMENT OF REVENUE (DOR)",
@@ -1988,7 +1988,7 @@
       {
         "department": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
         "totalPay": 75933059.89,
-        "employees": 1195
+        "employees": 1194
       },
       {
         "department": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
@@ -2072,7 +2072,7 @@
       },
       {
         "department": "BRISTOL COMMUNITY COLLEGE (BRC)",
-        "totalPay": 46259633.32,
+        "totalPay": 46260299.57,
         "employees": 1491
       },
       {
@@ -2140,87 +2140,9 @@
   "topEarners": {
     "2024": [
       {
-        "name": "Hem Darjee",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Departmental Assistant",
-        "totalPay": 0
-      },
-      {
-        "name": "Tionne Peart",
-        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
-        "title": "SI LEADER",
-        "totalPay": 0
-      },
-      {
-        "name": "Sylvia Edwards",
-        "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "title": "Motorperson,Rapid Transit",
-        "totalPay": 0
-      },
-      {
-        "name": "Jane Gauthier",
-        "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
-        "title": "Mang't, Bus Pro & Admin Servic",
-        "totalPay": 0
-      },
-      {
         "name": "Garrett Ng",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Software Engineer-BIB Lab",
-        "totalPay": 0
-      },
-      {
-        "name": "Reginald Hobbs",
-        "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "title": "Motorperson,Streetcar",
-        "totalPay": 0
-      },
-      {
-        "name": "Sophia Landrau",
-        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
-        "title": "SI Leader Title 3",
-        "totalPay": 0
-      },
-      {
-        "name": "John Rochford",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Program Director",
-        "totalPay": 0
-      },
-      {
-        "name": "Lillian Pexton",
-        "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
-        "title": "Summer Intensive TA",
-        "totalPay": 0
-      },
-      {
-        "name": "James Gevry",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Receiving/Delivery Coordinator",
-        "totalPay": 0
-      },
-      {
-        "name": "Abderrahman Elouadaa",
-        "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "title": "Motorperson,P-T RTL Yard",
-        "totalPay": 0
-      },
-      {
-        "name": "Brandon Munson",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Departmental Assistant",
-        "totalPay": 0
-      },
-      {
-        "name": "Abdesselam Bendahan",
-        "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "title": "Security Specialist I",
-        "totalPay": 0
-      },
-      {
-        "name": "Geraldo Flores",
-        "department": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "title": "Youth Services Grp Worker III",
         "totalPay": 0
       },
       {
@@ -2236,21 +2158,27 @@
         "totalPay": 0
       },
       {
+        "name": "Brandon Munson",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Departmental Assistant",
+        "totalPay": 0
+      },
+      {
         "name": "Benjamin Karr",
         "department": "DEPARTMENT OF CORRECTION (DOC)",
         "title": "Correction Officer I",
         "totalPay": 0
       },
       {
-        "name": "Thoa Ha",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Departmental Assistant",
+        "name": "Lillian Pexton",
+        "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
+        "title": "Summer Intensive TA",
         "totalPay": 0
       },
       {
-        "name": "Jared Gilpatrick",
-        "department": "MASSASOIT COMMUNITY COLLEGE (MAS)",
-        "title": "Academic Tasks IDEAS Grant",
+        "name": "Tyler King",
+        "department": "WESTFIELD STATE UNIVERSITY (WSC)",
+        "title": "Student Employee",
         "totalPay": 0
       },
       {
@@ -2260,9 +2188,81 @@
         "totalPay": 0
       },
       {
-        "name": "Tyler King",
-        "department": "WESTFIELD STATE UNIVERSITY (WSC)",
-        "title": "Student Employee",
+        "name": "James Gevry",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Receiving/Delivery Coordinator",
+        "totalPay": 0
+      },
+      {
+        "name": "John Rochford",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Program Director",
+        "totalPay": 0
+      },
+      {
+        "name": "Geraldo Flores",
+        "department": "DEPARTMENT OF YOUTH SERVICES (DYS)",
+        "title": "Youth Services Grp Worker III",
+        "totalPay": 0
+      },
+      {
+        "name": "Hem Darjee",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Departmental Assistant",
+        "totalPay": 0
+      },
+      {
+        "name": "Abderrahman Elouadaa",
+        "department": "Massachusetts Bay Transportation Authority (MBT)",
+        "title": "Motorperson,P-T RTL Yard",
+        "totalPay": 0
+      },
+      {
+        "name": "Thoa Ha",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Departmental Assistant",
+        "totalPay": 0
+      },
+      {
+        "name": "Sophia Landrau",
+        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
+        "title": "SI Leader Title 3",
+        "totalPay": 0
+      },
+      {
+        "name": "Jared Gilpatrick",
+        "department": "MASSASOIT COMMUNITY COLLEGE (MAS)",
+        "title": "Academic Tasks IDEAS Grant",
+        "totalPay": 0
+      },
+      {
+        "name": "Tionne Peart",
+        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
+        "title": "SI LEADER",
+        "totalPay": 0
+      },
+      {
+        "name": "Sylvia Edwards",
+        "department": "Massachusetts Bay Transportation Authority (MBT)",
+        "title": "Motorperson,Rapid Transit",
+        "totalPay": 0
+      },
+      {
+        "name": "Reginald Hobbs",
+        "department": "Massachusetts Bay Transportation Authority (MBT)",
+        "title": "Motorperson,Streetcar",
+        "totalPay": 0
+      },
+      {
+        "name": "Jane Gauthier",
+        "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
+        "title": "Mang't, Bus Pro & Admin Servic",
+        "totalPay": 0
+      },
+      {
+        "name": "Abdesselam Bendahan",
+        "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
+        "title": "Security Specialist I",
         "totalPay": 0
       },
       {
@@ -3053,94 +3053,94 @@
     },
     {
       "year": "2010",
-      "totalPayroll": 5598216285.23,
-      "headcount": 145155
+      "totalPayroll": 5598164895.51,
+      "headcount": 145154
     },
     {
       "year": "2011",
-      "totalPayroll": 5779466405.43,
-      "headcount": 169147
+      "totalPayroll": 5779409459.27,
+      "headcount": 169146
     },
     {
       "year": "2012",
-      "totalPayroll": 5948154652.58,
-      "headcount": 151779
+      "totalPayroll": 5948095930.7,
+      "headcount": 151778
     },
     {
       "year": "2013",
-      "totalPayroll": 6228154271.06,
-      "headcount": 153985
+      "totalPayroll": 6228093662.02,
+      "headcount": 153984
     },
     {
       "year": "2014",
-      "totalPayroll": 6511694905.34,
-      "headcount": 156761
+      "totalPayroll": 6511641909.79,
+      "headcount": 156760
     },
     {
       "year": "2015",
-      "totalPayroll": 6896294657.06,
-      "headcount": 157544
+      "totalPayroll": 6896225886.67,
+      "headcount": 157542
     },
     {
       "year": "2016",
-      "totalPayroll": 6857374516.52,
-      "headcount": 158087
+      "totalPayroll": 6857303810.65,
+      "headcount": 158085
     },
     {
       "year": "2017",
-      "totalPayroll": 7312628452.32,
-      "headcount": 159631
+      "totalPayroll": 7312553645.47,
+      "headcount": 159629
     },
     {
       "year": "2018",
-      "totalPayroll": 7736807500.44,
-      "headcount": 158685
+      "totalPayroll": 7736725537.49,
+      "headcount": 158684
     },
     {
       "year": "2019",
-      "totalPayroll": 8025732948.31,
-      "headcount": 166004
+      "totalPayroll": 8025648702.8,
+      "headcount": 166003
     },
     {
       "year": "2020",
-      "totalPayroll": 8195921897.24,
-      "headcount": 157034
+      "totalPayroll": 8195834369.65,
+      "headcount": 157033
     },
     {
       "year": "2021",
-      "totalPayroll": 8388254189.98,
-      "headcount": 153639
+      "totalPayroll": 8388159381.87,
+      "headcount": 153638
     },
     {
       "year": "2022",
-      "totalPayroll": 9003232642.42,
-      "headcount": 168722
+      "totalPayroll": 9003137911.48,
+      "headcount": 168721
     },
     {
       "year": "2023",
-      "totalPayroll": 9329088885.26,
-      "headcount": 166873
+      "totalPayroll": 9328983687.64,
+      "headcount": 166872
     },
     {
       "year": "2024",
-      "totalPayroll": 10241433719.82,
-      "headcount": 170872
+      "totalPayroll": 10241329085.23,
+      "headcount": 170871
     },
     {
       "year": "2025",
-      "totalPayroll": 10886140577.1,
-      "headcount": 162461
+      "totalPayroll": 10886023004.43,
+      "headcount": 162460
     },
     {
       "year": "2026",
-      "totalPayroll": 9630505150.67,
-      "headcount": 155724
+      "totalPayroll": 9630397076.34,
+      "headcount": 155722
     }
   ],
   "quasiByAgency": [
     {
       "name": "Massachusetts Bay Transportation Authority",
-      "value": 46158809168.19
+      "value": 46528842894.03
     },
     {
       "name": "Massachusetts Housing Finance Agency",
@@ -3148,7 +3148,7 @@
     },
     {
       "name": "Massachusetts School Building Authority",
-      "value": 16713610806.56
+      "value": 16985194785.02
     },
     {
       "name": "Commonwealth Health Insurance Connector Authority",
@@ -3156,7 +3156,7 @@
     },
     {
       "name": "Massachusetts Port Authority",
-      "value": 12783766786.59
+      "value": 12950068535.39
     },
     {
       "name": "University of Massachusetts Building Authority",
