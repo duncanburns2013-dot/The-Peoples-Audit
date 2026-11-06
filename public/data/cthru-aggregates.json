@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-05T17:12:03.905Z",
+  "fetchedAt": "2026-11-06T16:39:07.245Z",
   "years": [
     "2025",
     "2026",
@@ -371,7 +371,7 @@
       },
       {
         "name": "TRIAL COURT (TRC)",
-        "value": 661535315.33
+        "value": 661534915.33
       },
       {
         "name": "MASSACHUSETTS BAY TRANSPORTATION AUTHORITY (MBT)",
@@ -497,115 +497,115 @@
     "2027": [
       {
         "name": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-        "value": 9248894617.36
+        "value": 9249482194.84
       },
       {
         "name": "OFFICE OF THE STATE TREASURER (TRE)",
-        "value": 3869225637.24
+        "value": 3869239161.7
       },
       {
         "name": "DEPARTMENT OF REVENUE (DOR)",
-        "value": 3241923579.95
+        "value": 3241934630.89
       },
       {
         "name": "EXECUTIVE OFFICE OF LABOR AND WORKFORCE DEVELOPMENT (EOL)",
-        "value": 2271435641.61
+        "value": 2271647510.5
       },
       {
         "name": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "value": 1567595181.33
+        "value": 1592342052.89
       },
       {
         "name": "TEACHERS RETIREMENT BOARD (TRB)",
-        "value": 1422276063.74
+        "value": 1422274727.24
       },
       {
         "name": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "value": 1246904852.87
+        "value": 1247449201.29
       },
       {
         "name": "GROUP INSURANCE COMMISSION (GIC)",
-        "value": 1130844516.96
+        "value": 1132428918.86
       },
       {
         "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "value": 869827972.95
+        "value": 872002271.46
       },
       {
         "name": "LOTTERY AND GAMING COMMISSION (LOT)",
-        "value": 329796401.25
+        "value": 329939938.02
       },
       {
         "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "value": 263888303.38
+        "value": 268463992.5
       },
       {
         "name": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
-        "value": 249135839.85
-      },
-      {
-        "name": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "value": 237860532.44
+        "value": 250818171.93
       },
       {
         "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-        "value": 228005150.32
+        "value": 243047786.2
+      },
+      {
+        "name": "DEPARTMENT OF MENTAL HEALTH (DMH)",
+        "value": 240963581.85
       },
       {
         "name": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-        "value": 221847607.83
+        "value": 228231527.28
       },
       {
         "name": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "value": 192639963.76
+        "value": 201719170.27
       },
       {
         "name": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
-        "value": 183871513.51
+        "value": 183988156.89
       },
       {
         "name": "OFFICE OF THE COMPTROLLER (CTR)",
-        "value": 172968671.5
+        "value": 173017886.39
       },
       {
         "name": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
-        "value": 168225715.08
+        "value": 171329843.45
       },
       {
         "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
-        "value": 158836826.38
+        "value": 158905022.96
       },
       {
         "name": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-        "value": 100442464.56
+        "value": 100659971.4
       },
       {
         "name": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
-        "value": 92260653.13
+        "value": 94068120.93
       },
       {
         "name": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
-        "value": 75847517.72
+        "value": 75850027.15
       },
       {
         "name": "TRIAL COURT (TRC)",
-        "value": 58888079.32
+        "value": 60100981.31
       },
       {
         "name": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
-        "value": 53643770.17
+        "value": 53920001.35
       },
       {
         "name": "EXECUTIVE OFFICE OF ECONOMIC DEVELOPMENT (EED)",
-        "value": 51847981.71
+        "value": 52099818.31
       },
       {
         "name": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
-        "value": 40330914.96
+        "value": 40971746.96
       },
       {
         "name": "DEPARTMENT OF CORRECTION (DOC)",
-        "value": 39032716
+        "value": 39262206.92
       },
       {
         "name": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
@@ -613,7 +613,7 @@
       },
       {
         "name": "EMERGENCY MANAGEMENT AGENCY (CDA)",
-        "value": 30005332.2
+        "value": 30352844.52
       },
       {
         "name": "FRAMINGHAM STATE UNIVERSITY (FRC)",
@@ -621,35 +621,35 @@
       },
       {
         "name": "MASS REHABILITATION COMMISSION (MRC)",
-        "value": 26318427.18
+        "value": 26728482.49
       },
       {
         "name": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "value": 26276314.33
-      },
-      {
-        "name": "DEPARTMENT OF AGRICULTURAL RESOURCES (AGR)",
-        "value": 22970524.47
+        "value": 26280288.85
       },
       {
         "name": "DEPARTMENT OF STATE POLICE (POL)",
-        "value": 22624258.49
+        "value": 23907194.8
+      },
+      {
+        "name": "DEPARTMENT OF AGRICULTURAL RESOURCES (AGR)",
+        "value": 22989584.97
       },
       {
         "name": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
-        "value": 19631144.24
+        "value": 20544064.54
       },
       {
         "name": "BRIDGEWATER STATE UNIVERSITY (BSC)",
-        "value": 19622614.72
+        "value": 19623466.72
       },
       {
         "name": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "value": 19394087.03
+        "value": 19403954.52
       },
       {
         "name": "SECRETARY OF STATE (SEC)",
-        "value": 18459529.15
+        "value": 18461413.25
       },
       {
         "name": "BOARD OF LIBRARY COMMISSIONERS (BLC)",
@@ -657,7 +657,7 @@
       },
       {
         "name": "SUPREME JUDICIAL COURT (SJC)",
-        "value": 15537324.5
+        "value": 15564443.33
       },
       {
         "name": "WESTFIELD STATE UNIVERSITY (WSC)",
@@ -681,7 +681,7 @@
       },
       {
         "name": "BRISTOL COMMUNITY COLLEGE (BRC)",
-        "value": 10697308.79
+        "value": 10698124.79
       },
       {
         "name": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
@@ -689,11 +689,11 @@
       },
       {
         "name": "OFFICE FOR REFUGEES AND IMMIGRANTS (ORI)",
-        "value": 10050252.18
+        "value": 10217172.91
       },
       {
         "name": "MILITARY DIVISION (MIL)",
-        "value": 8546923.5
+        "value": 8596660.08
       }
     ]
   },
@@ -1137,7 +1137,7 @@
       },
       {
         "name": "MBTA",
-        "value": 570337629.54
+        "value": 570888905.61
       },
       {
         "name": "MASS GENERAL BRIGHAM HEALTH PLAN INC",
@@ -1193,7 +1193,7 @@
       },
       {
         "name": "CITY OF SPRINGFIELD",
-        "value": 195117241.48
+        "value": 195137350.59
       },
       {
         "name": "UNITED HEALTHCARE INS CO",
@@ -1205,7 +1205,7 @@
       },
       {
         "name": "CITY OF WORCESTER",
-        "value": 167175467.52
+        "value": 167175497.52
       },
       {
         "name": "CAREMARKPCS HEALTH, L.L.C.",
@@ -1221,7 +1221,7 @@
       },
       {
         "name": "CITY OF BOSTON",
-        "value": 147220679.61
+        "value": 147418489.77
       },
       {
         "name": "SPRUCE TECHNOLOGY INC",
@@ -1245,7 +1245,7 @@
       },
       {
         "name": "BOSTON MEDICAL CENTER CORP",
-        "value": 117805735.86
+        "value": 117805835.86
       },
       {
         "name": "CITY OF LYNN",
@@ -1253,7 +1253,7 @@
       },
       {
         "name": "CITY OF LAWRENCE",
-        "value": 111754169.23
+        "value": 112461103.57
       },
       {
         "name": "SENIOR WHOLE HEALTH",
@@ -1261,15 +1261,15 @@
       },
       {
         "name": "CITY OF BROCKTON",
-        "value": 104797262.8
+        "value": 104872389.7
       },
       {
         "name": "CITY OF NEW BEDFORD",
-        "value": 96288352.16
+        "value": 96517067.98
       },
       {
         "name": "CITY OF LOWELL",
-        "value": 91951480.85
+        "value": 92017368
       },
       {
         "name": "CITY OF FALL RIVER",
@@ -1277,11 +1277,11 @@
       },
       {
         "name": "VINFEN CORPORATION",
-        "value": 81121924.01
+        "value": 81220058.07
       },
       {
         "name": "LAWRENCE GENERAL HOSPITAL INC",
-        "value": 72827963.59
+        "value": 72828153.59
       },
       {
         "name": "COMMUNITY CARE COOPERATIVE, INC.",
@@ -1372,11 +1372,11 @@
     },
     {
       "year": "2026",
-      "total": 100892384627.75
+      "total": 100892384227.75
     },
     {
       "year": "2027",
-      "total": 28384520364.05
+      "total": 28469808885.47
     }
   ],
   "payrollByDepartment": {
@@ -1897,7 +1897,7 @@
       },
       {
         "department": "TRIAL COURT (TRC)",
-        "totalPay": 611294286.21,
+        "totalPay": 611292783.39,
         "employees": 7488
       },
       {
@@ -1912,7 +1912,7 @@
       },
       {
         "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "totalPay": 435519399.78,
+        "totalPay": 435460688.02,
         "employees": 5106
       },
       {
@@ -1932,7 +1932,7 @@
       },
       {
         "department": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "totalPay": 325975751.88,
+        "totalPay": 325973761.59,
         "employees": 3895
       },
       {
@@ -2007,7 +2007,7 @@
       },
       {
         "department": "WESTFIELD STATE UNIVERSITY (WSC)",
-        "totalPay": 65961637.72,
+        "totalPay": 65959334.74,
         "employees": 1996
       },
       {
@@ -3133,7 +3133,7 @@
     },
     {
       "year": "2026",
-      "totalPayroll": 10001511198.73,
+      "totalPayroll": 10001446690.88,
       "headcount": 156795
     }
   ],
@@ -3156,7 +3156,7 @@
     },
     {
       "name": "Massachusetts Port Authority",
-      "value": 12950068535.39
+      "value": 13118012482.76
     },
     {
       "name": "University of Massachusetts Building Authority",
