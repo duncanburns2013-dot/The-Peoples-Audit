@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-03T10:17:25.032Z",
+  "fetchedAt": "2026-11-06T17:28:25.038Z",
   "generalCourt": 194,
   "billsScanned": 1500,
   "billsTotal": 9011,
@@ -7,39 +7,57 @@
   "budgetTruncated": false,
   "preservedFromCache": false,
   "recordedVotes": {
-    "house": 275,
-    "senate": 237,
-    "total": 512,
+    "house": 268,
+    "senate": 238,
+    "total": 506,
     "highestNumber": {
       "house": 275,
-      "senate": 238
+      "senate": 241
     },
     "method": "enumerated https://malegislature.gov/RollCall/194/{House,Senate}RollCall{N}.pdf",
     "exact": true
   },
   "totals": {
-    "actions": 8448,
-    "rollCalls": 51,
-    "voicePasses": 1909,
-    "procedural": 6488
+    "actions": 8467,
+    "rollCalls": 53,
+    "voicePasses": 1916,
+    "procedural": 6498
   },
   "sampleRatios": {
-    "rollCallShare": 0.026020408163265306,
-    "voicePassShare": 0.9739795918367347
+    "rollCallShare": 0.02691721686135094,
+    "voicePassShare": 0.973082783138649
   },
   "sessionEstimate": {
-    "recordedVotesExact": 512,
-    "voicePassesEstimated": 11468,
-    "decisiveActionsEstimated": 11980,
+    "recordedVotesExact": 506,
+    "voicePassesEstimated": 11510,
+    "decisiveActionsEstimated": 12016,
     "scaleFactor": 6.007,
     "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 9011"
   },
   "ratios": {
-    "rollCallShare": 0.04273789649415693,
-    "voicePassShare": 0.9572621035058431,
+    "rollCallShare": 0.04211051930758988,
+    "voicePassShare": 0.9578894806924101,
     "basis": "session-wide"
   },
   "recentRollCalls": [
+    {
+      "billNumber": "S3290",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "11/5/2026",
+      "action": "Amendment #76 (Kennedy) adopted -see Roll Call #239 (Yeas 34 to Nays 4)",
+      "yeas": 34,
+      "nays": 4
+    },
+    {
+      "billNumber": "S3290",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects",
+      "branch": "Senate",
+      "date": "11/5/2026",
+      "action": "Amendment #122 (Tarr) rejected -see Roll Call #240 (Yeas 5 to Nays 33)",
+      "yeas": 5,
+      "nays": 33
+    },
     {
       "billNumber": "S3236",
       "title": "An Act authorizing the Massachusetts Department of Fish and Game to convey easements over certain parcels of land",
@@ -291,24 +309,6 @@
       "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 198 )",
       "yeas": 156,
       "nays": 0
-    },
-    {
-      "billNumber": "S3083",
-      "title": "Order relative to requesting the opinions of the Honorable Justices of the Supreme Judicial Court on important questions of law relative to promoting rule of law, oversight, trust and equal constitutional treatment",
-      "branch": "Senate",
-      "date": "5/7/2026",
-      "action": "Motion (Tarr) to suspend the rules does not prevail -- see Roll Call #153 (Yeas 5 to Nays 35)",
-      "yeas": 5,
-      "nays": 35
-    },
-    {
-      "billNumber": "H5501",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "House",
-      "date": "4/29/2026",
-      "action": "Passed to be engrossed - 149 YEAS to 9 NAYS ( See YEA and NAY No. 191 )",
-      "yeas": 149,
-      "nays": 9
     }
   ],
   "recentVoicePasses": [
@@ -527,7 +527,7 @@
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 12031
+      "count": 12048
     },
     {
       "name": "bills.House",
@@ -542,7 +542,7 @@
     {
       "name": "rollcalls.enumerated",
       "ok": true,
-      "count": 512
+      "count": 506
     },
     {
       "name": "bills.actions",
