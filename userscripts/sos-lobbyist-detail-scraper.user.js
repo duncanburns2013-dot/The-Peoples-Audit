@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MA SOS Lobbyist Detail Scraper
 // @namespace    https://github.com/duncanburns2013-dot/The-Peoples-Audit
-// @version      1.6
+// @version      1.7
 // @description  Scrape per-firm detail (clients, fees, lobbyists, salaries) and disclosure-report bill activity from the MA Secretary of State Lobbyist Public Search and download as JSON. Runs in your real browser session so it bypasses the WAF that blocks server-side scrapes.
 // @author       The People's Audit
 // @match        https://www.sec.state.ma.us/LobbyistPublicSearch/*
@@ -66,6 +66,13 @@ Run it with Type = Lobbyist Entity, then Type = Lobbyist (1,697 registrants for
   python scripts/parse-sos-activities.py <download>
 which writes public/data/ma-lobbying-activities-<year>.json.
 
+v1.7: one request every 1.5 s. The site sits behind Incapsula bot protection,
+which answers a blocked request with HTTP 200 and a tiny page. The scrape now
+recognises that page and stops (it no longer records the registrant as having
+no reports), a Summary page with no disclosure section and no "No Disclosure
+Report has been concluded" notice counts as a failure, and a re-run skips
+registrants already cached. A full 2026 pass takes roughly 1.5 hours.
+
 PRIVACY
 -------
 Runs entirely in your browser. No data leaves the page until YOU click Download.
@@ -74,7 +81,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
 (function () {
   'use strict';
 
-  const VERSION = '1.6';
+  const VERSION = '1.7';
   const STORAGE_KEY = 'sos_lobbyist_detail_cache_v1';
   const DELAY_MS = 2000; // polite delay between fetches
 
@@ -315,9 +322,10 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   // "Clear cache" on one never touches the other. One record per registrant.
   const ACT_INDEX_KEY = 'sos_activity_index_v1';
   const ACT_REC_PREFIX = 'sos_act_rec_v1::';
-  // Settings of the 2026 live crawl that read all 1,697 registrants cleanly.
-  const ACT_WORKERS = 3;
-  const ACT_DELAY_MS = 200;
+  // One worker at the README pace. Three workers at 200ms tripped the site's
+  // Incapsula bot protection after ~1,300 registrants (28 Sep 2026).
+  const ACT_WORKERS = 1;
+  const ACT_DELAY_MS = 1500;
   // Rows are stored as arrays (~200k of them for 2026), in this column order.
   const ACT_ROW_COLUMNS = [
     'chamber', 'billNumber', 'bill', 'title', 'position', 'amount',
@@ -367,6 +375,14 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
     return u.toString();
   }
 
+  // Incapsula answers a blocked request with HTTP 200 and a ~1 KB page. A status
+  // check alone reads that as a normal page with no reports, which is how 407
+  // registrants were once cached as "no reports" while the site was blocking.
+  class BlockedError extends Error {}
+  function isBlockPage(html) {
+    return /_Incapsula_Resource|Incapsula incident ID/i.test(html);
+  }
+
   async function fetchText(url) {
     let lastErr = null;
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -375,9 +391,15 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
           credentials: 'include',
           headers: { Accept: 'text/html' },
         });
-        if (res.ok) return await res.text();
+        if (res.ok) {
+          const html = await res.text();
+          // Never retry into a block: it only extends it.
+          if (isBlockPage(html)) throw new BlockedError('blocked by the site\'s bot protection');
+          return html;
+        }
         lastErr = new Error('HTTP ' + res.status);
       } catch (e) {
+        if (e instanceof BlockedError) throw e;
         lastErr = e;
       }
       await sleep(1500 * (attempt + 1));
@@ -503,9 +525,17 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
   // the filing deadline has no disclosure links and would read as "no reports".
   async function fetchActivity(row, year) {
     const summaryUrl = sameOrigin(row.href);
-    const summary = parseSummaryHtml(await fetchText(summaryUrl), summaryUrl);
+    const summaryHtml = await fetchText(summaryUrl);
+    const summary = parseSummaryHtml(summaryHtml, summaryUrl);
+    const links = disclosureLinks(summary.links, year);
+    // "No reports" is only believed when the page says so. A Summary page with
+    // neither report links nor the site's own notice is incomplete: throw, so
+    // the registrant is not cached and the next run fetches it again.
+    if (!links.length && !/No Disclosure Report has been concluded/i.test(summaryHtml)) {
+      throw new Error('Summary page had no disclosure section');
+    }
     const reports = [];
-    for (const d of disclosureLinks(summary.links, year)) {
+    for (const d of links) {
       await sleep(ACT_DELAY_MS);
       const html = await fetchText(sameOrigin(d.url));
       reports.push({
@@ -845,17 +875,22 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
 
   // Bill activity: a small worker pool, each worker pausing ACT_DELAY_MS
   // between fetches. A registrant whose fetch fails is not stored, so the next
-  // run picks it up again.
+  // run picks it up again, and registrants already cached are skipped, so a
+  // run can be resumed. "Clear activities" starts over.
   let actRunning = false;
   let actStatus = '';
-  async function runActivityScrape(rows, year, onDone) {
+  async function runActivityScrape(allRows, year, onDone) {
     if (actRunning || scraping) return;
     actRunning = true;
+    const cached = new Set(getActIndex());
+    const rows = allRows.filter((r) => !cached.has(`${year}::${r.sysvalue}`));
+    const skipped = allRows.length - rows.length;
     let next = 0,
       ok = 0,
       fail = 0,
       reports = 0,
-      activityRows = 0;
+      activityRows = 0,
+      blocked = null;
     const show = (name) => {
       actStatus = `
         <b>Bill activity ${Math.min(next, rows.length)} / ${rows.length}</b><br>
@@ -866,7 +901,7 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
       if (el) el.innerHTML = actStatus;
     };
     async function worker() {
-      while (next < rows.length) {
+      while (next < rows.length && !blocked) {
         const r = rows[next++];
         show(r.name);
         try {
@@ -880,6 +915,8 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
         } catch (e) {
           console.warn('[ta-sos] activity fail', r.name, e);
           fail++;
+          // Stop every worker on a block rather than keep requesting.
+          if (e instanceof BlockedError) blocked = r.name;
         }
         show(r.name);
         await sleep(ACT_DELAY_MS);
@@ -888,9 +925,15 @@ Runs entirely in your browser. No data leaves the page until YOU click Download.
     try {
       const n = Math.min(ACT_WORKERS, rows.length);
       await Promise.all(Array.from({ length: n }, () => worker()));
+      const summary =
+        `${ok} ok, ${fail} failed, ${reports} reports, ${activityRows} rows` +
+        (skipped ? `, ${skipped} already cached and skipped` : '') + '.';
       alert(
-        `Bill activity done. ${ok} ok, ${fail} failed, ${reports} reports, ` +
-        `${activityRows} rows. Click "Download activities" to save.`,
+        blocked
+          ? `Stopped: the site's bot protection blocked the request for ${blocked}. ` +
+            `${summary} Wait a few hours, then click "Scrape bill activity" again; ` +
+            'cached registrants are skipped.'
+          : `Bill activity done. ${summary} Click "Download activities" to save.`,
       );
     } finally {
       actRunning = false;
