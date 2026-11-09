@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-08T15:51:41.392Z",
+  "fetchedAt": "2026-11-09T19:37:42.766Z",
   "years": [
     "2025",
     "2026",
@@ -1646,7 +1646,7 @@
       {
         "department": "TRIAL COURT (TRC)",
         "totalPay": 681129423.02,
-        "employees": 7744
+        "employees": 7745
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
@@ -3129,7 +3129,7 @@
     {
       "year": "2025",
       "totalPayroll": 10886023004.43,
-      "headcount": 162460
+      "headcount": 162461
     },
     {
       "year": "2026",
