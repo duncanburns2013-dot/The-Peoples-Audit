@@ -1,15 +1,15 @@
 {
-  "fetchedAt": "2026-11-06T17:28:25.038Z",
+  "fetchedAt": "2026-11-10T17:44:25.057Z",
   "generalCourt": 194,
   "billsScanned": 1500,
-  "billsTotal": 9011,
+  "billsTotal": 9017,
   "sampleStrategy": "seeded-random-750-per-chamber (seed 194)",
   "budgetTruncated": false,
   "preservedFromCache": false,
   "recordedVotes": {
-    "house": 268,
-    "senate": 238,
-    "total": 506,
+    "house": 266,
+    "senate": 237,
+    "total": 503,
     "highestNumber": {
       "house": 275,
       "senate": 241
@@ -18,25 +18,25 @@
     "exact": true
   },
   "totals": {
-    "actions": 8467,
-    "rollCalls": 53,
-    "voicePasses": 1916,
-    "procedural": 6498
+    "actions": 8371,
+    "rollCalls": 50,
+    "voicePasses": 1845,
+    "procedural": 6476
   },
   "sampleRatios": {
-    "rollCallShare": 0.02691721686135094,
-    "voicePassShare": 0.973082783138649
+    "rollCallShare": 0.026385224274406333,
+    "voicePassShare": 0.9736147757255936
   },
   "sessionEstimate": {
-    "recordedVotesExact": 506,
-    "voicePassesEstimated": 11510,
-    "decisiveActionsEstimated": 12016,
-    "scaleFactor": 6.007,
-    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 9011"
+    "recordedVotesExact": 503,
+    "voicePassesEstimated": 11091,
+    "decisiveActionsEstimated": 11594,
+    "scaleFactor": 6.011,
+    "basis": "recorded votes enumerated exactly; voice passages extrapolated from a seeded random 1500-bill sample of 9017"
   },
   "ratios": {
-    "rollCallShare": 0.04211051930758988,
-    "voicePassShare": 0.9578894806924101,
+    "rollCallShare": 0.0433845092289115,
+    "voicePassShare": 0.9566154907710885,
     "basis": "session-wide"
   },
   "recentRollCalls": [
@@ -59,40 +59,76 @@
       "nays": 33
     },
     {
-      "billNumber": "S3236",
-      "title": "An Act authorizing the Massachusetts Department of Fish and Game to convey easements over certain parcels of land",
+      "billNumber": "H5699",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
+      "branch": "House",
+      "date": "10/21/2026",
+      "action": "Amendment 160 rejected - 30 YEAS to 122 NAYS ( See YEA and NAY No. 271 )",
+      "yeas": 30,
+      "nays": 122
+    },
+    {
+      "billNumber": "H5699",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
+      "branch": "House",
+      "date": "10/21/2026",
+      "action": "Amendment 183 rejected - 25 YEAS to 127 NAYS ( See YEA and NAY No. 272 )",
+      "yeas": 25,
+      "nays": 127
+    },
+    {
+      "billNumber": "H5699",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
+      "branch": "House",
+      "date": "10/21/2026",
+      "action": "Consolidated amendment A adopted - 132 YEAS to 19 NAYS ( See YEA and NAY No. 273 )",
+      "yeas": 132,
+      "nays": 19
+    },
+    {
+      "billNumber": "H5699",
+      "title": "An Act making appropriations for the fiscal year 2026 to provide for supplementing certain existing appropriations and for certain other activities and projects.",
+      "branch": "House",
+      "date": "10/21/2026",
+      "action": "Consolidated amendment B adopted - 143 YEAS to 8 NAYS ( See YEA and NAY No. 274 )",
+      "yeas": 143,
+      "nays": 8
+    },
+    {
+      "billNumber": "H5631",
+      "title": "An Act mandating access to cancer screenings for firefighters through health care benefits plans or programs provided by the public employer",
       "branch": "House",
       "date": "7/31/2026",
-      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 267 )",
+      "action": "Passed to be engrossed - 157 YEAS to 0 NAYS ( See YEA and NAY No. 256 )",
+      "yeas": 157,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5595",
+      "title": "An Act prioritizing patient access to care",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 121 YEAS to 35 NAYS ( See YEA and NAY No. 262 )",
+      "yeas": 121,
+      "nays": 35
+    },
+    {
+      "billNumber": "H5640",
+      "title": "An Act authorizing the town of Hingham to grant to the commonwealth of Massachusetts certain parcels of land in the town of Hingham for highway purposes",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 264 )",
       "yeas": 152,
       "nays": 0
     },
     {
-      "billNumber": "S3236",
-      "title": "An Act authorizing the Massachusetts Department of Fish and Game to convey easements over certain parcels of land",
+      "billNumber": "H5640",
+      "title": "An Act authorizing the town of Hingham to grant to the commonwealth of Massachusetts certain parcels of land in the town of Hingham for highway purposes",
       "branch": "Senate",
       "date": "7/31/2026",
-      "action": "Enacted -see Roll Call #235 (Yeas 39 to Nays 0)",
+      "action": "Enacted -see Roll Call #232 (Yeas 39 to Nays 0)",
       "yeas": 39,
       "nays": 0
-    },
-    {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
-      "branch": "House",
-      "date": "7/31/2026",
-      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 265 )",
-      "yeas": 152,
-      "nays": 0
-    },
-    {
-      "billNumber": "S3188",
-      "title": "An Act authorizing the Buzzards Bay Water District to convey non-exclusive easements over a certain parcel of land",
-      "branch": "Senate",
-      "date": "7/31/2026",
-      "action": "Enacted -see Roll Call #233 (Yeas 38 to Nays 1)",
-      "yeas": 38,
-      "nays": 1
     },
     {
       "billNumber": "S2653",
@@ -104,13 +140,76 @@
       "nays": 0
     },
     {
-      "billNumber": "S2726",
-      "title": "An Act regarding free expression ",
+      "billNumber": "S3230",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to acquire interests in certain portions of land owned by the town of Andover which were acquired by the town for Article XCVII purposes",
       "branch": "House",
       "date": "7/31/2026",
-      "action": "Enacted - 156 YEAS to 1 NAYS ( See YEA and NAY No. 254 )",
-      "yeas": 156,
-      "nays": 1
+      "action": "Enacted - 152 YEAS to 0 NAYS ( See YEA and NAY No. 269 )",
+      "yeas": 152,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3230",
+      "title": "An Act authorizing the Massachusetts Department of Transportation to acquire interests in certain portions of land owned by the town of Andover which were acquired by the town for Article XCVII purposes",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #237 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5639",
+      "title": "An Act authorizing the town of Nantucket conservation commission to convey a certain parcel of land situated in the town for purposes of conveyance to the town of Nantucket under the care, custody, management and control of the select board and the town of Nantucket to convey certain land in the town of Nantucket held for open space, passive recreation or conservation purposes to the Nantucket Islands Land Bank for the purposes pursuant to its enabling legislation for open space, conservation and passive recreation purposes",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Enacted - 151 YEAS to 0 NAYS ( See YEA and NAY No. 263 )",
+      "yeas": 151,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5639",
+      "title": "An Act authorizing the town of Nantucket conservation commission to convey a certain parcel of land situated in the town for purposes of conveyance to the town of Nantucket under the care, custody, management and control of the select board and the town of Nantucket to convey certain land in the town of Nantucket held for open space, passive recreation or conservation purposes to the Nantucket Islands Land Bank for the purposes pursuant to its enabling legislation for open space, conservation and passive recreation purposes",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Enacted -see Roll Call #231 (Yeas 39 to Nays 0)",
+      "yeas": 39,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5629",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "House",
+      "date": "7/31/2026",
+      "action": "Committee of conference report accepted - 157 YEAS to 0 NAYS ( See YEA and NAY No. 261 )",
+      "yeas": 157,
+      "nays": 0
+    },
+    {
+      "billNumber": "H5629",
+      "title": "An Act enhancing child welfare protections",
+      "branch": "Senate",
+      "date": "7/31/2026",
+      "action": "Committee of conference report accepted, in concurrence -see Roll Call #229 (Yeas 40 to Nays 0)",
+      "yeas": 40,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3200",
+      "title": "An Act promoting transparency and public access in state government",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Amendment #17 (Rausch) adopted -see Roll Call #215 (Yeas 40 to Nays 0)",
+      "yeas": 40,
+      "nays": 0
+    },
+    {
+      "billNumber": "S3200",
+      "title": "An Act promoting transparency and public access in state government",
+      "branch": "Senate",
+      "date": "7/30/2026",
+      "action": "Amendment #18 (Tarr) rejected -see Roll Call #216 (Yeas 6 to Nays 33)",
+      "yeas": 6,
+      "nays": 33
     },
     {
       "billNumber": "H5379",
@@ -122,58 +221,49 @@
       "nays": 0
     },
     {
-      "billNumber": "H5561",
-      "title": "An Act authorizing the commissioner of capital asset management and maintenance to transfer certain parcels of land in the town of Norton",
-      "branch": "Senate",
+      "billNumber": "H5620",
+      "title": "An Act promoting rule of law, oversight, trust and equal constitutional treatment",
+      "branch": "House",
       "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #221 (Yeas 39 to Nays 0)",
-      "yeas": 39,
+      "action": "Committee of conference report accepted - 137 YEAS to 21 NAYS ( See YEA and NAY No. 243 )",
+      "yeas": 137,
+      "nays": 21
+    },
+    {
+      "billNumber": "H5620",
+      "title": "An Act promoting rule of law, oversight, trust and equal constitutional treatment",
+      "branch": "House",
+      "date": "7/30/2026",
+      "action": "Quorum Roll Call - 149 YEAS to 0 NAYS ( See YEA and NAY No. 249 )",
+      "yeas": 149,
       "nays": 0
     },
     {
-      "billNumber": "S3160",
-      "title": "An Act relative to the dissolution of the Holmes Park Water District",
+      "billNumber": "H5620",
+      "title": "An Act promoting rule of law, oversight, trust and equal constitutional treatment",
       "branch": "House",
       "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 242 )",
+      "action": "Enacted - 137 YEAS to 21 NAYS ( See YEA and NAY No. 251 )",
+      "yeas": 137,
+      "nays": 21
+    },
+    {
+      "billNumber": "H5467",
+      "title": "An Act authorizing the transfer of certain parcels of land in the town of Weston from the Weston conservation commission to the select board",
+      "branch": "House",
+      "date": "7/30/2026",
+      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 245 )",
       "yeas": 158,
       "nays": 0
     },
     {
-      "billNumber": "S3160",
-      "title": "An Act relative to the dissolution of the Holmes Park Water District",
+      "billNumber": "H5467",
+      "title": "An Act authorizing the transfer of certain parcels of land in the town of Weston from the Weston conservation commission to the select board",
       "branch": "Senate",
       "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #219 (Yeas 39 to Nays 0)",
+      "action": "Enacted -see Roll Call #224 (Yeas 39 to Nays 0)",
       "yeas": 39,
       "nays": 0
-    },
-    {
-      "billNumber": "H4992",
-      "title": "An Act authorizing the Barnstable county and the town of Bourne to convey certain parcels of land and certain interests in land in the town of Bourne",
-      "branch": "House",
-      "date": "7/30/2026",
-      "action": "Enacted - 158 YEAS to 0 NAYS ( See YEA and NAY No. 248 )",
-      "yeas": 158,
-      "nays": 0
-    },
-    {
-      "billNumber": "H4992",
-      "title": "An Act authorizing the Barnstable county and the town of Bourne to convey certain parcels of land and certain interests in land in the town of Bourne",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Enacted -see Roll Call #222 (Yeas 39 to Nays 0)",
-      "yeas": 39,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5469",
-      "title": "An Act promoting transparency and public access in state government",
-      "branch": "Senate",
-      "date": "7/30/2026",
-      "action": "Passed to be engrossed -see Roll Call #217 (Yeas 34 to Nays 6)",
-      "yeas": 34,
-      "nays": 6
     },
     {
       "billNumber": "H5379",
@@ -185,13 +275,13 @@
       "nays": 0
     },
     {
-      "billNumber": "H5561",
-      "title": "An Act authorizing the commissioner of capital asset management and maintenance to transfer certain parcels of land in the town of Norton",
+      "billNumber": "H5595",
+      "title": "An Act prioritizing patient access to care",
       "branch": "House",
-      "date": "7/29/2026",
-      "action": "Enacted - 156 YEAS to 0 NAYS ( See YEA and NAY No. 241 )",
-      "yeas": 156,
-      "nays": 0
+      "date": "7/22/2026",
+      "action": "Passed to be engrossed - 119 YEAS to 33 NAYS ( See YEA and NAY No. 236 )",
+      "yeas": 119,
+      "nays": 33
     },
     {
       "billNumber": "H5388",
@@ -212,337 +302,247 @@
       "nays": 0
     },
     {
-      "billNumber": "H5175",
-      "title": "An Act relative to energy affordability, clean power and economic competitiveness",
+      "billNumber": "H2250",
+      "title": "An Act dissolving the Whately Water District",
       "branch": "Senate",
-      "date": "7/1/2026",
-      "action": "Passed to be engrossed -- see Roll Call #205 (Yeas 32 to Nays 8)",
-      "yeas": 32,
-      "nays": 8
-    },
-    {
-      "billNumber": "S2916",
-      "title": "An Act improving campaign finance reporting for statewide ballot questions ",
-      "branch": "House",
-      "date": "7/1/2026",
-      "action": "Passed to be engrossed -149 YEAS to 0 NAYS ( See YEA and NAY No. 222 )",
-      "yeas": 149,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2726",
-      "title": "An Act regarding free expression ",
-      "branch": "House",
-      "date": "6/10/2026",
-      "action": "Amendment 3 rejected - 2 YEAS to 154 NAYS ( See YEA and NAY No. 209 )",
-      "yeas": 2,
-      "nays": 154
-    },
-    {
-      "billNumber": "S2726",
-      "title": "An Act regarding free expression ",
-      "branch": "House",
-      "date": "6/10/2026",
-      "action": "Amendment 4 rejected - 23 YEAS to 133 NAYS ( See YEA and NAY No. 210 )",
-      "yeas": 23,
-      "nays": 133
-    },
-    {
-      "billNumber": "S2726",
-      "title": "An Act regarding free expression ",
-      "branch": "House",
-      "date": "6/10/2026",
-      "action": "Passed to be engrossed - 153 YEAS to 3 NAYS ( See YEA and NAY No. 211 )",
-      "yeas": 153,
-      "nays": 3
-    },
-    {
-      "billNumber": "S2619",
-      "title": "An Act establishing the Massachusetts data privacy act",
-      "branch": "House",
-      "date": "6/4/2026",
-      "action": "Consolidated amendment A adopted - 146 YEAS to 0 NAYS ( See YEA and NAY No. 207 )",
-      "yeas": 146,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2619",
-      "title": "An Act establishing the Massachusetts data privacy act",
-      "branch": "House",
-      "date": "6/4/2026",
-      "action": "Passed to be engrossed - 146 YEAS to 0 NAYS ( See YEA and NAY No. 208 )",
-      "yeas": 146,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2563",
-      "title": "An Act amending certain laws relative to individuals with disabilities",
-      "branch": "House",
-      "date": "6/4/2026",
-      "action": "House concurred in the Senate further amendment with a still further amendment, see H5474 - 150 YEAS to 0 NAYS ( See YEA and NAY No. 204 )",
-      "yeas": 150,
-      "nays": 0
-    },
-    {
-      "billNumber": "H5469",
-      "title": "An Act promoting transparency and public access in state government",
-      "branch": "House",
-      "date": "6/3/2026",
-      "action": "Passed to be engrossed - 125 YEAS to 28 NAYS ( See YEA and NAY No. 201 )",
-      "yeas": 125,
-      "nays": 28
-    },
-    {
-      "billNumber": "H5501",
-      "title": "An Act making appropriations for the fiscal year 2027 for the maintenance of the departments, boards, commissions, institutions, and certain activities of the commonwealth, for interest, sinking fund, and serial bond requirements, and for certain permanent improvements",
-      "branch": "Senate",
-      "date": "5/21/2026",
-      "action": "Passed to be engrossed -see Roll Call #185 (Yeas 40 to Nays 0)",
-      "yeas": 40,
-      "nays": 0
-    },
-    {
-      "billNumber": "S2903",
-      "title": "An Act honoring Blue Star Families",
-      "branch": "House",
-      "date": "5/20/2026",
-      "action": "Passed to be engrossed - 156 YEAS to 0 NAYS ( See YEA and NAY No. 198 )",
-      "yeas": 156,
+      "date": "7/16/2026",
+      "action": "Enacted -see Roll Call #207 (Yeas 39 to Nays 0)",
+      "yeas": 39,
       "nays": 0
     }
   ],
   "recentVoicePasses": [
     {
-      "billNumber": "S3275",
-      "title": "An Act authorizing the appointment of retired police officers as special police officers in the town of Dighton",
+      "billNumber": "H5703",
+      "title": "An Act amending CH. 980 of the acts of 2007 relative to property owned by the Boys and Girls Club of Brockton, INC",
       "branch": "Senate",
-      "date": "10/5/2026",
-      "action": "Ordered to a third reading"
+      "date": "10/26/2026",
+      "action": "Senate concurred"
     },
     {
-      "billNumber": "S3275",
-      "title": "An Act authorizing the appointment of retired police officers as special police officers in the town of Dighton",
-      "branch": "Senate",
-      "date": "10/5/2026",
-      "action": "Read third and passed to be engrossed"
-    },
-    {
-      "billNumber": "S3033",
-      "title": "An Act authorizing the grant of easements in or takings of certain parcels of land to the city of Boston",
-      "branch": "Senate",
-      "date": "4/16/2026",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "H4582",
-      "title": "An Act directing the City of Boston Fire Department to waive the maximum age requirement for firefighters for Stylianos Katikakis",
-      "branch": "Senate",
-      "date": "4/9/2026",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "S3033",
-      "title": "An Act authorizing the grant of easements in or takings of certain parcels of land to the city of Boston",
+      "billNumber": "H5708",
+      "title": "An Act relative to noise report data and good neighbor policy at Beverly Regional Airport",
       "branch": "House",
-      "date": "3/26/2026",
+      "date": "10/26/2026",
+      "action": "Substituted for H5278"
+    },
+    {
+      "billNumber": "H5708",
+      "title": "An Act relative to noise report data and good neighbor policy at Beverly Regional Airport",
+      "branch": "House",
+      "date": "10/26/2026",
+      "action": "Passed to be engrossed"
+    },
+    {
+      "billNumber": "S3250",
+      "title": "An Act providing for recall elections for the Freetown-Lakeville regional school district",
+      "branch": "House",
+      "date": "8/17/2026",
       "action": "House concurred"
     },
     {
-      "billNumber": "H4582",
-      "title": "An Act directing the City of Boston Fire Department to waive the maximum age requirement for firefighters for Stylianos Katikakis",
+      "billNumber": "H2517",
+      "title": "An Act to update postural screenings in schools",
       "branch": "House",
-      "date": "3/16/2026",
-      "action": "Read third and passed to be engrossed"
+      "date": "7/30/2026",
+      "action": "Read third (title changed) and passed to be engrossed"
     },
     {
-      "billNumber": "H4582",
-      "title": "An Act directing the City of Boston Fire Department to waive the maximum age requirement for firefighters for Stylianos Katikakis",
+      "billNumber": "H5588",
+      "title": "An Act to designate regional lockup part of jail in Dukes County",
+      "branch": "Senate",
+      "date": "7/16/2026",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "S3003",
+      "title": "Economic Development and Emerging Technologies - Extension Order",
+      "branch": "Senate",
+      "date": "4/15/2026",
+      "action": "Committee recommended ought to be adopted"
+    },
+    {
+      "billNumber": "S3003",
+      "title": "Economic Development and Emerging Technologies - Extension Order",
+      "branch": "Senate",
+      "date": "4/15/2026",
+      "action": "Adopted"
+    },
+    {
+      "billNumber": "H2275",
+      "title": "An Act authorizing the city of Revere to pay a certain sum of money to Denise Mattera (Condelli), widow of School Committeeman Anthony Mattera",
+      "branch": "Senate",
+      "date": "3/12/2026",
+      "action": "Enacted and laid before the Governor"
+    },
+    {
+      "billNumber": "H2275",
+      "title": "An Act authorizing the city of Revere to pay a certain sum of money to Denise Mattera (Condelli), widow of School Committeeman Anthony Mattera",
       "branch": "House",
+      "date": "3/9/2026",
+      "action": "Enacted"
+    },
+    {
+      "billNumber": "H2275",
+      "title": "An Act authorizing the city of Revere to pay a certain sum of money to Denise Mattera (Condelli), widow of School Committeeman Anthony Mattera",
+      "branch": "Senate",
+      "date": "3/5/2026",
+      "action": "Read third (title changed) and passed to be engrossed"
+    },
+    {
+      "billNumber": "H4827",
+      "title": "Communication from the Department of Energy Resources of the Executive Office of Energy and Environmental Affairs (under the provisions of section 12 of Chapter 25A of the General Laws) submitting proposed amendments to regulations 225 CMR 29.00 – governing Small Clean Energy Infrastructure Facility Siting and Permitting",
+      "branch": "Senate",
+      "date": "2/26/2026",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H4246",
+      "title": "An Act directing the city of Boston Police Department to waive the maximum age requirement for police officers for Gissell Melo",
+      "branch": "Senate",
       "date": "2/12/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "S2799",
-      "title": "An Act establishing a sick leave bank for Jeffrey Yacinthe, an employee of the department of elementary and secondary education",
+      "billNumber": "H4246",
+      "title": "An Act directing the city of Boston Police Department to waive the maximum age requirement for police officers for Gissell Melo",
       "branch": "House",
-      "date": "1/8/2026",
-      "action": "Emergency preamble adopted"
-    },
-    {
-      "billNumber": "S2799",
-      "title": "An Act establishing a sick leave bank for Jeffrey Yacinthe, an employee of the department of elementary and secondary education",
-      "branch": "Senate",
-      "date": "1/8/2026",
-      "action": "Emergency preamble adopted"
-    },
-    {
-      "billNumber": "S2799",
-      "title": "An Act establishing a sick leave bank for Jeffrey Yacinthe, an employee of the department of elementary and secondary education",
-      "branch": "House",
-      "date": "1/8/2026",
-      "action": "Enacted"
-    },
-    {
-      "billNumber": "S2799",
-      "title": "An Act establishing a sick leave bank for Jeffrey Yacinthe, an employee of the department of elementary and secondary education",
-      "branch": "Senate",
-      "date": "1/8/2026",
-      "action": "Enacted and laid before the Governor"
-    },
-    {
-      "billNumber": "S2799",
-      "title": "An Act establishing a sick leave bank for Jeffrey Yacinthe, an employee of the department of elementary and secondary education",
-      "branch": "House",
-      "date": "1/7/2026",
+      "date": "1/23/2026",
       "action": "Read third and passed to be engrossed"
     },
     {
-      "billNumber": "H4173",
-      "title": "An Act amending the special legislation establishing the Acton Memorial Library",
+      "billNumber": "H4175",
+      "title": "An Act relative to the charter of the town of Provincetown",
       "branch": "House",
-      "date": "12/15/2025",
+      "date": "1/15/2026",
       "action": "Enacted"
     },
     {
-      "billNumber": "H4173",
-      "title": "An Act amending the special legislation establishing the Acton Memorial Library",
+      "billNumber": "H4175",
+      "title": "An Act relative to the charter of the town of Provincetown",
       "branch": "Senate",
-      "date": "12/15/2025",
+      "date": "1/15/2026",
       "action": "Enacted and laid before the Governor"
     },
     {
-      "billNumber": "S2799",
-      "title": "An Act establishing a sick leave bank for Jeffrey Yacinthe, an employee of the department of elementary and secondary education",
-      "branch": "House",
-      "date": "12/11/2025",
-      "action": "Read second and ordered to a third reading"
-    },
-    {
-      "billNumber": "H4173",
-      "title": "An Act amending the special legislation establishing the Acton Memorial Library",
+      "billNumber": "H4175",
+      "title": "An Act relative to the charter of the town of Provincetown",
       "branch": "Senate",
-      "date": "12/11/2025",
+      "date": "1/12/2026",
       "action": "Read third (title changed) and passed to be engrossed"
     },
     {
-      "billNumber": "S2799",
-      "title": "An Act establishing a sick leave bank for Jeffrey Yacinthe, an employee of the department of elementary and secondary education",
-      "branch": "Senate",
-      "date": "12/4/2025",
-      "action": "Passed to be engrossed"
-    },
-    {
-      "billNumber": "S26",
-      "title": "An Act authorizing the town of Brookline to prohibit or restrict the application of second-generation anticoagulant rodenticides",
-      "branch": "Senate",
-      "date": "11/19/2025",
+      "billNumber": "H4246",
+      "title": "An Act directing the city of Boston Police Department to waive the maximum age requirement for police officers for Gissell Melo",
+      "branch": "House",
+      "date": "1/12/2026",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H586",
-      "title": "An Act relative to type 1 diabetes informational materials for the parents and guardians of students",
-      "branch": "Senate",
-      "date": "10/30/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H4692",
-      "title": "Resolutions rescinding previous Article V Convention applications",
-      "branch": "Senate",
-      "date": "10/30/2025",
-      "action": "Senate concurred"
-    },
-    {
-      "billNumber": "H2998",
-      "title": "An Act authorizing Thomas Harmon to purchase creditable service from the Barnstable County Retirement Board",
+      "billNumber": "H4913",
+      "title": "Order relative to extending until Wednesday, March 18, 2026 the time within which the committee on Labor and Workforce Development is authorized to report on a current House document ",
       "branch": "House",
-      "date": "10/23/2025",
-      "action": "Read third and passed to be engrossed"
+      "date": "1/8/2026",
+      "action": "Committee reported ought to be adopted"
     },
     {
-      "billNumber": "H4173",
-      "title": "An Act amending the special legislation establishing the Acton Memorial Library",
+      "billNumber": "H4913",
+      "title": "Order relative to extending until Wednesday, March 18, 2026 the time within which the committee on Labor and Workforce Development is authorized to report on a current House document ",
+      "branch": "House",
+      "date": "1/8/2026",
+      "action": "Adopted"
+    },
+    {
+      "billNumber": "H4827",
+      "title": "Communication from the Department of Energy Resources of the Executive Office of Energy and Environmental Affairs (under the provisions of section 12 of Chapter 25A of the General Laws) submitting proposed amendments to regulations 225 CMR 29.00 – governing Small Clean Energy Infrastructure Facility Siting and Permitting",
+      "branch": "Senate",
+      "date": "12/11/2025",
+      "action": "Senate concurred"
+    },
+    {
+      "billNumber": "H4653",
+      "title": "An Act protecting public higher education student information",
+      "branch": "House",
+      "date": "11/13/2025",
+      "action": "Read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H2275",
+      "title": "An Act authorizing the city of Revere to pay a certain sum of money to Denise Mattera (Condelli), widow of School Committeeman Anthony Mattera",
       "branch": "Senate",
       "date": "10/16/2025",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H4582",
-      "title": "An Act directing the City of Boston Fire Department to waive the maximum age requirement for firefighters for Stylianos Katikakis",
+      "billNumber": "H4175",
+      "title": "An Act relative to the charter of the town of Provincetown",
       "branch": "Senate",
-      "date": "10/6/2025",
+      "date": "9/22/2025",
+      "action": "Read, rules suspended, read second and ordered to a third reading"
+    },
+    {
+      "billNumber": "H4175",
+      "title": "An Act relative to the charter of the town of Provincetown",
+      "branch": "House",
+      "date": "9/18/2025",
+      "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H4508",
+      "title": "An Act relative to the disability pension for Patricia M. Lampron administered by the Boston retirement board",
+      "branch": "Senate",
+      "date": "9/15/2025",
       "action": "Senate concurred"
     },
     {
-      "billNumber": "H2998",
-      "title": "An Act authorizing Thomas Harmon to purchase creditable service from the Barnstable County Retirement Board",
+      "billNumber": "H2517",
+      "title": "An Act to update postural screenings in schools",
       "branch": "House",
-      "date": "10/6/2025",
+      "date": "8/21/2025",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H804",
-      "title": "An Act relative to gender neutral language in elections law",
+      "billNumber": "H4175",
+      "title": "An Act relative to the charter of the town of Provincetown",
       "branch": "House",
-      "date": "9/15/2025",
+      "date": "8/14/2025",
       "action": "Read second and ordered to a third reading"
     },
     {
-      "billNumber": "H4445",
-      "title": "An Act establishing a charter for the city of Somerville",
-      "branch": "Senate",
-      "date": "9/11/2025",
-      "action": "Passed to be engrossed"
-    },
-    {
-      "billNumber": "H4445",
-      "title": "An Act establishing a charter for the city of Somerville",
+      "billNumber": "H2275",
+      "title": "An Act authorizing the city of Revere to pay a certain sum of money to Denise Mattera (Condelli), widow of School Committeeman Anthony Mattera",
       "branch": "House",
-      "date": "9/11/2025",
-      "action": "House concurred in the Senate amendment"
-    },
-    {
-      "billNumber": "H4445",
-      "title": "An Act establishing a charter for the city of Somerville",
-      "branch": "House",
-      "date": "9/11/2025",
-      "action": "Enacted"
-    },
-    {
-      "billNumber": "H4445",
-      "title": "An Act establishing a charter for the city of Somerville",
-      "branch": "Senate",
-      "date": "9/11/2025",
-      "action": "Enacted and laid before the Governor"
-    },
-    {
-      "billNumber": "H4173",
-      "title": "An Act amending the special legislation establishing the Acton Memorial Library",
-      "branch": "House",
-      "date": "9/11/2025",
+      "date": "7/28/2025",
       "action": "Read third and passed to be engrossed"
+    },
+    {
+      "billNumber": "H2275",
+      "title": "An Act authorizing the city of Revere to pay a certain sum of money to Denise Mattera (Condelli), widow of School Committeeman Anthony Mattera",
+      "branch": "House",
+      "date": "7/14/2025",
+      "action": "Read second and ordered to a third reading"
     }
   ],
   "sources": [
     {
       "name": "bills.combined",
       "ok": true,
-      "count": 12048
+      "count": 12060
     },
     {
       "name": "bills.House",
       "ok": true,
-      "count": 5715
+      "count": 5718
     },
     {
       "name": "bills.Senate",
       "ok": true,
-      "count": 3296
+      "count": 3299
     },
     {
       "name": "rollcalls.enumerated",
       "ok": true,
-      "count": 506
+      "count": 503
     },
     {
       "name": "bills.actions",
