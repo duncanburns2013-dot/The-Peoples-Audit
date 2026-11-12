@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-11T16:58:11.696Z",
+  "fetchedAt": "2026-11-12T17:26:33.819Z",
   "years": [
     "2025",
     "2026",
@@ -299,11 +299,11 @@
       },
       {
         "name": "EXECUTIVE OFFICE OF LABOR AND WORKFORCE DEVELOPMENT (EOL)",
-        "value": 11132857230.24
+        "value": 11133161709.54
       },
       {
         "name": "OFFICE OF THE STATE TREASURER (TRE)",
-        "value": 9743032638.02
+        "value": 9743032878.02
       },
       {
         "name": "DEPARTMENT OF REVENUE (DOR)",
@@ -327,7 +327,7 @@
       },
       {
         "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "value": 3321508190.87
+        "value": 3321508318.15
       },
       {
         "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
@@ -497,183 +497,191 @@
     "2027": [
       {
         "name": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-        "value": 9276594484.17
+        "value": 10536964145.64
       },
       {
         "name": "OFFICE OF THE STATE TREASURER (TRE)",
-        "value": 4236474168.54
+        "value": 4237855757.48
       },
       {
         "name": "DEPARTMENT OF REVENUE (DOR)",
-        "value": 3242037158.68
+        "value": 3242103612.64
       },
       {
         "name": "EXECUTIVE OFFICE OF LABOR AND WORKFORCE DEVELOPMENT (EOL)",
-        "value": 2810971150.03
+        "value": 2812430901.49
       },
       {
         "name": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-        "value": 1634257011.75
+        "value": 1676510156.52
       },
       {
         "name": "TEACHERS RETIREMENT BOARD (TRB)",
-        "value": 1422280122.69
+        "value": 1422280166.87
       },
       {
         "name": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "value": 1280236243.16
+        "value": 1280246241.42
       },
       {
         "name": "GROUP INSURANCE COMMISSION (GIC)",
-        "value": 1132428918.86
+        "value": 1183395004.16
       },
       {
         "name": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
-        "value": 876173078.28
+        "value": 903593212.91
       },
       {
         "name": "LOTTERY AND GAMING COMMISSION (LOT)",
-        "value": 330226091.27
+        "value": 347098899.95
       },
       {
         "name": "DEPARTMENT OF PUBLIC HEALTH (DPH)",
-        "value": 275080299.93
+        "value": 287263332.22
       },
       {
         "name": "DEPARTMENT OF EARLY EDUCATION & CARE (EEC)",
-        "value": 251924623.68
+        "value": 281011556.89
       },
       {
         "name": "DEPARTMENT OF ELEMENTARY & SECONDARY EDUCATION (DOE)",
-        "value": 243065103.2
+        "value": 250884318.42
       },
       {
         "name": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "value": 242638016.5
+        "value": 248504400.86
       },
       {
         "name": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-        "value": 228231527.28
+        "value": 245566510.82
       },
       {
         "name": "DEPARTMENT OF CHILDREN AND FAMILIES (DSS)",
-        "value": 205355542.5
-      },
-      {
-        "name": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
-        "value": 188021810.5
-      },
-      {
-        "name": "OFFICE OF THE COMPTROLLER (CTR)",
-        "value": 173074154.78
+        "value": 215455680.25
       },
       {
         "name": "EXECUTIVE OFFICE OF HOUSING AND LIVABLE COMMUNITIES (OCD)",
-        "value": 172342840.89
+        "value": 197427754.51
+      },
+      {
+        "name": "EXECUTIVE OFFICE FOR ADMINISTRATION AND FINANCE (ANF)",
+        "value": 189065427.16
+      },
+      {
+        "name": "OFFICE OF THE COMPTROLLER (CTR)",
+        "value": 173947818.52
       },
       {
         "name": "DEPARTMENT OF ENERGY RESOURCES (ENE)",
-        "value": 158957675.09
+        "value": 159529680.09
       },
       {
         "name": "EXECUTIVE OFFICE OF TECHNOLOGY SERVICES AND SECURITY (ITD)",
-        "value": 102052378.95
+        "value": 103014379.27
       },
       {
         "name": "CAPITAL ASSET MANAGEMENT AND MAINTENANCE DIVISION (DCP)",
-        "value": 95198664.1
+        "value": 97069031.72
       },
       {
         "name": "COMMITTEE FOR PUBLIC COUNSEL SERVICES (CPC)",
-        "value": 76480811.96
-      },
-      {
-        "name": "TRIAL COURT (TRC)",
-        "value": 60847819.57
+        "value": 89785364.16
       },
       {
         "name": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
-        "value": 54189562.68
+        "value": 63705049.45
+      },
+      {
+        "name": "TRIAL COURT (TRC)",
+        "value": 63082890.38
       },
       {
         "name": "EXECUTIVE OFFICE OF ECONOMIC DEVELOPMENT (EED)",
-        "value": 52766502.32
+        "value": 54437433.6
       },
       {
         "name": "DEPARTMENT CONSERVATION AND RECREATION (DCR)",
-        "value": 43070979.91
+        "value": 51175283.21
       },
       {
         "name": "DEPARTMENT OF CORRECTION (DOC)",
-        "value": 39583946.32
+        "value": 42657079.8
       },
       {
         "name": "BUNKER HILL COMMUNITY COLLEGE (BHC)",
-        "value": 37921167.29
+        "value": 38149754.81
       },
       {
         "name": "EMERGENCY MANAGEMENT AGENCY (CDA)",
-        "value": 30359293.78
+        "value": 30387135.23
       },
       {
         "name": "FRAMINGHAM STATE UNIVERSITY (FRC)",
-        "value": 29228364.71
+        "value": 29230093.87
       },
       {
         "name": "MASS REHABILITATION COMMISSION (MRC)",
-        "value": 26852216.83
+        "value": 27652401.52
       },
       {
         "name": "DEPARTMENT OF TRANSITIONAL ASSISTANCE (WEL)",
-        "value": 26628871.54
-      },
-      {
-        "name": "DEPARTMENT OF STATE POLICE (POL)",
-        "value": 23986929.46
+        "value": 26841062.5
       },
       {
         "name": "DEPARTMENT OF AGRICULTURAL RESOURCES (AGR)",
-        "value": 22992909.97
+        "value": 25020352.26
+      },
+      {
+        "name": "DEPARTMENT OF STATE POLICE (POL)",
+        "value": 24357619.71
+      },
+      {
+        "name": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
+        "value": 23466932.85
       },
       {
         "name": "DEPARTMENT OF ENVIRONMENTAL PROTECTION (EQE)",
-        "value": 21055621.89
-      },
-      {
-        "name": "BOARD OF LIBRARY COMMISSIONERS (BLC)",
-        "value": 20435649.33
-      },
-      {
-        "name": "BRIDGEWATER STATE UNIVERSITY (BSC)",
-        "value": 19623466.72
+        "value": 21515173.96
       },
       {
         "name": "DEPARTMENT OF YOUTH SERVICES (DYS)",
-        "value": 19503852.08
+        "value": 20783188.46
+      },
+      {
+        "name": "BOARD OF LIBRARY COMMISSIONERS (BLC)",
+        "value": 20437400.36
+      },
+      {
+        "name": "BRIDGEWATER STATE UNIVERSITY (BSC)",
+        "value": 19658706.25
       },
       {
         "name": "SECRETARY OF STATE (SEC)",
-        "value": 18654441.22
+        "value": 18723025.15
       },
       {
         "name": "SUPREME JUDICIAL COURT (SJC)",
-        "value": 15564472.59
+        "value": 15566557.91
       },
       {
         "name": "WESTFIELD STATE UNIVERSITY (WSC)",
-        "value": 14983965.31
-      },
-      {
-        "name": "SALEM STATE UNIVERSITY (SSA)",
-        "value": 13781960.04
+        "value": 14984203.2
       },
       {
         "name": "MASSACHUSETTS GAMING COMMISSION (MGC)",
-        "value": 13009471.86
+        "value": 14526946.42
+      },
+      {
+        "name": "SALEM STATE UNIVERSITY (SSA)",
+        "value": 13782265.2
       },
       {
         "name": "WORCESTER STATE UNIVERSITY (WOR)",
-        "value": 11300332.01
+        "value": 11436745.01
+      },
+      {
+        "name": "OFFICE FOR REFUGEES AND IMMIGRANTS (ORI)",
+        "value": 11321139.92
       },
       {
         "name": "MASSACHUSETTS MARITIME ACADEMY (MMA)",
@@ -684,16 +692,8 @@
         "value": 10698124.79
       },
       {
-        "name": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
-        "value": 10228138.27
-      },
-      {
-        "name": "OFFICE FOR REFUGEES AND IMMIGRANTS (ORI)",
-        "value": 10217172.91
-      },
-      {
         "name": "MILITARY DIVISION (MIL)",
-        "value": 8699020.11
+        "value": 9139404.23
       }
     ]
   },
@@ -1109,7 +1109,7 @@
       },
       {
         "name": "BOSTON MEDICAL CENTER HEALTH P",
-        "value": 1824019511.45
+        "value": 2310470531.35
       },
       {
         "name": "BOND REDEMPTION (PRINCIPAL)",
@@ -1128,6 +1128,10 @@
         "value": 954793489.25
       },
       {
+        "name": "MASS GENERAL BRIGHAM HEALTH PLAN INC",
+        "value": 709987988.38
+      },
+      {
         "name": "MEDICAID",
         "value": 628935101.63
       },
@@ -1140,64 +1144,72 @@
         "value": 588225794.9
       },
       {
-        "name": "MASS GENERAL BRIGHAM HEALTH PLAN INC",
-        "value": 558565424.58
+        "name": "TUFTS HEALTH PUBLIC PLANS INC",
+        "value": 574889068.86
       },
       {
-        "name": "TUFTS HEALTH PUBLIC PLANS INC",
-        "value": 483585337.08
+        "name": "FALLON COMMUNITY HEALTH PLAN",
+        "value": 555376619.01
       },
       {
         "name": "MASSACHUSETTS SCHOOL BUILDING AUTHORITY",
         "value": 467248790.71
       },
       {
-        "name": "FALLON COMMUNITY HEALTH PLAN",
-        "value": 461628936.93
-      },
-      {
         "name": "BOND REDEMPTION (INTEREST)",
         "value": 403830133.46
       },
       {
-        "name": "COMMONWEALTH CARE ALLIANCE",
-        "value": 384141427.08
+        "name": "WELLPOINT LIFE & HEALTH INS CO",
+        "value": 389693424.08
       },
       {
-        "name": "WELLPOINT LIFE & HEALTH INS CO",
-        "value": 371196082.1
+        "name": "COMMONWEALTH CARE ALLIANCE",
+        "value": 386276862.9
       },
       {
         "name": "HARVARD PILGRIM HEALTH CARE",
-        "value": 348841310.32
+        "value": 365302063.33
       },
       {
         "name": "TEMPUS UNLIMITED INC",
-        "value": 336568395.73
+        "value": 356611148.38
+      },
+      {
+        "name": "MASSACHUSETTS BEH HLTH PRT",
+        "value": 325272847.11
+      },
+      {
+        "name": "MASS STATE LOTTERY COMMISSION",
+        "value": 299118380.79
+      },
+      {
+        "name": "HEALTH NEW ENGLAND INC",
+        "value": 288478779.85
       },
       {
         "name": "SUMMARY UMASS PAYROLL",
         "value": 287490708.83
       },
       {
-        "name": "MASS STATE LOTTERY COMMISSION",
-        "value": 286267171.03
-      },
-      {
-        "name": "MASSACHUSETTS BEH HLTH PRT",
-        "value": 256978257.47
-      },
-      {
-        "name": "HEALTH NEW ENGLAND INC",
-        "value": 219617145.79
-      },
-      {
         "name": "CITY OF SPRINGFIELD",
-        "value": 195366887.02
+        "value": 195477330.81
       },
       {
         "name": "UNITED HEALTHCARE INS CO",
-        "value": 176471505.71
+        "value": 177354446.33
+      },
+      {
+        "name": "BOSTON MEDICAL CENTER CORP",
+        "value": 172040356.27
+      },
+      {
+        "name": "CAREMARKPCS HEALTH, L.L.C.",
+        "value": 169652041.76
+      },
+      {
+        "name": "SPRUCE TECHNOLOGY INC",
+        "value": 168980477.18
       },
       {
         "name": "COMMONWEALTH HEALTH INS CONN AUTHORITY",
@@ -1205,11 +1217,11 @@
       },
       {
         "name": "CITY OF WORCESTER",
-        "value": 167277814.51
+        "value": 167491361.05
       },
       {
-        "name": "CAREMARKPCS HEALTH, L.L.C.",
-        "value": 157223824.24
+        "name": "UMASS MEMORIAL MEDICAL CENTER INC",
+        "value": 155831379.11
       },
       {
         "name": "MASS BAY TRANSPORTATION AUTH",
@@ -1217,91 +1229,79 @@
       },
       {
         "name": "TUFTS ASSOCIATED HEALTH MAINT ORG INC",
-        "value": 149840573.97
+        "value": 150248980.82
       },
       {
         "name": "CITY OF BOSTON",
-        "value": 147418509.77
-      },
-      {
-        "name": "SPRUCE TECHNOLOGY INC",
-        "value": 145783113.86
-      },
-      {
-        "name": "UMASS MEMORIAL MEDICAL CENTER INC",
-        "value": 145100154.98
-      },
-      {
-        "name": "SILVERSCRIPT INSURANCE COMPANY",
-        "value": 130354404.9
+        "value": 147811186.91
       },
       {
         "name": "MONTACHUSETT REGIONAL",
-        "value": 127960927.85
+        "value": 143117563.34
+      },
+      {
+        "name": "SILVERSCRIPT INSURANCE COMPANY",
+        "value": 131139505.27
       },
       {
         "name": "CHILDRENS HOSPITALCORPORATION",
-        "value": 121752845.93
-      },
-      {
-        "name": "BOSTON MEDICAL CENTER CORP",
-        "value": 117806310.86
+        "value": 125481126.82
       },
       {
         "name": "CITY OF LYNN",
-        "value": 115487416.05
+        "value": 115558121.53
       },
       {
         "name": "CITY OF LAWRENCE",
-        "value": 112643350.72
+        "value": 112679907.6
       },
       {
         "name": "SENIOR WHOLE HEALTH",
-        "value": 107023756.34
+        "value": 107302755.04
       },
       {
         "name": "CITY OF BROCKTON",
-        "value": 104872389.7
+        "value": 104915923.14
       },
       {
         "name": "CITY OF NEW BEDFORD",
-        "value": 96568449.48
+        "value": 96681794.59
       },
       {
         "name": "CITY OF LOWELL",
-        "value": 92065868
+        "value": 92304712.69
       },
       {
         "name": "CITY OF FALL RIVER",
-        "value": 88444177.89
-      },
-      {
-        "name": "VINFEN CORPORATION",
-        "value": 82011696.27
-      },
-      {
-        "name": "LAWRENCE GENERAL HOSPITAL INC",
-        "value": 72882320.08
+        "value": 88533431.87
       },
       {
         "name": "COMMUNITY CARE COOPERATIVE, INC.",
-        "value": 69840564.82
+        "value": 87325228.29
+      },
+      {
+        "name": "VINFEN CORPORATION",
+        "value": 82906673.14
+      },
+      {
+        "name": "LAWRENCE GENERAL HOSPITAL INC",
+        "value": 76526920.11
       },
       {
         "name": "CVS PHARMACY INC.",
-        "value": 67884228.81
+        "value": 71939694.53
       },
       {
         "name": "PAYMENT TO REFUND BOND ESCROW AGENT",
         "value": 65500945.48
       },
       {
-        "name": "MASS GENERAL BRIGHAM HEALTH INSURANCE CO",
-        "value": 57681802.32
+        "name": "SOUTHCOAST HOSPITALS GROUP INC",
+        "value": 61453149.96
       },
       {
-        "name": "SOUTHCOAST HOSPITALS GROUP INC",
-        "value": 55256259.95
+        "name": "MASS GENERAL BRIGHAM HEALTH INSURANCE CO",
+        "value": 60421002.69
       }
     ]
   },
@@ -1372,11 +1372,11 @@
     },
     {
       "year": "2026",
-      "total": 100892382755.33
+      "total": 100892696931
     },
     {
       "year": "2027",
-      "total": 29515319261.15
+      "total": 31107826650.58
     }
   ],
   "payrollByDepartment": {
