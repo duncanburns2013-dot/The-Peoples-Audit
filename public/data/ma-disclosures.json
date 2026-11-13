@@ -1,12 +1,7 @@
 {
-  "fetchedAt": "2026-11-13T05:17:00.315Z",
+  "fetchedAt": "2026-11-13T13:58:42.274Z",
   "preservedFromCache": false,
   "sources": [
-    {
-      "name": "massbondholder.com · News",
-      "ok": true,
-      "count": 15
-    },
     {
       "name": "mass.gov · Office of the Treasurer",
       "ok": true,
@@ -21,21 +16,16 @@
       "name": "mass.gov · Debt Management",
       "ok": true,
       "count": 0
+    },
+    {
+      "name": "massbondholder.com · News",
+      "ok": true,
+      "count": 15
     }
   ],
   "warnings": [],
   "count": 30,
   "items": [
-    {
-      "id": "mbh:/november-2026-bond-sale-go-and-go-refunding-bonds",
-      "title": "Read more about November 2026 Bond Sale: GO and GO Refunding Bonds",
-      "issuer": "Commonwealth of Massachusetts",
-      "type": "News / Disclosure",
-      "date": "2026-11-01",
-      "url": "https://www.massbondholder.com/november-2026-bond-sale-go-and-go-refunding-bonds",
-      "summary": "",
-      "source": "MassBondHolder"
-    },
     {
       "id": "mbh:/october-15-2026-information-statement-now-available",
       "title": "Read more about October 15, 2026 Information Statement is Now Available",
@@ -183,6 +173,16 @@
       "type": "Revenue Update",
       "date": null,
       "url": "https://www.massbondholder.com/september-revenue-collections-total-5457-billion",
+      "summary": "",
+      "source": "MassBondHolder"
+    },
+    {
+      "id": "mbh:/august-revenue-collections-total-3148-billion",
+      "title": "Read more about August Revenue Collections Total $3.148 Billion",
+      "issuer": "Commonwealth of Massachusetts",
+      "type": "Revenue Update",
+      "date": null,
+      "url": "https://www.massbondholder.com/august-revenue-collections-total-3148-billion",
       "summary": "",
       "source": "MassBondHolder"
     },
