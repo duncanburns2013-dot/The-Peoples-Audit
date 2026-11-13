@@ -69,9 +69,19 @@ reports.
    (1,697 registrants for 2026 across the two).
 2. For each registrant it fetches `Summary.aspx` live, follows every
    `CompleteDisclosure.aspx` link whose period falls in the selected year, and
-   parses the activity tables. Three workers, 200 ms between fetches, three
-   retries per page. A registrant that fails is not cached, so re-running picks up
-   only the failures.
+   parses the activity tables. One request every 1.5 s, three retries per page;
+   a full 2026 pass takes about 1.5 hours. A registrant that fails is not cached,
+   and a re-run skips registrants already cached, so re-running picks up only
+   what is missing. **Clear activities** starts over.
+
+   The site sits behind Incapsula bot protection. A blocked request comes back
+   as HTTP 200 with a ~1 KB page, not an error. The scraper recognises that page,
+   stops the whole run and says so; it does not retry into the block. Wait a few
+   hours and click **Scrape bill activity** again. (v1.6 ran three workers at
+   200 ms, was blocked after ~1,300 registrants, and cached the blocked ones as
+   having no reports. v1.7 also refuses to believe "no reports" unless the
+   Summary page carries the site's own "No Disclosure Report has been concluded"
+   notice.)
 3. Click **Download activities**. That saves `sos-lobbyist-activities-TIMESTAMP.json`.
    Move it to `.cache/sos-firm-scrapes/` and run
    `python scripts/parse-sos-activities.py`. That writes
