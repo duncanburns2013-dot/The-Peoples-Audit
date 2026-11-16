@@ -2,7 +2,7 @@
   "fetchedAt": "2026-11-15T16:30:20.353Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
-  "preservedFromCache": false,
+  "preservedFromCache": true,
   "sources": [
     {
       "name": "cthru.spending.fyDiscovery",
@@ -11,11 +11,14 @@
     },
     {
       "name": "cthru.spending.contracts.2027",
-      "ok": true,
-      "count": 300
+      "ok": false,
+      "error": "This operation was aborted"
     }
   ],
-  "warnings": [],
+  "warnings": [
+    "cthru.spending.contracts.2027: This operation was aborted",
+    "Live query returned no rows — preserving previous snapshot."
+  ],
   "count": 300,
   "items": [
     {
@@ -4218,5 +4221,8 @@
       "firstDate": "2026-08-17",
       "lastDate": "2026-11-12"
     }
-  ]
+  ],
+  "staleSince": "2026-11-15T16:30:20.353Z",
+  "staleForDays": 1,
+  "lastAttemptedAt": "2026-11-16T19:47:36.868Z"
 }
