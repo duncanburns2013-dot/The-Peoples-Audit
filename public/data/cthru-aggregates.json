@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-15T16:09:28.387Z",
+  "fetchedAt": "2026-11-16T19:24:15.788Z",
   "years": [
     "2025",
     "2026",
@@ -2140,15 +2140,15 @@
   "topEarners": {
     "2024": [
       {
-        "name": "Tionne Peart",
-        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
-        "title": "SI LEADER",
+        "name": "Garrett Ng",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Software Engineer-BIB Lab",
         "totalPay": 0
       },
       {
-        "name": "James Gevry",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Receiving/Delivery Coordinator",
+        "name": "Wesley Ortiz",
+        "department": "SHERIFF DEPARTMENT MIDDLESEX (SDM)",
+        "title": "Correction Officer/Recruit",
         "totalPay": 0
       },
       {
@@ -2170,9 +2170,9 @@
         "totalPay": 0
       },
       {
-        "name": "Dekyi Tsering",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Departmental Assistant",
+        "name": "Lillian Pexton",
+        "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
+        "title": "Summer Intensive TA",
         "totalPay": 0
       },
       {
@@ -2182,9 +2182,21 @@
         "totalPay": 0
       },
       {
-        "name": "Thoa Ha",
+        "name": "Dekyi Tsering",
         "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
         "title": "Departmental Assistant",
+        "totalPay": 0
+      },
+      {
+        "name": "James Gevry",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Receiving/Delivery Coordinator",
+        "totalPay": 0
+      },
+      {
+        "name": "John Rochford",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Program Director",
         "totalPay": 0
       },
       {
@@ -2194,21 +2206,9 @@
         "totalPay": 0
       },
       {
-        "name": "Abdesselam Bendahan",
-        "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
-        "title": "Security Specialist I",
-        "totalPay": 0
-      },
-      {
-        "name": "Sophia Landrau",
-        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
-        "title": "SI Leader Title 3",
-        "totalPay": 0
-      },
-      {
-        "name": "Jane Gauthier",
-        "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
-        "title": "Mang't, Bus Pro & Admin Servic",
+        "name": "Hem Darjee",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Departmental Assistant",
         "totalPay": 0
       },
       {
@@ -2218,15 +2218,15 @@
         "totalPay": 0
       },
       {
-        "name": "Lillian Pexton",
-        "department": "MASSACHUSETTS COLLEGE OF ART AND DESIGN (MCA)",
-        "title": "Summer Intensive TA",
+        "name": "Thoa Ha",
+        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+        "title": "Departmental Assistant",
         "totalPay": 0
       },
       {
-        "name": "Garrett Ng",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Software Engineer-BIB Lab",
+        "name": "Sophia Landrau",
+        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
+        "title": "SI Leader Title 3",
         "totalPay": 0
       },
       {
@@ -2236,21 +2236,9 @@
         "totalPay": 0
       },
       {
-        "name": "Reginald Hobbs",
-        "department": "Massachusetts Bay Transportation Authority (MBT)",
-        "title": "Motorperson,Streetcar",
-        "totalPay": 0
-      },
-      {
-        "name": "Wesley Ortiz",
-        "department": "SHERIFF DEPARTMENT MIDDLESEX (SDM)",
-        "title": "Correction Officer/Recruit",
-        "totalPay": 0
-      },
-      {
-        "name": "Hem Darjee",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Departmental Assistant",
+        "name": "Tionne Peart",
+        "department": "SPRINGFIELD TECH COMM COLLEGE (STC)",
+        "title": "SI LEADER",
         "totalPay": 0
       },
       {
@@ -2260,9 +2248,21 @@
         "totalPay": 0
       },
       {
-        "name": "John Rochford",
-        "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-        "title": "Program Director",
+        "name": "Reginald Hobbs",
+        "department": "Massachusetts Bay Transportation Authority (MBT)",
+        "title": "Motorperson,Streetcar",
+        "totalPay": 0
+      },
+      {
+        "name": "Jane Gauthier",
+        "department": "QUINSIGAMOND COMMUNITY COLLEGE (QCC)",
+        "title": "Mang't, Bus Pro & Admin Servic",
+        "totalPay": 0
+      },
+      {
+        "name": "Abdesselam Bendahan",
+        "department": "DEPARTMENT OF MENTAL HEALTH (DMH)",
+        "title": "Security Specialist I",
         "totalPay": 0
       },
       {
