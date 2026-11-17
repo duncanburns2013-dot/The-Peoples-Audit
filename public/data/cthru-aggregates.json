@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-16T19:24:15.788Z",
+  "fetchedAt": "2026-11-17T18:18:12.462Z",
   "years": [
     "2025",
     "2026",
@@ -1913,7 +1913,7 @@
       {
         "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
         "totalPay": 435460688.02,
-        "employees": 5106
+        "employees": 5107
       },
       {
         "department": "DEPARTMENT OF CORRECTION (DOC)",
@@ -3134,7 +3134,7 @@
     {
       "year": "2026",
       "totalPayroll": 10073505330.59,
-      "headcount": 157072
+      "headcount": 157073
     }
   ],
   "quasiByAgency": [
