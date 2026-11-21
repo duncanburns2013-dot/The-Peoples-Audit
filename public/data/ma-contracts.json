@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T17:56:43.808Z",
+  "fetchedAt": "2026-11-21T16:54:22.624Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -400,6 +400,20 @@
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
+      "vendor": "SUMMARY UMASS PAYROLL",
+      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(UNASSIGNED) OPERATION OF THE STATE UNIVERSITY",
+      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
+      "totalAmount": 163218221.21,
+      "paymentCount": 131,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-11-18"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
       "vendor": "MASS GENERAL BRIGHAM HEALTH PLAN INC",
       "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
       "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
@@ -507,20 +521,6 @@
       "paymentCount": 4,
       "firstDate": "2026-09-22",
       "lastDate": "2026-10-22"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "SUMMARY UMASS PAYROLL",
-      "department": "UNIVERSITY OF MASSACHUSETTS SYSTEM (UMS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
-      "appropriation": "(UNASSIGNED) OPERATION OF THE STATE UNIVERSITY",
-      "objectClass": "(AA) REGULAR EMPLOYEE COMPENSATION",
-      "totalAmount": 130862095.73,
-      "paymentCount": 107,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-11-05"
     },
     {
       "encumbranceId": "(GAE) 27MEDICAREPARTAB0001",
@@ -991,12 +991,12 @@
       "vendor": "MASS BAY TRANSPORTATION AUTH",
       "department": "OFFICE OF THE COMPTROLLER (CTR)",
       "cabinetSecretariat": "CTR/FAD ACCOUNTING ENTITIES",
-      "appropriation": "(15956369) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
+      "appropriation": "(UNASSIGNED) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 77525000,
       "paymentCount": 2,
-      "firstDate": "2026-08-05",
-      "lastDate": "2026-09-01"
+      "firstDate": "2026-10-01",
+      "lastDate": "2026-11-04"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1005,12 +1005,12 @@
       "vendor": "MASS BAY TRANSPORTATION AUTH",
       "department": "OFFICE OF THE COMPTROLLER (CTR)",
       "cabinetSecretariat": "CTR/FAD ACCOUNTING ENTITIES",
-      "appropriation": "(UNASSIGNED) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
+      "appropriation": "(15956369) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 77525000,
       "paymentCount": 2,
-      "firstDate": "2026-10-01",
-      "lastDate": "2026-11-04"
+      "firstDate": "2026-08-05",
+      "lastDate": "2026-09-01"
     },
     {
       "encumbranceId": "(CT) FY24SRF240052FUNDSDI",
@@ -1811,6 +1811,20 @@
       "lastDate": "2026-11-13"
     },
     {
+      "encumbranceId": "(CT) INTF00X02025C0127763",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTF00X02025C0127763",
+      "vendor": "DWW SPS JV",
+      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
+      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
+      "appropriation": "(UNASSIGNED) HIGHWAY/FEDERAL AID",
+      "objectClass": "(NN) INFRASTRUCTURE:",
+      "totalAmount": 36298478.02,
+      "paymentCount": 5,
+      "firstDate": "2026-09-21",
+      "lastDate": "2026-11-18"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -1887,12 +1901,12 @@
       "vendor": "MASS BAY TRANSPORTATION AUTHORITY",
       "department": "OFFICE OF THE STATE TREASURER (TRE)",
       "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(60059987) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
+      "appropriation": "(UNASSIGNED) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 33810162,
       "paymentCount": 2,
-      "firstDate": "2026-08-03",
-      "lastDate": "2026-09-01"
+      "firstDate": "2026-10-01",
+      "lastDate": "2026-11-02"
     },
     {
       "encumbranceId": "(GAE) FY2027MBTALOCALAID00",
@@ -1901,12 +1915,12 @@
       "vendor": "MASS BAY TRANSPORTATION AUTHORITY",
       "department": "OFFICE OF THE STATE TREASURER (TRE)",
       "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
+      "appropriation": "(60059987) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 33810162,
       "paymentCount": 2,
-      "firstDate": "2026-10-01",
-      "lastDate": "2026-11-02"
+      "firstDate": "2026-08-03",
+      "lastDate": "2026-09-01"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1977,20 +1991,6 @@
       "paymentCount": 2,
       "firstDate": "2026-10-23",
       "lastDate": "2026-11-10"
-    },
-    {
-      "encumbranceId": "(CT) INTF00X02025C0127763",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00X02025C0127763",
-      "vendor": "DWW SPS JV",
-      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
-      "appropriation": "(UNASSIGNED) HIGHWAY/FEDERAL AID",
-      "objectClass": "(NN) INFRASTRUCTURE:",
-      "totalAmount": 28988370.93,
-      "paymentCount": 4,
-      "firstDate": "2026-09-21",
-      "lastDate": "2026-11-02"
     },
     {
       "encumbranceId": "(CT) 06302300000000003507",
@@ -2158,7 +2158,7 @@
       "totalAmount": 22063033.18,
       "paymentCount": 14,
       "firstDate": "2026-10-09",
-      "lastDate": "2026-11-17"
+      "lastDate": "2026-11-19"
     },
     {
       "encumbranceId": "(CT) SCOCD53002467001AHTF",
@@ -2200,7 +2200,7 @@
       "totalAmount": 21779616,
       "paymentCount": 12,
       "firstDate": "2026-09-18",
-      "lastDate": "2026-11-17"
+      "lastDate": "2026-11-19"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2287,20 +2287,6 @@
       "lastDate": "2026-11-10"
     },
     {
-      "encumbranceId": "(CT) INTF00X02027S0136187",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00X02027S0136187",
-      "vendor": "MBTA",
-      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
-      "appropriation": "(UNASSIGNED) MBTA MEANS TESTED FARES",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 20000000,
-      "paymentCount": 1,
-      "firstDate": "2026-10-21",
-      "lastDate": "2026-10-21"
-    },
-    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -2313,6 +2299,20 @@
       "paymentCount": 1,
       "firstDate": "2026-11-16",
       "lastDate": "2026-11-16"
+    },
+    {
+      "encumbranceId": "(CT) INTF00X02027S0136187",
+      "encumbranceType": "CT",
+      "encumbranceBody": "INTF00X02027S0136187",
+      "vendor": "MBTA",
+      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
+      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
+      "appropriation": "(UNASSIGNED) MBTA MEANS TESTED FARES",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 20000000,
+      "paymentCount": 1,
+      "firstDate": "2026-10-21",
+      "lastDate": "2026-10-21"
     },
     {
       "encumbranceId": "(CT) 27MEFAPGREATERBOSTON",
@@ -2679,6 +2679,20 @@
       "lastDate": "2026-11-13"
     },
     {
+      "encumbranceId": "(CT) CHOICESSFY2700000000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "CHOICESSFY2700000000",
+      "vendor": "SPRINGWELL INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 16490815.8,
+      "paymentCount": 7,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-11-18"
+    },
+    {
       "encumbranceId": "(CT) INTF00X02027P0134463",
       "encumbranceType": "CT",
       "encumbranceBody": "INTF00X02027P0134463",
@@ -2721,20 +2735,6 @@
       "lastDate": "2026-10-14"
     },
     {
-      "encumbranceId": "(CT) CHOICESSFY2700000000",
-      "encumbranceType": "CT",
-      "encumbranceBody": "CHOICESSFY2700000000",
-      "vendor": "SPRINGWELL INC",
-      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
-      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
-      "totalAmount": 16174106.68,
-      "paymentCount": 6,
-      "firstDate": "2026-10-02",
-      "lastDate": "2026-11-10"
-    },
-    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -2774,7 +2774,7 @@
       "totalAmount": 16115509.84,
       "paymentCount": 9,
       "firstDate": "2026-09-25",
-      "lastDate": "2026-11-17"
+      "lastDate": "2026-11-19"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3021,12 +3021,12 @@
       "vendor": "CITY OF FRAMINGHAM",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(70610008) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
+      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 13759732,
       "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-10-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3035,12 +3035,12 @@
       "vendor": "CITY OF FRAMINGHAM",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
+      "appropriation": "(70610008) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 13759732,
       "paymentCount": 2,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-10-30"
+      "firstDate": "2026-07-31",
+      "lastDate": "2026-08-31"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3203,12 +3203,12 @@
       "vendor": "MASSACHUSETTS LEGAL ASSISTANCE CORP",
       "department": "SUPREME JUDICIAL COURT (SJC)",
       "cabinetSecretariat": "JUDICIARY",
-      "appropriation": "(03211600) MASSACHUSETTS LEGAL ASSISTANCE CORP.",
+      "appropriation": "(UNASSIGNED) MASSACHUSETTS LEGAL ASSISTANCE CORP.",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 12750000,
       "paymentCount": 1,
-      "firstDate": "2026-08-12",
-      "lastDate": "2026-08-12"
+      "firstDate": "2026-11-13",
+      "lastDate": "2026-11-13"
     },
     {
       "encumbranceId": "(CT) 20270721266000202301",
@@ -3217,12 +3217,12 @@
       "vendor": "MASSACHUSETTS LEGAL ASSISTANCE CORP",
       "department": "SUPREME JUDICIAL COURT (SJC)",
       "cabinetSecretariat": "JUDICIARY",
-      "appropriation": "(UNASSIGNED) MASSACHUSETTS LEGAL ASSISTANCE CORP.",
+      "appropriation": "(03211600) MASSACHUSETTS LEGAL ASSISTANCE CORP.",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 12750000,
       "paymentCount": 1,
-      "firstDate": "2026-11-13",
-      "lastDate": "2026-11-13"
+      "firstDate": "2026-08-12",
+      "lastDate": "2026-08-12"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3315,12 +3315,12 @@
       "vendor": "CITY OF LEOMINSTER",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
+      "appropriation": "(70610008) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 12078668,
       "paymentCount": 2,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-10-30"
+      "firstDate": "2026-07-31",
+      "lastDate": "2026-08-31"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3329,12 +3329,12 @@
       "vendor": "CITY OF LEOMINSTER",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(70610008) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
+      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 12078668,
       "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-10-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3497,12 +3497,12 @@
       "vendor": "CITY OF BOSTON",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12332350) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
+      "appropriation": "(UNASSIGNED) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 11215560,
       "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-10-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
@@ -3511,12 +3511,12 @@
       "vendor": "CITY OF BOSTON",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
+      "appropriation": "(12332350) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 11215560,
       "paymentCount": 2,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-10-30"
+      "firstDate": "2026-07-31",
+      "lastDate": "2026-08-31"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3623,12 +3623,12 @@
       "vendor": "EDWARD BROOKE CHARTER SCHOOL",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12019008) CHARTER SCHOOL PAYMENTS",
+      "appropriation": "(UNASSIGNED) CHARTER SCHOOL PAYMENTS",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 10364122,
       "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-10-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
@@ -3637,12 +3637,12 @@
       "vendor": "EDWARD BROOKE CHARTER SCHOOL",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) CHARTER SCHOOL PAYMENTS",
+      "appropriation": "(12019008) CHARTER SCHOOL PAYMENTS",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 10364122,
       "paymentCount": 2,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-10-30"
+      "firstDate": "2026-07-31",
+      "lastDate": "2026-08-31"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3897,6 +3897,20 @@
       "lastDate": "2026-09-14"
     },
     {
+      "encumbranceId": "(CT) ASAP2026OLDCOLONY000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "ASAP2026OLDCOLONY000",
+      "vendor": "OLD COLONY ELDER SERVICES INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOME CARE SERVICES FOR THE ELDERLY",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 9569932.07,
+      "paymentCount": 10,
+      "firstDate": "2026-10-14",
+      "lastDate": "2026-11-18"
+    },
+    {
       "encumbranceId": "(CT) INTF00X02026P0134475",
       "encumbranceType": "CT",
       "encumbranceBody": "INTF00X02026P0134475",
@@ -3937,6 +3951,20 @@
       "paymentCount": 111,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
+    },
+    {
+      "encumbranceId": "(CT) CHOICESSFY2700000000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "CHOICESSFY2700000000",
+      "vendor": "CENTRAL BOSTON ELDER SERVICES INC",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) COMMUNITY CHOICES",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 9406456.29,
+      "paymentCount": 7,
+      "firstDate": "2026-10-02",
+      "lastDate": "2026-11-18"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4189,34 +4217,6 @@
       "paymentCount": 183,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "BAYSTATE MEDICAL CENTER",
-      "department": "EXECUTIVE OFFICE OF HEALTH AND HUMAN SERVICES (EHS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
-      "appropriation": "(40000500) MANAGED CARE PLAN",
-      "objectClass": "(RR) BENEFIT PROGRAMS",
-      "totalAmount": 8893363.28,
-      "paymentCount": 20,
-      "firstDate": "2026-07-13",
-      "lastDate": "2026-09-14"
-    },
-    {
-      "encumbranceId": "(GAE) 06292600000000000963",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "06292600000000000963",
-      "vendor": "VIRGINIA LOTTERY",
-      "department": "LOTTERY AND GAMING COMMISSION (LOT)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) LOTTERY REVENUE AND PRIZES",
-      "objectClass": "(TT) LOANS AND SPECIAL PAYMENTS",
-      "totalAmount": 8871548,
-      "paymentCount": 1,
-      "firstDate": "2026-11-16",
-      "lastDate": "2026-11-16"
     }
   ]
 }
