@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-23T20:59:02.560Z",
+  "fetchedAt": "2026-11-24T20:01:29.659Z",
   "years": [
     "2025",
     "2026",
@@ -1645,8 +1645,8 @@
       },
       {
         "department": "TRIAL COURT (TRC)",
-        "totalPay": 681129423.02,
-        "employees": 7745
+        "totalPay": 681030351.86,
+        "employees": 7743
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
@@ -1897,13 +1897,13 @@
       },
       {
         "department": "TRIAL COURT (TRC)",
-        "totalPay": 638353148.66,
-        "employees": 7531
+        "totalPay": 638251612.06,
+        "employees": 7530
       },
       {
         "department": "DEPARTMENT OF DEVELOPMENTAL SERVICES (DMR)",
         "totalPay": 468328563.67,
-        "employees": 7061
+        "employees": 7060
       },
       {
         "department": "DEPARTMENT OF STATE POLICE (POL)",
@@ -3128,13 +3128,13 @@
     },
     {
       "year": "2025",
-      "totalPayroll": 10885845426.55,
-      "headcount": 162458
+      "totalPayroll": 10885746355.39,
+      "headcount": 162456
     },
     {
       "year": "2026",
-      "totalPayroll": 10523634129.1,
-      "headcount": 158159
+      "totalPayroll": 10523532592.5,
+      "headcount": 158157
     }
   ],
   "quasiByAgency": [
