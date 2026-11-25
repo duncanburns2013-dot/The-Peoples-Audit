@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-24T20:17:12.581Z",
+  "fetchedAt": "2026-11-25T19:30:43.198Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -31,6 +31,20 @@
       "paymentCount": 28,
       "firstDate": "2026-08-06",
       "lastDate": "2026-11-04"
+    },
+    {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "RETIREMENT ALLOWANCE-STATE EMPLOYEES",
+      "department": "OFFICE OF THE STATE TREASURER (TRE)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) STATE RETIREMENT BD COMMONWEALTH PENSION",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 862408315.19,
+      "paymentCount": 16,
+      "firstDate": "2026-09-28",
+      "lastDate": "2026-11-20"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -101,20 +115,6 @@
       "paymentCount": 7,
       "firstDate": "2026-07-27",
       "lastDate": "2026-08-25"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "RETIREMENT ALLOWANCE-STATE EMPLOYEES",
-      "department": "OFFICE OF THE STATE TREASURER (TRE)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) STATE RETIREMENT BD COMMONWEALTH PENSION",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 646029455.46,
-      "paymentCount": 11,
-      "firstDate": "2026-09-28",
-      "lastDate": "2026-10-27"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -411,6 +411,20 @@
       "lastDate": "2026-09-08"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "RETIREMENT ALLOWANCE-STATE EMPLOYEES",
+      "department": "OFFICE OF THE STATE TREASURER (TRE)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) ST.EMPLOYEES ANNUITIES FUND BALANCE 7-1",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 172073107.93,
+      "paymentCount": 9,
+      "firstDate": "2026-09-28",
+      "lastDate": "2026-11-20"
+    },
+    {
       "encumbranceId": "(CT) 07072300000000000017",
       "encumbranceType": "CT",
       "encumbranceBody": "07072300000000000017",
@@ -675,20 +689,6 @@
       "paymentCount": 6,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-08"
-    },
-    {
-      "encumbranceId": "UNASSIGNED",
-      "encumbranceType": "",
-      "encumbranceBody": "UNASSIGNED",
-      "vendor": "RETIREMENT ALLOWANCE-STATE EMPLOYEES",
-      "department": "OFFICE OF THE STATE TREASURER (TRE)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) ST.EMPLOYEES ANNUITIES FUND BALANCE 7-1",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 114564735.83,
-      "paymentCount": 6,
-      "firstDate": "2026-09-28",
-      "lastDate": "2026-10-27"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1033,12 +1033,12 @@
       "vendor": "MASS BAY TRANSPORTATION AUTH",
       "department": "OFFICE OF THE COMPTROLLER (CTR)",
       "cabinetSecretariat": "CTR/FAD ACCOUNTING ENTITIES",
-      "appropriation": "(15956369) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
+      "appropriation": "(UNASSIGNED) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 77525000,
       "paymentCount": 2,
-      "firstDate": "2026-08-05",
-      "lastDate": "2026-09-01"
+      "firstDate": "2026-10-01",
+      "lastDate": "2026-11-04"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1047,12 +1047,12 @@
       "vendor": "MASS BAY TRANSPORTATION AUTH",
       "department": "OFFICE OF THE COMPTROLLER (CTR)",
       "cabinetSecretariat": "CTR/FAD ACCOUNTING ENTITIES",
-      "appropriation": "(UNASSIGNED) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
+      "appropriation": "(15956369) TRANSFER FROM COMMONWEALTH TRANSPORTATION  FUND TO MTBA",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 77525000,
       "paymentCount": 2,
-      "firstDate": "2026-10-01",
-      "lastDate": "2026-11-04"
+      "firstDate": "2026-08-05",
+      "lastDate": "2026-09-01"
     },
     {
       "encumbranceId": "(CT) FY24SRF240052FUNDSDI",
@@ -1257,12 +1257,12 @@
       "vendor": "CITY OF WORCESTER",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(70610008) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
+      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 62876348,
       "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-10-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1271,12 +1271,12 @@
       "vendor": "CITY OF WORCESTER",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
+      "appropriation": "(70610008) REIMBURSEMENT OF SCHOOL AID TO CITIES,",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 62876348,
       "paymentCount": 2,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-10-30"
+      "firstDate": "2026-07-31",
+      "lastDate": "2026-08-31"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3525,12 +3525,12 @@
       "vendor": "CITY OF BOSTON",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
+      "appropriation": "(12332350) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 11215560,
       "paymentCount": 2,
-      "firstDate": "2026-09-30",
-      "lastDate": "2026-10-30"
+      "firstDate": "2026-07-31",
+      "lastDate": "2026-08-31"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT019",
@@ -3539,12 +3539,12 @@
       "vendor": "CITY OF BOSTON",
       "department": "DEPARTMENT OF REVENUE (DOR)",
       "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(12332350) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
+      "appropriation": "(UNASSIGNED) UNRESTRICTED GENERAL GOVERNMENT LOCAL AID",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 11215560,
       "paymentCount": 2,
-      "firstDate": "2026-07-31",
-      "lastDate": "2026-08-31"
+      "firstDate": "2026-09-30",
+      "lastDate": "2026-10-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3785,20 +3785,6 @@
       "lastDate": null
     },
     {
-      "encumbranceId": "(CT) 2026FWCGPBOSTONSUPPM",
-      "encumbranceType": "CT",
-      "encumbranceBody": "2026FWCGPBOSTONSUPPM",
-      "vendor": "BOSTON SOCCER 2026 CORP",
-      "department": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY",
-      "appropriation": "(UNASSIGNED) WORLD CUP TRANSPORTATION",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 10000000,
-      "paymentCount": 2,
-      "firstDate": "2026-09-28",
-      "lastDate": "2026-11-18"
-    },
-    {
       "encumbranceId": "(CT) MASCECEMISIONSREDUCE",
       "encumbranceType": "CT",
       "encumbranceBody": "MASCECEMISIONSREDUCE",
@@ -3811,6 +3797,20 @@
       "paymentCount": 1,
       "firstDate": "2026-09-02",
       "lastDate": "2026-09-02"
+    },
+    {
+      "encumbranceId": "(CT) 2026FWCGPBOSTONSUPPM",
+      "encumbranceType": "CT",
+      "encumbranceBody": "2026FWCGPBOSTONSUPPM",
+      "vendor": "BOSTON SOCCER 2026 CORP",
+      "department": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY (EPS)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF PUBLIC SAFETY & HOMELAND SECURITY",
+      "appropriation": "(UNASSIGNED) WORLD CUP TRANSPORTATION",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 10000000,
+      "paymentCount": 2,
+      "firstDate": "2026-09-28",
+      "lastDate": "2026-11-18"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4065,6 +4065,20 @@
       "lastDate": "2026-07-31"
     },
     {
+      "encumbranceId": "(CT) ASAP2026AGESPAN00000",
+      "encumbranceType": "CT",
+      "encumbranceBody": "ASAP2026AGESPAN00000",
+      "vendor": "AGESPAN, INC.",
+      "department": "DEPARTMENT OF ELDER AFFAIRS (ELD)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF HEALTH & HUMAN SERVICES",
+      "appropriation": "(UNASSIGNED) HOME CARE SERVICES FOR THE ELDERLY",
+      "objectClass": "(MM) PURCHASED CLIENT/PROGRAM SVCS",
+      "totalAmount": 9356442.58,
+      "paymentCount": 8,
+      "firstDate": "2026-10-14",
+      "lastDate": "2026-11-20"
+    },
+    {
       "encumbranceId": "(GAE) 06292600000000000961",
       "encumbranceType": "GAE",
       "encumbranceBody": "06292600000000000961",
@@ -4203,20 +4217,6 @@
       "paymentCount": 2,
       "firstDate": "2026-10-14",
       "lastDate": "2026-11-09"
-    },
-    {
-      "encumbranceId": "(CT) INTF00X02026P0134466",
-      "encumbranceType": "CT",
-      "encumbranceBody": "INTF00X02026P0134466",
-      "vendor": "BROCKTON AREA TRANSIT AUTHORITY",
-      "department": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION (DOT)",
-      "cabinetSecretariat": "MASSACHUSETTS DEPARTMENT OF TRANSPORTATION",
-      "appropriation": "(66102406) ETF - REGIONAL TRANSIT FUNDING AND GRANTS",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 8918450,
-      "paymentCount": 1,
-      "firstDate": "2026-07-28",
-      "lastDate": "2026-07-28"
     }
   ]
 }
