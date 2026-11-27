@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-26T19:13:42.302Z",
+  "fetchedAt": "2026-11-27T19:07:46.665Z",
   "fiscalYear": "2027",
   "note": "Top contracts/encumbrances by total payments, derived from CTHRU spending. COMMBUYS does not expose a public API; this is the closest open-data view of where state contract dollars flow.",
   "preservedFromCache": false,
@@ -173,6 +173,34 @@
       "lastDate": "2026-08-26"
     },
     {
+      "encumbranceId": "(GAE) FY2027MBTASALESTAX00",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "FY2027MBTASALESTAX00",
+      "vendor": "MASS BAY TRANSPORTATION AUTHORITY",
+      "department": "OFFICE OF THE STATE TREASURER (TRE)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 381105535.03,
+      "paymentCount": 6,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-11-24"
+    },
+    {
+      "encumbranceId": "(GAE) FY2027MSBAPAYMENTS00",
+      "encumbranceType": "GAE",
+      "encumbranceBody": "FY2027MSBAPAYMENTS00",
+      "vendor": "MASSACHUSETTS SCHOOL BUILDING AUTHORITY",
+      "department": "OFFICE OF THE STATE TREASURER (TRE)",
+      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
+      "appropriation": "(UNASSIGNED) SCHOOL MODERNIZATION & RECONSTRUCTION",
+      "objectClass": "(PP) STATE AID/POL SUB",
+      "totalAmount": 341105473.4,
+      "paymentCount": 6,
+      "firstDate": "2026-09-29",
+      "lastDate": "2026-11-24"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -215,20 +243,6 @@
       "lastDate": "2026-11-13"
     },
     {
-      "encumbranceId": "(GAE) FY2027MBTASALESTAX00",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "FY2027MBTASALESTAX00",
-      "vendor": "MASS BAY TRANSPORTATION AUTHORITY",
-      "department": "OFFICE OF THE STATE TREASURER (TRE)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 246665307.61,
-      "paymentCount": 4,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-29"
-    },
-    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -255,20 +269,6 @@
       "paymentCount": 18,
       "firstDate": "2026-07-03",
       "lastDate": "2026-09-17"
-    },
-    {
-      "encumbranceId": "(GAE) FY2027MSBAPAYMENTS00",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "FY2027MSBAPAYMENTS00",
-      "vendor": "MASSACHUSETTS SCHOOL BUILDING AUTHORITY",
-      "department": "OFFICE OF THE STATE TREASURER (TRE)",
-      "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) SCHOOL MODERNIZATION & RECONSTRUCTION",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 219998595.57,
-      "paymentCount": 4,
-      "firstDate": "2026-09-29",
-      "lastDate": "2026-10-29"
     },
     {
       "encumbranceId": "(CT) 07072300000000000017",
@@ -327,6 +327,20 @@
       "lastDate": null
     },
     {
+      "encumbranceId": "(CT) 07032300000000000004",
+      "encumbranceType": "CT",
+      "encumbranceBody": "07032300000000000004",
+      "vendor": "WELLPOINT LIFE & HEALTH INS CO",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 200390626.83,
+      "paymentCount": 12,
+      "firstDate": "2026-09-23",
+      "lastDate": "2026-11-24"
+    },
+    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -355,6 +369,20 @@
       "lastDate": "2026-11-20"
     },
     {
+      "encumbranceId": "(CT) 07072300000000000017",
+      "encumbranceType": "CT",
+      "encumbranceBody": "07072300000000000017",
+      "vendor": "HARVARD PILGRIM HEALTH CARE",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 188686453.75,
+      "paymentCount": 12,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-11-24"
+    },
+    {
       "encumbranceId": "(GAE) 27MEDICAREPARTD00001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27MEDICAREPARTD00001",
@@ -367,20 +395,6 @@
       "paymentCount": 3,
       "firstDate": "2026-09-22",
       "lastDate": "2026-11-20"
-    },
-    {
-      "encumbranceId": "(CT) 07032300000000000004",
-      "encumbranceType": "CT",
-      "encumbranceBody": "07032300000000000004",
-      "vendor": "WELLPOINT LIFE & HEALTH INS CO",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 181026519.19,
-      "paymentCount": 11,
-      "firstDate": "2026-09-23",
-      "lastDate": "2026-11-18"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -423,20 +437,6 @@
       "paymentCount": 9,
       "firstDate": "2026-09-28",
       "lastDate": "2026-11-23"
-    },
-    {
-      "encumbranceId": "(CT) 07072300000000000017",
-      "encumbranceType": "CT",
-      "encumbranceBody": "07072300000000000017",
-      "vendor": "HARVARD PILGRIM HEALTH CARE",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 170320460.19,
-      "paymentCount": 11,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-11-18"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -744,7 +744,7 @@
       "totalAmount": 110072060,
       "paymentCount": 5,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -884,7 +884,7 @@
       "totalAmount": 94314522,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -996,7 +996,7 @@
       "totalAmount": 87515094.47,
       "paymentCount": 5,
       "firstDate": "2026-09-25",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-25"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1262,7 +1262,7 @@
       "totalAmount": 65233427,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) FY27HEALTHCONNECTOR1",
@@ -1318,7 +1318,7 @@
       "totalAmount": 61815379,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -1360,7 +1360,7 @@
       "totalAmount": 60339398,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(CT) INTF00X02027S0136192",
@@ -1514,7 +1514,7 @@
       "totalAmount": 52378558,
       "paymentCount": 8,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) FY2027ROOMSCONSOLIDA",
@@ -1570,7 +1570,7 @@
       "totalAmount": 51063375,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -1850,7 +1850,7 @@
       "totalAmount": 36683004,
       "paymentCount": 2,
       "firstDate": "2026-10-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(CT) INTF00X02025C0127763",
@@ -1929,12 +1929,12 @@
       "vendor": "MASS BAY TRANSPORTATION AUTHORITY",
       "department": "OFFICE OF THE STATE TREASURER (TRE)",
       "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(UNASSIGNED) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
+      "appropriation": "(60059987) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 33810162,
       "paymentCount": 2,
-      "firstDate": "2026-10-01",
-      "lastDate": "2026-11-02"
+      "firstDate": "2026-08-03",
+      "lastDate": "2026-09-01"
     },
     {
       "encumbranceId": "(GAE) FY2027MBTALOCALAID00",
@@ -1943,12 +1943,12 @@
       "vendor": "MASS BAY TRANSPORTATION AUTHORITY",
       "department": "OFFICE OF THE STATE TREASURER (TRE)",
       "cabinetSecretariat": "TREASURER & RECEIVER GENERAL",
-      "appropriation": "(60059987) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
+      "appropriation": "(UNASSIGNED) MBTA STATE & LOCAL CONTRIBUTION PAYMENT",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 33810162,
       "paymentCount": 2,
-      "firstDate": "2026-08-03",
-      "lastDate": "2026-09-01"
+      "firstDate": "2026-10-01",
+      "lastDate": "2026-11-02"
     },
     {
       "encumbranceId": "(CT) INTF00X02027P0134462",
@@ -1977,6 +1977,20 @@
       "paymentCount": 6,
       "firstDate": "2026-07-13",
       "lastDate": "2026-09-08"
+    },
+    {
+      "encumbranceId": "(CT) 06302300000000003507",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003507",
+      "vendor": "MASS GENERAL BRIGHAM HEALTH INSURANCE CO",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 31022648.11,
+      "paymentCount": 12,
+      "firstDate": "2026-09-24",
+      "lastDate": "2026-11-24"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2019,20 +2033,6 @@
       "paymentCount": 8,
       "firstDate": "2026-09-21",
       "lastDate": "2026-11-23"
-    },
-    {
-      "encumbranceId": "(CT) 06302300000000003507",
-      "encumbranceType": "CT",
-      "encumbranceBody": "06302300000000003507",
-      "vendor": "MASS GENERAL BRIGHAM HEALTH INSURANCE CO",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 27859985.39,
-      "paymentCount": 11,
-      "firstDate": "2026-09-24",
-      "lastDate": "2026-11-18"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2102,7 +2102,7 @@
       "totalAmount": 26074923,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2116,7 +2116,7 @@
       "totalAmount": 25829895,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2144,7 +2144,21 @@
       "totalAmount": 25297700,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
+    },
+    {
+      "encumbranceId": "(CT) 06302300000000003494",
+      "encumbranceType": "CT",
+      "encumbranceBody": "06302300000000003494",
+      "vendor": "HNE ADVISORY SERVICES, INC.",
+      "department": "GROUP INSURANCE COMMISSION (GIC)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
+      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
+      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
+      "totalAmount": 25062979.22,
+      "paymentCount": 13,
+      "firstDate": "2026-09-18",
+      "lastDate": "2026-11-24"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2259,20 +2273,6 @@
       "lastDate": "2026-09-14"
     },
     {
-      "encumbranceId": "(CT) 06302300000000003494",
-      "encumbranceType": "CT",
-      "encumbranceBody": "06302300000000003494",
-      "vendor": "HNE ADVISORY SERVICES, INC.",
-      "department": "GROUP INSURANCE COMMISSION (GIC)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) GROUP INSURANCE PREMIUM AND PLAN COSTS,",
-      "objectClass": "(DD) PENSION & INSURANCE RELATED EX",
-      "totalAmount": 21779616,
-      "paymentCount": 12,
-      "firstDate": "2026-09-18",
-      "lastDate": "2026-11-19"
-    },
-    {
       "encumbranceId": "UNASSIGNED",
       "encumbranceType": "",
       "encumbranceBody": "UNASSIGNED",
@@ -2298,7 +2298,7 @@
       "totalAmount": 20957727,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2312,7 +2312,7 @@
       "totalAmount": 20929083,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2326,7 +2326,7 @@
       "totalAmount": 20639598,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(EAV) 07012700000000000001",
@@ -2382,7 +2382,7 @@
       "totalAmount": 20352855,
       "paymentCount": 4,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2480,7 +2480,7 @@
       "totalAmount": 19329624,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2592,7 +2592,7 @@
       "totalAmount": 18118002,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2676,7 +2676,7 @@
       "totalAmount": 17291865,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -2718,7 +2718,7 @@
       "totalAmount": 16823340,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -2928,7 +2928,7 @@
       "totalAmount": 15546183,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3012,7 +3012,7 @@
       "totalAmount": 14837091,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3236,7 +3236,7 @@
       "totalAmount": 13266495,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(CT) INTF00X02015A0086140",
@@ -3264,7 +3264,7 @@
       "totalAmount": 13164042,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3315,12 +3315,12 @@
       "vendor": "MASSACHUSETTS LEGAL ASSISTANCE CORP",
       "department": "SUPREME JUDICIAL COURT (SJC)",
       "cabinetSecretariat": "JUDICIARY",
-      "appropriation": "(03211600) MASSACHUSETTS LEGAL ASSISTANCE CORP.",
+      "appropriation": "(UNASSIGNED) MASSACHUSETTS LEGAL ASSISTANCE CORP.",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 12750000,
       "paymentCount": 1,
-      "firstDate": "2026-08-12",
-      "lastDate": "2026-08-12"
+      "firstDate": "2026-11-13",
+      "lastDate": "2026-11-13"
     },
     {
       "encumbranceId": "(CT) 20270721266000202301",
@@ -3329,12 +3329,12 @@
       "vendor": "MASSACHUSETTS LEGAL ASSISTANCE CORP",
       "department": "SUPREME JUDICIAL COURT (SJC)",
       "cabinetSecretariat": "JUDICIARY",
-      "appropriation": "(UNASSIGNED) MASSACHUSETTS LEGAL ASSISTANCE CORP.",
+      "appropriation": "(03211600) MASSACHUSETTS LEGAL ASSISTANCE CORP.",
       "objectClass": "(PP) STATE AID/POL SUB",
       "totalAmount": 12750000,
       "paymentCount": 1,
-      "firstDate": "2026-11-13",
-      "lastDate": "2026-11-13"
+      "firstDate": "2026-08-12",
+      "lastDate": "2026-08-12"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3376,7 +3376,7 @@
       "totalAmount": 12466161,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3460,7 +3460,7 @@
       "totalAmount": 12043422,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3558,7 +3558,7 @@
       "totalAmount": 11828133,
       "paymentCount": 6,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 06292600000000000963",
@@ -3614,7 +3614,7 @@
       "totalAmount": 11507046,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3712,7 +3712,7 @@
       "totalAmount": 11089989,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3726,7 +3726,7 @@
       "totalAmount": 10964565,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(CT) INTF00X02024A0125963",
@@ -3757,6 +3757,20 @@
       "lastDate": "2026-09-08"
     },
     {
+      "encumbranceId": "UNASSIGNED",
+      "encumbranceType": "",
+      "encumbranceBody": "UNASSIGNED",
+      "vendor": "WOR - SUMMARY TRUST PAYMENT",
+      "department": "WORCESTER STATE UNIVERSITY (WOR)",
+      "cabinetSecretariat": "EXECUTIVE OFFICE OF EDUCATION",
+      "appropriation": "(71166604) NON-APPROPRIATED FUNDS",
+      "objectClass": "(RR) BENEFIT PROGRAMS",
+      "totalAmount": 10702147.11,
+      "paymentCount": 4,
+      "firstDate": "2026-08-21",
+      "lastDate": "2026-11-24"
+    },
+    {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
       "encumbranceType": "GAE",
       "encumbranceBody": "27LOCALAIDPAYMENT001",
@@ -3768,7 +3782,7 @@
       "totalAmount": 10645290,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -3810,7 +3824,7 @@
       "totalAmount": 10482189,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3824,7 +3838,7 @@
       "totalAmount": 10450208,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -3838,7 +3852,7 @@
       "totalAmount": 10367213,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT003",
@@ -4006,7 +4020,7 @@
       "totalAmount": 9990906,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(GAE) 27LOCALAIDPAYMENT001",
@@ -4020,7 +4034,7 @@
       "totalAmount": 9954891,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4118,7 +4132,7 @@
       "totalAmount": 9685122,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4146,7 +4160,7 @@
       "totalAmount": 9618420,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "UNASSIGNED",
@@ -4188,7 +4202,7 @@
       "totalAmount": 9538656,
       "paymentCount": 3,
       "firstDate": "2026-09-30",
-      "lastDate": "2026-11-23"
+      "lastDate": "2026-11-30"
     },
     {
       "encumbranceId": "(CT) INTF00X02026P0134475",
@@ -4203,20 +4217,6 @@
       "paymentCount": 1,
       "firstDate": "2026-07-31",
       "lastDate": "2026-07-31"
-    },
-    {
-      "encumbranceId": "(GAE) FY2027WATERPROTECTIO",
-      "encumbranceType": "GAE",
-      "encumbranceBody": "FY2027WATERPROTECTIO",
-      "vendor": "MASSACHUSETTS WATER POLLUTION",
-      "department": "DEPARTMENT OF REVENUE (DOR)",
-      "cabinetSecretariat": "EXECUTIVE OFFICE FOR ADMINSTRATION & FINANCE",
-      "appropriation": "(UNASSIGNED) CAPE AND ISLANDS-WATER PROTECTION FUND FEE",
-      "objectClass": "(PP) STATE AID/POL SUB",
-      "totalAmount": 9433607.55,
-      "paymentCount": 1,
-      "firstDate": "2026-09-22",
-      "lastDate": "2026-09-22"
     }
   ]
 }
